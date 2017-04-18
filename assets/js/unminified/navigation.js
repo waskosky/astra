@@ -79,7 +79,6 @@ var toggleClass = function ( el, className ) {
 		menu_toggle.addEventListener( 'click', function( event ) {
 	    	event.preventDefault();
 
-	    	// var menuHasChildren = document.getElementsByClassName( 'menu-item-has-children' );
 	    	var menuHasChildren = document.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 			for ( var i = 0; i < menuHasChildren.length; i++ ) {
 				menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
@@ -118,8 +117,6 @@ var toggleClass = function ( el, className ) {
 			if ( null != parentList[i].querySelector( '.sub-menu, .children' ) ) {
 
 				// Insert Toggle Button.
-				console.log('parentList[i]: ' + parentList[i].classList );
-
 				var  toggleButton = document.createElement("BUTTON");        // Create a <button> element
 					toggleButton.setAttribute("role", "button");
 					toggleButton.setAttribute("class", "ast-menu-toggle");
@@ -307,8 +304,6 @@ var toggleClass = function ( el, className ) {
 	}
 
 	button = container.getElementsByTagName( 'button' )[0];
-	console.log('button: ' + JSON.stringify( button ) );
-
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
