@@ -55,8 +55,6 @@ require_once AST_THEME_DIR . 'inc/core/sidebar-manager.php';
 /**
  * Markup Functions
  */
-require_once AST_THEME_DIR . 'inc/class-ast-walker-page.php';
-require_once AST_THEME_DIR . 'inc/class-ast-nav-menu-walker.php';
 require_once AST_THEME_DIR . 'inc/extras.php';
 require_once AST_THEME_DIR . 'inc/blog/blog-config.php';
 require_once AST_THEME_DIR . 'inc/blog/blog.php';

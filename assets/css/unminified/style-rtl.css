@@ -2349,6 +2349,8 @@ body {
 .main-header-menu {
   /*
 	> .ast-left-align-sub-menu {
+
+		> .children,
 		> .sub-menu {
 			right: 0;
 		}
@@ -2396,7 +2398,7 @@ body {
   /*.ast-left-align-sub-menu {
 			ul {
 				left: auto;
-				right: 100%;	
+				right: 100%;
 			}
 		}*/
 }
@@ -2423,6 +2425,7 @@ body {
   word-wrap: break-word;
 }
 
+.main-header-menu ul li.page_item_has_children > a:after,
 .main-header-menu ul li.menu-item-has-children > a:after {
   position: absolute;
   left: 1em;
@@ -2455,18 +2458,22 @@ ul.submenu-with-border ul ul {
   width: 100%;
 }
 
+.ast-header-break-point .main-navigation ul.children li a,
 .ast-header-break-point .main-navigation ul.sub-menu li a {
   padding-right: 30px;
 }
 
+.ast-header-break-point .main-navigation ul.children li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li a {
   padding-right: 45px;
 }
 
+.ast-header-break-point .main-navigation ul.children li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li a {
   padding-right: 60px;
 }
 
+.ast-header-break-point .main-navigation ul.children li li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li li a {
   padding-right: 75px;
 }
@@ -2747,7 +2754,7 @@ ul.submenu-with-border ul ul {
  * 2 - Social Follow
  * 3 - Site Logo
  * 4 - Search Form
- * 
+ *
  * # Responsive
 */
 /**
@@ -2788,10 +2795,12 @@ ul.submenu-with-border ul ul {
   padding: 1em 0;
 }
 
+.main-header-bar .children,
 .main-header-bar .sub-menu {
   line-height: 1.45;
 }
 
+.main-header-bar .page_item_has_children > a:after,
 .main-header-bar .menu-item-has-children > a:after {
   content: "\e313";
   display: inline-block;
@@ -2925,6 +2934,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 0;
 }
 
+.ast-header-break-point .page_item_has_children > a:after,
 .ast-header-break-point .menu-item-has-children > a:after {
   display: none;
 }
@@ -2935,14 +2945,17 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 0;
 }
 
+.ast-header-break-point .main-header-bar .children,
 .ast-header-break-point .main-header-bar .sub-menu {
   line-height: 3;
 }
 
+.ast-header-break-point .main-header-bar .page_item_has_children .sub-menu,
 .ast-header-break-point .main-header-bar .menu-item-has-children .sub-menu {
   display: none;
 }
 
+.ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle,
 .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle {
   display: inline-block;
   position: absolute;
@@ -2954,6 +2967,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   font-weight: normal;
 }
 
+.ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle::before,
 .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle::before {
   content: "\e313";
   font-family: 'Astra';
