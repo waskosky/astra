@@ -253,7 +253,7 @@ module.exports = function (grunt) {
                         '!codesniffer.ruleset.xml',
 
                         // AVOID PRO
-                        '!inc/pro/**',
+                        // '!inc/pro/**',
                     ],
                     dest: 'astra/'
                 }
