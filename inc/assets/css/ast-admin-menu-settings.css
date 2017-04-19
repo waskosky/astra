@@ -161,24 +161,8 @@
 }
 
 /**
- * License
+ * Error Message
  */
-#postbox-licence .license-form-field:nth-child(5) {
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-#postbox-licence .license-form-field {
+#message {
     display: block;
-}
-#postbox-licence h4 {
-    margin-bottom: 0.5em;
-    margin-top: 1em;
-}
-
-.bsf-current-license-error-astra-theme {
-    display: block;
-    padding: 1em;
-    border-left: 4px solid #dc3232;
-    -webkit-box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
-    box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 }

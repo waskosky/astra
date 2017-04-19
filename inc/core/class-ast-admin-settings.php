@@ -245,9 +245,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function render( $action ) {
 			$output = '<div class="nav-tab-wrapper">';
 
-			$output .= "<h1 class='ast-title'>" . esc_attr( self::$menu_page_title ) . '</h1>';
-
-			$output .= "<span class='ast-separator'></span>";
+			$output .= "<h1 class='ast-title'>" . esc_html( self::$menu_page_title ) . '</h1>';
 
 			$view_actions = self::get_view_actions();
 
@@ -265,20 +263,16 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 
 				$active = ( $slug == $action ) ? 'nav-tab-active' : '';
 
-				$output .= "<a class='nav-tab " . esc_attr( $active ) . "' href='" . esc_url( $url ) . "'>" . esc_attr( $data['label'] ) . '</a>';
+				$output .= "<a class='nav-tab " . esc_attr( $active ) . "' href='" . esc_url( $url ) . "'>" . esc_html( $data['label'] ) . '</a>';
 			}
 
 			$output .= '</div>';
 
 			echo $output;
 
+			// Settings update message.
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
-
-				echo sprintf( '<div id="message" class="notice notice-success is-dismissive">%s</div>', __( 'Settings saved successfully.', 'astra' ) );
-
-				if ( 'saved_ext' == $_REQUEST['message'] &&  class_exists( 'AST_Minify' ) ) {
-					AST_Minify::refresh_assets();
-				}
+				printf( '<span id="message" class="notice notice-success is-dismissive"><p>%s</p></span>', __( 'Settings saved successfully.', 'astra' ) );
 			}
 
 		}
