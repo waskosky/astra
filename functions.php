@@ -55,8 +55,6 @@ require_once AST_THEME_DIR . 'inc/core/sidebar-manager.php';
 /**
  * Markup Functions
  */
-require_once AST_THEME_DIR . 'inc/class-ast-walker-page.php';
-require_once AST_THEME_DIR . 'inc/class-ast-nav-menu-walker.php';
 require_once AST_THEME_DIR . 'inc/extras.php';
 require_once AST_THEME_DIR . 'inc/blog/blog-config.php';
 require_once AST_THEME_DIR . 'inc/blog/blog.php';
@@ -71,7 +69,15 @@ require_once AST_THEME_DIR . 'inc/template-parts.php';
  */
 require_once AST_THEME_DIR . 'inc/class-ast-after-setup-theme.php';
 
+// Required files.
+require_once AST_THEME_DIR . 'inc/core/class-ast-admin-helper.php';
+
 if ( is_admin() ) {
+
+	/**
+	 * Admin Menu Settings
+	 */
+	require_once AST_THEME_DIR . 'inc/core/class-ast-admin-settings.php';
 
 	/**
 	 * Metabox additions.
@@ -103,3 +109,7 @@ require_once AST_THEME_DIR . 'inc/compatibility/class-ast-elementor.php';
 require_once AST_THEME_DIR . 'inc/compatibility/class-ast-gravity-forms.php';
 require_once AST_THEME_DIR . 'inc/compatibility/class-ast-bnr-flyout.php';
 require_once AST_THEME_DIR . 'inc/compatibility/class-ast-lifter-lms.php';
+
+if ( file_exists( AST_THEME_DIR . 'admin/class-graupi-astra-theme.php' ) ) {
+	require_once AST_THEME_DIR . 'admin/class-graupi-astra-theme.php';
+}

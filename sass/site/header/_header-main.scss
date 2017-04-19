@@ -8,7 +8,7 @@
  * 2 - Social Follow
  * 3 - Site Logo
  * 4 - Search Form
- * 
+ *
  * # Responsive
 */
 
@@ -49,10 +49,13 @@
     position: relative;
     line-height: 4;
     padding: 1em 0;
+
+    .children,
     .sub-menu {
         line-height: 1.45;
     }
-    
+
+    .page_item_has_children > a:after,
     .menu-item-has-children > a:after {
         @include ast-has-child-menu-item();
         line-height: normal;
@@ -126,7 +129,7 @@
 
 li.ast-masthead-custom-menu-items {
     padding-left: 1em;
-    
+
     a {
         padding-left: 0;
         padding-right: 0;
@@ -161,6 +164,7 @@ li.ast-masthead-custom-menu-items {
         padding: 0;
     }
 
+    .page_item_has_children > a:after,
     .menu-item-has-children > a:after {
         display: none;
     }
@@ -169,12 +173,15 @@ li.ast-masthead-custom-menu-items {
         line-height: 3;
         display: block;
         padding: 0;
+
+        .children,
         .sub-menu {
             line-height: 3;
         }
 
+        .page_item_has_children,
         .menu-item-has-children {
-            
+
             .sub-menu {
                 display: none;
             }
@@ -203,19 +210,19 @@ li.ast-masthead-custom-menu-items {
                transform: rotateX(180deg);
             }
         }
-        
+
         .main-header-bar-navigation {
             display: none;
         }
         .main-header-menu {
             border-top: 1px solid #eaeaea;
         }
-        
-        
+
+
         //  On Desktop we toggle by jQuery
         //  So, Showing search with !important for mobile & tablets
     }
-    
+
     .ast-search-menu-icon {
         position: relative;
         display: block;
@@ -251,7 +258,7 @@ li.ast-masthead-custom-menu-items {
         width: calc( 100% + 40px );
         margin: 0 -20px;
     }
-    
+
     .main-header-menu {
         ul ul {
             top: 0;
