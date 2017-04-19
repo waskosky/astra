@@ -107,12 +107,9 @@ var toggleClass = function ( el, className ) {
 
 	AstMenuAlignment = function( selector ) {
 
-
 		var parentList = document.querySelectorAll( selector );
 
 		for (var i = 0; i < parentList.length; i++) {
-
-			console.log('ok: ');
 
 			if ( null != parentList[i].querySelector( '.sub-menu, .children' ) ) {
 
