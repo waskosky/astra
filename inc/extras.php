@@ -451,7 +451,7 @@ if ( ! function_exists( 'ast_primary_navigation_markup' ) ) {
 
 			<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
 				<?php
-				if( has_nav_menu( 'primary' ) ) {
+				if ( has_nav_menu( 'primary' ) ) {
 					wp_nav_menu( $primary_menu_args );
 				} else {
 					wp_page_menu( $fallback_menu_args );
