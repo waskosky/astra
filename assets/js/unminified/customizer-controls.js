@@ -46,7 +46,6 @@
 			// Loop through each setting.
 			$.each( ASTCustomizerToggles, function( settingId, toggles ) {
 
-				// console.log( settingId );
 				// Get the setting object.
 				api( settingId, function( setting ) {
 
@@ -55,7 +54,7 @@
 
 						// Loop through the controls for the toggle.
 						$.each( toggle.controls, function( k, controlId ) {
-							// console.log( controlId );
+
 							// Get the control object.
 							api.control( controlId, function( control ) {
 
