@@ -43,14 +43,15 @@ if ( ! class_exists( 'Ast_BNR_Flyout' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_filter( 'ast_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
 		 * Add Styles Callback
 		 */
-		function add_styles() {
-			AST_Enqueue_Scripts::register_style( 'ast-site-compatible-bnr-flyout', 	AST_THEME_URI . 'assets/css/unminified/site-compatible/bnr-flyout.css', 		 array(), AST_THEME_VERSION, 'all' );
+		function add_styles( $assets ) {
+			$assets['css']['astra-bnr-flyout'] = 'site-compatible/bnr-flyout' ;
+			return $assets;
 		}
 
 	}

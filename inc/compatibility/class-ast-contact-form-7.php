@@ -43,14 +43,15 @@ if ( ! class_exists( 'Ast_Contact_Form_7' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_filter( 'ast_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
 		 * Add Styles Callback
 		 */
-		function add_styles() {
-			AST_Enqueue_Scripts::register_style( 'ast-site-compatible-contact-Form-7', 	AST_THEME_URI . 'assets/css/unminified/site-compatible/contact-Form-7.css', 		 array(), AST_THEME_VERSION, 'all' );
+		function add_styles( $assets ) {
+			$assets['css']['astra-contact-form-7'] = 'site-compatible/contact-form-7' ;
+			return $assets;
 		}
 
 	}

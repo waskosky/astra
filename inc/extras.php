@@ -697,7 +697,7 @@ if ( ! function_exists( 'ast_header_breakpoint_style' ) ) {
 		// trim white space for faster page loading.
 		$dynamic_css = AST_Enqueue_Scripts::trim_css( $dynamic_css );
 
-		wp_add_inline_style( 'ast-theme-css', $dynamic_css );
+		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
 }// End if().
 add_action( 'wp_enqueue_scripts', 'ast_header_breakpoint_style' );
