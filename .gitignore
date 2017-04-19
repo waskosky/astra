@@ -19,8 +19,6 @@ admin/bsf-core/.git
 # ignore PHPCS report files
 phpcs-summary.log
 phpcs-full.log
-phpcs.ruleset.xml
-wpml-config.xml
 
 # Org Package
 astra
