@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-04-14 13:18:18+00:00\n"
+"POT-Creation-Date: 2017-04-19 07:33:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -221,7 +221,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:589 inc/core/common-functions.php:688
+#: inc/core/common-functions.php:589 inc/core/common-functions.php:668
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -422,7 +422,7 @@ msgid "Blog Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:26
-#: inc/metabox/class-ast-meta-boxes.php:172
+#: inc/metabox/class-ast-meta-boxes.php:171
 msgid "Content Layout"
 msgstr ""
 
@@ -430,7 +430,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:58
 #: inc/customizer/sections/layout/container.php:79
 #: inc/customizer/sections/layout/container.php:100
-#: inc/metabox/class-ast-meta-boxes.php:176
+#: inc/metabox/class-ast-meta-boxes.php:175
 msgid "Plain"
 msgstr ""
 
@@ -438,7 +438,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:59
 #: inc/customizer/sections/layout/container.php:80
 #: inc/customizer/sections/layout/container.php:101
-#: inc/metabox/class-ast-meta-boxes.php:177
+#: inc/metabox/class-ast-meta-boxes.php:176
 msgid "Boxed"
 msgstr ""
 
@@ -446,7 +446,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:60
 #: inc/customizer/sections/layout/container.php:81
 #: inc/customizer/sections/layout/container.php:102
-#: inc/metabox/class-ast-meta-boxes.php:178
+#: inc/metabox/class-ast-meta-boxes.php:177
 msgid "Content Boxed"
 msgstr ""
 
@@ -454,7 +454,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:61
 #: inc/customizer/sections/layout/container.php:82
 #: inc/customizer/sections/layout/container.php:103
-#: inc/metabox/class-ast-meta-boxes.php:179
+#: inc/metabox/class-ast-meta-boxes.php:178
 msgid "Page Builder"
 msgstr ""
 
@@ -721,24 +721,50 @@ msgid "Astra Settings"
 msgstr ""
 
 #: inc/metabox/class-ast-meta-boxes.php:159
-#: inc/metabox/class-ast-meta-boxes.php:175
+#: inc/metabox/class-ast-meta-boxes.php:174
 msgid "Global Setting"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:190
+#: inc/metabox/class-ast-meta-boxes.php:187
 msgid "Disable Sections"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:197
+#: inc/metabox/class-ast-meta-boxes.php:195
 msgid "Disable Page / Post Title"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:207
+#: inc/metabox/class-ast-meta-boxes.php:208
 msgid "Disable Small Footer"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:213
+#: inc/metabox/class-ast-meta-boxes.php:217
 msgid "Disable Primary Header"
+msgstr ""
+
+#: inc/pro/admin-page/class-ast-admin-settings.php:157
+msgid "General Settings"
+msgstr ""
+
+#: inc/pro/admin-page/class-ast-admin-settings.php:294
+msgid "Settings saved successfully."
+msgstr ""
+
+#: inc/pro/admin-page/view-general.php:20
+msgid "Toggle panel: Clear Cache"
+msgstr ""
+
+#: inc/pro/admin-page/view-general.php:21
+#: inc/pro/admin-page/view-general.php:27
+msgid "Clear Cache"
+msgstr ""
+
+#: inc/pro/admin-page/view-general.php:24
+msgid ""
+"A CSS and JavaScript file is dynamically generated and cached each time you "
+"create a new layout. Sometimes the cache needs to be refreshed when you "
+"migrate your site to another server or update to the latest version. If you "
+"are running into any issues, please try clearing the cache by clicking the "
+"button below."
 msgstr ""
 
 #: inc/template-parts.php:149
