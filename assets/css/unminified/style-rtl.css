@@ -2346,23 +2346,6 @@ body {
   position: relative;
 }
 
-.main-header-menu {
-  /*
-	> .ast-left-align-sub-menu {
-
-		> .children,
-		> .sub-menu {
-			right: 0;
-		}
-
-		ul ul {
-			left: auto;
-			right: 100%;
-		}
-	}
-	*/
-}
-
 .main-header-menu a {
   text-decoration: none;
   padding: 0 1em;
@@ -2395,12 +2378,6 @@ body {
   position: absolute;
   top: 100%;
   z-index: 99999;
-  /*.ast-left-align-sub-menu {
-			ul {
-				left: auto;
-				right: 100%;
-			}
-		}*/
 }
 
 @media (min-width: 768px) {
