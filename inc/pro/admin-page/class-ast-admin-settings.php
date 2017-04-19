@@ -394,8 +394,8 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 				$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
 			}
 
- 			$active_tab   = str_replace( '_', '-', $current_slug );
- 			$current_slug = str_replace( '-', '_', $current_slug );
+				$active_tab   = str_replace( '_', '-', $current_slug );
+				$current_slug = str_replace( '-', '_', $current_slug );
 
 			echo '<div class="ast-menu-page-wrapper">';
 			self::init_nav_menu( $active_tab );

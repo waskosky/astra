@@ -72,7 +72,11 @@ if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
 		}
 
 		/**
-		 * Add Styles Callback
+		 * Add assets in theme
+		 *
+		 * @param array $assets list of theme assets (JS & CSS).
+		 * @return array List of updated assets.
+		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
 			$assets['css']['astra-lifter-lms'] = 'site-compatible/lifter-lms' ;

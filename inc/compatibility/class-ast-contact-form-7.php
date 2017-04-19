@@ -47,7 +47,11 @@ if ( ! class_exists( 'Ast_Contact_Form_7' ) ) :
 		}
 
 		/**
-		 * Add Styles Callback
+		 * Add assets in theme
+		 *
+		 * @param array $assets list of theme assets (JS & CSS).
+		 * @return array List of updated assets.
+		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
 			$assets['css']['astra-contact-form-7'] = 'site-compatible/contact-form-7' ;

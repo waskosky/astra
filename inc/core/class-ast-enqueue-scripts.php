@@ -73,7 +73,7 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 
 			$blog_layout = apply_filters( 'ast_theme_blog_layout', 'blog-layout-1' );
 			if ( 'blog-layout-1' == $blog_layout ) {
-				$default_assets[ 'css' ]['astra-blog-layout'] = 'blog-layout-1';
+				$default_assets['css']['astra-blog-layout'] = 'blog-layout-1';
 			}
 
 			return apply_filters( 'ast_theme_assets', $default_assets );
@@ -122,7 +122,7 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 
 				// If RTL file is exist?
 				// If not then load original CSS file.
-				if( file_exists( $css_rtl_file ) ) {
+				if ( file_exists( $css_rtl_file ) ) {
 					$css_file = $css_uri . $style . $rtl . $file_prefix . '.css';
 				} else {
 					$css_file = $css_uri . $style . $file_prefix . '.css';
@@ -167,7 +167,7 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 
 			wp_localize_script( 'astra-navigation', 'ast', apply_filters( 'ast_theme_js_localize', $ast_localize ) );
 
-			// Comments
+			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
