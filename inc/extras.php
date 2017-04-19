@@ -252,66 +252,6 @@ if ( ! function_exists( 'ast_get_custom_html' ) ) {
 }
 
 /**
- * Astra Theme Nav Menu
- */
-if ( ! function_exists( 'ast_nav_menu' ) ) {
-
-	/**
-	 * Helper function for wp_nav_menu() checks if menu is set, if not set returns with message for capable users to set the menu.
-	 *
-	 * @since 1.0.0
-	 * @param  array   $menu		  It will be either 'Menu location' (string) or Argument array of 'Menu'.
-	 * @param  array   $fallback_menu Fallback menu if menu location is not set.
-	 * @param  boolean $echo          Echo menu markup.
-	 * @return mixed 				  Echo or Return Markup for menu or message to set the menu.
-	 */
-	function ast_nav_menu( $menu = array(), $fallback_menu = array(), $echo = true ) {
-
-		/**
-		 * Get menu / fallback menu markup
-		 */
-		if ( has_nav_menu( $menu['theme_location'] ) ) {
-
-			// Initially set echo to false and get nav markup.
-			$menu['echo'] = false;
-
-			$nav = wp_nav_menu( $menu );
-
-			/**
-		 * Has fallback menu support?
-		 */
-		} elseif ( false == $fallback_menu ) {
-
-			/* translators: 1: nav manu location 2: menu location name */
-			$nav = printf( __( '<span class="nav-fallback-text"><a href="%1$s" style="padding: 0;">Assign a menu</a> to location %2$s </span>', 'astra' ),
-				admin_url( 'nav-menus.php?action=locations' ),
-				strtoupper( $menu['theme_location'] )
-			);
-
-			/**
-		 * Set fallback menu support.
-		 */
-		} else {
-
-			// Initially set echo to false and get nav markup.
-			$fallback_menu['echo'] = false;
-			$nav = wp_page_menu( $fallback_menu );
-		}
-
-		/**
-		 * Echo / return markup
-		 */
-		if ( $echo ) {
-			echo $nav;
-
-		} else {
-			return $nav;
-		}
-
-	}
-}// End if().
-
-/**
  * Function to get Small Left/Right Footer
  */
 if ( ! function_exists( 'ast_get_small_footer' ) ) {
@@ -492,31 +432,31 @@ if ( ! function_exists( 'ast_primary_navigation_markup' ) ) {
 			'theme_location'  => 'primary',
 			'menu_id'         => 'primary-menu',
 			'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
-			'container_class' => 'main-navigation',
-			'echo'            => false,
 			'container'       => 'div',
-			'walker'          => new Ast_Nav_Menu_Walker(),
+			'container_class' => 'main-navigation',
 		);
 
 		// Fallback Menu if primary menu not set.
 		$fallback_menu_args = array(
-			'menu_class' => 'main-navigation',
-			'menu_id'    => 'primary-menu',
-			'container'  => 'div',
-			'before'     => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
-			'after'      => '</ul>',
-			'echo'       => false,
-			'walker'     => new Ast_Walker_Page(),
-
-			// Below option is NOT a nav page menu option.
-			// Just used to apply filter to add custom menu items though filter.
 			'theme_location' => 'primary',
+			'menu_id'        => 'primary-menu',
+			'menu_class'     => 'main-navigation',
+			'container'      => 'div',
+
+			'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
+			'after'          => '</ul>',
 		); ?>
 
 		<div class="main-header-bar-navigation" >
 
 			<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
-				<?php ast_nav_menu( $primary_menu_args, $fallback_menu_args ); ?>
+				<?php
+				if( has_nav_menu( 'primary' ) ) {
+					wp_nav_menu( $primary_menu_args );
+				} else {
+					wp_page_menu( $fallback_menu_args );
+				}
+				?>
 			</nav><!-- #site-navigation -->
 
 		</div>

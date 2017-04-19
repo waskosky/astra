@@ -29,7 +29,7 @@
 }
 
 .main-header-menu {
-	
+
 	a {
 		text-decoration: none;
 		padding: 0 1em;
@@ -89,6 +89,7 @@
 			word-wrap: break-word;
 		}
 
+		li.page_item_has_children > a:after,
 		li.menu-item-has-children > a:after {
 			position: absolute;
 			right: 1em;
@@ -99,13 +100,15 @@
 		/*.ast-left-align-sub-menu {
 			ul {
 				left: auto;
-				right: 100%;	
+				right: 100%;
 			}
 		}*/
 	}
 
 	/*
 	> .ast-left-align-sub-menu {
+
+		> .children,
 		> .sub-menu {
 			right: 0;
 		}
@@ -142,15 +145,19 @@ ul.submenu-with-border {
 				display: inline-block;
 				width: 100%;
 			}
+			&.children li a,
 			&.sub-menu li a {
 			    padding-left: 30px;
 			}
+			&.children li li a,
 			&.sub-menu li li a {
 			    padding-left: 45px;
 			}
+			&.children li li li a,
 			&.sub-menu li li li a {
 			    padding-left: 60px;
 			}
+			&.children li li li li a,
 			&.sub-menu li li li li a {
 			    padding-left: 75px;
 			}
