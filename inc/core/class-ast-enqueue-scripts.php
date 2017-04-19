@@ -45,190 +45,38 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 		public function __construct() {
 
 			add_action( 'ast_get_fonts',      array( $this, 'add_fonts' ), 1 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-			add_action( 'init', array( $this, 'style_list' ) );
-			add_action( 'init', array( $this, 'scripts_list' ) );
-
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
-			add_action( 'ast_get_css_files',  array( $this, 'add_styles' ), 1 );
 		}
 
 		/**
-		 * Registered Styles List
+		 * List of all assets.
+		 *
+		 * @return array assets array.
 		 */
-		public static function style_list() {
+		public static function theme_assets() {
 
-			/*** Start Path Logic ***/
+			$default_assets = array(
 
-			/* Define Variables */
-			$uri  = AST_THEME_URI . 'assets/css/';
-			$path = AST_THEME_DIR . 'assets/css/';
-			$rtl  = '';
+				// handle => location ( in /assets/js/ ) ( without .js ext).
+				'js' => array(
+					'astra-flexibility'         => 'flexibility',
+					'astra-navigation'          => 'navigation',
+					'astra-skip-link-focus-fix' => 'skip-link-focus-fix',
+				),
 
-			if ( is_rtl() ) {
-			 	$rtl = '-rtl';
-			}
-
-			/* Directory and Extension */
-			$file_prefix = $rtl . '.min';
-			$dir_name    = 'minified';
-
-			if ( SCRIPT_DEBUG ) {
-				$file_prefix = $rtl;
-				$dir_name    = 'unminified';
-			}
-
-			$css_uri = $uri . $dir_name . '/';
-			$css_dir = $path . $dir_name . '/';
-
-			/*** End Path Logic ***/
-
-			// Styles.
-			self::$styles[] = array(
-				'handle' => 'ast-theme-css',
-				'deps'   => array(),
-				'ver'    => AST_THEME_VERSION,
-				'media'  => 'all',
-
-				'src'    => $css_dir . 'style' . $file_prefix . '.css',
-				'path'   => $css_uri . 'style' . $file_prefix . '.css',
+				// handle => location ( in /assets/css/ ) ( without .css ext).
+				'css' => array(
+					'astra-theme-css' => 'style',
+				),
 			);
 
-			/* Blog Layouts */
 			$blog_layout = apply_filters( 'ast_theme_blog_layout', 'blog-layout-1' );
 			if ( 'blog-layout-1' == $blog_layout ) {
-
-				// Styles.
-				self::$styles[] = array(
-					'handle' => 'ast-blog-layout',
-					'deps'   => array(),
-					'ver'    => AST_THEME_VERSION,
-					'media'  => 'all',
-
-					'src'    => $css_dir . 'blog-layout-1' . $file_prefix . '.css',
-					'path'   => $css_uri . 'blog-layout-1' . $file_prefix . '.css',
-				);
-			}
-		}
-
-		/**
-		 * Registered Scripts List
-		 */
-		public static function scripts_list() {
-
-			/*** Start Path Logic ***/
-
-			/* Define Variables */
-			$uri  = AST_THEME_URI . 'assets/js/';
-			$path = AST_THEME_DIR . 'assets/js/';
-
-			/* Directory and Extension */
-			$file_prefix = '.min';
-			$dir_name    = 'minified';
-
-			if ( SCRIPT_DEBUG ) {
-				$file_prefix = '';
-				$dir_name    = 'unminified';
+				$default_assets['css']['astra-blog-layout'] = 'blog-layout-1';
 			}
 
-			$js_uri = $uri . $dir_name . '/';
-			$js_dir = $path . $dir_name . '/';
-
-			/*** End Path Logic ***/
-
-			// Flexibility.
-			self::$scripts[] = array(
-				'handle'      => 'ast-flexibility',
-				'deps'        => array(),
-				'ver'         => AST_THEME_VERSION,
-				'in_footer'   => true,
-
-				'src'         => $js_dir . 'flexibility' . $file_prefix . '.js',
-				'path'        => $js_uri . 'flexibility' . $file_prefix . '.js',
-			);
-
-			// Navigation.
-			self::$scripts[] = array(
-				'handle'      => 'ast-navigation',
-				'deps'        => array(),
-				'ver'         => AST_THEME_VERSION,
-				'in_footer'   => true,
-
-				'src'         => $js_dir . 'navigation' . $file_prefix . '.js',
-				'path'        => $js_uri . 'navigation' . $file_prefix . '.js',
-			);
-
-			// Skip Link.
-			self::$scripts[] = array(
-				'handle'      => 'ast-skip-link',
-				'deps'        => array(),
-				'ver'         => AST_THEME_VERSION,
-				'in_footer'   => true,
-
-				'src'         => $js_dir . 'skip-link-focus-fix' . $file_prefix . '.js',
-				'path'        => $js_uri . 'skip-link-focus-fix' . $file_prefix . '.js',
-			);
-
-		}
-
-		/**
-		 * Register and Enqueue styles
-		 *
-		 * @param  string  $handle Style handle.
-		 * @param  string  $src    Style src.
-		 * @param  mixed   $deps   Style deps.
-		 * @param  string  $ver    Style ver.
-		 * @param  string  $media  Style media.
-		 * @param  boolean $rtl_support  Style media.
-		 * @return void
-		 */
-		public static function register_style( $handle = '', $src = '', $deps = '', $ver = '', $media = '', $rtl_support = true ) {
-
-			// Load minified assets.
-			if ( ! SCRIPT_DEBUG ) {
-				$src = str_replace( '.css', '.min.css', $src ); 		// Change extension.
-				$src = str_replace( 'unminified', 'minified', $src ); 	// Change directory.
-			}
-
-			// If registered style has RTL support?
-			// And is_rtl mode?
-			if ( $rtl_support && is_rtl() ) {
-				$src = str_replace( '.css', '-rtl.css', $src ); 		// Change extension for unminified.
-				$src = str_replace( '.min.css', '-rtl.min.css', $src ); // Change extension for minified.
-			}
-
-			// Register.
-			wp_register_style( $handle, $src, $deps, $ver, $media );
-
-			// Enqueue.
-			wp_enqueue_style( $handle );
-
-		}
-
-		/**
-		 * Register and Enqueue Scripts
-		 *
-		 * @param  string $handle 		Script handle.
-		 * @param  string $src    		Script src.
-		 * @param  mixed  $deps   		Script deps.
-		 * @param  string $ver    		Script ver.
-		 * @param  string $in_footer  	Script in_footer.
-		 * @return void
-		 */
-		public static function register_script( $handle = '', $src = '', $deps = '', $ver = '', $in_footer = '' ) {
-
-			// Load minified assets.
-			if ( ! SCRIPT_DEBUG ) {
-				$src = str_replace( '.js', '.min.js', $src ); 			// Change extension.
-				$src = str_replace( 'unminified', 'minified', $src ); 	// Change directory.
-			}
-
-			// Register.
-			wp_register_script( $handle, $src, $deps, $ver, $in_footer );
-
-			// Enqueue.
-			wp_enqueue_script( $handle );
-
+			return apply_filters( 'ast_theme_assets', $default_assets );
 		}
 
 		/**
@@ -245,92 +93,84 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 		/**
 		 * Enqueue Scripts
 		 */
-		public function add_styles() {
-
-			if ( class_exists( 'Ast_Minify' ) ) {
-
-				if ( count( self::$styles ) > 0 ) {
-					foreach ( self::$styles as $key => $style ) {
-						Ast_Minify::add_css( $style['src'] );
-					}
-				}
-			}
-
-		}
-
-		/**
-		 * Enqueue Scripts
-		 */
 		public function enqueue_scripts() {
 
-			if ( ! class_exists( 'Ast_Minify' ) ) {
+			/* Directory and Extension */
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$rtl         = ( is_rtl() ) ? '-rtl' : '';
 
-				// Register & Enqueue Styles.
-				foreach ( self::$styles as $key => $style ) {
+			$js_uri  = AST_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$css_uri = AST_THEME_URI . 'assets/css/' . $dir_name . '/';
+			$js_dir  = AST_THEME_DIR . 'assets/js/' . $dir_name . '/';
+			$css_dir = AST_THEME_DIR . 'assets/css/' . $dir_name . '/';
 
-					$handle = ( isset( $style['handle'] ) ) ? $style['handle'] : '';
-					$path   = ( isset( $style['path'] ) ) ? $style['path'] : '';
-					$deps   = ( isset( $style['deps'] ) ) ? $style['deps'] : '';
-					$ver    = ( isset( $style['ver'] ) ) ? $style['ver'] : '';
-					$media  = ( isset( $style['media'] ) ) ? $style['media'] : '';
+			// It always enqueued by default.
+			// Register & Enqueue.
+			wp_register_style( 'astra-fonts', $css_uri . 'astra-fonts' . $file_prefix . '.css', array(), AST_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'astra-fonts' );
 
-					// Register.
-					wp_register_style( $handle, $path, $deps, $ver, $media );
+			// All assets.
+			$all_assets = self::theme_assets();
+			$styles     = $all_assets['css'];
+			$scripts    = $all_assets['js'];
 
-					// Enqueue.
-					wp_enqueue_style( $handle );
+			// Register & Enqueue Styles.
+			foreach ( $styles as $key => $style ) {
+
+				$css_rtl_file = $css_dir . $style . $rtl . $file_prefix . '.css';
+
+				// If RTL file is exist?
+				// If not then load original CSS file.
+				if ( file_exists( $css_rtl_file ) ) {
+					$css_file = $css_uri . $style . $rtl . $file_prefix . '.css';
+				} else {
+					$css_file = $css_uri . $style . $file_prefix . '.css';
 				}
 
-				// Register & Enqueue Scripts.
-				foreach ( self::$scripts as $key => $script ) {
+				// Register.
+				wp_register_style( $key, $css_file, array(), AST_THEME_VERSION, 'all' );
 
-					$handle    = ( isset( $script['handle'] ) ) ? $script['handle'] : '';
-					$path      = ( isset( $script['path'] ) ) ? $script['path'] : '';
-					$deps      = ( isset( $script['deps'] ) ) ? $script['deps'] : '';
-					$ver       = ( isset( $script['ver'] ) ) ? $script['ver'] : '';
-					$in_footer = ( isset( $script['in_footer'] ) ) ? $script['in_footer'] : '';
+				// Enqueue.
+				wp_enqueue_style( $key );
 
-					// Register.
-					wp_register_script( $handle, $path, $deps, $ver, $in_footer );
+			}
 
-					// Enqueue.
-					wp_enqueue_script( $handle );
-				}
-			}// End if().
+			// Register & Enqueue Scripts.
+			foreach ( $scripts as $key => $script ) {
 
-			// Register styles.
-			if ( SCRIPT_DEBUG ) {
-				wp_enqueue_style( 'ast-fonts', AST_THEME_URI . 'assets/css/unminified/astra-fonts.css', array(), AST_THEME_VERSION, 'all', false );
-			} else {
-				wp_enqueue_style( 'ast-fonts', AST_THEME_URI . 'assets/css/minified/astra-fonts.min.css', array(), AST_THEME_VERSION, 'all', false );
+				// Register.
+				wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), AST_THEME_VERSION, true );
+
+				// Enqueue.
+				wp_enqueue_script( $key );
+
 			}
 
 			// Fonts - Render Fonts.
 			Ast_Fonts::render_fonts();
 
 			/**
-			 * Inline styles & scripts.
+			 * Inline styles
 			 */
-			wp_add_inline_style( 'ast-theme-css', AST_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'ast-theme-css', AST_Dynamic_CSS::return_meta_output( true ) );
-			wp_add_inline_style( 'ast-addon-css', AST_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'ast-addon-css', AST_Dynamic_CSS::return_meta_output( true ) );
+			wp_add_inline_style( 'astra-theme-css', AST_Dynamic_CSS::return_output() );
+			wp_add_inline_style( 'astra-theme-css', AST_Dynamic_CSS::return_meta_output( true ) );
 
-			wp_script_add_data( 'ast-flexibility', 'conditional', 'lt IE 9' );
-
-			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-				wp_enqueue_script( 'comment-reply' );
-			}
-
-			// Registered localize framework options object 'astra'.
-			global $wp_query;
+			/**
+			 * Inline scripts
+			 */
+			wp_script_add_data( 'astra-flexibility', 'conditional', 'lt IE 9' );
 
 			$ast_localize = array(
 				'break_point' => ast_header_break_point(), 	// Header Break Point.
 			);
 
-			wp_localize_script( 'ast-navigation', 'ast', apply_filters( 'ast_theme_js_localize', $ast_localize ) );
-			wp_localize_script( 'ast-addon-js', 'ast', apply_filters( 'ast_theme_js_localize', $ast_localize ) );
+			wp_localize_script( 'astra-navigation', 'ast', apply_filters( 'ast_theme_js_localize', $ast_localize ) );
+
+			// Comment assets.
+			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+				wp_enqueue_script( 'comment-reply' );
+			}
 
 		}
 

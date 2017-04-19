@@ -69,12 +69,15 @@ require_once AST_THEME_DIR . 'inc/template-parts.php';
  */
 require_once AST_THEME_DIR . 'inc/class-ast-after-setup-theme.php';
 
+// Required files.
+require_once AST_THEME_DIR . 'inc/core/class-ast-admin-helper.php';
+
 if ( is_admin() ) {
 
 	/**
 	 * Admin Menu Settings
 	 */
-	require_once AST_THEME_DIR . 'inc/pro/admin-page/class-ast-admin-settings.php';
+	require_once AST_THEME_DIR . 'inc/core/class-ast-admin-settings.php';
 
 	/**
 	 * Metabox additions.

@@ -451,7 +451,7 @@ if ( ! function_exists( 'ast_primary_navigation_markup' ) ) {
 
 			<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
 				<?php
-				if( has_nav_menu( 'primary' ) ) {
+				if ( has_nav_menu( 'primary' ) ) {
 					wp_nav_menu( $primary_menu_args );
 				} else {
 					wp_page_menu( $fallback_menu_args );
@@ -637,7 +637,7 @@ if ( ! function_exists( 'ast_header_breakpoint_style' ) ) {
 		// trim white space for faster page loading.
 		$dynamic_css = AST_Enqueue_Scripts::trim_css( $dynamic_css );
 
-		wp_add_inline_style( 'ast-theme-css', $dynamic_css );
+		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
 }// End if().
 add_action( 'wp_enqueue_scripts', 'ast_header_breakpoint_style' );

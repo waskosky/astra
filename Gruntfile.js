@@ -251,9 +251,6 @@ module.exports = function (grunt) {
                         '!README.md',
                         '!sass/**',
                         '!codesniffer.ruleset.xml',
-
-                        // AVOID PRO
-                        '!inc/pro/**',
                     ],
                     dest: 'astra/'
                 }
