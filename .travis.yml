@@ -36,7 +36,4 @@ before_script:
 
 script:
   - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
-  - |
-    # if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php' ! -path "./node_modules/*" ! -path "./admin/bsf-core/*" ! -path "./vendor/*")
-    # fi
+  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php' ! -path "./node_modules/*" ! -path "./admin/bsf-core/*" ! -path "./vendor/*")
