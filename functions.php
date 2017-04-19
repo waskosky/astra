@@ -109,3 +109,7 @@ require_once AST_THEME_DIR . 'inc/compatibility/class-ast-elementor.php';
 require_once AST_THEME_DIR . 'inc/compatibility/class-ast-gravity-forms.php';
 require_once AST_THEME_DIR . 'inc/compatibility/class-ast-bnr-flyout.php';
 require_once AST_THEME_DIR . 'inc/compatibility/class-ast-lifter-lms.php';
+
+if ( file_exists( AST_THEME_DIR . 'admin/class-graupi-astra-theme.php' ) ) {
+	require_once AST_THEME_DIR . 'admin/class-graupi-astra-theme.php';
+}
