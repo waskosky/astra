@@ -27,13 +27,11 @@ if ( ! class_exists( 'Ast_Admin_Helper' ) ) :
 		 * @return string           Return the option value
 		 */
 		static public function get_admin_settings_option( $key, $network = false ) {
+
 			// Get the site-wide option if we're in the network admin.
-			if ( is_network_admin() ) {
+			if ( $network && is_multisite() ) {
 				$value = get_site_option( $key );
-			} elseif ( $network && is_multisite() ) {
-				$value = get_site_option( $key );
-			} // End if().
-			else {
+			} else {
 				$value = get_option( $key );
 			}
 
@@ -49,15 +47,14 @@ if ( ! class_exists( 'Ast_Admin_Helper' ) ) :
 		 * @return mixed
 		 */
 		static public function update_admin_settings_option( $key, $value, $network = false ) {
+
 			// Update the site-wide option since we're in the network admin.
-			if ( is_network_admin() || $network ) {
+			if ( $network && is_multisite() ) {
 				update_site_option( $key, $value );
-			} elseif ( $network && is_multisite() ) {
-				update_site_option( $key, $value );
-			} // End if().
-			else {
+			} else {
 				update_option( $key, $value );
 			}
+
 		}
 
 		/**
@@ -69,13 +66,11 @@ if ( ! class_exists( 'Ast_Admin_Helper' ) ) :
 		 * @return mixed
 		 */
 		static public function delete_admin_settings_option( $key, $network = false ) {
+
 			// Get the site-wide option if we're in the network admin.
-			if ( is_network_admin() ) {
+			if ( $network && is_multisite() ) {
 				$value = delete_site_option( $key );
-			} elseif ( $network && is_multisite() ) {
-				$value = delete_site_option( $key );
-			} // End if().
-			else {
+			} else {
 				$value = delete_option( $key );
 			}
 
