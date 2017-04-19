@@ -174,25 +174,8 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 				return;
 			}
 
-			/* Save General Settings */
-			self::general_settings_save();
-
 			// Let extensions hook into saving.
 			do_action( 'ast_admin_settings_save' );
-		}
-
-		/**
-		 * Save settings
-		 *
-		 * @since 1.0
-		 */
-		static public function general_settings_save() {
-			if ( isset( $_POST['ast-clear-cache-nonce'] ) && wp_verify_nonce( $_POST['ast-clear-cache-nonce'], 'ast-clear-cache' ) ) {
-
-				if ( class_exists( 'AST_Minify' ) ) {
-					AST_Minify::clear_assets_cache();
-				}
-			}
 		}
 
 		/**
@@ -203,7 +186,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function admin_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin', AST_THEME_URI . 'inc/pro/assets/css/ast-admin.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin', AST_THEME_URI . 'inc/assets/css/ast-admin.css', array(), AST_THEME_VERSION );
 		}
 
 		/**
@@ -214,7 +197,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function styles_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin-settings', AST_THEME_URI . 'inc/pro/assets/css/ast-admin-menu-settings.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin-settings', AST_THEME_URI . 'inc/assets/css/ast-admin-menu-settings.css', array(), AST_THEME_VERSION );
 		}
 
 		/**
@@ -260,7 +243,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function render( $action ) {
-			$output = '<span class="nav-tab-wrapper">';
+			$output = '<div class="nav-tab-wrapper">';
 
 			$output .= "<h1 class='ast-title'>" . esc_attr( self::$menu_page_title ) . '</h1>';
 
@@ -285,15 +268,13 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 				$output .= "<a class='nav-tab " . esc_attr( $active ) . "' href='" . esc_url( $url ) . "'>" . esc_attr( $data['label'] ) . '</a>';
 			}
 
-			$output .= '</span>';
+			$output .= '</div>';
 
 			echo $output;
 
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
 
-				$message = __( 'Settings saved successfully.', 'astra' );
-
-				echo sprintf( '<div id="message" class="notice notice-success is-dismissive"><p>%s</p></div>', $message );
+				echo sprintf( '<div id="message" class="notice notice-success is-dismissive">%s</div>', __( 'Settings saved successfully.', 'astra' ) );
 
 				if ( 'saved_ext' == $_REQUEST['message'] &&  class_exists( 'AST_Minify' ) ) {
 					AST_Minify::refresh_assets();
@@ -412,7 +393,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 
 			$settings = self::get_options();
 
-			require_once AST_THEME_DIR . 'inc/pro/admin-page/view-general.php';
+			require_once AST_THEME_DIR . 'inc/core/view-general.php';
 		}
 
 		/**

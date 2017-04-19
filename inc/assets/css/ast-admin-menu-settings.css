@@ -137,9 +137,26 @@
 	#astext-options-user-options .postbox {
 		margin-left: 8px;
 	}
-	.col-50{
+	.astra-row {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+	.astra-col-50,
+	.astra-col-25,
+	.astra-col-33 {
+		padding: 0 10px;
+	}
+	.astra-col-50 {
 		float: left;
 		width: 50%;
+	}
+	.astra-col-25 {
+		float: left;
+		width: 25%;
+	}
+	.astra-col-33 {
+		float: left;
+		width: 33.33%;
 	}
 }
 
