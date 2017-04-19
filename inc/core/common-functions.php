@@ -187,9 +187,8 @@ if ( ! function_exists( 'ast_get_css_value' ) ) {
 			case 'rem':
 
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
-					$value = intval( $value );
-					$theme_options  = Ast_Theme_Options::get_options();
-					$body_font_size = ( $theme_options['font-size-body'] ) ? $theme_options['font-size-body'] : '';
+					$value          = intval( $value );
+					$body_font_size = ast_get_option( 'font-size-body' );
 					if ( $body_font_size ) {
 						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size ) ) . $unit;
 					}
