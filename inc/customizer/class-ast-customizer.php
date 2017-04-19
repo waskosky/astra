@@ -156,24 +156,21 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 		 */
 		function controls_scripts() {
 
+			$js_prefix  = '.min.js';
+			$css_prefix = '.min.css';
+			$dir        = 'minified';
 			if ( SCRIPT_DEBUG ) {
-
-				// Customizer Core.
-				wp_enqueue_script( 'ast-customizer-controls-toggle-js', AST_THEME_URI . 'assets/js/unminified/customizer-controls-toggle.js', array(), null, true );
-
-				// Customizer Controls.
-				wp_enqueue_style( 'ast-customizer-controls-css', AST_THEME_URI . 'assets/css/unminified/customizer-controls.css' );
-				wp_enqueue_script( 'ast-customizer-controls-js', AST_THEME_URI . 'assets/js/unminified/customizer-controls.js', array( 'ast-customizer-controls-toggle-js' ), null, true );
-
-			} else {
-
-				// Customizer Core.
-				wp_enqueue_script( 'ast-customizer-controls-toggle-js', AST_THEME_URI . 'assets/js/minified/customizer-controls-toggle.min.js', array(), null, true );
-
-				// Customizer Controls.
-				wp_enqueue_style( 'ast-customizer-controls-css', AST_THEME_URI . 'assets/css/minified/customizer-controls.min.css' );
-				wp_enqueue_script( 'ast-customizer-controls-js', AST_THEME_URI . 'assets/js/minified/customizer-controls.min.js', array( 'ast-customizer-controls-toggle-js' ), null, true );
+				$js_prefix  = '.js';
+				$css_prefix = '.css';
+				$dir        = 'unminified';
 			}
+
+			// Customizer Core.
+			wp_enqueue_script( 'ast-customizer-controls-toggle-js', AST_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), null, true );
+
+			// Customizer Controls.
+			wp_enqueue_style( 'ast-customizer-controls-css', AST_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix );
+			wp_enqueue_script( 'ast-customizer-controls-js', AST_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'ast-customizer-controls-toggle-js' ), null, true );
 
 			wp_localize_script( 'ast-customizer-controls-toggle-js', 'ast', apply_filters( 'ast_theme_customizer_js_localize', array(
 				'customizer' => array(
@@ -216,11 +213,16 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 			// Update variables.
 			Ast_Theme_Options::refresh();
 
+			$js_prefix  = '.min.js';
+			$css_prefix = '.min.css';
+			$dir        = 'minified';
 			if ( SCRIPT_DEBUG ) {
-				wp_enqueue_script( 'ast-customizer-preview-js', AST_THEME_URI . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview' ), null, null );
-			} else {
-				wp_enqueue_script( 'ast-customizer-preview-js', AST_THEME_URI . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview' ), null, null );
+				$js_prefix  = '.js';
+				$css_prefix = '.css';
+				$dir        = 'unminified';
 			}
+
+			wp_enqueue_script( 'ast-customizer-preview-js', AST_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, null );
 		}
 
 		/**

@@ -23,3 +23,6 @@ phpcs-full.log
 # Org Package
 astra
 *.zip
+
+# Ignore brainstorm updater.
+admin/

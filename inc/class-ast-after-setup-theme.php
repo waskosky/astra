@@ -140,24 +140,8 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 
 			// Load required widgets from plugin 'ast-widgets'.
 			add_theme_support( 'ast-custom-js' );
-			add_theme_support( 'ast-theme' );
+			add_theme_support( 'astra-theme' );
 			add_theme_support( 'ast-shortcodes' );
-
-			add_theme_support( 'widget-address' );
-			add_theme_support( 'widget-flickr-gallery' );
-			add_theme_support( 'widget-instagram-gallery' );
-			add_theme_support( 'widget-progress-bar' );
-			add_theme_support( 'widget-info-box' );
-			add_theme_support( 'widget-social-profiles' );
-			add_theme_support( 'widget-newsletter' );
-			add_theme_support( 'widget-image' );
-			add_theme_support( 'widget-twitter-feeds' );
-			add_theme_support( 'widget-custom-menu' );
-			add_theme_support( 'widget-button' );
-			add_theme_support( 'widget-recent-posts' );
-
-			add_theme_support( 'mce-font-size' );
-			add_theme_support( 'mce-font-family' );
 
 			// Customize Selective Refresh Widgets.
 			add_theme_support( 'customize-selective-refresh-widgets' );

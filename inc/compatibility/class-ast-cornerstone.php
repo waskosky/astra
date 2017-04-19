@@ -43,19 +43,30 @@ if ( ! class_exists( 'Ast_Cornerstone' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-
-			add_filter( 'body_class', array( $this, 'cornerstone_compatibility' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_filter( 'body_class', 		array( $this, 'add_body_class' ) );
+			add_filter( 'ast_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
-		 * Astra cornerstone_compatibility
+		 * Add assets in theme
+		 *
+		 * @param array $assets list of theme assets (JS & CSS).
+		 * @return array List of updated assets.
+		 * @since 1.0.0
+		 */
+		function add_styles( $assets ) {
+			$assets['css']['astra-cornerstone'] = 'site-compatible/cornerstone' ;
+			return $assets;
+		}
+
+		/**
+		 * Astra add_body_class
 		 *
 		 * @param array $classes Classes for the body element.
 		 *
 		 * @return array
 		 */
-		function cornerstone_compatibility( $classes ) {
+		function add_body_class( $classes ) {
 
 			global $post;
 
@@ -65,13 +76,6 @@ if ( ! class_exists( 'Ast_Cornerstone' ) ) :
 				}
 			}
 			return $classes;
-		}
-
-		/**
-		 * Add Styles Callback
-		 */
-		function add_styles() {
-			AST_Enqueue_Scripts::register_style( 'ast-site-compatible-cornerstone', 	AST_THEME_URI . 'assets/css/unminified/site-compatible/cornerstone.css', 		 array(), AST_THEME_VERSION, 'all' );
 		}
 
 	}
