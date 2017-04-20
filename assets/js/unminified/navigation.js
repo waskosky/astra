@@ -125,12 +125,12 @@ var toggleClass = function ( el, className ) {
 					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
 					menuGoingOutside = false;
 
-				if( menuFromLeft < 500 /*|| (parseInt( windowWidth ) > parseInt( menuLeft ) )*/ ) {
+				if( menuFromLeft < 500 ) {
 					menuGoingOutside = true;
 				}
 
 				// Submenu items goes outside?
-				if( menuGoingOutside/* && ! parentList[i].classList.contains( 'ast-left-align-sub-menu' )*/ ) {
+				if( menuGoingOutside ) {
 					parentList[i].classList.add( 'ast-left-align-sub-menu' );
 
 					var all_submenu_parents = parentList[i].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
