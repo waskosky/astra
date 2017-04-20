@@ -2412,16 +2412,16 @@ body {
   transform: translate(0, -50%) rotate(-270deg);
 }
 
-ul.submenu-with-border ul {
+.submenu-with-border ul {
   border-top: 1px solid #eee;
 }
 
-ul.submenu-with-border ul a {
+.submenu-with-border ul a {
   border: 1px solid #eaeaea;
   border-top: 0;
 }
 
-ul.submenu-with-border ul ul {
+.submenu-with-border ul ul {
   top: -1px;
 }
 
@@ -2723,26 +2723,26 @@ ul.submenu-with-border ul ul {
 /**
  * 7 - Header Widget Area
  */
-ul.submenu-with-border .ast-header-widget-area {
+.submenu-with-border .ast-header-widget-area {
   line-height: 1.65;
 }
 
-ul.submenu-with-border .ast-header-widget-area .widget-title,
-ul.submenu-with-border .ast-header-widget-area .no-widget-text {
+.submenu-with-border .ast-header-widget-area .widget-title,
+.submenu-with-border .ast-header-widget-area .no-widget-text {
   margin-bottom: 0;
 }
 
-ul.submenu-with-border .ast-header-widget-area .ast-no-widget-row .widget-title {
+.submenu-with-border .ast-header-widget-area .ast-no-widget-row .widget-title {
   text-transform: capitalize;
 }
 
-ul.submenu-with-border .ast-header-widget-area .widget ul {
+.submenu-with-border .ast-header-widget-area .widget ul {
   position: static;
   border: 0;
   width: auto;
 }
 
-ul.submenu-with-border .ast-header-widget-area .widget ul a {
+.submenu-with-border .ast-header-widget-area .widget ul a {
   border: 0;
 }
 
