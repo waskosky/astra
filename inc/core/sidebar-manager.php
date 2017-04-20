@@ -44,7 +44,7 @@ if ( ! function_exists( 'ast_page_layout' ) ) {
 
 			if ( is_search() ) {
 
-				// Check only POST type archive option value.
+				// Check only post type archive option value.
 				$layout = ast_get_option( 'archive-post-sidebar-layout' );
 
 				if ( 'default' == $layout || empty( $layout ) ) {
