@@ -35,7 +35,7 @@ if ( ! function_exists( 'ast_page_layout' ) ) {
 
 				if ( 'default' == $layout || empty( $layout ) ) {
 
-					// Get the GLOBAL sidebar value.
+					// Get the global sidebar value.
 					// NOTE: Here not used `true` in the below function call.
 					$layout = ast_get_option( 'site-sidebar-layout' );
 				}
@@ -49,7 +49,7 @@ if ( ! function_exists( 'ast_page_layout' ) ) {
 
 				if ( 'default' == $layout || empty( $layout ) ) {
 
-					// Get the GLOBAL sidebar value.
+					// Get the global sidebar value.
 					// NOTE: Here not used `true` in the below function call.
 					$layout = ast_get_option( 'site-sidebar-layout' );
 				}// End if().
@@ -60,7 +60,7 @@ if ( ! function_exists( 'ast_page_layout' ) ) {
 
 				if ( 'default' == $layout || empty( $layout ) ) {
 
-					// Get the GLOBAL sidebar value.
+					// Get the global sidebar value.
 					// NOTE: Here not used `true` in the below function call.
 					$layout = ast_get_option( 'site-sidebar-layout' );
 				}// End if().
