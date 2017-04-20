@@ -129,6 +129,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 
 				// Header - Primary.
 				'disable-primary-nav'			   => false,
+				'header-menu-locations'			   => 'default',
 				'header-main-rt-section'           => 'none',
 				'header-main-rt-section-html'      => __( 'HTML is allowed here' , 'astra' ),
 				'header-main-sep'                  => 1,

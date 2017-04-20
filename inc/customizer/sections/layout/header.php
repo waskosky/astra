@@ -29,6 +29,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) );
 
 	/**
+	 * Option: Menu Locations
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-menu-locations]', array(
+		'default'           => $defaults['header-menu-locations'],
+		'type'              => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+	) );
+	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-menu-locations]', array(
+		'type'        => 'select',
+		'section'     => 'section-header',
+		'priority' 	  => 5,
+		'label'       => __( 'Navigation Location', 'astra' ),
+		'choices'     => array(
+			'default'	  => __( 'Default', 'astra' ),
+			'center'      => __( 'Menu & Logo Center', 'astra' ),
+			'menu-left'   => __( 'Logo Right & Menu Left', 'astra' ),
+		),
+	) );
+
+
+	/**
 	 * Option: Custom Menu Item
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-rt-section]', array(
