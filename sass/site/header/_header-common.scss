@@ -67,3 +67,31 @@
 .site-logo-img img {
     @include ast-transition();
 }
+
+/**
+ * 7 - Header Widget Area
+ */
+ ul.submenu-with-border{
+    .ast-header-widget-area{
+        line-height: 1.65;
+        .widget-title,
+        .no-widget-text{
+            margin-bottom: 0;
+        }
+        .ast-no-widget-row{
+            .widget-title{
+                text-transform: capitalize;
+            }
+        }
+        .widget{
+            ul{
+                position: static;
+                border: 0;
+                width: auto;
+                a{
+                    border: 0;
+                }
+            }
+        }
+    }
+}
