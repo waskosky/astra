@@ -2705,6 +2705,19 @@ ul.submenu-with-border ul ul {
   border-bottom-style: solid;
 }
 
+.ast-header-break-point .ast-header-custom-item {
+  border-top: 1px solid #eaeaea;
+}
+
+.ast-header-break-point .ast-header-custom-item .ast-masthead-custom-menu-items {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ast-header-break-point .ast-header-custom-item .widget:last-child {
+  margin-bottom: 10px;
+}
+
 /**
  * 7 - Auto Margin
  */
@@ -2721,7 +2734,7 @@ ul.submenu-with-border ul ul {
 }
 
 /**
- * 7 - Header Widget Area
+ * 8 - Header Widget Area
  */
 ul.submenu-with-border .ast-header-widget-area {
   line-height: 1.65;
@@ -2744,6 +2757,18 @@ ul.submenu-with-border .ast-header-widget-area .widget ul {
 
 ul.submenu-with-border .ast-header-widget-area .widget ul a {
   border: 0;
+}
+
+/**
+ * 9 - Header Widget Area
+ */
+.ast-header-custom-item .widget {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.ast-header-custom-item .widget li {
+  width: auto;
 }
 
 /* 4 - Header Main */
@@ -3018,6 +3043,19 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point .main-navigation li {
   width: 100%;
+}
+
+.ast-header-break-point .main-navigation .widget {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.ast-header-break-point .main-navigation .widget li {
+  width: auto;
+}
+
+.ast-header-break-point .main-navigation .widget:last-child {
+  margin-bottom: 10px;
 }
 
 .ast-header-break-point .main-header-bar-navigation {

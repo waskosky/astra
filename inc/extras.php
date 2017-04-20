@@ -465,42 +465,52 @@ if ( ! function_exists( 'ast_primary_navigation_markup' ) ) {
 	 */
 	function ast_primary_navigation_markup() {
 
-		$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
+		$disable_primary_navigation = ast_get_option( 'disable-primary-nav' );
 
-		// Primary Menu.
-		$primary_menu_args = array(
-			'theme_location'  => 'primary',
-			'menu_id'         => 'primary-menu',
-			'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
-			'container'       => 'div',
-			'container_class' => 'main-navigation',
-		);
+		if ( $disable_primary_navigation ) {
+			echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+			echo ast_masthead_get_menu_items();
+			echo '</div>';
+		} else {
 
-		// Fallback Menu if primary menu not set.
-		$fallback_menu_args = array(
-			'theme_location' => 'primary',
-			'menu_id'        => 'primary-menu',
-			'menu_class'     => 'main-navigation',
-			'container'      => 'div',
+			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
-			'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
-			'after'          => '</ul>',
-		); ?>
+			// Primary Menu.
+			$primary_menu_args = array(
+				'theme_location'  => 'primary',
+				'menu_id'         => 'primary-menu',
+				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
+				'container'       => 'div',
+				'container_class' => 'main-navigation',
+			);
 
-		<div class="main-header-bar-navigation" >
+			// Fallback Menu if primary menu not set.
+			$fallback_menu_args = array(
+				'theme_location' => 'primary',
+				'menu_id'        => 'primary-menu',
+				'menu_class'     => 'main-navigation',
+				'container'      => 'div',
 
-			<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
-				<?php
-				if ( has_nav_menu( 'primary' ) ) {
-					wp_nav_menu( $primary_menu_args );
-				} else {
-					wp_page_menu( $fallback_menu_args );
-				}
-				?>
-			</nav><!-- #site-navigation -->
+				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
+				'after'          => '</ul>',
+			); ?>
 
-		</div>
-		<?php
+			<div class="main-header-bar-navigation" >
+
+				<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
+					<?php
+					if ( has_nav_menu( 'primary' ) ) {
+						wp_nav_menu( $primary_menu_args );
+					} else {
+						wp_page_menu( $fallback_menu_args );
+					}
+					?>
+				</nav><!-- #site-navigation -->
+
+			</div>
+			<?php
+		}// End if().
+
 	}
 }// End if().
 

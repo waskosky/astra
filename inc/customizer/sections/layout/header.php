@@ -14,6 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Disable Primary Navigation
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
+		'default'           => $defaults['disable-primary-nav'],
+		'type'              => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_checkbox' ),
+	) );
+	$wp_customize->add_control( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
+		'type'        => 'checkbox',
+		'section'     => 'section-header',
+		'label'       => __( 'Disable Navigation', 'astra' ),
+		'priority'	  => 5,
+	) );
+
+	/**
 	 * Option: Custom Menu Item
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-rt-section]', array(
@@ -30,6 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'none'      => __( 'None', 'astra' ),
 			'search'    => __( 'Search', 'astra' ),
 			'text-html' => __( 'Text / HTML', 'astra' ),
+			'widget' 	=> __( 'Widget', 'astra' ),
 		),
 	) );
 
@@ -51,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( AST_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-			'selector'            => '.main-header-menu .ast-masthead-custom-menu-items .ast-custom-html',
+			'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
 			'container_inclusive' => false,
 			'render_callback'     => array( 'AST_Customizer_Partials', '_render_header_main_rt_section_html' ),
 		) );
