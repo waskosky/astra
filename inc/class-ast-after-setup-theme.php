@@ -150,7 +150,10 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 			 * This theme styles the visual editor to resemble the theme style,
 			 * specifically font, colors, icons, and column width.
 			 */
-			add_editor_style( 'assets/css/unminified/editor-style.css' );
+			/* Directory and Extension */
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			add_editor_style( 'assets/css/'.$dir_name.'/editor-style'.$file_prefix.'.css' );
 		}
 	}
 }// End if().
