@@ -44,7 +44,15 @@ if ( ! function_exists( 'ast_page_layout' ) ) {
 
 			if ( is_search() ) {
 
+				// Check only POST type archive option value.
 				$layout = ast_get_option( 'archive-post-sidebar-layout' );
+
+				if ( 'default' == $layout || empty( $layout ) ) {
+
+					// Get the GLOBAL sidebar value.
+					// NOTE: Here not used `true` in the below function call.
+					$layout = ast_get_option( 'site-sidebar-layout' );
+				}// End if().
 
 			} else {
 
