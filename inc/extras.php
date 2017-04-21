@@ -280,7 +280,7 @@ if ( ! function_exists( 'ast_get_custom_widget' ) ) {
 			$widget_id = 'footer-widget-2';
 		}
 
-		echo '<div class="ast-' . $widget_id . '-area">';
+		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area">';
 				ast_get_sidebar( $widget_id );
 		echo '</div>';
 
@@ -889,7 +889,7 @@ if ( ! function_exists( 'ast_get_sidebar' ) ) {
 				<h2 class='widget-title'><?php echo str_replace( '-', ' ', $sidebar_id ); ?></h2>
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php echo __( 'Click here to assign a widget for this area.', 'astra' ); ?>
+						<?php _e( 'Click here to assign a widget for this area.', 'astra' ); ?>
 					</a>
 				</p>
 			</div>

@@ -60,7 +60,7 @@
             padding-right: 20px;
         }
         .widget:last-child{
-            margin-bottom: 10px;
+            margin-bottom: 0.66666em;
         }
     }
 }
@@ -81,7 +81,7 @@
 /**
  * 8 - Header Widget Area
  */
- ul.submenu-with-border{
+ .submenu-with-border{
     .ast-header-widget-area{
         line-height: 1.65;
         .widget-title,
@@ -111,8 +111,8 @@
  */
 .ast-header-custom-item{
     .widget {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 0.66666em;
+        margin-bottom: 0.66666em;
         li{
             width: auto;       
         }
