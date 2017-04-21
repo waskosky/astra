@@ -73,6 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			''       => __( 'None', 'astra' ),
 			'menu'   => __( 'Footer Menu', 'astra' ),
 			'custom' => __( 'Custom Text', 'astra' ),
+			'widget' => __( 'Widget', 'astra' ),
 		),
 	) );
 
@@ -117,6 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			''       => __( 'None', 'astra' ),
 			'menu'   => __( 'Footer Menu', 'astra' ),
 			'custom' => __( 'Custom Text', 'astra' ),
+			'widget' => __( 'Widget', 'astra' ),
 		),
 	) );
 
