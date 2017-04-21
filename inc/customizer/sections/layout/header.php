@@ -14,6 +14,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Header Layout
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-menu-locations]', array(
+		'default' => $defaults['header-menu-locations'],
+		'type'    => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+	) );
+
+	$wp_customize->add_control( new Ast_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-menu-locations]', array(
+		'section'     => 'section-header',
+		'priority'    => 5,
+		'label'       => __( 'Header', 'astra' ),
+		'type'        => 'ast-radio-image',
+		'choices'     => array(
+			'default'			=> array(
+									'label' => __( 'Logo Left', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/logo-left.png',
+								),
+			'center' 			=> array(
+									'label' => __( 'Logo Center', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/logo-center.png',
+								),
+			'menu-left' 		=> array(
+									'label' => __( 'Logo Right', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/logo-right.png',
+								),
+		),
+	) ) );
+
+	/**
 	 * Option: Disable Menu
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
@@ -26,26 +56,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'section'     => 'section-header',
 		'label'       => __( 'Disable Menu', 'astra' ),
 		'priority'	  => 5,
-	) );
-
-	/**
-	 * Option: Site Identity & Menu Locations
-	 */
-	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-menu-locations]', array(
-		'default'           => $defaults['header-menu-locations'],
-		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
-	) );
-	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-menu-locations]', array(
-		'type'        => 'select',
-		'section'     => 'section-header',
-		'priority' 	  => 5,
-		'label'       => __( 'Site Identity & Menu Location', 'astra' ),
-		'choices'     => array(
-			'default'	  => __( 'Site Identity / Menu', 'astra' ),
-			'center'      => __( 'Site Identity / Menu-Center', 'astra' ),
-			'menu-left'   => __( 'Menu / Site Identity', 'astra' ),
-		),
 	) );
 
 	/**
