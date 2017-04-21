@@ -630,11 +630,9 @@ if ( ! function_exists( 'ast_header_classes' ) ) {
 	function ast_header_classes() {
 
 		$classes = array( 'site-header' );
-		$menu_logo_location = ast_get_option( 'header-menu-locations' );
-		if ( 'center' == $menu_logo_location ) {
-			$classes[] = 'ast-menu-logo-centered';
-		} elseif ( 'menu-left' == $menu_logo_location ) {
-			$classes[] = 'ast-menu-left-logo-right';
+		$menu_logo_location = ast_get_option( 'header-layouts' );
+		if ( 'header-main-layout-2' == $menu_logo_location || 'header-main-layout-3' == $menu_logo_location ) {
+			$classes[] = $menu_logo_location;
 		}
 
 		$classes = apply_filters( 'ast_header_class', $classes );

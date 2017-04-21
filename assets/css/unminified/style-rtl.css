@@ -2650,24 +2650,23 @@ body {
   }
 }
 
-/* 2 - Header Layouts  */
 /**
- * 	Menu & Site Identity Centered
+ * 2 - Header Layout 2
 */
-.ast-menu-logo-centered .main-header-container {
+.header-main-layout-2 .main-header-container {
   display: block;
 }
 
-.ast-menu-logo-centered .site-branding {
+.header-main-layout-2 .site-branding {
   text-align: center;
   padding-bottom: 1em;
 }
 
-.ast-menu-logo-centered .site-title {
+.header-main-layout-2 .site-title {
   display: block;
 }
 
-.ast-menu-logo-centered .main-navigation ul {
+.header-main-layout-2 .main-navigation ul {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -moz-box-pack: center;
@@ -2675,7 +2674,7 @@ body {
   justify-content: center;
 }
 
-.ast-menu-logo-centered .ast-header-custom-item {
+.header-main-layout-2 .ast-header-custom-item {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -moz-box-pack: center;
@@ -2683,20 +2682,20 @@ body {
   justify-content: center;
 }
 
-.ast-header-break-point .ast-menu-logo-centered .ast-mobile-menu-buttons {
+.ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
   text-align: center;
 }
 
 @media (min-width: 544px) {
-  .ast-header-break-point .ast-menu-logo-centered .ast-mobile-menu-buttons {
+  .ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
     padding: 0 0 1em;
   }
 }
 
 /**
- * 	Menu Left & Site Identity Right
+ *  3 - Header Layout 3
 */
-.ast-menu-left-logo-right .main-header-container {
+.header-main-layout-3 .main-header-container {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: row-reverse;
@@ -2706,7 +2705,7 @@ body {
   flex-direction: row-reverse;
 }
 
-.ast-menu-left-logo-right .main-navigation ul {
+.header-main-layout-3 .main-navigation ul {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -moz-box-pack: start;
@@ -2714,7 +2713,7 @@ body {
   justify-content: flex-start;
 }
 
-.ast-menu-left-logo-right .ast-header-custom-item {
+.header-main-layout-3 .ast-header-custom-item {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -moz-box-pack: start;
@@ -2723,7 +2722,7 @@ body {
 }
 
 @media (min-width: 544px) {
-  .ast-header-break-point .ast-menu-left-logo-right .ast-mobile-menu-buttons {
+  .ast-header-break-point .header-main-layout-3 .ast-mobile-menu-buttons {
     text-align: right;
   }
 }

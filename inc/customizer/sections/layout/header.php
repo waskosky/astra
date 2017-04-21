@@ -16,27 +16,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Header Layout
 	 */
-	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-menu-locations]', array(
-		'default' => $defaults['header-menu-locations'],
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-layouts]', array(
+		'default' => $defaults['header-layouts'],
 		'type'    => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 
-	$wp_customize->add_control( new Ast_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-menu-locations]', array(
+	$wp_customize->add_control( new Ast_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-layouts]', array(
 		'section'     => 'section-header',
 		'priority'    => 5,
 		'label'       => __( 'Header', 'astra' ),
 		'type'        => 'ast-radio-image',
 		'choices'     => array(
-			'default'			=> array(
+			'header-main-layout-1'			=> array(
 									'label' => __( 'Logo Left', 'astra' ),
 									'path'	=> AST_THEME_URI . '/assets/images/logo-left.png',
 								),
-			'center' 			=> array(
+			'header-main-layout-2' 			=> array(
 									'label' => __( 'Logo Center', 'astra' ),
 									'path'	=> AST_THEME_URI . '/assets/images/logo-center.png',
 								),
-			'menu-left' 		=> array(
+			'header-main-layout-3' 		=> array(
 									'label' => __( 'Logo Right', 'astra' ),
 									'path'	=> AST_THEME_URI . '/assets/images/logo-right.png',
 								),
