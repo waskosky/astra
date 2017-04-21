@@ -2650,6 +2650,84 @@ ul.submenu-with-border ul ul {
   }
 }
 
+/* 2 - Header Layouts  */
+/**
+ * 	Menu & Site Identity Centered
+*/
+.ast-menu-logo-centered .main-header-container {
+  display: block;
+}
+
+.ast-menu-logo-centered .site-branding {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.ast-menu-logo-centered .site-title {
+  display: block;
+}
+
+.ast-menu-logo-centered .main-navigation ul {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ast-menu-logo-centered .ast-header-custom-item {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ast-header-break-point .ast-menu-logo-centered .ast-mobile-menu-buttons {
+  text-align: center;
+}
+
+@media (min-width: 544px) {
+  .ast-header-break-point .ast-menu-logo-centered .ast-mobile-menu-buttons {
+    padding: 0 0 1em;
+  }
+}
+
+/**
+ * 	Menu Left & Site Identity Right
+*/
+.ast-menu-left-logo-right .main-header-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.ast-menu-left-logo-right .main-navigation ul {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.ast-menu-left-logo-right .ast-header-custom-item {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+@media (min-width: 544px) {
+  .ast-header-break-point .ast-menu-left-logo-right .ast-mobile-menu-buttons {
+    text-align: right;
+  }
+}
+
 /* 3 - Header Common  */
 /**
  * 	Header Common

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Disable Primary Navigation
+	 * Option: Disable Menu
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
 		'default'           => $defaults['disable-primary-nav'],
@@ -24,12 +24,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
 		'type'        => 'checkbox',
 		'section'     => 'section-header',
-		'label'       => __( 'Disable Navigation', 'astra' ),
+		'label'       => __( 'Disable Menu', 'astra' ),
 		'priority'	  => 5,
 	) );
 
 	/**
-	 * Option: Menu Locations
+	 * Option: Site Identity & Menu Locations
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-menu-locations]', array(
 		'default'           => $defaults['header-menu-locations'],
@@ -40,14 +40,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'type'        => 'select',
 		'section'     => 'section-header',
 		'priority' 	  => 5,
-		'label'       => __( 'Navigation Location', 'astra' ),
+		'label'       => __( 'Site Identity & Menu Location', 'astra' ),
 		'choices'     => array(
-			'default'	  => __( 'Default', 'astra' ),
-			'center'      => __( 'Menu & Logo Center', 'astra' ),
-			'menu-left'   => __( 'Logo Right & Menu Left', 'astra' ),
+			'default'	  => __( 'Site Identity / Menu', 'astra' ),
+			'center'      => __( 'Site Identity / Menu-Center', 'astra' ),
+			'menu-left'   => __( 'Menu / Site Identity', 'astra' ),
 		),
 	) );
-
 
 	/**
 	 * Option: Custom Menu Item
