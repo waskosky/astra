@@ -220,7 +220,7 @@ module.exports = function (grunt) {
                         '!sass/**',
                         '!codesniffer.ruleset.xml',
                     ],
-                    dest: 'astra-theme/'
+                    dest: 'astra/'
                 },
                 org: {
                     options: {
@@ -251,9 +251,6 @@ module.exports = function (grunt) {
                         '!README.md',
                         '!sass/**',
                         '!codesniffer.ruleset.xml',
-
-                        // AVOID PRO
-                        '!inc/pro/**',
                     ],
                     dest: 'astra/'
                 }
@@ -262,13 +259,13 @@ module.exports = function (grunt) {
             compress: {
                 main: {
                     options: {
-                        archive: 'astra-theme.zip',
+                        archive: 'astra.zip',
                         mode: 'zip'
                     },
                     files: [
                         {
                             src: [
-                                './astra-theme/**'
+                                './astra/**'
                             ]
 
                         }
@@ -292,8 +289,7 @@ module.exports = function (grunt) {
 
             clean: {
                 main: ["astra"],
-                zip: ["astra-theme.zip"],
-                orgZip: ["astra.zip"]
+                zip: ["astra.zip"]
 
             },
 
@@ -357,8 +353,8 @@ module.exports = function (grunt) {
     grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css']);
 
     // Grunt release - Create installable package of the local files
-    grunt.registerTask('release', ['clean:zip', 'copy', 'compress', 'clean:main']);
-    grunt.registerTask('org-release', ['clean:orgZip', 'copy:org', 'compress:org', 'clean:main']);
+    grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
+    grunt.registerTask('org-release', ['clean:zip', 'copy:org', 'compress:org', 'clean:main']);
 
     // i18n
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);

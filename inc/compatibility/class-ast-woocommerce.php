@@ -47,7 +47,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		public function __construct() {
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ), 10 );
-			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ), 10 );
+			add_action( 'woocommerce_after_main_content',  array( $this, 'before_main_content_end' ), 10 );
+			add_filter( 'ast_theme_assets',                array( $this, 'add_styles' ) );
+			add_action( 'init',                            array( $this, 'woocommerce_init' ), 1 );
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 
@@ -151,10 +153,15 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Add Styles Callback
+		 * Add assets in theme
+		 *
+		 * @param array $assets list of theme assets (JS & CSS).
+		 * @return array List of updated assets.
+		 * @since 1.0.0
 		 */
-		function add_styles() {
-			AST_Enqueue_Scripts::register_style( 'ast-site-compatible-woocommerce', 	AST_THEME_URI . 'assets/css/unminified/site-compatible/woocommerce.css', 		 array(), AST_THEME_VERSION, 'all' );
+		function add_styles( $assets ) {
+			$assets['css']['astra-woocommerce'] = 'site-compatible/woocommerce';
+			return $assets;
 		}
 
 	}

@@ -44,9 +44,9 @@ if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
 		 */
 		public function __construct() {
 
-			add_filter( 'llms_get_theme_default_sidebar', array( $this, 'ast_llms_sidebar' ) );
-			add_action( 'after_setup_theme', array( $this, 'ast_llms_theme_support' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_filter( 'llms_get_theme_default_sidebar', array( $this, 'add_sidebar' ) );
+			add_action( 'after_setup_theme',              array( $this, 'add_theme_support' ) );
+			add_filter( 'ast_theme_assets',               array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
 		 * @param    string $id    default sidebar id (an empty string).
 		 * @return   string
 		 */
-		function ast_llms_sidebar( $id ) {
+		function add_sidebar( $id ) {
 			$sidebar_id = 'sidebar-1'; // replace this with your theme's sidebar ID.
 			return $sidebar_id;
 		}
@@ -67,16 +67,22 @@ if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
 		 *
 		 * @return   void
 		 */
-		function ast_llms_theme_support() {
+		function add_theme_support() {
 			add_theme_support( 'lifterlms-sidebars' );
 		}
 
 		/**
-		 * Add Styles Callback
+		 * Add assets in theme
+		 *
+		 * @param array $assets list of theme assets (JS & CSS).
+		 * @return array List of updated assets.
+		 * @since 1.0.0
 		 */
-		function add_styles() {
-			AST_Enqueue_Scripts::register_style( 'ast-site-compatible-lifter-lms', 	AST_THEME_URI . 'assets/css/unminified/site-compatible/lifter-lms.css', 		 array(), AST_THEME_VERSION, 'all' );
+		function add_styles( $assets ) {
+			$assets['css']['astra-lifter-lms'] = 'site-compatible/lifter-lms' ;
+			return $assets;
 		}
+
 	}
 
 endif;

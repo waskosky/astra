@@ -52,7 +52,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $is_top_level_page
 		 */
-		static public $is_top_level_page = true;
+		static public $is_top_level_page = false;
 
 		/**
 		 * Is Multisite active
@@ -92,7 +92,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $current_slug
 		 */
-		static public $current_slug = '';
+		static public $current_slug = 'general';
 
 		/**
 		 * Constructor
@@ -103,9 +103,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 				return;
 			}
 
-			// Required files.
-			require_once AST_THEME_DIR . 'inc/pro/admin-page/class-ast-admin-helper.php';
-
 			add_action( 'after_setup_theme', __CLASS__ . '::init_admin_settings', 99 );
 		}
 
@@ -113,7 +110,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		static public function init_admin_settings() {
-			self::$menu_page_title	= apply_filters( 'ast_menu_page_title', __( 'Astra' , 'astra-theme' ) );
+			self::$menu_page_title	= apply_filters( 'ast_menu_page_title', __( 'Astra' , 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -157,7 +154,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 
 				$actions = array(
 					'general'          => array(
-											'label'	=> __( 'General Settings', 'astra-theme' ),
+											'label'	=> __( 'General Settings', 'astra' ),
 											'show'	=> ! is_network_admin(),
 										),
 				);
@@ -177,25 +174,8 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 				return;
 			}
 
-			/* Save General Settings */
-			self::general_settings_save();
-
 			// Let extensions hook into saving.
 			do_action( 'ast_admin_settings_save' );
-		}
-
-		/**
-		 * Save settings
-		 *
-		 * @since 1.0
-		 */
-		static public function general_settings_save() {
-			if ( isset( $_POST['ast-clear-cache-nonce'] ) && wp_verify_nonce( $_POST['ast-clear-cache-nonce'], 'ast-clear-cache' ) ) {
-
-				if ( class_exists( 'AST_Minify' ) ) {
-					AST_Minify::clear_assets_cache();
-				}
-			}
 		}
 
 		/**
@@ -206,7 +186,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function admin_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin', AST_THEME_URI . 'inc/pro/assets/css/ast-admin.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin', AST_THEME_URI . 'inc/assets/css/ast-admin.css', array(), AST_THEME_VERSION );
 		}
 
 		/**
@@ -217,7 +197,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function styles_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin-settings', AST_THEME_URI . 'inc/pro/assets/css/ast-admin-menu-settings.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin-settings', AST_THEME_URI . 'inc/assets/css/ast-admin-menu-settings.css', array(), AST_THEME_VERSION );
 		}
 
 		/**
@@ -228,7 +208,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 */
 		static public function init_nav_menu( $action = '' ) {
 
-			$settings = AST_Admin_Helper::get_admin_settings_option( '_ast_ext_white_label' );
+			$settings = Ast_Admin_Helper::get_admin_settings_option( '_ast_ext_white_label' );
 
 			// Menu position.
 			$position = isset( $settings['menu_position'] ) ? $settings['menu_position'] : false;
@@ -263,14 +243,11 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function render( $action ) {
-			$output = '<span class="nav-tab-wrapper">';
+			$output = '<div class="nav-tab-wrapper">';
 
-			$output .= "<h1 class='ast-title'>" . esc_attr( self::$menu_page_title ) . '</h1>';
-
-			$output .= "<span class='ast-separator'></span>";
+			$output .= "<h1 class='ast-title'>" . esc_html( self::$menu_page_title ) . '</h1>';
 
 			$view_actions = self::get_view_actions();
-			;
 
 			foreach ( $view_actions as $slug => $data ) {
 
@@ -286,22 +263,16 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 
 				$active = ( $slug == $action ) ? 'nav-tab-active' : '';
 
-				$output .= "<a class='nav-tab " . esc_attr( $active ) . "' href='" . esc_url( $url ) . "'>" . esc_attr( $data['label'] ) . '</a>';
+				$output .= "<a class='nav-tab " . esc_attr( $active ) . "' href='" . esc_url( $url ) . "'>" . esc_html( $data['label'] ) . '</a>';
 			}
 
-			$output .= '</span>';
+			$output .= '</div>';
 
 			echo $output;
 
+			// Settings update message.
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
-
-				$message = __( 'Settings saved successfully.', 'astra-theme' );
-
-				echo sprintf( '<div id="message" class="notice notice-success is-dismissive"><p>%s</p></div>', $message );
-
-				if ( 'saved_ext' == $_REQUEST['message'] &&  class_exists( 'AST_Minify' ) ) {
-					AST_Minify::refresh_assets();
-				}
+				printf( '<span id="message" class="notice notice-success is-dismissive"><p>%s</p></span>', __( 'Settings saved successfully.', 'astra' ) );
 			}
 
 		}
@@ -378,6 +349,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function menu_callback() {
+
 			if ( self::$is_top_level_page ) {
 
 				$screen_base = $_REQUEST['page'];
@@ -397,8 +369,8 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 				$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
 			}
 
-			$active_tab   = str_replace( '_', '-', $current_slug );
-			$current_slug = str_replace( '-', '_', $current_slug );
+				$active_tab   = str_replace( '_', '-', $current_slug );
+				$current_slug = str_replace( '-', '_', $current_slug );
 
 			echo '<div class="ast-menu-page-wrapper">';
 			self::init_nav_menu( $active_tab );
@@ -415,7 +387,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 
 			$settings = self::get_options();
 
-			require_once AST_THEME_DIR . 'inc/pro/admin-page/view-general.php';
+			require_once AST_THEME_DIR . 'inc/core/view-general.php';
 		}
 
 		/**
@@ -424,7 +396,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function get_options() {
-			$stored   = AST_Admin_Helper::get_admin_settings_option( '_ast_general_settings' );
+			$stored   = Ast_Admin_Helper::get_admin_settings_option( '_ast_general_settings' );
 			$defaults = self::defaults();
 			return wp_parse_args( $stored, $defaults );
 		}

@@ -79,11 +79,11 @@ var toggleClass = function ( el, className ) {
 		menu_toggle.addEventListener( 'click', function( event ) {
 	    	event.preventDefault();
 
-	    	var menuHasChildren = document.getElementsByClassName( 'menu-item-has-children' );
+	    	var menuHasChildren = document.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 			for ( var i = 0; i < menuHasChildren.length; i++ ) {
 				menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
 
-				var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu' );
+				var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );
 				for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
 					menuHasChildrenSubMenu[j].style.display = 'none';
 				};
@@ -105,6 +105,46 @@ var toggleClass = function ( el, className ) {
 	    }, false);
 	}
 
+	AstMenuAlignment = function( selector ) {
+
+		var parentList = document.querySelectorAll( selector );
+
+		for (var i = 0; i < parentList.length; i++) {
+
+			if ( null != parentList[i].querySelector( '.sub-menu, .children' ) ) {
+
+				// Insert Toggle Button.
+				var  toggleButton = document.createElement("BUTTON");        // Create a <button> element
+					toggleButton.setAttribute("role", "button");
+					toggleButton.setAttribute("class", "ast-menu-toggle");
+					toggleButton.setAttribute("aria-expanded", "false");
+				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
+
+				var menuLeft         = parentList[i].getBoundingClientRect().left,
+					windowWidth      = window.innerWidth,
+					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
+					menuGoingOutside = false;
+
+				if( menuFromLeft < 240 || (parseInt( windowWidth ) > parseInt( menuLeft ) ) ) {
+					menuGoingOutside = true;
+				}
+
+				// Submenu items goes outside?
+				if( menuGoingOutside && ! parentList[i].classList.contains( 'ast-left-align-sub-menu' ) ) {
+					parentList[i].classList.add( 'ast-left-align-sub-menu' );
+				}
+
+				// Submenu Container goes to outside?
+				if( menuFromLeft < 240 ) {
+					parentList[i].classList.add( 'ast-sub-menu-goes-outside' );
+				}
+
+			};
+		};
+	};
+
+	AstMenuAlignment( 'ul.main-header-menu li' );
+
 	/* Submenu button click */
 	var ast_menu_toggle = document.getElementsByClassName( 'ast-menu-toggle' );
 	for (var i = 0; i < ast_menu_toggle.length; i++) {
@@ -114,36 +154,36 @@ var toggleClass = function ( el, className ) {
 
 			var parent_li = this.parentNode;
 
-			var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children' );
+			var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 			for (var j = 0; j < parent_li_child.length; j++) {
 
 				parent_li_child[j].classList.remove( 'ast-submenu-expanded' );
 
-				var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu' );
+				var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );
 				parent_li_child_sub_menu.style.display = 'none';
 			};
 
-			var parent_li_sibling = parent_li.parentNode.querySelectorAll( '.menu-item-has-children' );
+			var parent_li_sibling = parent_li.parentNode.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 			for (var j = 0; j < parent_li_sibling.length; j++) {
 
 				if ( parent_li_sibling[j] != parent_li ) {
 
 					parent_li_sibling[j].classList.remove( 'ast-submenu-expanded' );
 
-					var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu' );
+					var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
 					for (var k = 0; k < all_sub_menu.length; k++) {
 						all_sub_menu[k].style.display = 'none';
 					};
 				}
 			};
 
-			if ( parent_li.classList.contains( 'menu-item-has-children' ) ) {
+			if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
 				toggleClass( parent_li, 'ast-submenu-expanded' );
 
 				if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
-					parent_li.querySelector( '.sub-menu' ).style.display = 'block';
+					parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
 				} else {
-					parent_li.querySelector( '.sub-menu' ).style.display = 'none';
+					parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
 				}
 			}
 		}, false);
@@ -159,6 +199,10 @@ var toggleClass = function ( el, className ) {
 		var sub_menu = document.getElementsByClassName( 'sub-menu' );
 		for ( var i = 0; i < sub_menu.length; i++ ) {
 			sub_menu[i].style.display = '';
+		}
+		var child_menu = document.getElementsByClassName( 'children' );
+		for ( var i = 0; i < child_menu.length; i++ ) {
+			child_menu[i].style.display = '';
 		}
 
 		var searchIcons = document.getElementsByClassName( 'ast-search-menu-icon' );
@@ -246,39 +290,6 @@ var toggleClass = function ( el, className ) {
 		}
 	}
 
-	AstMenuAlignment = function( selector ) {
-
-		var parentList = document.querySelectorAll( selector );
-
-		for (var i = 0; i < parentList.length; i++) {
-
-			if ( null != parentList[i].querySelector( '.sub-menu' ) ) {
-
-				var menuLeft    	 = parentList[i].getBoundingClientRect().left,
-					windowWidth     = window.innerWidth,
-					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
-					menuGoingOutside = false;
-
-				if( menuFromLeft < 240 || (parseInt( windowWidth ) > parseInt( menuLeft ) ) ) {
-					menuGoingOutside = true;
-				}
-
-				// Submenu items goes outside?
-				if( menuGoingOutside && ! parentList[i].classList.contains( 'ast-left-align-sub-menu' ) ) {
-					parentList[i].classList.add( 'ast-left-align-sub-menu' );
-				}
-
-				// Submenu Container goes to outside?
-				if( menuFromLeft < 240 ) {
-					parentList[i].classList.add( 'ast-sub-menu-goes-outside' );
-				}
-
-			};
-		};
-	};
-
-	AstMenuAlignment( 'ul.main-header-menu li' );
-
 	/**
 	 * Navigation Keyboard Navigation.
 	 */
@@ -290,7 +301,6 @@ var toggleClass = function ( el, className ) {
 	}
 
 	button = container.getElementsByTagName( 'button' )[0];
-
 	if ( 'undefined' === typeof button ) {
 		return;
 	}

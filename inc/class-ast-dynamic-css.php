@@ -499,7 +499,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				return $meta_style;
 			}
 
-			wp_add_inline_style( 'ast-theme-css', $meta_style );
+			wp_add_inline_style( 'astra-theme-css', $meta_style );
 		}
 	}
 }// End if().

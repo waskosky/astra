@@ -2346,21 +2346,6 @@ body {
   position: relative;
 }
 
-.main-header-menu {
-  /*
-	> .ast-left-align-sub-menu {
-		> .sub-menu {
-			right: 0;
-		}
-
-		ul ul {
-			left: auto;
-			right: 100%;
-		}
-	}
-	*/
-}
-
 .main-header-menu a {
   text-decoration: none;
   padding: 0 1em;
@@ -2393,12 +2378,6 @@ body {
   position: absolute;
   top: 100%;
   z-index: 99999;
-  /*.ast-left-align-sub-menu {
-			ul {
-				left: auto;
-				right: 100%;	
-			}
-		}*/
 }
 
 @media (min-width: 768px) {
@@ -2423,6 +2402,7 @@ body {
   word-wrap: break-word;
 }
 
+.main-header-menu ul li.page_item_has_children > a:after,
 .main-header-menu ul li.menu-item-has-children > a:after {
   position: absolute;
   right: 1em;
@@ -2432,16 +2412,16 @@ body {
   transform: translate(0, -50%) rotate(270deg);
 }
 
-ul.submenu-with-border ul {
+.submenu-with-border ul {
   border-top: 1px solid #eee;
 }
 
-ul.submenu-with-border ul a {
+.submenu-with-border ul a {
   border: 1px solid #eaeaea;
   border-top: 0;
 }
 
-ul.submenu-with-border ul ul {
+.submenu-with-border ul ul {
   top: -1px;
 }
 
@@ -2455,18 +2435,22 @@ ul.submenu-with-border ul ul {
   width: 100%;
 }
 
+.ast-header-break-point .main-navigation ul.children li a,
 .ast-header-break-point .main-navigation ul.sub-menu li a {
   padding-left: 30px;
 }
 
+.ast-header-break-point .main-navigation ul.children li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li a {
   padding-left: 45px;
 }
 
+.ast-header-break-point .main-navigation ul.children li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li a {
   padding-left: 60px;
 }
 
+.ast-header-break-point .main-navigation ul.children li li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li li a {
   padding-left: 75px;
 }
@@ -2736,6 +2720,32 @@ ul.submenu-with-border ul ul {
   transition: all 0.2s linear;
 }
 
+/**
+ * 7 - Header Widget Area
+ */
+.submenu-with-border .ast-header-widget-area {
+  line-height: 1.65;
+}
+
+.submenu-with-border .ast-header-widget-area .widget-title,
+.submenu-with-border .ast-header-widget-area .no-widget-text {
+  margin-bottom: 0;
+}
+
+.submenu-with-border .ast-header-widget-area .ast-no-widget-row .widget-title {
+  text-transform: capitalize;
+}
+
+.submenu-with-border .ast-header-widget-area .widget ul {
+  position: static;
+  border: 0;
+  width: auto;
+}
+
+.submenu-with-border .ast-header-widget-area .widget ul a {
+  border: 0;
+}
+
 /* 4 - Header Main */
 /**
  *  Header Sections
@@ -2747,7 +2757,7 @@ ul.submenu-with-border ul ul {
  * 2 - Social Follow
  * 3 - Site Logo
  * 4 - Search Form
- * 
+ *
  * # Responsive
 */
 /**
@@ -2788,10 +2798,12 @@ ul.submenu-with-border ul ul {
   padding: 1em 0;
 }
 
+.main-header-bar .children,
 .main-header-bar .sub-menu {
   line-height: 1.45;
 }
 
+.main-header-bar .page_item_has_children > a:after,
 .main-header-bar .menu-item-has-children > a:after {
   content: "\e313";
   display: inline-block;
@@ -2925,6 +2937,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 0;
 }
 
+.ast-header-break-point .page_item_has_children > a:after,
 .ast-header-break-point .menu-item-has-children > a:after {
   display: none;
 }
@@ -2935,14 +2948,17 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 0;
 }
 
+.ast-header-break-point .main-header-bar .children,
 .ast-header-break-point .main-header-bar .sub-menu {
   line-height: 3;
 }
 
+.ast-header-break-point .main-header-bar .page_item_has_children .sub-menu,
 .ast-header-break-point .main-header-bar .menu-item-has-children .sub-menu {
   display: none;
 }
 
+.ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle,
 .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle {
   display: inline-block;
   position: absolute;
@@ -2954,6 +2970,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   font-weight: normal;
 }
 
+.ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle::before,
 .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle::before {
   content: "\e313";
   font-family: 'Astra';

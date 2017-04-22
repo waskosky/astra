@@ -67,8 +67,10 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 		 * Render Partial Site Tagline
 		 */
 		static function _render_partial_site_tagline() {
-			$options = Ast_Theme_Options::get_options();
-			if ( true == $options['display-site-tagline'] ) {
+
+			$site_tagline = ast_get_option( 'display-site-tagline' );
+
+			if ( true == $site_tagline ) {
 				return get_bloginfo( 'description' );
 			}
 		}
@@ -77,8 +79,10 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 		 * Render Partial Site Tagline
 		 */
 		static function _render_partial_site_title() {
-			$options = Ast_Theme_Options::get_options();
-			if ( true == $options['display-site-title'] ) {
+
+			$site_title = ast_get_option( 'display-site-title' );
+
+			if ( true == $site_title ) {
 				return get_bloginfo( 'name' );
 			}
 		}
@@ -87,17 +91,20 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 		 * Render Partial Header Right Section HTML
 		 */
 		static function _render_header_main_rt_section_html() {
-			$options = Ast_Theme_Options::get_options();
-			return do_shortcode( $options['header-main-rt-section-html'] );
+
+			$right_section_html = ast_get_option( 'header-main-rt-section-html' );
+
+			return do_shortcode( $right_section_html );
 		}
 
 		/**
 		 * Render Partial Footer Section 1 Credit
 		 */
 		static function _render_footer_sml_section_1_credit() {
-			$options = Ast_Theme_Options::get_options();
-			$output = $options['footer-sml-section-1-credit'];
-			$output = str_replace( '[current_year]', date( 'Y' ), $output );
+
+			$site_credit = ast_get_option( 'footer-sml-section-1-credit' );
+
+			$output = str_replace( '[current_year]', date( 'Y' ), $site_credit );
 			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_option( 'blogname' ) . '</span>', $output );
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
@@ -113,9 +120,10 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 		 * Render Partial Footer Section 2 Credit
 		 */
 		static function _render_footer_sml_section_2_credit() {
-			$options = Ast_Theme_Options::get_options();
-			$output = $options['footer-sml-section-2-credit'];
-			$output = str_replace( '[current_year]', date( 'Y' ), $output );
+
+			$site_credit = ast_get_option( 'footer-sml-section-2-credit' );
+
+			$output = str_replace( '[current_year]', date( 'Y' ), $site_credit );
 			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_option( 'blogname' ) . '</span>', $output );
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
