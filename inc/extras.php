@@ -900,10 +900,9 @@ if ( ! function_exists( 'ast_get_sidebar' ) ) {
 			dynamic_sidebar( $sidebar_id );
 		} elseif ( current_user_can( 'edit_theme_options' ) ) { ?>
 			<div class="widget ast-no-widget-row">
-				<h2 class='widget-title'><?php echo str_replace( '-', ' ', $sidebar_id ); ?></h2>
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php _e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+						<?php _e( 'Add Widget', 'astra' ); ?>
 					</a>
 				</p>
 			</div>
