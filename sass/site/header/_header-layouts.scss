@@ -70,6 +70,10 @@
 	}
 	.ast-header-custom-item{
 		justify-content: center;
+		line-height: 1.85714285714286;
+	}
+	.ast-masthead-custom-menu-items{
+		position: relative;
 	}
 	.widget{
 		text-align: center;
@@ -102,6 +106,15 @@
 	.ast-header-custom-item{
 		justify-content: flex-start;
 	}
+	.ast-masthead-custom-menu-items{
+		position: relative;
+	}
+	.ast-search-menu-icon form{
+		padding: 0 0 0 2em;
+	}
+	.ast-search-menu-icon {
+    	left: -.5em;
+    }
 }
 
 @media ( min-width: $col-sm ) {
