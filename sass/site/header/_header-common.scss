@@ -81,18 +81,25 @@
 /**
  * 8 - Header Widget Area
  */
- .submenu-with-border{
-    .ast-header-widget-area{
+ .ast-header-widget-area{
         line-height: 1.65;
         .widget-title,
         .no-widget-text{
             margin-bottom: 0;
         }
-        .ast-no-widget-row{
-            .widget-title{
-                text-transform: capitalize;
+        .widget{
+            ul{
+                position: static;
+                border: 0;
+                width: auto;
+                a{
+                    border: 0;
+                }
             }
         }
+    }
+ .submenu-with-border{
+    .ast-header-widget-area{
         .widget{
             ul{
                 position: static;
