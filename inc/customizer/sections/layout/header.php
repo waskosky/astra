@@ -30,15 +30,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'choices'     => array(
 			'header-main-layout-1'			=> array(
 									'label' => __( 'Logo Left', 'astra' ),
-									'path'	=> AST_THEME_URI . '/assets/images/logo-left.png',
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-1-60x60.png',
 								),
 			'header-main-layout-2' 			=> array(
 									'label' => __( 'Logo Center', 'astra' ),
-									'path'	=> AST_THEME_URI . '/assets/images/logo-center.png',
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-2-60x60.png',
 								),
 			'header-main-layout-3' 		=> array(
 									'label' => __( 'Logo Right', 'astra' ),
-									'path'	=> AST_THEME_URI . '/assets/images/logo-right.png',
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-3-60x60.png',
 								),
 		),
 	) ) );
