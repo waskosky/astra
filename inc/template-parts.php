@@ -151,10 +151,11 @@ if ( ! function_exists( 'ast_masthead_toggle_buttons_primary' ) ) {
 		?>
 		<div class="ast-button-wrap">
 			<span class="screen-reader-text"><?php echo esc_html( $menu_title ); ?></span>
-			<button type="button" class="menu-toggle main-header-menu-toggle" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
-				<i class="<?php echo esc_attr( $menu_icon ); ?>">
+			<button type="button" class="ast-flex ast-justify-content-center menu-toggle main-header-menu-toggle" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
+				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
+				<div class="ast-flex mobile-menu-wrap">
 					<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
-				</i>
+				</div>
 			</button>
 		</div>
 		<?php

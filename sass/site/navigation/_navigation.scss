@@ -34,7 +34,6 @@
 	.menu-toggle {
 		padding: 0;
 		width: 2.2em;
-		height: 2em;
 		font-size: 1.5em;
 		font-weight: normal;
 		border-radius: 2px;
@@ -48,7 +47,6 @@
 	    		font-size: 15px;
 	    		font-size: 1rem;
 	    		font-weight: 600;
-	    		display: inline-block;
 	    	}
 	    }
 	    .menu-toggle-icon {
@@ -58,7 +56,6 @@
 		    	content: "\e5d2";
 				font-family: 'Astra';
 				text-decoration: inherit;
-				vertical-align: middle;
 			}
 		}
 		&.toggled{
@@ -67,6 +64,9 @@
 			    	content: "\e5cd";
 				}
 			}
+		}
+		.mobile-menu-wrap{
+			margin-left:0.33333em;
 		}
 	}
 }
