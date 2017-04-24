@@ -52,8 +52,7 @@ if ( ! function_exists( 'ast_page_layout' ) ) {
 					// Get the GLOBAL sidebar value.
 					// NOTE: Here not used `true` in the below function call.
 					$layout = ast_get_option( 'site-sidebar-layout' );
-				}// End if().
-
+				}
 			} else {
 
 				$layout = ast_get_option( 'archive-' . get_post_type() . '-sidebar-layout' );
