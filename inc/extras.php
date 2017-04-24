@@ -195,6 +195,10 @@ if ( ! function_exists( 'ast_get_dynamic_header_content' ) ) {
 			case 'text-html':
 					$output[] = ast_get_custom_html( $option . '-html' );
 				break;
+
+			case 'widget':
+					$output[] = ast_get_custom_widget( $option );
+				break;
 		}
 
 		return $output;
@@ -252,6 +256,39 @@ if ( ! function_exists( 'ast_get_custom_html' ) ) {
 }
 
 /**
+ * Get Widget added by user.
+ */
+if ( ! function_exists( 'ast_get_custom_widget' ) ) {
+
+	/**
+	 * Get custom widget added by user.
+	 *
+	 * @since  1.0.1
+	 * @param  string $option_name Option name.
+	 * @return Widget added by user in options panel.
+	 */
+	function ast_get_custom_widget( $option_name = '' ) {
+
+		ob_start();
+
+		if ( 'header-main-rt-section' == $option_name ) {
+			$widget_id = 'header-widget';
+		}
+		if ( 'footer-sml-section-1' == $option_name ) {
+			$widget_id = 'footer-widget-1';
+		} elseif ( 'footer-sml-section-2' == $option_name ) {
+			$widget_id = 'footer-widget-2';
+		}
+
+		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area">';
+				ast_get_sidebar( $widget_id );
+		echo '</div>';
+
+		return ob_get_clean();
+	}
+}
+
+/**
  * Function to get Small Left/Right Footer
  */
 if ( ! function_exists( 'ast_get_small_footer' ) ) {
@@ -284,7 +321,10 @@ if ( ! function_exists( 'ast_get_small_footer' ) ) {
 					) );
 
 					$output = str_replace( '[theme_author]', '<a href="' . $theme_author['theme_author_url'] . '">' . $theme_author['theme_name'] . '</a>', $output );
+				break;
 
+			case 'widget':
+					$output = ast_get_custom_widget( $section );
 				break;
 		}
 
@@ -816,6 +856,34 @@ if ( ! function_exists( 'ast_the_excerpt' ) ) {
 			the_content();
 		} else {
 			the_excerpt();
+		}
+	}
+}
+
+/**
+ * Display Sidebars
+ */
+if ( ! function_exists( 'ast_get_sidebar' ) ) {
+	/**
+	 * Get Sidebar
+	 *
+	 * @since 1.0.1
+	 * @param  string $sidebar_id 	Sidebar Id.
+	 * @return void
+	 */
+	function ast_get_sidebar( $sidebar_id ) {
+		if ( is_active_sidebar( $sidebar_id ) ) {
+			dynamic_sidebar( $sidebar_id );
+		} elseif ( current_user_can( 'edit_theme_options' ) ) { ?>
+			<div class="widget ast-no-widget-row">
+				<h2 class='widget-title'><?php echo str_replace( '-', ' ', $sidebar_id ); ?></h2>
+				<p class='no-widget-text'>
+					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+						<?php _e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+					</a>
+				</p>
+			</div>
+	        <?php
 		}
 	}
 }
