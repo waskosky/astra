@@ -46,11 +46,6 @@
   padding-left: 0;
 }
 
-.ast-no-sidebar .fl-row-fixed-width {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
 .ast-fluid-width-layout .fl-row-fixed-width .fl-row-fixed-width {
   padding-right: 0;
   padding-left: 0;

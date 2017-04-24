@@ -30,6 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'none'      => __( 'None', 'astra' ),
 			'search'    => __( 'Search', 'astra' ),
 			'text-html' => __( 'Text / HTML', 'astra' ),
+			'widget' 	=> __( 'Widget', 'astra' ),
 		),
 	) );
 
