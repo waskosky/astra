@@ -46,21 +46,104 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 */
 		public function __construct() {
 
-			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ), 10 );
-			add_action( 'woocommerce_after_main_content',  array( $this, 'before_main_content_end' ), 10 );
-			add_filter( 'ast_theme_assets',                array( $this, 'add_styles' ) );
-			add_action( 'init',                            array( $this, 'woocommerce_init' ), 1 );
+			// Customizer.
+			add_filter( 'ast_theme_defaults',              			array( $this, 'theme_defaults' ) );
+			add_action( 'customize_register',              			array( $this, 'customize_register' ) );
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_action( 'woocommerce_before_main_content', 			array( $this, 'before_main_content_start' ) );
+			add_action( 'woocommerce_after_main_content',  			array( $this, 'before_main_content_end' ) );
+			add_filter( 'ast_theme_assets',                			array( $this, 'add_styles' ) );
+			add_action( 'init',                            			array( $this, 'woocommerce_init' ), 1 );
 
-			add_action( 'init', array( $this, 'woocommerce_init' ), 1 );
-			add_filter( 'loop_shop_columns', array( $this, 'loop_shop_columns_callback' ) );
-			add_filter( 'ast_dynamic_css', array( $this, 'dynamic_css_callback' ), 10, 2 );
+			add_filter( 'loop_shop_columns', 						array( $this, 'shop_columns' ) );
+			add_filter( 'loop_shop_per_page', 						array( $this, 'shop_no_of_products' ) );
+			add_filter( 'body_class', 								array( $this, 'shop_page_products_item_class' ) );
+			add_filter( 'ast_dynamic_css', 							array( $this, 'dynamic_css_callback' ), 10, 2 );
+
+			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
+		}
+
+		/**
+		 * Theme Defaults.
+		 *
+		 * @param array $default Array of options value.
+		 * @return array
+		 */
+		function theme_defaults( $defaults ) {
+			
+			$defaults['shop-grid']           = '3';
+			$defaults['shop-no-of-products'] = '9';
+
+			return $defaults;
+		}
+
+		/**
+		 * Add postMessage support for site title and description for the Theme Customizer.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		function customize_register( $wp_customize ) {
+
+			/**
+			 * Get theme option default values
+			 *
+			 * @see Ast_Theme_Options::defaults() in parent theme
+			 */
+			$defaults = Ast_Theme_Options::defaults();
+
+			/**
+			 * Register Sections & Panels
+			 */
+			$wp_customize->add_section( 'section-shop', array(
+				'title'    => __( 'Woo - Shop Page', 'astra' ),
+				'panel'    => 'panel-layout',
+				'priority' => 55,
+			) );
+
+			/**
+			 * Option: Shop Columns
+			 */
+			$wp_customize->add_setting( AST_THEME_SETTINGS . '[shop-grid]', array(
+				'default' => $defaults['shop-grid'],
+				'type'    => 'option',
+			) );
+			$wp_customize->add_control( AST_THEME_SETTINGS . '[shop-grid]', array(
+				'section'     => 'section-shop',
+				'label'       => __( 'Shop Columns', 'astra' ),
+				'type'        => 'select',
+				'choices'     => array(
+					'1' => __( '1 Column', 'astra' ),
+					'2' => __( '2 Columns', 'astra' ),
+					'3' => __( '3 Columns', 'astra' ),
+					'4' => __( '4 Columns', 'astra' ),
+					'5' => __( '5 Columns', 'astra' ),
+					'6' => __( '6 Columns', 'astra' ),
+				),
+			) );
+
+			/**
+			 * Option: Products Per Page
+			 */
+			$wp_customize->add_setting( AST_THEME_SETTINGS . '[shop-no-of-products]', array(
+				'default' => $defaults['shop-no-of-products'],
+				'type'    => 'option',
+			) );
+			$wp_customize->add_control( AST_THEME_SETTINGS . '[shop-no-of-products]', array(
+				'section'     => 'section-shop',
+				'label'       => __( 'Products Per Page', 'astra' ),
+				'type'        => 'number',
+				'input_attrs' => array(
+					'min'  => 1,
+					'step' => 1,
+					'max'  => 50,
+				),
+			) );
 		}
 
 		function dynamic_css_callback( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			$theme_color  = ast_get_option( 'link-color' );
+			$text_color   = ast_get_option( 'text-color' );
 			$link_h_color = ast_get_option( 'link-h-color' );
 
 			$btn_color    = ast_get_option( 'button-color' );
@@ -95,6 +178,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 				'.woocommerce .woocommerce-message::before' => array(
 					'color' => $theme_color
 				),
+				'.woocommerce ul.products li.product .price' => array(
+					'color' => $text_color
+				),
 			);
 
 			/* Parse CSS from array() */
@@ -107,10 +193,39 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * @param  int $col Shop Column.
 		 * @return int
 		 */
-		function loop_shop_columns_callback( $col ) {
+		function shop_columns( $col ) {
 
-			// Update shop product grid to 3.
-			return 3;
+			$col = ast_get_option( 'shop-grid' );
+	        return $col;
+		}
+
+		function shop_no_of_products( ) {
+			$products = ast_get_option( 'shop-no-of-products' );
+	        return $products;
+		}
+
+		/**
+		 * Add products item class on shop page
+		 */
+	    function shop_page_products_item_class( $classes = '' ) {
+
+	        if ( is_shop() ) {
+	        	$classes[] = 'columns-' . ast_get_option( 'shop-grid' ); // self::get_grid_classes( $grid_columns );
+	        }
+
+	        return $classes;
+	    }
+
+		/**
+		 * Update woocommerce related product numbers
+		 * @param  array $args Related products array.
+		 * @return array
+		 */
+		function related_products_args( $args ) { 
+
+			$col = ast_get_option( 'shop-grid' );
+			$args['posts_per_page'] = $col;
+			return $args; 
 		}
 
 		/**
