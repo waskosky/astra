@@ -2813,7 +2813,7 @@ body {
 }
 
 .ast-header-break-point .ast-header-custom-item .widget:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 0.66666em;
 }
 
 /**
@@ -2867,8 +2867,8 @@ body {
  * 9 - Header Widget Area
  */
 .ast-header-custom-item .widget {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0.66666em;
+  margin-bottom: 0.66666em;
 }
 
 .ast-header-custom-item .widget li {
@@ -3150,8 +3150,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point .main-navigation .widget {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0.66666em;
+  margin-bottom: 0.66666em;
 }
 
 .ast-header-break-point .main-navigation .widget li {
@@ -3159,7 +3159,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point .main-navigation .widget:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 0.66666em;
 }
 
 .ast-header-break-point .main-header-bar-navigation {

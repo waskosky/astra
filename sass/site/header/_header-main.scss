@@ -252,13 +252,13 @@ li.ast-masthead-custom-menu-items {
             width: 100%;
         }
         .widget {
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin-top: 0.66666em;
+            margin-bottom: 0.66666em;
             li{
                 width: auto;       
             }
             &:last-child{
-                margin-bottom: 10px;
+                margin-bottom: 0.66666em;
             }
         }
     }
