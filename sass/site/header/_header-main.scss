@@ -251,6 +251,16 @@ li.ast-masthead-custom-menu-items {
         li {
             width: 100%;
         }
+        .widget {
+            margin-top: 0.66666em;
+            margin-bottom: 0.66666em;
+            li{
+                width: auto;       
+            }
+            &:last-child{
+                margin-bottom: 0.66666em;
+            }
+        }
     }
 
     /* Main Header */
