@@ -14,7 +14,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Disable Primary Navigation
+	 * Option: Header Layout
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-layouts]', array(
+		'default' => $defaults['header-layouts'],
+		'type'    => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+	) );
+
+	$wp_customize->add_control( new Ast_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-layouts]', array(
+		'section'     => 'section-header',
+		'priority'    => 5,
+		'label'       => __( 'Header', 'astra' ),
+		'type'        => 'ast-radio-image',
+		'choices'     => array(
+			'header-main-layout-1'			=> array(
+									'label' => __( 'Logo Left', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+								),
+			'header-main-layout-2' 			=> array(
+									'label' => __( 'Logo Center', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+								),
+			'header-main-layout-3' 		=> array(
+									'label' => __( 'Logo Right', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+								),
+		),
+	) ) );
+
+	/**
+	 * Option: Disable Menu
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
 		'default'           => $defaults['disable-primary-nav'],
@@ -24,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
 		'type'        => 'checkbox',
 		'section'     => 'section-header',
-		'label'       => __( 'Disable Navigation', 'astra' ),
+		'label'       => __( 'Disable Menu', 'astra' ),
 		'priority'	  => 5,
 	) );
 
