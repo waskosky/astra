@@ -50,8 +50,10 @@
 	    	}
 	    }
 	    .menu-toggle-icon {
-	    	font-style: normal;
-	    	display: inline-block;
+			font-style: normal;
+			display: inline-block;
+			vertical-align: middle;
+    
 	    	&:before {
 		    	content: "\e5d2";
 				font-family: 'Astra';
@@ -66,7 +68,7 @@
 			}
 		}
 		.mobile-menu-wrap{
-			margin-left:0.33333em;
+			display: inline-block;
 		}
 	}
 }

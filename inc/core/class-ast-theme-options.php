@@ -128,6 +128,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'display-site-tagline'             => 0,
 
 				// Header - Primary.
+				'disable-primary-nav'			   => false,
 				'header-main-rt-section'           => 'none',
 				'header-main-rt-section-html'      => __( 'HTML is allowed here' , 'astra' ),
 				'header-main-sep'                  => 1,

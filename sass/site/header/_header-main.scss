@@ -199,6 +199,9 @@ li.ast-masthead-custom-menu-items {
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 padding: 0.5em 1em;
+                @media (max-width: $mx-col-md ) {
+                    padding: 0.4386em 1em;
+                }
                 font-weight: normal;
 
                 &::before {
@@ -254,6 +257,16 @@ li.ast-masthead-custom-menu-items {
 
         li {
             width: 100%;
+        }
+        .widget {
+            margin-top: 0.66666em;
+            margin-bottom: 0.66666em;
+            li{
+                width: auto;       
+            }
+            &:last-child{
+                margin-bottom: 0.66666em;
+            }
         }
     }
 

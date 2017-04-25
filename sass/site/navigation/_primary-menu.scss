@@ -124,6 +124,7 @@
 				padding: 0 20px;
 				display: inline-block;
 				width: 100%;
+				border-bottom: 1px solid #ececec;
 			}
 			&.children li a,
 			&.sub-menu li a {
@@ -135,7 +136,7 @@
 			}
 			&.children li li a,
 			&.sub-menu li li a {
-			    padding-left: 45px;
+			    padding-left: 40px;
 			    &:before{
 			    	content: "--";
     				margin-right: 2px;
@@ -143,7 +144,7 @@
 			}
 			&.children li li li a,
 			&.sub-menu li li li a {
-			    padding-left: 60px;
+			    padding-left: 50px;
 			    &:before{
 			    	content: "---";
     				margin-right: 2px;
@@ -151,7 +152,7 @@
 			}
 			&.children li li li li a,
 			&.sub-menu li li li li a {
-			    padding-left: 75px;
+			    padding-left: 60px;
 			    &:before{
 			    	content: "----";
     				margin-right: 2px;
@@ -161,9 +162,9 @@
 	}
 
 	.main-header-menu {
-		background-color: #ececec;
+		background-color: #f5f5f5;
 		ul {
-			background-color: #ececec;
+			background-color: #f5f5f5;
 			position: relative;
 			opacity: 1;
 			visibility: visible;

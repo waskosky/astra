@@ -38,11 +38,16 @@ if ( ! function_exists( 'ast_masthead_get_menu_items' ) ) :
 		// Get selected custom menu items.
 		$markup   = '';
 		$sections = ast_get_dynamic_header_content( 'header-main-rt-section' );
+		$disable_primary_navigation = ast_get_option( 'disable-primary-nav' );
+		$html_element = 'li';
+		if ( $disable_primary_navigation ) {
+			$html_element = 'div';
+		}
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
 			?>
-			<li class="ast-masthead-custom-menu-items">
+			<<?php echo $html_element; ?> class="ast-masthead-custom-menu-items">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
@@ -50,7 +55,7 @@ if ( ! function_exists( 'ast_masthead_get_menu_items' ) ) :
 					}
 				}
 				?>
-			</li>
+			</<?php echo $html_element; ?>>
 			<?php
 			$markup = ob_get_clean();
 		}
@@ -146,19 +151,26 @@ if ( ! function_exists( 'ast_masthead_toggle_buttons_primary' ) ) {
 	 * @since 1.0.0
 	 */
 	function ast_masthead_toggle_buttons_primary() {
+
 		$menu_title = apply_filters( 'ast_main_menu_toggle_label', __( 'Menu', 'astra' ) );
-		$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' )
+		$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' );
+		$disable_primary_navigation = ast_get_option( 'disable-primary-nav' );
+		$custom_header_section = ast_get_option( 'header-main-rt-section' );
+
+		if ( ! $disable_primary_navigation || 'none' != $custom_header_section ) {
+			$menu_title = apply_filters( 'ast_main_menu_toggle_label', __( 'Menu', 'astra' ) );
+			$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' )
 		?>
 		<div class="ast-button-wrap">
 			<span class="screen-reader-text"><?php echo esc_html( $menu_title ); ?></span>
-			<button type="button" class="ast-flex ast-justify-content-center menu-toggle main-header-menu-toggle" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
+			<button type="button" class="menu-toggle main-header-menu-toggle" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
 				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
-				<div class="ast-flex mobile-menu-wrap">
+				<div class="mobile-menu-wrap">
 					<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
 				</div>
 			</button>
 		</div>
-		<?php
+	<?php }
 	}
 }
 
