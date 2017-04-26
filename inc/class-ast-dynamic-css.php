@@ -298,6 +298,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				),
 				'.secondary .calendar_wrap #today, .ast-progress-val span' => array(
 			    	'background' => $link_color,
+			    	'color' => ast_get_foreground_color( $link_color ),
 				),
 				'.secondary a:hover + .post-count, .secondary a:focus + .post-count' => array(
 					'background'   => $link_color,

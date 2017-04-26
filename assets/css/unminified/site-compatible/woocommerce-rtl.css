@@ -24,13 +24,13 @@
 }
 
 .woocommerce .woocommerce-ordering select {
-  padding: 0;
+  padding: .5em;
 }
 
-.woocommerce #respond input#submit,
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce input.button {
+.woocommerce .product #respond input#submit,
+.woocommerce .product a.button,
+.woocommerce .product button.button,
+.woocommerce .product input.button {
   padding: 0.5em 0.75em;
 }
 
@@ -40,16 +40,51 @@
   right: 1em;
 }
 
-.woocommerce ul.products li.product,
-.woocommerce-page ul.products li.product {
-  text-align: center;
+.woocommerce .woocommerce-result-count {
+  margin-top: .5em;
 }
 
-.woocommerce ul.products li.product .onsale,
-.woocommerce-page ul.products li.product .onsale {
+.woocommerce nav.woocommerce-pagination ul {
+  border: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+  border-width: 1px;
+  border-style: solid;
+  margin: 0 .4em;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+  padding: .75em;
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.woocommerce span.onsale {
   width: 3.236em;
   height: 3.236em;
   line-height: 3;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  margin-bottom: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+  padding: 1.618em;
+  border: 1px solid #ebe9eb;
+  border-top: 0;
+}
+
+.related.products h2,
+.woocommerce-tabs h2 {
+  font-size: 1.5rem;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  text-align: center;
 }
 
 .woocommerce ul.products li.product .price,
@@ -76,6 +111,10 @@
 .woocommerce .related.products li.product:last-child,
 .woocommerce-page .related.products li.product:last-child {
   margin-left: 0;
+}
+
+.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image:first-child {
+  margin-bottom: 1em;
 }
 
 .woocommerce-tabs .shop_attributes td {
@@ -123,4 +162,43 @@
 .ast-separate-container.single-product .ast-article-single {
   margin: 0;
   padding: 0;
+}
+
+/**
+ * Cart Page Styles
+ */
+.woocommerce-cart-form__cart-item td.product-remove {
+  text-align: center;
+}
+
+.woocommerce-cart-form__cart-item td.product-remove a.remove {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.25em;
+  height: 1.25em;
+  width: 1.25em;
+  border-radius: 0;
+  border: 1px solid;
+}
+
+.woocommerce-cart-form__cart-item td.product-remove a.remove:hover {
+  border-color: red;
+}
+
+.woocommerce input.button {
+  border: 1px solid;
+}
+
+.cart-collaterals h2 {
+  font-size: 1.5rem;
+}
+
+.woocommerce-cart .hentry,
+.woocommerce-cart ul.products {
+  margin-bottom: 0;
+}
+
+.woocommerce-cart .hentry li.product,
+.woocommerce-cart ul.products li.product {
+  margin-bottom: 0;
 }

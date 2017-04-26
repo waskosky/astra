@@ -162,12 +162,12 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 				'.woocommerce .product span.onsale' => array(
 					'background-color' => $theme_color
 				),
-				'.woocommerce .product a.button, .woocommerce .woocommerce-message a.button' => array(
+				'.woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover' => array(
 					'color'            => $btn_color,
 					'border-color'     => $btn_bg_color,
 					'background-color' => $btn_bg_color
 				),
-				'.woocommerce .product a.button:hover, .woocommerce .woocommerce-message a.button:hover' => array(
+				'.woocommerce .product a.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color
@@ -178,8 +178,15 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 				'.woocommerce .woocommerce-message::before' => array(
 					'color' => $theme_color
 				),
-				'.woocommerce ul.products li.product .price' => array(
+				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price' => array(
 					'color' => $text_color
+				),
+				'.woocommerce nav.woocommerce-pagination ul li' => array(
+					'border-color' => $theme_color,
+				),
+				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(
+					'background' => $theme_color,
+					'color'      => $btn_color,
 				),
 			);
 
@@ -208,8 +215,8 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * Add products item class on shop page
 		 */
 	    function shop_page_products_item_class( $classes = '' ) {
-
-	        if ( is_shop() ) {
+	    	
+	    	if ( is_shop() || 'product' == get_post_type() ) {
 	        	$classes[] = 'columns-' . ast_get_option( 'shop-grid' ); // self::get_grid_classes( $grid_columns );
 	        }
 
