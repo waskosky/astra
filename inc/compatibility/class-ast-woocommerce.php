@@ -62,6 +62,22 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'woocommerce_add_to_cart_fragments', 		array( $this, 'add_to_cart_fragments' ) );
+
+			add_action( 'woocommerce_before_shop_loop_item_title', 	array( $this, 'product_flip_image' ), 10 );
+		}
+
+		/**
+		 * Product Flip Image
+		 */
+		function product_flip_image() {
+
+		    global $product;
+
+		    $attachment_ids = $product->get_gallery_image_ids();
+
+		    if ( $attachment_ids ) {
+		    	echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), '', false, array( 'class' => 'show-on-hover' ) ) );
+		    }
 		}
 
 		/**

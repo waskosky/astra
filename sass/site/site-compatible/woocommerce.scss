@@ -1,25 +1,26 @@
 /**
  * Astra Theme compatibility with WooCommerce
  */
+@import "../mixins/mixins-master";
 @import "../../grid/variables";
 @import "../variables-site/structure";
 @import "../variables-site/colors";
 
 .woocommerce {
- 	
+
  	h2 {
      	margin-bottom: 0.7em;
 	}
 
 	.quantity {
-		input[type="text"], 
-		input[type="number"], 
+		input[type="text"],
+		input[type="number"],
 		input[type="email"] {
 	  	  padding: 0.3em;
 		}
 
-		input[type="text"]:focus, 
-		input[type="number"]:focus, 
+		input[type="text"]:focus,
+		input[type="number"]:focus,
 		input[type="email"]:focus {
 	  	  outline:none;
 	  	  box-shadow: none;
@@ -32,13 +33,34 @@
 	}
 
 	.product {
-		#respond input#submit, 
-		a.button, 
-		button.button, 
+		#respond input#submit,
+		a.button,
+		button.button,
 		input.button {
 			padding: 0.5em 0.75em;
 		}
 	}
+
+	.show-on-hover {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    height: 100%;
+	    right: 0;
+	    bottom: 0;
+	    padding: 0;
+	    margin: 0;
+
+	    opacity: 0;
+	    filter: blur(0);
+	    @include ast-transition();
+	}
+	li.product:hover .show-on-hover {
+	    opacity: 1;
+	    transform: scale(1) translateZ(0) translateY(0);
+	    pointer-events: inherit;
+	}
+
 
 	.products {
 		.star-rating {
@@ -47,7 +69,7 @@
 			left: 1em;
 		}
 	}
-	
+
 	.woocommerce-result-count {
 		margin-top: .5em;
 	}
@@ -100,7 +122,7 @@
 	ul.products {
 		li.product {
 			text-align: center;
-			
+
 			.onsale {
 			}
 
@@ -134,7 +156,7 @@
 	}
 }
 
-// Shop Page Tab Style 
+// Shop Page Tab Style
 
 .woocommerce-tabs {
 	.shop_attributes td {
@@ -212,7 +234,7 @@
 	}
 }
 .woocommerce-cart {
-	
+
 	.hentry,
 	ul.products {
 		margin-bottom: 0;
