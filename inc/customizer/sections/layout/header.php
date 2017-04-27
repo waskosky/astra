@@ -13,6 +13,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$header_rt_sections = array(
+	'none'      => __( 'None', 'astra' ),
+	'search'    => __( 'Search', 'astra' ),
+	'text-html' => __( 'Text / HTML', 'astra' ),
+	'widget' 	=> __( 'Widget', 'astra' ),
+);
+
+if( class_exists( 'WooCommerce' ) ) {
+	$header_rt_sections['cart'] = __( 'Cart', 'astra' );
+}
+
 	/**
 	 * Option: Custom Menu Item
 	 */
@@ -26,12 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'section'     => 'section-header',
 		'priority' 	  => 5,
 		'label'       => __( 'Custom Menu Item', 'astra' ),
-		'choices'     => array(
-			'none'      => __( 'None', 'astra' ),
-			'search'    => __( 'Search', 'astra' ),
-			'text-html' => __( 'Text / HTML', 'astra' ),
-			'widget' 	=> __( 'Widget', 'astra' ),
-		),
+		'choices'     => $header_rt_sections,
 	) );
 
 	/**
