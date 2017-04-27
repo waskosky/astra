@@ -14,6 +14,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Header Layout
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-layouts]', array(
+		'default' => $defaults['header-layouts'],
+		'type'    => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+	) );
+
+	$wp_customize->add_control( new Ast_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-layouts]', array(
+		'section'     => 'section-header',
+		'priority'    => 5,
+		'label'       => __( 'Header', 'astra' ),
+		'type'        => 'ast-radio-image',
+		'choices'     => array(
+			'header-main-layout-1'			=> array(
+									'label' => __( 'Logo Left', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+								),
+			'header-main-layout-2' 			=> array(
+									'label' => __( 'Logo Center', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+								),
+			'header-main-layout-3' 		=> array(
+									'label' => __( 'Logo Right', 'astra' ),
+									'path'	=> AST_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+								),
+		),
+	) ) );
+
+	/**
+	 * Option: Disable Menu
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
+		'default'           => $defaults['disable-primary-nav'],
+		'type'              => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_checkbox' ),
+	) );
+	$wp_customize->add_control( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
+		'type'        => 'checkbox',
+		'section'     => 'section-header',
+		'label'       => __( 'Disable Menu', 'astra' ),
+		'priority'	  => 5,
+	) );
+
+	/**
 	 * Option: Custom Menu Item
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-rt-section]', array(
@@ -52,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( AST_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-			'selector'            => '.main-header-menu .ast-masthead-custom-menu-items .ast-custom-html',
+			'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
 			'container_inclusive' => false,
 			'render_callback'     => array( 'AST_Customizer_Partials', '_render_header_main_rt_section_html' ),
 		) );
