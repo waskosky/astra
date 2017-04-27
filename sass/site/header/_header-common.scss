@@ -58,9 +58,11 @@
         .ast-masthead-custom-menu-items{
             padding-left: 20px;
             padding-right: 20px;
+            margin-bottom: 1em;
+            margin-top: 1em;
         }
         .widget:last-child{
-            margin-bottom: 0.66666em;
+            margin-bottom: 1em;
         }
     }
 }
@@ -88,6 +90,7 @@
             margin-bottom: 0;
         }
         .widget{
+            margin-bottom: 1em;
             ul{
                 position: static;
                 border: 0;
@@ -118,8 +121,8 @@
  */
 .ast-header-custom-item{
     .widget {
-        margin-top: 0.66666em;
-        margin-bottom: 0.66666em;
+        margin-top: 1em;
+        margin-bottom: 1em;
         li{
             width: auto;       
         }

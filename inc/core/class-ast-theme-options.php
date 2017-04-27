@@ -131,7 +131,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'disable-primary-nav'				=> false,
 				'header-layouts'					=> 'header-main-layout-1',
 				'header-main-rt-section'			=> 'none',
-				'header-main-rt-section-html'		=> __( 'HTML is allowed here' , 'astra' ),
+				'header-main-rt-section-html'		=> '<button>' . __( 'Contact Us' , 'astra' ) . '</button>',
 				'header-main-sep'					=> 1,
 				'header-main-sep-color'				=> '',
 				'header-main-layout-width'			=> 'content',
