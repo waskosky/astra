@@ -195,6 +195,10 @@ if ( ! function_exists( 'ast_get_dynamic_header_content' ) ) {
 			case 'text-html':
 					$output[] = ast_get_custom_html( $option . '-html' );
 				break;
+
+			case 'widget':
+					$output[] = ast_get_custom_widget( $option );
+				break;
 		}
 
 		return $output;
@@ -252,6 +256,39 @@ if ( ! function_exists( 'ast_get_custom_html' ) ) {
 }
 
 /**
+ * Get Widget added by user.
+ */
+if ( ! function_exists( 'ast_get_custom_widget' ) ) {
+
+	/**
+	 * Get custom widget added by user.
+	 *
+	 * @since  1.0.1
+	 * @param  string $option_name Option name.
+	 * @return Widget added by user in options panel.
+	 */
+	function ast_get_custom_widget( $option_name = '' ) {
+
+		ob_start();
+
+		if ( 'header-main-rt-section' == $option_name ) {
+			$widget_id = 'header-widget';
+		}
+		if ( 'footer-sml-section-1' == $option_name ) {
+			$widget_id = 'footer-widget-1';
+		} elseif ( 'footer-sml-section-2' == $option_name ) {
+			$widget_id = 'footer-widget-2';
+		}
+
+		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area">';
+				ast_get_sidebar( $widget_id );
+		echo '</div>';
+
+		return ob_get_clean();
+	}
+}
+
+/**
  * Function to get Small Left/Right Footer
  */
 if ( ! function_exists( 'ast_get_small_footer' ) ) {
@@ -284,7 +321,10 @@ if ( ! function_exists( 'ast_get_small_footer' ) ) {
 					) );
 
 					$output = str_replace( '[theme_author]', '<a href="' . $theme_author['theme_author_url'] . '">' . $theme_author['theme_name'] . '</a>', $output );
+				break;
 
+			case 'widget':
+					$output = ast_get_custom_widget( $section );
 				break;
 		}
 
@@ -397,6 +437,13 @@ if ( ! function_exists( 'ast_toggle_buttons_markup' ) ) {
 	 * @since 1.0.0
 	 */
 	function ast_toggle_buttons_markup() {
+		$disable_primary_navigation = ast_get_option( 'disable-primary-nav' );
+		$custom_header_section = ast_get_option( 'header-main-rt-section' );
+		$menu_bottons = true;
+		if ( $disable_primary_navigation && 'none' == $custom_header_section ) {
+			$menu_bottons = false;
+		}
+		if ( apply_filters( 'ast_enable_mobile_menu_buttons', $menu_bottons ) ) {
 		?>
 		<div class="ast-mobile-menu-buttons">
 
@@ -408,6 +455,7 @@ if ( ! function_exists( 'ast_toggle_buttons_markup' ) ) {
 
 		</div>
 		<?php
+		}
 	}
 }// End if().
 
@@ -425,42 +473,52 @@ if ( ! function_exists( 'ast_primary_navigation_markup' ) ) {
 	 */
 	function ast_primary_navigation_markup() {
 
-		$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
+		$disable_primary_navigation = ast_get_option( 'disable-primary-nav' );
 
-		// Primary Menu.
-		$primary_menu_args = array(
-			'theme_location'  => 'primary',
-			'menu_id'         => 'primary-menu',
-			'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
-			'container'       => 'div',
-			'container_class' => 'main-navigation',
-		);
+		if ( $disable_primary_navigation ) {
+			echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+			echo ast_masthead_get_menu_items();
+			echo '</div>';
+		} else {
 
-		// Fallback Menu if primary menu not set.
-		$fallback_menu_args = array(
-			'theme_location' => 'primary',
-			'menu_id'        => 'primary-menu',
-			'menu_class'     => 'main-navigation',
-			'container'      => 'div',
+			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
-			'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
-			'after'          => '</ul>',
-		); ?>
+			// Primary Menu.
+			$primary_menu_args = array(
+				'theme_location'  => 'primary',
+				'menu_id'         => 'primary-menu',
+				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
+				'container'       => 'div',
+				'container_class' => 'main-navigation',
+			);
 
-		<div class="main-header-bar-navigation" >
+			// Fallback Menu if primary menu not set.
+			$fallback_menu_args = array(
+				'theme_location' => 'primary',
+				'menu_id'        => 'primary-menu',
+				'menu_class'     => 'main-navigation',
+				'container'      => 'div',
 
-			<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
-				<?php
-				if ( has_nav_menu( 'primary' ) ) {
-					wp_nav_menu( $primary_menu_args );
-				} else {
-					wp_page_menu( $fallback_menu_args );
-				}
-				?>
-			</nav><!-- #site-navigation -->
+				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
+				'after'          => '</ul>',
+			); ?>
 
-		</div>
-		<?php
+			<div class="main-header-bar-navigation" >
+
+				<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
+					<?php
+					if ( has_nav_menu( 'primary' ) ) {
+						wp_nav_menu( $primary_menu_args );
+					} else {
+						wp_page_menu( $fallback_menu_args );
+					}
+					?>
+				</nav><!-- #site-navigation -->
+
+			</div>
+			<?php
+		}// End if().
+
 	}
 }// End if().
 
@@ -571,7 +629,13 @@ if ( ! function_exists( 'ast_header_classes' ) ) {
 	 */
 	function ast_header_classes() {
 
-		$classes = apply_filters( 'ast_header_class', array( 'site-header' ) );
+		$classes = array( 'site-header' );
+		$menu_logo_location = ast_get_option( 'header-layouts' );
+		if ( 'header-main-layout-2' == $menu_logo_location || 'header-main-layout-3' == $menu_logo_location ) {
+			$classes[] = $menu_logo_location;
+		}
+
+		$classes = apply_filters( 'ast_header_class', $classes );
 
 		echo join( ' ', array_unique( $classes ) );
 	}
@@ -816,6 +880,33 @@ if ( ! function_exists( 'ast_the_excerpt' ) ) {
 			the_content();
 		} else {
 			the_excerpt();
+		}
+	}
+}
+
+/**
+ * Display Sidebars
+ */
+if ( ! function_exists( 'ast_get_sidebar' ) ) {
+	/**
+	 * Get Sidebar
+	 *
+	 * @since 1.0.1
+	 * @param  string $sidebar_id 	Sidebar Id.
+	 * @return void
+	 */
+	function ast_get_sidebar( $sidebar_id ) {
+		if ( is_active_sidebar( $sidebar_id ) ) {
+			dynamic_sidebar( $sidebar_id );
+		} elseif ( current_user_can( 'edit_theme_options' ) ) { ?>
+			<div class="widget ast-no-widget-row">
+				<p class='no-widget-text'>
+					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+						<?php _e( 'Add Widget', 'astra' ); ?>
+					</a>
+				</p>
+			</div>
+	        <?php
 		}
 	}
 }
