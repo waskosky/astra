@@ -153,7 +153,7 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 			/* Directory and Extension */
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			add_editor_style( 'assets/css/'.$dir_name.'/editor-style'.$file_prefix.'.css' );
+			add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 		}
 	}
 }// End if().
