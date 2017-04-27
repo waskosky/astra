@@ -2433,7 +2433,6 @@ body {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
-  border-bottom: 1px solid #ececec;
 }
 
 .ast-header-break-point .main-navigation ul.children li a,
@@ -2441,52 +2440,28 @@ body {
   padding-right: 30px;
 }
 
-.ast-header-break-point .main-navigation ul.children li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li a:before {
-  content: "-";
-  margin-left: 2px;
-}
-
 .ast-header-break-point .main-navigation ul.children li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li a {
-  padding-right: 40px;
-}
-
-.ast-header-break-point .main-navigation ul.children li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li a:before {
-  content: "--";
-  margin-left: 2px;
+  padding-right: 45px;
 }
 
 .ast-header-break-point .main-navigation ul.children li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li a {
-  padding-right: 50px;
-}
-
-.ast-header-break-point .main-navigation ul.children li li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li li a:before {
-  content: "---";
-  margin-left: 2px;
+  padding-right: 60px;
 }
 
 .ast-header-break-point .main-navigation ul.children li li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li li a {
-  padding-right: 60px;
-}
-
-.ast-header-break-point .main-navigation ul.children li li li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li li li a:before {
-  content: "----";
-  margin-left: 2px;
+  padding-right: 75px;
 }
 
 .ast-header-break-point .main-header-menu {
-  background-color: #f5f5f5;
+  background-color: #ececec;
 }
 
 .ast-header-break-point .main-header-menu ul {
-  background-color: #f5f5f5;
-  position: relative;
+  background-color: #ececec;
+  position: static;
   opacity: 1;
   visibility: visible;
   border: 0;
@@ -3126,13 +3101,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   -moz-osx-font-smoothing: grayscale;
   padding: 0.5em 1em;
   font-weight: normal;
-}
-
-@media (max-width: 767px) {
-  .ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle,
-  .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle {
-    padding: 0.4386em 1em;
-  }
 }
 
 .ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle::before,
