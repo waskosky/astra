@@ -129,8 +129,8 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 
 			// Add theme support for Custom Logo.
 			add_theme_support( 'custom-logo', array(
-				'width'       => 250,
-				'height'      => 250,
+				'width'       => 180,
+				'height'      => 60,
 				'flex-width'  => true,
 				'flex-height' => true,
 			) );
