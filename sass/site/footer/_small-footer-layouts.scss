@@ -21,6 +21,25 @@
 		    padding: 0 0.5em;
 		}
 	}
+	/* Footer Widget sections */
+	.widget-title,
+	    .no-widget-text{
+	        margin-bottom: 0;
+	    }
+	.widget{
+		margin-bottom: 1em;
+	    ul{
+	        position: static;
+	        border: 0;
+	        width: auto;
+	        a{
+	            border: 0;
+	        }
+	    }
+	    &:last-child {
+		    margin-bottom: 0;
+		}
+	}
 }
 
 /* Auto width footer sections */
