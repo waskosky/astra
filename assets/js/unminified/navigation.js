@@ -105,7 +105,7 @@ var toggleClass = function ( el, className ) {
 	    }, false);
 	}
 
-	AstMenuAlignment = function( selector ) {
+	AstraNavigationMenu = function( selector ) {
 
 		var parentList = document.querySelectorAll( selector );
 
@@ -148,51 +148,55 @@ var toggleClass = function ( el, className ) {
 		};
 	};
 
-	AstMenuAlignment( 'ul.main-header-menu li' );
+	AstraNavigationMenu( 'ul.main-header-menu li' );
 
-	/* Submenu button click */
-	var ast_menu_toggle = document.getElementsByClassName( 'ast-menu-toggle' );
-	for (var i = 0; i < ast_menu_toggle.length; i++) {
+	AstraToggleMenu = function( selector ) {
+		var ast_menu_toggle = document.querySelectorAll( selector );
+		/* Submenu button click */
+		for (var i = 0; i < ast_menu_toggle.length; i++) {
 
-		ast_menu_toggle[i].addEventListener( 'click', function ( event ) {
-			event.preventDefault();
+			ast_menu_toggle[i].addEventListener( 'click', function ( event ) {
+				event.preventDefault();
 
-			var parent_li = this.parentNode;
+				var parent_li = this.parentNode;
 
-			var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
-			for (var j = 0; j < parent_li_child.length; j++) {
+				var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+				for (var j = 0; j < parent_li_child.length; j++) {
 
-				parent_li_child[j].classList.remove( 'ast-submenu-expanded' );
+					parent_li_child[j].classList.remove( 'ast-submenu-expanded' );
 
-				var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );
-				parent_li_child_sub_menu.style.display = 'none';
-			};
+					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );
+					parent_li_child_sub_menu.style.display = 'none';
+				};
 
-			var parent_li_sibling = parent_li.parentNode.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
-			for (var j = 0; j < parent_li_sibling.length; j++) {
+				var parent_li_sibling = parent_li.parentNode.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+				for (var j = 0; j < parent_li_sibling.length; j++) {
 
-				if ( parent_li_sibling[j] != parent_li ) {
+					if ( parent_li_sibling[j] != parent_li ) {
 
-					parent_li_sibling[j].classList.remove( 'ast-submenu-expanded' );
+						parent_li_sibling[j].classList.remove( 'ast-submenu-expanded' );
 
-					var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
-					for (var k = 0; k < all_sub_menu.length; k++) {
-						all_sub_menu[k].style.display = 'none';
-					};
+						var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
+						for (var k = 0; k < all_sub_menu.length; k++) {
+							all_sub_menu[k].style.display = 'none';
+						};
+					}
+				};
+
+				if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
+					toggleClass( parent_li, 'ast-submenu-expanded' );
+
+					if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
+						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
+					} else {
+						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
+					}
 				}
-			};
-
-			if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
-				toggleClass( parent_li, 'ast-submenu-expanded' );
-
-				if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
-					parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
-				} else {
-					parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
-				}
-			}
-		}, false);
+			}, false);
+		};
 	};
+
+	AstraToggleMenu('ul.main-header-menu .ast-menu-toggle');
 
 	document.body.addEventListener("astra-header-responsive-enabled", function() {
 
