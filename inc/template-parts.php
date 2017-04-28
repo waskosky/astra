@@ -152,14 +152,12 @@ if ( ! function_exists( 'ast_masthead_toggle_buttons_primary' ) ) {
 	 */
 	function ast_masthead_toggle_buttons_primary() {
 
-		$menu_title = apply_filters( 'ast_main_menu_toggle_label', __( 'Menu', 'astra' ) );
-		$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' );
 		$disable_primary_navigation = ast_get_option( 'disable-primary-nav' );
 		$custom_header_section = ast_get_option( 'header-main-rt-section' );
 
 		if ( ! $disable_primary_navigation || 'none' != $custom_header_section ) {
 			$menu_title = apply_filters( 'ast_main_menu_toggle_label', __( 'Menu', 'astra' ) );
-			$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' )
+			$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' );
 		?>
 		<div class="ast-button-wrap">
 			<span class="screen-reader-text"><?php echo esc_html( $menu_title ); ?></span>

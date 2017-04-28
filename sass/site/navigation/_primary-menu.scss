@@ -103,10 +103,10 @@
 
 .submenu-with-border {
 	ul {
-		border-top: 1px solid #eee;
+		border-top: 1px solid $color-border-submenu;
 
 		a {
-			border: 1px solid #eaeaea;
+			border: 1px solid $color-border-submenu;
 			border-top: 0;
 		}
 		ul{
@@ -145,9 +145,9 @@
 	}
 
 	.main-header-menu {
-		background-color: #ececec;
+		background-color: $color-background-nav-mobile;
 		ul {
-			background-color: #ececec;
+			background-color: $color-background-nav-mobile;
 			position: static;
 			opacity: 1;
 			visibility: visible;
