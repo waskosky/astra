@@ -61,7 +61,34 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			add_filter( 'ast_dynamic_css', 							array( $this, 'dynamic_css_callback' ), 10, 2 );
 
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
+			add_filter( 'woocommerce_add_to_cart_fragments', 		array( $this, 'add_to_cart_fragments' ) );
+
+			add_action( 'woocommerce_before_shop_loop_item_title', 	array( $this, 'product_flip_image' ), 10 );
 		}
+
+		/**
+		 * Product Flip Image
+		 */
+		function product_flip_image() {
+
+		    global $product;
+
+		    $attachment_ids = $product->get_gallery_image_ids();
+
+		    if ( $attachment_ids ) {
+		    	echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), '', false, array( 'class' => 'show-on-hover' ) ) );
+		    }
+		}
+
+		/**
+		 * Ensure cart contents update when products are added to the cart via AJAX
+		 */
+	    function add_to_cart_fragments( $fragments ) {
+
+	        $fragments['.astra-menu-cart-item'] = ast_get_cart();
+
+	        return $fragments;
+	    }
 
 		/**
 		 * Theme Defaults.
@@ -70,7 +97,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * @return array
 		 */
 		function theme_defaults( $defaults ) {
-			
+
 			$defaults['shop-grid']           = '3';
 			$defaults['shop-no-of-products'] = '9';
 
@@ -221,7 +248,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * Add products item class on shop page
 		 */
 	    function shop_page_products_item_class( $classes = '' ) {
-	    	
+
 	    	if ( is_shop() || 'product' == get_post_type() ) {
 	        	$classes[] = 'columns-' . ast_get_option( 'shop-grid' ); // self::get_grid_classes( $grid_columns );
 	        }
@@ -234,11 +261,11 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * @param  array $args Related products array.
 		 * @return array
 		 */
-		function related_products_args( $args ) { 
+		function related_products_args( $args ) {
 
 			$col = ast_get_option( 'shop-grid' );
 			$args['posts_per_page'] = $col;
-			return $args; 
+			return $args;
 		}
 
 		/**
