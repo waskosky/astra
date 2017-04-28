@@ -151,24 +151,24 @@ if ( ! function_exists( 'ast_masthead_toggle_buttons_primary' ) ) {
 	 * @since 1.0.0
 	 */
 	function ast_masthead_toggle_buttons_primary() {
+
 		$disable_primary_navigation = ast_get_option( 'disable-primary-nav' );
 		$custom_header_section = ast_get_option( 'header-main-rt-section' );
 
 		if ( ! $disable_primary_navigation || 'none' != $custom_header_section ) {
-
 			$menu_title = apply_filters( 'ast_main_menu_toggle_label', __( 'Menu', 'astra' ) );
-			$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' )
-			?>
-			<div class="ast-button-wrap">
-				<span class="screen-reader-text"><?php echo esc_html( $menu_title ); ?></span>
-				<button type="button" class="menu-toggle main-header-menu-toggle" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
-					<i class="<?php echo esc_attr( $menu_icon ); ?>">
-						<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
-					</i>
-				</button>
-			</div>
-			<?php
-		}
+			$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' );
+		?>
+		<div class="ast-button-wrap">
+			<span class="screen-reader-text"><?php echo esc_html( $menu_title ); ?></span>
+			<button type="button" class="menu-toggle main-header-menu-toggle" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
+				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
+				<div class="mobile-menu-wrap">
+					<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
+				</div>
+			</button>
+		</div>
+	<?php }
 	}
 }
 
