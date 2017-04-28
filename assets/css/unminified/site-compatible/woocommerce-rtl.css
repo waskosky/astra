@@ -331,7 +331,7 @@
 
 .woocommerce .widget_shopping_cart .total,
 .woocommerce.widget_shopping_cart .total {
-  padding: 0;
+  padding: 2px 0;
   border-top: 1px solid #e2e2e2;
   border-bottom: 1px solid #e2e2e2;
 }
@@ -358,6 +358,15 @@
 
 .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
   background-color: #ededed;
+}
+
+.woocommerce .widget_product_tag_cloud .tagcloud a {
+  border: 1px solid #e2e2e2;
+  padding: 0.5em 0.9em;
+  display: inline-block;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  line-height: 1.5;
 }
 
 .woocommerce .widget_shopping_cart .cart_list li,

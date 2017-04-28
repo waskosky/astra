@@ -64,6 +64,8 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			add_filter( 'woocommerce_add_to_cart_fragments', 		array( $this, 'add_to_cart_fragments' ) );
 
 			add_action( 'woocommerce_before_shop_loop_item_title', 	array( $this, 'product_flip_image' ), 10 );
+			
+			add_filter( 'woocommerce_product_tag_cloud_widget_args', 'ast_widget_tag_cloud_args', 90 );
 		}
 
 		/**

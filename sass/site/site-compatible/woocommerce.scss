@@ -356,7 +356,7 @@
 
 	.widget_shopping_cart .total, 
 	&.widget_shopping_cart .total {
-		padding: 0;
+		padding: 2px 0;
 		border-top: 1px solid #e2e2e2;
 		border-bottom: 1px solid #e2e2e2;
 	}
@@ -388,6 +388,17 @@
 	}
 	.widget_price_filter .price_slider_wrapper .ui-widget-content {
 	    background-color: #ededed;
+	}
+
+	.widget_product_tag_cloud {
+		.tagcloud a {
+			border: 1px solid #e2e2e2;
+			padding: 0.5em 0.9em;
+			display: inline-block;
+			margin-bottom: 4px;
+			margin-right: 4px;
+			line-height: 1.5;
+		}
 	}
 }
 
