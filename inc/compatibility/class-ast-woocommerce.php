@@ -64,8 +64,25 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			add_filter( 'woocommerce_add_to_cart_fragments', 		array( $this, 'add_to_cart_fragments' ) );
 
 			add_action( 'woocommerce_before_shop_loop_item_title', 	array( $this, 'product_flip_image' ), 10 );
+			add_filter( 'woocommerce_subcategory_count_html', 		array( $this, 'subcategory_count_markup' ), 10, 2 );
 			
 			add_filter( 'woocommerce_product_tag_cloud_widget_args', 'ast_widget_tag_cloud_args', 90 );
+		}
+
+		/**
+		 * Subcategory Count Markup
+		 * @param  mixed 	$content  Count Markup.
+		 * @param  object 	$category Object of Category.
+		 * @return mixed
+		 */
+		function subcategory_count_markup( $content, $category ) {
+			
+			$content = sprintf( // WPCS: XSS OK.
+					/* translators: 1: number of products */
+					_nx( '<mark class="count">%1$s Product</mark>', '<mark class="count">%1$s Products</mark>', $category->count, 'product categories', 'astra' ),
+					number_format_i18n( $category->count ) );
+		
+			return $content;
 		}
 
 		/**
