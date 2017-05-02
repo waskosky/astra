@@ -359,15 +359,6 @@
   margin: 0 0 .5em 0;
 }
 
-.woocommerce ul.product_list_widget del {
-  opacity: .5;
-}
-
-.woocommerce ul.product_list_widget ins {
-  background: inherit;
-  font-weight: 700;
-}
-
 .woocommerce del {
   opacity: .5;
 }
