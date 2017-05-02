@@ -368,6 +368,15 @@
   font-weight: 700;
 }
 
+.woocommerce del {
+  opacity: .5;
+}
+
+.woocommerce ins {
+  background: inherit;
+  font-weight: 700;
+}
+
 .woocommerce .price_slider_amount .price_label span {
   font-weight: 700;
 }

@@ -192,7 +192,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 				<span class="site-post-title-option-wrap">
 					<label for="site-post-title">
 						<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Page / Post Title', 'astra' ); ?>
+						<?php esc_html_e( 'Disable Title', 'astra' ); ?>
 					</label>
 				</span>
 				<br />

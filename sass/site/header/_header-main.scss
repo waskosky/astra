@@ -149,7 +149,11 @@ li.ast-masthead-custom-menu-items {
 }
 
 .ast-header-break-point {
-
+    .site-branding{
+        display: flex;
+        align-self: flex-start;
+        padding-bottom: 1.5em;
+    }
     ul li.ast-masthead-custom-menu-items a {
         padding: 0;
         width: auto;
@@ -159,6 +163,8 @@ li.ast-masthead-custom-menu-items {
     li.ast-masthead-custom-menu-items {
         padding-left: 20px;
         padding-right: 20px;
+        margin-bottom: 1em;
+        margin-top: 1em;
     }
     .ast-site-identity {
         padding: 0;
@@ -172,7 +178,7 @@ li.ast-masthead-custom-menu-items {
     .main-header-bar {
         line-height: 3;
         display: block;
-        padding: 0;
+        padding: 1.5em 0 0;
 
         .children,
         .sub-menu {
@@ -250,6 +256,15 @@ li.ast-masthead-custom-menu-items {
 
         li {
             width: 100%;
+        }
+        .widget {
+            margin-bottom: 1em;
+            li{
+                width: auto;       
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
         }
     }
 

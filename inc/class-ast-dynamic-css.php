@@ -60,9 +60,8 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			/**
 			 * - Variable Declaration
 			 */
-			$page_width                   = '100%';
-			$site_content_width           = ast_get_option( 'site-content-width' , '' , 1200 );
-			$ast_header_width             = ast_get_option( 'header-main-layout-width' );
+			$site_content_width = ast_get_option( 'site-content-width' , '' , 1200 );
+			$ast_header_width   = ast_get_option( 'header-main-layout-width' );
 
 			// Site Background Color.
 			$box_bg_color      = ast_get_option( 'site-layout-outside-bg-color' );
@@ -319,13 +318,6 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = ast_parse_css( $css_output );
-
-			/* Global Responsive */
-			$genral_global_responsive = array(
-				'.ast-container, .fl-builder #content .entry-header, .ast-container, .js_active #content .entry-header, .no-touchevents #content .entry-header' => array(
-					'max-width' => $page_width,
-				),
-			);
 
 			/* Width for Header */
 			if ( 'content' != $ast_header_width ) {

@@ -397,6 +397,14 @@
 		}
 	}
 
+	del {
+		opacity: .5;
+	}
+	ins {
+		background: inherit;
+		font-weight: 700;
+	}
+
 	.price_slider_amount {
 		.price_label span {
 			font-weight: 700;
