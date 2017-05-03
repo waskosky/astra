@@ -263,7 +263,7 @@ if ( ! function_exists( 'ast_get_custom_widget' ) ) {
 	/**
 	 * Get custom widget added by user.
 	 *
-	 * @since  1.0.1
+	 * @since  1.0.1.1
 	 * @param  string $option_name Option name.
 	 * @return Widget added by user in options panel.
 	 */
@@ -898,7 +898,7 @@ if ( ! function_exists( 'ast_get_sidebar' ) ) {
 	/**
 	 * Get Sidebar
 	 *
-	 * @since 1.0.1
+	 * @since 1.0.1.1
 	 * @param  string $sidebar_id 	Sidebar Id.
 	 * @return void
 	 */
