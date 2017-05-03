@@ -161,7 +161,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 				<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
 				<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
 			</select>
-			
+
 			<?php
 			/**
 			 * Option: Sidebar
@@ -177,7 +177,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 				<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
 				<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Page Builder', 'astra' ); ?></option>
 			</select>
-			
+
 			<?php
 			/**
 			 * Option: Small Footer
@@ -289,4 +289,4 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-$ast_meta_boxes = AST_Meta_Boxes::get_instance();
+AST_Meta_Boxes::get_instance();

@@ -2646,7 +2646,11 @@ body {
 }
 
 .header-main-layout-2 .site-title {
-  display: block;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .header-main-layout-2 .main-navigation ul {
@@ -2740,6 +2744,10 @@ body {
   -moz-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+}
+
+.ast-header-break-point .header-main-layout-3 li .ast-search-menu-icon {
+  right: 0;
 }
 
 /* 3 - Header Common  */

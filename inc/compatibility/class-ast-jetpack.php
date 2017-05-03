@@ -25,7 +25,7 @@ if ( ! class_exists( 'Ast_Jetpack' ) ) :
 	class Ast_Jetpack {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -75,6 +75,6 @@ if ( ! class_exists( 'Ast_Jetpack' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_jetpack  = Ast_Jetpack::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Jetpack::get_instance();
