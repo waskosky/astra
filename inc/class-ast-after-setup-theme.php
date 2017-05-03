@@ -58,17 +58,7 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'content_width' ), 	0 );
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 	2 );
-		}
-
-		/**
-		 * Content Width
-		 *
-		 * @since 1.0.0
-		 */
-		function content_width() {
-			$GLOBALS['content_width'] = apply_filters( 'ast_content_width', 700 );
 		}
 
 		/**
@@ -80,8 +70,11 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 
 			do_action( 'ast_class_loaded' );
 
+			/**
+		 	 * Content Width
+		 	 */
 			if ( ! isset( $content_width ) ) {
-				$content_width = 700;
+				$content_width = apply_filters( 'ast_content_width', 700 );
 			}
 
 			/**
