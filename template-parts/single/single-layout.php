@@ -40,7 +40,7 @@
 		<?php the_content(); ?>
 
 		<?php
-			ast_edit_post_link(
+			astra_edit_post_link(
 
 				sprintf(
 					/* translators: %s: Name of current post */
