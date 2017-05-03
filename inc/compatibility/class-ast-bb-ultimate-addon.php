@@ -51,23 +51,23 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		public function __construct() {
 
 			add_filter( 'uabb_global_support', 			        array( $this, 'remove_uabb_global_setting' ) );
-			add_filter( 'uabb_theme_theme_color', 			    array( $this, 'uabb_theme_color' ) );
-			add_filter( 'uabb_theme_text_color', 			    array( $this, 'uabb_text_color' ) );
-			add_filter( 'uabb_theme_link_color', 			    array( $this, 'uabb_link_color' ) );
-			add_filter( 'uabb_theme_link_hover_color', 			array( $this, 'uabb_link_hover_color' ) );
-			add_filter( 'uabb_theme_button_font_family', 	    array( $this, 'uabb_button_font_family' ) );
-			add_filter( 'uabb_theme_button_font_size', 			array( $this, 'uabb_button_font_size' ) );
-			add_filter( 'uabb_theme_button_line_height', 	    array( $this, 'uabb_button_line_height' ) );
-			add_filter( 'uabb_theme_button_letter_spacing', 	array( $this, 'uabb_button_letter_spacing' ) );
-			add_filter( 'uabb_theme_button_text_transform', 	array( $this, 'uabb_button_text_transform' ) );
-			add_filter( 'uabb_theme_button_text_color', 	    array( $this, 'uabb_button_text_color' ) );
-			add_filter( 'uabb_theme_button_text_hover_color', 	array( $this, 'uabb_button_text_hover_color' ) );
-			add_filter( 'uabb_theme_button_bg_color', 			array( $this, 'uabb_button_bg_color' ) );
-			add_filter( 'uabb_theme_button_bg_hover_color', 	array( $this, 'uabb_button_bg_hover_color' ) );
-			add_filter( 'uabb_theme_button_border_radius', 	    array( $this, 'uabb_button_border_radius' ) );
-			add_filter( 'uabb_theme_button_padding', 			array( $this, 'uabb_button_padding' ) );
-			add_filter( 'uabb_theme_button_vertical_padding', 	array( $this, 'uabb_button_vertical_padding' ) );
-			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'uabb_button_horizontal_padding' ) );
+			add_filter( 'uabb_theme_theme_color', 			    array( $this, 'theme_color' ) );
+			add_filter( 'uabb_theme_text_color', 			    array( $this, 'text_color' ) );
+			add_filter( 'uabb_theme_link_color', 			    array( $this, 'link_color' ) );
+			add_filter( 'uabb_theme_link_hover_color', 			array( $this, 'link_hover_color' ) );
+			add_filter( 'uabb_theme_button_font_family', 	    array( $this, 'button_font_family' ) );
+			add_filter( 'uabb_theme_button_font_size', 			array( $this, 'button_font_size' ) );
+			add_filter( 'uabb_theme_button_line_height', 	    array( $this, 'button_line_height' ) );
+			add_filter( 'uabb_theme_button_letter_spacing', 	array( $this, 'button_letter_spacing' ) );
+			add_filter( 'uabb_theme_button_text_transform', 	array( $this, 'button_text_transform' ) );
+			add_filter( 'uabb_theme_button_text_color', 	    array( $this, 'button_text_color' ) );
+			add_filter( 'uabb_theme_button_text_hover_color', 	array( $this, 'button_text_hover_color' ) );
+			add_filter( 'uabb_theme_button_bg_color', 			array( $this, 'button_bg_color' ) );
+			add_filter( 'uabb_theme_button_bg_hover_color', 	array( $this, 'button_bg_hover_color' ) );
+			add_filter( 'uabb_theme_button_border_radius', 	    array( $this, 'button_border_radius' ) );
+			add_filter( 'uabb_theme_button_padding', 			array( $this, 'button_padding' ) );
+			add_filter( 'uabb_theme_button_vertical_padding', 	array( $this, 'button_vertical_padding' ) );
+			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'button_horizontal_padding' ) );
 		}
 
 		/**
@@ -80,84 +80,76 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Theme Color
 		 */
-		function uabb_theme_color() {
-			$color = ast_get_option( 'link-color' );
-
-			return $color;
+		function theme_color() {
+			return ast_get_option( 'link-color' );
 		}
 
 
 		/**
 		 * Text Color
 		 */
-		function uabb_text_color() {
-			$color = ast_get_option( 'text-color' );
-
-			return $color;
+		function text_color() {
+			return ast_get_option( 'text-color' );
 		}
 
 
 		/**
 		 * Link Color
 		 */
-		function uabb_link_color() {
-			$color = ast_get_option( 'link-color' );
-
-			return $color;
+		function link_color() {
+			return ast_get_option( 'link-color' );
 		}
 
 
 		/**
 		 * Link Hover Color
 		 */
-		function uabb_link_hover_color() {
-			$color = ast_get_option( 'link-h-color' );
-
-			return $color;
+		function link_hover_color() {
+			return ast_get_option( 'link-h-color' );
 		}
 
 		/**
 		 * Button Font Family
 		 */
-		function uabb_button_font_family() {
-			$btn_font_family['family'] = 'Source Sans Pro';
-			$btn_font_family['weight'] = 'normal';
-
-			return $btn_font_family;
+		function button_font_family() {
+			return array(
+					'family' => 'Source Sans Pro',
+					'weight' => 'normal',
+				);
 		}
 
 		/**
 		 * Button Font Size
 		 */
-		function uabb_button_font_size() {
+		function button_font_size() {
 			return '';
 		}
 
 		/**
 		 * Button Line Height
 		 */
-		function uabb_button_line_height() {
+		function button_line_height() {
 			return '';
 		}
 
 		/**
 		 * Button Letter Spacing
 		 */
-		function uabb_button_letter_spacing() {
+		function button_letter_spacing() {
 			return '';
 		}
 
 		/**
 		 * Button Text Transform
 		 */
-		function uabb_button_text_transform() {
+		function button_text_transform() {
 			return '';
 		}
 
 		/**
 		 * Button Text Color
 		 */
-		function uabb_button_text_color() {
+		function button_text_color() {
 			$link_color = ast_get_option( 'link-color' );
 			$color      = ast_get_option( 'button-color' );
 			if ( empty( $color ) ) {
@@ -170,7 +162,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Text Hover Color
 		 */
-		function uabb_button_text_hover_color() {
+		function button_text_hover_color() {
 			$link_hover_color = ast_get_option( 'link-h-color' );
 			$color            = ast_get_option( 'button-h-color' );
 			if ( empty( $color ) ) {
@@ -183,35 +175,29 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Background Color
 		 */
-		function uabb_button_bg_color() {
-			$color = ast_get_option( 'button-bg-color' );
-
-			return $color;
+		function button_bg_color() {
+			return ast_get_option( 'button-bg-color' );
 		}
 
 		/**
 		 * Button Background Color
 		 */
-		function uabb_button_bg_hover_color() {
-			$color = ast_get_option( 'button-bg-h-color' );
-
-			return $color;
+		function button_bg_hover_color() {
+			return ast_get_option( 'button-bg-h-color' );
 		}
 
 		/**
 		 * Button Border Radius
 		 */
-		function uabb_button_border_radius() {
-			$border_radius = ast_get_option( 'button-radius' );
-
-			return $border_radius;
+		function button_border_radius() {
+			return ast_get_option( 'button-radius' );
 		}
 
 
 		/**
 		 * Button Padding
 		 */
-		function uabb_button_padding() {
+		function button_padding() {
 
 			$padding   = '';
 			$v_padding = ast_get_option( 'button-v-padding' );
@@ -227,7 +213,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Padding
 		 */
-		function uabb_button_vertical_padding() {
+		function button_vertical_padding() {
 
 			$padding   = '';
 			$v_padding = ast_get_option( 'button-v-padding' );
@@ -242,7 +228,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		/**
 		 * Button Padding
 		 */
-		function uabb_button_horizontal_padding() {
+		function button_horizontal_padding() {
 
 			$padding   = '';
 			$h_padding = ast_get_option( 'button-h-padding' );
