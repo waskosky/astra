@@ -313,7 +313,7 @@ if ( ! function_exists( 'ast_get_small_footer' ) ) {
 			case 'custom':
 					$output = ast_get_option( $section . '-credit' );
 					$output = str_replace( '[current_year]', date( 'Y' ), $output );
-					$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_option( 'blogname' ) . '</span>', $output );
+					$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 					$theme_author = apply_filters( 'ast_theme_author', array(
 						'theme_name'       => __( 'Astra', 'astra' ),
