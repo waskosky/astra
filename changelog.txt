@@ -9,6 +9,7 @@ v1.0.1.2
 # Enhancement: Renamed the uabb theme compatibility functions to not include redundant prefix.
 # Enhancement: Used get_bloginfo() instead of get_option('blogname')
 # Improvement: Removed unused variables when a classes are initialised.
+# Removed: Unwanted constants
 
 v1.0.1.1
 # Added: Welcome screen for in theme page
