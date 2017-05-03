@@ -61,7 +61,6 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			$site_content_width = ast_get_option( 'site-content-width' , '' , 1200 );
-			$ast_header_width   = ast_get_option( 'header-main-layout-width' );
 
 			// Site Background Color.
 			$box_bg_color      = ast_get_option( 'site-layout-outside-bg-color' );
@@ -325,20 +324,6 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = ast_parse_css( $css_output );
 
-			/* Width for Header */
-			if ( 'content' != $ast_header_width ) {
-				$genral_global_responsive = array(
-					'#masthead .ast-container' => array(
-						'max-width' => '100%',
-						'padding-left' => '35px',
-						'padding-right' => '35px',
-					),
-				);
-
-				/* Parse CSS from array()*/
-				$parse_css .= ast_parse_css( $genral_global_responsive, '544' );
-			}
-
 			/* Width for Footer */
 			if ( 'content' != $ast_footer_width ) {
 				$genral_global_responsive = array(
@@ -350,7 +335,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array()*/
-				$parse_css .= ast_parse_css( $genral_global_responsive, '544' );
+				$parse_css .= ast_parse_css( $genral_global_responsive, '768' );
 			}
 
 			/* Width for Comments for Page Builder Template */
@@ -396,7 +381,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
-				$blog_css  = '@media (min-width:920px) {';
+				$blog_css  = '@media (min-width:768px) {';
 					$blog_css .= '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container{';
 						$blog_css .= 'max-width:' . $blog_max_width . 'px;';
 					$blog_css .= '}';
@@ -406,7 +391,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 			/* Single Blog */
 			if ( 'custom' === $single_post_max ) :
-					$single_blog_css = '@media (min-width:920px) {';
+					$single_blog_css = '@media (min-width:768px) {';
 					$single_blog_css .= '.single .site-content > .ast-container{';
 					$single_blog_css .= 'max-width:' . $single_post_max_width . 'px;';
 					$single_blog_css .= '}';
