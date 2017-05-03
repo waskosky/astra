@@ -2,8 +2,6 @@
 /**
  * Filters to override defaults in UABB
  *
- * @see  https://github.com/zamoose/themehookalliance
- *
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2015, Brainstorm Force
@@ -29,7 +27,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 	class Ast_BB_Ultimate_Addon {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -245,6 +243,6 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_bb_ultimate_addon = Ast_BB_Ultimate_Addon::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_BB_Ultimate_Addon::get_instance();

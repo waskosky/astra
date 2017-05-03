@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Elementor' ) ) :
 	class Ast_Elementor {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -63,6 +63,6 @@ if ( ! class_exists( 'Ast_Elementor' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_elementor  = Ast_Elementor::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Elementor::get_instance();

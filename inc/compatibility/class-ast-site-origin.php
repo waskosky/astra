@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Site_Origin' ) ) :
 	class Ast_Site_Origin {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -63,6 +63,6 @@ if ( ! class_exists( 'Ast_Site_Origin' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_site_origin  = Ast_Site_Origin::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Site_Origin::get_instance();

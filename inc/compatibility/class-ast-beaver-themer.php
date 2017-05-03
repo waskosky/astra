@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 	class Ast_Beaver_Themer {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -122,6 +122,6 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_beaver_themer  = Ast_Beaver_Themer::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Beaver_Themer::get_instance();

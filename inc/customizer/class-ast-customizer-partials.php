@@ -138,6 +138,6 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 }// End if().
 
 /**
- *  Kicking this off by calling 'get_instance()' method
+ * Kicking this off by calling 'get_instance()' method
  */
-$ast_customizer_partials = AST_Customizer_Partials::get_instance();
+AST_Customizer_Partials::get_instance();
