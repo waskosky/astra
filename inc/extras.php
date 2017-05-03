@@ -596,7 +596,7 @@ if ( ! function_exists( 'ast_body_font_family' ) ) {
 /**
  * Function to get Edit Post Link
  */
-if ( ! function_exists( 'astra_edit_post_link' ) ) {
+if ( ! function_exists( 'ast_edit_post_link' ) ) {
 
 	/**
 	 * Function to get Edit Post Link
@@ -609,7 +609,7 @@ if ( ! function_exists( 'astra_edit_post_link' ) ) {
 	 * @param string $class 	Anchor Text.
 	 * @return void
 	 */
-	function astra_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
+	function ast_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
 
 		if ( apply_filters( 'ast_edit_post_link', false ) ) {
 			edit_post_link( $text, $before, $after, $id, $class );

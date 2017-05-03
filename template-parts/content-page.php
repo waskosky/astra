@@ -52,7 +52,7 @@
 	</div><!-- .entry-content .clear -->
 
 	<?php
-		astra_edit_post_link(
+		ast_edit_post_link(
 
 			sprintf(
 				/* translators: %s: Name of current post */
