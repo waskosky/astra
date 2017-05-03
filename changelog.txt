@@ -1,4 +1,6 @@
 v1.0.1.2
+# Enhancement: Moved hook ast_body_bottom at the top of the wp_footer hook.
+# Enhancement: Renamed the uabb theme compatibility functions to not include redundant prefix.
 # Enhancement: Used get_bloginfo() instead of get_option('blogname')
 
 v1.0.1
