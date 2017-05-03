@@ -75,4 +75,4 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-$ast_theme_update = Ast_Theme_Update::get_instance();
+Ast_Theme_Update::get_instance();
