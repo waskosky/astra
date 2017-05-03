@@ -1,5 +1,5 @@
 v1.0.1.2
-# Removed: Initialized objects of /compatibility/*.php classes.
+# Improvement: Removed unused variables when a class is initialized.
 # Enhancement: Used get_bloginfo() instead of get_option('blogname')
 
 v1.0.1
