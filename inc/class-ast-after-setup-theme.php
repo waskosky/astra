@@ -159,6 +159,6 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 }// End if().
 
 /**
- *  Kicking this off by calling 'get_instance()' method
+ * Kicking this off by calling 'get_instance()' method
  */
-$ast_after_setup_theme = AST_After_Setup_Theme::get_instance();
+AST_After_Setup_Theme::get_instance();

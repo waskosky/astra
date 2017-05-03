@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Beaver_Builder' ) ) :
 	class Ast_Beaver_Builder {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -63,6 +63,6 @@ if ( ! class_exists( 'Ast_Beaver_Builder' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_beaver_builder  = Ast_Beaver_Builder::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Beaver_Builder::get_instance();

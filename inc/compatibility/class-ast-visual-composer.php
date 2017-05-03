@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Visual_Composer' ) ) :
 	class Ast_Visual_Composer {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -78,6 +78,6 @@ if ( ! class_exists( 'Ast_Visual_Composer' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_visual_composer  = Ast_Visual_Composer::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Visual_Composer::get_instance();

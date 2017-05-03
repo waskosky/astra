@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Gravity_Forms' ) ) :
 	class Ast_Gravity_Forms {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -63,6 +63,6 @@ if ( ! class_exists( 'Ast_Gravity_Forms' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_gravity_forms  = Ast_Gravity_Forms::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Gravity_Forms::get_instance();
