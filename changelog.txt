@@ -5,6 +5,10 @@ v1.0.1.2
 # Added: Widget for Header & Footer
 # Added: Editor style minification file support.
 # Removed: Unwanted minified & unminified files
+# Enhancement: Moved hook ast_body_bottom at the top of the wp_footer hook.
+# Enhancement: Renamed the uabb theme compatibility functions to not include redundant prefix.
+# Enhancement: Used get_bloginfo() instead of get_option('blogname')
+# Improvement: Removed unused variables when a classes are initialised.
 
 v1.0.1.1
 # Added: Welcome screen for in theme page
@@ -16,7 +20,7 @@ v1.0.1.1
 
 v1.0.1
 # Fixed: Fixed correct usage of esc_attr() and esc_html() functions.
-# Added license and attribution to all the asssets included in the theme.
+# Added license and attribution to all the assets included in the theme.
 # Properly use get_search_form() function.
 # Updated Theme Screenshot.
 # Updated Theme URI.
@@ -32,5 +36,5 @@ v1.0.1
 # Removed: All code related to on-boarding from theme.
 # Removed: All unused and unnecessary functions.
 
-v1.0.0 
+v1.0.0
 - Initial release

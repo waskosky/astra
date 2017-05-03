@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Contact_Form_7' ) ) :
 	class Ast_Contact_Form_7 {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -63,6 +63,6 @@ if ( ! class_exists( 'Ast_Contact_Form_7' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_contact_form_7  = Ast_Contact_Form_7::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Contact_Form_7::get_instance();

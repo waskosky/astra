@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_BNR_Flyout' ) ) :
 	class Ast_BNR_Flyout {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -63,6 +63,6 @@ if ( ! class_exists( 'Ast_BNR_Flyout' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_beaver_builder  = Ast_BNR_Flyout::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_BNR_Flyout::get_instance();
