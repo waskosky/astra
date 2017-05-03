@@ -1,3 +1,19 @@
+v1.0.1.2
+# Updated: Responsive header styling
+# Enahancement: Header Layout
+# Added: Option to disable header navigation
+# Added: Widget for Header & Footer
+# Added: Editor style minification file support.
+# Removed: Unwanted minified & unminified files
+
+v1.0.1.1
+# Added: Welcome screen for in theme page
+# Added: Theme page support in base theme.
+# Removed: Unwanted add_theme_supports.
+# Removed: Unused function 'ast_the_archive_title()'
+# Removed: 'Walker_Nav_Menu' & 'Walker_Page' classes
+# Fixed: Theme page settings save message jerk issue.
+
 v1.0.1
 # Fixed: Fixed correct usage of esc_attr() and esc_html() functions.
 # Added license and attribution to all the asssets included in the theme.
