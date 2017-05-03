@@ -102,7 +102,7 @@ if ( ! function_exists( 'ast_blog_post_get_featured_item' ) ) {
 		if ( has_post_thumbnail() ) {
 
 			$post_featured_data  = '<a href="' . esc_url( get_permalink() ) . '" >';
-			$post_featured_data .= the_post_thumbnail();
+			$post_featured_data .= get_the_post_thumbnail();
 			$post_featured_data .= '</a>';
 
 		} else {
@@ -117,18 +117,18 @@ if ( ! function_exists( 'ast_blog_post_get_featured_item' ) ) {
 
 				case 'gallery':
 									$post_featured_data = get_post_gallery( get_the_ID(), false );
-					if ( isset( $post_featured_data['ids'] ) ) {
-						$img_ids = explode( ',', $post_featured_data['ids'] );
+									if ( isset( $post_featured_data['ids'] ) ) {
+										$img_ids = explode( ',', $post_featured_data['ids'] );
 
-						$image_alt = get_post_meta( $img_ids[0], '_wp_attachment_image_alt', true );
-						$image_url = wp_get_attachment_url( $img_ids[0] );
+										$image_alt = get_post_meta( $img_ids[0], '_wp_attachment_image_alt', true );
+										$image_url = wp_get_attachment_url( $img_ids[0] );
 
-						if ( isset( $img_ids[0] ) ) {
-							$post_featured_data  = '<a href="' . esc_url( get_permalink() ) . '" >';
-							$post_featured_data .= '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $image_alt ) . '" >';
-							$post_featured_data .= '</a>';
-						}
-					}
+										if ( isset( $img_ids[0] ) ) {
+											$post_featured_data  = '<a href="' . esc_url( get_permalink() ) . '" >';
+											$post_featured_data .= '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $image_alt ) . '" >';
+											$post_featured_data .= '</a>';
+										}
+									}
 					break;
 
 				case 'audio':
