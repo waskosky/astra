@@ -263,7 +263,7 @@ if ( ! function_exists( 'ast_get_custom_widget' ) ) {
 	/**
 	 * Get custom widget added by user.
 	 *
-	 * @since  1.0.1
+	 * @since  1.0.1.1
 	 * @param  string $option_name Option name.
 	 * @return Widget added by user in options panel.
 	 */
@@ -611,7 +611,7 @@ if ( ! function_exists( 'astra_edit_post_link' ) ) {
 	 */
 	function astra_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
 
-		if ( apply_filters( 'ast_edit_post_link', false ) ) {
+		if ( apply_filters( 'astra_edit_post_link', false ) ) {
 			edit_post_link( $text, $before, $after, $id, $class );
 		}
 	}
@@ -687,14 +687,21 @@ if ( ! function_exists( 'ast_header_breakpoint_style' ) ) {
 		}
 		<?php
 
-		$custom_width = apply_filters( 'ast_single_post_content_width', false );
-		if ( $custom_width && is_numeric( $custom_width ) ) { ?>
-			@media ( min-width: 920px ) {
-				.single .site-content > .ast-container {
-					max-width : <?php echo $custom_width; ?>px;
-				}
-			}
-		<?php }
+		$ast_header_width   = ast_get_option( 'header-main-layout-width' );
+
+		/* Width for Header */
+		if ( 'content' != $ast_header_width ) {
+			$genral_global_responsive = array(
+				'#masthead .ast-container' => array(
+					'max-width' => '100%',
+					'padding-left' => '35px',
+					'padding-right' => '35px',
+				),
+			);
+
+			/* Parse CSS from array()*/
+			echo ast_parse_css( $genral_global_responsive, $header_break_point );
+		}
 
 		$dynamic_css = ob_get_clean();
 
@@ -891,7 +898,7 @@ if ( ! function_exists( 'ast_get_sidebar' ) ) {
 	/**
 	 * Get Sidebar
 	 *
-	 * @since 1.0.1
+	 * @since 1.0.1.1
 	 * @param  string $sidebar_id 	Sidebar Id.
 	 * @return void
 	 */

@@ -26,7 +26,7 @@
 		padding-bottom: 1em;
 	}
 	.site-title {
-		display: block;
+		justify-content: center;
 	}
 	.main-navigation {
 		ul{
@@ -85,16 +85,19 @@
     	left: -.5em;
     	right: 0;
     }
-    li .ast-search-menu-icon {
-    	left: 1em;
-    	right: 0;
-    }
+	li .ast-search-menu-icon {
+		left: 1em;
+		right: 0;
+	}
 }
 
 .ast-header-break-point {
 	.header-main-layout-3 {
 		.ast-mobile-menu-buttons {
 			justify-content: flex-start;
+		}
+		li .ast-search-menu-icon {
+			left: 0;
 		}
 	}
 }
