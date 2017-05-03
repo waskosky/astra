@@ -27,9 +27,9 @@
 
 	</div><!-- #page -->
 
-	<?php wp_footer(); ?>
-
 	<?php ast_body_bottom(); ?>
+
+	<?php wp_footer(); ?>
 
 	</body>
 </html>

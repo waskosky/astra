@@ -105,7 +105,7 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 			$site_credit = ast_get_option( 'footer-sml-section-1-credit' );
 
 			$output = str_replace( '[current_year]', date( 'Y' ), $site_credit );
-			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_option( 'blogname' ) . '</span>', $output );
+			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
 				'theme_name'       => __( 'Astra', 'astra' ),
@@ -124,7 +124,7 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 			$site_credit = ast_get_option( 'footer-sml-section-2-credit' );
 
 			$output = str_replace( '[current_year]', date( 'Y' ), $site_credit );
-			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_option( 'blogname' ) . '</span>', $output );
+			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
 				'theme_name'       => __( 'Astra', 'astra' ),
@@ -138,6 +138,6 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 }// End if().
 
 /**
- *  Kicking this off by calling 'get_instance()' method
+ * Kicking this off by calling 'get_instance()' method
  */
-$ast_customizer_partials = AST_Customizer_Partials::get_instance();
+AST_Customizer_Partials::get_instance();

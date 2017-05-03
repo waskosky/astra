@@ -25,7 +25,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 	class Ast_Woocommerce {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -343,6 +343,6 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_woocommerce  = Ast_Woocommerce::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Woocommerce::get_instance();

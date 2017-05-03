@@ -106,4 +106,4 @@ if ( ! class_exists( 'AST_Meta_Box_Operations' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-$ast_meta_box_operations = AST_Meta_Box_Operations::get_instance();
+AST_Meta_Box_Operations::get_instance();

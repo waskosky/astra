@@ -196,6 +196,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 }// End if().
 
 /**
- *  Kicking this off by calling 'get_instance()' method
+ * Kicking this off by calling 'get_instance()' method
  */
-$ast_theme_options = Ast_Theme_Options::get_instance();
+Ast_Theme_Options::get_instance();
