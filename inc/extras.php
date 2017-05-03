@@ -263,7 +263,7 @@ if ( ! function_exists( 'ast_get_custom_widget' ) ) {
 	/**
 	 * Get custom widget added by user.
 	 *
-	 * @since  1.0.1
+	 * @since  1.0.1.1
 	 * @param  string $option_name Option name.
 	 * @return Widget added by user in options panel.
 	 */
@@ -611,7 +611,7 @@ if ( ! function_exists( 'astra_edit_post_link' ) ) {
 	 */
 	function astra_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
 
-		if ( apply_filters( 'ast_edit_post_link', false ) ) {
+		if ( apply_filters( 'astra_edit_post_link', false ) ) {
 			edit_post_link( $text, $before, $after, $id, $class );
 		}
 	}
@@ -898,7 +898,7 @@ if ( ! function_exists( 'ast_get_sidebar' ) ) {
 	/**
 	 * Get Sidebar
 	 *
-	 * @since 1.0.1
+	 * @since 1.0.1.1
 	 * @param  string $sidebar_id 	Sidebar Id.
 	 * @return void
 	 */

@@ -83,7 +83,6 @@ module.exports = function (grunt) {
                             src: ['style.scss'],
                             dest: 'assets/css/unminified',
                             ext: '.css'
-
                         },
                          /* Compatibility */
                         {
@@ -92,7 +91,6 @@ module.exports = function (grunt) {
                             src: ['**.scss'],
                             dest: 'assets/css/unminified/site-compatible',
                             ext: '.css'
-
                         },
                         /* Blog Layouts */
                         {
@@ -101,25 +99,7 @@ module.exports = function (grunt) {
                             src: ['**.scss'],
                             dest: 'assets/css/unminified',
                             ext: '.css'
-
                         },
-                        /* Single Blog Post Single Layouts */
-                        {
-                            expand: true,
-                            cwd: 'sass/site/blog/single-post-layouts/single-post-styles/',
-                            src: ['**.scss'],
-                            dest: 'assets/css/unminified',
-                            ext: '.css'
-                        },
-                        /* Footer Layouts */
-                        {
-                            expand: true,
-                            cwd: 'sass/site/footer/',
-                            src: ['**.scss'],
-                            dest: 'assets/css/unminified',
-                            ext: '.css'
-                        },
-
                     ]
                 }
             },
@@ -161,17 +141,7 @@ module.exports = function (grunt) {
                         dest: 'assets/js/minified',
                         cwd: 'assets/js/unminified',
                         ext: '.min.js'
-                    }, { // all .js to .astra.min.js
-                        src: [
-                            'assets/js/unminified/**.js',
-                            '!assets/js/unminified/customizer-controls-toggle.js',
-                            '!assets/js/unminified/customizer-controls.js',
-                            '!assets/js/unminified/customizer-preview.js',
-                        ],
-                        dest: 'assets/js/minified/astra.min.js',
-                        // cwd: 'assets/js/unminified/',
-                    },
-                    ]
+                    }]
                 }
             },
 
