@@ -1,3 +1,6 @@
+v1.0.1.2
+# Removed: Initialized objects of /compatibility/*.php classes.
+
 v1.0.1
 # Fixed: Fixed correct usage of esc_attr() and esc_html() functions.
 # Added license and attribution to all the asssets included in the theme.
@@ -16,5 +19,5 @@ v1.0.1
 # Removed: All code related to on-boarding from theme.
 # Removed: All unused and unnecessary functions.
 
-v1.0.0 
+v1.0.0
 - Initial release
