@@ -1,5 +1,6 @@
 v1.0.1.2
 # Removed: Initialized objects of /compatibility/*.php classes.
+# Enhancement: Used get_bloginfo() instead of get_option('blogname')
 
 v1.0.1
 # Fixed: Fixed correct usage of esc_attr() and esc_html() functions.
