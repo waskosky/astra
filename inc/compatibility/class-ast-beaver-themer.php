@@ -130,9 +130,9 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 					'label' => 'Content',
 					'hooks' => array(
 						'ast_content_before' => __( 'Before Content', 'astra' ),
-						'ast_content_after'  => __( 'After Content', 'astra' ),
 						'ast_content_top'    => __( 'Content Top', 'astra' ),
 						'ast_content_bottom' => __( 'Content Bottom', 'astra' ),
+						'ast_content_after'  => __( 'After Content', 'astra' ),
 					),
 				),
 				array(
@@ -153,13 +153,13 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 					'label' => 'Posts',
 					'hooks' => array(
 						'loop_start'               => __( 'Loop Start', 'astra' ),
-						'loop_end'                 => __( 'Loop End', 'astra' ),
 						'ast_entry_before'         => __( 'Before Post', 'astra' ),
-						'ast_entry_after'          => __( 'After Post', 'astra' ),
 						'ast_entry_content_before' => __( 'Before Post Content', 'astra' ),
 						'ast_entry_content_after'  => __( 'After Post Content', 'astra' ),
+						'ast_entry_after'          => __( 'After Post', 'astra' ),
 						'ast_comments_before'      => __( 'Before Comments', 'astra' ),
 						'ast_comments_after'       => __( 'After Comments', 'astra' ),
+						'loop_end'                 => __( 'Loop End', 'astra' ),
 					),
 				),
 			);
