@@ -4,6 +4,18 @@
 @import "../../grid/variables";
 @import "../variables-site/structure";
 
+.fl-theme-builder-archive {
+	.fl-post-gallery-post,
+	.fl-post-grid-post {
+		&.hentry {
+			margin: 0;
+		}
+	}
+
+	h2.fl-post-feed-title {
+		clear: initial;
+	}
+}
 .fl-builder {
 	&.ast-no-sidebar {
 		#primary,

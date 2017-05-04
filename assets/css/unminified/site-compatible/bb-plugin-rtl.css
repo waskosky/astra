@@ -5,6 +5,15 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.fl-theme-builder-archive .fl-post-gallery-post.hentry,
+.fl-theme-builder-archive .fl-post-grid-post.hentry {
+  margin: 0;
+}
+
+.fl-theme-builder-archive h2.fl-post-feed-title {
+  clear: initial;
+}
+
 .fl-builder.ast-no-sidebar #primary,
 .fl-builder.ast-no-sidebar #secondary {
   padding-top: 0;
