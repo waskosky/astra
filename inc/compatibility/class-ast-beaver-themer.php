@@ -61,6 +61,7 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 			
 			if( count( $result ) > 0 ) {
 				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
+				remove_filter( 'excerpt_more', 'ast_post_link', 1 );
 			}
 			return $classes;
 		}
