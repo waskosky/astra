@@ -46,6 +46,23 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 			add_action( 'after_setup_theme', 			array( $this, 'header_footer_support' ) );
 			add_action( 'wp', 							array( $this, 'theme_header_footer_render' ) );
 			add_filter( 'fl_theme_builder_part_hooks', 	array( $this, 'register_part_hooks' ) );
+			add_filter( 'post_class', 					array( $this, 'render_post_class' ), 99 );
+		}
+
+		/**
+		 * Remove theme post's default classes
+		 * @param  array $classes Post Classes.
+		 * @return array
+		 */
+		function render_post_class( $classes ) {
+			
+			$post_class = array( 'fl-post-grid-post', 'fl-post-gallery-post', 'fl-post-feed-post' );
+			$result = array_intersect( $classes, $post_class );
+			
+			if( count( $result ) > 0 ) {
+				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
+			}
+			return $classes;
 		}
 
 		/**
