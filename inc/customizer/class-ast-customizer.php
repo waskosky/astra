@@ -49,38 +49,8 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 			 */
 			add_action( 'customize_preview_init',                  array( $this, 'preview_init' ) );
 			add_action( 'customize_controls_enqueue_scripts',      array( $this, 'controls_scripts' ) );
-			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 			add_action( 'customize_register',                      array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after',                    array( $this, 'customize_save' ) );
-		}
-
-		/**
-		 * Print Footer Scripts
-		 *
-		 * @since 1.0.0
-		 * @return void
-		 */
-		public function print_footer_scripts() {
-		    $output = '<script type="text/javascript">';
-	        	$output .= '
-	        	wp.customize.bind(\'ready\', function() {
-	            	wp.customize.control.each(function(ctrl, i) {
-	                	var desc = ctrl.container.find(".customize-control-description");
-	                	if( desc.length) {
-	                    	var title = ctrl.container.find(".customize-control-title");
-	                    	var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
-	                    			return \'&#\'+i.charCodeAt(0)+\';\';
-								});
-	                    	desc.remove();
-	                    	title.append(" <i class=\'dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
-	                	}
-	            	});
-	        	});';
-
-				$output .= Ast_Fonts_Data::js();
-		    $output .= '</script>';
-
-		    echo $output;
 		}
 
 		/**
