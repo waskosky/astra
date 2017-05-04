@@ -200,10 +200,12 @@ li.ast-masthead-custom-menu-items {
                 cursor: pointer;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
-                padding: 0.5em 1em;
+                padding: 0.074em .712em;
                 font-weight: normal;
 
                 &::before {
+                    font-size: 22.5px;
+                    font-size: 1.5rem;
                     content: "\e313";
                     font-family: 'Astra';
                     text-decoration: inherit;
