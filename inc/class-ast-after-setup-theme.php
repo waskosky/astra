@@ -71,8 +71,8 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 			do_action( 'ast_class_loaded' );
 
 			/**
-		 	 * Content Width
-		 	 */
+			  * Content Width
+			  */
 			if ( ! isset( $content_width ) ) {
 				$content_width = apply_filters( 'ast_content_width', 700 );
 			}

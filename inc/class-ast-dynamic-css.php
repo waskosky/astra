@@ -299,17 +299,17 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'color'     => $text_color,
 				),
 				'#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
-			    	'color' => $link_color,
+					'color' => $link_color,
 				),
 				'.secondary .calendar_wrap #today, .ast-progress-val span' => array(
-			    	'background' => $link_color,
+					'background' => $link_color,
 				),
 				'.secondary a:hover + .post-count, .secondary a:focus + .post-count' => array(
 					'background'   => $link_color,
 					'border-color' => $link_color,
 				),
 				'.calendar_wrap #today > a' => array(
-			    	'color' => ast_get_foreground_color( $link_color ),
+					'color' => ast_get_foreground_color( $link_color ),
 				),
 
 				// Pagination.

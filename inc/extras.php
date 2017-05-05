@@ -913,7 +913,7 @@ if ( ! function_exists( 'ast_get_sidebar' ) ) {
 					</a>
 				</p>
 			</div>
-	        <?php
+			<?php
 		}
 	}
 }
