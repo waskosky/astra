@@ -2428,10 +2428,6 @@ body {
   padding-left: 0;
 }
 
-.ast-header-break-point .main-navigation ul {
-  background-color: #f9f9f9;
-}
-
 .ast-header-break-point .main-navigation ul li a {
   padding: 0 20px;
   display: inline-block;
@@ -2531,6 +2527,7 @@ body {
 .ast-button-wrap .menu-toggle {
   padding: 0;
   width: 2.2em;
+  height: 2.1em;
   font-size: 1.5em;
   font-weight: normal;
   -webkit-border-radius: 2px;
@@ -2538,7 +2535,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   border-radius: 2px;
-  vertical-align: middle;
 }
 
 .ast-button-wrap .menu-toggle.main-header-menu-toggle {
@@ -2555,6 +2551,7 @@ body {
   font-style: normal;
   display: inline-block;
   vertical-align: middle;
+  line-height: 2.05;
 }
 
 .ast-button-wrap .menu-toggle .menu-toggle-icon:before {
