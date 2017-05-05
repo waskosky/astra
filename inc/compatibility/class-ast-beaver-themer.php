@@ -51,15 +51,16 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 
 		/**
 		 * Remove theme post's default classes
+		 *
 		 * @param  array $classes Post Classes.
 		 * @return array
 		 */
 		function render_post_class( $classes ) {
-			
+
 			$post_class = array( 'fl-post-grid-post', 'fl-post-gallery-post', 'fl-post-feed-post' );
 			$result = array_intersect( $classes, $post_class );
-			
-			if( count( $result ) > 0 ) {
+
+			if ( count( $result ) > 0 ) {
 				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
 				remove_filter( 'excerpt_more', 'ast_post_link', 1 );
 			}
