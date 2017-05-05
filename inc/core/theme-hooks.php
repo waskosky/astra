@@ -440,3 +440,17 @@ function ast_entry_content_blog() {
 function ast_blog_post_featured_format() {
 	do_action( 'ast_blog_post_featured_format' );
 }
+
+/**
+ * Primary Content Top
+ */
+function ast_primary_content_top() {
+	do_action( 'ast_primary_content_top' );
+}
+
+/**
+ * Primary Content Bottom
+ */
+function ast_primary_content_bottom() {
+	do_action( 'ast_primary_content_bottom' );
+}
