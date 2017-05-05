@@ -59,6 +59,11 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 		 */
 		function builder_template_content_layout( $layout ) {
 
+			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
+			if ( $do_render && FLBuilderModel::is_builder_enabled() && ! is_archive() ) {
+				$layout = 'page-builder';
+			}
+
 			if ( 'fl-theme-layout' == get_post_type() ) {
 				$layout = 'page-builder';
 			}
