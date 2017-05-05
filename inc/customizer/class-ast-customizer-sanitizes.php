@@ -87,10 +87,10 @@ if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
 		 * @return object           Return the validity object.
 		 */
 		static public function validate_email( $validity, $value ) {
-		    if ( ! is_email( $value ) ) {
-		        $validity->add( 'required', __( 'Enter valid email address!', 'astra' ) );
-		    }
-		    return $validity;
+			if ( ! is_email( $value ) ) {
+				$validity->add( 'required', __( 'Enter valid email address!', 'astra' ) );
+			}
+			return $validity;
 		}
 
 		/**
@@ -180,16 +180,16 @@ if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
 		 */
 		static public function sanitize_hex_color( $color ) {
 
-		    if ( '' === $color ) {
-		        return '';
+			if ( '' === $color ) {
+				return '';
 			}
 
-		    // 3 or 6 hex digits, or the empty string.
-		    if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
-		        return $color;
+			// 3 or 6 hex digits, or the empty string.
+			if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
+				return $color;
 			}
 
-		    return '';
+			return '';
 		}
 
 		/**
@@ -256,8 +256,8 @@ if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
 		 */
 		static public function sanitize_font_weight( $input ) {
 
-		    $valid = array(
-		        'normal',
+			$valid = array(
+				'normal',
 				'bold',
 				'100',
 				'200',
@@ -268,13 +268,13 @@ if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
 				'700',
 				'800',
 				'900',
-		    );
+			);
 
-		    if ( in_array( $input, $valid ) ) {
-		        return $input;
-		    } else {
-		        return 'normal';
-		    }
+			if ( in_array( $input, $valid ) ) {
+				return $input;
+			} else {
+				return 'normal';
+			}
 		}
 	}
 }// End if().

@@ -306,6 +306,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			}
 			?>
 			<div id="primary" class="content-area primary">
+
+				<?php ast_primary_content_top(); ?>
+
 				<main id="main" class="site-main" role="main">
 					<div class="ast-woocommerce-container">
 			<?php
@@ -318,6 +321,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			?>
 					</div> <!-- .ast-woocommerce-container -->
 				</main> <!-- #main -->
+
+				<?php ast_primary_content_bottom(); ?>
+
 			</div> <!-- #primary -->
 			<?php
 			$site_sidebar = ast_page_layout();
