@@ -116,3 +116,17 @@
     clear: both;
 }
 
+a.fl-button,
+a.fl-button:visited,
+.fl-builder-content a.fl-button,
+.fl-builder-content a.fl-button:visited {
+    background: #fafafa;
+    color: #333;
+    border: 1px solid #ccc;
+}
+a.fl-button *,
+a.fl-button:visited *,
+.fl-builder-content a.fl-button *,
+.fl-builder-content a.fl-button:visited * {
+    color: #333;
+}

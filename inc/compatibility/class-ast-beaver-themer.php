@@ -47,6 +47,22 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 			add_action( 'wp', 							array( $this, 'theme_header_footer_render' ) );
 			add_filter( 'fl_theme_builder_part_hooks', 	array( $this, 'register_part_hooks' ) );
 			add_filter( 'post_class', 					array( $this, 'render_post_class' ), 99 );
+			add_filter( 'ast_get_content_layout', 		array( $this, 'builder_template_content_layout' ), 20 );
+		}
+
+		/**
+		 * Builder Template Content layout set as Page Builder
+		 *
+		 * @param  string $layout Content Layout.
+		 * @return string
+		 * @since  1.0.1.2
+		 */
+		function builder_template_content_layout( $layout ) {
+
+			if ( 'fl-theme-layout' == get_post_type() ) {
+				$layout = 'page-builder';
+			}
+			return $layout;
 		}
 
 		/**
