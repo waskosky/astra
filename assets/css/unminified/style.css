@@ -3128,17 +3128,21 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point .main-header-bar .page_item_has_children .sub-menu,
-.ast-header-break-point .main-header-bar .menu-item-has-children .sub-menu {
+.ast-header-break-point .main-header-bar .page_item_has_children .children,
+.ast-header-break-point .main-header-bar .menu-item-has-children .sub-menu,
+.ast-header-break-point .main-header-bar .menu-item-has-children .children {
   opacity: 0;
   visibility: hidden;
   max-height: 0;
-  -webkit-transition: max-height 400ms ease, all linear 200ms;
-  transition: max-height 400ms ease, all linear 200ms;
+  -webkit-transition: max-height 400ms ease, all linear 300ms;
+  transition: max-height 400ms ease, all linear 300ms;
 }
 
 .ast-header-break-point .main-header-bar .page_item_has_children.ast-submenu-expanded > .sub-menu,
-.ast-header-break-point .main-header-bar .menu-item-has-children.ast-submenu-expanded > .sub-menu {
-  max-height: 100vh;
+.ast-header-break-point .main-header-bar .page_item_has_children.ast-submenu-expanded > .children,
+.ast-header-break-point .main-header-bar .menu-item-has-children.ast-submenu-expanded > .sub-menu,
+.ast-header-break-point .main-header-bar .menu-item-has-children.ast-submenu-expanded > .children {
+  max-height: 200vh;
   opacity: 1;
   visibility: visible;
 }
@@ -3174,12 +3178,12 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   opacity: 0;
   visibility: hidden;
   max-height: 0;
-  -webkit-transition: max-height 400ms ease, all linear 200ms;
-  transition: max-height 400ms ease, all linear 200ms;
+  -webkit-transition: max-height 400ms ease, all linear 300ms;
+  transition: max-height 400ms ease, all linear 300ms;
 }
 
 .ast-header-break-point .main-header-bar .main-header-bar-navigation.toggle-on {
-  max-height: 100vh;
+  max-height: 200vh;
   opacity: 1;
   visibility: visible;
 }
@@ -3237,6 +3241,12 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point .main-header-menu ul ul {
   top: 0;
+}
+
+@media (max-width: 767px) {
+  .main-header-bar-navigation {
+    opacity: 0;
+  }
 }
 
 /* 7 - Header Toggle Buttons */
