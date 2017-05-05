@@ -5,8 +5,12 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.fl-builder-content {
+  clear: both;
+}
+
 .fl-theme-builder-archive .fl-post-gallery-post.hentry,
-.fl-theme-builder-archive .fl-post-grid-post.hentry {
+.fl-theme-builder-archive .fl-post-column > .hentry {
   margin: 0;
 }
 
@@ -20,7 +24,7 @@
   padding-bottom: 0;
 }
 
-.fl-builder.ast-single-post .hentry {
+.fl-builder.ast-single-post:not(.fl-theme-builder-archive) .hentry {
   margin: 0;
 }
 
