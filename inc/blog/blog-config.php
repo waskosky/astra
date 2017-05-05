@@ -364,7 +364,7 @@ if ( ! function_exists( 'ast_get_blog_layout_class' ) ) {
 					break;
 
 				case 'image':
-				                $has_image = ast_get_first_image_from_post();
+								$has_image = ast_get_first_image_from_post();
 					if ( empty( $has_image ) || is_single() ) {
 						$classes[] = 'ast-no-thumb';
 					}

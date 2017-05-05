@@ -418,7 +418,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function add_admin_menu_rename() {
 			global $menu, $submenu;
 			if ( isset( $submenu[ self::$plugin_slug ][0][0] ) ) {
-			    $submenu[ self::$plugin_slug ][0][0] = 'Welcome';
+				$submenu[ self::$plugin_slug ][0][0] = 'Welcome';
 			}
 		}
 	}

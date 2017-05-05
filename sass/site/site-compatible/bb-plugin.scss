@@ -4,6 +4,19 @@
 @import "../../grid/variables";
 @import "../variables-site/structure";
 
+.fl-builder-content {
+	clear: both;	
+}
+.fl-theme-builder-archive {
+	.fl-post-gallery-post.hentry,
+	.fl-post-column > .hentry {
+		margin: 0;
+	}
+
+	h2.fl-post-feed-title {
+		clear: initial;
+	}
+}
 .fl-builder {
 	&.ast-no-sidebar {
 		#primary,
@@ -15,7 +28,7 @@
 	
 	// Remove article margin bottom 
 
-	&.ast-single-post {
+	&.ast-single-post:not(.fl-theme-builder-archive) {
 		.hentry {
 			margin: 0;
 		}
