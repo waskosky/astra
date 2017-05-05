@@ -54,6 +54,7 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 		 *
 		 * @param  array $classes Post Classes.
 		 * @return array
+		 * @since  1.0.1.2
 		 */
 		function render_post_class( $classes ) {
 
