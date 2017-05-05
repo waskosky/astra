@@ -194,7 +194,7 @@ li.ast-masthead-custom-menu-items {
                 opacity: 0;
                 visibility: hidden;
                 max-height: 0;
-                transition: max-height 400ms ease, all linear 300ms;
+                transition: max-height 500ms ease, all ease 200ms;
             }
             &.ast-submenu-expanded{
                 > .sub-menu,
@@ -236,7 +236,7 @@ li.ast-masthead-custom-menu-items {
             opacity: 0;
             visibility: hidden;
             max-height: 0;
-            transition: max-height 400ms ease, all linear 300ms;
+            transition: max-height 500ms ease, all ease 200ms;
                 &.toggle-on {
                     max-height: 200vh;
                     opacity: 1;
