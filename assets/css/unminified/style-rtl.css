@@ -2538,7 +2538,9 @@ body {
 }
 
 .ast-button-wrap .menu-toggle.main-header-menu-toggle {
-  width: 4em;
+  padding: 0 .5em;
+  width: auto;
+  text-align: center;
 }
 
 .ast-button-wrap .menu-toggle.main-header-menu-toggle .mobile-menu {
@@ -2964,10 +2966,12 @@ body {
 
 .main-header-bar .page_item_has_children > a:after,
 .main-header-bar .menu-item-has-children > a:after {
-  content: "\e313";
+  content: "\e900";
   display: inline-block;
   font-family: 'Astra';
-  font-weight: normal;
+  font-size: 9px;
+  font-size: .6rem;
+  font-weight: bold;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3151,19 +3155,20 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle {
   display: inline-block;
   position: absolute;
-  left: 0;
+  left: 20px;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0.074em .712em;
+  padding: 0.494em .907em;
   font-weight: normal;
 }
 
 .ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle::before,
 .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle::before {
-  font-size: 22.5px;
-  font-size: 1.5rem;
-  content: "\e313";
+  font-size: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  content: "\e900";
   font-family: 'Astra';
   text-decoration: inherit;
   display: inline-block;

@@ -157,3 +157,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'content' => __( 'Content Width', 'astra' ),
 		),
 	) );
+
+
+	/**
+	 * Option: Mobile Menu Label Divider
+	*/
+	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
+		'type'     => 'ast-divider',
+		'section'  => 'section-header',
+		'priority' => 35,
+		'settings' => array(),
+	) ) );
+
+	/**
+	 * Option: Mobile Menu Label
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-menu-label]', array(
+		'default'   => $defaults['header-main-menu-label'],
+		'type'      => 'option',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-menu-label]', array(
+		'section'     => 'section-header',
+		'priority'    => 35,
+		'label'       => __( 'Mobile Menu Label', 'astra' ),
+		'type'        => 'text',
+	) );
+
+	if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial( AST_THEME_SETTINGS . '[header-main-menu-label]', array(
+			'selector'            => '.ast-mobile-menu-buttons .mobile-menu',
+			'container_inclusive' => false,
+			'render_callback'     => array( 'AST_Customizer_Partials', '_render_header_main_menu_label' ),
+		) );
+	}

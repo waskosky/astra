@@ -121,7 +121,20 @@
 					}
 					return false;
 				}
-		},
+			},
+			{
+				controls: [
+					'ast-settings[header-main-menu-label]',
+					'ast-settings[header-main-menu-label-divider]',
+				],
+				callback: function( custom_menu ) {
+					var menu = api( 'ast-settings[disable-primary-nav]' ).get();
+					if ( !menu || 'none' !=  custom_menu) {
+						return true;
+					}
+					return false;
+				}
+			},
 		],
 
 		/**
@@ -333,6 +346,23 @@
 				callback: function( border_width ) {
 
 					if ( '1' <= border_width ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
+		'ast-settings[disable-primary-nav]' :
+		[
+			{
+				controls: [
+					'ast-settings[header-main-menu-label]',
+					'ast-settings[header-main-menu-label-divider]',
+				],
+				callback: function( menu ) {
+					var custom_menu = api( 'ast-settings[header-main-rt-section]' ).get();
+					if ( !menu || 'none' !=  custom_menu) {
 						return true;
 					}
 					return false;

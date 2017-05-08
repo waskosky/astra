@@ -98,6 +98,14 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 		}
 
 		/**
+		 * Render Partial Main Header Mobile Menu Label
+		 */
+		static function _render_header_main_menu_label() {
+
+			return ast_get_option( 'header-main-menu-label' );
+		}
+
+		/**
 		 * Render Partial Footer Section 1 Credit
 		 */
 		static function _render_footer_sml_section_1_credit() {

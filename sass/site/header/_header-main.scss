@@ -209,20 +209,21 @@ li.ast-masthead-custom-menu-items {
 
                 display: inline-block;
                 position: absolute;
-                right: 0;
+                right: 20px;
                 cursor: pointer;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
-                padding: 0.074em .712em;
+                padding: 0.494em .907em;
                 font-weight: normal;
 
                 &::before {
-                    font-size: 22.5px;
-                    font-size: 1.5rem;
-                    content: "\e313";
-                    font-family: 'Astra';
-                    text-decoration: inherit;
-                    display: inline-block;
+                        font-size: 15px;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        content: "\e900";
+                        font-family: 'Astra';
+                        text-decoration: inherit;
+                        display: inline-block;
                 }
             }
         }
