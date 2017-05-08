@@ -55,7 +55,7 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 		 *
 		 * @param  string $layout Content Layout.
 		 * @return string
-		 * @since  1.0.1.2
+		 * @since  1.0.2
 		 */
 		function builder_template_content_layout( $layout ) {
 
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 		 *
 		 * @param  array $classes Post Classes.
 		 * @return array
-		 * @since  1.0.1.2
+		 * @since  1.0.2
 		 */
 		function render_post_class( $classes ) {
 

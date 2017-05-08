@@ -1,4 +1,4 @@
-v1.0.1.2
+v1.0.2
 New: Added Beaver Themer support.
 New: Added option to disable primary header navigation.
 New: Added widget area support for header & footer.
