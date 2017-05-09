@@ -473,3 +473,17 @@
 .select2-results__option {
   padding: 6px 0.75em;
 }
+
+/**
+ * Header cart icon
+ */
+.astra-cart-icon:before {
+  content: "\e854";
+  font-family: "Astra";
+  font-weight: normal;
+  font-style: normal;
+}
+
+.astra-menu-cart-item .amount {
+  padding-left: 0.5em;
+}
