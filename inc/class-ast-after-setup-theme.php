@@ -58,17 +58,7 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'content_width' ), 	0 );
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 	2 );
-		}
-
-		/**
-		 * Content Width
-		 *
-		 * @since 1.0.0
-		 */
-		function content_width() {
-			$GLOBALS['content_width'] = apply_filters( 'ast_content_width', 700 );
 		}
 
 		/**
@@ -80,8 +70,11 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 
 			do_action( 'ast_class_loaded' );
 
+			/**
+			  * Content Width
+			  */
 			if ( ! isset( $content_width ) ) {
-				$content_width = 700;
+				$content_width = apply_filters( 'ast_content_width', 700 );
 			}
 
 			/**
@@ -129,8 +122,8 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 
 			// Add theme support for Custom Logo.
 			add_theme_support( 'custom-logo', array(
-				'width'       => 250,
-				'height'      => 250,
+				'width'       => 180,
+				'height'      => 60,
 				'flex-width'  => true,
 				'flex-height' => true,
 			) );
@@ -150,12 +143,15 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 			 * This theme styles the visual editor to resemble the theme style,
 			 * specifically font, colors, icons, and column width.
 			 */
-			add_editor_style( 'assets/css/unminified/editor-style.css' );
+			/* Directory and Extension */
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 		}
 	}
 }// End if().
 
 /**
- *  Kicking this off by calling 'get_instance()' method
+ * Kicking this off by calling 'get_instance()' method
  */
-$ast_after_setup_theme = AST_After_Setup_Theme::get_instance();
+AST_After_Setup_Theme::get_instance();

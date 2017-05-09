@@ -25,7 +25,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 	class Ast_Woocommerce {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -72,6 +72,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			}
 			?>
 			<div id="primary" class="content-area primary">
+
+				<?php ast_primary_content_top(); ?>
+
 				<main id="main" class="site-main" role="main">
 					<div class="ast-woocommerce-container">
 			<?php
@@ -84,6 +87,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			?>
 					</div> <!-- .ast-woocommerce-container -->
 				</main> <!-- #main -->
+
+				<?php ast_primary_content_bottom(); ?>
+
 			</div> <!-- #primary -->
 			<?php
 			$site_sidebar = ast_page_layout();
@@ -109,6 +115,6 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_woocommerce  = Ast_Woocommerce::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Woocommerce::get_instance();

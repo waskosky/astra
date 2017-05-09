@@ -101,12 +101,12 @@
 
 }
 
-ul.submenu-with-border {
+.submenu-with-border {
 	ul {
-		border-top: 1px solid #eee;
+		border-top: 1px solid $color-border-submenu;
 
 		a {
-			border: 1px solid #eaeaea;
+			border: 1px solid $color-border-submenu;
 			border-top: 0;
 		}
 		ul{
@@ -145,12 +145,26 @@ ul.submenu-with-border {
 	}
 
 	.main-header-menu {
+		background-color: $color-background-nav-mobile;
 		ul {
-			position: relative;
+			background-color: $color-background-nav-mobile;
+			position: static;
 			opacity: 1;
 			visibility: visible;
 			border: 0;
 			width: auto;
+			li {
+				&.ast-left-align-sub-menu:hover > ul,
+				&.ast-left-align-sub-menu.focus > ul {
+					left: 0;
+				}
+			}
+		}
+		li {
+			&.ast-sub-menu-goes-outside:hover > ul,
+			&.ast-sub-menu-goes-outside.focus > ul {
+			    left: 0;
+			}
 		}
 	}
 

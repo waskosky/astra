@@ -161,16 +161,16 @@ if ( ! function_exists( 'ast_get_audios_from_post' ) ) {
 		$content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
 		$embeds  = get_media_embedded_in_content( $content );
 
-	    if ( empty( $embeds ) ) {
-	    	return '';
-	    }
+		if ( empty( $embeds ) ) {
+			return '';
+		}
 
-	    // check what is the first embed containg video tag, youtube or vimeo.
-	    foreach ( $embeds as $embed ) {
-	        if ( strpos( $embed, 'audio' ) ) {
-	            return '<span class="ast-post-audio-wrapper">' . $embed . '</span>';
-	        }
-	    }
+		// check what is the first embed containg video tag, youtube or vimeo.
+		foreach ( $embeds as $embed ) {
+			if ( strpos( $embed, 'audio' ) ) {
+				return '<span class="ast-post-audio-wrapper">' . $embed . '</span>';
+			}
+		}
 	}
 }
 
@@ -192,15 +192,15 @@ if ( ! function_exists( 'ast_get_video_from_post' ) ) {
 		$content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
 		$embeds  = get_media_embedded_in_content( $content );
 
-	    if ( empty( $embeds ) ) {
-	    	return '';
-	    }
+		if ( empty( $embeds ) ) {
+			return '';
+		}
 
-	    // check what is the first embed containg video tag, youtube or vimeo.
-	    foreach ( $embeds as $embed ) {
-	        if ( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
-	            return $embed;
-	        }
-	    }
+		// check what is the first embed containg video tag, youtube or vimeo.
+		foreach ( $embeds as $embed ) {
+			if ( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
+				return $embed;
+			}
+		}
 	}
 }
