@@ -41,6 +41,10 @@
 		}
 	}
 
+	div.product .woocommerce-product-rating {
+	    margin: 0 0 0.5em 0;
+	}
+
 	.show-on-hover {
 	    position: absolute;
 	    top: 0;
@@ -61,9 +65,9 @@
 	    pointer-events: inherit;
 	}
 
-
 	.products {
 		.star-rating {
+			color: #f9ca63;
 			position: absolute;
 			top: 1em;
 			left: 1em;
@@ -108,6 +112,45 @@
 			border-top: 0;
 		}
 	}
+
+	/**
+	 * Single Product
+	 */
+	&.single-product {
+		div.product p.price {
+		    margin: 0 0 0.5em 0;
+		    font-size: 2rem;
+		    font-weight: normal;
+
+		    ins {
+			    font-weight: normal;
+			}
+
+			del {
+			    font-size: 1.5rem;
+			}
+		}
+
+		.woocommerce-tabs,
+		.related.products {
+		    display: inline-block;
+		}
+		.woocommerce-tabs {
+		    margin-top: 2em;
+		}
+		.related.products {
+		    margin-top: 1em;
+		}
+
+		.star-rating {
+			color: #f9ca63;
+		}
+
+		.comment-form-rating .stars a {
+		    color: #f9ca63;
+		}
+	}
+
 }
 
 .related.products,
@@ -233,10 +276,10 @@
 
 .woocommerce,
 .woocommerce-page {
-	#content table.cart td.actions .input-text, 
+	#content table.cart td.actions .input-text,
 	table.cart td.actions .input-text {
-		width: auto;		
-	}	
+		width: auto;
+	}
 }
 
 .woocommerce-Address h3,
@@ -264,7 +307,7 @@
 			padding: .5em 1em;
 			line-height: 1.5;
 		}
-	} 
+	}
 }
 
 .woocommerce table.shop_table,
@@ -285,7 +328,7 @@
 		margin: 0;
 		border: 0;
 		padding: 0 0 2em;
-		
+
 		@media ( min-width: $col-md ) {
 			width: 50%;
 		}
@@ -296,7 +339,7 @@
 			float: none;
 			display: inline-block;
 		}
-		
+
 		.button {
 			padding: .5em 1em;
 			vertical-align: initial;
@@ -313,7 +356,7 @@
  * My Account Style
  */
 .woocommerce-MyAccount-navigation-link {
-	
+
 	list-style: none;
 	border: 1px solid rgba(0,0,0,.1);
 	border-bottom-width: 0;
@@ -370,7 +413,7 @@
 		}
 	}
 
-	.widget_shopping_cart .total, 
+	.widget_shopping_cart .total,
 	&.widget_shopping_cart .total {
 		padding: 2px 0;
 		border-top: 1px solid #e2e2e2;
@@ -420,7 +463,7 @@
 
 .woocommerce .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
-	
+
 	padding: .5em 0 .5em 5em;
 	a.remove {
 		left: auto;
@@ -429,7 +472,7 @@
 		line-height: .75em;
 		font-weight: normal;
 		border: 1px solid transparent;
-	}	
+	}
 }
 
 .woocommerce-product-search {
@@ -494,4 +537,18 @@
 .select2-search--dropdown .select2-search__field,
 .select2-results__option {
 	padding: 6px 0.75em;
+}
+
+/**
+ * Header cart icon
+ */
+.astra-cart-icon:before {
+	content: "\e854";
+    font-family: "Astra";
+    font-weight: normal;
+    font-style: normal;
+}
+
+.astra-menu-cart-item .amount {
+    padding-left: 0.5em;
 }
