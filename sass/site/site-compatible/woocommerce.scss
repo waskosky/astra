@@ -32,17 +32,17 @@
 		padding: .5em;
 	}
 
-	dev.product {
+	.product {
 		#respond input#submit,
 		a.button,
 		button.button,
 		input.button {
 			padding: 0.5em 0.75em;
 		}
+	}
 
-		.woocommerce-product-rating {
-		    margin: 0 0 0.5em 0;
-		}
+	div.product .woocommerce-product-rating {
+	    margin: 0 0 0.5em 0;
 	}
 
 	.show-on-hover {
@@ -144,6 +144,10 @@
 
 		.star-rating {
 			color: #f9ca63;
+		}
+
+		.comment-form-rating .stars a {
+		    color: #f9ca63;
 		}
 	}
 

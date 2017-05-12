@@ -33,14 +33,14 @@
   padding: .5em;
 }
 
-.woocommerce dev.product #respond input#submit,
-.woocommerce dev.product a.button,
-.woocommerce dev.product button.button,
-.woocommerce dev.product input.button {
+.woocommerce .product #respond input#submit,
+.woocommerce .product a.button,
+.woocommerce .product button.button,
+.woocommerce .product input.button {
   padding: 0.5em 0.75em;
 }
 
-.woocommerce dev.product .woocommerce-product-rating {
+.woocommerce div.product .woocommerce-product-rating {
   margin: 0 0 0.5em 0;
 }
 
@@ -136,6 +136,10 @@
 }
 
 .woocommerce.single-product .star-rating {
+  color: #f9ca63;
+}
+
+.woocommerce.single-product .comment-form-rating .stars a {
   color: #f9ca63;
 }
 
