@@ -65,7 +65,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_shop_loop_item_title', 	array( $this, 'product_flip_image' ), 10 );
 			add_filter( 'woocommerce_subcategory_count_html', 		array( $this, 'subcategory_count_markup' ), 10, 2 );
-			
+
 			add_filter( 'woocommerce_product_tag_cloud_widget_args', 'ast_widget_tag_cloud_args', 90 );
 		}
 
@@ -76,12 +76,12 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * @return mixed
 		 */
 		function subcategory_count_markup( $content, $category ) {
-			
+
 			$content = sprintf( // WPCS: XSS OK.
 					/* translators: 1: number of products */
 					_nx( '<mark class="count">%1$s Product</mark>', '<mark class="count">%1$s Products</mark>', $category->count, 'product categories', 'astra' ),
 					number_format_i18n( $category->count ) );
-		
+
 			return $content;
 		}
 
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			 * Register Sections & Panels
 			 */
 			$wp_customize->add_section( 'section-shop', array(
-				'title'    => __( 'Woo - Shop Page', 'astra' ),
+				'title'    => __( 'Shop Page', 'astra' ),
 				'panel'    => 'panel-layout',
 				'priority' => 55,
 			) );
@@ -154,10 +154,11 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 				'type'    => 'option',
 			) );
 			$wp_customize->add_control( AST_THEME_SETTINGS . '[shop-grid]', array(
-				'section'     => 'section-shop',
-				'label'       => __( 'Shop Columns', 'astra' ),
-				'type'        => 'select',
-				'choices'     => array(
+				'section'  => 'section-shop',
+				'label'    => __( 'Shop Columns', 'astra' ),
+				'type'     => 'select',
+				'priority' => 5,
+				'choices'  => array(
 					'1' => __( '1 Column', 'astra' ),
 					'2' => __( '2 Columns', 'astra' ),
 					'3' => __( '3 Columns', 'astra' ),
@@ -178,6 +179,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 				'section'     => 'section-shop',
 				'label'       => __( 'Products Per Page', 'astra' ),
 				'type'        => 'number',
+				'priority'    => 10,
 				'input_attrs' => array(
 					'min'  => 1,
 					'step' => 1,
