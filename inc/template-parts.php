@@ -158,6 +158,7 @@ if ( ! function_exists( 'ast_masthead_toggle_buttons_primary' ) ) {
 		if ( ! $disable_primary_navigation || 'none' != $custom_header_section ) {
 			$menu_title = apply_filters( 'ast_main_menu_toggle_label', ast_get_option( 'header-main-menu-label' ) );
 			$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' );
+			$menu_label_class = '';
 			if ( '' != $menu_title ) {
 				$menu_label_class = 'ast-menu-label';
 			}
