@@ -64,10 +64,25 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				return;
 			}
 
+			// Update to older version than 1.0.3 version.
+			if ( version_compare( $saved_version, '1.0.3', '>' ) ) {
+				self::v_1_0_3();
+			}
+
 			// Update auto saved version number.
 			update_option( '_astra_auto_version', AST_THEME_VERSION );
 
 			do_action( 'astra_auto_update_after' );
+		}
+
+		/**
+		 * Update options of older version than 1.0.3.
+		 *
+		 * @since 1.0.3
+		 * @return void
+		 */
+		static public function v_1_0_3() {
+			
 		}
 	}
 }// End if().
