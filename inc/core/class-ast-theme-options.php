@@ -150,8 +150,8 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				// Typography.
 				'body-font-family'					=> 'inherit',
 				'body-font-weight'					=> 'inherit',
-				'font-size-body'					=> 15,
-				'body-line-height'					=> '',
+				'font-size-body'					=> array( 'desktop' => 15, 'tablet' => '', 'mobile' => '' ),
+				'body-line-height'					=> array( 'desktop' => '', 'tablet' => '', 'mobile' => '' ),
 				'body-text-transform'				=> '',
 				'font-size-site-title'				=> 35,
 				'font-size-site-tagline'			=> 15,
