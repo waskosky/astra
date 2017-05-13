@@ -23,6 +23,8 @@ get_header(); ?>
 
 	<div id="primary" <?php ast_primary_class(); ?>>
 
+		<?php ast_primary_content_top(); ?>
+
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -57,6 +59,8 @@ get_header(); ?>
 		</main><!-- #main -->
 		
 		<?php ast_pagination(); ?>
+
+		<?php ast_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 

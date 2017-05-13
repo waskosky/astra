@@ -111,8 +111,8 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 */
 		function button_font_family() {
 			return array(
-					'family' => 'Source Sans Pro',
-					'weight' => 'normal',
+					'family' => ast_get_option( 'body-font-family' ),
+					'weight' => ast_get_option( 'body-font-weight' ),
 				);
 		}
 

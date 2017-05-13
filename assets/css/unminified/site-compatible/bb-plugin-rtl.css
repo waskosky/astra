@@ -5,13 +5,26 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.fl-builder-content {
+  clear: both;
+}
+
+.fl-theme-builder-archive .fl-post-gallery-post.hentry,
+.fl-theme-builder-archive .fl-post-column > .hentry {
+  margin: 0;
+}
+
+.fl-theme-builder-archive h2.fl-post-feed-title {
+  clear: initial;
+}
+
 .fl-builder.ast-no-sidebar #primary,
 .fl-builder.ast-no-sidebar #secondary {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.fl-builder.ast-single-post .hentry {
+.fl-builder.ast-single-post:not(.fl-theme-builder-archive) .hentry {
   margin: 0;
 }
 
@@ -65,4 +78,20 @@
 .uabb-module-content h6 {
   margin: 0;
   clear: both;
+}
+
+.fl-button,
+.fl-button:visited,
+.fl-builder-content .fl-button,
+.fl-builder-content .fl-button:visited {
+  background: #fafafa;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.fl-button *,
+.fl-button:visited *,
+.fl-builder-content .fl-button *,
+.fl-builder-content .fl-button:visited * {
+  color: #333;
 }

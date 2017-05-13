@@ -61,8 +61,8 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 		 * @return void
 		 */
 		public function print_footer_scripts() {
-		    $output = '<script type="text/javascript">';
-	        	$output .= '
+			$output = '<script type="text/javascript">';
+				$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
 	                	var desc = ctrl.container.find(".customize-control-description");
@@ -78,9 +78,9 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 	        	});';
 
 				$output .= Ast_Fonts_Data::js();
-		    $output .= '</script>';
+			$output .= '</script>';
 
-		    echo $output;
+			echo $output;
 		}
 
 		/**
