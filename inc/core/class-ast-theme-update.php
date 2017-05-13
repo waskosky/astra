@@ -65,7 +65,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			}
 
 			// Update to older version than 1.0.3 version.
-			if ( version_compare( $saved_version, '1.0.3', '>' ) ) {
+			if ( version_compare( $saved_version, '1.0.3', '<' ) ) {
 				self::v_1_0_3();
 			}
 
@@ -83,6 +83,26 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 		 */
 		static public function v_1_0_3() {
 			
+			$options = array(
+				'font-size-body',
+				'body-line-height',
+			);
+
+			$ast_options = get_option( AST_THEME_SETTINGS );
+
+			foreach ( $options as $key ) {
+				
+				if( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[$key] ) ) {
+					
+					$ast_options[ $key ] = array(
+						'desktop' 	=> $ast_options[$key],
+						'tablet' 	=> '',
+						'mobile' 	=> '',
+					);
+				}
+			}
+
+			update_option( AST_THEME_SETTINGS, $ast_options );
 		}
 	}
 }// End if().
