@@ -33,8 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Dimension( $wp_customize, AST_THEME_SETTINGS . '[font-size-site-title]', array(
-		'type'        => 'ast-dimension',
+	$wp_customize->add_control( new Ast_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[font-size-site-title]', array(
+		'type'        => 'ast-responsive',
 		'section'     => 'section-header-typo',
 		'priority'    => 10,
 		'label'       => __( 'Font Size', 'astra' ),
@@ -63,8 +63,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Dimension( $wp_customize, AST_THEME_SETTINGS . '[font-size-site-tagline]', array(
-		'type'        => 'ast-dimension',
+	$wp_customize->add_control( new Ast_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[font-size-site-tagline]', array(
+		'type'        => 'ast-responsive',
 		'section'     => 'section-header-typo',
 		'priority'    => 20,
 		'label'       => __( 'Font Size', 'astra' ),

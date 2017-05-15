@@ -86,6 +86,16 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			$options = array(
 				'font-size-body',
 				'body-line-height',
+				'font-size-site-title',
+				'font-size-site-tagline',
+				'font-size-entry-title',
+				'font-size-page-title',
+				'font-size-h1',
+				'font-size-h2',
+				'font-size-h3',
+				'font-size-h4',
+				'font-size-h5',
+				'font-size-h6',
 			);
 
 			$ast_options = get_option( AST_THEME_SETTINGS );
