@@ -75,6 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-body]', array(
 		'default'           => $defaults['font-size-body'],
 		'type'              => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 	) );
 	$wp_customize->add_control( new Ast_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[font-size-body]', array(
 		'type'     => 'ast-responsive',
@@ -92,6 +93,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[body-line-height]', array(
 		'default'           => $defaults['body-line-height'],
 		'type'              => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		'transport'         => 'postMessage',
 	) );
 	$wp_customize->add_control( new Ast_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[body-line-height]', array(

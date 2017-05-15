@@ -166,6 +166,8 @@ if( ! function_exists('ast_get_font_css_value') ) {
 					$value          = intval( $value );
 					$body_font_size = ast_get_option( 'font-size-body' );
 					$body_font_size['desktop'] = ( '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
+					$body_font_size['tablet'] = ( '' != $body_font_size['tablet'] ) ? $body_font_size['tablet'] : $body_font_size['desktop'];
+					$body_font_size['mobile'] = ( '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $body_font_size['tablet'];
 
 					if ( $body_font_size[$device] ) {
 						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size[$device] ) ) . $unit;
