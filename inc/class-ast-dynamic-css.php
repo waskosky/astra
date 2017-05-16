@@ -484,10 +484,10 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'font-size'   => ast_get_font_css_value( $single_post_title_font_size['mobile'], 'mobile' ),
 				),
 			);
-			
+
 			/* Parse CSS from array()*/
 			$parse_css .= ast_parse_css( $mobile_typography, '' ,'480' );
-			
+
 			/* Parse CSS from array()*/
 			$parse_css .= ast_parse_css( $site_width, '768' );
 

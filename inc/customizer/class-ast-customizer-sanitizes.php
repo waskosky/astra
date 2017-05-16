@@ -86,13 +86,13 @@ if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
 		 * @return number        Return number.
 		 */
 		static public function sanitize_responsive_typo( $val ) {
-			
+
 			$responsive = array(
 				'desktop' 	=> '',
 				'tablet'	=> '',
-				'mobile'	=> '' 
+				'mobile'	=> '',
 			);
-			if( is_array( $val ) ) {
+			if ( is_array( $val ) ) {
 				$responsive['desktop'] = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
 				$responsive['tablet'] = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
 				$responsive['mobile'] = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';

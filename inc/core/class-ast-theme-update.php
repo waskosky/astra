@@ -82,7 +82,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 		 * @return void
 		 */
 		static public function v_1_0_3() {
-			
+
 			$options = array(
 				'font-size-body',
 				'body-line-height',
@@ -101,11 +101,11 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			$ast_options = get_option( AST_THEME_SETTINGS );
 
 			foreach ( $options as $key ) {
-				
-				if( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[$key] ) ) {
-					
+
+				if ( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[ $key ] ) ) {
+
 					$ast_options[ $key ] = array(
-						'desktop' 	=> $ast_options[$key],
+						'desktop' 	=> $ast_options[ $key ],
 						'tablet' 	=> '',
 						'mobile' 	=> '',
 					);

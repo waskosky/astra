@@ -58,12 +58,12 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 
 		$val = maybe_unserialize( $this->value() );
 
-		if( ! is_array( $val ) || is_numeric( $val ) ) {
-			
-			$val = array( 
+		if ( ! is_array( $val ) || is_numeric( $val ) ) {
+
+			$val = array(
 				'desktop' 	=> $val,
 				'tablet'  	=> '',
-				'mobile'	=> ''
+				'mobile'	=> '',
 			);
 		}
 
