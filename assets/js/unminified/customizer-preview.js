@@ -12,20 +12,25 @@
  */
 function ast_font_size_rem( size, with_rem, device ) {
 
-	var device = ( typeof device != undefined ) ? device : 'desktop';
+	var css = '';
 
-	// font size with 'px'.
-	var css = 'font-size: ' + size + 'px;';
-
-	// font size with 'rem'.
-	if ( with_rem ) {
-		var body_font_size = wp.customize( 'ast-settings[font-size-body]' ).get();
+	if( size != '' ) {
 		
-		body_font_size['desktop'] 	= body_font_size['desktop'] != '' ? body_font_size['desktop'] : 15;
-		body_font_size['tablet'] 	= body_font_size['tablet'] != '' ? body_font_size['tablet'] : body_font_size['desktop'];
-		body_font_size['mobile'] 	= body_font_size['mobile'] != '' ? body_font_size['mobile'] : body_font_size['tablet'];
+		var device = ( typeof device != undefined ) ? device : 'desktop';
 
-		css += 'font-size: ' + ( size / body_font_size[device] ) + 'rem;';
+		// font size with 'px'.
+		css = 'font-size: ' + size + 'px;';
+
+		// font size with 'rem'.
+		if ( with_rem ) {
+			var body_font_size = wp.customize( 'ast-settings[font-size-body]' ).get();
+			
+			body_font_size['desktop'] 	= ( body_font_size['desktop'] != '' ) ? body_font_size['desktop'] : 15;
+			body_font_size['tablet'] 	= ( body_font_size['tablet'] != '' ) ? body_font_size['tablet'] : body_font_size['desktop'];
+			body_font_size['mobile'] 	= ( body_font_size['mobile'] != '' ) ? body_font_size['mobile'] : body_font_size['tablet'];
+
+			css += 'font-size: ' + ( size / body_font_size[device] ) + 'rem;';
+		}
 	}
 
 	return css;
