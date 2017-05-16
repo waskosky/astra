@@ -466,7 +466,7 @@ function ast_add_dynamic_css( control, style ) {
 	ast_responsive_font_size( 'ast-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a' );
 	ast_responsive_font_size( 'ast-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
 	
-	ast_responsive_line_height( 'ast-settings[body-line-height]', 'body, button, input, select, textarea', 'dimension' );
+	ast_responsive_line_height( 'ast-settings[body-line-height]', 'body, button, input, select, textarea' );
 	
 	ast_css( 'ast-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
 
