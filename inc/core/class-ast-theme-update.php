@@ -54,7 +54,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 		 */
 		static public function init() {
 
-			do_action( 'astra_auto_update_before' );
+			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
 			$saved_version = get_option( '_astra_auto_version', '0' );
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			// Update auto saved version number.
 			update_option( '_astra_auto_version', AST_THEME_VERSION );
 
-			do_action( 'astra_auto_update_after' );
+			do_action( 'astra_update_after' );
 		}
 	}
 }// End if().
