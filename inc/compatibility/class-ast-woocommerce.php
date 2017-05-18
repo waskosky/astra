@@ -60,12 +60,12 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * @since 1.0.3
 		 */
 		function setup_theme() {
-		
+
 			// WooCommerce.
 			add_theme_support( 'woocommerce' );
 
 		}
-		
+
 		/**
 		 * Remove Woo-Commerce Default actions
 		 */
