@@ -70,10 +70,10 @@ if ( ! class_exists( 'Ast_Beaver_Builder' ) ) :
 
 			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
 			if ( $do_render && FLBuilderModel::is_builder_enabled() && ! is_archive() ) {
-				
+
 				global $post;
-				
-				if( ( empty( $post->post_content ) || '' == $post->post_content ) && 'default' == get_post_meta( $post->ID, 'site-content-layout', true ) ) {
+
+				if ( empty( $post->post_content ) && 'default' == get_post_meta( $post->ID, 'site-content-layout', true ) ) {
 					update_post_meta( $post->ID, 'site-content-layout', 'page-builder' );
 				}
 			}
