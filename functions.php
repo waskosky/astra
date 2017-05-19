@@ -23,6 +23,11 @@ require_once AST_THEME_DIR . 'inc/core/class-ast-theme-options.php';
 require_once AST_THEME_DIR . 'inc/core/class-theme-strings.php';
 
 /**
+ * Update theme
+ */
+require_once AST_THEME_DIR . 'inc/core/class-ast-theme-update.php';
+
+/**
  * Fonts Files
  */
 if ( is_admin() ) {
@@ -84,7 +89,6 @@ require_once AST_THEME_DIR . 'inc/metabox/class-ast-meta-box-operations.php';
  * Customizer additions.
  */
 require_once AST_THEME_DIR . 'inc/customizer/class-ast-customizer.php';
-require_once AST_THEME_DIR . 'inc/core/class-ast-theme-update.php';
 
 /**
  * Compatibility
