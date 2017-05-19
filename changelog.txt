@@ -1,3 +1,6 @@
+v1.0.3
+Enhancement: Removed option _astra_auto_version and used option AST_THEME_SETTINGS for auto storing latest theme version.
+
 v1.0.2
 New: Added Beaver Themer support.
 New: Added option to disable primary header navigation.
