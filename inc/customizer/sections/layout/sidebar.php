@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Default Sidebar Position
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[site-sidebar-layout]', array(
-		'default'           => $defaults['site-sidebar-layout'],
+		'default'           => ast_get_option('site-sidebar-layout'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Page
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
-		'default'           => $defaults['single-page-sidebar-layout'],
+		'default'           => ast_get_option('single-page-sidebar-layout'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
-		'default'           => $defaults['single-post-sidebar-layout'],
+		'default'           => ast_get_option('single-post-sidebar-layout'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -90,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post Archive
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
-		'default'           => $defaults['archive-post-sidebar-layout'],
+		'default'           => ast_get_option('archive-post-sidebar-layout'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Primary Content Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[site-sidebar-width]', array(
-		'default'           => $defaults['site-sidebar-width'],
+		'default'           => ast_get_option('site-sidebar-width'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),

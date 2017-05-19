@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post Content
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-post-content]', array(
-		'default'           => $defaults['blog-post-content'],
+		'default'           => ast_get_option('blog-post-content'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Post Meta
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-meta]', array(
-		'default'           => $defaults['blog-meta'],
+		'default'           => ast_get_option('blog-meta'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 	) );
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Content Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-width]', array(
-		'default'           => $defaults['blog-width'],
+		'default'           => ast_get_option('blog-width'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Enter Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-max-width]', array(
-		'default'           => $defaults['blog-max-width'],
+		'default'           => ast_get_option('blog-max-width'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),

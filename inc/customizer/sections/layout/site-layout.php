@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Container Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[site-content-width]', array(
-		'default'           => $defaults['site-content-width'],
+		'default'           => ast_get_option('site-content-width'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'validate_site_width' ),

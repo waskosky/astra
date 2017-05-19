@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Text Color
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[text-color]', array(
-		'default'           => $defaults['text-color'],
+		'default'           => ast_get_option('text-color'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Link Color
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[link-color]', array(
-		'default'           => $defaults['link-color'],
+		'default'           => ast_get_option('link-color'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Link Hover Color
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[link-h-color]', array(
-		'default'           => $defaults['link-h-color'],
+		'default'           => ast_get_option('link-h-color'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );

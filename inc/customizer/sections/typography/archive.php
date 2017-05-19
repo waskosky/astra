@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog - Post Title Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-page-title]', array(
-		'default'           => $defaults['font-size-page-title'],
+		'default'           => ast_get_option('font-size-page-title'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),

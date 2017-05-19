@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Header Layout
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-layouts]', array(
-		'default' => $defaults['header-layouts'],
+		'default' => ast_get_option('header-layouts'),
 		'type'    => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Disable Menu
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
-		'default'           => $defaults['disable-primary-nav'],
+		'default'           => ast_get_option('disable-primary-nav'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	) );
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Custom Menu Item
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-rt-section]', array(
-		'default'           => $defaults['header-main-rt-section'],
+		'default'           => ast_get_option('header-main-rt-section'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -83,7 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Right Section Text / HTML
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-		'default'           => $defaults['header-main-rt-section-html'],
+		'default'           => ast_get_option('header-main-rt-section-html'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_html' ),
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Bottom Border Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-sep]', array(
-		'default'           => $defaults['header-main-sep'],
+		'default'           => ast_get_option('header-main-sep'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
@@ -128,7 +128,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Bottom Border Color
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-sep-color]', array(
-		'default'           => $defaults['header-main-sep-color'],
+		'default'           => ast_get_option('header-main-sep-color'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
@@ -143,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Header Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-layout-width]', array(
-		'default'           => $defaults['header-main-layout-width'],
+		'default'           => ast_get_option('header-main-layout-width'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );

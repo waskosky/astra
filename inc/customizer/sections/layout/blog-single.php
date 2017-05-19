@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post Meta
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-single-meta]', array(
-		'default'           => $defaults['blog-single-meta'],
+		'default'           => ast_get_option('blog-single-meta'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 	) );
@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post Content Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-single-width]', array(
-		'default'           => $defaults['blog-single-width'],
+		'default'           => ast_get_option('blog-single-width'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Enter Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-single-max-width]', array(
-		'default'           => $defaults['blog-single-max-width'],
+		'default'           => ast_get_option('blog-single-max-width'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),

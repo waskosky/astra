@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Layout
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-layout]', array(
-		'default'           => $defaults['footer-sml-layout'],
+		'default'           => ast_get_option('footer-sml-layout'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 1
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-section-1]', array(
-		'default'           => $defaults['footer-sml-section-1'],
+		'default'           => ast_get_option('footer-sml-section-1'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 1 Custom Text
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
-		'default'           => $defaults['footer-sml-section-1-credit'],
+		'default'           => ast_get_option('footer-sml-section-1-credit'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_html' ),
@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 2
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-section-2]', array(
-		'default'           => $defaults['footer-sml-section-2'],
+		'default'           => ast_get_option('footer-sml-section-2'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -126,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 2 Custom Text
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
-		'default'           => $defaults['footer-sml-section-2-credit'],
+		'default'           => ast_get_option('footer-sml-section-2-credit'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_html' ),
@@ -160,7 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Top Border
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-divider]', array(
-		'default'           => $defaults['footer-sml-divider'],
+		'default'           => ast_get_option('footer-sml-divider'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
@@ -181,7 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Top Border Color
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-divider-color]', array(
-		'default'           => $defaults['footer-sml-divider-color'],
+		'default'           => ast_get_option('footer-sml-divider-color'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
@@ -196,7 +196,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Header Width
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-layout-width]', array(
-		'default'           => $defaults['footer-layout-width'],
+		'default'           => ast_get_option('footer-layout-width'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );

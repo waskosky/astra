@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Family
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[body-font-family]', array(
-		'default'           => $defaults['body-font-family'],
+		'default'           => ast_get_option('body-font-family'),
 		'type'              => 'option',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Weight
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[body-font-weight]', array(
-		'default'           => $defaults['body-font-weight'],
+		'default'           => ast_get_option('body-font-weight'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_font_weight' ),
 	) );
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Text Transform
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[body-text-transform]', array(
-		'default'           => $defaults['body-text-transform'],
+		'default'           => ast_get_option('body-text-transform'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-body]', array(
-		'default'           => $defaults['font-size-body'],
+		'default'           => ast_get_option('font-size-body'),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 	) );
@@ -91,7 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Line Height
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[body-line-height]', array(
-		'default'           => $defaults['body-line-height'],
+		'default'           => ast_get_option('body-line-height'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),

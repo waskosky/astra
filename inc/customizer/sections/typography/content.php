@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H1> Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-h1]', array(
-		'default'           => $defaults['font-size-h1'],
+		'default'           => ast_get_option('font-size-h1'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H2> Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-h2]', array(
-		'default'           => $defaults['font-size-h2'],
+		'default'           => ast_get_option('font-size-h2'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H3> Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-h3]', array(
-		'default'           => $defaults['font-size-h3'],
+		'default'           => ast_get_option('font-size-h3'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H4> Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-h4]', array(
-		'default'           => $defaults['font-size-h4'],
+		'default'           => ast_get_option('font-size-h4'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -147,7 +147,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H5> Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-h5]', array(
-		'default'           => $defaults['font-size-h5'],
+		'default'           => ast_get_option('font-size-h5'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -177,7 +177,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H6> Font Size
 	 */
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-h6]', array(
-		'default'           => $defaults['font-size-h6'],
+		'default'           => ast_get_option('font-size-h6'),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),

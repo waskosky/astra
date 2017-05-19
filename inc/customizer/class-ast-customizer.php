@@ -103,13 +103,6 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Ast_Control_Divider' );
 
 			/**
-			 * Get theme option default values
-			 *
-			 * @see Ast_Theme_Options::defaults()
-			 */
-			$defaults = Ast_Theme_Options::defaults();
-
-			/**
 			 * Helper files
 			 */
 			require AST_THEME_DIR . 'inc/customizer/customizer-controls.php';
