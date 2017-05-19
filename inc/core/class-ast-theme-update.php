@@ -65,7 +65,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			}
 
 			// Not have stored?
-			if( empty( $saved_version ) ) {
+			if ( empty( $saved_version ) ) {
 
 				// Get old version.
 				$theme_version = get_option( '_astra_auto_version', '0' );
@@ -83,7 +83,9 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			$customizer_options = get_option( AST_THEME_SETTINGS );
 
 			// Get all customizer options.
-			$version_array = array( 'theme-auto-version' => $theme_version );
+			$version_array = array(
+				'theme-auto-version' => $theme_version,
+			);
 
 			// Merge customizer options with version.
 			$theme_options = wp_parse_args( $version_array, $customizer_options );
