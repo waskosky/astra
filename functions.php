@@ -17,15 +17,15 @@ define( 'AST_THEME_DIR', get_template_directory() . '/' );
 define( 'AST_THEME_URI', get_template_directory_uri() . '/' );
 
 /**
+ * Update theme
+ */
+require_once AST_THEME_DIR . 'inc/core/class-ast-theme-update.php';
+
+/**
  * Load theme hooks
  */
 require_once AST_THEME_DIR . 'inc/core/class-ast-theme-options.php';
 require_once AST_THEME_DIR . 'inc/core/class-theme-strings.php';
-
-/**
- * Update theme
- */
-require_once AST_THEME_DIR . 'inc/core/class-ast-theme-update.php';
 
 /**
  * Fonts Files
