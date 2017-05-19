@@ -59,7 +59,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		public function __construct() {
 
 			// Refresh options variables after customizer save.
-			self::refresh();
+			// self::refresh();
 			add_action( 'init', array( $this, 'update_options' ) );
 		}
 
