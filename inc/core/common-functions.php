@@ -145,7 +145,7 @@ if ( ! function_exists( 'ast_get_font_css_value' ) ) {
 	 * @param  string $unit         CSS unit.
 	 * @return mixed               	CSS value depends on $unit & $device
 	 */
-	function ast_get_font_css_value( $value, $device = 'desktop', $unit = 'rem' ) {
+	function ast_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
 
 		// If value is empty of 0 then return blank.
 		if ( '' == $value || 0 == $value ) {
@@ -155,13 +155,13 @@ if ( ! function_exists( 'ast_get_font_css_value' ) ) {
 		$css_val = '';
 
 		switch ( $unit ) {
-			case 'px':
+			case 'em' :
 			case '%' :
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
-			case 'rem':
-
+			case 'px':
+			
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = ast_get_option( 'font-size-body' );
@@ -170,7 +170,7 @@ if ( ! function_exists( 'ast_get_font_css_value' ) ) {
 					$body_font_size['mobile'] = ( '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $body_font_size['tablet'];
 
 					if ( $body_font_size[ $device ] ) {
-						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size[ $device ] ) ) . $unit;
+						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size[ $device ] ) ) . 'rem';
 					}
 				} else {
 					$css_val = esc_attr( $value );

@@ -28,6 +28,14 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 	public $type = 'ast-responsive';
 
 	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var array
+	 */
+	public $units = array();
+
+	/**
 	 * Enqueue control related scripts/styles.
 	 *
 	 * @access public
@@ -64,6 +72,7 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 				'desktop' 	=> $val,
 				'tablet'  	=> '',
 				'mobile'	=> '',
+				'unit'		=> '',
 			);
 		}
 
@@ -73,6 +82,7 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 		$this->json['id']       = $this->id;
 		$this->json['l10n']     = $this->l10n();
 		$this->json['label']    = esc_html( $this->label );
+		$this->json['units']    = $this->units;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -119,8 +129,8 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 			<# } 
 
 			value_desktop = '';
-			value_tablet = '';
-			value_mobile = '';
+			value_tablet  = '';
+			value_mobile  = '';
 
 			if ( data.value['desktop'] ) { 
 				value_desktop = data.value['desktop'];
@@ -138,6 +148,13 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 				<input {{{ data.inputAttrs }}} data-id ='desktop'  class="ast-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
 				<input {{{ data.inputAttrs }}} data-id ='tablet'  class="ast-responsive-input tablet" type="number" value="{{ value_tablet }}"/>
 				<input {{{ data.inputAttrs }}} data-id ='mobile'  class="ast-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
+				
+				<select class="ast-responsive-select" <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+				<# _.each( data.units, function( value, key ) { #>
+					<option value="{{{ key }}}" <# if ( data.value['unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
+				<# }); #>
+				</select>
+				
 			</div>
 		</label>
 		<?php

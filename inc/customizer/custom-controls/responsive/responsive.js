@@ -21,7 +21,7 @@
 			/**
 			 * Save on change / keyup / paste
 			 */
-			this.container.on( 'change keyup paste', 'input.ast-responsive-input', function() {
+			this.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
 
 				value = jQuery( this ).val();
 
@@ -65,6 +65,8 @@
 				newValue[item] = item_value;
 
 			});
+
+			newValue['unit'] = control.responsiveContainer.find( 'select.ast-responsive-select' ).first().val();
 
 			control.setting.set( newValue );
 		},

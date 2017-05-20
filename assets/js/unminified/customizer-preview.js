@@ -51,25 +51,16 @@ function ast_responsive_font_size( control, selector ) {
 				control = control.replace( ']', '' );
 				jQuery( 'style#' + control ).remove();
 
-				var fontSize = 'font-size: ' + value.desktop;
-				if ( ! isNaN( value.desktop ) || value.desktop.indexOf( 'px' ) >= 0 ) {
-					size = value.desktop.replace( 'px', '' );
-					fontSize = ast_font_size_rem( size, true, 'desktop' );
+				var fontSize = 'font-size: ' + value.desktop + value.unit;
+				var TabletFontSize = 'font-size: ' + value.tablet + value.unit;
+				var MobileFontSize = 'font-size: ' + value.mobile + value.unit;
+				
+				if( value.unit == 'px' ) {
+					fontSize = ast_font_size_rem( value.desktop, true, 'desktop' );
+					TabletFontSize = ast_font_size_rem( value.tablet, true, 'tablet' );
+					MobileFontSize = ast_font_size_rem( value.mobile, true, 'mobile' );
 				}
-					
-
-				var TabletFontSize = 'font-size: ' + value.tablet;
-				if ( ! isNaN( value.tablet ) || value.tablet.indexOf( 'px' ) >= 0 ) {
-					size = value.tablet.replace( 'px', '' );
-					TabletFontSize = ast_font_size_rem( size, true, 'tablet' );
-				}
-
-				var MobileFontSize = 'font-size: ' + value.mobile;
-				if ( ! isNaN( value.mobile ) || value.mobile.indexOf( 'px' ) >= 0 ) {
-					size = value.mobile.replace( 'px', '' );
-					MobileFontSize = ast_font_size_rem( size, true, 'mobile' );
-				}
-
+				
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
 					'<style id="' + control + '">'
@@ -108,13 +99,13 @@ function ast_responsive_line_height( control, selector ) {
 				var MobileLineHeight = '';
 
 				if( value.desktop != '' ) {
-					LineHeight = 'line-height: ' + value.desktop + 'px';
+					LineHeight = 'line-height: ' + value.desktop + value.unit;
 				}
 				if( value.tablet != '' ) {
-					TabletLineHeight = 'line-height: ' + value.tablet + 'px';
+					TabletLineHeight = 'line-height: ' + value.tablet + value.unit;
 				}
 				if( value.mobile != '' ) {
-					MobileLineHeight = 'line-height: ' + value.mobile + 'px';
+					MobileLineHeight = 'line-height: ' + value.mobile + value.unit;
 				}
 				
 				// Concat and append new <style>.

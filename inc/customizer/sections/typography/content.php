@@ -40,6 +40,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'input_attrs' => array(
 			'min' => 0,
 		),
+		'units'	=> array(
+			'px'  => 'px',
+			'em'  => 'em',
+		),
 	) ) );
 
 	/**
@@ -69,6 +73,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'label'    => __( 'Font Size', 'astra' ),
 		'input_attrs' => array(
 			'min' => 0,
+		),
+		'units'	=> array(
+			'px'  => 'px',
+			'em'  => 'em',
 		),
 	) ) );
 
@@ -100,6 +108,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'input_attrs' => array(
 			'min' => 0,
 		),
+		'units'	=> array(
+			'px'  => 'px',
+			'em'  => 'em',
+		),
 	) ) );
 
 	/**
@@ -129,6 +141,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'label'    => __( 'Font Size', 'astra' ),
 		'input_attrs' => array(
 			'min' => 0,
+		),
+		'units'	=> array(
+			'px'  => 'px',
+			'em'  => 'em',
 		),
 	) ) );
 
@@ -160,6 +176,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'input_attrs' => array(
 			'min' => 0,
 		),
+		'units'	=> array(
+			'px'  => 'px',
+			'em'  => 'em',
+		),
 	) ) );
 
 	/**
@@ -189,5 +209,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'label'    => __( 'Font Size', 'astra' ),
 		'input_attrs' => array(
 			'min' => 0,
+		),
+		'units'	=> array(
+			'px'  => 'px',
+			'em'  => 'em',
 		),
 	) ) );

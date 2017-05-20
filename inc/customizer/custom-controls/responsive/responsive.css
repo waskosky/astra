@@ -37,8 +37,18 @@
 
 .customize-control-ast-responsive .input-wrapper input {
   display: none;
+  width: calc(100% - 52px);
+  float: left;
 }
 
 .customize-control-ast-responsive .input-wrapper input.active {
-  display: initial;
+  display: inline-block;
+}
+
+.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
+  width: 50px;
+  margin: 0;
+  display: inline-block;
+  padding: .1em;
+  margin-left: 2px;
 }
