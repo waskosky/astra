@@ -98,12 +98,9 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-			$rtl         = ( is_rtl() ) ? '-rtl' : '';
 
 			$js_uri  = AST_THEME_URI . 'assets/js/' . $dir_name . '/';
 			$css_uri = AST_THEME_URI . 'assets/css/' . $dir_name . '/';
-			$js_dir  = AST_THEME_DIR . 'assets/js/' . $dir_name . '/';
-			$css_dir = AST_THEME_DIR . 'assets/css/' . $dir_name . '/';
 
 			// It always enqueued by default.
 			// Register & Enqueue.
@@ -118,21 +115,17 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 			// Register & Enqueue Styles.
 			foreach ( $styles as $key => $style ) {
 
-				$css_rtl_file = $css_dir . $style . $rtl . $file_prefix . '.css';
-
-				// If RTL file is exist?
-				// If not then load original CSS file.
-				if ( file_exists( $css_rtl_file ) ) {
-					$css_file = $css_uri . $style . $rtl . $file_prefix . '.css';
-				} else {
-					$css_file = $css_uri . $style . $file_prefix . '.css';
-				}
+				// Generate CSS URL.
+				$css_file = $css_uri . $style . $file_prefix . '.css';
 
 				// Register.
 				wp_register_style( $key, $css_file, array(), AST_THEME_VERSION, 'all' );
 
 				// Enqueue.
 				wp_enqueue_style( $key );
+
+				// RTL support.
+				wp_style_add_data( $key, 'rtl', 'replace' );
 
 			}
 

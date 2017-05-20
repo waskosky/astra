@@ -2288,11 +2288,11 @@ body {
   }
   .ast-separate-container.ast-two-container.ast-right-sidebar #secondary {
     padding-left: 30px;
-    paddig-right: 0;
+    padding-right: 0;
   }
   .ast-separate-container.ast-two-container.ast-left-sidebar #secondary {
     padding-right: 30px;
-    paddig-left: 0;
+    padding-left: 0;
   }
 }
 
