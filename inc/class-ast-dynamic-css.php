@@ -366,11 +366,11 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			);
 
 			$tablet_html = array(
-				'font-size' => ast_get_font_css_value( $body_font_size['desktop'] * 5.7, '%', 'desktop' )
+				'font-size' => ast_get_font_css_value( $body_font_size['desktop'] * 5.7, '%', 'desktop' ),
 			);
-			if( '' != $body_font_size['tablet'] ) {
+			if ( '' != $body_font_size['tablet'] ) {
 				$tablet_html = array(
-					'font-size' => ast_get_font_css_value( $body_font_size['tablet'] * 6.25, '%', 'tablet' )
+					'font-size' => ast_get_font_css_value( $body_font_size['tablet'] * 6.25, '%', 'tablet' ),
 				);
 			}
 

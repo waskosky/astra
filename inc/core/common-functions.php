@@ -141,8 +141,8 @@ if ( ! function_exists( 'ast_get_font_css_value' ) ) {
 	 *  ast_get_css_value( VALUE, 'mobile' );
 	 *
 	 * @param  string $value        CSS value.
-	 * @param  string $device 		CSS device.
 	 * @param  string $unit         CSS unit.
+	 * @param  string $device 		CSS device.
 	 * @return mixed               	CSS value depends on $unit & $device
 	 */
 	function ast_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
@@ -161,7 +161,7 @@ if ( ! function_exists( 'ast_get_font_css_value' ) ) {
 				break;
 
 			case 'px':
-			
+
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = ast_get_option( 'font-size-body' );
