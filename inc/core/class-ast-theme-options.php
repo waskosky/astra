@@ -160,7 +160,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 														'desktop' => '',
 														'tablet'  => '',
 														'mobile'  => '',
-														'unit'    => 'px',
+														'unit'    => '',
 													),
 				'body-text-transform'				=> '',
 				'font-size-site-title'				=> array(
