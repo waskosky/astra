@@ -541,7 +541,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				), '', '919'
 			);
 
-			$dynamic_css = apply_filters( 'ast_dynamic_css', $parse_css );
+			$dynamic_css = $parse_css;
 			$custom_css  = ast_get_option( 'custom-css' );
 
 			if ( '' != $custom_css ) {
