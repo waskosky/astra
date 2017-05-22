@@ -378,7 +378,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			$tablet_typography = array(
 				'html' => $tablet_html,
 				'body, button, input, select, textarea' => array(
-					'font-size'      => ast_get_font_css_value( $body_font_size['tablet'], 'tablet' ),
+					'font-size'      => ast_get_font_css_value( $body_font_size['tablet'], 'px', 'tablet' ),
 					'line-height'    => ast_get_css_value( $body_line_height['tablet'], $body_line_height['unit'] ),
 				),
 				'.comment-reply-title' => array(
@@ -439,7 +439,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'font-size' => ast_get_font_css_value( $body_font_size['mobile'] * 6.25, '%', 'mobile' ),
 				),
 				'body, button, input, select, textarea' => array(
-					'font-size'      => ast_get_font_css_value( $body_font_size['mobile'], $body_font_size['unit'], 'mobile' ),
+					'font-size'      => ast_get_font_css_value( $body_font_size['mobile'], $body_font_size['unit'], 'px', 'mobile' ),
 					'line-height'    => ast_get_css_value( $body_line_height['mobile'], $body_line_height['unit'] ),
 				),
 				'.comment-reply-title' => array(
