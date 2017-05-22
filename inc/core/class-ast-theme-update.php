@@ -65,7 +65,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			}
 
 			// Update to older version than 1.0.3 version.
-			if ( version_compare( $saved_version, '1.0.3', '<' ) ) {
+			if ( version_compare( $saved_version, '1.0.3.1-beta', '<' ) ) {
 				self::v_1_0_3();
 			}
 
