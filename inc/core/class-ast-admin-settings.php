@@ -198,7 +198,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 
 			?>
 			<div class="nav-tab-wrapper">
-				<h1 class='ast-title'> <?php esc_html_e( self::$menu_page_title, 'astra' ); ?> </h1>
+				<h1 class='ast-title'> <?php echo esc_html( self::$menu_page_title ); ?> </h1>
 				<?php
 				$view_actions = self::get_view_actions();
 
@@ -215,17 +215,17 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 					}
 
 					$active = ( $slug == $action ) ? 'nav-tab-active' : ''; ?>
-						<a class='nav-tab <?php echo esc_attr( $active ); ?>' href='<?php echo esc_url( $url ); ?>'> <?php esc_html_e( $data['label'], 'astra' ); ?> </a>
+						<a class='nav-tab <?php echo esc_attr( $active ); ?>' href='<?php echo esc_url( $url ); ?>'> <?php echo esc_html( $data['label'] ); ?> </a>
 				<?php } ?>
 			</div><!-- .nav-tab-wrapper -->
-			
+
 			<?php
 			// Settings update message.
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
 				?>
 					<span id="message" class="notice notice-success is-dismissive"><p> <?php _e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
 				<?php
-			}	
+			}
 
 		}
 
