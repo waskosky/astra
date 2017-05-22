@@ -11,17 +11,10 @@
 /**
  * Define Constants
  */
-define( 'AST_THEME_VERSION', '1.0.1' );
+define( 'AST_THEME_VERSION', '1.0.3.1' );
 define( 'AST_THEME_SETTINGS', 'ast-settings' );
 define( 'AST_THEME_DIR', get_template_directory() . '/' );
 define( 'AST_THEME_URI', get_template_directory_uri() . '/' );
-
-// 'ast-container' has 20px left, right padding. For pixel perfect added ( twice ) 40px padding to the 'ast-container'.
-// E.g. If width set 1200px then with padding left ( 20px ) & right ( 20px ) its 1240px for 'ast-container'. But, Actual contents are 1200px.
-define( 'AST_THEME_CONTAINER_PADDING', 20 );
-define( 'AST_THEME_CONTAINER_PADDING_TWICE', ( 20 * 2 ) );
-define( 'AST_THEME_CONTAINER_BOX_PADDED_PADDING', 40 );
-define( 'AST_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE', ( 40 * 2 ) );
 
 /**
  * Load theme hooks

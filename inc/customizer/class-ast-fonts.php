@@ -45,7 +45,7 @@ final class Ast_Fonts {
 			$key = array_search( 'inherit' , $variants );
 			if ( false !== $key ) {
 
-			    unset( $variants[ $key ] );
+				unset( $variants[ $key ] );
 
 				if ( ! in_array( 400, $variants ) ) {
 					$variants[] = 400;

@@ -2288,11 +2288,11 @@ body {
   }
   .ast-separate-container.ast-two-container.ast-right-sidebar #secondary {
     padding-left: 30px;
-    paddig-right: 0;
+    padding-right: 0;
   }
   .ast-separate-container.ast-two-container.ast-left-sidebar #secondary {
     padding-right: 30px;
-    paddig-left: 0;
+    padding-left: 0;
   }
 }
 
@@ -2642,7 +2642,11 @@ body {
 }
 
 .header-main-layout-2 .site-title {
-  display: block;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .header-main-layout-2 .main-navigation ul {
@@ -2736,6 +2740,10 @@ body {
   -moz-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+}
+
+.ast-header-break-point .header-main-layout-3 li .ast-search-menu-icon {
+  left: 0;
 }
 
 /* 3 - Header Common  */

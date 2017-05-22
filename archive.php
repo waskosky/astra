@@ -17,7 +17,9 @@ get_header(); ?>
 <?php endif ?>
 
 	<div id="primary" <?php ast_primary_class(); ?>>
-
+		
+		<?php ast_primary_content_top(); ?>
+		
 		<?php ast_archive_header(); ?>
 
 		<main id="main" class="site-main" role="main">
@@ -56,6 +58,8 @@ get_header(); ?>
 		</main><!-- #main -->
 
 		<?php ast_pagination(); ?>
+
+		<?php ast_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 

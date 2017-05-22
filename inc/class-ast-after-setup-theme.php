@@ -58,17 +58,7 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'content_width' ), 	0 );
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 	2 );
-		}
-
-		/**
-		 * Content Width
-		 *
-		 * @since 1.0.0
-		 */
-		function content_width() {
-			$GLOBALS['content_width'] = apply_filters( 'ast_content_width', 700 );
 		}
 
 		/**
@@ -80,8 +70,11 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 
 			do_action( 'ast_class_loaded' );
 
+			/**
+			  * Content Width
+			  */
 			if ( ! isset( $content_width ) ) {
-				$content_width = 700;
+				$content_width = apply_filters( 'ast_content_width', 700 );
 			}
 
 			/**
@@ -135,14 +128,6 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 				'flex-height' => true,
 			) );
 
-			// WooCommerce.
-			add_theme_support( 'woocommerce' );
-
-			// Load required widgets from plugin 'ast-widgets'.
-			add_theme_support( 'ast-custom-js' );
-			add_theme_support( 'astra-theme' );
-			add_theme_support( 'ast-shortcodes' );
-
 			// Customize Selective Refresh Widgets.
 			add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -159,6 +144,6 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 }// End if().
 
 /**
- *  Kicking this off by calling 'get_instance()' method
+ * Kicking this off by calling 'get_instance()' method
  */
-$ast_after_setup_theme = AST_After_Setup_Theme::get_instance();
+AST_After_Setup_Theme::get_instance();

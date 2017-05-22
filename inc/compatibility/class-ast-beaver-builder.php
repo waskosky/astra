@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Beaver_Builder' ) ) :
 	class Ast_Beaver_Builder {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -43,7 +43,8 @@ if ( ! class_exists( 'Ast_Beaver_Builder' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'ast_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'ast_theme_assets', 		array( $this, 'add_styles' ) );
+			add_filter( 'ast_get_content_layout', 	array( $this, 'builder_template_content_layout' ), 20 );
 		}
 
 		/**
@@ -58,11 +59,33 @@ if ( ! class_exists( 'Ast_Beaver_Builder' ) ) :
 			return $assets;
 		}
 
+		/**
+		 * Builder Template Content layout set as Page Builder
+		 *
+		 * @param  string $layout Content Layout.
+		 * @return string
+		 * @since  1.0.2
+		 */
+		function builder_template_content_layout( $layout ) {
+
+			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
+			if ( $do_render && FLBuilderModel::is_builder_enabled() && ! is_archive() ) {
+
+				global $post;
+
+				if ( empty( $post->post_content ) && 'default' == get_post_meta( $post->ID, 'site-content-layout', true ) ) {
+					update_post_meta( $post->ID, 'site-content-layout', 'page-builder' );
+				}
+			}
+
+			return $layout;
+		}
+
 	}
 
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_beaver_builder  = Ast_Beaver_Builder::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Beaver_Builder::get_instance();

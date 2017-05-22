@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Cornerstone' ) ) :
 	class Ast_Cornerstone {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -83,6 +83,6 @@ if ( ! class_exists( 'Ast_Cornerstone' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_cornerstone  = Ast_Cornerstone::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Cornerstone::get_instance();

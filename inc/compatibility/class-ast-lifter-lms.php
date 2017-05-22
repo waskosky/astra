@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
 	class Ast_Lifter_LMS {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -88,6 +88,6 @@ if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_lifter_lms  = Ast_Lifter_LMS::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Lifter_LMS::get_instance();

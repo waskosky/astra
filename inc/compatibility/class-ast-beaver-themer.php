@@ -23,7 +23,7 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 	class Ast_Beaver_Themer {
 
 		/**
-		 * Member Varible
+		 * Member Variable
 		 *
 		 * @var object instance
 		 */
@@ -46,6 +46,42 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 			add_action( 'after_setup_theme', 			array( $this, 'header_footer_support' ) );
 			add_action( 'wp', 							array( $this, 'theme_header_footer_render' ) );
 			add_filter( 'fl_theme_builder_part_hooks', 	array( $this, 'register_part_hooks' ) );
+			add_filter( 'post_class', 					array( $this, 'render_post_class' ), 99 );
+			add_filter( 'ast_get_content_layout', 		array( $this, 'builder_template_content_layout' ), 20 );
+		}
+
+		/**
+		 * Builder Template Content layout set as Page Builder
+		 *
+		 * @param  string $layout Content Layout.
+		 * @return string
+		 * @since  1.0.2
+		 */
+		function builder_template_content_layout( $layout ) {
+
+			if ( 'fl-theme-layout' == get_post_type() ) {
+				$layout = 'page-builder';
+			}
+			return $layout;
+		}
+
+		/**
+		 * Remove theme post's default classes
+		 *
+		 * @param  array $classes Post Classes.
+		 * @return array
+		 * @since  1.0.2
+		 */
+		function render_post_class( $classes ) {
+
+			$post_class = array( 'fl-post-grid-post', 'fl-post-gallery-post', 'fl-post-feed-post' );
+			$result = array_intersect( $classes, $post_class );
+
+			if ( count( $result ) > 0 ) {
+				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
+				remove_filter( 'excerpt_more', 'ast_post_link', 1 );
+			}
+			return $classes;
 		}
 
 		/**
@@ -95,6 +131,13 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 
 			return array(
 				array(
+					'label' => 'Page',
+					'hooks' => array(
+						'ast_body_top'    => __( 'Before Page', 'astra' ),
+						'ast_body_bottom' => __( 'After Page', 'astra' ),
+					),
+				),
+				array(
 					'label' => 'Header',
 					'hooks' => array(
 						'ast_header_before' => __( 'Before Header', 'astra' ),
@@ -104,8 +147,8 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 				array(
 					'label' => 'Content',
 					'hooks' => array(
-						'ast_content_before' => __( 'Before Content', 'astra' ),
-						'ast_content_after'  => __( 'After Content', 'astra' ),
+						'ast_primary_content_top'    => __( 'Before Content', 'astra' ),
+						'ast_primary_content_bottom' => __( 'After Content', 'astra' ),
 					),
 				),
 				array(
@@ -115,6 +158,26 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 						'ast_footer_after'  => __( 'After Footer', 'astra' ),
 					),
 				),
+				array(
+					'label' => 'Sidebar',
+					'hooks' => array(
+						'ast_sidebars_before' => __( 'Before Sidebar', 'astra' ),
+						'ast_sidebars_after'  => __( 'After Sidebar', 'astra' ),
+					),
+				),
+				array(
+					'label' => 'Posts',
+					'hooks' => array(
+						'loop_start'               => __( 'Loop Start', 'astra' ),
+						'ast_entry_top'            => __( 'Before Post', 'astra' ),
+						'ast_entry_content_before' => __( 'Before Post Content', 'astra' ),
+						'ast_entry_content_after'  => __( 'After Post Content', 'astra' ),
+						'ast_entry_bottom'         => __( 'After Post', 'astra' ),
+						'ast_comments_before'      => __( 'Before Comments', 'astra' ),
+						'ast_comments_after'       => __( 'After Comments', 'astra' ),
+						'loop_end'                 => __( 'Loop End', 'astra' ),
+					),
+				),
 			);
 		}
 	}
@@ -122,6 +185,6 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 endif;
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
-$ast_beaver_themer  = Ast_Beaver_Themer::get_instance();
+ * Kicking this off by calling 'get_instance()' method
+ */
+Ast_Beaver_Themer::get_instance();
