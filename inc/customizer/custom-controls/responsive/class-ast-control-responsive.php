@@ -107,7 +107,7 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 				<ul class="ast-responsive-btns">
-					<li class="desktop">
+					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
 						</button>

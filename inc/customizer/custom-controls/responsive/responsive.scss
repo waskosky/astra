@@ -1,6 +1,5 @@
 .ast-responsive-btns,
-.customize-control-title,
-.ast-responsive-btns > li {
+.customize-control-title {
 	display:inline-block;
 }
 
@@ -11,6 +10,11 @@
 	> li {
 		margin-bottom: 0;
 		vertical-align: middle;
+		display: none;
+
+		&.active {
+			display: inline-block;
+		}
 	}
 
 	button[type="button"] {
