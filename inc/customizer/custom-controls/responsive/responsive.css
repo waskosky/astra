@@ -25,12 +25,8 @@
   vertical-align: middle;
   background: none;
   border: none;
-  opacity: .5;
+  opacity: .75;
   outline: none;
-}
-
-.ast-responsive-btns button[type="button"].active {
-  opacity: 1;
 }
 
 .ast-responsive-btns button[type="button"] > i {

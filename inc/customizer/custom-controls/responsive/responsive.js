@@ -90,8 +90,8 @@
 
 				var device = jQuery(this).attr('data-device');
 
-				jQuery( '.customize-control .ast-responsive-btns button, .customize-control-ast-responsive .input-wrapper input, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
-				jQuery( '.customize-control .ast-responsive-btns button[data-device="' + device + '"], .customize-control-ast-responsive .input-wrapper input.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
+				jQuery( '.customize-control-ast-responsive .input-wrapper input, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
+				jQuery( '.customize-control-ast-responsive .input-wrapper input.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
 			});
 		},
 	});

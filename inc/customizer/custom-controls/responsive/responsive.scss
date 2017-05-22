@@ -24,12 +24,8 @@
 		vertical-align: middle;
 		background: none;
 		border: none;
-		opacity: .5;
+		opacity: .75;
 		outline: none;
-
-		&.active {
-			opacity: 1;
-		}
 
 		> i {
 			width: 13px;
