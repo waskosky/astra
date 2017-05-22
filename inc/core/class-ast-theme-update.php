@@ -173,6 +173,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 						'desktop' 	=> $ast_options[ $key ],
 						'tablet' 	=> '',
 						'mobile' 	=> '',
+						'unit' 		=> 'px',
 					);
 				}
 			}
