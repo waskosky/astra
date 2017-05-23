@@ -2906,7 +2906,7 @@ body {
 }
 
 .ast-header-widget-area .widget p {
-  paddin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .ast-header-widget-area .widget ul {
@@ -2939,7 +2939,7 @@ body {
 }
 
 .ast-header-custom-item .widget p {
-  paddin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .ast-header-custom-item .widget li {
