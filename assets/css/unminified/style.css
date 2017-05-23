@@ -2927,8 +2927,9 @@ body {
  * 9 - Header Widget Area
  */
 .ast-header-custom-item .widget {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 0 0.5em;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .ast-header-custom-item .widget li {
@@ -5358,7 +5359,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-align-self-auto {
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
-  -ms-grid-row-align: auto;
   align-self: auto;
 }
 
@@ -5377,7 +5377,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-align-self-center {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -5390,6 +5389,5 @@ input[type="color"]::-webkit-color-swatch {
 .ast-align-self-stretch {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
-  -ms-grid-row-align: stretch;
   align-self: stretch;
 }

@@ -121,10 +121,11 @@
  */
 .ast-header-custom-item{
     .widget {
-        margin-top: 1em;
-        margin-bottom: 1em;
+        margin: 0 0.5em;
+        display: inline-block;
+        vertical-align: middle;
         li{
-            width: auto;       
+            width: auto;
         }
     }
 }
