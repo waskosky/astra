@@ -8,17 +8,14 @@
  * @link        http://www.brainstormforce.com
  * @since       Astra 1.0.0
  */
-
 /**
  * Theme Options
  */
 if ( ! class_exists( 'Ast_Theme_Options' ) ) {
-
 	/**
 	 * Theme Options
 	 */
 	class Ast_Theme_Options {
-
 		/**
 		 * Class instance.
 		 *
@@ -26,14 +23,12 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 * @var $instance Class instance.
 		 */
 		private static $instance;
-
 		/**
 		 * Post id.
 		 *
 		 * @var $instance Post id.
 		 */
 		public static $post_id = null;
-
 		/**
 		 * A static option variable.
 		 *
@@ -42,7 +37,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 * @var mixed $db_options
 		 */
 		private static $db_options;
-
 		/**
 		 * Initiator
 		 */
@@ -52,24 +46,20 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 			}
 			return self::$instance;
 		}
-
 		/**
 		 * Constructor
 		 */
 		public function __construct() {
-
 			// Refresh options variables after customizer save.
 			self::refresh();
 			add_action( 'init', array( $this, 'update_options' ) );
 		}
-
 		/**
 		 * Update Options
 		 */
 		function update_options() {
 			self::refresh();
 		}
-
 		/**
 		 * Set default theme option values
 		 *
@@ -77,174 +67,101 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 * @return default values of the theme.
 		 */
 		public static function defaults() {
-
 			// Defaults list of options.
 			return apply_filters( 'ast_theme_defaults', array(
-
 				// Blog Single.
-				'blog-single-width'                 => 'default',
-				'blog-single-max-width'             => 1200,
-				'blog-single-meta'                  => array(
-					'comments',
-					'category',
-					'author',
-				),
+				'blog-single-width'					=> 'default',
+				'blog-single-max-width'				=> 1200,
+				'blog-single-meta'					=> array(
+														'comments',
+														'category',
+														'author',
+														),
 				// Blog.
-				'blog-width'                        => 'default',
-				'blog-max-width'                    => 1200,
-				'blog-post-content'                 => 'excerpt',
-				'blog-meta'                         => array(
-					'comments',
-					'category',
-					'author',
-				),
+				'blog-width'						=> 'default',
+				'blog-max-width'					=> 1200,
+				'blog-post-content'					=> 'excerpt',
+				'blog-meta'							=> array(
+														'comments',
+														'category',
+														'author',
+														),
 				// Colors.
-				'text-color'                        => '#3a3a3a',
-				'link-color'                        => '#0085ba',
-				'link-h-color'                      => '#3a3a3a',
-
+				'text-color'						=> '#3a3a3a',
+				'link-color'						=> '#0085ba',
+				'link-h-color'						=> '#3a3a3a',
 				// Buttons.
-				'button-color'                      => '',
-				'button-h-color'                    => '',
-				'button-bg-color'                   => '',
-				'button-bg-h-color'                 => '',
-				'button-radius'                     => 2,
-				'button-v-padding'                  => 10,
-				'button-h-padding'                  => 40,
-
+				'button-color'						=> '',
+				'button-h-color'					=> '',
+				'button-bg-color'					=> '',
+				'button-bg-h-color'					=> '',
+				'button-radius'						=> 2,
+				'button-v-padding'					=> 10,
+				'button-h-padding'					=> 40,
 				// Footer - Small.
-				'footer-sml-layout'                 => 'footer-sml-layout-1',
-				'footer-sml-section-1'              => 'custom',
-				'footer-sml-section-1-credit'       => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
-				'footer-sml-section-2'              => '',
-				'footer-sml-section-2-credit'       => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
-				'footer-sml-dist-equal-align'       => true,
-				'footer-sml-divider'                => 4,
-				'footer-sml-divider-color'          => '#fff',
-				'footer-layout-width'               => 'content',
-
+				'footer-sml-layout'					=> 'footer-sml-layout-1',
+				'footer-sml-section-1'				=> 'custom',
+				'footer-sml-section-1-credit'		=> __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
+				'footer-sml-section-2'				=> '',
+				'footer-sml-section-2-credit'		=> __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
+				'footer-sml-dist-equal-align'		=> true,
+				'footer-sml-divider'				=> 4,
+				'footer-sml-divider-color'			=> '#fff',
+				'footer-layout-width'				=> 'content',
 				// General.
-				'display-site-title'                => 1,
-				'display-site-tagline'              => 0,
-
+				'display-site-title'				=> 1,
+				'display-site-tagline'				=> 0,
 				// Header - Primary.
-				'disable-primary-nav'               => false,
-				'header-layouts'                    => 'header-main-layout-1',
-				'header-main-rt-section'            => 'none',
-				'header-main-rt-section-html'       => '<button>' . __( 'Contact Us' , 'astra' ) . '</button>',
-				'header-main-sep'                   => 1,
-				'header-main-sep-color'             => '',
-				'header-main-layout-width'          => 'content',
+				'disable-primary-nav'				=> false,
+				'header-layouts'					=> 'header-main-layout-1',
+				'header-main-rt-section'			=> 'none',
+				'header-main-rt-section-html'		=> '<button>' . __( 'Contact Us' , 'astra' ) . '</button>',
+				'header-main-sep'					=> 1,
+				'header-main-sep-color'				=> '',
+				'header-main-layout-width'			=> 'content',
 				'header-main-menu-label'            => '',
 				'header-main-menu-align'            => 'inline',
-
 				// Site Layout.
 				'site-layout'                      => 'ast-full-width-layout',
 				'site-content-width'               => 1200,
 				'site-layout-outside-bg-color'     => '',
-
 				// Container.
-				'site-content-layout'               => 'plain-container',
-				'single-page-content-layout'        => 'plain-container',
-				'single-post-content-layout'        => 'content-boxed-container',
-				'archive-post-content-layout'       => 'content-boxed-container',
-
+				'site-content-layout'				=> 'plain-container',
+				'single-page-content-layout'		=> 'plain-container',
+				'single-post-content-layout'		=> 'content-boxed-container',
+				'archive-post-content-layout'		=> 'content-boxed-container',
 				// Typography.
-				'body-font-family'                  => 'inherit',
-				'body-font-weight'                  => 'inherit',
-				'font-size-body'                    => array(
-					'desktop' => 15,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'body-line-height'                  => array(
-					'desktop' => '',
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => '',
-				),
-				'body-text-transform'               => '',
-				'font-size-site-title'              => array(
-					'desktop' => 35,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-site-tagline'            => array(
-					'desktop' => 15,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-entry-title'             => array(
-					'desktop' => 30,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-page-title'              => array(
-					'desktop' => 30,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-h1'                      => array(
-					'desktop' => 48,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-h2'                      => array(
-					'desktop' => 42,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-h3'                      => array(
-					'desktop' => 30,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-h4'                      => array(
-					'desktop' => 20,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-h5'                      => array(
-					'desktop' => 18,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-				'font-size-h6'                      => array(
-					'desktop' => 15,
-					'tablet'  => '',
-					'mobile'  => '',
-					'unit'    => 'px',
-				),
-
+				'body-font-family'					=> 'inherit',
+				'body-font-weight'					=> 'inherit',
+				'font-size-body'					=> 15,
+				'body-line-height'					=> '',
+				'body-text-transform'				=> '',
+				'font-size-site-title'				=> 35,
+				'font-size-site-tagline'			=> 15,
+				'font-size-entry-title'				=> 30,
+				'font-size-page-title'				=> 30,
+				'font-size-h1'						=> 48,
+				'font-size-h2'						=> 42,
+				'font-size-h3'						=> 30,
+				'font-size-h4'						=> 20,
+				'font-size-h5'						=> 18,
+				'font-size-h6'						=> 15,
 				// Sidebar.
-				'site-sidebar-layout'               => 'right-sidebar',
-				'site-sidebar-width'                => 30,
-				'single-page-sidebar-layout'        => 'no-sidebar',
-				'single-post-sidebar-layout'        => 'right-sidebar',
-				'archive-post-sidebar-layout'       => 'right-sidebar',
+				'site-sidebar-layout'				=> 'right-sidebar',
+				'site-sidebar-width'				=> 30,
+				'single-page-sidebar-layout'		=> 'no-sidebar',
+				'single-post-sidebar-layout'		=> 'right-sidebar',
+				'archive-post-sidebar-layout'		=> 'right-sidebar',
 			) );
-
 		}
-
 		/**
 		 * Get theme options from static array()
 		 *
-		 * @return array    Return array of theme options.
+		 * @return array 	Return array of theme options.
 		 */
 		public static function get_options() {
 			return self::$db_options;
 		}
-
 		/**
 		 * Update theme static option array.
 		 */
@@ -256,7 +173,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		}
 	}
 }// End if().
-
 /**
  * Kicking this off by calling 'get_instance()' method
  */

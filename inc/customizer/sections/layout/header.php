@@ -184,14 +184,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'type'        => 'text',
 	) );
 
-	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial( AST_THEME_SETTINGS . '[header-main-menu-label]', array(
-			'selector'            => '.ast-mobile-menu-buttons .mobile-menu',
-			'container_inclusive' => false,
-			'render_callback'     => array( 'AST_Customizer_Partials', '_render_header_main_menu_label' ),
-		) );
-	}
-
 	/**
 	 * Option: Mobile Menu Alignment
 	 */

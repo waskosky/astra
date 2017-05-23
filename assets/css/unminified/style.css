@@ -2549,12 +2549,6 @@ body {
   font-size: 15px;
   font-size: 1rem;
   font-weight: 600;
-  position: relative;
-}
-
-.ast-button-wrap .menu-toggle.main-header-menu-toggle .mobile-menu > span {
-  right: 0;
-  top: -2em;
 }
 
 .ast-button-wrap .menu-toggle .menu-toggle-icon {

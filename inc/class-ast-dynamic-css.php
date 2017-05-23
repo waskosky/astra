@@ -135,7 +135,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 				// HTML.
 				'html' => array(
-					'font-size' => ast_get_css_value( $body_font_size * 6.25, '%' ),
+					'font-size' => ast_get_css_value( (int) $body_font_size * 6.25, '%' ),
 				),
 				'a, .page-title' => array(
 					'color' => $link_color,
@@ -160,7 +160,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'font-size' => ast_get_css_value( $archive_post_title_font_size, 'rem' ),
 				),
 				'.comment-reply-title' => array(
-					'font-size' => ast_get_css_value( $body_font_size * 1.66666, 'rem' ),
+					'font-size' => ast_get_css_value( (int) $body_font_size * 1.66666, 'rem' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => ast_get_css_value( $body_font_size, 'rem' ),
@@ -243,7 +243,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				// Single Post Meta.
 				'.ast-comment-meta' => array(
 					'line-height' => '1.666666667',
-					'font-size' => ast_get_css_value( $body_font_size * 0.8571428571, 'rem' ),
+					'font-size' => ast_get_css_value( (int) $body_font_size * 0.8571428571, 'rem' ),
 				),
 				'.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .ast-author-details .author-title, .ast-comment-meta' => array(
 					'color' => $link_color,
@@ -295,7 +295,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 				// Widget Title.
 				'.widget-title' => array(
-					'font-size' => ast_get_css_value( $body_font_size * 1.428571429, 'rem' ),
+					'font-size' => ast_get_css_value( (int) $body_font_size * 1.428571429, 'rem' ),
 					'color'     => $text_color,
 				),
 				'#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
@@ -368,7 +368,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			if ( apply_filters( 'ast_responsive_typography_enabled', true ) ) {
 				$responsive_typography = array(
 				'html' => array(
-						'font-size' => ast_get_css_value( $body_font_size * 5.7, '%' ),
+						'font-size' => ast_get_css_value( (int) $body_font_size * 5.7, '%' ),
 					),
 				);
 
