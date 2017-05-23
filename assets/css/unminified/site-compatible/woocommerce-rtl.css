@@ -25,6 +25,7 @@
 .woocommerce .quantity input[type="number"]:focus,
 .woocommerce .quantity input[type="email"]:focus {
   outline: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
   border-color: #eaeaea;
 }
@@ -46,6 +47,7 @@
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
   padding: 0;
+  -webkit-border-radius: 0;
   border-radius: 0;
 }
 
@@ -55,6 +57,7 @@
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active::before, .woocommerce div.product .woocommerce-tabs ul.tabs li.active::after, .woocommerce div.product .woocommerce-tabs ul.tabs li::after, .woocommerce div.product .woocommerce-tabs ul.tabs li::before {
   border: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -68,12 +71,15 @@
   padding: 0;
   margin: 0;
   opacity: 0;
+  -webkit-filter: blur(0);
   filter: blur(0);
+  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
 .woocommerce li.product:hover .show-on-hover {
   opacity: 1;
+  -webkit-transform: scale(1) translateZ(0) translateY(0);
   transform: scale(1) translateZ(0) translateY(0);
   pointer-events: inherit;
 }
@@ -466,19 +472,32 @@
 }
 
 .woocommerce-product-search {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .woocommerce-product-search .search-field {
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  -moz-box-flex: 1;
+  -ms-flex: auto;
   flex: auto;
   width: 100%;
+  -webkit-border-top-left-radius: 0;
   border-top-left-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 .woocommerce-product-search input[type="submit"] {
   padding: 10px 15px;
+  -webkit-border-top-right-radius: 0;
   border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
@@ -486,6 +505,7 @@
   padding: 0 .5em;
   margin-left: .5em;
   background: rgba(245, 245, 245, 0.75);
+  -webkit-border-radius: 20px;
   border-radius: 20px;
   font-size: .8em;
 }
@@ -522,6 +542,8 @@
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   top: 50%;
   width: 1.7em;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
