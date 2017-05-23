@@ -101,3 +101,25 @@
 		}
 	}
 }
+
+/* Mobile Header Alignment */
+@media (max-width: $mx-col-sm) {
+	.ast-header-break-point {
+		.ast-mobile-header-stack {
+			.main-header-bar{
+				padding: 1em 0 0;
+			}
+			.main-header-container {
+				display: block;
+			}
+			.site-title {
+				justify-content: center;
+			}
+			.site-branding,
+			.ast-mobile-menu-buttons {
+				justify-content: center;
+				padding-bottom: 1em;
+			}
+		}
+	}
+}
