@@ -378,17 +378,17 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			$tablet_typography = array(
 				'html' => $tablet_html,
 				'body, button, input, select, textarea' => array(
-					'font-size'      => ast_get_font_css_value( $body_font_size['tablet'], 'px', 'tablet' ),
+					'font-size'      => ast_get_css_value( $body_font_size['tablet'], $body_font_size['unit'] ),
 					'line-height'    => ast_get_css_value( $body_line_height['tablet'], $body_line_height['unit'] ),
 				),
 				'.comment-reply-title' => array(
-					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, $body_font_size['unit'], 'tablet' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['tablet'], $body_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $body_font_size['tablet'], $body_font_size['unit'] ),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['tablet'], $body_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $body_font_size['tablet'], $body_font_size['unit'] ),
 				),
 				// Single Post Meta.
 				'.ast-comment-meta' => array(
@@ -399,34 +399,34 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.428571429, 'px', 'tablet' ),
 				),
 				'.site-title a' => array(
-					'font-size' => ast_get_font_css_value( $site_title_font_size['tablet'], $site_title_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $site_title_font_size['tablet'], $site_title_font_size['unit'] ),
 				),
 				'.site-header .site-description' => array(
-					'font-size' => ast_get_font_css_value( $site_tagline_font_size['tablet'], $site_tagline_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $site_tagline_font_size['tablet'], $site_tagline_font_size['unit'] ),
 				),
 				'.entry-title' => array(
-					'font-size' => ast_get_font_css_value( $archive_post_title_font_size['tablet'], $archive_post_title_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $archive_post_title_font_size['tablet'], $archive_post_title_font_size['unit'] ),
 				),
 				'h1, .entry-content h1, .entry-content h1 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h1_font_size['tablet'], $heading_h1_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $heading_h1_font_size['tablet'], $heading_h1_font_size['unit'] ),
 				),
 				'h2, .entry-content h2, .entry-content h2 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h2_font_size['tablet'], $heading_h2_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $heading_h2_font_size['tablet'], $heading_h2_font_size['unit'] ),
 				),
 				'h3, .entry-content h3, .entry-content h3 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h3_font_size['tablet'], $heading_h3_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $heading_h3_font_size['tablet'], $heading_h3_font_size['unit'] ),
 				),
 				'h4, .entry-content h4, .entry-content h4 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h4_font_size['tablet'], $heading_h4_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $heading_h4_font_size['tablet'], $heading_h4_font_size['unit'] ),
 				),
 				'h5, .entry-content h5, .entry-content h5 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h5_font_size['tablet'], $heading_h5_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $heading_h5_font_size['tablet'], $heading_h5_font_size['unit'] ),
 				),
 				'h6, .entry-content h6, .entry-content h6 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h6_font_size['tablet'], $heading_h6_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_css_value( $heading_h6_font_size['tablet'], $heading_h6_font_size['unit'] ),
 				),
 				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size'   => ast_get_font_css_value( $single_post_title_font_size['tablet'], $single_post_title_font_size['unit'], 'tablet' ),
+					'font-size'   => ast_get_css_value( $single_post_title_font_size['tablet'], $single_post_title_font_size['unit'] ),
 				),
 			);
 
@@ -439,17 +439,17 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 6.25, '%', 'mobile' ),
 				),
 				'body, button, input, select, textarea' => array(
-					'font-size'      => ast_get_font_css_value( $body_font_size['mobile'], $body_font_size['unit'], 'px', 'mobile' ),
+					'font-size'      => ast_get_css_value( $body_font_size['mobile'], $body_font_size['unit'] ),
 					'line-height'    => ast_get_css_value( $body_line_height['mobile'], $body_line_height['unit'] ),
 				),
 				'.comment-reply-title' => array(
 					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 1.66666, 'px', 'mobile' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['mobile'], $body_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $body_font_size['mobile'], $body_font_size['unit'] ),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['mobile'], $body_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $body_font_size['mobile'], $body_font_size['unit'] ),
 				),
 				// Single Post Meta.
 				'.ast-comment-meta' => array(
@@ -460,34 +460,34 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 1.428571429, 'px', 'mobile' ),
 				),
 				'.site-title a' => array(
-					'font-size' => ast_get_font_css_value( $site_title_font_size['mobile'], $site_title_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $site_title_font_size['mobile'], $site_title_font_size['unit'] ),
 				),
 				'.site-header .site-description' => array(
-					'font-size' => ast_get_font_css_value( $site_tagline_font_size['mobile'], $site_tagline_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $site_tagline_font_size['mobile'], $site_tagline_font_size['unit'] ),
 				),
 				'.entry-title' => array(
-					'font-size' => ast_get_font_css_value( $archive_post_title_font_size['mobile'], $archive_post_title_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $archive_post_title_font_size['mobile'], $archive_post_title_font_size['unit'] ),
 				),
 				'h1, .entry-content h1, .entry-content h1 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h1_font_size['mobile'], $heading_h1_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $heading_h1_font_size['mobile'], $heading_h1_font_size['unit'] ),
 				),
 				'h2, .entry-content h2, .entry-content h2 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h2_font_size['mobile'], $heading_h2_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $heading_h2_font_size['mobile'], $heading_h2_font_size['unit'] ),
 				),
 				'h3, .entry-content h3, .entry-content h3 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h3_font_size['mobile'], $heading_h3_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $heading_h3_font_size['mobile'], $heading_h3_font_size['unit'] ),
 				),
 				'h4, .entry-content h4, .entry-content h4 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h4_font_size['mobile'], $heading_h4_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $heading_h4_font_size['mobile'], $heading_h4_font_size['unit'] ),
 				),
 				'h5, .entry-content h5, .entry-content h5 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h5_font_size['mobile'], $heading_h5_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $heading_h5_font_size['mobile'], $heading_h5_font_size['unit'] ),
 				),
 				'h6, .entry-content h6, .entry-content h6 a' => array(
-					'font-size' => ast_get_font_css_value( $heading_h6_font_size['mobile'], $heading_h6_font_size['unit'], 'mobile' ),
+					'font-size' => ast_get_css_value( $heading_h6_font_size['mobile'], $heading_h6_font_size['unit'] ),
 				),
 				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size'   => ast_get_font_css_value( $single_post_title_font_size['mobile'], $single_post_title_font_size['unit'], 'mobile' ),
+					'font-size'   => ast_get_css_value( $single_post_title_font_size['mobile'], $single_post_title_font_size['unit'] ),
 				),
 			);
 

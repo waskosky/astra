@@ -51,14 +51,23 @@ function ast_responsive_font_size( control, selector ) {
 				control = control.replace( ']', '' );
 				jQuery( 'style#' + control ).remove();
 
-				var fontSize = 'font-size: ' + value.desktop + value.unit;
-				var TabletFontSize = 'font-size: ' + value.tablet + value.unit;
-				var MobileFontSize = 'font-size: ' + value.mobile + value.unit;
+				var fontSize = '',
+					TabletFontSize = '', 
+					MobileFontSize = '';
+
+
+				if ( '' != value.desktop ) {
+					fontSize = 'font-size: ' + value.desktop + value.unit;
+				}
+				if ( '' != value.tablet ) {
+					TabletFontSize = 'font-size: ' + value.tablet + value.unit;
+				}
+				if ( '' != value.mobile ) {
+					MobileFontSize = 'font-size: ' + value.mobile + value.unit;
+				}
 				
 				if( value.unit == 'px' ) {
 					fontSize = ast_font_size_rem( value.desktop, true, 'desktop' );
-					TabletFontSize = ast_font_size_rem( value.tablet, true, 'tablet' );
-					MobileFontSize = ast_font_size_rem( value.mobile, true, 'mobile' );
 				}
 				
 				// Concat and append new <style>.
