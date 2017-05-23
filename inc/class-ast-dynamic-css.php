@@ -152,7 +152,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'line-height'    => ast_get_css_value( $body_line_height['desktop'], $body_line_height['unit'] ),
 					'text-transform' => $body_text_transform,
 				),
-				'.site-title a' => array(
+				'.site-title' => array(
 					'font-size' => ast_get_font_css_value( $site_title_font_size['desktop'], $site_title_font_size['unit'] ),
 				),
 				'.site-header .site-description' => array(
@@ -398,7 +398,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				'.widget-title' => array(
 					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.428571429, 'px', 'tablet' ),
 				),
-				'.site-title a' => array(
+				'.site-title' => array(
 					'font-size' => ast_get_css_value( $site_title_font_size['tablet'], $site_title_font_size['unit'] ),
 				),
 				'.site-header .site-description' => array(
@@ -459,7 +459,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				'.widget-title' => array(
 					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 1.428571429, 'px', 'mobile' ),
 				),
-				'.site-title a' => array(
+				'.site-title' => array(
 					'font-size' => ast_get_css_value( $site_title_font_size['mobile'], $site_title_font_size['unit'] ),
 				),
 				'.site-header .site-description' => array(
