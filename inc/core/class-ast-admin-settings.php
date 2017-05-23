@@ -47,30 +47,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public $plugin_slug = 'astra';
 
 		/**
-		 * Is Top Level page
-		 *
-		 * @since 1.0
-		 * @var array $is_top_level_page
-		 */
-		static public $is_top_level_page = false;
-
-		/**
-		 * Is Multisite active
-		 *
-		 * @since 1.0
-		 * @var array $is_multisite_active
-		 */
-		static public $is_multisite_active = false;
-
-		/**
-		 * Is Network Admin active
-		 *
-		 * @since 1.0
-		 * @var array $network_admin_active
-		 */
-		static public $network_admin_active = false;
-
-		/**
 		 * Default Menu position
 		 *
 		 * @since 1.0
@@ -110,6 +86,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		static public function init_admin_settings() {
+
 			self::$menu_page_title	= apply_filters( 'ast_menu_page_title', __( 'Astra' , 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
@@ -125,22 +102,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
-			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu_rename', 9999 );
-
-			if ( is_multisite() ) {
-
-				self::$is_multisite_active   = true;
-
-				self::$default_menu_position = 'themes.php';
-
-				if ( is_network_admin() ) {
-					self::$network_admin_active   = true;
-					self::$default_menu_position = 'top';
-				}
-
-				add_action( 'network_admin_menu', __CLASS__ . '::add_admin_menu', 99 );
-				add_action( 'network_admin_menu', __CLASS__ . '::add_admin_menu_rename', 9999 );
-			}
 
 			add_action( 'ast_menu_general_action', __CLASS__ . '::general_page' );
 		}
@@ -208,17 +169,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 */
 		static public function init_nav_menu( $action = '' ) {
 
-			$settings = Ast_Admin_Helper::get_admin_settings_option( '_ast_ext_white_label' );
-
-			// Menu position.
-			$position = isset( $settings['menu_position'] ) ? $settings['menu_position'] : false;
-
-			if ( $position ) {
-				self::$default_menu_position = $position;
-			}
-
-			self::$is_top_level_page = in_array( self::$default_menu_position, array( 'top', 'middle', 'bottom' ), true );
-
 			if ( '' !== $action ) {
 				self::render_tab_menu( $action );
 			}
@@ -231,9 +181,11 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function render_tab_menu( $action = '' ) {
-			echo '<div id="ast-menu-page" class="wrap">';
-			self::render( $action );
-			echo '</div>';
+			?>
+			<div id="ast-menu-page" class="wrap">
+				<?php self::render( $action ); ?>
+			</div>
+			<?php
 		}
 
 		/**
@@ -243,36 +195,36 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function render( $action ) {
-			$output = '<div class="nav-tab-wrapper">';
 
-			$output .= "<h1 class='ast-title'>" . esc_html( self::$menu_page_title ) . '</h1>';
+			?>
+			<div class="nav-tab-wrapper">
+				<h1 class='ast-title'> <?php echo esc_html( self::$menu_page_title ); ?> </h1>
+				<?php
+				$view_actions = self::get_view_actions();
 
-			$view_actions = self::get_view_actions();
+				foreach ( $view_actions as $slug => $data ) {
 
-			foreach ( $view_actions as $slug => $data ) {
+					if ( ! $data['show'] ) {
+						continue;
+					}
 
-				if ( ! $data['show'] ) {
-					continue;
-				}
+					$url = self::get_page_url( $slug );
 
-				$url = self::get_page_url( $slug );
+					if ( $slug == self::$parent_page_slug ) {
+						update_option( 'ast_parent_page_url', $url );
+					}
 
-				if ( $slug == self::$parent_page_slug ) {
-					update_option( 'ast_parent_page_url', $url );
-				}
+					$active = ( $slug == $action ) ? 'nav-tab-active' : ''; ?>
+						<a class='nav-tab <?php echo esc_attr( $active ); ?>' href='<?php echo esc_url( $url ); ?>'> <?php echo esc_html( $data['label'] ); ?> </a>
+				<?php } ?>
+			</div><!-- .nav-tab-wrapper -->
 
-				$active = ( $slug == $action ) ? 'nav-tab-active' : '';
-
-				$output .= "<a class='nav-tab " . esc_attr( $active ) . "' href='" . esc_url( $url ) . "'>" . esc_html( $data['label'] ) . '</a>';
-			}
-
-			$output .= '</div>';
-
-			echo $output;
-
+			<?php
 			// Settings update message.
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
-				printf( '<span id="message" class="notice notice-success is-dismissive"><p>%s</p></span>', __( 'Settings saved successfully.', 'astra' ) );
+				?>
+					<span id="message" class="notice notice-success is-dismissive"><p> <?php _e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
+				<?php
 			}
 
 		}
@@ -286,43 +238,17 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 */
 		static public function get_page_url( $menu_slug ) {
 
-			$plugin_slug = self::$plugin_slug;
+			$parent_page = self::$default_menu_position;
 
-			if ( self::$is_top_level_page ) {
-
-				if ( self::$network_admin_active ) {
-
-					if ( $menu_slug == self::$parent_page_slug ) {
-						$url = network_admin_url( 'admin.php?page=' . $plugin_slug );
-					} else {
-						$url = network_admin_url( 'admin.php?page=' . $plugin_slug . '-' . $menu_slug );
-					}
-				} else {
-
-					if ( $menu_slug == self::$parent_page_slug ) {
-						$url = admin_url( 'admin.php?page=' . $plugin_slug );
-					} else {
-						$url = admin_url( 'admin.php?page=' . $plugin_slug . '-' . $menu_slug );
-					}
-				}
+			if ( strpos( $parent_page, '?' ) !== false ) {
+				$query_var = '&page=' . self::$plugin_slug;
 			} else {
+				$query_var = '?page=' . self::$plugin_slug;
+			}
 
-				$parent_page = self::$default_menu_position;
+			$parent_page_url = admin_url( $parent_page . $query_var );
 
-				if ( strpos( $parent_page, '?' ) !== false ) {
-					$query_var = '&page=' . $plugin_slug;
-				} else {
-					$query_var = '?page=' . $plugin_slug;
-				}
-
-				if ( self::$network_admin_active ) {
-					$parent_page_url = network_admin_url( $parent_page . $query_var );
-				} else {
-					$parent_page_url = admin_url( $parent_page . $query_var );
-				}
-
-							$url = $parent_page_url . '&action=' . $menu_slug;
-			}// End if().
+			$url = $parent_page_url . '&action=' . $menu_slug;
 
 			return esc_url( $url );
 		}
@@ -350,32 +276,17 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 */
 		static public function menu_callback() {
 
-			if ( self::$is_top_level_page ) {
+			$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
 
-				$screen_base = $_REQUEST['page'];
+			$active_tab   = str_replace( '_', '-', $current_slug );
+			$current_slug = str_replace( '-', '_', $current_slug );
 
-				if ( self::$network_admin_active ) {
-					$current_slug = str_replace( array( self::$plugin_slug . '-' ), '', $screen_base );
-				} else {
-
-					$current_slug = str_replace( array( self::$plugin_slug . '-' ), '', $screen_base );
-				}
-
-				if ( 'astra' == $current_slug ) {
-					$current_slug = self::$parent_page_slug;
-				}
-			} else {
-
-				$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
-			}
-
-				$active_tab   = str_replace( '_', '-', $current_slug );
-				$current_slug = str_replace( '-', '_', $current_slug );
-
-			echo '<div class="ast-menu-page-wrapper">';
-			self::init_nav_menu( $active_tab );
-			do_action( 'ast_menu_' . $current_slug . '_action' );
-			echo '</div>';
+			?>
+			<div class="ast-menu-page-wrapper">
+				<?php self::init_nav_menu( $active_tab ); ?>
+				<?php do_action( 'ast_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
+			</div>
+			<?php
 		}
 
 		/**
@@ -384,42 +295,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function general_page() {
-
-			$settings = self::get_options();
-
 			require_once AST_THEME_DIR . 'inc/core/view-general.php';
-		}
-
-		/**
-		 * Get Astra Options
-		 *
-		 * @since 1.0
-		 */
-		static public function get_options() {
-			$stored   = Ast_Admin_Helper::get_admin_settings_option( '_ast_general_settings' );
-			$defaults = self::defaults();
-			return wp_parse_args( $stored, $defaults );
-		}
-
-		/**
-		 * Get Options default values
-		 *
-		 * @since 1.0
-		 */
-		static public function defaults() {
-			return apply_filters( 'ast_page_general_settings', array() );
-		}
-
-		/**
-		 * Rename menu
-		 *
-		 * @since 1.0
-		 */
-		static public function add_admin_menu_rename() {
-			global $menu, $submenu;
-			if ( isset( $submenu[ self::$plugin_slug ][0][0] ) ) {
-				$submenu[ self::$plugin_slug ][0][0] = 'Welcome';
-			}
 		}
 	}
 

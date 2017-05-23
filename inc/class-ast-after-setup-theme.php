@@ -128,17 +128,6 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 				'flex-height' => true,
 			) );
 
-			// WooCommerce.
-			add_theme_support( 'woocommerce' );
-			add_theme_support( 'wc-product-gallery-zoom' );
-			add_theme_support( 'wc-product-gallery-lightbox' );
-			add_theme_support( 'wc-product-gallery-slider' );
-
-			// Load required widgets from plugin 'ast-widgets'.
-			add_theme_support( 'ast-custom-js' );
-			add_theme_support( 'astra-theme' );
-			add_theme_support( 'ast-shortcodes' );
-
 			// Customize Selective Refresh Widgets.
 			add_theme_support( 'customize-selective-refresh-widgets' );
 

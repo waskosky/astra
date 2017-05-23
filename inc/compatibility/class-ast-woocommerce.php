@@ -47,24 +47,26 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		public function __construct() {
 
 			// Customizer.
-			add_filter( 'ast_theme_defaults',              			array( $this, 'theme_defaults' ) );
-			add_action( 'customize_register',              			array( $this, 'customize_register' ) );
+			add_action( 'customize_register',                       array( $this, 'customize_register' ) );
+			add_filter( 'ast_theme_defaults',                       array( $this, 'theme_defaults' ) );
 
-			add_action( 'woocommerce_before_main_content', 			array( $this, 'before_main_content_start' ) );
-			add_action( 'woocommerce_after_main_content',  			array( $this, 'before_main_content_end' ) );
-			add_filter( 'ast_theme_assets',                			array( $this, 'add_styles' ) );
-			add_action( 'init',                            			array( $this, 'woocommerce_init' ), 1 );
+			add_action( 'after_setup_theme',                        array( $this, 'setup_theme' ) );
 
-			add_filter( 'loop_shop_columns', 						array( $this, 'shop_columns' ) );
-			add_filter( 'loop_shop_per_page', 						array( $this, 'shop_no_of_products' ) );
-			add_filter( 'body_class', 								array( $this, 'shop_page_products_item_class' ) );
-			add_filter( 'ast_dynamic_css', 							array( $this, 'dynamic_css_callback' ), 10, 2 );
+			add_action( 'woocommerce_before_main_content',          array( $this, 'before_main_content_start' ) );
+			add_action( 'woocommerce_after_main_content',           array( $this, 'before_main_content_end' ) );
+			add_filter( 'ast_theme_assets',                         array( $this, 'add_styles' ) );
+			add_action( 'init',                                     array( $this, 'woocommerce_init' ), 1 );
+
+			add_filter( 'loop_shop_columns',                        array( $this, 'shop_columns' ) );
+			add_filter( 'loop_shop_per_page',                       array( $this, 'shop_no_of_products' ) );
+			add_filter( 'body_class',                               array( $this, 'shop_page_products_item_class' ) );
+			add_filter( 'ast_dynamic_css',                          array( $this, 'dynamic_css_callback' ), 10, 2 );
 
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
-			add_filter( 'woocommerce_add_to_cart_fragments', 		array( $this, 'add_to_cart_fragments' ) );
+			add_filter( 'woocommerce_add_to_cart_fragments',        array( $this, 'add_to_cart_fragments' ) );
 
-			add_action( 'woocommerce_before_shop_loop_item_title', 	array( $this, 'product_flip_image' ), 10 );
-			add_filter( 'woocommerce_subcategory_count_html', 		array( $this, 'subcategory_count_markup' ), 10, 2 );
+			add_action( 'woocommerce_before_shop_loop_item_title',  array( $this, 'product_flip_image' ), 10 );
+			add_filter( 'woocommerce_subcategory_count_html',       array( $this, 'subcategory_count_markup' ), 10, 2 );
 
 			add_filter( 'woocommerce_product_tag_cloud_widget_args', 'ast_widget_tag_cloud_args', 90 );
 		}
@@ -291,6 +293,22 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			$col = ast_get_option( 'shop-grid' );
 			$args['posts_per_page'] = $col;
 			return $args;
+		}
+
+		/**
+		 * Setup theme
+		 *
+		 * @since 1.0.3
+		 */
+		function setup_theme() {
+
+			// WooCommerce.
+			add_theme_support( 'woocommerce' );
+
+			add_theme_support( 'wc-product-gallery-zoom' );
+			add_theme_support( 'wc-product-gallery-lightbox' );
+			add_theme_support( 'wc-product-gallery-slider' );
+
 		}
 
 		/**

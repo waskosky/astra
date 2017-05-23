@@ -56,7 +56,7 @@ body{
 	}
 	.ast-article-post,
 	.ast-article-single{
-		background-color: $color-background-content;	
+		background-color: $color-background-content;
 		border-bottom: 1px solid $color-border-content;
 		 margin: 0;
 		 padding: 5.34em 6.67em;
@@ -82,7 +82,7 @@ body{
 		.ast-article-single {
 		    padding: 1.5em 2.14em;
 		}
-		#primary, 
+		#primary,
 		#secondary{
 			padding: 1.5em 0;
 		}
@@ -169,7 +169,7 @@ body{
 		&.ast-left-sidebar #primary,
 		#primary{
 			padding-left:0;
-			padding-right:0;		
+			padding-right:0;
 		}
 	}
 	// Right Sidebar - Spacing Between Primary & Secondary
@@ -250,13 +250,13 @@ body{
 			&.ast-right-sidebar {
 				#secondary {
 					padding-left: $space-between-primary-seconday;
-					paddig-right: 0;
+					padding-right: 0;
 				}
 			}
 			&.ast-left-sidebar {
 				#secondary {
 					padding-right: $space-between-primary-seconday;
-					paddig-left: 0;
+					padding-left: 0;
 				}
 			}
 		}

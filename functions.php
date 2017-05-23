@@ -11,10 +11,15 @@
 /**
  * Define Constants
  */
-define( 'AST_THEME_VERSION', '1.0.2' );
+define( 'AST_THEME_VERSION', '1.0.4' );
 define( 'AST_THEME_SETTINGS', 'ast-settings' );
 define( 'AST_THEME_DIR', get_template_directory() . '/' );
 define( 'AST_THEME_URI', get_template_directory_uri() . '/' );
+
+/**
+ * Update theme
+ */
+require_once AST_THEME_DIR . 'inc/core/class-ast-theme-update.php';
 
 /**
  * Load theme hooks
@@ -84,7 +89,6 @@ require_once AST_THEME_DIR . 'inc/metabox/class-ast-meta-box-operations.php';
  * Customizer additions.
  */
 require_once AST_THEME_DIR . 'inc/customizer/class-ast-customizer.php';
-require_once AST_THEME_DIR . 'inc/core/class-ast-theme-update.php';
 
 /**
  * Compatibility
