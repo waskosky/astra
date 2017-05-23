@@ -13,12 +13,10 @@
  * Theme Options
  */
 if ( ! class_exists( 'Ast_Theme_Options' ) ) {
-
 	/**
 	 * Theme Options
 	 */
 	class Ast_Theme_Options {
-
 		/**
 		 * Class instance.
 		 *
@@ -26,14 +24,12 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 * @var $instance Class instance.
 		 */
 		private static $instance;
-
 		/**
 		 * Post id.
 		 *
 		 * @var $instance Post id.
 		 */
 		public static $post_id = null;
-
 		/**
 		 * A static option variable.
 		 *
@@ -42,7 +38,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 * @var mixed $db_options
 		 */
 		private static $db_options;
-
 		/**
 		 * Initiator
 		 */
@@ -52,24 +47,20 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 			}
 			return self::$instance;
 		}
-
 		/**
 		 * Constructor
 		 */
 		public function __construct() {
-
 			// Refresh options variables after customizer save.
 			self::refresh();
 			add_action( 'init', array( $this, 'update_options' ) );
 		}
-
 		/**
 		 * Update Options
 		 */
 		function update_options() {
 			self::refresh();
 		}
-
 		/**
 		 * Set default theme option values
 		 *
@@ -77,10 +68,8 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 * @return default values of the theme.
 		 */
 		public static function defaults() {
-
 			// Defaults list of options.
 			return apply_filters( 'ast_theme_defaults', array(
-
 				// Blog Single.
 				'blog-single-width'					=> 'default',
 				'blog-single-max-width'				=> 1200,
@@ -102,7 +91,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'text-color'						=> '#3a3a3a',
 				'link-color'						=> '#0085ba',
 				'link-h-color'						=> '#3a3a3a',
-
 				// Buttons.
 				'button-color'						=> '',
 				'button-h-color'					=> '',
@@ -111,7 +99,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'button-radius'						=> 2,
 				'button-v-padding'					=> 10,
 				'button-h-padding'					=> 40,
-
 				// Footer - Small.
 				'footer-sml-layout'					=> 'footer-sml-layout-1',
 				'footer-sml-section-1'				=> 'custom',
@@ -122,11 +109,9 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'footer-sml-divider'				=> 4,
 				'footer-sml-divider-color'			=> '#fff',
 				'footer-layout-width'				=> 'content',
-
 				// General.
 				'display-site-title'				=> 1,
 				'display-site-tagline'				=> 0,
-
 				// Header - Primary.
 				'disable-primary-nav'				=> false,
 				'header-layouts'					=> 'header-main-layout-1',
@@ -135,18 +120,17 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'header-main-sep'					=> 1,
 				'header-main-sep-color'				=> '',
 				'header-main-layout-width'			=> 'content',
-
+				'header-main-menu-label'            => '',
+				'header-main-menu-align'            => 'inline',
 				// Site Layout.
 				'site-layout'                      => 'ast-full-width-layout',
 				'site-content-width'               => 1200,
 				'site-layout-outside-bg-color'     => '',
-
 				// Container.
 				'site-content-layout'				=> 'plain-container',
 				'single-page-content-layout'		=> 'plain-container',
 				'single-post-content-layout'		=> 'content-boxed-container',
 				'archive-post-content-layout'		=> 'content-boxed-container',
-
 				// Typography.
 				'body-font-family'					=> 'inherit',
 				'body-font-weight'					=> 'inherit',
@@ -163,7 +147,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'font-size-h4'						=> 20,
 				'font-size-h5'						=> 18,
 				'font-size-h6'						=> 15,
-
 				// Sidebar.
 				'site-sidebar-layout'				=> 'right-sidebar',
 				'site-sidebar-width'				=> 30,
@@ -171,9 +154,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				'single-post-sidebar-layout'		=> 'right-sidebar',
 				'archive-post-sidebar-layout'		=> 'right-sidebar',
 			) );
-
 		}
-
 		/**
 		 * Get theme options from static array()
 		 *
@@ -182,7 +163,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		public static function get_options() {
 			return self::$db_options;
 		}
-
 		/**
 		 * Update theme static option array.
 		 */
@@ -194,7 +174,6 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		}
 	}
 }// End if().
-
 /**
  * Kicking this off by calling 'get_instance()' method
  */

@@ -214,7 +214,7 @@ if ( ! function_exists( 'ast_get_search' ) ) {
 	 * Adding Wrapper for Search Form.
 	 *
 	 * @since 1.0.0
-	 * @param  string $option 	Search Option name.
+	 * @param  string $option   Search Option name.
 	 * @return mixed Search HTML structure created.
 	 */
 	function ast_get_search( $option = '' ) {
@@ -297,8 +297,8 @@ if ( ! function_exists( 'ast_get_small_footer' ) ) {
 	 * Function to get Small Left/Right Footer
 	 *
 	 * @since 1.0.0
-	 * @param string $section 	Sections of Small Footer.
-	 * @return mixed 			Markup of sections.
+	 * @param string $section   Sections of Small Footer.
+	 * @return mixed            Markup of sections.
 	 */
 	function ast_get_small_footer( $section = '' ) {
 
@@ -355,8 +355,8 @@ if ( ! function_exists( 'ast_get_small_footer_menu' ) ) {
 						'theme_location' => 'footer_menu',
 						'menu_class'     => 'nav-menu',
 						'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-						'depth'			 => 1,
-						)
+						'depth'          => 1,
+					)
 				);
 			} else {
 				if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
@@ -602,11 +602,11 @@ if ( ! function_exists( 'astra_edit_post_link' ) ) {
 	 * Function to get Edit Post Link
 	 *
 	 * @since 1.0.0
-	 * @param string $text 		Anchor Text.
-	 * @param string $before 	Anchor Text.
-	 * @param string $after 	Anchor Text.
+	 * @param string $text      Anchor Text.
+	 * @param string $before    Anchor Text.
+	 * @param string $after     Anchor Text.
 	 * @param int    $id           Anchor Text.
-	 * @param string $class 	Anchor Text.
+	 * @param string $class     Anchor Text.
 	 * @return void
 	 */
 	function astra_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
@@ -631,8 +631,12 @@ if ( ! function_exists( 'ast_header_classes' ) ) {
 
 		$classes = array( 'site-header' );
 		$menu_logo_location = ast_get_option( 'header-layouts' );
+		$mobile_header_alignment = ast_get_option( 'header-main-menu-align' );
 		if ( 'header-main-layout-2' == $menu_logo_location || 'header-main-layout-3' == $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
+		}
+		if ( 'stack' == $mobile_header_alignment ) {
+			$classes[] = 'ast-mobile-header-stack';
 		}
 
 		$classes = apply_filters( 'ast_header_class', $classes );
@@ -723,7 +727,7 @@ if ( ! function_exists( 'ast_comment_form_default_fields_markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 * @param array $fields Array of comment form's default fields.
-	 * @return array 		Comment form fields.
+	 * @return array        Comment form fields.
 	 */
 	function ast_comment_form_default_fields_markup( $fields ) {
 
@@ -755,7 +759,7 @@ if ( ! function_exists( 'ast_comment_form_default_markup' ) ) {
 	 * Function filter comment form arguments
 	 *
 	 * @since 1.0.0
-	 * @param array $args 	Comment form arguments.
+	 * @param array $args   Comment form arguments.
 	 * @return array
 	 */
 	function ast_comment_form_default_markup( $args ) {
@@ -781,7 +785,7 @@ if ( ! function_exists( 'ast_404_page_layout' ) ) {
 	 * Function filter comment form arguments
 	 *
 	 * @since 1.0.0
-	 * @param array $layout 	Comment form arguments.
+	 * @param array $layout     Comment form arguments.
 	 * @return array
 	 */
 	function ast_404_page_layout( $layout ) {
@@ -803,7 +807,7 @@ if ( ! function_exists( 'ast_get_content_layout' ) ) {
 	 * Return current content layout
 	 *
 	 * @since 1.0.0
-	 * @return boolean 	content layout.
+	 * @return boolean  content layout.
 	 */
 	function ast_get_content_layout() {
 
@@ -856,8 +860,8 @@ if ( ! function_exists( 'page_builder_disable_title' ) ) {
 	 * Disbale title for Page Builder template
 	 *
 	 * @since 1.0.0
-	 * @param boolean $default 	Title enabled or not.
-	 * @return boolean 			Title enable or disable.
+	 * @param boolean $default  Title enabled or not.
+	 * @return boolean          Title enable or disable.
 	 */
 	function page_builder_disable_title( $default ) {
 		$content_layout = ast_get_content_layout();
@@ -899,7 +903,7 @@ if ( ! function_exists( 'ast_get_sidebar' ) ) {
 	 * Get Sidebar
 	 *
 	 * @since 1.0.1.1
-	 * @param  string $sidebar_id 	Sidebar Id.
+	 * @param  string $sidebar_id   Sidebar Id.
 	 * @return void
 	 */
 	function ast_get_sidebar( $sidebar_id ) {
