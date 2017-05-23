@@ -95,7 +95,11 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		    $attachment_ids = $product->get_gallery_image_ids();
 
 		    if ( $attachment_ids ) {
-		    	echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), '', false, array( 'class' => 'show-on-hover' ) ) );
+
+				// @see woocommerce_get_product_thumbnail()
+				$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
+
+		    	echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
 		    }
 		}
 
