@@ -156,21 +156,29 @@ if ( ! function_exists( 'ast_masthead_toggle_buttons_primary' ) ) {
 		$custom_header_section = ast_get_option( 'header-main-rt-section' );
 
 		if ( ! $disable_primary_navigation || 'none' != $custom_header_section ) {
-			$menu_title = apply_filters( 'ast_main_menu_toggle_label', __( 'Menu', 'astra' ) );
+			$menu_title = apply_filters( 'ast_main_menu_toggle_label', ast_get_option( 'header-main-menu-label' ) );
 			$menu_icon  = apply_filters( 'ast_main_menu_toggle_icon', 'menu-toggle-icon' );
+			$menu_label_class = '';
+			if ( '' != $menu_title ) {
+				$menu_label_class = 'ast-menu-label';
+			}
 		?>
 		<div class="ast-button-wrap">
 			<span class="screen-reader-text"><?php echo esc_html( $menu_title ); ?></span>
-			<button type="button" class="menu-toggle main-header-menu-toggle" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
+			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
 				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
-				<div class="mobile-menu-wrap">
-					<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
-				</div>
+				<?php if ( '' != $menu_title ) { ?>
+
+					<div class="mobile-menu-wrap">
+						<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
+					</div>
+
+				<?php } ?>
 			</button>
 		</div>
 	<?php }
 	}
-}
+}// End if().
 
 /**
  * Small Footer

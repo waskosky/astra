@@ -34,6 +34,7 @@
 	.menu-toggle {
 		padding: 0;
 		width: 2.2em;
+		height: 2.1em;
 		font-size: 1.5em;
 		font-weight: normal;
 		border-radius: 2px;
@@ -44,7 +45,9 @@
 	    line-height: 1.85714285714286;
 	    
 	    &.main-header-menu-toggle{
-	    	width: 4em;
+		    padding: 0 .5em;
+		    width: auto;
+		    text-align: center;
 	    	.mobile-menu{
 	    		font-size: 15px;
 	    		font-size: 1rem;
@@ -55,6 +58,7 @@
 			font-style: normal;
 			display: inline-block;
 			vertical-align: middle;
+			line-height: 2.05;
     
 	    	&:before {
 		    	content: "\e5d2";

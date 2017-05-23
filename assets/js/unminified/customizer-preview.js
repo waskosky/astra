@@ -274,6 +274,27 @@ function ast_add_dynamic_css( control, style ) {
 	} );
 
 	/*
+	 * Full width layout
+	 */
+	wp.customize( 'ast-settings[header-main-menu-label]', function( setting ) {
+		setting.bind( function( label ) {
+			if( $('button.main-header-menu-toggle .mobile-menu-wrap .mobile-menu').length > 0 ) {
+				if ( label != '' ) {
+					$('button.main-header-menu-toggle .mobile-menu-wrap .mobile-menu').text(label);
+				} else {
+					$('button.main-header-menu-toggle .mobile-menu-wrap').remove();
+				}
+			} else {
+				var html = $('button.main-header-menu-toggle').html();
+				if( '' != label ) {
+					html += '<div class="mobile-menu-wrap"><span class="mobile-menu">'+ label +'</span> </div>';
+				}
+				$('button.main-header-menu-toggle').html( html )
+			}
+		} );
+	} );
+
+	/*
 	 * Layout Body Background Color
 	 */
 	wp.customize( 'ast-settings[site-layout-outside-bg-color]', function( setting ) {
