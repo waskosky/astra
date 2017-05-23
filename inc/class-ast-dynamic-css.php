@@ -381,7 +381,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'line-height'    => ast_get_css_value( $body_line_height['tablet'], $body_line_height['tablet-unit'] ),
 				),
 				'.comment-reply-title' => array(
-					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, $body_font_size['unit'], 'tablet' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => ast_get_css_value( $body_font_size['tablet'], $body_font_size['tablet-unit'] ),
