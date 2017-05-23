@@ -90,7 +90,12 @@
             margin-bottom: 0;
         }
         .widget{
-            margin-bottom: 1em;
+            margin: 0 .5em;
+            display: inline-block;
+            vertical-align: middle;
+            p {
+                paddin-bottom: 0;
+            }
             ul{
                 position: static;
                 border: 0;
@@ -124,6 +129,9 @@
         margin: 0 0.5em;
         display: inline-block;
         vertical-align: middle;
+        p {
+            paddin-bottom: 0;
+        }
         li{
             width: auto;
         }
