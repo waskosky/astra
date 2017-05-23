@@ -29,10 +29,10 @@ matrix:
 
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - phpcs --version
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       composer global require wp-coding-standards/wpcs
+      phpcs --version
       phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
     fi
 
