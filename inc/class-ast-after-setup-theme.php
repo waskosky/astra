@@ -71,8 +71,8 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 			do_action( 'ast_class_loaded' );
 
 			/**
-		 	 * Content Width
-		 	 */
+			  * Content Width
+			  */
 			if ( ! isset( $content_width ) ) {
 				$content_width = apply_filters( 'ast_content_width', 700 );
 			}
@@ -127,14 +127,6 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 				'flex-width'  => true,
 				'flex-height' => true,
 			) );
-
-			// WooCommerce.
-			add_theme_support( 'woocommerce' );
-
-			// Load required widgets from plugin 'ast-widgets'.
-			add_theme_support( 'ast-custom-js' );
-			add_theme_support( 'astra-theme' );
-			add_theme_support( 'ast-shortcodes' );
 
 			// Customize Selective Refresh Widgets.
 			add_theme_support( 'customize-selective-refresh-widgets' );

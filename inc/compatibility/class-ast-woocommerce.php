@@ -49,7 +49,20 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ), 10 );
 			add_action( 'woocommerce_after_main_content',  array( $this, 'before_main_content_end' ), 10 );
 			add_filter( 'ast_theme_assets',                array( $this, 'add_styles' ) );
+			add_action( 'after_setup_theme',               array( $this, 'setup_theme' ) );
 			add_action( 'init',                            array( $this, 'woocommerce_init' ), 1 );
+
+		}
+
+		/**
+		 * Setup theme
+		 *
+		 * @since 1.0.3
+		 */
+		function setup_theme() {
+
+			// WooCommerce.
+			add_theme_support( 'woocommerce' );
 
 		}
 
@@ -72,6 +85,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			}
 			?>
 			<div id="primary" class="content-area primary">
+
+				<?php ast_primary_content_top(); ?>
+
 				<main id="main" class="site-main" role="main">
 					<div class="ast-woocommerce-container">
 			<?php
@@ -84,6 +100,9 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 			?>
 					</div> <!-- .ast-woocommerce-container -->
 				</main> <!-- #main -->
+
+				<?php ast_primary_content_bottom(); ?>
+
 			</div> <!-- #primary -->
 			<?php
 			$site_sidebar = ast_page_layout();
