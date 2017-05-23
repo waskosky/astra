@@ -65,8 +65,8 @@ function ast_responsive_font_size( control, selector ) {
 				jQuery( 'head' ).append(
 					'<style id="' + control + '">'
 					+ selector + '	{ ' + fontSize + ' }'
-					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
-					+ '@media (max-width: 480px) {' + selector + '	{ ' + MobileFontSize + ' } }'
+					+ '@media (max-width: 767px) {' + selector + '	{ ' + TabletFontSize + ' } }'
+					+ '@media (max-width: 543px) {' + selector + '	{ ' + MobileFontSize + ' } }'
 					+ '</style>'
 				);
 
@@ -112,8 +112,8 @@ function ast_responsive_line_height( control, selector ) {
 				jQuery( 'head' ).append(
 					'<style id="' + control + '">'
 					+ selector + '	{ ' + LineHeight + ' }'
-					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletLineHeight + ' } }'
-					+ '@media (max-width: 480px) {' + selector + '	{ ' + MobileLineHeight + ' } }'
+					+ '@media (max-width: 767px) {' + selector + '	{ ' + TabletLineHeight + ' } }'
+					+ '@media (max-width: 543px) {' + selector + '	{ ' + MobileLineHeight + ' } }'
 					+ '</style>'
 				);
 

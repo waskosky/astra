@@ -137,7 +137,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 				// HTML.
 				'html' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['desktop'] * 6.25, '%' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['desktop'] * 6.25, '%' ),
 				),
 				'a, .page-title' => array(
 					'color' => $link_color,
@@ -162,7 +162,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'font-size' => ast_get_font_css_value( $archive_post_title_font_size['desktop'], $archive_post_title_font_size['unit'] ),
 				),
 				'.comment-reply-title' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['desktop'] * 1.66666 ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['desktop'] * 1.66666 ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => ast_get_font_css_value( $body_font_size['desktop'], $body_font_size['unit'] ),
@@ -244,7 +244,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				// Single Post Meta.
 				'.ast-comment-meta' => array(
 					'line-height' => '1.666666667',
-					'font-size' => ast_get_font_css_value( $body_font_size['desktop'] * 0.8571428571 ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['desktop'] * 0.8571428571 ),
 				),
 				'.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .ast-author-details .author-title, .ast-comment-meta' => array(
 					'color' => $link_color,
@@ -296,7 +296,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 				// Widget Title.
 				'.widget-title' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['desktop'] * 1.428571429 ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['desktop'] * 1.428571429 ),
 					'color'     => $text_color,
 				),
 				'#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
@@ -366,11 +366,11 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			);
 
 			$tablet_html = array(
-				'font-size' => ast_get_font_css_value( $body_font_size['desktop'] * 5.7, '%', 'desktop' ),
+				'font-size' => ast_get_font_css_value( (int) $body_font_size['desktop'] * 5.7, '%', 'desktop' ),
 			);
 			if ( '' != $body_font_size['tablet'] ) {
 				$tablet_html = array(
-					'font-size' => ast_get_font_css_value( $body_font_size['tablet'] * 6.25, '%', 'tablet' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 6.25, '%', 'tablet' ),
 				);
 			}
 
@@ -382,7 +382,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'line-height'    => ast_get_css_value( $body_line_height['tablet'], $body_line_height['unit'] ),
 				),
 				'.comment-reply-title' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => ast_get_font_css_value( $body_font_size['tablet'], $body_font_size['unit'], 'tablet' ),
@@ -392,11 +392,11 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				),
 				// Single Post Meta.
 				'.ast-comment-meta' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['tablet'] * 0.8571428571, 'px', 'tablet' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 0.8571428571, 'px', 'tablet' ),
 				),
 				// Widget Title.
 				'.widget-title' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['tablet'] * 1.428571429, 'px', 'tablet' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['tablet'] * 1.428571429, 'px', 'tablet' ),
 				),
 				'.site-title a' => array(
 					'font-size' => ast_get_font_css_value( $site_title_font_size['tablet'], $site_title_font_size['unit'], 'tablet' ),
@@ -431,19 +431,19 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= ast_parse_css( $tablet_typography, '' ,'768' );
+			$parse_css .= ast_parse_css( $tablet_typography, '' ,'767' );
 
 			/* Mobile Typography */
 			$mobile_typography = array(
 				'html' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['mobile'] * 6.25, '%', 'mobile' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 6.25, '%', 'mobile' ),
 				),
 				'body, button, input, select, textarea' => array(
 					'font-size'      => ast_get_font_css_value( $body_font_size['mobile'], $body_font_size['unit'], 'px', 'mobile' ),
 					'line-height'    => ast_get_css_value( $body_line_height['mobile'], $body_line_height['unit'] ),
 				),
 				'.comment-reply-title' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['mobile'] * 1.66666, 'px', 'mobile' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 1.66666, 'px', 'mobile' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => ast_get_font_css_value( $body_font_size['mobile'], $body_font_size['unit'], 'mobile' ),
@@ -453,11 +453,11 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				),
 				// Single Post Meta.
 				'.ast-comment-meta' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['mobile'] * 0.8571428571, 'px', 'mobile' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 0.8571428571, 'px', 'mobile' ),
 				),
 				// Widget Title.
 				'.widget-title' => array(
-					'font-size' => ast_get_font_css_value( $body_font_size['mobile'] * 1.428571429, 'px', 'mobile' ),
+					'font-size' => ast_get_font_css_value( (int) $body_font_size['mobile'] * 1.428571429, 'px', 'mobile' ),
 				),
 				'.site-title a' => array(
 					'font-size' => ast_get_font_css_value( $site_title_font_size['mobile'], $site_title_font_size['unit'], 'mobile' ),
@@ -492,7 +492,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= ast_parse_css( $mobile_typography, '' ,'480' );
+			$parse_css .= ast_parse_css( $mobile_typography, '' ,'543' );
 
 			/* Parse CSS from array()*/
 			$parse_css .= ast_parse_css( $site_width, '768' );
