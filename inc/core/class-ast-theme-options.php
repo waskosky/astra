@@ -8,6 +8,7 @@
  * @link        http://www.brainstormforce.com
  * @since       Astra 1.0.0
  */
+
 /**
  * Theme Options
  */
