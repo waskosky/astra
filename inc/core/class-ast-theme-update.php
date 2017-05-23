@@ -170,10 +170,12 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				if ( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[ $key ] ) ) {
 
 					$ast_options[ $key ] = array(
-						'desktop' 	=> $ast_options[ $key ],
-						'tablet' 	=> '',
-						'mobile' 	=> '',
-						'unit' 		=> 'px',
+						'desktop'      => $ast_options[ $key ],
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
 					);
 				}
 			}
