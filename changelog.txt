@@ -1,3 +1,10 @@
+v1.0.4
+# New: Added option for Menu Label on Small Devices.
+# New: Added option for Mobile Header Alignment.
+# Improvement: Updated primary submenu navigation icon.
+# Improvement: Updated Small Devices menu navigation styling.
+# Removed: Default Small Devices Menu Label - 'Menu'.
+
 v1.0.3.1
 # Removed functions that override WordPress global's.
 
