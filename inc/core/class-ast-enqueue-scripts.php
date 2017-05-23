@@ -146,7 +146,7 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'astra-theme-css', AST_Dynamic_CSS::return_output() );
+			wp_add_inline_style( 'astra-theme-css', apply_filters( 'ast_dynamic_css', AST_Dynamic_CSS::return_output() ) );
 			wp_add_inline_style( 'astra-theme-css', AST_Dynamic_CSS::return_meta_output( true ) );
 
 			/**

@@ -4009,7 +4009,7 @@ input[type="color"]::-webkit-color-swatch {
   content: "768";
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 767px) {
   #content {
     content: "";
   }
@@ -4623,12 +4623,12 @@ input[type="color"]::-webkit-color-swatch {
   height: 2.33333em;
   line-height: -webkit-calc(2.33333em - 3px);
   line-height: calc(2.33333em - 3px);
-  font-size: 16px;
-  font-size: 1.06666rem;
 }
 
 .post-navigation a {
   background: transparent;
+  font-size: 16px;
+  font-size: 1.06666rem;
 }
 
 .ast-pagination {
@@ -5358,6 +5358,7 @@ input[type="color"]::-webkit-color-swatch {
 .ast-align-self-auto {
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
   align-self: auto;
 }
 
@@ -5376,6 +5377,7 @@ input[type="color"]::-webkit-color-swatch {
 .ast-align-self-center {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -5388,5 +5390,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-align-self-stretch {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
+  -ms-grid-row-align: stretch;
   align-self: stretch;
 }

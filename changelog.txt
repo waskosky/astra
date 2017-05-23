@@ -1,4 +1,5 @@
 v1.0.4
+# New: Responsive Typography Param implemented.
 # New: Added option for Menu Label on Small Devices.
 # New: Added option for Mobile Header Alignment.
 # Improvement: Updated primary submenu navigation icon.
