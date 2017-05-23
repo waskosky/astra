@@ -64,9 +64,9 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				return;
 			}
 
-			// Update to older version than 1.0.3 version.
-			if ( version_compare( $saved_version, '1.0.3.1-beta', '<' ) ) {
-				self::v_1_0_3();
+			// Update to older version than 1.0.4 version.
+			if ( version_compare( $saved_version, '1.0.4', '<' ) ) {
+				self::v_1_0_4();
 			}
 
 			// Not have stored?
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 		 * @since 1.0.3
 		 * @return void
 		 */
-		static public function v_1_0_3() {
+		static public function v_1_0_4() {
 
 			$options = array(
 				'font-size-body',
