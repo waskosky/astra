@@ -14,23 +14,24 @@ cache:
 
 matrix:
   include:
-    - php: 5.6
+    - php: 7.1
       env: WP_TRAVISCI=phpcs
-    # - php: 7.1
-    #   env: WP_VERSION=latest
-    # - php: 7.0
-    #   env: WP_VERSION=latest
-    # - php: 5.6
-    #   env: WP_VERSION=latest
-    # - php: 5.6
-    #   env: WP_VERSION=trunk
-    # - php: 5.3
-    #   env: WP_VERSION=latest
+    - php: 7.1
+      env: WP_VERSION=latest
+    - php: 7.0
+      env: WP_VERSION=latest
+    - php: 5.6
+      env: WP_VERSION=latest
+    - php: 5.6
+      env: WP_VERSION=trunk
+    - php: 5.3
+      env: WP_VERSION=latest
 
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+      composer global require "squizlabs/php_codesniffer=2.9.0"
       composer global require wp-coding-standards/wpcs
       phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
     fi
