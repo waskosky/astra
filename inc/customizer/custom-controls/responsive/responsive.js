@@ -66,7 +66,13 @@
 
 			});
 
-			newValue['unit'] = control.responsiveContainer.find( 'select.ast-responsive-select' ).first().val();
+			control.responsiveContainer.find( 'select.ast-responsive-select' ).each( function() {
+				var responsive_input = jQuery( this ),
+				item = responsive_input.data( 'id' ),
+				item_value = responsive_input.val();
+
+				newValue[item] = item_value;
+			});
 
 			control.setting.set( newValue );
 		},

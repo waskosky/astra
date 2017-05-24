@@ -176,6 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'   => $defaults['header-main-menu-label'],
 		'type'      => 'option',
 		'transport' => 'postMessage',
+		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-menu-label]', array(
 		'section'     => 'section-header',

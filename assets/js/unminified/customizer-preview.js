@@ -57,16 +57,16 @@ function ast_responsive_font_size( control, selector ) {
 
 
 				if ( '' != value.desktop ) {
-					fontSize = 'font-size: ' + value.desktop + value.unit;
+					fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
 				}
 				if ( '' != value.tablet ) {
-					TabletFontSize = 'font-size: ' + value.tablet + value.unit;
+					TabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
 				}
 				if ( '' != value.mobile ) {
-					MobileFontSize = 'font-size: ' + value.mobile + value.unit;
+					MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
 				}
 				
-				if( value.unit == 'px' ) {
+				if( value['desktop-unit'] == 'px' ) {
 					fontSize = ast_font_size_rem( value.desktop, true, 'desktop' );
 				}
 				
@@ -108,13 +108,13 @@ function ast_responsive_line_height( control, selector ) {
 				var MobileLineHeight = '';
 
 				if( value.desktop != '' ) {
-					LineHeight = 'line-height: ' + value.desktop + value.unit;
+					LineHeight = 'line-height: ' + value.desktop + value['desktop-unit'];
 				}
 				if( value.tablet != '' ) {
-					TabletLineHeight = 'line-height: ' + value.tablet + value.unit;
+					TabletLineHeight = 'line-height: ' + value.tablet + value['tablet-unit'];
 				}
 				if( value.mobile != '' ) {
-					MobileLineHeight = 'line-height: ' + value.mobile + value.unit;
+					MobileLineHeight = 'line-height: ' + value.mobile + value['mobile-unit'];
 				}
 				
 				// Concat and append new <style>.
