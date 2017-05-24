@@ -165,7 +165,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 
 			$ast_options = get_option( AST_THEME_SETTINGS, array() );
 
-			if( 0 < count($ast_options) ) {
+			if ( 0 < count( $ast_options ) ) {
 				foreach ( $options as $key ) {
 
 					if ( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[ $key ] ) ) {
