@@ -108,13 +108,16 @@ if ( ! function_exists( 'ast_number_pagination' ) ) {
 	 * @return void            Generate & echo pagination markup.
 	 */
 	function ast_number_pagination() {
+		global $numpages;
 
-		echo "<div class='ast-pagination'>";
-		the_posts_pagination( array(
-			'prev_text' => ast_default_strings( 'string-blog-navigation-previous', false ),
-			'next_text' => ast_default_strings( 'string-blog-navigation-next', false ),
-		) );
-		echo '</div>';
+		if ( isset($numpages)) {
+			echo "<div class='ast-pagination'>";
+			the_posts_pagination( array(
+				'prev_text' => ast_default_strings( 'string-blog-navigation-previous', false ),
+				'next_text' => ast_default_strings( 'string-blog-navigation-next', false ),
+			) );
+			echo '</div>';
+		}
 	}
 }// End if().
 
