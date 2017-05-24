@@ -110,7 +110,7 @@ if ( ! function_exists( 'ast_number_pagination' ) ) {
 	function ast_number_pagination() {
 		global $numpages;
 
-		if ( isset($numpages)) {
+		if ( isset( $numpages ) ) {
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination( array(
 				'prev_text' => ast_default_strings( 'string-blog-navigation-previous', false ),
