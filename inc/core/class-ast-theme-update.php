@@ -163,20 +163,22 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$ast_options = get_option( AST_THEME_SETTINGS );
+			$ast_options = get_option( AST_THEME_SETTINGS, array() );
 
-			foreach ( $options as $key ) {
+			if ( 0 < count( $ast_options ) ) {
+				foreach ( $options as $key ) {
 
-				if ( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[ $key ] ) ) {
+					if ( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[ $key ] ) ) {
 
-					$ast_options[ $key ] = array(
-						'desktop'      => $ast_options[ $key ],
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					);
+						$ast_options[ $key ] = array(
+							'desktop'      => $ast_options[ $key ],
+							'tablet'       => '',
+							'mobile'       => '',
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						);
+					}
 				}
 			}
 
