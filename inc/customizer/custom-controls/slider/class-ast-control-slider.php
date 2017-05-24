@@ -7,7 +7,7 @@
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2015, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @link        http://wpastra.com/
  * @since       1.0.0
  */
 
