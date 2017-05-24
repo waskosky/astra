@@ -62,7 +62,7 @@ if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
 			$ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
 			$post_type = get_post_type();
 
-			if( 'fl-theme-layout' != $post_type ) {
+			if( 'fl-theme-layout' == $post_type ) {
 				remove_action( 'ast_entry_after', 'ast_single_post_navigation_markup' );
 			}
 
