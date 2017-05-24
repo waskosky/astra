@@ -69,10 +69,12 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 		if ( ! is_array( $val ) || is_numeric( $val ) ) {
 
 			$val = array(
-				'desktop' 	=> $val,
-				'tablet'  	=> '',
-				'mobile'	=> '',
-				'unit'		=> '',
+				'desktop'      => $val,
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => '',
+				'tablet-unit'  => '',
+				'mobile-unit'  => '',
 			);
 		}
 
@@ -145,13 +147,25 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 			} #>
 
 			<div class="input-wrapper ast-responsive-wrapper">
-				<input {{{ data.inputAttrs }}} data-id ='desktop'  class="ast-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
-				<input {{{ data.inputAttrs }}} data-id ='tablet'  class="ast-responsive-input tablet" type="number" value="{{ value_tablet }}"/>
-				<input {{{ data.inputAttrs }}} data-id ='mobile'  class="ast-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
 				
-				<select class="ast-responsive-select" <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+				<input {{{ data.inputAttrs }}} data-id='desktop' class="ast-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
+				<select class="ast-responsive-select desktop" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 				<# _.each( data.units, function( value, key ) { #>
-					<option value="{{{ key }}}" <# if ( data.value['unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
+					<option value="{{{ key }}}" <# if ( data.value['desktop-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
+				<# }); #>
+				</select>
+
+				<input {{{ data.inputAttrs }}} data-id='tablet' class="ast-responsive-input tablet" type="number" value="{{ value_tablet }}"/>
+				<select class="ast-responsive-select tablet" data-id='tablet-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+				<# _.each( data.units, function( value, key ) { #>
+					<option value="{{{ key }}}" <# if ( data.value['tablet-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
+				<# }); #>
+				</select>
+				
+				<input {{{ data.inputAttrs }}} data-id='mobile' class="ast-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
+				<select class="ast-responsive-select mobile" data-id='mobile-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+				<# _.each( data.units, function( value, key ) { #>
+					<option value="{{{ key }}}" <# if ( data.value['mobile-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 				<# }); #>
 				</select>
 				
