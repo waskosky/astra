@@ -113,5 +113,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'em'  => 'em',
 		),
 	) ) );
-
-
