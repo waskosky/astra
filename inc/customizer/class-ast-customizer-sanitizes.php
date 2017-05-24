@@ -80,6 +80,35 @@ if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize Responsive Typography
+		 *
+		 * @param  number $val Customizer setting input number.
+		 * @return number        Return number.
+		 */
+		static public function sanitize_responsive_typo( $val ) {
+
+			$responsive = array(
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => '',
+				'tablet-unit'  => '',
+				'mobile-unit'  => '',
+			);
+			if ( is_array( $val ) ) {
+				$responsive['desktop']      = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
+				$responsive['tablet']       = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
+				$responsive['mobile']       = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
+				$responsive['desktop-unit'] = in_array( $val['desktop-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['desktop-unit'] : 'px';
+				$responsive['tablet-unit']  = in_array( $val['tablet-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['tablet-unit'] : 'px';
+				$responsive['mobile-unit']  = in_array( $val['mobile-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['mobile-unit'] : 'px';
+			} else {
+				$responsive['desktop'] = is_numeric( $val ) ? $val : '';
+			}
+			return $responsive;
+		}
+
+		/**
 		 * Validate Email
 		 *
 		 * @param  object $validity setting input validity.

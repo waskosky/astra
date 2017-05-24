@@ -102,7 +102,7 @@ if ( ! function_exists( 'ast_blog_post_get_featured_item' ) ) {
 		if ( has_post_thumbnail() ) {
 
 			$post_featured_data  = '<a href="' . esc_url( get_permalink() ) . '" >';
-			$post_featured_data .= the_post_thumbnail();
+			$post_featured_data .= get_the_post_thumbnail();
 			$post_featured_data .= '</a>';
 
 		} else {

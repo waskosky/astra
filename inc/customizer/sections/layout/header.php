@@ -28,18 +28,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'label'       => __( 'Header', 'astra' ),
 		'type'        => 'ast-radio-image',
 		'choices'     => array(
-			'header-main-layout-1'			=> array(
-									'label' => __( 'Logo Left', 'astra' ),
-									'path'	=> AST_THEME_URI . '/assets/images/header-layout-1-60x60.png',
-								),
-			'header-main-layout-2' 			=> array(
-									'label' => __( 'Logo Center', 'astra' ),
-									'path'	=> AST_THEME_URI . '/assets/images/header-layout-2-60x60.png',
-								),
-			'header-main-layout-3' 		=> array(
-									'label' => __( 'Logo Right', 'astra' ),
-									'path'	=> AST_THEME_URI . '/assets/images/header-layout-3-60x60.png',
-								),
+			'header-main-layout-1'          => array(
+				'label' => __( 'Logo Left', 'astra' ),
+				'path'  => AST_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+			),
+			'header-main-layout-2'          => array(
+				'label' => __( 'Logo Center', 'astra' ),
+				'path'  => AST_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+			),
+			'header-main-layout-3'      => array(
+				'label' => __( 'Logo Right', 'astra' ),
+				'path'  => AST_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+			),
 		),
 	) ) );
 
@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'type'        => 'checkbox',
 		'section'     => 'section-header',
 		'label'       => __( 'Disable Menu', 'astra' ),
-		'priority'	  => 5,
+		'priority'    => 5,
 	) );
 
 	/**
@@ -69,13 +69,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-rt-section]', array(
 		'type'        => 'select',
 		'section'     => 'section-header',
-		'priority' 	  => 5,
+		'priority'    => 5,
 		'label'       => __( 'Custom Menu Item', 'astra' ),
 		'choices'     => array(
 			'none'      => __( 'None', 'astra' ),
 			'search'    => __( 'Search', 'astra' ),
 			'text-html' => __( 'Text / HTML', 'astra' ),
-			'widget' 	=> __( 'Widget', 'astra' ),
+			'widget'    => __( 'Widget', 'astra' ),
 		),
 	) );
 
@@ -155,5 +155,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'choices'     => array(
 			'full'    => __( 'Full Width', 'astra' ),
 			'content' => __( 'Content Width', 'astra' ),
+		),
+	) );
+
+
+	/**
+	 * Option: Mobile Menu Label Divider
+	*/
+	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
+		'type'     => 'ast-divider',
+		'section'  => 'section-header',
+		'priority' => 35,
+		'settings' => array(),
+	) ) );
+
+	/**
+	 * Option: Mobile Menu Label
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-menu-label]', array(
+		'default'   => $defaults['header-main-menu-label'],
+		'type'      => 'option',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-menu-label]', array(
+		'section'     => 'section-header',
+		'priority'    => 35,
+		'label'       => __( 'Menu Label on Small Devices', 'astra' ),
+		'type'        => 'text',
+	) );
+
+	/**
+	 * Option: Mobile Menu Alignment
+	 */
+	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-menu-align]', array(
+		'default'           => $defaults['header-main-menu-align'],
+		'type'              => 'option',
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+	) );
+	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-menu-align]', array(
+		'type'        => 'select',
+		'section'     => 'section-header',
+		'priority'    => 35,
+		'label'       => __( 'Mobile Header Alignment', 'astra' ),
+		'choices'     => array(
+			'inline'    => __( 'Inline', 'astra' ),
+			'stack'      => __( 'Stack', 'astra' ),
 		),
 	) );

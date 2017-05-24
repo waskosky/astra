@@ -90,7 +90,12 @@
             margin-bottom: 0;
         }
         .widget{
-            margin-bottom: 1em;
+            margin: 0 .5em;
+            display: inline-block;
+            vertical-align: middle;
+            p {
+                margin-bottom: 0;
+            }
             ul{
                 position: static;
                 border: 0;
@@ -121,10 +126,14 @@
  */
 .ast-header-custom-item{
     .widget {
-        margin-top: 1em;
-        margin-bottom: 1em;
+        margin: 0 0.5em;
+        display: inline-block;
+        vertical-align: middle;
+        p {
+            margin-bottom: 0;
+        }
         li{
-            width: auto;       
+            width: auto;
         }
     }
 }
