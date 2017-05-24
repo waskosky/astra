@@ -2,7 +2,6 @@
 Welcome to ASTRA!
 -------------------------------------------------------
 Website: http://wpastra.com/
-Support: https://support.brainstormforce.com/
 Email: support@bsf.io
 
 -------------------------------------------------------
@@ -34,7 +33,7 @@ There are multiple ways you can use a child theme with the Astra Theme, Use any 
 -------------------------------------------------------
 ASTRA License
 -------------------------------------------------------
-Astra WordPress Theme, Copyright 2017 Brainstorm Force.
+Astra WordPress Theme, Copyright 2017 WPAstra.
 Astra is distributed under the terms of the GNU GPL.
 
 Astra is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
