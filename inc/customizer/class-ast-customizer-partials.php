@@ -3,9 +3,9 @@
  * Customizer Partial.
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2015, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @author      Astra
+ * @copyright   Copyright (c) 2017, Astra
+ * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -109,7 +109,7 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
 				'theme_name'       => __( 'Astra', 'astra' ),
-				'theme_author_url' => 'https://www.brainstormforce.com/',
+				'theme_author_url' => 'http://wpastra.com/',
 			) );
 
 			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
@@ -128,7 +128,7 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
 				'theme_name'       => __( 'Astra', 'astra' ),
-				'theme_author_url' => 'https://www.brainstormforce.com/',
+				'theme_author_url' => 'http://wpastra.com/',
 			) );
 
 			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
