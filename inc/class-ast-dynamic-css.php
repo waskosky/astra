@@ -71,19 +71,20 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			$link_hover_color             = ast_get_option( 'link-h-color' );
 
 			// Typography.
-			$body_font_size               = ast_get_option( 'font-size-body' );
-			$body_line_height             = ast_get_option( 'body-line-height' );
-			$body_text_transform          = ast_get_option( 'body-text-transform' );
-			$site_title_font_size         = ast_get_option( 'font-size-site-title' );
-			$site_tagline_font_size       = ast_get_option( 'font-size-site-tagline' );
-			$single_post_title_font_size  = ast_get_option( 'font-size-entry-title' );
-			$archive_post_title_font_size = ast_get_option( 'font-size-page-title' );
-			$heading_h1_font_size         = ast_get_option( 'font-size-h1' );
-			$heading_h2_font_size         = ast_get_option( 'font-size-h2' );
-			$heading_h3_font_size         = ast_get_option( 'font-size-h3' );
-			$heading_h4_font_size         = ast_get_option( 'font-size-h4' );
-			$heading_h5_font_size         = ast_get_option( 'font-size-h5' );
-			$heading_h6_font_size         = ast_get_option( 'font-size-h6' );
+			$body_font_size                  = ast_get_option( 'font-size-body' );
+			$body_line_height                = ast_get_option( 'body-line-height' );
+			$body_text_transform             = ast_get_option( 'body-text-transform' );
+			$site_title_font_size            = ast_get_option( 'font-size-site-title' );
+			$site_tagline_font_size          = ast_get_option( 'font-size-site-tagline' );
+			$single_post_title_font_size     = ast_get_option( 'font-size-entry-title' );
+			$archive_summary_title_font_size = ast_get_option( 'font-size-archive-summary-title' );
+			$archive_post_title_font_size    = ast_get_option( 'font-size-page-title' );
+			$heading_h1_font_size            = ast_get_option( 'font-size-h1' );
+			$heading_h2_font_size            = ast_get_option( 'font-size-h2' );
+			$heading_h3_font_size            = ast_get_option( 'font-size-h3' );
+			$heading_h4_font_size            = ast_get_option( 'font-size-h4' );
+			$heading_h5_font_size            = ast_get_option( 'font-size-h5' );
+			$heading_h6_font_size            = ast_get_option( 'font-size-h6' );
 
 			// Button Styling.
 			$btn_border_radius            = ast_get_option( 'button-radius' );
@@ -156,6 +157,9 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				),
 				'.site-header .site-description' => array(
 					'font-size' => ast_get_font_css_value( $site_tagline_font_size['desktop'], $site_tagline_font_size['desktop-unit'] ),
+				),
+				'.ast-archive-description .ast-archive-title' => array(
+					'font-size' => ast_get_font_css_value( $archive_summary_title_font_size['desktop'], $archive_summary_title_font_size['desktop-unit'] ),
 				),
 				'.entry-title' => array(
 					'font-size' => ast_get_font_css_value( $archive_post_title_font_size['desktop'], $archive_post_title_font_size['desktop-unit'] ),
@@ -403,6 +407,9 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				'.site-header .site-description' => array(
 					'font-size' => ast_get_css_value( $site_tagline_font_size['tablet'], $site_tagline_font_size['tablet-unit'] ),
 				),
+				'.ast-archive-description .ast-archive-title' => array(
+					'font-size' => ast_get_font_css_value( $archive_summary_title_font_size['tablet'], $archive_summary_title_font_size['tablet-unit'] ),
+				),
 				'.entry-title' => array(
 					'font-size' => ast_get_css_value( $archive_post_title_font_size['tablet'], $archive_post_title_font_size['tablet-unit'] ),
 				),
@@ -463,6 +470,9 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				),
 				'.site-header .site-description' => array(
 					'font-size' => ast_get_css_value( $site_tagline_font_size['mobile'], $site_tagline_font_size['mobile-unit'] ),
+				),
+				'.ast-archive-description .ast-archive-title' => array(
+					'font-size' => ast_get_font_css_value( $archive_summary_title_font_size['mobile'], $archive_summary_title_font_size['mobile-unit'] ),
 				),
 				'.entry-title' => array(
 					'font-size' => ast_get_css_value( $archive_post_title_font_size['mobile'], $archive_post_title_font_size['mobile-unit'] ),

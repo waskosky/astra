@@ -479,6 +479,7 @@ function ast_add_dynamic_css( control, style ) {
 	ast_responsive_font_size( 'ast-settings[font-size-site-tagline]', '.site-header .site-description' );
 	ast_responsive_font_size( 'ast-settings[font-size-site-title]', '.site-title' );
 	ast_responsive_font_size( 'ast-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
+	ast_responsive_font_size( 'ast-settings[font-size-archive-summary-title]', '.ast-archive-description .ast-archive-title' );
 	ast_responsive_font_size( 'ast-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
 	ast_responsive_font_size( 'ast-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a' );
 	ast_responsive_font_size( 'ast-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a' );
