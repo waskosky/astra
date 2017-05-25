@@ -139,9 +139,11 @@ if ( ! function_exists( 'ast_logo' ) ) {
 		$html                 = '';
 
 		// Site logo.
-		$html .= '<span class="site-logo-img">';
-		$html .= get_custom_logo();
-		$html .= '</span>';
+		if( has_custom_logo() ) {
+			$html .= '<span class="site-logo-img">';
+			$html .= get_custom_logo();
+			$html .= '</span>';
+		}
 
 		// Site Title.
 		if ( $display_site_tagline ) {
