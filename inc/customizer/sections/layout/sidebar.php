@@ -126,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Slider( $wp_customize, AST_THEME_SETTINGS . '[site-sidebar-width]', array(
+	$wp_customize->add_control( new Astra_Control_Slider( $wp_customize, AST_THEME_SETTINGS . '[site-sidebar-width]', array(
 		'type'        => 'ast-slider',
 		'section'     => 'section-sidebars',
 		'priority'    => 15,

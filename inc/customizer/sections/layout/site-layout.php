@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'validate_site_width' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Slider( $wp_customize, AST_THEME_SETTINGS . '[site-content-width]', array(
+	$wp_customize->add_control( new Astra_Control_Slider( $wp_customize, AST_THEME_SETTINGS . '[site-content-width]', array(
 		'type'        => 'ast-slider',
 		'section'     => 'section-site-layout',
 		'priority'    => 10,
