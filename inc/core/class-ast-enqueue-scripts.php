@@ -99,12 +99,12 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$js_uri  = AST_THEME_URI . 'assets/js/' . $dir_name . '/';
-			$css_uri = AST_THEME_URI . 'assets/css/' . $dir_name . '/';
+			$js_uri  = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
 			// It always enqueued by default.
 			// Register & Enqueue.
-			wp_register_style( 'astra-fonts', $css_uri . 'astra-fonts' . $file_prefix . '.css', array(), AST_THEME_VERSION, 'all' );
+			wp_register_style( 'astra-fonts', $css_uri . 'astra-fonts' . $file_prefix . '.css', array(), ASTRA_THEME_VERSION, 'all' );
 			wp_enqueue_style( 'astra-fonts' );
 
 			// All assets.
@@ -119,7 +119,7 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 				$css_file = $css_uri . $style . $file_prefix . '.css';
 
 				// Register.
-				wp_register_style( $key, $css_file, array(), AST_THEME_VERSION, 'all' );
+				wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 
 				// Enqueue.
 				wp_enqueue_style( $key );
@@ -133,7 +133,7 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 			foreach ( $scripts as $key => $script ) {
 
 				// Register.
-				wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), AST_THEME_VERSION, true );
+				wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
 
 				// Enqueue.
 				wp_enqueue_script( $key );

@@ -83,7 +83,7 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 			 * If you're building a theme based on Next, use a find and replace
 			 * to change 'astra' to the name of your theme in all the template files.
 			 */
-			load_theme_textdomain( 'astra', AST_THEME_DIR . '/languages' );
+			load_theme_textdomain( 'astra', ASTRA_THEME_DIR . '/languages' );
 
 			/**
 			 * Theme Support

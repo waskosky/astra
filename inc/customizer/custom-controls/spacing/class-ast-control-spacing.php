@@ -34,8 +34,8 @@ class Ast_Control_Spacing extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = AST_THEME_URI . 'inc/customizer/custom-controls/spacing/';
-		$js_uri  = AST_THEME_URI . 'inc/customizer/custom-controls/spacing/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/spacing/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/spacing/';
 
 		wp_enqueue_script( 'ast-spacing', $js_uri . 'spacing.js', array( 'jquery', 'customize-base' ), false, true );
 		wp_enqueue_style( 'ast-spacing', $css_uri . 'spacing.css', null );

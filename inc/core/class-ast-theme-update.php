@@ -60,7 +60,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			$saved_version = astra_get_option( 'theme-auto-version' );
 
 			// If equals then return.
-			if ( version_compare( $saved_version, AST_THEME_VERSION, '=' ) ) {
+			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
 			}
 
@@ -81,11 +81,11 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			} else {
 
 				// Get latest version.
-				$theme_version = AST_THEME_VERSION;
+				$theme_version = ASTRA_THEME_VERSION;
 			}
 
 			// Get all customizer options.
-			$customizer_options = get_option( AST_THEME_SETTINGS );
+			$customizer_options = get_option( ASTRA_THEME_SETTINGS );
 
 			// Get all customizer options.
 			$version_array = array(
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			$theme_options = wp_parse_args( $version_array, $customizer_options );
 
 			// Update auto saved version number.
-			update_option( AST_THEME_SETTINGS, $theme_options );
+			update_option( ASTRA_THEME_SETTINGS, $theme_options );
 
 			do_action( 'astra_update_after' );
 		}
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( AST_THEME_SETTINGS, array() );
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			if ( 0 < count( $astra_options ) ) {
 				foreach ( $options as $key ) {
@@ -182,7 +182,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( AST_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 	}
 }// End if().

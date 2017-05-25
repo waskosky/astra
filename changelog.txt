@@ -13,7 +13,7 @@ v1.0.3.1
 # Removed functions that override WordPress global's.
 
 v1.0.3
-# Enhancement: Removed option _astra_auto_version and used option AST_THEME_SETTINGS for auto storing latest theme version.
+# Enhancement: Removed option _astra_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
 # Fixed: Content Layout meta working on beaver builder page/post.
 
 v1.0.2

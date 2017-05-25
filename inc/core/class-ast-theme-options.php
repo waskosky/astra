@@ -253,7 +253,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 */
 		public static function refresh() {
 			self::$db_options = wp_parse_args(
-				get_option( AST_THEME_SETTINGS ),
+				get_option( ASTRA_THEME_SETTINGS ),
 				self::defaults()
 			);
 		}

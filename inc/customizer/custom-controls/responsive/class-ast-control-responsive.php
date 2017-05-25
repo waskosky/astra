@@ -42,8 +42,8 @@ class Ast_Control_Responsive extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = AST_THEME_URI . 'inc/customizer/custom-controls/responsive/';
-		$js_uri  = AST_THEME_URI . 'inc/customizer/custom-controls/responsive/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive/';
 
 		wp_enqueue_script( 'ast-responsive', $js_uri . 'responsive.js', array( 'jquery', 'customize-base' ), false, true );
 		wp_localize_script( 'ast-responsive', 'astL10n', $this->l10n() );

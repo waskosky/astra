@@ -42,7 +42,7 @@ class Ast_Control_Divider extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = AST_THEME_URI . 'inc/customizer/custom-controls/divider/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/divider/';
 		wp_enqueue_style( 'ast-divider-css', $css_uri . 'divider.css', null );
 	}
 

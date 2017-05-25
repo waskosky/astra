@@ -147,7 +147,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function admin_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin', AST_THEME_URI . 'inc/assets/css/ast-admin.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin', ASTRA_THEME_URI . 'inc/assets/css/ast-admin.css', array(), ASTRA_THEME_VERSION );
 		}
 
 		/**
@@ -158,7 +158,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		static public function styles_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin-settings', AST_THEME_URI . 'inc/assets/css/ast-admin-menu-settings.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/ast-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
 		}
 
 		/**
@@ -295,7 +295,7 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function general_page() {
-			require_once AST_THEME_DIR . 'inc/core/view-general.php';
+			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
 		}
 	}
 
