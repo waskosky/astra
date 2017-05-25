@@ -159,7 +159,7 @@ if ( ! function_exists( 'ast_theme_comment' ) ) {
 								<div class="ast-comment-edit-reply-wrap">
 									<?php edit_comment_link( ast_default_strings( 'string-comment-edit-link', false ), '<span class="ast-edit-link">', '</span>' ); ?>
 									<?php comment_reply_link( array_merge( $args, array(
-											'reply_text' => ast_default_strings( 'string-comment-reply-link', false ),
+											'reply_text' => esc_html( ast_default_strings( 'string-comment-reply-link', false ) ),
 											'add_below' => 'comment',
 											'depth'     => $depth,
 											'max_depth' => $args['max_depth'],
@@ -169,7 +169,7 @@ if ( ! function_exists( 'ast_theme_comment' ) ) {
 									?>
 								</div>
 								<?php if ( '0' == $comment->comment_approved ) : ?>
-									<p class="ast-highlight-text comment-awaiting-moderation"><?php ast_default_strings( 'string-comment-awaiting-moderation' ); ?></p>
+									<p class="ast-highlight-text comment-awaiting-moderation"><?php echo esc_html( ast_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
 								<?php endif; ?>
 							</section> <!-- .ast-comment-content -->	
 						</div>

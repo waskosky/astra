@@ -27,7 +27,7 @@
 
 <?php ast_body_top(); ?>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php ast_default_strings( 'string-header-skip-link' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( ast_default_strings( 'string-header-skip-link', false ) ); ?></a>
 	
 	<?php ast_header_before(); ?>
 

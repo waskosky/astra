@@ -17,7 +17,7 @@
 	<div class="page-content">
 		
 		<div class="page-sub-title">
-			<?php ast_default_strings( 'string-404-sub-title' ); ?>
+			<?php echo esc_html( ast_default_strings( 'string-404-sub-title', false ) ); ?>
 		</div>
 		
 		<div class="ast-404-search">
