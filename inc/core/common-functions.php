@@ -442,7 +442,7 @@ if ( ! function_exists( 'ast_get_post_id' ) ) {
 /**
  * Display classes for primary div
  */
-if ( ! function_exists( 'ast_primary_class' ) ) {
+if ( ! function_exists( 'astra_primary_class' ) ) {
 
 	/**
 	 * Display classes for primary div
@@ -450,7 +450,7 @@ if ( ! function_exists( 'ast_primary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return void        Echo classes.
 	 */
-	function ast_primary_class( $class = '' ) {
+	function astra_primary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
 		if ( function_exists( 'ast_get_primary_class' ) ) {
@@ -495,7 +495,7 @@ if ( ! function_exists( 'ast_get_primary_class' ) ) {
 		$classes = array_map( 'esc_attr', $classes );
 
 		// Filter primary div class names.
-		$classes = apply_filters( 'ast_primary_class', $classes, $class );
+		$classes = apply_filters( 'astra_primary_class', $classes, $class );
 
 		return array_unique( $classes );
 	}

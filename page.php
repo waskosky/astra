@@ -21,7 +21,7 @@ get_header(); ?>
 		
 <?php endif ?>
 
-	<div id="primary" <?php ast_primary_class(); ?>>
+	<div id="primary" <?php astra_primary_class(); ?>>
 		
 		<?php ast_primary_content_top(); ?>
 
