@@ -79,7 +79,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 		 * Add start of wrapper
 		 */
 		function before_main_content_start() {
-			$site_sidebar = ast_page_layout();
+			$site_sidebar = astra_page_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				 get_sidebar();
 			}
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Ast_Woocommerce' ) ) :
 
 			</div> <!-- #primary -->
 			<?php
-			$site_sidebar = ast_page_layout();
+			$site_sidebar = astra_page_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
 				 get_sidebar();
 			}

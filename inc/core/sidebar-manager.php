@@ -12,14 +12,14 @@
 /**
  * Site Sidebar
  */
-if ( ! function_exists( 'ast_page_layout' ) ) {
+if ( ! function_exists( 'astra_page_layout' ) ) {
 
 	/**
 	 * Site Sidebar
 	 *
 	 * Default 'right sidebar' for overall site.
 	 */
-	function ast_page_layout() {
+	function astra_page_layout() {
 
 		if ( 'page-builder' == ast_get_content_layout() ) {
 			$layout = 'no-sidebar';
@@ -66,6 +66,6 @@ if ( ! function_exists( 'ast_page_layout' ) ) {
 			}
 		}// End if().
 
-		return apply_filters( 'ast_page_layout', $layout );
+		return apply_filters( 'astra_page_layout', $layout );
 	}
 }// End if().

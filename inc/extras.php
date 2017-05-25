@@ -86,7 +86,7 @@ if ( ! function_exists( 'ast_body_classes' ) ) {
 			$classes[] = 'ast-plain-container';
 		}
 		// Sidebar location.
-		$page_layout = 'ast-' . ast_page_layout();
+		$page_layout = 'ast-' . astra_page_layout();
 		$classes[]   = $page_layout;
 
 		return $classes;
@@ -796,7 +796,7 @@ if ( ! function_exists( 'ast_404_page_layout' ) ) {
 		return $layout;
 	}
 }
-add_filter( 'ast_page_layout', 'ast_404_page_layout', 10, 1 );
+add_filter( 'astra_page_layout', 'ast_404_page_layout', 10, 1 );
 
 /**
  * Return current content layout

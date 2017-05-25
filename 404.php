@@ -10,10 +10,10 @@
 
 get_header(); ?>
 
-<?php if ( ast_page_layout() == 'left-sidebar' ) : ?>
+<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
 	<div id="primary" <?php ast_primary_class(); ?>>
@@ -29,7 +29,7 @@ get_header(); ?>
 				<?php ast_entry_top(); ?>
 
 				<?php ast_entry_content_404_page(); ?>
-				
+
 				<?php ast_entry_bottom(); ?>
 
 			</section><!-- .error-404 -->
@@ -42,10 +42,10 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( ast_page_layout() == 'right-sidebar' ) : ?>
+<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
 <?php get_footer(); ?>

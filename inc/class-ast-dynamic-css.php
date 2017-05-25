@@ -585,7 +585,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 			$meta_style .= '}';
 			$meta_style .= '}';
 
-			if ( 'no-sidebar' !== ast_page_layout() ) :
+			if ( 'no-sidebar' !== astra_page_layout() ) :
 				$meta_style .= '@media (min-width: 768px) {';
 				$meta_style .= '#primary {';
 				$meta_style .= 'width:' . $primary_width . '%;';
