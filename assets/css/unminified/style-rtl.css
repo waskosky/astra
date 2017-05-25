@@ -2574,11 +2574,6 @@ body {
 
 .ast-mobile-menu-buttons {
   display: none;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 
 .main-header-bar-navigation {
@@ -2790,6 +2785,7 @@ body {
     -moz-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    text-align: center;
   }
   .ast-header-break-point .ast-mobile-header-stack .site-branding,
   .ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons {
@@ -2798,7 +2794,9 @@ body {
     -moz-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    text-align: center;
     padding-bottom: 1em;
+    padding-left: 0;
   }
 }
 
@@ -3131,10 +3129,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   padding-bottom: 1.5em;
+  padding-left: 1em;
 }
 
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
