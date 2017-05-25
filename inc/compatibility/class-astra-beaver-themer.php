@@ -63,7 +63,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 			$post_type = get_post_type();
 
 			if ( 'fl-theme-layout' == $post_type ) {
-				remove_action( 'ast_entry_after', 'ast_single_post_navigation_markup' );
+				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 
 			if ( empty( $ids ) && 'fl-theme-layout' != $post_type ) {
