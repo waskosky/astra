@@ -17,7 +17,7 @@
 	<div class="page-content">
 		
 		<div class="page-sub-title">
-			<?php astra_default_strings( 'string-404-sub-title' ); ?>
+			<?php echo esc_html( astra_default_strings( 'string-404-sub-title', false ) ); ?>
 		</div>
 		
 		<div class="ast-404-search">
