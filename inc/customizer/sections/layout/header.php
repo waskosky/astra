@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->selective_refresh->add_partial( ASTRA_THEME_SETTINGS . '[header-main-rt-section-html]', array(
 			'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Sanitizes', '_render_header_main_rt_section_html' ),
+			'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_html' ),
 		) );
 	}
 

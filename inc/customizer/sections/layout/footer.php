@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->selective_refresh->add_partial( ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
 			'selector'            => '.ast-small-footer-section-1',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Sanitizes', '_render_footer_sml_section_1_credit' ),
+			'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
 		) );
 	}
 
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['footer-sml-section-2-credit'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Partials', 'sanitize_html' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
 		'type'        => 'textarea',
