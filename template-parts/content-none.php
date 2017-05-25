@@ -28,12 +28,12 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php echo esc_html( ast_default_strings( 'string-search-nothing-found-message', false ) ); ?></p>
+			<p><?php echo esc_html( astra_default_strings( 'string-search-nothing-found-message', false ) ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php else : ?>
 
-			<p><?php echo esc_html( ast_default_strings( 'string-content-nothing-found-message', false ) ); ?></p>
+			<p><?php echo esc_html( astra_default_strings( 'string-content-nothing-found-message', false ) ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>
