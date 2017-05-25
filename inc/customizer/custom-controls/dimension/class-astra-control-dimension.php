@@ -34,8 +34,8 @@ class Astra_Control_Dimension extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = AST_THEME_URI . 'inc/customizer/custom-controls/dimension/';
-		$js_uri  = AST_THEME_URI . 'inc/customizer/custom-controls/dimension/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/dimension/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/dimension/';
 
 		wp_enqueue_script( 'ast-dimension', $js_uri . 'dimension.js', array( 'jquery', 'customize-base' ), false, true );
 		wp_localize_script( 'ast-dimension', 'astL10n', $this->l10n() );

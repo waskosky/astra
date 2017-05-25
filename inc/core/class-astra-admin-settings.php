@@ -87,14 +87,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function init_admin_settings() {
 
-			self::$menu_page_title	= apply_filters( 'ast_menu_page_title', __( 'Astra' , 'astra' ) );
+			self::$menu_page_title	= apply_filters( 'astra_menu_page_title', __( 'Astra' , 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
 				// Let extensions hook into saving.
-				do_action( 'ast_admin_settings_scripts' );
+				do_action( 'astra_admin_settings_scripts' );
 
 				self::save_settings();
 			}
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
-			add_action( 'ast_menu_general_action', __CLASS__ . '::general_page' );
+			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
 		}
 
 		/**
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 											'show'	=> ! is_network_admin(),
 										),
 				);
-				self::$view_actions = apply_filters( 'ast_menu_options', $actions );
+				self::$view_actions = apply_filters( 'astra_menu_options', $actions );
 			}
 
 			return self::$view_actions;
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			// Let extensions hook into saving.
-			do_action( 'ast_admin_settings_save' );
+			do_action( 'astra_admin_settings_save' );
 		}
 
 		/**
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		static public function admin_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin', AST_THEME_URI . 'inc/assets/css/ast-admin.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin', ASTRA_THEME_URI . 'inc/assets/css/ast-admin.css', array(), ASTRA_THEME_VERSION );
 		}
 
 		/**
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		static public function styles_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'ast-admin-settings', AST_THEME_URI . 'inc/assets/css/ast-admin-menu-settings.css', array(), AST_THEME_VERSION );
+			wp_enqueue_style( 'ast-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/ast-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
 		}
 
 		/**
@@ -211,7 +211,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$url = self::get_page_url( $slug );
 
 					if ( $slug == self::$parent_page_slug ) {
-						update_option( 'ast_parent_page_url', $url );
+						update_option( 'astra_parent_page_url', $url );
 					}
 
 					$active = ( $slug == $action ) ? 'nav-tab-active' : ''; ?>
@@ -284,7 +284,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 			<div class="ast-menu-page-wrapper">
 				<?php self::init_nav_menu( $active_tab ); ?>
-				<?php do_action( 'ast_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
+				<?php do_action( 'astra_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
 			</div>
 			<?php
 		}
@@ -295,7 +295,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function general_page() {
-			require_once AST_THEME_DIR . 'inc/core/view-general.php';
+			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
 		}
 	}
 

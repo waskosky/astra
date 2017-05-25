@@ -72,8 +72,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = AST_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		$js_uri  = AST_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 
 		wp_enqueue_script( 'ast-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), false, true );
 	}

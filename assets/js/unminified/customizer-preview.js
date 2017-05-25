@@ -10,12 +10,12 @@
 /**
  * Generate font size in PX & REM
  */
-function ast_font_size_rem( size, with_rem, device ) {
+function astra_font_size_rem( size, with_rem, device ) {
 
 	var css = '';
 
 	if( size != '' ) {
-		
+
 		var device = ( typeof device != undefined ) ? device : 'desktop';
 
 		// font size with 'px'.
@@ -24,7 +24,7 @@ function ast_font_size_rem( size, with_rem, device ) {
 		// font size with 'rem'.
 		if ( with_rem ) {
 			var body_font_size = wp.customize( 'ast-settings[font-size-body]' ).get();
-			
+
 			body_font_size['desktop'] 	= ( body_font_size['desktop'] != '' ) ? body_font_size['desktop'] : 15;
 			body_font_size['tablet'] 	= ( body_font_size['tablet'] != '' ) ? body_font_size['tablet'] : body_font_size['desktop'];
 			body_font_size['mobile'] 	= ( body_font_size['mobile'] != '' ) ? body_font_size['mobile'] : body_font_size['tablet'];
@@ -39,7 +39,7 @@ function ast_font_size_rem( size, with_rem, device ) {
 /**
  * Responsive Font Size CSS
  */
-function ast_responsive_font_size( control, selector ) {
+function astra_responsive_font_size( control, selector ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
@@ -52,7 +52,7 @@ function ast_responsive_font_size( control, selector ) {
 				jQuery( 'style#' + control ).remove();
 
 				var fontSize = '',
-					TabletFontSize = '', 
+					TabletFontSize = '',
 					MobileFontSize = '';
 
 
@@ -65,11 +65,11 @@ function ast_responsive_font_size( control, selector ) {
 				if ( '' != value.mobile ) {
 					MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
 				}
-				
+
 				if( value['desktop-unit'] == 'px' ) {
-					fontSize = ast_font_size_rem( value.desktop, true, 'desktop' );
+					fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
 				}
-				
+
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
 					'<style id="' + control + '">'
@@ -91,7 +91,7 @@ function ast_responsive_font_size( control, selector ) {
 /**
  * Responsive Font Size CSS
  */
-function ast_responsive_line_height( control, selector ) {
+function astra_responsive_line_height( control, selector ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
@@ -116,7 +116,7 @@ function ast_responsive_line_height( control, selector ) {
 				if( value.mobile != '' ) {
 					MobileLineHeight = 'line-height: ' + value.mobile + value['mobile-unit'];
 				}
-				
+
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
 					'<style id="' + control + '">'
@@ -138,7 +138,7 @@ function ast_responsive_line_height( control, selector ) {
 /**
  * CSS
  */
-function ast_css_font_size( control, selector ) {
+function astra_css_font_size( control, selector ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( size ) {
@@ -153,7 +153,7 @@ function ast_css_font_size( control, selector ) {
 				var fontSize = 'font-size: ' + size;
 				if ( ! isNaN( size ) || size.indexOf( 'px' ) >= 0 ) {
 					size = size.replace( 'px', '' );
-					fontSize = ast_font_size_rem( size, true );
+					fontSize = astra_font_size_rem( size, true );
 				}
 
 				// Concat and append new <style>.
@@ -183,7 +183,7 @@ function get_hexdec( hex ) {
 /**
  * Apply CSS for the element
  */
-function ast_css( control, css_property, selector, unit ) {
+function astra_css( control, css_property, selector, unit ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( new_value ) {
@@ -239,7 +239,7 @@ function ast_css( control, css_property, selector, unit ) {
 /**
  * Dynamic Internal/Embedded Style for a Control
  */
-function ast_add_dynamic_css( control, style ) {
+function astra_add_dynamic_css( control, style ) {
 	control = control.replace( '[', '-' );
 	control = control.replace( ']', '' );
 	jQuery( 'style#' + control ).remove();
@@ -268,7 +268,7 @@ function ast_add_dynamic_css( control, style ) {
 					dynamicStyle += '}';
 				}
 
-				ast_add_dynamic_css( 'site-content-width', dynamicStyle );
+				astra_add_dynamic_css( 'site-content-width', dynamicStyle );
 
 		} );
 	} );
@@ -301,7 +301,7 @@ function ast_add_dynamic_css( control, style ) {
 		setting.bind( function( bg_color ) {
 				if (bg_color != '') {
 					var dynamicStyle = 'body,.ast-separate-container {background-color: ' + bg_color + '}';
-					ast_add_dynamic_css( 'site-outside-bg-color', dynamicStyle );
+					astra_add_dynamic_css( 'site-outside-bg-color', dynamicStyle );
 				}
 				else{
 					wp.customize.preview.send( 'refresh' );
@@ -324,7 +324,7 @@ function ast_add_dynamic_css( control, style ) {
 				dynamicStyle += '.blog .site-content > .ast-container,.archive .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
 			}
 				dynamicStyle += '}';
-				ast_add_dynamic_css( 'blog-max-width', dynamicStyle );
+				astra_add_dynamic_css( 'blog-max-width', dynamicStyle );
 
 		} );
 	} );
@@ -343,7 +343,7 @@ function ast_add_dynamic_css( control, style ) {
 				dynamicStyle += '.single-post .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
 			}
 				dynamicStyle += '}';
-				ast_add_dynamic_css( 'blog-single-max-width', dynamicStyle );
+				astra_add_dynamic_css( 'blog-single-max-width', dynamicStyle );
 
 		} );
 	} );
@@ -362,7 +362,7 @@ function ast_add_dynamic_css( control, style ) {
 				dynamicStyle += '#secondary { width: ' + width + '% } ';
 				dynamicStyle += '}';
 
-				ast_add_dynamic_css( 'site-sidebar-width', dynamicStyle );
+				astra_add_dynamic_css( 'site-sidebar-width', dynamicStyle );
 			}
 
 		} );
@@ -380,7 +380,7 @@ function ast_add_dynamic_css( control, style ) {
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
-			ast_add_dynamic_css( 'header-main-sep', dynamicStyle );
+			astra_add_dynamic_css( 'header-main-sep', dynamicStyle );
 
 		} );
 	} );
@@ -410,7 +410,7 @@ function ast_add_dynamic_css( control, style ) {
 		setting.bind( function( border ) {
 
 			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			ast_add_dynamic_css( 'button-radius', dynamicStyle );
+			astra_add_dynamic_css( 'button-radius', dynamicStyle );
 
 		} );
 	} );
@@ -422,7 +422,7 @@ function ast_add_dynamic_css( control, style ) {
 		setting.bind( function( padding ) {
 
 			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
-			ast_add_dynamic_css( 'button-v-padding', dynamicStyle );
+			astra_add_dynamic_css( 'button-v-padding', dynamicStyle );
 
 		} );
 	} );
@@ -434,7 +434,7 @@ function ast_add_dynamic_css( control, style ) {
 		setting.bind( function( padding ) {
 
 			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-left: ' + ( parseInt( padding ) ) + 'px; padding-right: ' + ( parseInt( padding ) ) + 'px } ';
-			ast_add_dynamic_css( 'button-h-padding', dynamicStyle );
+			astra_add_dynamic_css( 'button-h-padding', dynamicStyle );
 
 		} );
 	} );
@@ -451,7 +451,7 @@ function ast_add_dynamic_css( control, style ) {
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
-			ast_add_dynamic_css( 'header-main-sep', dynamicStyle );
+			astra_add_dynamic_css( 'header-main-sep', dynamicStyle );
 
 		} );
 	} );
@@ -470,25 +470,25 @@ function ast_add_dynamic_css( control, style ) {
 				var dynamicStyle = ' body:not(.ast-header-break-point) .main-header-bar { border-bottom-color: ' + color + '; } ';
 					dynamicStyle += ' body.ast-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
 
-				ast_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
+				astra_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
 			}
 
 		} );
 	} );
 
-	ast_responsive_font_size( 'ast-settings[font-size-site-tagline]', '.site-header .site-description' );
-	ast_responsive_font_size( 'ast-settings[font-size-site-title]', '.site-title' );
-	ast_responsive_font_size( 'ast-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
-	ast_responsive_font_size( 'ast-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
-	ast_responsive_font_size( 'ast-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a' );
-	ast_responsive_font_size( 'ast-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a' );
-	ast_responsive_font_size( 'ast-settings[font-size-h3]', 'h3, .entry-content h3, .entry-content h3 a' );
-	ast_responsive_font_size( 'ast-settings[font-size-h4]', 'h4, .entry-content h4, .entry-content h4 a' );
-	ast_responsive_font_size( 'ast-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a' );
-	ast_responsive_font_size( 'ast-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
-	
-	ast_responsive_line_height( 'ast-settings[body-line-height]', 'body, button, input, select, textarea' );
-	
-	ast_css( 'ast-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
+	astra_responsive_font_size( 'ast-settings[font-size-site-tagline]', '.site-header .site-description' );
+	astra_responsive_font_size( 'ast-settings[font-size-site-title]', '.site-title' );
+	astra_responsive_font_size( 'ast-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
+	astra_responsive_font_size( 'ast-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
+	astra_responsive_font_size( 'ast-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a' );
+	astra_responsive_font_size( 'ast-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a' );
+	astra_responsive_font_size( 'ast-settings[font-size-h3]', 'h3, .entry-content h3, .entry-content h3 a' );
+	astra_responsive_font_size( 'ast-settings[font-size-h4]', 'h4, .entry-content h4, .entry-content h4 a' );
+	astra_responsive_font_size( 'ast-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a' );
+	astra_responsive_font_size( 'ast-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
+
+	astra_responsive_line_height( 'ast-settings[body-line-height]', 'body, button, input, select, textarea' );
+
+	astra_css( 'ast-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
 
 } )( jQuery );

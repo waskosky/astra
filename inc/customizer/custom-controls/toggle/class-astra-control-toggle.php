@@ -33,8 +33,8 @@ class Astra_Control_Toggle extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		$css_uri = AST_THEME_URI . 'inc/customizer/custom-controls/toggle/';
-		$js_uri  = AST_THEME_URI . 'inc/customizer/custom-controls/toggle/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/toggle/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/toggle/';
 
 		wp_enqueue_script( 'ast-toggle', $js_uri . 'toggle.js', array( 'jquery', 'customize-base' ), false, true );
 		wp_enqueue_style( 'ast-toggle-css', $css_uri . 'toggle.css', null );

@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 */
 		public static function defaults() {
 			// Defaults list of options.
-			return apply_filters( 'ast_theme_defaults', array(
+			return apply_filters( 'astra_theme_defaults', array(
 				// Blog Single.
 				'blog-single-width'					=> 'default',
 				'blog-single-max-width'				=> 1200,
@@ -253,7 +253,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 */
 		public static function refresh() {
 			self::$db_options = wp_parse_args(
-				get_option( AST_THEME_SETTINGS ),
+				get_option( ASTRA_THEME_SETTINGS ),
 				self::defaults()
 			);
 		}
