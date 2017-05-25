@@ -18,9 +18,9 @@ get_header(); ?>
 
 	<div id="primary" <?php astra_primary_class(); ?>>
 
-		<?php ast_primary_content_top(); ?>
+		<?php astra_primary_content_top(); ?>
 
-		<?php ast_archive_header(); ?>
+		<?php astra_archive_header(); ?>
 
 		<main id="main" class="site-main" role="main">
 
@@ -30,19 +30,19 @@ get_header(); ?>
 			<div class="ast-row">
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php ast_entry_before(); ?>
+				<?php astra_entry_before(); ?>
 
 				<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-					<?php ast_entry_top(); ?>
+					<?php astra_entry_top(); ?>
 
-					<?php ast_entry_content_blog(); ?>
+					<?php astra_entry_content_blog(); ?>
 
-					<?php ast_entry_bottom(); ?>
+					<?php astra_entry_bottom(); ?>
 
 				</article><!-- #post-## -->
 
-				<?php ast_entry_after(); ?>
+				<?php astra_entry_after(); ?>
 
 			<?php endwhile; ?>
 			</div>
@@ -55,9 +55,9 @@ get_header(); ?>
 
 		</main><!-- #main -->
 
-		<?php ast_pagination(); ?>
+		<?php astra_pagination(); ?>
 
-		<?php ast_primary_content_bottom(); ?>
+		<?php astra_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 

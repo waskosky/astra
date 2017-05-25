@@ -68,13 +68,13 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 		 */
 		function setup_theme() {
 
-			do_action( 'ast_class_loaded' );
+			do_action( 'astra_class_loaded' );
 
 			/**
 			  * Content Width
 			  */
 			if ( ! isset( $content_width ) ) {
-				$content_width = apply_filters( 'ast_content_width', 700 );
+				$content_width = apply_filters( 'astra_content_width', 700 );
 			}
 
 			/**

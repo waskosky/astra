@@ -95,11 +95,11 @@ class Ast_Control_Slider extends WP_Customize_Control {
 			<# } #>
 			<div class="wrapper">
 				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" {{{ data.link }}} data-reset_value="{{ data.default }}" />
-				<div class="ast_range_value">
-					<input type="number" class="value ast-range-value-input" value="{{ data.value }}" {{{ data.inputAttrs }}} ><# 
-					if ( data.suffix ) { 
+				<div class="astra_range_value">
+					<input type="number" class="value ast-range-value-input" value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
+					if ( data.suffix ) {
 
-					#><span class="ast-range-unit">{{ data.suffix }}</span><# 
+					#><span class="ast-range-unit">{{ data.suffix }}</span><#
 					} #>
 				</div>
 				<div class="ast-slider-reset">

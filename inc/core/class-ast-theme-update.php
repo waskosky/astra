@@ -57,7 +57,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
-			$saved_version = ast_get_option( 'theme-auto-version' );
+			$saved_version = astra_get_option( 'theme-auto-version' );
 
 			// If equals then return.
 			if ( version_compare( $saved_version, AST_THEME_VERSION, '=' ) ) {
@@ -163,15 +163,15 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$ast_options = get_option( AST_THEME_SETTINGS, array() );
+			$astra_options = get_option( AST_THEME_SETTINGS, array() );
 
-			if ( 0 < count( $ast_options ) ) {
+			if ( 0 < count( $astra_options ) ) {
 				foreach ( $options as $key ) {
 
-					if ( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[ $key ] ) ) {
+					if ( array_key_exists( $key, $astra_options ) && ! is_array( $astra_options[ $key ] ) ) {
 
-						$ast_options[ $key ] = array(
-							'desktop'      => $ast_options[ $key ],
+						$astra_options[ $key ] = array(
+							'desktop'      => $astra_options[ $key ],
 							'tablet'       => '',
 							'mobile'       => '',
 							'desktop-unit' => 'px',
@@ -182,7 +182,7 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( AST_THEME_SETTINGS, $ast_options );
+			update_option( AST_THEME_SETTINGS, $astra_options );
 		}
 	}
 }// End if().

@@ -44,7 +44,7 @@ if ( ! class_exists( 'Ast_Visual_Composer' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'vc_before_init', 	array( $this, 'vc_set_as_theme' ) );
-			add_filter( 'ast_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 

@@ -173,7 +173,7 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 			wp_enqueue_style( 'ast-customizer-controls-css', AST_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix );
 			wp_enqueue_script( 'ast-customizer-controls-js', AST_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'ast-customizer-controls-toggle-js' ), null, true );
 
-			wp_localize_script( 'ast-customizer-controls-toggle-js', 'ast', apply_filters( 'ast_theme_customizer_js_localize', array(
+			wp_localize_script( 'ast-customizer-controls-toggle-js', 'ast', apply_filters( 'astra_theme_customizer_js_localize', array(
 				'customizer' => array(
 					'settings' => array(
 						'sidebars' => array(
@@ -244,4 +244,4 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-$ast_customizer = AST_Customizer::get_instance();
+$astra_customizer = AST_Customizer::get_instance();

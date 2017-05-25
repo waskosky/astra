@@ -66,7 +66,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 			 *
 			 * @see http://php.net/manual/en/filter.filters.sanitize.php
 			 */
-			self::$meta_option = apply_filters( 'ast_meta_box_options', array(
+			self::$meta_option = apply_filters( 'astra_meta_box_options', array(
 				'ast-main-header-display' => array(
 					'sanitize' => 'FILTER_DEFAULT',
 				),
@@ -100,7 +100,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 
 				if ( 'attachment' !== $type && 'fl-theme-layout' !== $type ) {
 					add_meta_box(
-						'ast_settings_meta_box',              // Id.
+						'astra_settings_meta_box',              // Id.
 						__( 'Astra Settings', 'astra' ), // Title.
 						array( $this, 'markup_meta_box' ),    // Callback.
 						$type,                                // Post_type.
@@ -126,7 +126,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 		 */
 		function markup_meta_box( $post ) {
 
-			wp_nonce_field( basename( __FILE__ ), 'ast_settings_meta_box' );
+			wp_nonce_field( basename( __FILE__ ), 'astra_settings_meta_box' );
 			$stored = get_post_meta( $post->ID );
 
 			// Set stored and override defaults.
@@ -146,7 +146,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 			$small_footer        = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 
-			do_action( 'ast_meta_box_markup_before', $meta );
+			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
 			 * Option: Sidebar
@@ -187,7 +187,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 				<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
 			</p>
 			<span>
-				<?php do_action( 'ast_meta_box_markup_disable_sections_before', $meta ); ?>
+				<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
 
 				<span class="site-post-title-option-wrap">
 					<label for="site-post-title">
@@ -199,7 +199,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 
 				<?php
 
-				$footer_sml_layout = ast_get_option( 'footer-sml-layout' );
+				$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
 
 				if ( 'disabled' != $footer_sml_layout ) { ?>
 				<span class="footer-sml-layout-option-wrap">
@@ -219,12 +219,12 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 				</span>
 				<br />
 
-				<?php do_action( 'ast_meta_box_markup_disable_sections_after', $meta ); ?>
+				<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
 			</span>
 
 			<?php
 
-			do_action( 'ast_meta_box_markup_after', $meta );
+			do_action( 'astra_meta_box_markup_after', $meta );
 		}
 
 		/**
@@ -238,7 +238,7 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 			// Checks save status.
 			$is_autosave    = wp_is_post_autosave( $post_id );
 			$is_revision    = wp_is_post_revision( $post_id );
-			$is_valid_nonce = ( isset( $_POST['ast_settings_meta_box'] ) && wp_verify_nonce( $_POST['ast_settings_meta_box'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = ( isset( $_POST['astra_settings_meta_box'] ) && wp_verify_nonce( $_POST['astra_settings_meta_box'], basename( __FILE__ ) ) ) ? true : false;
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {

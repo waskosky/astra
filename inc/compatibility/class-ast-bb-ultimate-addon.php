@@ -79,7 +79,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 * Theme Color
 		 */
 		function theme_color() {
-			return ast_get_option( 'link-color' );
+			return astra_get_option( 'link-color' );
 		}
 
 
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 * Text Color
 		 */
 		function text_color() {
-			return ast_get_option( 'text-color' );
+			return astra_get_option( 'text-color' );
 		}
 
 
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 * Link Color
 		 */
 		function link_color() {
-			return ast_get_option( 'link-color' );
+			return astra_get_option( 'link-color' );
 		}
 
 
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 * Link Hover Color
 		 */
 		function link_hover_color() {
-			return ast_get_option( 'link-h-color' );
+			return astra_get_option( 'link-h-color' );
 		}
 
 		/**
@@ -111,8 +111,8 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 */
 		function button_font_family() {
 			return array(
-					'family' => ast_get_option( 'body-font-family' ),
-					'weight' => ast_get_option( 'body-font-weight' ),
+					'family' => astra_get_option( 'body-font-family' ),
+					'weight' => astra_get_option( 'body-font-weight' ),
 				);
 		}
 
@@ -148,10 +148,10 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 * Button Text Color
 		 */
 		function button_text_color() {
-			$link_color = ast_get_option( 'link-color' );
-			$color      = ast_get_option( 'button-color' );
+			$link_color = astra_get_option( 'link-color' );
+			$color      = astra_get_option( 'button-color' );
 			if ( empty( $color ) ) {
-				$color = ast_get_foreground_color( $link_color );
+				$color = astra_get_foreground_color( $link_color );
 			}
 
 			return $color;
@@ -161,10 +161,10 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 * Button Text Hover Color
 		 */
 		function button_text_hover_color() {
-			$link_hover_color = ast_get_option( 'link-h-color' );
-			$color            = ast_get_option( 'button-h-color' );
+			$link_hover_color = astra_get_option( 'link-h-color' );
+			$color            = astra_get_option( 'button-h-color' );
 			if ( empty( $color ) ) {
-				$color = ast_get_foreground_color( $link_hover_color );
+				$color = astra_get_foreground_color( $link_hover_color );
 			}
 
 			return $color;
@@ -174,21 +174,21 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		 * Button Background Color
 		 */
 		function button_bg_color() {
-			return ast_get_option( 'button-bg-color' );
+			return astra_get_option( 'button-bg-color' );
 		}
 
 		/**
 		 * Button Background Color
 		 */
 		function button_bg_hover_color() {
-			return ast_get_option( 'button-bg-h-color' );
+			return astra_get_option( 'button-bg-h-color' );
 		}
 
 		/**
 		 * Button Border Radius
 		 */
 		function button_border_radius() {
-			return ast_get_option( 'button-radius' );
+			return astra_get_option( 'button-radius' );
 		}
 
 
@@ -198,8 +198,8 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		function button_padding() {
 
 			$padding   = '';
-			$v_padding = ast_get_option( 'button-v-padding' );
-			$h_padding = ast_get_option( 'button-h-padding' );
+			$v_padding = astra_get_option( 'button-v-padding' );
+			$h_padding = astra_get_option( 'button-h-padding' );
 
 			if ( '' != $v_padding && '' != $h_padding ) {
 				$padding = $v_padding . 'px ' . $h_padding . 'px';
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		function button_vertical_padding() {
 
 			$padding   = '';
-			$v_padding = ast_get_option( 'button-v-padding' );
+			$v_padding = astra_get_option( 'button-v-padding' );
 
 			if ( '' != $v_padding ) {
 				$padding = $v_padding;
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
 		function button_horizontal_padding() {
 
 			$padding   = '';
-			$h_padding = ast_get_option( 'button-h-padding' );
+			$h_padding = astra_get_option( 'button-h-padding' );
 
 			if ( '' != $h_padding ) {
 				$padding = $h_padding;

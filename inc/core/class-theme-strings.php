@@ -12,7 +12,7 @@
 /**
  * Default Strings
  */
-if ( ! function_exists( 'ast_default_strings' ) ) {
+if ( ! function_exists( 'astra_default_strings' ) ) {
 
 	/**
 	 * Default Strings
@@ -22,9 +22,9 @@ if ( ! function_exists( 'ast_default_strings' ) ) {
 	 * @param  boolean $echo Print string.
 	 * @return mixed        Return string or nothing.
 	 */
-	function ast_default_strings( $key, $echo = true ) {
+	function astra_default_strings( $key, $echo = true ) {
 
-		$defaults = apply_filters( 'ast_default_strings', array(
+		$defaults = apply_filters( 'astra_default_strings', array(
 
 			// Header.
 			'string-header-skip-link' 				 => esc_html__( 'Skip to content', 'astra' ),

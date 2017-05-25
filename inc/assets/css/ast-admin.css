@@ -32,11 +32,11 @@
 	content: "\e900" !important;
 }
 
-#side-sortables #ast_settings_meta_box select {
+#side-sortables #astra_settings_meta_box select {
 	min-width: 50%;
 }
 
-#normal-sortables #ast_settings_meta_box select {
+#normal-sortables #astra_settings_meta_box select {
 	min-width: 200px;
 
 }

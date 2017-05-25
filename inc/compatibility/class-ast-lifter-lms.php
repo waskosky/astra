@@ -46,7 +46,7 @@ if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
 
 			add_filter( 'llms_get_theme_default_sidebar', array( $this, 'add_sidebar' ) );
 			add_action( 'after_setup_theme',              array( $this, 'add_theme_support' ) );
-			add_filter( 'ast_theme_assets',               array( $this, 'add_styles' ) );
+			add_filter( 'astra_theme_assets',               array( $this, 'add_styles' ) );
 		}
 
 		/**

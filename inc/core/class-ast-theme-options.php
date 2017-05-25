@@ -69,7 +69,7 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 		 */
 		public static function defaults() {
 			// Defaults list of options.
-			return apply_filters( 'ast_theme_defaults', array(
+			return apply_filters( 'astra_theme_defaults', array(
 				// Blog Single.
 				'blog-single-width'					=> 'default',
 				'blog-single-max-width'				=> 1200,
