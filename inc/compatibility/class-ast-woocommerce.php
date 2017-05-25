@@ -15,14 +15,14 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 /**
  * Astra WooCommerce Compatibility
  */
-if ( ! class_exists( 'Ast_Woocommerce' ) ) :
+if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 	/**
 	 * Astra WooCommerce Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_Woocommerce {
+	class Astra_Woocommerce {
 
 		/**
 		 * Member Variable
@@ -130,4 +130,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Woocommerce::get_instance();
+Astra_Woocommerce::get_instance();

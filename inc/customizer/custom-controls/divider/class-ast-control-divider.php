@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * A text control with validation for CSS units.
  */
-class Ast_Control_Divider extends WP_Customize_Control {
+class Astra_Control_Divider extends WP_Customize_Control {
 
 	/**
 	 * The control type.

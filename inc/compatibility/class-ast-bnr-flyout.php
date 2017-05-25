@@ -13,14 +13,14 @@ if ( ! class_exists( 'FLBuilderModel' ) ) {
 /**
  * Astra BNR Flyout Compatibility
  */
-if ( ! class_exists( 'Ast_BNR_Flyout' ) ) :
+if ( ! class_exists( 'Astra_BNR_Flyout' ) ) :
 
 	/**
 	 * Astra BNR Flyout Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_BNR_Flyout {
+	class Astra_BNR_Flyout {
 
 		/**
 		 * Member Variable
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_BNR_Flyout::get_instance();
+Astra_BNR_Flyout::get_instance();

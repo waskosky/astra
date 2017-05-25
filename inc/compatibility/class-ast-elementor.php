@@ -13,14 +13,14 @@ if ( ! class_exists( '\Elementor\Plugin' ) ) {
 /**
  * Astra Elementor Compatibility
  */
-if ( ! class_exists( 'Ast_Elementor' ) ) :
+if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 	/**
 	 * Astra Elementor Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_Elementor {
+	class Astra_Elementor {
 
 		/**
 		 * Member Variable
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Elementor::get_instance();
+Astra_Elementor::get_instance();

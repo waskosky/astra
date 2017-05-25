@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	*/
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[ast-site-icon-divider]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[ast-site-icon-divider]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'title_tagline',
 		'priority' => 50,

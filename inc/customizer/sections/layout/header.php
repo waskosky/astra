@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 
-	$wp_customize->add_control( new Ast_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-layouts]', array(
+	$wp_customize->add_control( new Astra_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-layouts]', array(
 		'section'     => 'section-header',
 		'priority'    => 5,
 		'label'       => __( 'Header', 'astra' ),
@@ -162,7 +162,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Mobile Menu Label Divider
 	*/
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-header',
 		'priority' => 35,

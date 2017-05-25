@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Slider control (range).
  */
-class Ast_Control_Slider extends WP_Customize_Control {
+class Astra_Control_Slider extends WP_Customize_Control {
 
 	/**
 	 * The control type.

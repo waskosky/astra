@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[footer-sml-layout]', array(
+	$wp_customize->add_control( new Astra_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[footer-sml-layout]', array(
 		'type'        => 'ast-radio-image',
 		'section'     => 'section-footer-small',
 		'priority'    => 5,
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[section-ast-small-footer-layout-info]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[section-ast-small-footer-layout-info]', array(
 		'type'        => 'ast-divider',
 		'section'     => 'section-footer-small',
 		'priority'    => 10,
@@ -149,7 +149,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[section-ast-small-footer-typography]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[section-ast-small-footer-typography]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-footer-small',
 		'priority' => 35,

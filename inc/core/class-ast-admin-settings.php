@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'AST_Admin_Settings' ) ) {
+if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 	/**
 	 * Astra Admin Settings
 	 */
-	class AST_Admin_Settings {
+	class Astra_Admin_Settings {
 
 		/**
 		 * View all actions
@@ -299,6 +299,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 		}
 	}
 
-	new AST_Admin_Settings;
+	new Astra_Admin_Settings;
 
 }// End if().

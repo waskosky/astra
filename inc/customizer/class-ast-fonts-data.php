@@ -18,19 +18,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Font info class for System and Google fonts.
  */
-if ( ! class_exists( 'Ast_Fonts_Data' ) ) :
+if ( ! class_exists( 'Astra_Fonts_Data' ) ) :
 
 	/**
 	 * Fonts Data
 	 */
-	final class Ast_Fonts_Data {
+	final class Astra_Fonts_Data {
 
 		/**
 		 * Localize Fonts
 		 */
 		static public function js() {
-			$system = json_encode( Ast_Font_Families::$system );
-			$google = json_encode( Ast_Font_Families::$google );
+			$system = json_encode( Astra_Font_Families::$system );
+			$google = json_encode( Astra_Font_Families::$google );
 
 			return 'var AstFontFamilies = { system: ' . $system . ', google: ' . $google . ' };';
 		}
@@ -41,12 +41,12 @@ endif;
 /**
  * Font info class for System and Google fonts.
  */
-if ( ! class_exists( 'Ast_Font_Families' ) ) :
+if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 	/**
 	 * Font info class for System and Google fonts.
 	 */
-	final class Ast_Font_Families {
+	final class Astra_Font_Families {
 
 		/**
 		 * Array of System Fonts

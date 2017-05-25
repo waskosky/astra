@@ -13,14 +13,14 @@ if ( ! class_exists( 'Cornerstone_Plugin' ) ) {
 /**
  * Astra Cornerstone Compatibility
  */
-if ( ! class_exists( 'Ast_Cornerstone' ) ) :
+if ( ! class_exists( 'Astra_Cornerstone' ) ) :
 
 	/**
 	 * Astra Cornerstone Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_Cornerstone {
+	class Astra_Cornerstone {
 
 		/**
 		 * Member Variable
@@ -85,4 +85,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Cornerstone::get_instance();
+Astra_Cornerstone::get_instance();

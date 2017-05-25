@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
+if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 	/**
 	 * Customizer Partials initial setup
 	 */
-	class AST_Customizer_Partials {
+	class Astra_Customizer_Partials {
 
 		/**
 		 * Instance
@@ -140,4 +140,4 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-AST_Customizer_Partials::get_instance();
+Astra_Customizer_Partials::get_instance();

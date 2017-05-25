@@ -13,14 +13,14 @@ if ( ! class_exists( 'LifterLMS' ) ) {
 /**
  * Astra Lifter LMS Compatibility
  */
-if ( ! class_exists( 'Ast_Lifter_LMS' ) ) :
+if ( ! class_exists( 'Astra_Lifter_LMS' ) ) :
 
 	/**
 	 * Astra Lifter LMS Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_Lifter_LMS {
+	class Astra_Lifter_LMS {
 
 		/**
 		 * Member Variable
@@ -90,4 +90,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Lifter_LMS::get_instance();
+Astra_Lifter_LMS::get_instance();

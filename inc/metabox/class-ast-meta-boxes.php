@@ -12,12 +12,12 @@
 /**
  * Meta Boxes setup
  */
-if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
+if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 	/**
 	 * Meta Boxes setup
 	 */
-	class AST_Meta_Boxes {
+	class Astra_Meta_Boxes {
 
 		/**
 		 * Instance
@@ -289,4 +289,4 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-AST_Meta_Boxes::get_instance();
+Astra_Meta_Boxes::get_instance();

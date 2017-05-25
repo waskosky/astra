@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Sortable control (uses checkboxes).
  */
-class Ast_Control_Sortable extends WP_Customize_Control {
+class Astra_Control_Sortable extends WP_Customize_Control {
 
 	/**
 	 * The control type.

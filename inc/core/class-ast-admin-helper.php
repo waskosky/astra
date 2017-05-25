@@ -11,12 +11,12 @@
  * @since       Astra 1.0
  */
 
-if ( ! class_exists( 'Ast_Admin_Helper' ) ) :
+if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 
 	/**
 	 * Admin Helper
 	 */
-	final class Ast_Admin_Helper {
+	final class Astra_Admin_Helper {
 
 		/**
 		 * Returns an option from the database for

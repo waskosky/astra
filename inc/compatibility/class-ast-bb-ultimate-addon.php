@@ -17,14 +17,14 @@ if ( ! class_exists( 'BB_Ultimate_Addon' ) ) {
 /**
  * Astra BB Ultimate Addon Compatibility
  */
-if ( ! class_exists( 'Ast_BB_Ultimate_Addon' ) ) :
+if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 	/**
 	 * Astra BB Ultimate Addon Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_BB_Ultimate_Addon {
+	class Astra_BB_Ultimate_Addon {
 
 		/**
 		 * Member Variable
@@ -245,4 +245,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_BB_Ultimate_Addon::get_instance();
+Astra_BB_Ultimate_Addon::get_instance();

@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[single-page-sidebar-layout-divider]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[single-page-sidebar-layout-divider]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-sidebars',
 		'priority' => 5,
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[divider-section-sidebar-width]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[divider-section-sidebar-width]', array(
 		'section'     => 'section-sidebars',
 		'type'        => 'ast-divider',
 		'priority'	  => 10,

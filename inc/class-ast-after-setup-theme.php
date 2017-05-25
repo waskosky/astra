@@ -23,16 +23,16 @@
  */
 
 /**
- * AST_After_Setup_Theme initial setup
+ * Astra_After_Setup_Theme initial setup
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
+if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 	/**
-	 * AST_After_Setup_Theme initial setup
+	 * Astra_After_Setup_Theme initial setup
 	 */
-	class AST_After_Setup_Theme {
+	class Astra_After_Setup_Theme {
 
 		/**
 		 * Instance
@@ -146,4 +146,4 @@ if ( ! class_exists( 'AST_After_Setup_Theme' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-AST_After_Setup_Theme::get_instance();
+Astra_After_Setup_Theme::get_instance();

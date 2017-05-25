@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Astra Fonts
  */
-final class Ast_Fonts {
+final class Astra_Fonts {
 
 	/**
 	 * Get fonts to generate.

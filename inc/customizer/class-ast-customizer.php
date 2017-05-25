@@ -12,14 +12,14 @@
 /**
  * Customizer Loader
  */
-if ( ! class_exists( 'AST_Customizer' ) ) {
+if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 	/**
 	 * Customizer Loader
 	 *
 	 * @since 1.0.0
 	 */
-	class AST_Customizer {
+	class Astra_Customizer {
 
 		/**
 		 * Instance
@@ -94,14 +94,14 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 			/**
 			 * Register controls
 			 */
-			$wp_customize->register_control_type( 'Ast_Control_Sortable' );
-			$wp_customize->register_control_type( 'Ast_Control_Radio_Image' );
+			$wp_customize->register_control_type( 'Astra_Control_Sortable' );
+			$wp_customize->register_control_type( 'Astra_Control_Radio_Image' );
 			$wp_customize->register_control_type( 'Ast_Control_Toggle' );
 			$wp_customize->register_control_type( 'Ast_Control_Slider' );
 			$wp_customize->register_control_type( 'Ast_Control_Dimension' );
-			$wp_customize->register_control_type( 'Ast_Control_Responsive' );
+			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
 			$wp_customize->register_control_type( 'Ast_Control_Spacing' );
-			$wp_customize->register_control_type( 'Ast_Control_Divider' );
+			$wp_customize->register_control_type( 'Astra_Control_Divider' );
 
 			/**
 			 * Get theme option default values
@@ -244,4 +244,4 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-$ast_customizer = AST_Customizer::get_instance();
+$astra_customizer = Astra_Customizer::get_instance();

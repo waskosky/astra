@@ -12,12 +12,12 @@
 /**
  * Meta Box
  */
-if ( ! class_exists( 'AST_Meta_Box_Operations' ) ) {
+if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 
 	/**
 	 * Meta Box
 	 */
-	class AST_Meta_Box_Operations {
+	class Astra_Meta_Box_Operations {
 
 		/**
 		 * Instance
@@ -106,4 +106,4 @@ if ( ! class_exists( 'AST_Meta_Box_Operations' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-AST_Meta_Box_Operations::get_instance();
+Astra_Meta_Box_Operations::get_instance();

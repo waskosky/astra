@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'type'              => 'option',
 		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Sortable( $wp_customize, AST_THEME_SETTINGS . '[blog-meta]', array(
+	$wp_customize->add_control( new Astra_Control_Sortable( $wp_customize, AST_THEME_SETTINGS . '[blog-meta]', array(
 		'type'        => 'ast-sortable',
 		'section'     => 'section-blog',
 		'priority'    => 5,
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-blog',
 		'priority' => 10,

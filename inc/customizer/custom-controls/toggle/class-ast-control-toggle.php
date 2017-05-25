@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Toggle control (modified checkbox).
  */
-class Ast_Control_Toggle extends WP_Customize_Control {
+class Astra_Control_Toggle extends WP_Customize_Control {
 
 	/**
 	 * The control type.

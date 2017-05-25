@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Radio Image control (modified radio).
  */
-class Ast_Control_Radio_Image extends WP_Customize_Control {
+class Astra_Control_Radio_Image extends WP_Customize_Control {
 
 	/**
 	 * The control type.

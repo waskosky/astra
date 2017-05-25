@@ -17,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Dynamic CSS
  */
-if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
+if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 	/**
 	 * Dynamic CSS
 	 */
-	class AST_Dynamic_CSS {
+	class Astra_Dynamic_CSS {
 
 		/**
 		 * Return CSS Output

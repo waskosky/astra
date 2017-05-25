@@ -13,14 +13,14 @@ if ( ! class_exists( 'FLBuilderModel' ) ) {
 /**
  * Astra Beaver Builder Compatibility
  */
-if ( ! class_exists( 'Ast_Beaver_Builder' ) ) :
+if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 
 	/**
 	 * Astra Beaver Builder Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_Beaver_Builder {
+	class Astra_Beaver_Builder {
 
 		/**
 		 * Member Variable
@@ -88,4 +88,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Beaver_Builder::get_instance();
+Astra_Beaver_Builder::get_instance();

@@ -8,12 +8,12 @@
 /**
  * Customizer Callback
  */
-if ( ! class_exists( 'Ast_Customizer_Callback' ) ) :
+if ( ! class_exists( 'Astra_Customizer_Callback' ) ) :
 
 	/**
 	 * Customizer Callback
 	 */
-	class Ast_Customizer_Callback {
+	class Astra_Customizer_Callback {
 
 		/**
 		 * Sidebar Archive

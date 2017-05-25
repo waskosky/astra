@@ -13,14 +13,14 @@ if ( ! class_exists( 'FLThemeBuilderLoader' ) ) {
 /**
  * Astra Beaver Themer Compatibility
  */
-if ( ! class_exists( 'Ast_Beaver_Themer' ) ) :
+if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 	/**
 	 * Astra Beaver Themer Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_Beaver_Themer {
+	class Astra_Beaver_Themer {
 
 		/**
 		 * Member Variable
@@ -187,4 +187,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Beaver_Themer::get_instance();
+Astra_Beaver_Themer::get_instance();

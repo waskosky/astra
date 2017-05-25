@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme Enqueue Scripts
  */
-if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
+if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 	/**
 	 * Theme Enqueue Scripts
 	 */
-	class AST_Enqueue_Scripts {
+	class Astra_Enqueue_Scripts {
 
 		/**
 		 * Class styles.
@@ -146,8 +146,8 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'astra-theme-css', apply_filters( 'ast_dynamic_css', AST_Dynamic_CSS::return_output() ) );
-			wp_add_inline_style( 'astra-theme-css', AST_Dynamic_CSS::return_meta_output( true ) );
+			wp_add_inline_style( 'astra-theme-css', apply_filters( 'ast_dynamic_css', Astra_Dynamic_CSS::return_output() ) );
+			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
 
 			/**
 			 * Inline scripts
@@ -188,5 +188,5 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 
 	}
 
-	new AST_Enqueue_Scripts();
+	new Astra_Enqueue_Scripts();
 }// End if().

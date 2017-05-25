@@ -15,14 +15,14 @@ if ( ! class_exists( 'Jetpack' ) ) {
 /**
  * Astra Jetpack Compatibility
  */
-if ( ! class_exists( 'Ast_Jetpack' ) ) :
+if ( ! class_exists( 'Astra_Jetpack' ) ) :
 
 	/**
 	 * Astra Jetpack Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Ast_Jetpack {
+	class Astra_Jetpack {
 
 		/**
 		 * Member Variable
@@ -77,4 +77,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Jetpack::get_instance();
+Astra_Jetpack::get_instance();

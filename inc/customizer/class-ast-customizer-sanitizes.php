@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
+if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class AST_Customizer_Sanitizes {
+	class Astra_Customizer_Sanitizes {
 
 		/**
 		 * Instance
@@ -311,4 +311,4 @@ if ( ! class_exists( 'AST_Customizer_Sanitizes' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-AST_Customizer_Sanitizes::get_instance();
+Astra_Customizer_Sanitizes::get_instance();

@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[divider-outside-bg-color]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[divider-outside-bg-color]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-colors-body',
 		'priority' => 20,

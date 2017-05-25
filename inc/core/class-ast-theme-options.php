@@ -12,11 +12,11 @@
 /**
  * Theme Options
  */
-if ( ! class_exists( 'Ast_Theme_Options' ) ) {
+if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 	/**
 	 * Theme Options
 	 */
-	class Ast_Theme_Options {
+	class Astra_Theme_Options {
 		/**
 		 * Class instance.
 		 *
@@ -262,4 +262,4 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Ast_Theme_Options::get_instance();
+Astra_Theme_Options::get_instance();

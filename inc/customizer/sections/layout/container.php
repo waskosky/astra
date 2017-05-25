@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[single-page-content-layout-divider]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[single-page-content-layout-divider]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-container-layout',
 		'settings' => array(),
