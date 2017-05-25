@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[button-color]', array(
 		'default'           => $defaults['button-color'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[button-color]', array(
 		'section'     => 'section-advanced-button',
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[button-h-color]', array(
 		'default'           => $defaults['button-h-color'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[button-h-color]', array(
 		'section'     => 'section-advanced-button',
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[button-bg-color]', array(
 		'default'           => $defaults['button-bg-color'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[button-bg-color]', array(
 		'section'     => 'section-advanced-button',
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[button-bg-h-color]', array(
 		'default'           => $defaults['button-bg-h-color'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[button-bg-h-color]', array(
 		'section'     => 'section-advanced-button',
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['button-radius'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[button-radius]', array(
 		'section'     => 'section-advanced-button',
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['button-v-padding'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[button-v-padding]', array(
 		'section'     => 'section-advanced-button',
@@ -112,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['button-h-padding'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[button-h-padding]', array(
 		'section'     => 'section-advanced-button',

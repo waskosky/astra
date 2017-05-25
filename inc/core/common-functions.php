@@ -351,7 +351,7 @@ if ( ! function_exists( 'ast_get_option' ) ) {
 	 */
 	function ast_get_option( $option, $subkeys = '', $default = '' ) {
 
-		$theme_options = Ast_Theme_Options::get_options();
+		$theme_options = Astra_Theme_Options::get_options();
 
 		if ( ! empty( $subkeys ) && is_array( $subkeys ) && isset( $theme_options[ $option ] ) ) {
 			$value = ast_get_option_subkey( $theme_options[ $option ], $subkeys, $default );
@@ -417,7 +417,7 @@ if ( ! function_exists( 'ast_get_post_id' ) ) {
 	 */
 	function ast_get_post_id( $post_id_override = '' ) {
 
-		if ( null == Ast_Theme_Options::$post_id ) {
+		if ( null == Astra_Theme_Options::$post_id ) {
 			global $post;
 
 			$post_id = 0;
@@ -431,10 +431,10 @@ if ( ! function_exists( 'ast_get_post_id' ) ) {
 				$post_id = $post->ID;
 			}
 
-			Ast_Theme_Options::$post_id = $post_id;
+			Astra_Theme_Options::$post_id = $post_id;
 		}
 
-		return apply_filters( 'ast_get_post_id', Ast_Theme_Options::$post_id, $post_id_override );
+		return apply_filters( 'ast_get_post_id', Astra_Theme_Options::$post_id, $post_id_override );
 	}
 }
 

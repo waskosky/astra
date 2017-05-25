@@ -710,7 +710,7 @@ if ( ! function_exists( 'ast_header_breakpoint_style' ) ) {
 		$dynamic_css = ob_get_clean();
 
 		// trim white space for faster page loading.
-		$dynamic_css = AST_Enqueue_Scripts::trim_css( $dynamic_css );
+		$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
 
 		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}

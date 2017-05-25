@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[text-color]', array(
 		'default'           => $defaults['text-color'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[text-color]', array(
 		'section'     => 'section-colors-body',
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[link-color]', array(
 		'default'           => $defaults['link-color'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[link-color]', array(
 		'section'     => 'section-colors-body',
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[link-h-color]', array(
 		'default'           => $defaults['link-h-color'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[link-h-color]', array(
 		'section'     => 'section-colors-body',

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[display-site-title]', array(
 		'default'           => $defaults['display-site-title'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[display-site-title]', array(
 		'type'        => 'checkbox',
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[display-site-tagline]', array(
 		'default'           => $defaults['display-site-tagline'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		'priority'          => 5,
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[display-site-tagline]', array(

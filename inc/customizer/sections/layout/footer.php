@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-layout]', array(
 		'default'           => $defaults['footer-sml-layout'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[footer-sml-layout]', array(
 		'type'        => 'ast-radio-image',
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-section-1]', array(
 		'default'           => $defaults['footer-sml-section-1'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[footer-sml-section-1]', array(
 		'type'        => 'select',
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['footer-sml-section-1-credit'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_html' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
 		'type'        => 'textarea',
@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->selective_refresh->add_partial( AST_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
 			'selector'            => '.ast-small-footer-section-1',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'AST_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
+			'render_callback'     => array( 'Astra_Customizer_Sanitizes', '_render_footer_sml_section_1_credit' ),
 		) );
 	}
 
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-sml-section-2]', array(
 		'default'           => $defaults['footer-sml-section-2'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[footer-sml-section-2]', array(
 		'type'        => 'select',
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['footer-sml-section-2-credit'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_html' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
 		'type'        => 'textarea',
@@ -142,7 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->selective_refresh->add_partial( AST_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
 			'selector'            => '.ast-small-footer-section-2',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'AST_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
+			'render_callback'     => array( 'Astra_Customizer_Sanitizes', '_render_footer_sml_section_2_credit' ),
 		) );
 	}
 
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['footer-sml-divider'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[footer-sml-divider]', array(
 		'type'        => 'number',
@@ -184,7 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['footer-sml-divider-color'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[footer-sml-divider-color]', array(
 		'section'     => 'section-footer-small',
@@ -198,7 +198,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[footer-layout-width]', array(
 		'default'           => $defaults['footer-layout-width'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[footer-layout-width]', array(
 		'type'        => 'select',

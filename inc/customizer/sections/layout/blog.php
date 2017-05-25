@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-post-content]', array(
 		'default'           => $defaults['blog-post-content'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[blog-post-content]', array(
 		'section'     => 'section-blog',
@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-meta]', array(
 		'default'           => $defaults['blog-meta'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Sortable( $wp_customize, AST_THEME_SETTINGS . '[blog-meta]', array(
 		'type'        => 'ast-sortable',
@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-width]', array(
 		'default'           => $defaults['blog-width'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[blog-width]', array(
 		'type'        => 'select',
@@ -91,7 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['blog-max-width'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Slider( $wp_customize, AST_THEME_SETTINGS . '[blog-max-width]', array(
 		'type'        => 'ast-slider',

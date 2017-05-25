@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['font-size-page-title'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[font-size-page-title]', array(
 		'type'     => 'ast-responsive',

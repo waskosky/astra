@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$font_family = ast_get_option( 'body-font-family' );
 			$font_weight = ast_get_option( 'body-font-weight' );
 
-			Ast_Fonts::add_font( $font_family, $font_weight );
+			Astra_Fonts::add_font( $font_family, $font_weight );
 		}
 
 		/**
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			// Fonts - Render Fonts.
-			Ast_Fonts::render_fonts();
+			Astra_Fonts::render_fonts();
 
 			/**
 			 * Inline styles

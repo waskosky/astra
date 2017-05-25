@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[body-font-weight]', array(
 		'default'           => $defaults['body-font-weight'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_font_weight' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Typography( $wp_customize, AST_THEME_SETTINGS . '[body-font-weight]', array(
 		'type'     => 'ast-font-weight',
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['body-text-transform'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[body-text-transform]', array(
 		'type'     => 'select',
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[font-size-body]', array(
 		'default'           => $defaults['font-size-body'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[font-size-body]', array(
 		'type'     => 'ast-responsive',
@@ -96,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[body-line-height]', array(
 		'default'           => $defaults['body-line-height'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		'transport'         => 'postMessage',
 	) );
 	$wp_customize->add_control( new Astra_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[body-line-height]', array(

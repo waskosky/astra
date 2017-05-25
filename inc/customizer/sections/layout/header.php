@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-layouts]', array(
 		'default' => $defaults['header-layouts'],
 		'type'    => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 
 	$wp_customize->add_control( new Astra_Control_Radio_Image( $wp_customize, AST_THEME_SETTINGS . '[header-layouts]', array(
@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
 		'default'           => $defaults['disable-primary-nav'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[disable-primary-nav]', array(
 		'type'        => 'checkbox',
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-rt-section]', array(
 		'default'           => $defaults['header-main-rt-section'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-rt-section]', array(
 		'type'        => 'select',
@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['header-main-rt-section-html'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_html' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-rt-section-html]', array(
 		'type'        => 'textarea',
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->selective_refresh->add_partial( AST_THEME_SETTINGS . '[header-main-rt-section-html]', array(
 			'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'AST_Customizer_Partials', '_render_header_main_rt_section_html' ),
+			'render_callback'     => array( 'Astra_Customizer_Sanitizes', '_render_header_main_rt_section_html' ),
 		) );
 	}
 
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['header-main-sep'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-sep]', array(
 		'type'        => 'number',
@@ -131,7 +131,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['header-main-sep-color'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, AST_THEME_SETTINGS . '[header-main-sep-color]', array(
 		'section'     => 'section-header',
@@ -145,7 +145,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-layout-width]', array(
 		'default'           => $defaults['header-main-layout-width'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-layout-width]', array(
 		'type'        => 'select',
@@ -191,7 +191,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[header-main-menu-align]', array(
 		'default'           => $defaults['header-main-menu-align'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[header-main-menu-align]', array(
 		'type'        => 'select',

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[site-sidebar-layout]', array(
 		'default'           => $defaults['site-sidebar-layout'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[site-sidebar-layout]', array(
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
 		'default'           => $defaults['single-page-sidebar-layout'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
 		'type'        => 'select',
@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
 		'default'           => $defaults['single-post-sidebar-layout'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
 		'type'        => 'select',
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( AST_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
 		'default'           => $defaults['archive-post-sidebar-layout'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( AST_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
 		'type'        => 'select',
@@ -124,7 +124,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['site-sidebar-width'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Slider( $wp_customize, AST_THEME_SETTINGS . '[site-sidebar-width]', array(
 		'type'        => 'ast-slider',

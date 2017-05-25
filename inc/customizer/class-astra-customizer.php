@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	            	});
 	        	});';
 
-				$output .= Ast_Fonts_Data::js();
+				$output .= Astra_Fonts_Data::js();
 			$output .= '</script>';
 
 			echo $output;
@@ -106,17 +106,17 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Get theme option default values
 			 *
-			 * @see Ast_Theme_Options::defaults()
+			 * @see Astra_Theme_Options::defaults()
 			 */
-			$defaults = Ast_Theme_Options::defaults();
+			$defaults = Astra_Theme_Options::defaults();
 
 			/**
 			 * Helper files
 			 */
 			require AST_THEME_DIR . 'inc/customizer/customizer-controls.php';
-			require AST_THEME_DIR . 'inc/customizer/class-ast-customizer-partials.php';
-			require AST_THEME_DIR . 'inc/customizer/class-ast-customizer-callback.php';
-			require AST_THEME_DIR . 'inc/customizer/class-ast-customizer-sanitizes.php';
+			require AST_THEME_DIR . 'inc/customizer/class-astra-customizer-partials.php';
+			require AST_THEME_DIR . 'inc/customizer/class-astra-customizer-callback.php';
+			require AST_THEME_DIR . 'inc/customizer/class-astra-customizer-sanitizes.php';
 
 			/**
 			 * Override Defaults
@@ -212,7 +212,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		function preview_init() {
 
 			// Update variables.
-			Ast_Theme_Options::refresh();
+			Astra_Theme_Options::refresh();
 
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		function customize_save() {
 
 			// Update variables.
-			Ast_Theme_Options::refresh();
+			Astra_Theme_Options::refresh();
 		}
 	}
 }// End if().
