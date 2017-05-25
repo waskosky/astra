@@ -5,9 +5,9 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2015, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @author      Astra
+ * @copyright   Copyright (c) 2017, Astra
+ * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -317,7 +317,7 @@ if ( ! function_exists( 'ast_get_small_footer' ) ) {
 
 					$theme_author = apply_filters( 'ast_theme_author', array(
 						'theme_name'       => __( 'Astra', 'astra' ),
-						'theme_author_url' => 'https://www.brainstormforce.com/',
+						'theme_author_url' => 'http://wpastra.com/',
 					) );
 
 					$output = str_replace( '[theme_author]', '<a href="' . $theme_author['theme_author_url'] . '">' . $theme_author['theme_name'] . '</a>', $output );
