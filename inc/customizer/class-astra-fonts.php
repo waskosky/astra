@@ -73,8 +73,8 @@ final class Astra_Fonts {
 	 */
 	static public function get_fonts() {
 
-		do_action( 'ast_get_fonts' );
-		return apply_filters( 'ast_add_fonts', self::$fonts );
+		do_action( 'astra_get_fonts' );
+		return apply_filters( 'astra_add_fonts', self::$fonts );
 	}
 
 	/**
@@ -97,7 +97,7 @@ final class Astra_Fonts {
 				$google_fonts[ $name ] = $font['variants'];
 
 				// Add Subset.
-				$subset = apply_filters( 'ast_font_subset', '', $name );
+				$subset = apply_filters( 'astra_font_subset', '', $name );
 				if ( ! empty( $subset ) ) {
 					$font_subset[] = $subset;
 				}

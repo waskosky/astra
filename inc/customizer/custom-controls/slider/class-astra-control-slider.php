@@ -67,8 +67,8 @@ class Astra_Control_Slider extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		$css_uri = AST_THEME_URI . '/inc/customizer/custom-controls/slider/';
-		$js_uri  = AST_THEME_URI . '/inc/customizer/custom-controls/slider/';
+		$css_uri = ASTRA_THEME_URI . '/inc/customizer/custom-controls/slider/';
+		$js_uri  = ASTRA_THEME_URI . '/inc/customizer/custom-controls/slider/';
 
 		wp_enqueue_script( 'ast-slider', $js_uri . 'slider.js', array( 'jquery', 'customize-base' ), false, true );
 		wp_enqueue_style( 'ast-slider', $css_uri . 'slider.css', null );
@@ -95,11 +95,11 @@ class Astra_Control_Slider extends WP_Customize_Control {
 			<# } #>
 			<div class="wrapper">
 				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" {{{ data.link }}} data-reset_value="{{ data.default }}" />
-				<div class="ast_range_value">
-					<input type="number" class="value ast-range-value-input" value="{{ data.value }}" {{{ data.inputAttrs }}} ><# 
-					if ( data.suffix ) { 
+				<div class="astra_range_value">
+					<input type="number" class="value ast-range-value-input" value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
+					if ( data.suffix ) {
 
-					#><span class="ast-range-unit">{{ data.suffix }}</span><# 
+					#><span class="ast-range-unit">{{ data.suffix }}</span><#
 					} #>
 				</div>
 				<div class="ast-slider-reset">

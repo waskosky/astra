@@ -68,13 +68,13 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		function setup_theme() {
 
-			do_action( 'ast_class_loaded' );
+			do_action( 'astra_class_loaded' );
 
 			/**
 			  * Content Width
 			  */
 			if ( ! isset( $content_width ) ) {
-				$content_width = apply_filters( 'ast_content_width', 700 );
+				$content_width = apply_filters( 'astra_content_width', 700 );
 			}
 
 			/**
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			 * If you're building a theme based on Next, use a find and replace
 			 * to change 'astra' to the name of your theme in all the template files.
 			 */
-			load_theme_textdomain( 'astra', AST_THEME_DIR . '/languages' );
+			load_theme_textdomain( 'astra', ASTRA_THEME_DIR . '/languages' );
 
 			/**
 			 * Theme Support

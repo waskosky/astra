@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Cornerstone' ) ) :
 		 */
 		public function __construct() {
 			add_filter( 'body_class', 		array( $this, 'add_body_class' ) );
-			add_filter( 'ast_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**

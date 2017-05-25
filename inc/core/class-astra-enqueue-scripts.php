@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'ast_get_fonts',      array( $this, 'add_fonts' ), 1 );
+			add_action( 'astra_get_fonts',      array( $this, 'add_fonts' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		}
@@ -71,12 +71,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				),
 			);
 
-			$blog_layout = apply_filters( 'ast_theme_blog_layout', 'blog-layout-1' );
+			$blog_layout = apply_filters( 'astra_theme_blog_layout', 'blog-layout-1' );
 			if ( 'blog-layout-1' == $blog_layout ) {
 				$default_assets['css']['astra-blog-layout'] = 'blog-layout-1';
 			}
 
-			return apply_filters( 'ast_theme_assets', $default_assets );
+			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
 
 		/**
@@ -84,8 +84,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function add_fonts() {
 
-			$font_family = ast_get_option( 'body-font-family' );
-			$font_weight = ast_get_option( 'body-font-weight' );
+			$font_family = astra_get_option( 'body-font-family' );
+			$font_weight = astra_get_option( 'body-font-weight' );
 
 			Astra_Fonts::add_font( $font_family, $font_weight );
 		}
@@ -99,12 +99,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$js_uri  = AST_THEME_URI . 'assets/js/' . $dir_name . '/';
-			$css_uri = AST_THEME_URI . 'assets/css/' . $dir_name . '/';
+			$js_uri  = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
 			// It always enqueued by default.
 			// Register & Enqueue.
-			wp_register_style( 'astra-fonts', $css_uri . 'astra-fonts' . $file_prefix . '.css', array(), AST_THEME_VERSION, 'all' );
+			wp_register_style( 'astra-fonts', $css_uri . 'astra-fonts' . $file_prefix . '.css', array(), ASTRA_THEME_VERSION, 'all' );
 			wp_enqueue_style( 'astra-fonts' );
 
 			// All assets.
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$css_file = $css_uri . $style . $file_prefix . '.css';
 
 				// Register.
-				wp_register_style( $key, $css_file, array(), AST_THEME_VERSION, 'all' );
+				wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 
 				// Enqueue.
 				wp_enqueue_style( $key );
@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			foreach ( $scripts as $key => $script ) {
 
 				// Register.
-				wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), AST_THEME_VERSION, true );
+				wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
 
 				// Enqueue.
 				wp_enqueue_script( $key );
@@ -146,19 +146,20 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'astra-theme-css', apply_filters( 'ast_dynamic_css', Astra_Dynamic_CSS::return_output() ) );
+			wp_add_inline_style( 'astra-theme-css', apply_filters( 'astra_dynamic_css', Astra_Dynamic_CSS::return_output() ) );
 			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
+
 
 			/**
 			 * Inline scripts
 			 */
 			wp_script_add_data( 'astra-flexibility', 'conditional', 'lt IE 9' );
 
-			$ast_localize = array(
-				'break_point' => ast_header_break_point(), 	// Header Break Point.
+			$astra_localize = array(
+				'break_point' => astra_header_break_point(), 	// Header Break Point.
 			);
 
-			wp_localize_script( 'astra-navigation', 'ast', apply_filters( 'ast_theme_js_localize', $ast_localize ) );
+			wp_localize_script( 'astra-navigation', 'ast', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 
 			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 
 			if ( is_singular() ) {
 				add_action( 'wp_head' ,               array( $this, 'primary_header' ) );
-				add_filter( 'ast_the_title_enabled' , array( $this, 'post_title' ) );
+				add_filter( 'astra_the_title_enabled' , array( $this, 'post_title' ) );
 				add_filter( 'body_class',             array( $this, 'body_class' ) );
 			}
 		}
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 
 			if ( 'disabled' == $display_header ) {
 
-				remove_action( 'ast_masthead', 'ast_masthead_primary_template' );
+				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
 			}
 		}
 

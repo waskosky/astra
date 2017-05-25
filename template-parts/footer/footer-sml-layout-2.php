@@ -9,8 +9,8 @@
  * @since       Astra 1.0.0
  */
 
-$section_1    = ast_get_small_footer( 'footer-sml-section-1' );
-$section_2    = ast_get_small_footer( 'footer-sml-section-2' );
+$section_1    = astra_get_small_footer( 'footer-sml-section-1' );
+$section_2    = astra_get_small_footer( 'footer-sml-section-2' );
 $section_wrap = 'ast-row ast-flex';
 $sections     = 0;
 $sections     = $sections + count( $section_1 );

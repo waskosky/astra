@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ), 10 );
 			add_action( 'woocommerce_after_main_content',  array( $this, 'before_main_content_end' ), 10 );
-			add_filter( 'ast_theme_assets',                array( $this, 'add_styles' ) );
+			add_filter( 'astra_theme_assets',                array( $this, 'add_styles' ) );
 			add_action( 'after_setup_theme',               array( $this, 'setup_theme' ) );
 			add_action( 'init',                            array( $this, 'woocommerce_init' ), 1 );
 
@@ -79,14 +79,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Add start of wrapper
 		 */
 		function before_main_content_start() {
-			$site_sidebar = ast_page_layout();
+			$site_sidebar = astra_page_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				 get_sidebar();
 			}
 			?>
 			<div id="primary" class="content-area primary">
 
-				<?php ast_primary_content_top(); ?>
+				<?php astra_primary_content_top(); ?>
 
 				<main id="main" class="site-main" role="main">
 					<div class="ast-woocommerce-container">
@@ -101,11 +101,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					</div> <!-- .ast-woocommerce-container -->
 				</main> <!-- #main -->
 
-				<?php ast_primary_content_bottom(); ?>
+				<?php astra_primary_content_bottom(); ?>
 
 			</div> <!-- #primary -->
 			<?php
-			$site_sidebar = ast_page_layout();
+			$site_sidebar = astra_page_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
 				 get_sidebar();
 			}
