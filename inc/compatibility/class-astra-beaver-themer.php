@@ -59,10 +59,18 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		 */
 		function builder_template_content_layout( $layout ) {
 
-			if ( 'fl-theme-layout' == get_post_type() ) {
-				$layout = 'page-builder';
+			$ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
+			$post_type = get_post_type();
+
+			if ( 'fl-theme-layout' == $post_type ) {
+				remove_action( 'ast_entry_after', 'ast_single_post_navigation_markup' );
 			}
-			return $layout;
+
+			if ( empty( $ids ) && 'fl-theme-layout' != $post_type ) {
+				return $layout;
+			}
+
+			return 'page-builder';
 		}
 
 		/**

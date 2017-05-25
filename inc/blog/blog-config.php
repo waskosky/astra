@@ -31,7 +31,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 
 				case 'author':
 								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-								$output_str .= astra_default_strings( 'string-blog-meta-author-by', false ) . astra_post_author();
+								$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					break;
 
 				case 'date':
@@ -183,6 +183,10 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 	 * @return html                Markup.
 	 */
 	function astra_post_link( $output_filter = '' ) {
+
+		if ( is_admin() ) {
+			return $output_filter;
+		}
 
 		$post_link = sprintf(
 			/* translators: 1: post link */

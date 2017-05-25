@@ -18,7 +18,7 @@ add_action( 'wp_head', 'astra_pingback_header' );
  */
 function astra_pingback_header() {
 	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
+		printf( '<link rel="pingback" href="%s">' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
 
@@ -136,13 +136,14 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 		$site_tagline         = astra_get_option( 'display-site-tagline' );
 		$display_site_tagline = astra_get_option( 'display-site-title' );
-		$logo                 = apply_filters( 'astra_logo_url', astra_get_option( 'site-logo' ) );
 		$html                 = '';
 
 		// Site logo.
-		$html .= '<span class="site-logo-img">';
-		$html .= get_custom_logo();
-		$html .= '</span>';
+		if ( has_custom_logo() ) {
+			$html .= '<span class="site-logo-img">';
+			$html .= get_custom_logo();
+			$html .= '</span>';
+		}
 
 		// Site Title.
 		if ( $display_site_tagline ) {
@@ -248,7 +249,7 @@ if ( ! function_exists( 'astra_get_custom_html' ) ) {
 		if ( ! empty( $custom_html_content ) ) {
 			$custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			$custom_html = '<a href="' . admin_url( 'customize.php?autofocus[control]=ast-settings[' . $option_name . ']' ) . '">' . __( 'Add Custom HTML', 'astra' ) . '</a>';
+			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=ast-settings[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'astra' ) . '</a>';
 		}
 
 		return $custom_html;
@@ -312,7 +313,7 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 
 			case 'custom':
 					$output = astra_get_option( $section . '-credit' );
-					$output = str_replace( '[current_year]', date( 'Y' ), $output );
+					$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
 					$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 					$theme_author = apply_filters( 'astra_theme_author', array(
@@ -320,7 +321,7 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 						'theme_author_url' => 'http://wpastra.com/',
 					) );
 
-					$output = str_replace( '[theme_author]', '<a href="' . $theme_author['theme_author_url'] . '">' . $theme_author['theme_name'] . '</a>', $output );
+					$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
 				break;
 
 			case 'widget':
@@ -505,7 +506,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			<div class="main-header-bar-navigation" >
 
-				<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php _e( 'Site Navigation', 'astra' ); ?>">
+				<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php esc_attr_e( 'Site Navigation', 'astra' ); ?>">
 					<?php
 					if ( has_nav_menu( 'primary' ) ) {
 						wp_nav_menu( $primary_menu_args );
@@ -681,10 +682,10 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		ob_start();
 		?>
 		.main-header-bar-wrap {
-			content: "<?php echo $header_break_point; ?>";
+			content: "<?php echo esc_html( $header_break_point ); ?>";
 		}
 
-		@media all and ( min-width: <?php echo $header_break_point; ?>px ) {
+		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
 			.main-header-bar-wrap {
 				content: "";
 			}
@@ -736,15 +737,14 @@ if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
 		$aria_req = ( $req ? " aria-required='true'" : '' );
 
 		$fields['author'] = '<div class="ast-comment-formwrap ast-row"><p class="comment-form-author ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
-					'<label for="author" class="screen-reader-text">' . astra_default_strings( 'string-comment-label-name', false ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-					'" placeholder="' . astra_default_strings( 'string-comment-label-name', false ) . '" size="30"' . $aria_req . ' /></p>';
+					'<label for="author" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
 		$fields['email'] = '<p class="comment-form-email ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
-					'<label for="email" class="screen-reader-text">' . astra_default_strings( 'string-comment-label-email', false ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
-					'" placeholder="' . astra_default_strings( 'string-comment-label-email', false ) . '" size="30"' . $aria_req . ' /></p>';
+					'<label for="email" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-email', false ) ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
+					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-email', false ) ) . '" size="30"' . $aria_req . ' /></p>';
 		$fields['url'] = '<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url">' .
-					'<label for="url" class="screen-reader-text">' . astra_default_strings( 'string-comment-label-website', false ) . '</label><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
-					'" placeholder="' . astra_default_strings( 'string-comment-label-website', false ) . '" size="30" /></label></p></div>';
-
+					'<label for="url" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
+					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
 		return $fields;
 	}
 }
@@ -768,8 +768,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		$args['title_reply']        = astra_default_strings( 'string-comment-title-reply', false );
 		$args['cancel_reply_link']  = astra_default_strings( 'string-comment-cancel-reply-link', false );
 		$args['label_submit']       = astra_default_strings( 'string-comment-label-submit', false );
-		$args['comment_field']      = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><textarea id="comment" name="comment" placeholder="' . astra_default_strings( 'string-comment-label-message', false ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
-
+		$args['comment_field']      = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><textarea id="comment" name="comment" placeholder="' . esc_attr( ast_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 		return $args;
 	}
 }
