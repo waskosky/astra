@@ -1,3 +1,6 @@
+v1.0.5
+Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
+
 v1.0.4.1
 # Fixed: Warning on first time activates the theme.
 

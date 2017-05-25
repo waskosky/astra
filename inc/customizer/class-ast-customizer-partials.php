@@ -104,7 +104,7 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 
 			$site_credit = ast_get_option( 'footer-sml-section-1-credit' );
 
-			$output = str_replace( '[current_year]', date( 'Y' ), $site_credit );
+			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $site_credit );
 			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
@@ -123,7 +123,7 @@ if ( ! class_exists( 'AST_Customizer_Partials' ) ) {
 
 			$site_credit = ast_get_option( 'footer-sml-section-2-credit' );
 
-			$output = str_replace( '[current_year]', date( 'Y' ), $site_credit );
+			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $site_credit );
 			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters( 'ast_theme_author', array(
