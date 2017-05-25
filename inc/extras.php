@@ -139,7 +139,7 @@ if ( ! function_exists( 'ast_logo' ) ) {
 		$html                 = '';
 
 		// Site logo.
-		if( has_custom_logo() ) {
+		if ( has_custom_logo() ) {
 			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
 			$html .= '</span>';

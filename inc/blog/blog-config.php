@@ -187,7 +187,7 @@ if ( ! function_exists( 'ast_post_link' ) ) {
 		if ( is_admin() ) {
 			return $output_filter;
 		}
-		
+
 		$post_link = sprintf(
 			/* translators: 1: post link */
 			esc_html_x( '%s ', 'post link', 'astra' ),
