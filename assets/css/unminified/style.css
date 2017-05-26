@@ -2655,6 +2655,13 @@ body {
 }
 
 /**
+ * 1 - Header Layout 1
+*/
+.ast-header-break-point .header-main-layout-1 .site-branding {
+  padding-right: 1em;
+}
+
+/**
  * 2 - Header Layout 2
 */
 .header-main-layout-2 .main-header-container {
@@ -2706,6 +2713,15 @@ body {
 .ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
   text-align: center;
   display: block;
+}
+
+.ast-header-break-point .header-main-layout-2 .site-branding,
+.ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
+  padding-bottom: 1em;
+}
+
+.ast-header-break-point .header-main-layout-2 .main-header-bar {
+  padding: 1em 0 0;
 }
 
 /**
@@ -2769,6 +2785,15 @@ body {
 
 .ast-header-break-point .header-main-layout-3 li .ast-search-menu-icon {
   left: 0;
+}
+
+.ast-header-break-point .header-main-layout-3 .site-branding {
+  padding-left: 1em;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 /* Mobile Header Alignment */
@@ -3138,7 +3163,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   -ms-flex-item-align: center;
   align-self: center;
   padding-bottom: 1.5em;
-  padding-right: 1em;
 }
 
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
