@@ -222,7 +222,7 @@ var toggleClass = function ( el, className ) {
 
 		if( null != document.getElementById( 'masthead' ) ) {
 
-			var break_point = ast.break_point,
+			var break_point = astra.break_point,
 				headerWrap = document.getElementById( 'masthead' ).childNodes;
 
 			for ( var i = 0; i < headerWrap.length; i++ ) {

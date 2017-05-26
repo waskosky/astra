@@ -37,9 +37,9 @@ class Astra_Control_Dimension extends WP_Customize_Control {
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/dimension/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/dimension/';
 
-		wp_enqueue_script( 'ast-dimension', $js_uri . 'dimension.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_localize_script( 'ast-dimension', 'astL10n', $this->l10n() );
-		wp_enqueue_style( 'ast-dimension-css', $css_uri . 'dimension.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_script( 'astra-dimension', $js_uri . 'dimension.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+		wp_localize_script( 'astra-dimension', 'astraL10n', $this->l10n() );
+		wp_enqueue_style( 'astra-dimension-css', $css_uri . 'dimension.css', null, ASTRA_THEME_VERSION );
 
 	}
 

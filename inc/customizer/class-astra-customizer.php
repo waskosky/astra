@@ -167,13 +167,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			// Customizer Core.
-			wp_enqueue_script( 'ast-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
 			// Customizer Controls.
-			wp_enqueue_style( 'ast-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'ast-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'ast-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
 
-			wp_localize_script( 'ast-customizer-controls-toggle-js', 'ast', apply_filters( 'astra_theme_customizer_js_localize', array(
+			wp_localize_script( 'astra-customizer-controls-toggle-js', 'astra', apply_filters( 'astra_theme_customizer_js_localize', array(
 				'customizer' => array(
 					'settings' => array(
 						'sidebars' => array(
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_enqueue_script( 'ast-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
 		}
 
 		/**

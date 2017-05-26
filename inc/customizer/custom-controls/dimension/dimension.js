@@ -62,7 +62,7 @@
 							code,
 							{
 								type: 'warning',
-								message: astL10n['invalid-value']
+								message: astraL10n['invalid-value']
 							}
 						) );
 					} else {
