@@ -105,7 +105,7 @@ final class Astra_Fonts {
 		}
 
 		$google_font_url = self::google_fonts_url( $google_fonts, $font_subset );
-		wp_enqueue_style( 'ast-google-fonts', $google_font_url, array(), ASTRA_THEME_VERSION, 'all' );
+		wp_enqueue_style( 'astra-google-fonts', $google_font_url, array(), ASTRA_THEME_VERSION, 'all' );
 	}
 
 	/**

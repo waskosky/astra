@@ -158,7 +158,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'break_point' => astra_header_break_point(), 	// Header Break Point.
 			);
 
-			wp_localize_script( 'astra-navigation', 'ast', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+			wp_localize_script( 'astra-navigation', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 
 			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
