@@ -24,7 +24,7 @@
 		 */
 	    triggerHook: function( hook, args )
 	    {
-	    	$( 'body' ).trigger( 'ast-control-trigger.' + hook, args );
+	    	$( 'body' ).trigger( 'astra-control-trigger.' + hook, args );
 	    },
 
 	    /**
@@ -37,7 +37,7 @@
 	     */
 	    addHook: function( hook, callback )
 	    {
-	    	$( 'body' ).on( 'ast-control-trigger.' + hook, callback );
+	    	$( 'body' ).on( 'astra-control-trigger.' + hook, callback );
 	    },
 
 	    /**
@@ -50,7 +50,7 @@
 	     */
 	    removeHook: function( hook, callback )
 	    {
-		    $( 'body' ).off( 'ast-control-trigger.' + hook, callback );
+		    $( 'body' ).off( 'astra-control-trigger.' + hook, callback );
 	    },
 	};
 
@@ -380,14 +380,14 @@
 	 * @ Spacing Addon
 	 */
 	var site_layout      = [ 'site-sidebar-layout' ],
-		sidebars_single  = ast.customizer.settings.sidebars.single,
-		sidebars_archive = ast.customizer.settings.sidebars.archive,
+		sidebars_single  = astra.customizer.settings.sidebars.single,
+		sidebars_archive = astra.customizer.settings.sidebars.archive,
 		merged_sidebars  = jQuery.merge( site_layout, sidebars_single ),
 		merged_sidebars  = jQuery.merge( merged_sidebars, sidebars_archive );
 
 	jQuery.each( merged_sidebars , function( sidebar_switch, sidebar_layout ) {
 
-		ASTControlTrigger.addHook( 'ast-toggle-control', function( argument, api ) {
+		ASTControlTrigger.addHook( 'astra-toggle-control', function( argument, api ) {
 
 			ASTCustomizerToggles[ 'astra-settings['+sidebar_layout+']' ] =
 			[

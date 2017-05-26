@@ -33,7 +33,7 @@
 
 			<?php
 				wp_link_pages( array(
-					'before'      => '<div class="page-links">' . astra_default_strings( 'string-blog-page-links-before', false ),
+					'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-blog-page-links-before', false ) ),
 					'after'       => '</div>',
 					'link_before' => '<span class="page-link">',
 					'link_after'  => '</span>',

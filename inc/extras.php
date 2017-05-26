@@ -87,7 +87,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		}
 		// Sidebar location.
 		$page_layout = 'ast-' . astra_page_layout();
-		$classes[]   = $page_layout;
+		$classes[]   = esc_attr( $page_layout );
 
 		return $classes;
 	}
@@ -362,7 +362,7 @@ if ( ! function_exists( 'astra_get_small_footer_menu' ) ) {
 			} else {
 				if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
 					?>
-						<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php _e( 'Assign Footer Menu', 'astra' ); ?></a>
+						<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Footer Menu', 'astra' ); ?></a>
 					<?php
 				}
 			}
@@ -387,7 +387,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	function astra_header_markup() {
 		?>
 
-		<header itemtype="http://schema.org/WPHeader" itemscope="itemscope" id="masthead" class="<?php astra_header_classes(); ?>" role="banner">
+		<header itemtype="http://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
 
 			<?php astra_masthead_top(); ?>
 
@@ -538,7 +538,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer itemtype="http://schema.org/WPFooter" itemscope="itemscope" id="colophon" class="<?php astra_footer_classes(); ?>" role="contentinfo">
+		<footer itemtype="http://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
 
 			<?php astra_footer_content_top(); ?>
 
@@ -640,9 +640,9 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			$classes[] = 'ast-mobile-header-stack';
 		}
 
-		$classes = apply_filters( 'astra_header_class', $classes );
+		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
 
-		echo join( ' ', array_unique( $classes ) );
+		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
 }
 
@@ -658,9 +658,9 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 	 */
 	function astra_footer_classes() {
 
-		$classes = apply_filters( 'astra_footer_class', array( 'site-footer' ) );
+		$classes = array_unique( apply_filters( 'astra_footer_class', array( 'site-footer' ) ) );
 
-		echo join( ' ', array_unique( $classes ) );
+		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
 }
 
@@ -912,7 +912,7 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 			<div class="widget ast-no-widget-row">
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php _e( 'Add Widget', 'astra' ); ?>
+						<?php esc_html_e( 'Add Widget', 'astra' ); ?>
 					</a>
 				</p>
 			</div>

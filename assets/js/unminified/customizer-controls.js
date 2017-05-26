@@ -41,7 +41,7 @@
 		_initToggles: function()
 		{
 			// Trigger the Adv Tab Click trigger.
-			ASTControlTrigger.triggerHook( 'ast-toggle-control', api );
+			ASTControlTrigger.triggerHook( 'astra-toggle-control', api );
 
 			// Loop through each setting.
 			$.each( ASTCustomizerToggles, function( settingId, toggles ) {

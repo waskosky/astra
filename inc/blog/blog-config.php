@@ -30,17 +30,17 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
-								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-								$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
+					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+					$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					break;
 
 				case 'date':
-								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-								$output_str .= astra_post_date();
+					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+					$output_str .= astra_post_date();
 					break;
 
 				case 'category':
-								$category = astra_post_categories();
+					$category = astra_post_categories();
 					if ( '' != $category ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $category;
@@ -48,7 +48,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 					break;
 
 				case 'tag':
-								$tags = astra_post_tags();
+					$tags = astra_post_tags();
 					if ( '' != $tags ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $tags;
@@ -329,7 +329,7 @@ if ( ! function_exists( 'astra_blog_layout_class' ) ) {
 	function astra_blog_layout_class( $class = '' ) {
 		// Separates classes with a single space, collates classes for body element.
 		if ( function_exists( 'astra_get_blog_layout_class' ) ) {
-			echo 'class="' . join( ' ', astra_get_blog_layout_class( $class ) ) . '"';
+			echo 'class="' . esc_attr( join( ' ', astra_get_blog_layout_class( $class ) ) ) . '"';
 		}
 	}
 }

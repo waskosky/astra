@@ -10,11 +10,11 @@
  */
 
 add_action( 'astra_masthead_toggle_buttons', 	'astra_masthead_toggle_buttons_primary' );
-add_action( 'astra_masthead', 				'astra_masthead_primary_template' );
-add_filter( 'wp_page_menu_args', 			'astra_masthead_custom_page_menu_items', 10, 2 );
-add_filter( 'wp_nav_menu_items', 			'astra_masthead_custom_nav_menu_items', 10, 2 );
+add_action( 'astra_masthead', 					'astra_masthead_primary_template' );
+add_filter( 'wp_page_menu_args', 				'astra_masthead_custom_page_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 				'astra_masthead_custom_nav_menu_items', 10, 2 );
 add_action( 'astra_footer_content', 			'astra_footer_small_footer_template', 5 );
-add_action( 'astra_entry_content_single', 	'astra_entry_content_single_template' );
+add_action( 'astra_entry_content_single', 		'astra_entry_content_single_template' );
 add_action( 'astra_entry_content_blog', 		'astra_entry_content_blog_template' );
 add_action( 'astra_entry_content_404_page', 	'astra_entry_content_404_page_template' );
 
@@ -47,7 +47,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 		if ( array_filter( $sections ) ) {
 			ob_start();
 			?>
-			<<?php echo $html_element; ?> class="ast-masthead-custom-menu-items">
+			<<?php echo esc_attr( $html_element ); ?> class="ast-masthead-custom-menu-items">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
@@ -55,7 +55,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 					}
 				}
 				?>
-			</<?php echo $html_element; ?>>
+			</<?php echo esc_attr( $html_element ); ?>>
 			<?php
 			$markup = ob_get_clean();
 		}

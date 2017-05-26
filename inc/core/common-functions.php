@@ -214,16 +214,6 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 		switch ( $unit ) {
 
-			case 'dimension' :
-
-				if ( is_numeric( $value ) ) {
-					$css_val = esc_attr( $value ) . 'px';
-				} else {
-					$css_val = esc_attr( $value );
-				}
-
-				break;
-
 			case 'font' :
 
 				if ( 'inherit' != $value ) {
@@ -454,7 +444,7 @@ if ( ! function_exists( 'astra_primary_class' ) ) {
 
 		// Separates classes with a single space, collates classes for body element.
 		if ( function_exists( 'astra_get_primary_class' ) ) {
-			echo 'class="' . join( ' ', astra_get_primary_class( $class ) ) . '"';
+			echo 'class="' . esc_attr( join( ' ', astra_get_primary_class( $class ) ) ) . '"';
 		}
 	}
 }
@@ -516,7 +506,7 @@ if ( ! function_exists( 'astra_secondary_class' ) ) {
 
 		// Separates classes with a single space, collates classes for body element.
 		if ( function_exists( 'get_astra_secondary_class' ) ) {
-			echo 'class="' . join( ' ', get_astra_secondary_class( $class ) ) . '"';
+			echo 'class="' . esc_attr( join( ' ', get_astra_secondary_class( $class ) ) ) . '"';
 		}
 	}
 }
@@ -690,7 +680,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				<section class="ast-author-box ast-archive-description">
 					<div class="ast-author-bio">
 						 <h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
-						 <p><?php echo get_the_author_meta( 'description' ); ?></p>
+						 <p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
 					</div>
 					<div class="ast-author-avatar">
 						<?php echo get_avatar( get_the_author_meta( 'email' ) , 120 ); ?>
@@ -727,7 +717,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 						/* translators: 1: search string */
 						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
+					<h1 class="page-title ast-archive-title"> <?php echo esc_html( $title ); ?> </h1>
 				</section>
 
 			<?php
