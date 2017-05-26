@@ -36,8 +36,8 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
 
-		wp_enqueue_script( 'ast-radio-image', $js_uri . 'radio-image.js', array( 'jquery', 'customize-base' ), false, true );
-		wp_enqueue_style( 'ast-radio-image', $css_uri . 'radio-image.css', null );
+		wp_enqueue_script( 'ast-radio-image', $js_uri . 'radio-image.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_style( 'ast-radio-image', $css_uri . 'radio-image.css', null, ASTRA_THEME_VERSION );
 	}
 
 	/**

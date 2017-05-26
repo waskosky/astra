@@ -36,8 +36,8 @@ class Astra_Control_Toggle extends WP_Customize_Control {
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/toggle/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/toggle/';
 
-		wp_enqueue_script( 'ast-toggle', $js_uri . 'toggle.js', array( 'jquery', 'customize-base' ), false, true );
-		wp_enqueue_style( 'ast-toggle-css', $css_uri . 'toggle.css', null );
+		wp_enqueue_script( 'ast-toggle', $js_uri . 'toggle.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_style( 'ast-toggle-css', $css_uri . 'toggle.css', null, ASTRA_THEME_VERSION );
 	}
 
 	/**

@@ -34,11 +34,11 @@ class Astra_Control_Sortable extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = ASTRA_THEME_URI . '/inc/customizer/custom-controls/sortable/';
-		$js_uri  = ASTRA_THEME_URI . '/inc/customizer/custom-controls/sortable/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/sortable/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/sortable/';
 
-		wp_enqueue_script( 'ast-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
-		wp_enqueue_style( 'ast-sortable-css', $css_uri . 'sortable.css', null );
+		wp_enqueue_script( 'ast-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_style( 'ast-sortable-css', $css_uri . 'sortable.css', null, ASTRA_THEME_VERSION );
 
 	}
 
