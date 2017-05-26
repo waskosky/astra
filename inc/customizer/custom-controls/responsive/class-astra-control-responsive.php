@@ -46,7 +46,6 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive/';
 
 		wp_enqueue_script( 'ast-responsive', $js_uri . 'responsive.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_localize_script( 'ast-responsive', 'astL10n', $this->l10n() );
 		wp_enqueue_style( 'ast-responsive-css', $css_uri . 'responsive.css', null, ASTRA_THEME_VERSION );
 
 	}
@@ -82,7 +81,6 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 		$this->json['choices']  = $this->choices;
 		$this->json['link']     = $this->get_link();
 		$this->json['id']       = $this->id;
-		$this->json['l10n']     = $this->l10n();
 		$this->json['label']    = esc_html( $this->label );
 		$this->json['units']    = $this->units;
 
@@ -172,21 +170,6 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 			</div>
 		</label>
 		<?php
-	}
-
-	/**
-	 * Returns an array of translation strings.
-	 *
-	 * @access protected
-	 * @since 1.0.0
-	 * @param string|false $id The string-ID.
-	 * @return string
-	 */
-	protected function l10n( $id = false ) {
-		$translation_strings = array(
-			'invalid-value' => esc_attr__( 'Invalid Value', 'astra' ),
-		);
-		return $translation_strings;
 	}
 
 	/**
