@@ -84,7 +84,7 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 			$output_str = astra_get_post_meta( $post_meta );
 
 			if ( 'post' == get_post_type() && ! empty( $output_str ) ) {
-				echo apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>' );
+				echo apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . wp_kses_post( $output_str ) . '</div>' );
 			}
 		}
 	}
@@ -118,7 +118,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 				// Display trackbacks differently than normal comments.
 			?>
 				<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-					<p><?php _e( 'Pingback:', 'astra' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'astra' ), '<span class="edit-link">', '</span>' ); ?></p>
+					<p><?php esc_html_e( 'Pingback:', 'astra' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'astra' ), '<span class="edit-link">', '</span>' ); ?></p>
 				</li>
 				<?php
 				break;
@@ -159,7 +159,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								<div class="ast-comment-edit-reply-wrap">
 									<?php edit_comment_link( astra_default_strings( 'string-comment-edit-link', false ), '<span class="ast-edit-link">', '</span>' ); ?>
 									<?php comment_reply_link( array_merge( $args, array(
-											'reply_text' => esc_html( astra_default_strings( 'string-comment-reply-link', false ) ),
+											'reply_text' => astra_default_strings( 'string-comment-reply-link', false ),
 											'add_below' => 'comment',
 											'depth'     => $depth,
 											'max_depth' => $args['max_depth'],

@@ -244,4 +244,4 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-$astra_customizer = Astra_Customizer::get_instance();
+Astra_Customizer::get_instance();
