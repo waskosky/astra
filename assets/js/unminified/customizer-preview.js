@@ -204,10 +204,6 @@ function astra_css( control, css_property, selector, unit ) {
 
 					if ( 'url' === unit ) {
 						new_value = 'url(' + new_value + ')';
-					} else if ( 'dimension' === unit ) {
-						if ( ! isNaN( new_value ) ) {
-							new_value = new_value + 'px';
-						}
 					} else {
 						new_value = new_value + unit;
 					}

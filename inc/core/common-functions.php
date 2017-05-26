@@ -214,16 +214,6 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 		switch ( $unit ) {
 
-			case 'dimension' :
-
-				if ( is_numeric( $value ) ) {
-					$css_val = esc_attr( $value ) . 'px';
-				} else {
-					$css_val = esc_attr( $value );
-				}
-
-				break;
-
 			case 'font' :
 
 				if ( 'inherit' != $value ) {
