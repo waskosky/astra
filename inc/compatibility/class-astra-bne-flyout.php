@@ -1,26 +1,26 @@
 <?php
 /**
- * BNR Flyout Compatibility File.
+ * BNE Flyout Compatibility File.
  *
  * @package Astra
  */
 
-// If plugin - 'BNR Flyout' not exist then return.
-if ( ! class_exists( 'FLBuilderModel' ) ) {
+// If plugin - 'BNE Flyout' not exist then return.
+if ( ! defined( 'BNE_FLYOUT_VERSION' ) ) {
 	return;
 }
 
 /**
- * Astra BNR Flyout Compatibility
+ * Astra BNE Flyout Compatibility
  */
-if ( ! class_exists( 'Astra_BNR_Flyout' ) ) :
+if ( ! class_exists( 'Astra_BNE_Flyout' ) ) :
 
 	/**
-	 * Astra BNR Flyout Compatibility
+	 * Astra BNE Flyout Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_BNR_Flyout {
+	class Astra_BNE_Flyout {
 
 		/**
 		 * Member Variable
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_BNR_Flyout' ) ) :
 		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
-			$assets['css']['astra-bnr-flyout'] = 'site-compatible/bnr-flyout' ;
+			$assets['css']['astra-bne-flyout'] = 'site-compatible/bne-flyout' ;
 			return $assets;
 		}
 
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_BNR_Flyout::get_instance();
+Astra_BNE_Flyout::get_instance();
