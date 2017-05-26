@@ -168,7 +168,6 @@ if ( ! function_exists( 'astra_get_audios_from_post' ) ) {
 		// check what is the first embed containg video tag, youtube or vimeo.
 		foreach ( $embeds as $embed ) {
 			if ( strpos( $embed, 'audio' ) ) {
-				// Avoiding escaping intentionally for $embed.
 				return '<span class="ast-post-audio-wrapper">' . $embed . '</span>';
 			}
 		}
