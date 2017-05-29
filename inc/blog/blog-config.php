@@ -327,10 +327,9 @@ if ( ! function_exists( 'astra_blog_layout_class' ) ) {
 	 * @param  string $class Class.
 	 */
 	function astra_blog_layout_class( $class = '' ) {
+
 		// Separates classes with a single space, collates classes for body element.
-		if ( function_exists( 'astra_get_blog_layout_class' ) ) {
-			echo 'class="' . esc_attr( join( ' ', astra_get_blog_layout_class( $class ) ) ) . '"';
-		}
+		echo 'class="' . esc_attr( join( ' ', astra_get_blog_layout_class( $class ) ) ) . '"';
 	}
 }
 
@@ -424,12 +423,12 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 			$class = array();
 		}
 
-		$classes = array_map( 'esc_attr', $classes );
-
 		/**
 		 * Filter primary div class names
 		 */
 		$classes = apply_filters( 'astra_blog_layout_class', $classes, $class );
+		
+		$classes = array_map( 'sanitize_html_class', $classes );
 
 		return array_unique( $classes );
 	}

@@ -1,6 +1,6 @@
 v1.0.5.1
 # Fixed: Use &hellip; instead of ...
-
+# Use sanitize_html_class to sanitize HTML class
 
 v1.0.5
 # Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
