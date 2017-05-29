@@ -194,7 +194,7 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 			'<a href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . __( 'Read More &raquo;', 'astra' ) . '</a>'
 		);
 
-		$output = ' ...<p class="read-more"> ' . $post_link . '</p>';
+		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
 
 		return apply_filters( 'astra_post_link', $output, $output_filter );
 	}
