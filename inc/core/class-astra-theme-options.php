@@ -52,8 +52,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 */
 		public function __construct() {
 			// Refresh options variables after customizer save.
-			self::refresh();
-			add_action( 'init', array( $this, 'update_options' ) );
+			add_action( 'after_setup_theme', array( $this, 'update_options' ) );
 		}
 		/**
 		 * Update Options
