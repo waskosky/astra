@@ -73,8 +73,20 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 
 				global $post;
 
-				if ( empty( $post->post_content ) && 'default' == get_post_meta( $post->ID, 'site-content-layout', true ) ) {
-					update_post_meta( $post->ID, 'site-content-layout', 'page-builder' );
+				$page_builder_flag = get_post_meta( $post->ID, 'astra-content-layout-flag', true );
+
+				if ( empty( $page_builder_flag ) ) {
+
+					update_post_meta( $post->ID, 'astra-content-layout-flag', 'disabled' );
+					update_post_meta( $post->ID, 'site-post-title', 'disabled' );
+					
+					if( 'default' == get_post_meta( $post->ID, 'site-content-layout', true ) ) {
+						update_post_meta( $post->ID, 'site-content-layout', 'page-builder' );
+					}
+
+					if( 'default' == get_post_meta( $post->ID, 'site-sidebar-layout', true ) ) {
+						update_post_meta( $post->ID, 'site-sidebar-layout', 'no-sidebar' );
+					}
 				}
 			}
 
