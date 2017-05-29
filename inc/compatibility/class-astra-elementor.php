@@ -5,6 +5,8 @@
  * @package Astra
  */
 
+namespace Elementor;
+
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {
 	return;
@@ -43,7 +45,8 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'astra_theme_assets', 		array( $this, 'add_styles' ) );
+			add_filter( 'astra_get_content_layout', array( $this, 'elementor_content_layout' ), 20 );
 		}
 
 		/**
@@ -56,6 +59,24 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		function add_styles( $assets ) {
 			$assets['css']['astra-elementor'] = 'site-compatible/elementor' ;
 			return $assets;
+		}
+
+		/**
+		 * Elementor Content layout set as Page Builder
+		 *
+		 * @param  string $layout Content Layout.
+		 * @return string
+		 * @since  1.0.2
+		 */
+		function elementor_content_layout( $layout ) {
+
+			$id = get_the_ID();
+
+			if ( is_singular() && 'builder' === Plugin::$instance->db->get_edit_mode( $id ) ) {
+				$layout = 'page-builder';
+			}
+
+			return $layout;
 		}
 
 	}
