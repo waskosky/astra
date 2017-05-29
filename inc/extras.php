@@ -663,7 +663,7 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 		$classes = array_unique( apply_filters( 'astra_footer_class', array( 'site-footer' ) ) );
 
 		$classes = array_map( 'sanitize_html_class', $classes );
-		
+
 		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
 }
