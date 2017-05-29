@@ -427,7 +427,7 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 		 * Filter primary div class names
 		 */
 		$classes = apply_filters( 'astra_blog_layout_class', $classes, $class );
-		
+
 		$classes = array_map( 'sanitize_html_class', $classes );
 
 		return array_unique( $classes );
