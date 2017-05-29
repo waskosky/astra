@@ -230,7 +230,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				break;
 
 			case 'url' :
-						$css_val = $unit . '(' . esc_attr( $value ) . ')';
+						$css_val = $unit . '(' . esc_url( $value ) . ')';
 				break;
 
 			case 'rem':
