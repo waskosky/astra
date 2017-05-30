@@ -53,9 +53,30 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 
 			global $post;
 
-			if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'vc_row' ) ) {
-				$layout = 'page-builder';
+			$id = astra_get_post_id();
+			$vc_active = get_post_meta( $id, '_wpb_vc_js_status', true );
+
+			if ( is_singular() && ( has_shortcode( $post->post_content, 'vc_row' ) || $vc_active ) ) {
+
+				$page_builder_flag = get_post_meta( $id, 'astra-content-layout-flag', true );
+
+				if ( empty( $page_builder_flag ) ) {
+
+					update_post_meta( $id, 'astra-content-layout-flag', 'disabled' );
+					update_post_meta( $id, 'site-post-title', 'disabled' );
+
+					$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					if ( empty( $content_layout ) || 'default' == $content_layout ) {
+						update_post_meta( $id, 'site-content-layout', 'page-builder' );
+					}
+
+					$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
+					if ( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
+						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
+					}
+				}
 			}
+
 			return $layout;
 		}
 
