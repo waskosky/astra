@@ -410,7 +410,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_css_value( $heading_h1_font_size['tablet'], $heading_h1_font_size['tablet-unit'], 30 ),
 				),
 				'h2, .entry-content h2, .entry-content h2 a' => array(
-					'font-size' => astra_get_css_value( $heading_h2_font_size['tablet'], $heading_h2_font_size['tablet-unit'], 25),
+					'font-size' => astra_get_css_value( $heading_h2_font_size['tablet'], $heading_h2_font_size['tablet-unit'], 25 ),
 				),
 				'h3, .entry-content h3, .entry-content h3 a' => array(
 					'font-size' => astra_get_css_value( $heading_h3_font_size['tablet'], $heading_h3_font_size['tablet-unit'], 20 ),
