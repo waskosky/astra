@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.0.5.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-05-29 10:58:29+00:00\n"
+"POT-Creation-Date: 2017-05-30 07:46:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/blog/blog-config.php:194
+#: inc/blog/blog-config.php:190
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:269 inc/blog/blog-config.php:302
+#: inc/blog/blog-config.php:265 inc/blog/blog-config.php:297
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
@@ -143,12 +143,12 @@ msgstr ""
 msgid "Settings saved successfully."
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:105
-#: inc/core/class-astra-theme-options.php:107
+#: inc/core/class-astra-theme-options.php:102
+#: inc/core/class-astra-theme-options.php:104
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:119
+#: inc/core/class-astra-theme-options.php:116
 msgid "Contact Us"
 msgstr ""
 
@@ -895,32 +895,7 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/blog/blog-config.php:94 inc/blog/blog-config.php:134
-#. translators: 1: post date
+#: inc/blog/blog-config.php:132
 msgctxt "post date"
 msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:161
-#. translators: 1: post author
-msgctxt "post author"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:193
-#. translators: 1: post link
-msgctxt "post link"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:273
-#. translators: 1: post tags
-msgctxt "post tags"
-msgid "%1$s "
-msgstr ""
-
-#: inc/blog/blog-config.php:307
-#. translators: 1: post tags
-msgctxt "post categories"
-msgid "%1$s "
 msgstr ""
