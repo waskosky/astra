@@ -68,24 +68,26 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 */
 		function builder_template_content_layout( $layout ) {
 
+			$id = astra_get_post_id();
 			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
-			if ( $do_render && FLBuilderModel::is_builder_enabled() && ! is_archive() ) {
+			
+			if ( is_singular() && $do_render && FLBuilderModel::is_builder_enabled() ) {
 
-				global $post;
-
-				$page_builder_flag = get_post_meta( $post->ID, 'astra-content-layout-flag', true );
+				$page_builder_flag = get_post_meta( $id, 'astra-content-layout-flag', true );
 
 				if ( empty( $page_builder_flag ) ) {
 
-					update_post_meta( $post->ID, 'astra-content-layout-flag', 'disabled' );
-					update_post_meta( $post->ID, 'site-post-title', 'disabled' );
+					update_post_meta( $id, 'astra-content-layout-flag', 'disabled' );
+					update_post_meta( $id, 'site-post-title', 'disabled' );
 					
-					if( 'default' == get_post_meta( $post->ID, 'site-content-layout', true ) ) {
-						update_post_meta( $post->ID, 'site-content-layout', 'page-builder' );
+					$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					if( empty( $content_layout ) || 'default' == $content_layout ) {
+						update_post_meta( $id, 'site-content-layout', 'page-builder' );
 					}
 
-					if( 'default' == get_post_meta( $post->ID, 'site-sidebar-layout', true ) ) {
-						update_post_meta( $post->ID, 'site-sidebar-layout', 'no-sidebar' );
+					$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
+					if( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
+						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 					}
 				}
 			}

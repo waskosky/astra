@@ -70,10 +70,27 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		function elementor_content_layout( $layout ) {
 
-			$id = get_the_ID();
+			$id = astra_get_post_id();
 
 			if ( is_singular() && 'builder' === Plugin::$instance->db->get_edit_mode( $id ) ) {
-				$layout = 'page-builder';
+				
+				$page_builder_flag = get_post_meta( $id, 'astra-content-layout-flag', true );
+
+				if ( empty( $page_builder_flag ) ) {
+
+					update_post_meta( $id, 'astra-content-layout-flag', 'disabled' );
+					update_post_meta( $id, 'site-post-title', 'disabled' );
+					
+					$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					if( empty( $content_layout ) || 'default' == $content_layout ) {
+						update_post_meta( $id, 'site-content-layout', 'page-builder' );
+					}
+
+					$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
+					if( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
+						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
+					}
+				}
 			}
 
 			return $layout;
