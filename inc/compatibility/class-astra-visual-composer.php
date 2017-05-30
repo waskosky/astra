@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 
 			global $post;
 
-			if( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'vc_row' ) ) {
+			if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'vc_row' ) ) {
 				$layout = 'page-builder';
 			}
 			return $layout;
