@@ -115,8 +115,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				$actions = array(
 					'general'          => array(
-						'label' => __( 'General Settings', 'astra' ),
-						'show'  => ! is_network_admin(),
+						'label'	=> __( 'Welcome', 'astra' ),
+						'show'	=> ! is_network_admin(),
 					),
 				);
 				self::$view_actions = apply_filters( 'astra_menu_options', $actions );
