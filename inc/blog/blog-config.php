@@ -129,7 +129,7 @@ if ( ! function_exists( 'astra_post_date_box' ) ) {
 		);
 
 		$posted_on = sprintf(
-			esc_html_x( '%s ', 'post date', 'astra' ),
+			esc_html( '%s' ),
 			$time_string
 		);
 
