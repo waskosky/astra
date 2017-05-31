@@ -87,10 +87,10 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		static public function sanitize_spacing( $val ) {
 
-			foreach ( $val as $key => $value) {
-				$val[$key] = is_numeric( $val[$key] ) ? $val[$key] : '';
+			foreach ( $val as $key => $value ) {
+				$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
 			}
-			
+
 			return $val;
 		}
 
