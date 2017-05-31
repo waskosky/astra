@@ -155,7 +155,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_script_add_data( 'astra-flexibility', 'conditional', 'lt IE 9' );
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(), 	// Header Break Point.
+				'break_point' => astra_header_break_point(),    // Header Break Point.
 			);
 
 			wp_localize_script( 'astra-navigation', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
