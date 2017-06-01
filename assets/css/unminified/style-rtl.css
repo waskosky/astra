@@ -1257,6 +1257,7 @@ th {
 # Typography
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
   clear: both;
 }
 
@@ -2196,6 +2197,11 @@ body {
 .ast-page-builder-template #primary {
   padding: 0;
   margin: 0;
+}
+
+.ast-page-builder-template .no-results {
+  text-align: center;
+  margin: 4em auto;
 }
 
 @media (min-width: 992px) {
@@ -4282,7 +4288,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 767px) {
   .ast-separate-container .entry-header {
-    margin-bottom: 0;
+    margin-bottom: 1em;
   }
 }
 
