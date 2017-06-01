@@ -61,15 +61,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			$site_content_width              = astra_get_option( 'site-content-width' , '' , 1200 );
-			
+
 			// Site Background Color.
 			$box_bg_color                    = astra_get_option( 'site-layout-outside-bg-color' );
-			
+
 			// Color Options.
 			$text_color                      = astra_get_option( 'text-color' );
 			$link_color                      = astra_get_option( 'link-color' );
 			$link_hover_color                = astra_get_option( 'link-h-color' );
-			
+
 			// Typography.
 			$body_font_size                  = astra_get_option( 'font-size-body' );
 			$body_line_height                = astra_get_option( 'body-line-height' );
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$heading_h4_font_size            = astra_get_option( 'font-size-h4' );
 			$heading_h5_font_size            = astra_get_option( 'font-size-h5' );
 			$heading_h6_font_size            = astra_get_option( 'font-size-h6' );
-			
+
 			// Button Styling.
 			$btn_border_radius               = astra_get_option( 'button-radius' );
 			$btn_vertical_padding            = astra_get_option( 'button-v-padding' );
@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_font_css_value( $site_title_font_size['desktop'], $site_title_font_size['desktop-unit'] ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_get_font_css_value( $archive_summary_title_font_size['desktop'], $archive_summary_title_font_size['desktop-unit'] ),	
+					'font-size' => astra_get_font_css_value( $archive_summary_title_font_size['desktop'], $archive_summary_title_font_size['desktop-unit'] ),
 				),
 				'.site-header .site-description' => array(
 					'font-size' => astra_get_font_css_value( $site_tagline_font_size['desktop'], $site_tagline_font_size['desktop-unit'] ),
