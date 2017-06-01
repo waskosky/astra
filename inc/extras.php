@@ -565,7 +565,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		$break_point = apply_filters( 'astra_header_break_point', 920 );
+		$break_point = apply_filters( 'astra_header_break_point', 921 );
 		return absint( $break_point );
 	}
 }
