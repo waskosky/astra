@@ -341,7 +341,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Width for Comments for Page Builder Template */
 			$page_builder_comment = array(
 				'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
-					'max-width' => astra_get_css_value( $site_content_width, 'px' ),
+					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 					'margin-left' => 'auto',
 					'margin-right' => 'auto',
 				),
@@ -360,7 +360,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Site width Responsive */
 			$site_width = array(
 				'.ast-container' => array(
-					'max-width' => astra_get_css_value( $site_content_width, 'px' ),
+					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 				),
 			);
 
