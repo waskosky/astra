@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.0.5.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-06-01 05:41:59+00:00\n"
+"POT-Creation-Date: 2017-06-01 10:50:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -300,11 +300,11 @@ msgid "Customize"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-partials.php:107
-#: inc/customizer/class-astra-customizer-partials.php:126 inc/extras.php:316
+#: inc/customizer/class-astra-customizer-partials.php:126 inc/extras.php:319
 msgid "Y"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-sanitizes.php:120
+#: inc/customizer/class-astra-customizer-sanitizes.php:135
 msgid "Enter valid email address!"
 msgstr ""
 
@@ -721,10 +721,11 @@ msgid "Display Site Tagline"
 msgstr ""
 
 #: inc/customizer/sections/typography/archive.php:23
-msgid "Blog Post Title"
+msgid "Archive Summary Box Title"
 msgstr ""
 
-#: inc/customizer/sections/typography/archive.php:40
+#: inc/customizer/sections/typography/archive.php:39
+#: inc/customizer/sections/typography/archive.php:73
 #: inc/customizer/sections/typography/body.php:84
 #: inc/customizer/sections/typography/content.php:39
 #: inc/customizer/sections/typography/content.php:73
@@ -736,6 +737,10 @@ msgstr ""
 #: inc/customizer/sections/typography/header.php:74
 #: inc/customizer/sections/typography/single.php:40
 msgid "Font Size"
+msgstr ""
+
+#: inc/customizer/sections/typography/archive.php:56
+msgid "Blog Post Title"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:29
@@ -806,19 +811,19 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:252
+#: inc/extras.php:255
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:365
+#: inc/extras.php:368
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:509
+#: inc/extras.php:512
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:919
+#: inc/extras.php:922
 msgid "Add Widget"
 msgstr ""
 
