@@ -339,7 +339,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array()*/
-				$parse_css .= astra_parse_css( $genral_global_responsive, '768' );
+				$parse_css .= astra_parse_css( $genral_global_responsive, '769' );
 			}
 
 			/* Width for Comments for Page Builder Template */
@@ -352,7 +352,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $page_builder_comment, '544' );
+			$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 
 			$separate_container_css = array(
 				'body, .ast-separate-container' => array(
@@ -360,13 +360,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 			$parse_css .= astra_parse_css( $separate_container_css );
-
-			/* Site width Responsive */
-			$site_width = array(
-				'.ast-container' => array(
-					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
-				),
-			);
 
 			$tablet_html = array(
 				'font-size' => astra_get_font_css_value( (int) $body_font_size['desktop'] * 5.7, '%', 'desktop' ),
@@ -437,7 +430,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $tablet_typography, '' ,'767' );
+			$parse_css .= astra_parse_css( $tablet_typography, '' ,'768' );
 
 			/* Mobile Typography */
 			$mobile_typography = array(
@@ -501,14 +494,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $mobile_typography, '' ,'543' );
+			$parse_css .= astra_parse_css( $mobile_typography, '' ,'544' );
+
+			/* Site width Responsive */
+			$site_width = array(
+				'.ast-container' => array(
+					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+				),
+			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $site_width, '768' );
+			$parse_css .= astra_parse_css( $site_width, '769' );
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
-				$blog_css  = '@media (min-width:768px) {';
+				$blog_css  = '@media (min-width:769px) {';
 					$blog_css .= '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container{';
 						$blog_css .= 'max-width:' . esc_attr( $blog_max_width ) . 'px;';
 					$blog_css .= '}';
@@ -518,7 +518,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Single Blog */
 			if ( 'custom' === $single_post_max ) :
-					$single_blog_css = '@media (min-width:768px) {';
+					$single_blog_css = '@media (min-width:769px) {';
 					$single_blog_css .= '.single .site-content > .ast-container{';
 					$single_blog_css .= 'max-width:' . esc_attr( $single_post_max_width ) . 'px;';
 					$single_blog_css .= '}';
@@ -547,7 +547,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-404-layout-1 .ast-404-text' => array(
 						'font-size'   => astra_get_font_css_value( 100 ),
 					),
-				), '', '919'
+				), '', '920'
 			);
 
 			$dynamic_css = $parse_css;
@@ -588,7 +588,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$meta_style .= 'border-bottom-width:' . astra_get_css_value( $header_separator, 'px' ) . ';';
 			$meta_style .= 'border-bottom-color:' . esc_attr( $header_separator_color ) . ';';
 			$meta_style .= '}';
-			$meta_style .= '@media (min-width: 768px) {';
+			$meta_style .= '@media (min-width: 769px) {';
 			$meta_style .= '.main-header-bar {';
 			$meta_style .= 'border-bottom-width:' . astra_get_css_value( $header_separator, 'px' ) . ';';
 			$meta_style .= 'border-bottom-color:' . esc_attr( $header_separator_color ) . ';';
@@ -596,7 +596,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$meta_style .= '}';
 
 			if ( 'no-sidebar' !== astra_page_layout() ) :
-				$meta_style .= '@media (min-width: 768px) {';
+				$meta_style .= '@media (min-width: 769px) {';
 				$meta_style .= '#primary {';
 				$meta_style .= 'width:' . esc_attr( $primary_width ) . '%;';
 				$meta_style .= '}';
