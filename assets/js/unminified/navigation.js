@@ -82,10 +82,9 @@ var toggleClass = function ( el, className ) {
 	    	var menuHasChildren = document.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 			for ( var i = 0; i < menuHasChildren.length; i++ ) {
 				menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
-
-				var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );
-				for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
-					menuHasChildrenSubMenu[j].style.display = 'none';
+				var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
+				for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
+					menuHasChildrenSubMenu[j].style.display = 'none';		
 				};
 			}
 
@@ -95,11 +94,11 @@ var toggleClass = function ( el, className ) {
 				case 'main-menu':
 						toggleClass( __main_header, 'toggle-on' );
 						toggleClass( menu_toggle, 'toggled' );
-					if ( __main_header.classList.contains( 'toggle-on' ) ) {
-						__main_header.style.display = 'block';
-					} else {
-						__main_header.style.display = '';
-					}
+						if ( __main_header.classList.contains( 'toggle-on' ) ) {		
+							__main_header.style.display = 'block';		
+						} else {		
+							__main_header.style.display = '';		
+						}
 					break;
 			}
 	    }, false);
@@ -151,11 +150,11 @@ var toggleClass = function ( el, className ) {
 	AstraNavigationMenu( 'ul.main-header-menu li' );
 
 	AstraToggleMenu = function( selector ) {
-		var ast_menu_toggle = document.querySelectorAll( selector );
+		var astra_menu_toggle = document.querySelectorAll( selector );
 		/* Submenu button click */
-		for (var i = 0; i < ast_menu_toggle.length; i++) {
+		for (var i = 0; i < astra_menu_toggle.length; i++) {
 
-			ast_menu_toggle[i].addEventListener( 'click', function ( event ) {
+			astra_menu_toggle[i].addEventListener( 'click', function ( event ) {
 				event.preventDefault();
 
 				var parent_li = this.parentNode;
@@ -164,8 +163,7 @@ var toggleClass = function ( el, className ) {
 				for (var j = 0; j < parent_li_child.length; j++) {
 
 					parent_li_child[j].classList.remove( 'ast-submenu-expanded' );
-
-					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );
+					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );		
 					parent_li_child_sub_menu.style.display = 'none';
 				};
 
@@ -175,17 +173,15 @@ var toggleClass = function ( el, className ) {
 					if ( parent_li_sibling[j] != parent_li ) {
 
 						parent_li_sibling[j].classList.remove( 'ast-submenu-expanded' );
-
 						var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
-						for (var k = 0; k < all_sub_menu.length; k++) {
-							all_sub_menu[k].style.display = 'none';
+						for (var k = 0; k < all_sub_menu.length; k++) {		
+							all_sub_menu[k].style.display = 'none';		
 						};
 					}
 				};
 
 				if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
 					toggleClass( parent_li, 'ast-submenu-expanded' );
-
 					if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
 						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
 					} else {
@@ -195,7 +191,7 @@ var toggleClass = function ( el, className ) {
 			}, false);
 		};
 	};
-
+ 
 	AstraToggleMenu('ul.main-header-menu .ast-menu-toggle');
 
 	document.body.addEventListener("astra-header-responsive-enabled", function() {
@@ -226,7 +222,7 @@ var toggleClass = function ( el, className ) {
 
 		if( null != document.getElementById( 'masthead' ) ) {
 
-			var break_point = ast.break_point,
+			var break_point = astra.break_point,
 				headerWrap = document.getElementById( 'masthead' ).childNodes;
 
 			for ( var i = 0; i < headerWrap.length; i++ ) {
