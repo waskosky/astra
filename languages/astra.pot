@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.5.1\n"
+"Project-Id-Version: Astra 1.0.5.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-05-30 07:46:08+00:00\n"
+"POT-Creation-Date: 2017-06-01 05:41:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,7 +136,7 @@ msgid "Astra"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:118
-msgid "General Settings"
+msgid "Welcome"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:226
@@ -276,7 +276,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:635 inc/core/common-functions.php:714
+#: inc/core/common-functions.php:637 inc/core/common-functions.php:716
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -875,6 +875,10 @@ msgstr ""
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
+#. Theme URI of the plugin/theme
+msgid "http://wpastra.com/"
+msgstr ""
+
 #. Description of the plugin/theme
 msgid "A very lightweight and beautiful theme made to work with Page Builders."
 msgstr ""
@@ -884,7 +888,7 @@ msgid "Brainstorm Force"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://wpastra.com/"
+msgid "http://wpastra.com/about/"
 msgstr ""
 
 #: comments.php:36
@@ -894,8 +898,3 @@ msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
-
-#: inc/blog/blog-config.php:132
-msgctxt "post date"
-msgid "%s "
-msgstr ""
