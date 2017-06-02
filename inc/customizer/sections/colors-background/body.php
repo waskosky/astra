@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Text Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[text-color]', array(
-		'default'           => astra_get_option('text-color'),
+		'default'           => astra_get_option( 'text-color' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Link Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[link-color]', array(
-		'default'           => astra_get_option('link-color'),
+		'default'           => astra_get_option( 'link-color' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Link Hover Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[link-h-color]', array(
-		'default'           => astra_get_option('link-h-color'),
+		'default'           => astra_get_option( 'link-h-color' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );

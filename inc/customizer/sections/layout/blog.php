@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post Content
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
-		'default'           => astra_get_option('blog-post-content'),
+		'default'           => astra_get_option( 'blog-post-content' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Post Meta
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-meta]', array(
-		'default'           => astra_get_option('blog-meta'),
+		'default'           => astra_get_option( 'blog-meta' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 	) );
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Content Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-width]', array(
-		'default'           => astra_get_option('blog-width'),
+		'default'           => astra_get_option( 'blog-width' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Enter Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
-		'default'           => astra_get_option('blog-max-width'),
+		'default'           => astra_get_option( 'blog-max-width' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),

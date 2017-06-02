@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Title Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-site-title]', array(
-		'default'           => astra_get_option('font-size-site-title'),
+		'default'           => astra_get_option( 'font-size-site-title' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Tagline Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-site-tagline]', array(
-		'default'           => astra_get_option('font-size-site-tagline'),
+		'default'           => astra_get_option( 'font-size-site-tagline' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),

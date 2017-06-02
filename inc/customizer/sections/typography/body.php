@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Family
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[body-font-family]', array(
-		'default'           => astra_get_option('body-font-family'),
+		'default'           => astra_get_option( 'body-font-family' ),
 		'type'              => 'option',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Weight
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[body-font-weight]', array(
-		'default'           => astra_get_option('body-font-weight'),
+		'default'           => astra_get_option( 'body-font-weight' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 	) );
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Text Transform
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[body-text-transform]', array(
-		'default'           => astra_get_option('body-text-transform'),
+		'default'           => astra_get_option( 'body-text-transform' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-body]', array(
-		'default'           => astra_get_option('font-size-body'),
+		'default'           => astra_get_option( 'font-size-body' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 	) );
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Line Height
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[body-line-height]', array(
-		'default'           => astra_get_option('body-line-height'),
+		'default'           => astra_get_option( 'body-line-height' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		'transport'         => 'postMessage',

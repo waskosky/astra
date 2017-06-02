@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Content Layout
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[site-content-layout]', array(
-		'default'           => astra_get_option('site-content-layout'),
+		'default'           => astra_get_option( 'site-content-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Page Content Layout
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[single-page-content-layout]', array(
-		'default'           => astra_get_option('single-page-content-layout'),
+		'default'           => astra_get_option( 'single-page-content-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post Content Layout
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[single-post-content-layout]', array(
-		'default'           => astra_get_option('single-post-content-layout'),
+		'default'           => astra_get_option( 'single-post-content-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Archive Post Content Layout
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[archive-post-content-layout]', array(
-		'default'           => astra_get_option('archive-post-content-layout'),
+		'default'           => astra_get_option( 'archive-post-content-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Background Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-color]', array(
-		'default'           => astra_get_option('site-layout-outside-bg-color'),
+		'default'           => astra_get_option( 'site-layout-outside-bg-color' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),

@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post / Page Title Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-entry-title]', array(
-		'default'           => astra_get_option('font-size-entry-title'),
+		'default'           => astra_get_option( 'font-size-entry-title' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),

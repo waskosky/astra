@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Default Sidebar Position
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[site-sidebar-layout]', array(
-		'default'           => astra_get_option('site-sidebar-layout'),
+		'default'           => astra_get_option( 'site-sidebar-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Page
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
-		'default'           => astra_get_option('single-page-sidebar-layout'),
+		'default'           => astra_get_option( 'single-page-sidebar-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
-		'default'           => astra_get_option('single-post-sidebar-layout'),
+		'default'           => astra_get_option( 'single-post-sidebar-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -90,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post Archive
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
-		'default'           => astra_get_option('archive-post-sidebar-layout'),
+		'default'           => astra_get_option( 'archive-post-sidebar-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Primary Content Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[site-sidebar-width]', array(
-		'default'           => astra_get_option('site-sidebar-width'),
+		'default'           => astra_get_option( 'site-sidebar-width' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),

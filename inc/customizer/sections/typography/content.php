@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H1> Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h1]', array(
-		'default'           => astra_get_option('font-size-h1'),
+		'default'           => astra_get_option( 'font-size-h1' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H2> Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h2]', array(
-		'default'           => astra_get_option('font-size-h2'),
+		'default'           => astra_get_option( 'font-size-h2' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H3> Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h3]', array(
-		'default'           => astra_get_option('font-size-h3'),
+		'default'           => astra_get_option( 'font-size-h3' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H4> Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h4]', array(
-		'default'           => astra_get_option('font-size-h4'),
+		'default'           => astra_get_option( 'font-size-h4' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H5> Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h5]', array(
-		'default'           => astra_get_option('font-size-h5'),
+		'default'           => astra_get_option( 'font-size-h5' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -197,7 +197,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Heading <H6> Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h6]', array(
-		'default'           => astra_get_option('font-size-h6'),
+		'default'           => astra_get_option( 'font-size-h6' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
