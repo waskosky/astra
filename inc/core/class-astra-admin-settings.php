@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			add_theme_page( $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
 		}
 
 		/**
