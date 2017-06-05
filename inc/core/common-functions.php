@@ -306,7 +306,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 		$theme_options = Astra_Theme_Options::get_options();
 
 		$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-		
+
 		return $value;
 	}
 }
