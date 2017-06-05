@@ -99,45 +99,6 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 }// End if().
 
 /**
- * Function to get Date Box of Post
- *
- * @since 1.0.0
- * @return html
- */
-if ( ! function_exists( 'astra_post_date_box' ) ) {
-
-	/**
-	 * Function to get Date of Post
-	 *
-	 * @return html                Markup.
-	 */
-	function astra_post_date_box() {
-		$output = '';
-
-		$time_string = '<time class="entry-date published updated" datetime="%1$s"><span class="date-month">%2$s</span> <span class="date-day">%3$s</span> <span class="date-year">%4$s</span></time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s"><span class="date-month">%2$s</span> <span class="date-day">%3$s</span> <span class="date-year">%4$s</span></time><time class="updated" datetime="%5$s">%6$s</time>';
-		}
-
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date( 'M' ) ),
-			esc_html( get_the_date( 'j' ) ),
-			esc_html( get_the_date( 'Y' ) ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
-
-		$posted_on = sprintf(
-			esc_html( '%s' ),
-			$time_string
-		);
-
-		return '<span class="posted-on">' . $posted_on . '</span>';
-	}
-}
-
-/**
  * Function to get Author of Post
  *
  * @since 1.0.0
