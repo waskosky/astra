@@ -92,14 +92,6 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/site-compatible',
                             ext: '.css'
                         },
-                        /* Blog Layouts */
-                        {
-                            expand: true,
-                            cwd: 'sass/site/blog/blog-layouts/blog-styles/',
-                            src: ['**.scss'],
-                            dest: 'assets/css/unminified',
-                            ext: '.css'
-                        },
                     ]
                 }
             },
@@ -133,15 +125,33 @@ module.exports = function (grunt) {
 
             uglify: {
                 js: {
-                    files: [{ // all .js to min.js
-                        expand: true,
-                        src: [
-                            '**.js'
-                        ],
-                        dest: 'assets/js/minified',
-                        cwd: 'assets/js/unminified',
-                        ext: '.min.js'
-                    }]
+                    files: [
+                    	{ // all .js to min.js
+	                        expand: true,
+	                        src: [
+	                            '**.js',
+	                        ],
+	                        dest: 'assets/js/minified',
+	                        cwd: 'assets/js/unminified',
+	                        ext: '.min.js'
+	                    },
+	                    {
+		                    src: [
+		                        'assets/js/minified/flexibility.js',
+		                    	'assets/js/minified/navigation.js',
+		                    	'assets/js/minified/skip-link-focus-fix.js',
+		                    ],
+		                    dest: 'assets/js/minified/style.min.js',
+		                },
+	                    {
+		                    src: [
+		                        'assets/js/unminified/flexibility.js',
+		                    	'assets/js/unminified/navigation.js',
+		                    	'assets/js/unminified/skip-link-focus-fix.js',
+		                    ],
+		                    dest: 'assets/js/unminified/style.js',
+		                },
+	               	]
                 }
             },
 
