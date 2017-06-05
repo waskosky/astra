@@ -73,7 +73,6 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/slider/slider.css': 'inc/customizer/custom-controls/slider/slider.scss',
                             'inc/customizer/custom-controls/sortable/sortable.css': 'inc/customizer/custom-controls/sortable/sortable.scss',
                             'inc/customizer/custom-controls/spacing/spacing.css': 'inc/customizer/custom-controls/spacing/spacing.scss',
-                            'inc/customizer/custom-controls/toggle/toggle.css': 'inc/customizer/custom-controls/toggle/toggle.scss',
                         },
 
                         /* Common Style */
