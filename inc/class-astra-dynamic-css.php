@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * - Variable Declaration
 			 */
-			$site_content_width              = astra_get_option( 'site-content-width' , '' , 1200 );
+			$site_content_width              = astra_get_option( 'site-content-width', 1200 );
 
 			// Site Background Color.
 			$box_bg_color                    = astra_get_option( 'site-layout-outside-bg-color' );
@@ -107,8 +107,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( empty( $btn_text_hover_color ) ) {
 				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
-			$btn_bg_color       = astra_get_option( 'button-bg-color', '', $link_color );
-			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', '', $link_hover_color );
+			$btn_bg_color       = astra_get_option( 'button-bg-color', $link_color );
+			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 
 			// Spacing of Big Footer.
 			$small_footer_divider_color = astra_get_option( 'footer-sml-divider-color' );
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Small Footer Styling
 			 */
-			$small_footer_layout  = astra_get_option( 'footer-sml-layout', '', 'footer-sml-layout-1' );
+			$small_footer_layout  = astra_get_option( 'footer-sml-layout', 'footer-sml-layout-1' );
 			$astra_footer_width             = astra_get_option( 'footer-layout-width' );
 
 			// Blog Post Title Typography Options.
