@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[link-color]', array(
 		'section'     => 'section-colors-body',
 		'priority'    => 10,
-		'label'       => __( 'Link Color / Theme Color', 'astra' ),
+		'label'       => __( 'Theme Color / Link Color', 'astra' ),
 	) ) );
 
 	/**
