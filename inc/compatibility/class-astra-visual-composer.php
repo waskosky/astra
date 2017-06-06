@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'vc_before_init', 	array( $this, 'vc_set_as_theme' ) );
+			add_action( 'vc_before_init',   array( $this, 'vc_set_as_theme' ) );
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 			add_filter( 'astra_get_content_layout', 	array( $this, 'vc_content_layout' ), 20 );
 
