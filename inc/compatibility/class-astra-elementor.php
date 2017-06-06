@@ -45,8 +45,8 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', 		array( $this, 'add_styles' ) );
-			add_filter( 'astra_get_content_layout', array( $this, 'elementor_content_layout' ), 20 );
+			add_filter( 'astra_theme_assets', 	array( $this, 'add_styles' ) );
+			add_action( 'wp', 					array( $this, 'elementor_default_setting' ), 20 );
 		}
 
 		/**
@@ -68,18 +68,18 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @return string
 		 * @since  1.0.2
 		 */
-		function elementor_content_layout( $layout ) {
-
+		function elementor_default_setting() {
+			
 			$id = astra_get_post_id();
 
 			if ( is_singular() && 'builder' === Plugin::$instance->db->get_edit_mode( $id ) ) {
 
-				$page_builder_flag = get_post_meta( $id, 'astra-content-layout-flag', true );
-
+				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
 				if ( empty( $page_builder_flag ) ) {
 
-					update_post_meta( $id, 'astra-content-layout-flag', 'disabled' );
+					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
+					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 
 					$content_layout = get_post_meta( $id, 'site-content-layout', true );
 					if ( empty( $content_layout ) || 'default' == $content_layout ) {
@@ -92,8 +92,6 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					}
 				}
 			}
-
-			return $layout;
 		}
 
 	}

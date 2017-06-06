@@ -855,30 +855,6 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }// End if().
 
-add_filter( 'astra_the_title_enabled', 'page_builder_disable_title', 12 );
-
-/**
- * Disbale title for Page Builder template
- */
-if ( ! function_exists( 'page_builder_disable_title' ) ) {
-
-	/**
-	 * Disbale title for Page Builder template
-	 *
-	 * @since 1.0.0
-	 * @param boolean $default  Title enabled or not.
-	 * @return boolean          Title enable or disable.
-	 */
-	function page_builder_disable_title( $default ) {
-		$content_layout = astra_get_content_layout();
-
-		if ( 'page-builder' == $content_layout ) {
-			$default = false;
-		}
-		return $default;
-	}
-}
-
 /**
  * Display Blog Post Excerpt
  */
