@@ -60,8 +60,8 @@
 		) );
 
 		/**
-	 * Colors Panel
-	 */
+		 * Colors Panel
+		 */
 		$wp_customize->add_panel( 'panel-colors-background', array(
 			'priority' => 15,
 			'title'    => __( 'Colors & Background', 'astra' ),
@@ -74,8 +74,8 @@
 		) );
 
 		/**
-	 * Typography Panel
-	 */
+		 * Typography Panel
+		 */
 		$wp_customize->add_panel( 'panel-typography', array(
 			'priority' => 20,
 			'title'    => __( 'Typography', 'astra' ),
@@ -112,16 +112,16 @@
 		) );
 
 		/**
-	 * Advanced Panel
-	 */
-		$wp_customize->add_panel( 'panel-advanced', array(
+		 * Miscellaneous Panel
+		 */
+		$wp_customize->add_panel( 'panel-miscellaneous', array(
 			'priority' => 50,
-			'title' => __( 'Advanced', 'astra' ),
+			'title' => __( 'Miscellaneous', 'astra' ),
 		) );
 
-		$wp_customize->add_section( 'section-advanced-button', array(
+		$wp_customize->add_section( 'section-miscellaneous-button', array(
 			'title'    => __( 'Buttons', 'astra' ),
-			'panel'    => 'panel-advanced',
+			'panel'    => 'panel-miscellaneous',
 			'priority' => 5,
 		) );
 

@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[button-color]', array(
-		'section'     => 'section-advanced-button',
+		'section'     => 'section-miscellaneous-button',
 		'label'       => __( 'Button Color', 'astra' ),
 	) ) );
 
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[button-h-color]', array(
-		'section'     => 'section-advanced-button',
+		'section'     => 'section-miscellaneous-button',
 		'label'       => __( 'Button Hover Color', 'astra' ),
 	) ) );
 
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[button-bg-color]', array(
-		'section'     => 'section-advanced-button',
+		'section'     => 'section-miscellaneous-button',
 		'label'       => __( 'Button Background Color', 'astra' ),
 	) ) );
 
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[button-bg-h-color]', array(
-		'section'     => 'section-advanced-button',
+		'section'     => 'section-miscellaneous-button',
 		'label'       => __( 'Button Background Hover Color', 'astra' ),
 	) ) );
 
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[button-radius]', array(
-		'section'     => 'section-advanced-button',
+		'section'     => 'section-miscellaneous-button',
 		'label'       => __( 'Button Radius', 'astra' ),
 		'type'        => 'number',
 		'input_attrs' => array(
@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[button-v-padding]', array(
-		'section'     => 'section-advanced-button',
+		'section'     => 'section-miscellaneous-button',
 		'label'       => __( 'Vertical Padding', 'astra' ),
 		'type'        => 'number',
 		'input_attrs' => array(
@@ -115,7 +115,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[button-h-padding]', array(
-		'section'     => 'section-advanced-button',
+		'section'     => 'section-miscellaneous-button',
 		'label'       => __( 'Horizontal Padding', 'astra' ),
 		'type'        => 'number',
 		'input_attrs' => array(
