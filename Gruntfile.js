@@ -45,7 +45,6 @@ module.exports = function (grunt) {
                                 ],
                             dest: 'assets/css/unminified/site-compatible',
                             ext: '-rtl.css'
-
                         },
                     ]
               	}
@@ -160,15 +159,79 @@ module.exports = function (grunt) {
                     keepSpecialComments: 0
                 },
                 css: {
-                    files: [{ //.css to min.css
-                        expand: true,
-                        src: [
-                            '**/*.css'
-                        ],
-                        dest: 'assets/css/minified',
-                        cwd: 'assets/css/unminified',
-                        ext: '.min.css'
-                    }]
+                    files: [
+
+                    	// Generated '.min.css' files from '.css' files.
+                    	// NOTE: Avoided '-rtl.css' files.
+                    	{
+	                        expand: true,
+	                        src: [
+	                            '**/*.css',
+	                            '!**/*-rtl.css',
+	                        ],
+	                        dest: 'assets/css/minified',
+	                        cwd: 'assets/css/unminified',
+	                        ext: '.min.css'
+	                    },
+
+	                    // Generating RTL files from '/unminified/' into '/minified/'
+                    	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                    	{
+                    		src: 'assets/css/unminified/blog-layout-1-rtl.css',
+	                        dest: 'assets/css/minified/blog-layout-1.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/editor-style-rtl.css',
+	                        dest: 'assets/css/minified/editor-style.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/style-rtl.css',
+	                        dest: 'assets/css/minified/style.min-rtl.css',
+	                    },
+
+	                    // Generating RTL files from '/unminified/site-compatible/' into '/minified/site-compatible/'
+	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/bb-plugin-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/bb-plugin.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/bne-flyout-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/bne-flyout.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/contact-form-7-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/contact-form-7.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/cornerstone-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/cornerstone.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/elementor-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/elementor.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/gravity-forms-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/gravity-forms.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/lifter-lms-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/lifter-lms.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/site-origin-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/site-origin.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/vc-plugin-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/vc-plugin.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/woocommerce-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/woocommerce.min-rtl.css',
+	                    },
+                    ]
                 }
             },
 
