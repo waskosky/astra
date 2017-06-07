@@ -103,13 +103,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Astra_Control_Divider' );
 
 			/**
-			 * Get theme option default values
-			 *
-			 * @see Astra_Theme_Options::defaults()
-			 */
-			$defaults = Astra_Theme_Options::defaults();
-
-			/**
 			 * Helper files
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/customizer-controls.php';
