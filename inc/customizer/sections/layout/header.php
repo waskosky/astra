@@ -161,11 +161,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	/**
 	 * Option: Mobile Menu Label Divider
-	*/
+	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-header',
-		'priority' => 35,
+		'priority' => 55,
 		'settings' => array(),
 	) ) );
 
@@ -180,7 +180,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
 		'section'     => 'section-header',
-		'priority'    => 35,
+		'priority'    => 60,
 		'label'       => __( 'Menu Label on Small Devices', 'astra' ),
 		'type'        => 'text',
 	) );
@@ -196,7 +196,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
 		'type'        => 'select',
 		'section'     => 'section-header',
-		'priority'    => 35,
+		'priority'    => 65,
 		'label'       => __( 'Mobile Header Alignment', 'astra' ),
 		'choices'     => array(
 			'inline'    => __( 'Inline', 'astra' ),

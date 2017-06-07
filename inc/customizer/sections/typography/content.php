@@ -13,18 +13,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 	/**
-	 * Option: Heading <H1> Divider
+	 * Option: Heading 1 (H1) Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h1]', array(
 		'type'        => 'ast-divider',
 		'section'     => 'section-content-typo',
 		'priority'    => 4,
-		'label'       => __( 'Heading <H1>', 'astra' ),
+		'label'       => __( 'Heading 1 (H1)', 'astra' ),
 		'settings'    => array(),
 	) ) );
 
 	/**
-	 * Option: Heading <H1> Font Size
+	 * Option: Heading 1 (H1) Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h1]', array(
 		'default'           => astra_get_option( 'font-size-h1' ),
@@ -47,18 +47,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) ) );
 
 	/**
-	 * Option: Heading <H2> Divider
+	 * Option: Heading 2 (H2) Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h2]', array(
 		'type'        => 'ast-divider',
 		'section'     => 'section-content-typo',
 		'priority'    => 9,
-		'label'       => __( 'Heading <H2>', 'astra' ),
+		'label'       => __( 'Heading 2 (H2)', 'astra' ),
 		'settings'    => array(),
 	) ) );
 
 	/**
-	 * Option: Heading <H2> Font Size
+	 * Option: Heading 2 (H2) Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h2]', array(
 		'default'           => astra_get_option( 'font-size-h2' ),
@@ -81,18 +81,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) ) );
 
 	/**
-	 * Option: Heading <H3> Divider
+	 * Option: Heading 3 (H3) Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h3]', array(
 		'type'        => 'ast-divider',
 		'section'     => 'section-content-typo',
 		'priority'    => 14,
-		'label'       => __( 'Heading <H3>', 'astra' ),
+		'label'       => __( 'Heading 3 (H3)', 'astra' ),
 		'settings'    => array(),
 	) ) );
 
 	/**
-	 * Option: Heading <H3> Font Size
+	 * Option: Heading 3 (H3) Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h3]', array(
 		'default'           => astra_get_option( 'font-size-h3' ),
@@ -115,18 +115,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) ) );
 
 	/**
-	 * Option: Heading <H4> Divider
+	 * Option: Heading 4 (H4) Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h4]', array(
-		'label'    => __( 'Heading <H4>', 'astra' ),
-		'section'  => 'section-content-typo',
-		'type'     => 'ast-divider',
-		'priority' => 19,
-		'settings' => array(),
+		'label'       => __( 'Heading 4 (H4)', 'astra' ),
+		'section'     => 'section-content-typo',
+		'type'        => 'ast-divider',
+		'priority'    => 19,
+		'settings'    => array(),
 	) ) );
 
 	/**
-	 * Option: Heading <H4> Font Size
+	 * Option: Heading 4 (H4) Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h4]', array(
 		'default'           => astra_get_option( 'font-size-h4' ),
@@ -149,18 +149,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) ) );
 
 	/**
-	 * Option: Heading <H5> Divider
+	 * Option: Heading 5 (H5) Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h5]', array(
-		'type'     => 'ast-divider',
-		'section'  => 'section-content-typo',
-		'priority' => 24,
-		'label'    => __( 'Heading <H5>', 'astra' ),
-		'settings' => array(),
+		'type'        => 'ast-divider',
+		'section'     => 'section-content-typo',
+		'priority'    => 24,
+		'label'       => __( 'Heading 5 (H5)', 'astra' ),
+		'settings'    => array(),
 	) ) );
 
 	/**
-	 * Option: Heading <H5> Font Size
+	 * Option: Heading 5 (H5) Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h5]', array(
 		'default'           => astra_get_option( 'font-size-h5' ),
@@ -183,10 +183,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) ) );
 
 	/**
-	 * Option: Heading <H6> Divider
+	 * Option: Heading 6 (H6) Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h6]', array(
-		'label'       => __( 'Heading <H6>', 'astra' ),
+		'label'       => __( 'Heading 6 (H6)', 'astra' ),
 		'section'     => 'section-content-typo',
 		'type'        => 'ast-divider',
 		'priority'    => 29,
@@ -194,7 +194,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) ) );
 
 	/**
-	 * Option: Heading <H6> Font Size
+	 * Option: Heading 6 (H6) Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-h6]', array(
 		'default'           => astra_get_option( 'font-size-h6' ),

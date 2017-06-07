@@ -36,9 +36,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[link-color]', array(
-		'section'  => 'section-colors-body',
-		'priority' => 10,
-		'label'    => __( 'Link Color / Theme Color', 'astra' ),
+		'section'     => 'section-colors-body',
+		'priority'    => 10,
+		'label'       => __( 'Theme Color / Link Color', 'astra' ),
 	) ) );
 
 	/**
