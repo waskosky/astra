@@ -297,11 +297,16 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	/**
 	 * Return Theme options.
 	 *
-	 * @param  string $option  Option key.
-	 * @param  string $default Option default value.
-	 * @return string          Return option value.
+	 * @param  string $option  		Option key.
+	 * @param  string $default 		Option default value.
+	 * @param  string $deprecated 	Option default value.
+	 * @return string          		Return option value.
 	 */
-	function astra_get_option( $option, $default = '' ) {
+	function astra_get_option( $option, $default = '', $deprecated = '' ) {
+
+		if( $deprecated != '' ) {
+			$default = $deprecated;
+		}
 
 		$theme_options = Astra_Theme_Options::get_options();
 
