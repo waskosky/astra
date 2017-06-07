@@ -84,6 +84,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  number $val Customizer setting input number.
 		 * @return number        Return number.
+		 * @since  1.0.6
 		 */
 		static public function sanitize_spacing( $val ) {
 
