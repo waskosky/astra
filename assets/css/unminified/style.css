@@ -3006,6 +3006,10 @@ body {
   padding: 0 15px;
 }
 
+.site-branding {
+  line-height: 1;
+}
+
 .ast-menu-toggle {
   display: none;
   background: transparent;
