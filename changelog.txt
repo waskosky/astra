@@ -1,4 +1,6 @@
 v1.0.5.3 (unreleased)
+# Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
+# Enhancement: Combined JS files 'flexibility', 'navigation' and 'skip-link-focus-fix' files in style.js
 # Enhancement: Used astra_get_option() to set default customizer options instead of representative Astra_Theme_Options::defaults().
 # Fixed: RTL support for minified css files.
 # New: Typography option for Archive Summary Box.

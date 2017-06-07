@@ -91,14 +91,6 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/site-compatible',
                             ext: '.css'
                         },
-                        /* Blog Layouts */
-                        {
-                            expand: true,
-                            cwd: 'sass/site/blog/blog-layouts/blog-styles/',
-                            src: ['**.scss'],
-                            dest: 'assets/css/unminified',
-                            ext: '.css'
-                        },
                     ]
                 }
             },
@@ -132,15 +124,33 @@ module.exports = function (grunt) {
 
             uglify: {
                 js: {
-                    files: [{ // all .js to min.js
-                        expand: true,
-                        src: [
-                            '**.js'
-                        ],
-                        dest: 'assets/js/minified',
-                        cwd: 'assets/js/unminified',
-                        ext: '.min.js'
-                    }]
+                    files: [
+                    	{ // all .js to min.js
+	                        expand: true,
+	                        src: [
+	                            '**.js',
+	                        ],
+	                        dest: 'assets/js/minified',
+	                        cwd: 'assets/js/unminified',
+	                        ext: '.min.js'
+	                    },
+	                    {
+		                    src: [
+		                        'assets/js/minified/flexibility.min.js',
+		                    	'assets/js/minified/navigation.min.js',
+		                    	'assets/js/minified/skip-link-focus-fix.min.js',
+		                    ],
+		                    dest: 'assets/js/minified/style.min.js',
+		                },
+	                    {
+		                    src: [
+		                        'assets/js/unminified/flexibility.js',
+		                    	'assets/js/unminified/navigation.js',
+		                    	'assets/js/unminified/skip-link-focus-fix.js',
+		                    ],
+		                    dest: 'assets/js/unminified/style.js',
+		                },
+	               	]
                 }
             },
 
@@ -166,10 +176,6 @@ module.exports = function (grunt) {
 
 	                    // Generating RTL files from '/unminified/' into '/minified/'
                     	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
-                    	{
-                    		src: 'assets/css/unminified/blog-layout-1-rtl.css',
-	                        dest: 'assets/css/minified/blog-layout-1.min-rtl.css',
-	                    },
                     	{
                     		src: 'assets/css/unminified/editor-style-rtl.css',
 	                        dest: 'assets/css/minified/editor-style.min-rtl.css',
