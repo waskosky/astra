@@ -96,9 +96,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 			$wp_customize->register_control_type( 'Astra_Control_Sortable' );
 			$wp_customize->register_control_type( 'Astra_Control_Radio_Image' );
-			$wp_customize->register_control_type( 'Astra_Control_Toggle' );
 			$wp_customize->register_control_type( 'Astra_Control_Slider' );
 			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
+			$wp_customize->register_control_type( 'Astra_Control_Toggle' );
 			$wp_customize->register_control_type( 'Astra_Control_Spacing' );
 			$wp_customize->register_control_type( 'Astra_Control_Divider' );
 
