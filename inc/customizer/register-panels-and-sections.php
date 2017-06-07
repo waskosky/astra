@@ -38,7 +38,7 @@
 		$wp_customize->add_section( 'section-footer-small', array(
 			'title'    => __( 'Footer', 'astra' ),
 			'panel'    => 'panel-layout',
-			'priority' => 30,
+			'priority' => 60,
 		) );
 
 		$wp_customize->add_section( 'section-blog', array(
@@ -90,25 +90,25 @@
 		$wp_customize->add_section( 'section-content-typo', array(
 			'title'    => __( 'Content', 'astra' ),
 			'panel'    => 'panel-typography',
-			'priority' => 10,
+			'priority' => 35,
 		) );
 
 		$wp_customize->add_section( 'section-header-typo', array(
 			'title'    => __( 'Header', 'astra' ),
 			'panel'    => 'panel-typography',
-			'priority' => 15,
+			'priority' => 20,
 		) );
 
 		$wp_customize->add_section( 'section-archive-typo', array(
 			'title'    => __( 'Blog / Archive', 'astra' ),
 			'panel'    => 'panel-typography',
-			'priority' => 35,
+			'priority' => 40,
 		) );
 
 		$wp_customize->add_section( 'section-single-typo', array(
 			'title'    => __( 'Single Page / Post', 'astra' ),
 			'panel'    => 'panel-typography',
-			'priority' => 40,
+			'priority' => 45,
 		) );
 
 		/**
