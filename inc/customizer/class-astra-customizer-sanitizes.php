@@ -80,6 +80,22 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize Spacing
+		 *
+		 * @param  number $val Customizer setting input number.
+		 * @return number        Return number.
+		 * @since  1.0.6
+		 */
+		static public function sanitize_spacing( $val ) {
+
+			foreach ( $val as $key => $value ) {
+				$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
+			}
+
+			return $val;
+		}
+
+		/**
 		 * Sanitize Responsive Typography
 		 *
 		 * @param  number $val Customizer setting input number.
@@ -224,8 +240,8 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize html
 		 *
-		 * @param  string $input 	setting input.
-		 * @return mixed        	setting input value.
+		 * @param  string $input    setting input.
+		 * @return mixed            setting input value.
 		 */
 		static public function sanitize_html( $input ) {
 			return wp_kses_post( $input );
@@ -234,9 +250,9 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Select choices
 		 *
-		 * @param  string $input 	setting input.
-		 * @param  object $setting 	setting object.
-		 * @return mixed        	setting input value.
+		 * @param  string $input    setting input.
+		 * @param  object $setting  setting object.
+		 * @return mixed            setting input value.
 		 */
 		static public function sanitize_multi_choices( $input, $setting ) {
 
@@ -259,9 +275,9 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Select choices
 		 *
-		 * @param  string $input 	setting input.
-		 * @param  object $setting 	setting object.
-		 * @return mixed        	setting input value.
+		 * @param  string $input    setting input.
+		 * @param  object $setting  setting object.
+		 * @return mixed            setting input value.
 		 */
 		static public function sanitize_choices( $input, $setting ) {
 

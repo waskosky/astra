@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post Content
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
-		'default'           => $defaults['blog-post-content'],
+		'default'           => astra_get_option( 'blog-post-content' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
-		'section'     => 'section-blog',
-		'label'       => __( 'Blog Post Content', 'astra' ),
-		'type'        => 'select',
-		'priority'	  => 3,
-		'choices'     => array(
+		'section'  => 'section-blog',
+		'label'    => __( 'Blog Post Content', 'astra' ),
+		'type'     => 'select',
+		'priority' => 3,
+		'choices'  => array(
 			'full-content' => __( 'Full Content', 'astra' ),
 			'excerpt'      => __( 'Excerpt', 'astra' ),
 		),
@@ -36,21 +36,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Post Meta
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-meta]', array(
-		'default'           => $defaults['blog-meta'],
+		'default'           => astra_get_option( 'blog-meta' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Sortable( $wp_customize, ASTRA_THEME_SETTINGS . '[blog-meta]', array(
-		'type'        => 'ast-sortable',
-		'section'     => 'section-blog',
-		'priority'    => 5,
-		'label'       => __( 'Blog Meta', 'astra' ),
-		'choices'     => array(
-			'comments'	=> __( 'Comments', 'astra' ),
-			'category'	=> __( 'Category', 'astra' ),
-			'author'	=> __( 'Author', 'astra' ),
-			'date'		=> __( 'Publish Date', 'astra' ),
-			'tag'		=> __( 'Tag', 'astra' ),
+		'type'     => 'ast-sortable',
+		'section'  => 'section-blog',
+		'priority' => 5,
+		'label'    => __( 'Blog Meta', 'astra' ),
+		'choices'  => array(
+			'comments' => __( 'Comments', 'astra' ),
+			'category' => __( 'Category', 'astra' ),
+			'author'   => __( 'Author', 'astra' ),
+			'date'     => __( 'Publish Date', 'astra' ),
+			'tag'      => __( 'Tag', 'astra' ),
 		),
 	) ) );
 
@@ -68,16 +68,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Content Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-width]', array(
-		'default'           => $defaults['blog-width'],
+		'default'           => astra_get_option( 'blog-width' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[blog-width]', array(
-		'type'        => 'select',
-		'section'     => 'section-blog',
-		'priority'    => 15,
-		'label'       => __( 'Blog Content Width', 'astra' ),
-		'choices'     => array(
+		'type'     => 'select',
+		'section'  => 'section-blog',
+		'priority' => 15,
+		'label'    => __( 'Blog Content Width', 'astra' ),
+		'choices'  => array(
 			'default' => __( 'Default', 'astra' ),
 			'custom'  => __( 'Custom', 'astra' ),
 		),
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Enter Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
-		'default'           => $defaults['blog-max-width'],
+		'default'           => astra_get_option( 'blog-max-width' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
@@ -99,8 +99,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'label'       => __( 'Enter Width', 'astra' ),
 		'suffix'      => '',
 		'input_attrs' => array(
-			'min'    => 768,
-			'step'   => 1,
-			'max'    => 1920,
+			'min'  => 768,
+			'step' => 1,
+			'max'  => 1920,
 		),
 	) ) );

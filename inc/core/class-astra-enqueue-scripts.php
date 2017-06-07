@@ -44,8 +44,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'astra_get_fonts',      array( $this, 'add_fonts' ), 1 );
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'astra_get_fonts',    		array( $this, 'add_fonts' ), 1 );
+			add_action( 'wp_enqueue_scripts', 		array( $this, 'enqueue_scripts' ), 1 );
 
 		}
 
@@ -60,9 +60,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 				// handle => location ( in /assets/js/ ) ( without .js ext).
 				'js' => array(
-					'astra-flexibility'         => 'flexibility',
-					'astra-navigation'          => 'navigation',
-					'astra-skip-link-focus-fix' => 'skip-link-focus-fix',
+					'astra-theme-js' => 'style',
 				),
 
 				// handle => location ( in /assets/css/ ) ( without .css ext).
@@ -70,11 +68,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					'astra-theme-css' => 'style',
 				),
 			);
-
-			$blog_layout = apply_filters( 'astra_theme_blog_layout', 'blog-layout-1' );
-			if ( 'blog-layout-1' == $blog_layout ) {
-				$default_assets['css']['astra-blog-layout'] = 'blog-layout-1';
-			}
 
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
@@ -101,11 +94,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			$js_uri  = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
-
-			// It always enqueued by default.
-			// Register & Enqueue.
-			wp_register_style( 'astra-fonts', $css_uri . 'astra-fonts' . $file_prefix . '.css', array(), ASTRA_THEME_VERSION, 'all' );
-			wp_enqueue_style( 'astra-fonts' );
 
 			// All assets.
 			$all_assets = self::theme_assets();
@@ -149,16 +137,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_add_inline_style( 'astra-theme-css', apply_filters( 'astra_dynamic_css', Astra_Dynamic_CSS::return_output() ) );
 			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
 
-			/**
-			 * Inline scripts
-			 */
-			wp_script_add_data( 'astra-flexibility', 'conditional', 'lt IE 9' );
-
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(), 	// Header Break Point.
+				'break_point' => astra_header_break_point(),    // Header Break Point.
 			);
 
-			wp_localize_script( 'astra-navigation', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 
 			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -50,45 +50,6 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 }
 
 /**
- * Retrieve theme or meta options subkey value.
- */
-if ( ! function_exists( 'astra_get_option_subkey' ) ) {
-
-	/**
-	 * Retrieve theme or meta options subkey value.
-	 *
-	 * @since 1.0.0
-	 * @param  string $result_key Return sub key.
-	 * @param  string $subkeys   Subkey value.
-	 * @param  string $default   Return default value if not found.
-	 * @return mixed             Depending on the output type of the field used.
-	 */
-	function astra_get_option_subkey( $result_key, $subkeys = '', $default = '' ) {
-
-		if ( isset( $result_key ) && '' != $result_key ) {
-			$count = count( $subkeys );
-			if ( 1 == $count ) {
-				$value = ( isset( $result_key[ $subkeys[1] ] ) && '' !== $result_key[ $subkeys[1] ] ) ? $result_key[ $subkeys[1] ] : $default;
-			} elseif ( 2 == $count ) {
-				if ( isset( $result_key[ $subkeys[1] ] ) ) {
-					$value = ( isset( $result_key[ $subkeys[1] ][ $subkeys[2] ] ) && '' !== $result_key[ $subkeys[1] ][ $subkeys[2] ] ) ? $result_key[ $subkeys[1] ][ $subkeys[2] ] : $default;
-				}
-			} elseif ( 3 == $count ) {
-				if ( isset( $result_key[ $subkeys[1] ] ) ) {
-					if ( isset( $result_key[ $subkeys[1] ][ $subkeys[2] ] ) ) {
-						$value = ( isset( $result_key[ $subkeys[1] ][ $subkeys[2] ][ $subkeys[3] ] ) && '' !== $result_key[ $subkeys[1] ][ $subkeys[2] ][ $subkeys[3] ] ) ? $result_key[ $subkeys[1] ][ $subkeys[2] ][ $subkeys[3] ] : $default;
-					}
-				}
-			}
-		} else {
-			$value = ( isset( $result_key ) && '' !== $result_key ) ? $result_key : $default;
-		}
-
-		return $value;
-	}
-}
-
-/**
  * Generate CSS
  */
 if ( ! function_exists( 'astra_css' ) ) {
@@ -132,22 +93,22 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 	 *
 	 * Syntax:
 	 *
-	 * 	astra_get_font_css_value( VALUE, DEVICE, UNIT );
+	 *  astra_get_font_css_value( VALUE, DEVICE, UNIT );
 	 *
 	 * E.g.
 	 *
-	 * 	astra_get_css_value( VALUE, 'desktop', '%' );
+	 *  astra_get_css_value( VALUE, 'desktop', '%' );
 	 *  astra_get_css_value( VALUE, 'tablet' );
 	 *  astra_get_css_value( VALUE, 'mobile' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
-	 * @param  string $device 		CSS device.
-	 * @return mixed               	CSS value depends on $unit & $device
+	 * @param  string $device       CSS device.
+	 * @return mixed                CSS value depends on $unit & $device
 	 */
 	function astra_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
 
-		// If value is empty of 0 then return blank.
+		// If value is empty or 0 then return blank.
 		if ( '' == $value || 0 == $value ) {
 			return '';
 		}
@@ -191,22 +152,22 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 	 *
 	 * Syntax:
 	 *
-	 * 	astra_get_css_value( VALUE, UNIT );
+	 *  astra_get_css_value( VALUE, UNIT );
 	 *
 	 * E.g.
 	 *
-	 * 	astra_get_css_value( VALUE, 'url' );
+	 *  astra_get_css_value( VALUE, 'url' );
 	 *  astra_get_css_value( VALUE, 'px' );
 	 *  astra_get_css_value( VALUE, 'em' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
-	 * @param  string $default_font CSS default font.
+	 * @param  string $default      CSS default font.
 	 * @return mixed               CSS value depends on $unit
 	 */
-	function astra_get_css_value( $value = '', $unit = 'px', $default_font = '' ) {
+	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
-		if ( '' == $value ) {
+		if ( '' == $value &&  '' == $default ) {
 			return $value;
 		}
 
@@ -218,14 +179,15 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 				if ( 'inherit' != $value ) {
 					$css_val = esc_attr( $value );
-				} elseif ( '' != $default_font ) {
-					$css_val = esc_attr( $default_font );
+				} elseif ( '' != $default ) {
+					$css_val = esc_attr( $default );
 				}
 
 				break;
 
 			case 'px':
 			case '%' :
+						$value = ( '' != $value ) ? $value : $default;
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
@@ -250,6 +212,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				break;
 
 			default:
+				$value = ( '' != $value ) ? $value : $default;
 				if ( '' != $value ) {
 					$css_val = esc_attr( $value ) . $unit;
 				}
@@ -334,20 +297,20 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	/**
 	 * Return Theme options.
 	 *
-	 * @param  string $option  Option key.
-	 * @param  string $subkeys Option subkey.
-	 * @param  string $default Option default value.
-	 * @return string          Return option value.
+	 * @param  string $option  		Option key.
+	 * @param  string $default 		Option default value.
+	 * @param  string $deprecated 	Option default value.
+	 * @return string          		Return option value.
 	 */
-	function astra_get_option( $option, $subkeys = '', $default = '' ) {
+	function astra_get_option( $option, $default = '', $deprecated = '' ) {
+
+		if ( '' != $deprecated ) {
+			$default = $deprecated;
+		}
 
 		$theme_options = Astra_Theme_Options::get_options();
 
-		if ( ! empty( $subkeys ) && is_array( $subkeys ) && isset( $theme_options[ $option ] ) ) {
-			$value = astra_get_option_subkey( $theme_options[ $option ], $subkeys, $default );
-		} else {
-			$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-		}
+		$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
 
 		return $value;
 	}
@@ -362,18 +325,17 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 	 * Return Theme options from postmeta.
 	 *
 	 * @param  string  $option_id Option ID.
-	 * @param  string  $subkeys   Option subkey value.
 	 * @param  string  $default   Option default value.
 	 * @param  boolean $only_meta Get only meta value.
 	 * @param  string  $extension Is value from extension.
 	 * @param  string  $post_id   Get value from specific post by post ID.
 	 * @return string             Return option value.
 	 */
-	function astra_get_option_meta( $option_id, $subkeys = '', $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
+	function astra_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
 
 		$post_id = ( '' != $post_id ) ? $post_id : astra_get_post_id();
 
-		$value = astra_get_option( $option_id, $subkeys, $default );
+		$value = astra_get_option( $option_id, $default );
 
 		// Get value from option 'post-meta'.
 		if ( is_singular() || ( is_home() && ! is_front_page() ) ) {
@@ -386,7 +348,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 					return false;
 				}
 
-				$value = astra_get_option( $option_id, $subkeys, $default );
+				$value = astra_get_option( $option_id, $default );
 			}
 		}
 
@@ -753,9 +715,9 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 		$hex = str_replace( '#','',$hex );
 
 		$shortcode_atts = array(
-				'r' => hexdec( substr( $hex,0,2 ) ),
-				'g' => hexdec( substr( $hex,2,2 ) ),
-				'b' => hexdec( substr( $hex,4,2 ) ),
+			'r' => hexdec( substr( $hex,0,2 ) ),
+			'g' => hexdec( substr( $hex,2,2 ) ),
+			'b' => hexdec( substr( $hex,4,2 ) ),
 		);
 
 		// Should we darken the color?

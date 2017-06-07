@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.5.1\n"
+"Project-Id-Version: Astra 1.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-05-29 10:58:29+00:00\n"
+"POT-Creation-Date: 2017-06-07 13:39:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/blog/blog-config.php:194
+#: inc/blog/blog-config.php:151
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:269 inc/blog/blog-config.php:302
+#: inc/blog/blog-config.php:226 inc/blog/blog-config.php:258
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
@@ -136,19 +136,19 @@ msgid "Astra"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:118
-msgid "General Settings"
+msgid "Welcome"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:226
 msgid "Settings saved successfully."
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:105
-#: inc/core/class-astra-theme-options.php:107
+#: inc/core/class-astra-theme-options.php:102
+#: inc/core/class-astra-theme-options.php:104
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:119
+#: inc/core/class-astra-theme-options.php:116
 msgid "Contact Us"
 msgstr ""
 
@@ -276,7 +276,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:635 inc/core/common-functions.php:714
+#: inc/core/common-functions.php:597 inc/core/common-functions.php:676
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -300,11 +300,11 @@ msgid "Customize"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-partials.php:107
-#: inc/customizer/class-astra-customizer-partials.php:126 inc/extras.php:316
+#: inc/customizer/class-astra-customizer-partials.php:126 inc/extras.php:319
 msgid "Y"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-sanitizes.php:120
+#: inc/customizer/class-astra-customizer-sanitizes.php:136
 msgid "Enter valid email address!"
 msgstr ""
 
@@ -367,7 +367,7 @@ msgid "Single Page / Post"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:119
-msgid "Advanced"
+msgid "Miscellaneous"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:123
@@ -411,7 +411,7 @@ msgid "Text Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:41
-msgid "Link Color / Theme Color"
+msgid "Theme Color / Link Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:55
@@ -721,10 +721,11 @@ msgid "Display Site Tagline"
 msgstr ""
 
 #: inc/customizer/sections/typography/archive.php:23
-msgid "Blog Post Title"
+msgid "Archive Summary Box Title"
 msgstr ""
 
-#: inc/customizer/sections/typography/archive.php:40
+#: inc/customizer/sections/typography/archive.php:39
+#: inc/customizer/sections/typography/archive.php:73
 #: inc/customizer/sections/typography/body.php:84
 #: inc/customizer/sections/typography/content.php:39
 #: inc/customizer/sections/typography/content.php:73
@@ -736,6 +737,10 @@ msgstr ""
 #: inc/customizer/sections/typography/header.php:74
 #: inc/customizer/sections/typography/single.php:40
 msgid "Font Size"
+msgstr ""
+
+#: inc/customizer/sections/typography/archive.php:56
+msgid "Blog Post Title"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:29
@@ -771,27 +776,27 @@ msgid "Line Height"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:22
-msgid "Heading <H1>"
+msgid "Heading 1 (H1)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:56
-msgid "Heading <H2>"
+msgid "Heading 2 (H2)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:90
-msgid "Heading <H3>"
+msgid "Heading 3 (H3)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:121
-msgid "Heading <H4>"
+msgid "Heading 4 (H4)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:158
-msgid "Heading <H5>"
+msgid "Heading 5 (H5)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:189
-msgid "Heading <H6>"
+msgid "Heading 6 (H6)"
 msgstr ""
 
 #: inc/customizer/sections/typography/header.php:23
@@ -806,19 +811,19 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:252
+#: inc/extras.php:255
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:365
+#: inc/extras.php:368
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:509
+#: inc/extras.php:512
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:919
+#: inc/extras.php:922
 msgid "Add Widget"
 msgstr ""
 
@@ -875,8 +880,25 @@ msgstr ""
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
+#. Theme URI of the plugin/theme
+msgid "http://wpastra.com/"
+msgstr ""
+
 #. Description of the plugin/theme
-msgid "A very lightweight and beautiful theme made to work with Page Builders."
+msgid ""
+"Astra is the fastest, fully customizable & beautiful theme suitable for "
+"blogs, personal portfolios and business websites. It is very lightweight "
+"(less than 50KB on frontend) and offers unparalleled speed. Built with SEO "
+"in mind, Astra comes with schema.org code integrated so search engines will "
+"love your site. Astra offers plenty of sidebar options and widget areas "
+"giving you a full control for customizations. Furthermore, we have included "
+"special features and templates so feel free to choose any of your favorite "
+"page builder plugin to create pages flexibly. Some of the other features: # "
+"WooCommerce Ready # Responsive # Compatible with major plugins # "
+"Translation Ready # Extendible with premium addons # Regularly updated # "
+"Designed, Developed, Maintained & Supported by Brainstorm Force. Looking "
+"for a perfect base theme? Look no further. Astra is fast, fully "
+"customizable and beautiful theme!"
 msgstr ""
 
 #. Author of the plugin/theme
@@ -884,7 +906,7 @@ msgid "Brainstorm Force"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://wpastra.com/"
+msgid "http://wpastra.com/about/"
 msgstr ""
 
 #: comments.php:36
@@ -894,33 +916,3 @@ msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
-
-#: inc/blog/blog-config.php:94 inc/blog/blog-config.php:134
-#. translators: 1: post date
-msgctxt "post date"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:161
-#. translators: 1: post author
-msgctxt "post author"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:193
-#. translators: 1: post link
-msgctxt "post link"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:273
-#. translators: 1: post tags
-msgctxt "post tags"
-msgid "%1$s "
-msgstr ""
-
-#: inc/blog/blog-config.php:307
-#. translators: 1: post tags
-msgctxt "post categories"
-msgid "%1$s "
-msgstr ""

@@ -108,13 +108,16 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 * @return void            Generate & echo pagination markup.
 	 */
 	function astra_number_pagination() {
+		global $numpages;
 
-		echo "<div class='ast-pagination'>";
-		the_posts_pagination( array(
-			'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
-			'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
-		) );
-		echo '</div>';
+		if ( isset( $numpages ) ) {
+			echo "<div class='ast-pagination'>";
+			the_posts_pagination( array(
+				'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
+				'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
+			) );
+			echo '</div>';
+		}
 	}
 }// End if().
 
@@ -565,7 +568,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		$break_point = apply_filters( 'astra_header_break_point', 920 );
+		$break_point = apply_filters( 'astra_header_break_point', 921 );
 		return absint( $break_point );
 	}
 }
@@ -820,31 +823,31 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 			// If post meta value is empty,
 			// Then get the POST_TYPE content layout.
-			$content_layout = astra_get_option_meta( 'site-content-layout', '', '', true );
+			$content_layout = astra_get_option_meta( 'site-content-layout', '', true );
 
 			if ( empty( $content_layout ) ) {
 
-				$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout', '', '' );
+				$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
 					// Get the GLOBAL content layout value.
 					// NOTE: Here not used `true` in the below function call.
-					$content_layout = astra_get_option( 'site-content-layout', '', 'full-width' );
+					$content_layout = astra_get_option( 'site-content-layout', 'full-width' );
 				}
 			}
 		} else {
 
-			$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout', '', '' );
+			$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
 			if ( is_search() ) {
-				$content_layout = astra_get_option( 'archive-post-content-layout', '', '' );
+				$content_layout = astra_get_option( 'archive-post-content-layout' );
 			}
 
 			if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
-				$content_layout = astra_get_option( 'site-content-layout', '', 'full-width' );
+				$content_layout = astra_get_option( 'site-content-layout', 'full-width' );
 			}
 		}
 

@@ -45,7 +45,6 @@ module.exports = function (grunt) {
                                 ],
                             dest: 'assets/css/unminified/site-compatible',
                             ext: '-rtl.css'
-
                         },
                     ]
               	}
@@ -68,12 +67,12 @@ module.exports = function (grunt) {
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
                             'inc/customizer/custom-controls/responsive/responsive.css': 'inc/customizer/custom-controls/responsive/responsive.scss',
+                            'inc/customizer/custom-controls/toggle/toggle.css': 'inc/customizer/custom-controls/toggle/toggle.scss',
                             'inc/customizer/custom-controls/divider/divider.css': 'inc/customizer/custom-controls/divider/divider.scss',
                             'inc/customizer/custom-controls/radio-image/radio-image.css': 'inc/customizer/custom-controls/radio-image/radio-image.scss',
                             'inc/customizer/custom-controls/slider/slider.css': 'inc/customizer/custom-controls/slider/slider.scss',
                             'inc/customizer/custom-controls/sortable/sortable.css': 'inc/customizer/custom-controls/sortable/sortable.scss',
                             'inc/customizer/custom-controls/spacing/spacing.css': 'inc/customizer/custom-controls/spacing/spacing.scss',
-                            'inc/customizer/custom-controls/toggle/toggle.css': 'inc/customizer/custom-controls/toggle/toggle.scss',
                         },
 
                         /* Common Style */
@@ -90,14 +89,6 @@ module.exports = function (grunt) {
                             cwd: 'sass/site/site-compatible/',
                             src: ['**.scss'],
                             dest: 'assets/css/unminified/site-compatible',
-                            ext: '.css'
-                        },
-                        /* Blog Layouts */
-                        {
-                            expand: true,
-                            cwd: 'sass/site/blog/blog-layouts/blog-styles/',
-                            src: ['**.scss'],
-                            dest: 'assets/css/unminified',
                             ext: '.css'
                         },
                     ]
@@ -133,15 +124,33 @@ module.exports = function (grunt) {
 
             uglify: {
                 js: {
-                    files: [{ // all .js to min.js
-                        expand: true,
-                        src: [
-                            '**.js'
-                        ],
-                        dest: 'assets/js/minified',
-                        cwd: 'assets/js/unminified',
-                        ext: '.min.js'
-                    }]
+                    files: [
+                    	{ // all .js to min.js
+	                        expand: true,
+	                        src: [
+	                            '**.js',
+	                        ],
+	                        dest: 'assets/js/minified',
+	                        cwd: 'assets/js/unminified',
+	                        ext: '.min.js'
+	                    },
+	                    {
+		                    src: [
+		                        'assets/js/minified/flexibility.min.js',
+		                    	'assets/js/minified/navigation.min.js',
+		                    	'assets/js/minified/skip-link-focus-fix.min.js',
+		                    ],
+		                    dest: 'assets/js/minified/style.min.js',
+		                },
+	                    {
+		                    src: [
+		                        'assets/js/unminified/flexibility.js',
+		                    	'assets/js/unminified/navigation.js',
+		                    	'assets/js/unminified/skip-link-focus-fix.js',
+		                    ],
+		                    dest: 'assets/js/unminified/style.js',
+		                },
+	               	]
                 }
             },
 
@@ -150,15 +159,75 @@ module.exports = function (grunt) {
                     keepSpecialComments: 0
                 },
                 css: {
-                    files: [{ //.css to min.css
-                        expand: true,
-                        src: [
-                            '**/*.css'
-                        ],
-                        dest: 'assets/css/minified',
-                        cwd: 'assets/css/unminified',
-                        ext: '.min.css'
-                    }]
+                    files: [
+
+                    	// Generated '.min.css' files from '.css' files.
+                    	// NOTE: Avoided '-rtl.css' files.
+                    	{
+	                        expand: true,
+	                        src: [
+	                            '**/*.css',
+	                            '!**/*-rtl.css',
+	                        ],
+	                        dest: 'assets/css/minified',
+	                        cwd: 'assets/css/unminified',
+	                        ext: '.min.css'
+	                    },
+
+	                    // Generating RTL files from '/unminified/' into '/minified/'
+                    	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                    	{
+                    		src: 'assets/css/unminified/editor-style-rtl.css',
+	                        dest: 'assets/css/minified/editor-style.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/style-rtl.css',
+	                        dest: 'assets/css/minified/style.min-rtl.css',
+	                    },
+
+	                    // Generating RTL files from '/unminified/site-compatible/' into '/minified/site-compatible/'
+	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/bb-plugin-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/bb-plugin.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/bne-flyout-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/bne-flyout.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/contact-form-7-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/contact-form-7.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/cornerstone-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/cornerstone.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/elementor-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/elementor.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/gravity-forms-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/gravity-forms.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/lifter-lms-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/lifter-lms.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/site-origin-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/site-origin.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/vc-plugin-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/vc-plugin.min-rtl.css',
+	                    },
+                    	{
+                    		src: 'assets/css/unminified/site-compatible/woocommerce-rtl.css',
+	                        dest: 'assets/css/minified/site-compatible/woocommerce.min-rtl.css',
+	                    },
+                    ]
                 }
             },
 

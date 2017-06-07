@@ -74,8 +74,8 @@ function astra_responsive_font_size( control, selector ) {
 				jQuery( 'head' ).append(
 					'<style id="' + control + '">'
 					+ selector + '	{ ' + fontSize + ' }'
-					+ '@media (max-width: 767px) {' + selector + '	{ ' + TabletFontSize + ' } }'
-					+ '@media (max-width: 543px) {' + selector + '	{ ' + MobileFontSize + ' } }'
+					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
+					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileFontSize + ' } }'
 					+ '</style>'
 				);
 
@@ -121,8 +121,8 @@ function astra_responsive_line_height( control, selector ) {
 				jQuery( 'head' ).append(
 					'<style id="' + control + '">'
 					+ selector + '	{ ' + LineHeight + ' }'
-					+ '@media (max-width: 767px) {' + selector + '	{ ' + TabletLineHeight + ' } }'
-					+ '@media (max-width: 543px) {' + selector + '	{ ' + MobileLineHeight + ' } }'
+					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletLineHeight + ' } }'
+					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileLineHeight + ' } }'
 					+ '</style>'
 				);
 
@@ -312,7 +312,7 @@ function astra_add_dynamic_css( control, style ) {
 	wp.customize( 'astra-settings[blog-max-width]', function( setting ) {
 		setting.bind( function( width ) {
 
-			var dynamicStyle = '@media all and ( min-width: 920px ) {';
+			var dynamicStyle = '@media all and ( min-width: 921px ) {';
 
 			dynamicStyle += '.blog .site-content > .ast-container,.archive .site-content > .ast-container{ max-width: ' + (  parseInt( width ) ) + 'px } ';
 
@@ -331,7 +331,7 @@ function astra_add_dynamic_css( control, style ) {
 	wp.customize( 'astra-settings[blog-single-max-width]', function( setting ) {
 		setting.bind( function( width ) {
 
-				var dynamicStyle = '@media all and ( min-width: 920px ) {';
+				var dynamicStyle = '@media all and ( min-width: 921px ) {';
 
 				dynamicStyle += '.single-post .site-content > .ast-container{ max-width: ' + ( 40 + parseInt( width ) ) + 'px } ';
 
@@ -352,7 +352,7 @@ function astra_add_dynamic_css( control, style ) {
 
 			if ( ! jQuery( 'body' ).hasClass( 'ast-no-sidebar' ) && width >= 15 && width <= 50 ) {
 
-				var dynamicStyle = '@media (min-width: 768px) {';
+				var dynamicStyle = '@media (min-width: 769px) {';
 
 				dynamicStyle += '#primary { width: ' + ( 100 - parseInt( width ) ) + '% } ';
 				dynamicStyle += '#secondary { width: ' + width + '% } ';
@@ -475,6 +475,7 @@ function astra_add_dynamic_css( control, style ) {
 	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );
 	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
+	astra_responsive_font_size( 'astra-settings[font-size-archive-summary-title]', '.ast-archive-description .ast-archive-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a' );
 	astra_responsive_font_size( 'astra-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a' );

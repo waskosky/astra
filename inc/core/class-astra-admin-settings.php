@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function init_admin_settings() {
 
-			self::$menu_page_title	= apply_filters( 'astra_menu_page_title', __( 'Astra' , 'astra' ) );
+			self::$menu_page_title  = apply_filters( 'astra_menu_page_title', __( 'Astra' , 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -115,9 +115,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				$actions = array(
 					'general'          => array(
-											'label'	=> __( 'General Settings', 'astra' ),
-											'show'	=> ! is_network_admin(),
-										),
+						'label' => __( 'Welcome', 'astra' ),
+						'show'  => ! is_network_admin(),
+					),
 				);
 				self::$view_actions = apply_filters( 'astra_menu_options', $actions );
 			}
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			add_theme_page( $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
 		}
 
 		/**
