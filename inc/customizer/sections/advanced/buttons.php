@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-color]', array(
-		'default'           => $defaults['button-color'],
+		'default'           => astra_get_option( 'button-color' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Hover Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-h-color]', array(
-		'default'           => $defaults['button-h-color'],
+		'default'           => astra_get_option( 'button-h-color' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Background Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-bg-color]', array(
-		'default'           => $defaults['button-bg-color'],
+		'default'           => astra_get_option( 'button-bg-color' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Background Hover Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-bg-h-color]', array(
-		'default'           => $defaults['button-bg-h-color'],
+		'default'           => astra_get_option( 'button-bg-h-color' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Radius
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-radius]', array(
-		'default'           => $defaults['button-radius'],
+		'default'           => astra_get_option( 'button-radius' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
@@ -89,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Vertical Padding
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-v-padding]', array(
-		'default'           => $defaults['button-v-padding'],
+		'default'           => astra_get_option( 'button-v-padding' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Horizontal Padding
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-h-padding]', array(
-		'default'           => $defaults['button-h-padding'],
+		'default'           => astra_get_option( 'button-h-padding' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),

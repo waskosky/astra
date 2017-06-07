@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Title
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[display-site-title]', array(
-		'default'           => $defaults['display-site-title'],
+		'default'           => astra_get_option( 'display-site-title' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	) );
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Tagline
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[display-site-tagline]', array(
-		'default'           => $defaults['display-site-tagline'],
+		'default'           => astra_get_option( 'display-site-tagline' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		'priority'          => 5,

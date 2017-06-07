@@ -1,4 +1,5 @@
 v1.0.5.3 (unreleased)
+# Enhancement: Used astra_get_option() to set default customizer options instead of representative Astra_Theme_Options::defaults().
 # Fixed: RTL support for minified css files.
 # New: Typography option for Archive Summary Box.
 # Enhancement: Updated default heading font-size support for small devices.
