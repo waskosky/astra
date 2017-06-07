@@ -1,7 +1,5 @@
-{DEV}
+v1.0.5.3 (unreleased)
 # Fixed: RTL support for minified css files.
-
-v1.0.5.3
 # New: Typography option for Archive Summary Box.
 # Enhancement: Updated default heading font-size support for small devices.
 
