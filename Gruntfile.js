@@ -177,10 +177,6 @@ module.exports = function (grunt) {
 	                    // Generating RTL files from '/unminified/' into '/minified/'
                     	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
-                    		src: 'assets/css/unminified/blog-layout-1-rtl.css',
-	                        dest: 'assets/css/minified/blog-layout-1.min-rtl.css',
-	                    },
-                    	{
                     		src: 'assets/css/unminified/editor-style-rtl.css',
 	                        dest: 'assets/css/minified/editor-style.min-rtl.css',
 	                    },
