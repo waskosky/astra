@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Archive Summary Box Title Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
-		'default'   => $defaults['font-size-archive-summary-title'],
+		'default'   => astra_get_option( 'font-size-archive-summary-title' ),
 		'type'      => 'option',
 		'transport' => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog - Post Title Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-page-title]', array(
-		'default'           => $defaults['font-size-page-title'],
+		'default'           => astra_get_option( 'font-size-page-title' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),

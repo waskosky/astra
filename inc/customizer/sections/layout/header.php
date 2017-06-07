@@ -17,17 +17,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Header Layout
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-layouts]', array(
-		'default' => $defaults['header-layouts'],
-		'type'    => 'option',
+		'default'           => astra_get_option( 'header-layouts' ),
+		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 
 	$wp_customize->add_control( new Astra_Control_Radio_Image( $wp_customize, ASTRA_THEME_SETTINGS . '[header-layouts]', array(
-		'section'     => 'section-header',
-		'priority'    => 5,
-		'label'       => __( 'Header', 'astra' ),
-		'type'        => 'ast-radio-image',
-		'choices'     => array(
+		'section'  => 'section-header',
+		'priority' => 5,
+		'label'    => __( 'Header', 'astra' ),
+		'type'     => 'ast-radio-image',
+		'choices'  => array(
 			'header-main-layout-1'          => array(
 				'label' => __( 'Logo Left', 'astra' ),
 				'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-1-60x60.png',
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Disable Menu
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[disable-primary-nav]', array(
-		'default'           => $defaults['disable-primary-nav'],
+		'default'           => astra_get_option( 'disable-primary-nav' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	) );
@@ -62,16 +62,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Custom Menu Item
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
-		'default'           => $defaults['header-main-rt-section'],
+		'default'           => astra_get_option( 'header-main-rt-section' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
-		'type'        => 'select',
-		'section'     => 'section-header',
-		'priority'    => 5,
-		'label'       => __( 'Custom Menu Item', 'astra' ),
-		'choices'     => array(
+		'type'     => 'select',
+		'section'  => 'section-header',
+		'priority' => 5,
+		'label'    => __( 'Custom Menu Item', 'astra' ),
+		'choices'  => array(
 			'none'      => __( 'None', 'astra' ),
 			'search'    => __( 'Search', 'astra' ),
 			'text-html' => __( 'Text / HTML', 'astra' ),
@@ -83,16 +83,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Right Section Text / HTML
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-		'default'           => $defaults['header-main-rt-section-html'],
+		'default'           => astra_get_option( 'header-main-rt-section-html' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-		'type'        => 'textarea',
-		'section'     => 'section-header',
-		'priority'    => 10,
-		'label'       => __( 'Custom Menu Text / HTML', 'astra' ),
+		'type'     => 'textarea',
+		'section'  => 'section-header',
+		'priority' => 10,
+		'label'    => __( 'Custom Menu Text / HTML', 'astra' ),
 	) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Bottom Border Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-sep]', array(
-		'default'           => $defaults['header-main-sep'],
+		'default'           => astra_get_option( 'header-main-sep' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
@@ -128,31 +128,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Bottom Border Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-sep-color]', array(
-		'default'           => $defaults['header-main-sep-color'],
+		'default'           => astra_get_option( 'header-main-sep-color' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[header-main-sep-color]', array(
-		'section'     => 'section-header',
-		'priority'    => 30,
-		'label'       => __( 'Bottom Border Color', 'astra' ),
+		'section'  => 'section-header',
+		'priority' => 30,
+		'label'    => __( 'Bottom Border Color', 'astra' ),
 	) ) );
 
 	/**
 	 * Option: Header Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-layout-width]', array(
-		'default'           => $defaults['header-main-layout-width'],
+		'default'           => astra_get_option( 'header-main-layout-width' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[header-main-layout-width]', array(
-		'type'        => 'select',
-		'section'     => 'section-header',
-		'priority'    => 35,
-		'label'       => __( 'Header Width', 'astra' ),
-		'choices'     => array(
+		'type'     => 'select',
+		'section'  => 'section-header',
+		'priority' => 35,
+		'label'    => __( 'Header Width', 'astra' ),
+		'choices'  => array(
 			'full'    => __( 'Full Width', 'astra' ),
 			'content' => __( 'Content Width', 'astra' ),
 		),
@@ -173,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Mobile Menu Label
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
-		'default'   => $defaults['header-main-menu-label'],
+		'default'   => astra_get_option( 'header-main-menu-label' ),
 		'type'      => 'option',
 		'transport' => 'postMessage',
 		'sanitize_callback' => 'sanitize_text_field',
@@ -189,7 +189,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Mobile Menu Alignment
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
-		'default'           => $defaults['header-main-menu-align'],
+		'default'           => astra_get_option( 'header-main-menu-align' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );

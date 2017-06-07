@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Layout
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', array(
-		'default'           => $defaults['footer-sml-layout'],
+		'default'           => astra_get_option( 'footer-sml-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Radio_Image( $wp_customize, ASTRA_THEME_SETTINGS . '[footer-sml-layout]', array(
-		'type'        => 'ast-radio-image',
-		'section'     => 'section-footer-small',
-		'priority'    => 5,
-		'label'       => __( 'Footer', 'astra' ),
-		'choices'     => array(
+		'type'     => 'ast-radio-image',
+		'section'  => 'section-footer-small',
+		'priority' => 5,
+		'label'    => __( 'Footer', 'astra' ),
+		'choices'  => array(
 			'disabled'            => array(
 									'label' => __( 'Disabled', 'astra' ),
 									'path'	=> ASTRA_THEME_URI . 'assets/images/disabled-footer-76x48.png',
@@ -46,10 +46,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]', array(
-		'type'        => 'ast-divider',
-		'section'     => 'section-footer-small',
-		'priority'    => 10,
-		'settings'    => array(),
+		'type'     => 'ast-divider',
+		'section'  => 'section-footer-small',
+		'priority' => 10,
+		'settings' => array(),
 	) ) );
 
 
@@ -60,16 +60,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 1
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', array(
-		'default'           => $defaults['footer-sml-section-1'],
+		'default'           => astra_get_option( 'footer-sml-section-1' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', array(
-		'type'        => 'select',
-		'section'     => 'section-footer-small',
-		'priority'    => 15,
-		'label'       => __( 'Section 1', 'astra' ),
-		'choices'     => array(
+		'type'     => 'select',
+		'section'  => 'section-footer-small',
+		'priority' => 15,
+		'label'    => __( 'Section 1', 'astra' ),
+		'choices'  => array(
 			''       => __( 'None', 'astra' ),
 			'menu'   => __( 'Footer Menu', 'astra' ),
 			'custom' => __( 'Custom Text', 'astra' ),
@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 1 Custom Text
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
-		'default'           => $defaults['footer-sml-section-1-credit'],
+		'default'           => astra_get_option( 'footer-sml-section-1-credit' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
@@ -105,16 +105,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 2
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', array(
-		'default'           => $defaults['footer-sml-section-2'],
+		'default'           => astra_get_option( 'footer-sml-section-2' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
 	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', array(
-		'type'        => 'select',
-		'section'     => 'section-footer-small',
-		'priority'    => 25,
-		'label'       => __( 'Section 2', 'astra' ),
-		'choices'     => array(
+		'type'     => 'select',
+		'section'  => 'section-footer-small',
+		'priority' => 25,
+		'label'    => __( 'Section 2', 'astra' ),
+		'choices'  => array(
 			''       => __( 'None', 'astra' ),
 			'menu'   => __( 'Footer Menu', 'astra' ),
 			'custom' => __( 'Custom Text', 'astra' ),
@@ -126,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 2 Custom Text
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
-		'default'           => $defaults['footer-sml-section-2-credit'],
+		'default'           => astra_get_option( 'footer-sml-section-2-credit' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Partials', 'sanitize_html' ),
@@ -160,7 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Top Border
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', array(
-		'default'           => $defaults['footer-sml-divider'],
+		'default'           => astra_get_option( 'footer-sml-divider' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
@@ -181,22 +181,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Top Border Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
-		'default'           => $defaults['footer-sml-divider-color'],
+		'default'           => astra_get_option( 'footer-sml-divider-color' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
-		'section'     => 'section-footer-small',
-		'priority'    => 45,
-		'label'       => __( 'Footer Top Border Color', 'astra' ),
+		'section'  => 'section-footer-small',
+		'priority' => 45,
+		'label'    => __( 'Footer Top Border Color', 'astra' ),
 	) ) );
 
 	/**
 	 * Option: Header Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-layout-width]', array(
-		'default'           => $defaults['footer-layout-width'],
+		'default'           => astra_get_option( 'footer-layout-width' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
