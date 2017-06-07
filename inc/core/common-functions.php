@@ -304,7 +304,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	 */
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
-		if( $deprecated != '' ) {
+		if ( '' != $deprecated ) {
 			$default = $deprecated;
 		}
 
