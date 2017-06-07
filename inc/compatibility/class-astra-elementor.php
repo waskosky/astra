@@ -70,9 +70,10 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		function elementor_default_setting() {
 			
+			global $post;
 			$id = astra_get_post_id();
 
-			if ( is_singular() && 'builder' === Plugin::$instance->db->get_edit_mode( $id ) ) {
+			if ( is_singular() && empty( $post->post_content ) && 'builder' === Plugin::$instance->db->get_edit_mode( $id ) ) {
 
 				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
 				if ( empty( $page_builder_flag ) ) {

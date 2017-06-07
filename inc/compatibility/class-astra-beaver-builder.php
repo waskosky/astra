@@ -68,10 +68,12 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 */
 		function beaver_builder_default_setting() {
 
+			global $post;
 			$id = astra_get_post_id();
+			
 			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
 
-			if ( is_singular() && $do_render && FLBuilderModel::is_builder_enabled() ) {
+			if ( is_singular() && empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
 
 				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
 

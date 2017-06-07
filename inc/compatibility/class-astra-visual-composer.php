@@ -73,9 +73,10 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 
 		function vc_frontend_default_setting() {
 			
+			global $post;
 			$id = astra_get_post_id();
 
-			if ( $id > 0 ) {
+			if ( $id > 0 && empty( $post->post_content ) ) {
 				$this->vc_update_meta_setting();
 			}
 		}
