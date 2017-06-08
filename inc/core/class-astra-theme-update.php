@@ -230,6 +230,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			) );
 			unset($all_post_type['attachment']);
 
+			/**
+			 * Update Page meta, if Page Builder layout implemented
+			 */
 			$query = array ( 
 				'post_type'      => $all_post_type, 
 				'posts_per_page' => '-1',
@@ -250,7 +253,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 			$posts = new WP_Query( $query );
 
-			foreach ( $posts->post as $id ) {
+			foreach ( $posts->posts as $id ) {
 				update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				update_post_meta( $id, 'site-post-title', 'disabled' );
 				update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
@@ -259,6 +262,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			wp_reset_query();
 
+			/**
+			 * Update Elementor Page meta
+			 */
 			$query = array ( 
 				'post_type'      => $all_post_type, 
 				'posts_per_page' => '-1',
@@ -266,28 +272,61 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'post_status'    => 'any',
 				'fields'         => 'ids',
 				'meta_query'     => array(
-					'relation' 		=> 'OR',
-					'state_clause' 	=> array(
-						'key'   => '_wpb_vc_js_status',
-						'value' => 'true',
-					),
+					'relation' 		=> 'AND',
 					'city_clause' 	=> array(
 						'key'     => '_elementor_edit_mode',
 						'compare' => 'builder',
+					),
+					'city_clause' 	=> array(
+						'key'     => '_astra_content_layout_flag',
+						'compare' => 'NOT EXISTS',
 					),
 				),
 			);
 
 			$posts = new WP_Query( $query );
 
-			foreach ( $posts->post as $id ) {
+			foreach ( $posts->posts as $id ) {
 				if( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				}
 			}
 			
 			wp_reset_query();
-			// print_r($posts->post);  // Array of Post Ids 
+
+
+			/**
+			 * Update VC Page meta
+			 */
+			$query = array ( 
+				'post_type'      => $all_post_type, 
+				'posts_per_page' => '-1',
+				'no_found_rows'  => true,
+				'post_status'    => 'any',
+				'fields'         => 'ids',
+				'meta_query'     => array(
+					'relation' 		=> 'AND',
+					'state_clause' 	=> array(
+						'key'   => '_wpb_vc_js_status',
+						'value' => 'true',
+					),
+					'city_clause' 	=> array(
+						'key'     => '_astra_content_layout_flag',
+						'compare' => 'NOT EXISTS',
+					),
+				),
+			);
+
+			$posts = new WP_Query( $query );
+
+			foreach ( $posts->posts as $id ) {
+				if( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
+					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+				}
+			}
+			
+			wp_reset_query();
+			// print_r($posts->posts);  // Array of Post Ids 
 			// print_r($posts->post_count); // Number of Posts
 			// _wpb_vc_js_status meta for VC
 			// _elementor_edit_mode meta for elmentor
