@@ -224,6 +224,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		static public function v_1_0_7() {
+			
 			$all_post_type = get_post_types( array( 
 				'public' => true 
 			) );
@@ -256,6 +257,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 			}
 
+			wp_reset_query();
+
 			$query = array ( 
 				'post_type'      => $all_post_type, 
 				'posts_per_page' => '-1',
@@ -283,6 +286,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 			
+			wp_reset_query();
 			// print_r($posts->post);  // Array of Post Ids 
 			// print_r($posts->post_count); // Number of Posts
 			// _wpb_vc_js_status meta for VC
