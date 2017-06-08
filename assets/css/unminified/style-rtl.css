@@ -1996,11 +1996,11 @@ textarea {
 }
 
 .site-title a {
-  line-height: 1.4;
+  line-height: 1;
 }
 
 .site-header .site-description {
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 .ast-single-post .entry-title,
