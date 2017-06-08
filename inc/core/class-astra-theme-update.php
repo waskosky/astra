@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version' );
-
+			
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
@@ -240,12 +240,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'post_status'    => 'any',
 				'fields'         => 'ids',
 				'meta_query'     => array(
-					'relation' 		=> 'AND',
-					'state_clause' 	=> array(
+					'relation' 				=> 'AND',
+					'site_content_clause' 	=> array(
 						'key'   => 'site-content-layout',
 						'value' => 'page-builder',
 					),
-					'city_clause' 	=> array(
+					'site_flag_clause' 		=> array(
 						'key'     => '_astra_content_layout_flag',
 						'compare' => 'NOT EXISTS',
 					),
@@ -272,12 +272,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'post_status'    => 'any',
 				'fields'         => 'ids',
 				'meta_query'     => array(
-					'relation' 		=> 'AND',
-					'city_clause' 	=> array(
+					'relation' 				=> 'AND',
+					'elementor_edit_clause' => array(
 						'key'     => '_elementor_edit_mode',
 						'compare' => 'builder',
 					),
-					'city_clause' 	=> array(
+					'site_flag_clause' 	=> array(
 						'key'     => '_astra_content_layout_flag',
 						'compare' => 'NOT EXISTS',
 					),
@@ -306,11 +306,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'fields'         => 'ids',
 				'meta_query'     => array(
 					'relation' 		=> 'AND',
-					'state_clause' 	=> array(
+					'wpb_vc_js_clause' 	=> array(
 						'key'   => '_wpb_vc_js_status',
 						'value' => 'true',
 					),
-					'city_clause' 	=> array(
+					'site_flag_clause' 	=> array(
 						'key'     => '_astra_content_layout_flag',
 						'compare' => 'NOT EXISTS',
 					),
