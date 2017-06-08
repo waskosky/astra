@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.5.2\n"
+"Project-Id-Version: Astra 1.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-06-01 10:50:20+00:00\n"
+"POT-Creation-Date: 2017-06-07 13:39:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/blog/blog-config.php:190
+#: inc/blog/blog-config.php:151
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:265 inc/blog/blog-config.php:297
+#: inc/blog/blog-config.php:226 inc/blog/blog-config.php:258
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
@@ -276,7 +276,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:637 inc/core/common-functions.php:716
+#: inc/core/common-functions.php:597 inc/core/common-functions.php:676
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -304,7 +304,7 @@ msgstr ""
 msgid "Y"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-sanitizes.php:135
+#: inc/customizer/class-astra-customizer-sanitizes.php:136
 msgid "Enter valid email address!"
 msgstr ""
 
@@ -367,7 +367,7 @@ msgid "Single Page / Post"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:119
-msgid "Advanced"
+msgid "Miscellaneous"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:123
@@ -411,7 +411,7 @@ msgid "Text Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:41
-msgid "Link Color / Theme Color"
+msgid "Theme Color / Link Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:55
@@ -776,27 +776,27 @@ msgid "Line Height"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:22
-msgid "Heading <H1>"
+msgid "Heading 1 (H1)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:56
-msgid "Heading <H2>"
+msgid "Heading 2 (H2)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:90
-msgid "Heading <H3>"
+msgid "Heading 3 (H3)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:121
-msgid "Heading <H4>"
+msgid "Heading 4 (H4)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:158
-msgid "Heading <H5>"
+msgid "Heading 5 (H5)"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:189
-msgid "Heading <H6>"
+msgid "Heading 6 (H6)"
 msgstr ""
 
 #: inc/customizer/sections/typography/header.php:23
@@ -885,7 +885,20 @@ msgid "http://wpastra.com/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "A very lightweight and beautiful theme made to work with Page Builders."
+msgid ""
+"Astra is the fastest, fully customizable & beautiful theme suitable for "
+"blogs, personal portfolios and business websites. It is very lightweight "
+"(less than 50KB on frontend) and offers unparalleled speed. Built with SEO "
+"in mind, Astra comes with schema.org code integrated so search engines will "
+"love your site. Astra offers plenty of sidebar options and widget areas "
+"giving you a full control for customizations. Furthermore, we have included "
+"special features and templates so feel free to choose any of your favorite "
+"page builder plugin to create pages flexibly. Some of the other features: # "
+"WooCommerce Ready # Responsive # Compatible with major plugins # "
+"Translation Ready # Extendible with premium addons # Regularly updated # "
+"Designed, Developed, Maintained & Supported by Brainstorm Force. Looking "
+"for a perfect base theme? Look no further. Astra is fast, fully "
+"customizable and beautiful theme!"
 msgstr ""
 
 #. Author of the plugin/theme

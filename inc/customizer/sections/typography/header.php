@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Title Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-site-title]', array(
-		'default'           => $defaults['font-size-site-title'],
+		'default'           => astra_get_option( 'font-size-site-title' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -51,18 +51,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Divider
 	 */
 	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]', array(
-		'type'        => 'ast-divider',
-		'section'     => 'section-header-typo',
-		'priority'    => 15,
-		'label'       => __( 'Site Tagline', 'astra' ),
-		'settings'    => array(),
+		'type'     => 'ast-divider',
+		'section'  => 'section-header-typo',
+		'priority' => 15,
+		'label'    => __( 'Site Tagline', 'astra' ),
+		'settings' => array(),
 	) ) );
 
 	/**
 	 * Option: Site Tagline Font Size
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[font-size-site-tagline]', array(
-		'default'           => $defaults['font-size-site-tagline'],
+		'default'           => astra_get_option( 'font-size-site-tagline' ),
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),

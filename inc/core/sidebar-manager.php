@@ -25,7 +25,7 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 			// If post meta value is empty,
 			// Then get the POST_TYPE sidebar.
-			$layout = astra_get_option_meta( 'site-sidebar-layout', '', '', true );
+			$layout = astra_get_option_meta( 'site-sidebar-layout', '', true );
 
 			if ( empty( $layout ) ) {
 
