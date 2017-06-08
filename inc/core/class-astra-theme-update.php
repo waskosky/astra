@@ -74,6 +74,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_5();
 			}
 
+			// Update to older version than 1.0.7 version.
+			if ( version_compare( $saved_version, '1.0.7', '<' ) ) {
+				self::v_1_0_7();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -212,6 +217,77 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			delete_option( 'ast-settings' );
 		}
 
+		/**
+		 * Update options of older version than 1.0.7.
+		 *
+		 * @since 1.0.7
+		 * @return void
+		 */
+		static public function v_1_0_7() {
+			$all_post_type = get_post_types( array( 
+				'public' => true 
+			) );
+			unset($all_post_type['attachment']);
+
+			$query = array ( 
+				'post_type'      => $all_post_type, 
+				'posts_per_page' => '-1',
+				'no_found_rows'  => true,
+				'post_status'    => 'any',
+				'fields'         => 'ids',
+				'meta_query'     => array(
+					'relation' 		=> 'AND',
+					'state_clause' 	=> array(
+						'key'   => 'site-content-layout',
+						'value' => 'page-builder',
+					),
+					'city_clause' 	=> array(
+						'key'     => '_astra_content_layout_flag',
+						'compare' => 'NOT EXISTS',
+					),
+				),
+			);
+			$posts = new WP_Query( $query );
+
+			foreach ( $posts->post as $id ) {
+				update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+				update_post_meta( $id, 'site-post-title', 'disabled' );
+				update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
+				update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
+			}
+
+			$query = array ( 
+				'post_type'      => $all_post_type, 
+				'posts_per_page' => '-1',
+				'no_found_rows'  => true,
+				'post_status'    => 'any',
+				'fields'         => 'ids',
+				'meta_query'     => array(
+					'relation' 		=> 'OR',
+					'state_clause' 	=> array(
+						'key'   => '_wpb_vc_js_status',
+						'value' => 'true',
+					),
+					'city_clause' 	=> array(
+						'key'     => '_elementor_edit_mode',
+						'compare' => 'builder',
+					),
+				),
+			);
+
+			$posts = new WP_Query( $query );
+
+			foreach ( $posts->post as $id ) {
+				if( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
+					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+				}
+			}
+			
+			// print_r($posts->post);  // Array of Post Ids 
+			// print_r($posts->post_count); // Number of Posts
+			// _wpb_vc_js_status meta for VC
+			// _elementor_edit_mode meta for elmentor
+		}
 	}
 }// End if().
 
