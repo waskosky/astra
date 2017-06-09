@@ -202,14 +202,15 @@ li.ast-masthead-custom-menu-items {
 
 				display: inline-block;
 				position: absolute;
+				top: -1px;
 				right: 20px;
 				cursor: pointer;
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
-				padding: 0.494em .907em;
+				padding: 0 0.907em;
 				font-weight: normal;
-				line-height: 1.85714285714286;
-
+				line-height: inherit;
+				transition: all .2s;
 				&::before {
 					font-size: 15px;
 					font-size: 1rem;

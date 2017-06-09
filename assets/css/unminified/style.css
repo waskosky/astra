@@ -1996,11 +1996,11 @@ textarea {
 }
 
 .site-title a {
-  line-height: 1.4;
+  line-height: 1;
 }
 
 .site-header .site-description {
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 .ast-single-post .entry-title,
@@ -3225,13 +3225,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle {
   display: inline-block;
   position: absolute;
+  top: -1px;
   right: 20px;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0.494em .907em;
+  padding: 0 0.907em;
   font-weight: normal;
-  line-height: 1.85714285714286;
+  line-height: inherit;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle::before,
