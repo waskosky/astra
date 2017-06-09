@@ -1,4 +1,4 @@
-v1.0.6.1 (Upcoming)
+v1.0.7 (Unreleased)
 # Enhancement: Moved 'Buttons' section from panel 'miscellaneous' to parent.
 
 v1.0.6

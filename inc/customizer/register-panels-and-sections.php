@@ -111,18 +111,18 @@
 			'priority' => 45,
 		) );
 
-	/**
+		/**
 	 * Buttons Section
 	 */
-	$wp_customize->add_section( 'section-buttons', array(
-		'priority' => 50,
-		'title' => __( 'Buttons', 'astra' ),
-	) );
+		$wp_customize->add_section( 'section-buttons', array(
+			'priority' => 50,
+			'title' => __( 'Buttons', 'astra' ),
+		) );
 
-	/**
+		/**
 	 * Widget Areas Section
 	 */
-	$wp_customize->add_section( 'section-widget-areas', array(
-		'priority' => 55,
-		'title' => __( 'Widget Areas', 'astra' ),
-	) );
+		$wp_customize->add_section( 'section-widget-areas', array(
+			'priority' => 55,
+			'title' => __( 'Widget Areas', 'astra' ),
+		) );
