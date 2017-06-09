@@ -112,19 +112,16 @@
 		) );
 
 		/**
-		 * Miscellaneous Panel
-		 */
-		$wp_customize->add_panel( 'panel-miscellaneous', array(
+	 * Buttons Section
+	 */
+		$wp_customize->add_section( 'section-buttons', array(
 			'priority' => 50,
-			'title' => __( 'Miscellaneous', 'astra' ),
+			'title' => __( 'Buttons', 'astra' ),
 		) );
 
-		$wp_customize->add_section( 'section-miscellaneous-button', array(
-			'title'    => __( 'Buttons', 'astra' ),
-			'panel'    => 'panel-miscellaneous',
-			'priority' => 5,
-		) );
-
+		/**
+	 * Widget Areas Section
+	 */
 		$wp_customize->add_section( 'section-widget-areas', array(
 			'priority' => 55,
 			'title' => __( 'Widget Areas', 'astra' ),
