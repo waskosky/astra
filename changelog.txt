@@ -1,3 +1,6 @@
+v1.0.6.1 (Upcoming)
+# Enhancement: Moved 'Buttons' section from panel 'miscellaneous' to parent.
+
 v1.0.6
 # Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
 # Enhancement: Combined JS files 'flexibility', 'navigation' and 'skip-link-focus-fix' files in style.js
