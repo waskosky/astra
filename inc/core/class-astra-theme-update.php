@@ -252,7 +252,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				),
 			);
 			$posts = new WP_Query( $query );
-
+			echo "<pre>";
+			print_r($posts);
+			echo "</pre>";
 			foreach ( $posts->posts as $id ) {
 				update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				update_post_meta( $id, 'site-post-title', 'disabled' );
@@ -285,7 +287,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			$posts = new WP_Query( $query );
-
+			echo "<pre>";
+			print_r($posts);
+			echo "</pre>";
 			foreach ( $posts->posts as $id ) {
 				if( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
@@ -293,7 +297,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 			
 			wp_reset_query();
-
 
 			/**
 			 * Update VC Page meta
@@ -318,7 +321,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			$posts = new WP_Query( $query );
-
+			echo "<pre>";
+			print_r($posts);
+			echo "</pre>";
 			foreach ( $posts->posts as $id ) {
 				if( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
