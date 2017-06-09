@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/content.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/single.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/archive.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/advanced/buttons.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/sections/buttons/buttons.php';
 
 		}
 
