@@ -2197,6 +2197,10 @@ body {
   }
 }
 
+.ast-page-builder-template .hentry {
+  margin: 0;
+}
+
 .ast-page-builder-template .site-content > .ast-container {
   max-width: 100%;
   padding: 0;
@@ -3973,6 +3977,10 @@ input[type="color"]::-webkit-color-swatch {
  */
 .page .entry-header {
   margin-bottom: 1.5em;
+}
+
+.search .entry-header {
+  margin-bottom: 1em;
 }
 
 .page .entry-header.ast-no-title {

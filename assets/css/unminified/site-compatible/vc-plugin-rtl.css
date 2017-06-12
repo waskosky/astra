@@ -1,18 +1,7 @@
 /*
  * Astra Theme compatibility with Visual Composer
  */
-.js_active .ast-single-post .hentry {
+.js_active .ast-single-post .hentry,
+.js_active .ast-plain-container #primary {
   margin: 0;
-}
-
-.js_active .ast-no-sidebar #primary,
-.js_active .ast-no-sidebar #secondary {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.js_active :not(.ast-single-post) .entry-content,
-.js_active .ast-single-post .entry-content {
-  margin-top: 0;
-  margin-bottom: 0;
 }

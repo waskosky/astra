@@ -7,6 +7,7 @@
 .fl-builder-content {
 	clear: both;	
 }
+
 .fl-theme-builder-archive {
 	.fl-post-gallery-post.hentry,
 	.fl-post-column > .hentry {
@@ -17,118 +18,17 @@
 		clear: initial;
 	}
 }
-.fl-builder {
-	&.ast-no-sidebar {
-		#primary,
-		#secondary {
-		 	padding-top: 0;
-		 	padding-bottom: 0;
-		}
-	}
-	
-	// Remove article margin bottom 
 
-	&.ast-single-post:not(.fl-theme-builder-archive) {
-		.hentry {
-			margin: 0;
-		}
-	}
-	
-	:not(.ast-single-post) .entry-content, 
-	.ast-single-post .entry-content {
-	    margin-top: 0;
-	    margin-bottom: 0;
-	}
-
-	// Full Width Support For Beaver Builder
-
-	#content {
-		.entry-header {
-			margin-left: auto;
-			margin-right: auto;
-			padding-left:  ($grid-gutter-width / 2);
-			padding-right: ($grid-gutter-width / 2);
-		}
-	}
-
-	&.ast-no-sidebar {
-
-		// Remove article margin bottom 
-
-		.hentry {
-			margin: 0;
-		}
-
-	}
-
-	&.search {		
-
-		#content {
-			.entry-header {
-				padding-left: 0;
-				padding-right: 0;
-			}
-
-			.entry-content {
-				margin-top: 1.5em;
-			}
-		}
-	}
-
-	&.ast-right-sidebar,
-	&.ast-left-sidebar {
-	#content {
-			.entry-header {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
-	}
+// Full Width Support For Beaver Builder
+.fl-builder.ast-page-builder-template .entry-header {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left:  ($grid-gutter-width / 2);
+	padding-right: ($grid-gutter-width / 2);
 }
 
 // Fluid Width Support For Beaver Builder - Fluid Layout
-
-.ast-fluid-width-layout {
-	
-	.fl-row-fixed-width .fl-row-fixed-width {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.fl-row-fixed-width {
-		
-		.fl-row-fixed-width {
-			padding-left: 0;
-			padding-right: 0;
-		}
-	}
-}
-
-/* H1-H6 Margin Reset in all Modules */
-
-.uabb-module-content h1,
-.uabb-module-content h2,
-.uabb-module-content h3,
-.uabb-module-content h4,
-.uabb-module-content h5,
-.uabb-module-content h6 {
-    margin: 0;
-    clear: both;
-}
-
-.fl-button,
-.fl-button:visited,
-.fl-builder-content .fl-button,
-.fl-builder-content .fl-button:visited {
-    background: #fafafa;
-    color: #333;
-    border: 1px solid #ccc;
-
-    * {
-    	color: #333;
-    }
-}
-
-.ast-no-sidebar #primary {
-	width: 100%;
+.ast-fluid-width-layout .fl-row-fixed-width  .fl-row-fixed-width {
+	padding-left: 0;
+	padding-right: 0;
 }

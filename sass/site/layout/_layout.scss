@@ -117,6 +117,10 @@ body{
 
 //page builder content layout
 .ast-page-builder-template {
+
+	.hentry {
+		margin: 0;
+	}
 	.site-content > .ast-container {
 		max-width: 100%;
 	    padding: 0;
