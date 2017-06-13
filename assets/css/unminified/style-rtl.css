@@ -2347,8 +2347,7 @@ body {
 }
 
 .main-navigation {
-  padding-right: 15px;
-  display: block;
+  display: inline-block;
   font-weight: 600;
 }
 
@@ -2671,8 +2670,29 @@ body {
 /**
  * 1 - Header Layout 1
 */
+.header-main-layout-1 .main-header-bar-navigation {
+  text-align: left;
+}
+
+.header-main-layout-1 .main-header-bar-navigation .sub-menu,
+.header-main-layout-1 .main-header-bar-navigation .children {
+  text-align: right;
+}
+
+.header-main-layout-1 .main-navigation {
+  padding-right: 15px;
+}
+
 .ast-header-break-point .header-main-layout-1 .site-branding {
   padding-left: 1em;
+}
+
+.ast-header-break-point .header-main-layout-1 .main-header-bar-navigation {
+  text-align: right;
+}
+
+.ast-header-break-point .header-main-layout-1 .main-navigation {
+  padding-right: 0;
 }
 
 /**
@@ -2701,6 +2721,15 @@ body {
   -moz-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.header-main-layout-2 .main-header-bar-navigation {
+  text-align: center;
+}
+
+.header-main-layout-2 .main-header-bar-navigation .sub-menu,
+.header-main-layout-2 .main-header-bar-navigation .children {
+  text-align: right;
 }
 
 .header-main-layout-2 .ast-header-custom-item {
@@ -2738,6 +2767,11 @@ body {
   padding: 1em 0 0;
 }
 
+.ast-header-break-point .header-main-layout-2 .main-header-bar-navigation,
+.ast-header-break-point .header-main-layout-2 .widget {
+  text-align: right;
+}
+
 /**
  *  3 - Header Layout 3
 */
@@ -2751,12 +2785,20 @@ body {
   flex-direction: row-reverse;
 }
 
+.header-main-layout-3 .main-navigation {
+  padding-left: 15px;
+}
+
 .header-main-layout-3 .main-navigation ul {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -moz-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+}
+
+.header-main-layout-3 .main-header-bar-navigation {
+  text-align: right;
 }
 
 .header-main-layout-3 .ast-header-custom-item {
@@ -2772,7 +2814,7 @@ body {
 }
 
 .header-main-layout-3 .ast-search-menu-icon form {
-  padding: 0 2em 0 0;
+  padding: 0 3em 0 0;
 }
 
 .header-main-layout-3 li .ast-search-icon {
@@ -2780,7 +2822,7 @@ body {
 }
 
 .header-main-layout-3 .ast-search-menu-icon {
-  right: -.5em;
+  right: 0;
   left: 0;
 }
 
@@ -2808,6 +2850,10 @@ body {
   -moz-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+}
+
+.ast-header-break-point .header-main-layout-3 .main-navigation {
+  padding-left: 0;
 }
 
 /* Mobile Header Alignment */
@@ -2937,7 +2983,7 @@ body {
 }
 
 .ast-header-widget-area .widget {
-  margin: 0 .5em;
+  margin: .5em;
   display: inline-block;
   vertical-align: middle;
 }
@@ -2956,6 +3002,16 @@ body {
   border: 0;
 }
 
+.ast-header-widget-area .widget.widget_search .search-field,
+.ast-header-widget-area .widget.widget_search .search-field:focus {
+  padding: 10px 15px 10px 45px;
+}
+
+.ast-header-widget-area .widget:last-child {
+  margin-bottom: 0.5em;
+  margin-left: 0;
+}
+
 .submenu-with-border .ast-header-widget-area .widget ul {
   position: static;
   border: 0;
@@ -2966,11 +3022,16 @@ body {
   border: 0;
 }
 
+.ast-header-break-point .ast-header-widget-area .widget {
+  margin: .5em 0;
+  display: block;
+}
+
 /**
  * 9 - Header Widget Area
  */
 .ast-header-custom-item .widget {
-  margin: 0 0.5em;
+  margin: 0.5em;
   display: inline-block;
   vertical-align: middle;
 }
@@ -3081,7 +3142,7 @@ body {
   transition: all .2s;
   position: absolute;
   z-index: 3;
-  left: -.5em;
+  left: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -3095,7 +3156,7 @@ body {
 .ast-search-menu-icon form {
   border: 1px solid #e7e7e7;
   line-height: 1;
-  padding: 0 0 0 2em;
+  padding: 0 0 0 3em;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   display: inline-block;
@@ -3134,11 +3195,11 @@ body {
 }
 
 .ast-search-menu-icon.ast-dropdown-active .search-field {
-  width: 250px;
+  width: 235px;
 }
 
 li.ast-masthead-custom-menu-items {
-  padding-right: 1em;
+  padding: 0 1em;
 }
 
 li.ast-masthead-custom-menu-items a {
@@ -3156,8 +3217,12 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   line-height: 1;
 }
 
-.main-header-menu li.ast-masthead-custom-menu-items {
-  padding-left: 0;
+.ast-masthead-custom-menu-items {
+  padding: 0 1em;
+}
+
+.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
+  line-height: 1;
 }
 
 .ast-header-break-point {
