@@ -36,6 +36,14 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public $mode = 'html';
 
 	/**
+	 * Used to set the mode for code controls.
+	 *
+	 * @since 1.0.0
+	 * @var bool $mode
+	 */
+	public $ast_inherit = 'Inherit';
+
+	/**
 	 * If true, the preview button for a control will be rendered.
 	 *
 	 * @since 1.0.0
@@ -56,11 +64,11 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		switch ( $this->type ) {
 
 			case 'ast-font-family':
-				$this->render_font();
+				$this->render_font( $this->ast_inherit );
 			break;
 
 			case 'ast-font-weight':
-				$this->render_font_weight();
+				$this->render_font_weight( $this->ast_inherit );
 			break;
 		}
 	}
@@ -76,6 +84,21 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+		
+		$astra_typo_localize = array(
+				'inherit' => __('Default', 'astra' ),
+				'100'     => __('Thin 100', 'astra' ),
+				'200'     => __('Extra-Light 200', 'astra' ),
+				'300'     => __('Light 300', 'astra' ),
+				'400'     => __('Normal 400', 'astra' ),
+				'500'     => __('Medium 500', 'astra' ),
+				'600'     => __('Semi-Bold 600', 'astra' ),
+				'700'     => __('Bold 700', 'astra' ),
+				'800'     => __('Extra-Bold 800', 'astra' ),
+				'900'     => __('Ultra-Bold 900', 'astra' ),
+			);
+
+		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
 	}
 	/**
 	 * Renders the title and description for a control.
@@ -113,15 +136,14 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @access protected
 	 * @return void
 	 */
-	protected function render_font() {
-
+	protected function render_font( $default ) {
 		echo '<label>';
 		$this->render_content_title();
 		echo '<select ';
 		$this->link();
 		$this->render_connect_attribute();
 		echo '>';
-		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>Inherit</option>';
+		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . $default . '</option>';
 		echo '<optgroup label="System">';
 
 		foreach ( Astra_Font_Families::$system as $name => $variants ) {
@@ -145,14 +167,14 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @access protected
 	 * @return void
 	 */
-	protected function render_font_weight() {
+	protected function render_font_weight( $default ) {
 		echo '<label>';
 		$this->render_content_title();
 		echo '<select ';
 		$this->link();
 		$this->render_connect_attribute();
 		echo '>';
-		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>Inherit</option>';
+		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . $default . '</option>';
 		echo '<option value="' . esc_attr( $this->value() ) . '" selected="selected">' . esc_attr( $this->value() ) . '</option>';
 		echo '</select>';
 		echo '</label>';

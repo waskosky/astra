@@ -93,18 +93,7 @@
 			inheritWeightObject    = [ 'inherit' ],
 			weightObject    = null,
 			weightOptions   = '',
-			weightMap       = {
-				'inherit'   : 'Inherit',
-				'100': 'Thin 100',
-				'200': 'Extra-Light 200',
-				'300': 'Light 300',
-				'400': 'Normal 400',
-				'500': 'Medium 500',
-				'600': 'Semi-Bold 600',
-				'700': 'Bold 700',
-				'800': 'Extra-Bold 800',
-				'900': 'Ultra-Bold 900'
-			};
+			weightMap       = astraTypo;
 
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
