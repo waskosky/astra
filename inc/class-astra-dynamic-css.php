@@ -149,7 +149,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-family'    => $body_font_family,
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_get_font_css_value( $body_font_size['desktop'], $body_font_size['desktop-unit'] ),
-					'line-height'    => astra_get_css_value( $body_line_height['desktop'], $body_line_height['desktop-unit'] ),
+					'line-height'    => esc_attr( $body_line_height ),
 					'text-transform' => esc_attr( $body_text_transform ),
 				),
 				'.site-title' => array(
@@ -375,7 +375,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'html' => $tablet_html,
 				'body, button, input, select, textarea' => array(
 					'font-size'      => astra_get_css_value( $body_font_size['tablet'], $body_font_size['tablet-unit'] ),
-					'line-height'    => astra_get_css_value( $body_line_height['tablet'], $body_line_height['tablet-unit'] ),
 				),
 				'.comment-reply-title' => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ),
@@ -439,7 +438,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'body, button, input, select, textarea' => array(
 					'font-size'      => astra_get_css_value( $body_font_size['mobile'], $body_font_size['mobile-unit'] ),
-					'line-height'    => astra_get_css_value( $body_line_height['mobile'], $body_line_height['mobile-unit'] ),
 				),
 				'.comment-reply-title' => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size['mobile'] * 1.66666, 'px', 'mobile' ),

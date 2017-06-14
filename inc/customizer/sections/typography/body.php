@@ -96,20 +96,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[body-line-height]', array(
 		'default'           => astra_get_option( 'body-line-height' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 	) );
-	$wp_customize->add_control( new Astra_Control_Responsive( $wp_customize, ASTRA_THEME_SETTINGS . '[body-line-height]', array(
-		'type'        => 'ast-responsive',
+	$wp_customize->add_control( new Astra_Control_Slider( $wp_customize, ASTRA_THEME_SETTINGS . '[body-line-height]', array(
+		'type'        => 'ast-slider',
 		'section'     => 'section-body-typo',
 		'priority'    => 25,
 		'label'       => __( 'Line Height', 'astra' ),
+		'suffix'      => '',
 		'input_attrs' => array(
-			'min' => 0,
-		),
-		'units'	=> array(
-			''    => '',
-			'px'  => 'px',
-			'em'  => 'em',
+			'min'    => 1,
+			'step'   => 0.1,
+			'max'    => 5,
 		),
 	) ) );

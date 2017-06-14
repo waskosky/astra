@@ -89,53 +89,6 @@ function astra_responsive_font_size( control, selector ) {
 }
 
 /**
- * Responsive Font Size CSS
- */
-function astra_responsive_line_height( control, selector ) {
-
-	wp.customize( control, function( value ) {
-		value.bind( function( value ) {
-
-			if ( value.desktop || value.mobile || value.tablet ) {
-
-				// Remove <style> first!
-				control = control.replace( '[', '-' );
-				control = control.replace( ']', '' );
-				jQuery( 'style#' + control ).remove();
-
-				var LineHeight = '';
-				var TabletLineHeight = '';
-				var MobileLineHeight = '';
-
-				if( value.desktop != '' ) {
-					LineHeight = 'line-height: ' + value.desktop + value['desktop-unit'];
-				}
-				if( value.tablet != '' ) {
-					TabletLineHeight = 'line-height: ' + value.tablet + value['tablet-unit'];
-				}
-				if( value.mobile != '' ) {
-					MobileLineHeight = 'line-height: ' + value.mobile + value['mobile-unit'];
-				}
-
-				// Concat and append new <style>.
-				jQuery( 'head' ).append(
-					'<style id="' + control + '">'
-					+ selector + '	{ ' + LineHeight + ' }'
-					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletLineHeight + ' } }'
-					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileLineHeight + ' } }'
-					+ '</style>'
-				);
-
-			} else {
-
-				jQuery( 'style#' + control ).remove();
-			}
-
-		} );
-	} );
-}
-
-/**
  * CSS
  */
 function astra_css_font_size( control, selector ) {
@@ -484,8 +437,7 @@ function astra_add_dynamic_css( control, style ) {
 	astra_responsive_font_size( 'astra-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a' );
 	astra_responsive_font_size( 'astra-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
 
-	astra_responsive_line_height( 'astra-settings[body-line-height]', 'body, button, input, select, textarea' );
-
+	astra_css( 'astra-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea' );
 	astra_css( 'astra-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
 
 } )( jQuery );
