@@ -68,6 +68,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			// Defaults list of options.
 			return apply_filters( 'astra_theme_defaults', array(
 				// Blog Single.
+				'blog-single-post-structure'        => array(
+					'single-image',
+					'single-title-meta',
+				),
 				'blog-single-width'                 => 'default',
 				'blog-single-max-width'             => 1200,
 				'blog-single-meta'                  => array(
@@ -76,6 +80,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'author',
 				),
 				// Blog.
+				'blog-post-structure'               => array(
+					'image',
+					'title-meta',
+				),
 				'blog-width'                        => 'default',
 				'blog-max-width'                    => 1200,
 				'blog-post-content'                 => 'excerpt',

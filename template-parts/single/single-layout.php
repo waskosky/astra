@@ -19,13 +19,7 @@
 
 		<?php astra_single_header_top(); ?>
 
-		<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) : ?>
-			<div class="post-thumb">
-				<?php the_post_thumbnail(); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+		<?php astra_blog_post_thumbnai_and_title_order(); ?>
 
 		<?php astra_single_header_bottom(); ?>
 

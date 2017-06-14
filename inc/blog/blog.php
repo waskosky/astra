@@ -143,6 +143,79 @@ if ( ! function_exists( 'astra_blog_post_get_featured_item' ) ) {
 
 add_action( 'astra_blog_post_featured_format', 'astra_blog_post_get_featured_item' );
 
+
+/**
+ * Blog Post Thumbnail / Title & Meta Order
+ */
+if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
+
+	/**
+	 * Blog post Thubmnail, Title & Blog Meta order
+	 *
+	 * @since  1.0.8
+	 */
+	function astra_blog_post_thumbnai_and_title_order() {
+
+		$blog_post_thumb_title_order = astra_get_option( 'blog-post-structure' );
+		if ( is_single() ) {
+			$blog_post_thumb_title_order = astra_get_option( 'blog-single-post-structure' );
+		}
+		if ( is_array( $blog_post_thumb_title_order ) ) {
+			// Append the custom class for second element for single post.
+			$first_element_flag = false;
+
+			foreach ( $blog_post_thumb_title_order as $post_thumb_title_order ) {
+
+				switch ( $post_thumb_title_order ) {
+
+					// Blog Post Featured Image.
+					case 'image': ?>
+						<div class="ast-blog-featured-section post-thumb ast-col-md-12">
+							<?php astra_blog_post_featured_format(); ?>
+						</div><!-- .post-thumb -->
+					<?php break;
+
+					// Blog Post Title and Blog Post Meta.
+					case 'title-meta': ?>
+						<header class="entry-header">
+							<?php the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							
+							<?php astra_blog_get_post_meta( array( 'date', 'link' ) ); ?>
+						</header><!-- .entry-header -->
+						<?php break;
+
+					// Single Post Featured Image.
+					case 'single-image':?>
+						<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) :
+							if ( $first_element_flag ) :
+								$first_element_class = 'second-section';
+							endif;
+							$first_element_flag = true; ?>
+									<div class="post-thumb <?php echo esc_attr( $first_element_class ); ?>">
+										<?php the_post_thumbnail(); ?>
+									</div>
+							<?php endif;
+						break;
+
+						// Single Post Title and Single Post Meta.
+					case 'single-title-meta':
+						if ( $first_element_flag ) :
+								$first_element_class = 'second-section';
+						endif;
+						$first_element_flag = true; ?>
+						<div class="ast-single-post-order <?php echo esc_attr( $first_element_class ); ?>">
+							
+							<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+
+							astra_single_get_post_meta(); ?>
+						</div>
+				<?php break;
+				}// End switch().
+			}// End foreach().
+		}// End if().
+	}
+}// End if().
+
 /**
  * Get audio files from post content
  */

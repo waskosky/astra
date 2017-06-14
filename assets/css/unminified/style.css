@@ -4333,7 +4333,13 @@ input[type="color"]::-webkit-color-swatch {
 /* 2 - Single Post Article Header */
 .single .post-thumb img,
 .page .post-thumb img {
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
+}
+
+.single .post-thumb.second-section img,
+.page .post-thumb.second-section img {
+  margin-top: 2em;
+  margin-bottom: 0;
 }
 
 .post-password-form {

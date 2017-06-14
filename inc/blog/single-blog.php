@@ -88,7 +88,6 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 			}
 		}
 	}
-	add_action( 'astra_single_header_bottom', 'astra_single_get_post_meta' );
 }
 
 /**
