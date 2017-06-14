@@ -855,7 +855,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }// End if().
 
-add_filter( 'astra_the_title_enabled', 'page_builder_disable_title', 12 );
+// add_filter( 'astra_the_title_enabled', 'page_builder_disable_title', 12 );
 
 /**
  * Disbale title for Page Builder template

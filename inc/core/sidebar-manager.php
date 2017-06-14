@@ -21,9 +21,9 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 	 */
 	function astra_page_layout() {
 
-		if ( 'page-builder' == astra_get_content_layout() ) {
+		/*if ( 'page-builder' == astra_get_content_layout() ) {
 			$layout = 'no-sidebar';
-		} elseif ( is_singular() ) {
+		} else*/if ( is_singular() ) {
 
 			// If post meta value is empty,
 			// Then get the POST_TYPE sidebar.

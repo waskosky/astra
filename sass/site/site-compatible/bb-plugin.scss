@@ -1,8 +1,6 @@
 /**
  * Astra Theme compatibility with Beaver Builder
  */
-@import "../../grid/variables";
-@import "../variables-site/structure";
 
 .fl-builder-content {
 	clear: both;	
@@ -17,14 +15,6 @@
 	h2.fl-post-feed-title {
 		clear: initial;
 	}
-}
-
-// Full Width Support For Beaver Builder
-.fl-builder.ast-page-builder-template .entry-header {
-	margin-left: auto;
-	margin-right: auto;
-	padding-left:  ($grid-gutter-width / 2);
-	padding-right: ($grid-gutter-width / 2);
 }
 
 // Fluid Width Support For Beaver Builder - Fluid Layout

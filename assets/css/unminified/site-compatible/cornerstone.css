@@ -1,14 +1,3 @@
 /**
  * Astra Theme compatibility with Cornerstone Page Builder
  */
-.ast-cornerstone-compatibility .entry-header {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.ast-cornerstone-compatibility.ast-box-layout .entry-header, .ast-cornerstone-compatibility.ast-padded-layout .entry-header {
-  padding-left: 40px;
-  padding-right: 40px;
-}
