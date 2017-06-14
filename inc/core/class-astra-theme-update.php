@@ -252,7 +252,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( 'ast-settings', array() );
+			$astra_options = get_option( 'astra-settings', array() );
 
 			if ( 0 < count( $astra_options ) ) {
 				foreach ( $options as $key ) {
@@ -267,8 +267,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					}
 				}
 			}
-
-			update_option( 'ast-settings', $astra_options );
+			
+			update_option( 'astra-settings', $astra_options );
 		}
 
 	}
