@@ -86,7 +86,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		
 		$astra_typo_localize = array(
-				'inherit' => __('Default', 'astra' ),
+				'inherit' => __('Inherit', 'astra' ),
 				'100'     => __('Thin 100', 'astra' ),
 				'200'     => __('Extra-Light 200', 'astra' ),
 				'300'     => __('Light 300', 'astra' ),
@@ -126,6 +126,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	protected function render_connect_attribute() {
 		if ( $this->connect ) {
 			echo ' data-connected-control="' . esc_attr( $this->connect ) . '"';
+			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
 		}
 	}
 

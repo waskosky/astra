@@ -84,16 +84,17 @@
 		_setFontWeightOptions: function( init )
 		{
 			var i               = 0,
-			fontSelect      = api.control( this.id ).container.find( 'select' ),
-			fontValue       = this(),
-			selected 		= '',
-			weightKey       = fontSelect.data( 'connected-control' ),
-			weightSelect    = api.control( weightKey ).container.find( 'select' ),
-			weightValue     = init ? weightSelect.val() : '400',
-			inheritWeightObject    = [ 'inherit' ],
-			weightObject    = null,
-			weightOptions   = '',
-			weightMap       = astraTypo;
+			fontSelect          = api.control( this.id ).container.find( 'select' ),
+			fontValue           = this(),
+			selected            = '',
+			weightKey           = fontSelect.data( 'connected-control' ),
+			inherit             = fontSelect.data( 'inherit' ),
+			weightSelect        = api.control( weightKey ).container.find( 'select' ),
+			weightValue         = init ? weightSelect.val() : '400',
+			inheritWeightObject = [ 'inherit' ],
+			weightObject        = null,
+			weightOptions       = '',
+			weightMap           = astraTypo;
 
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
@@ -108,7 +109,7 @@
 			}
 
 			weightObject = $.merge( inheritWeightObject, weightObject )
-
+			weightMap[ 'inherit' ] = inherit;
 			for ( ; i < weightObject.length; i++ ) {
 
 				if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {
