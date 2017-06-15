@@ -71,9 +71,6 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-header-break-point';
 		}
 
-		// Apply header layout class to the body.
-		$classes[] = 'header-main-layout-1';
-
 		// Apply separate container class to the body.
 		$content_layout = astra_get_content_layout();
 		if ( 'content-boxed-container' == $content_layout ) {
@@ -636,7 +633,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$classes = array( 'site-header' );
 		$menu_logo_location = astra_get_option( 'header-layouts' );
 		$mobile_header_alignment = astra_get_option( 'header-main-menu-align' );
-		if ( 'header-main-layout-2' == $menu_logo_location || 'header-main-layout-3' == $menu_logo_location ) {
+		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
 		}
 		if ( 'stack' == $mobile_header_alignment ) {
