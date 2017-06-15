@@ -205,6 +205,7 @@ li.ast-masthead-custom-menu-items {
 
 				display: inline-block;
 				position: absolute;
+				font-size: inherit;
 				top: -1px;
 				right: 20px;
 				cursor: pointer;
@@ -215,8 +216,6 @@ li.ast-masthead-custom-menu-items {
 				line-height: inherit;
 				transition: all .2s;
 				&::before {
-					font-size: 15px;
-					font-size: 1rem;
 					font-weight: bold;
 					content: "\e900";
 					font-family: 'Astra';
