@@ -2197,12 +2197,16 @@ body {
   }
 }
 
+.ast-page-builder-template .hentry {
+  margin: 0;
+}
+
 .ast-page-builder-template .site-content > .ast-container {
   max-width: 100%;
   padding: 0;
 }
 
-.ast-page-builder-template #primary {
+.ast-page-builder-template .site-content #primary {
   padding: 0;
   margin: 0;
 }
@@ -2210,6 +2214,50 @@ body {
 .ast-page-builder-template .no-results {
   text-align: center;
   margin: 4em auto;
+}
+
+.ast-page-builder-template .entry-header {
+  margin-top: 4em;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.ast-page-builder-template .entry-header.ast-no-title {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .ast-page-builder-template .entry-header {
+    margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .ast-page-builder-template #secondary {
+    margin-top: 1.5em;
+  }
+}
+
+.ast-page-builder-template.ast-left-sidebar #secondary {
+  padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .ast-page-builder-template.ast-left-sidebar #secondary {
+    padding-left: 20px;
+  }
+}
+
+.ast-page-builder-template.ast-right-sidebar #secondary {
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .ast-page-builder-template.ast-right-sidebar #secondary {
+    padding-right: 20px;
+  }
 }
 
 @media (min-width: 993px) {
@@ -4040,7 +4088,12 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1.5em;
 }
 
+.search .entry-header {
+  margin-bottom: 1em;
+}
+
 .page .entry-header.ast-no-title {
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -4983,6 +5036,85 @@ input[type="color"]::-webkit-color-swatch {
 .blog-layout-1 .post-content {
   padding-right: 0;
   padding-left: 0;
+}
+
+/*----------  Page Builders  ----------*/
+/**
+ * Astra Theme compatibility with Beaver Builder
+ */
+.fl-builder-content {
+  clear: both;
+}
+
+.fl-theme-builder-archive .fl-post-gallery-post.hentry,
+.fl-theme-builder-archive .fl-post-column > .hentry {
+  margin: 0;
+}
+
+.fl-theme-builder-archive h2.fl-post-feed-title {
+  clear: initial;
+}
+
+.ast-fluid-width-layout .fl-row-fixed-width .fl-row-fixed-width {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/**
+ * Astra Theme compatibility with Visual Composer
+ */
+.js_active .vc_row {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.js_active .ast-plain-container.ast-single-post .hentry,
+.js_active .ast-plain-container #primary {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.js_active .ast-plain-container .entry-header {
+  margin-top: 4em;
+}
+
+.js_active .ast-plain-container .entry-header.ast-no-title {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .js_active .ast-plain-container .entry-header {
+    margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .js_active .ast-plain-container #secondary {
+    margin-top: 1.5em;
+  }
+}
+
+.js_active .ast-plain-container.ast-left-sidebar .vc_row[data-vc-full-width], .js_active .ast-plain-container.ast-right-sidebar .vc_row[data-vc-full-width],
+.js_active .ast-page-builder-template.ast-left-sidebar .vc_row[data-vc-full-width],
+.js_active .ast-page-builder-template.ast-right-sidebar .vc_row[data-vc-full-width] {
+  max-width: 100%;
+  right: 0 !important;
+}
+
+.js_active .ast-left-sidebar .vc_row[data-vc-full-width],
+.js_active .ast-right-sidebar .vc_row[data-vc-full-width] {
+  max-width: 100%;
+  right: 0 !important;
+}
+
+/**
+ * Astra Theme compatibility with Elementor
+ */
+.ast-left-sidebar .elementor-section.elementor-section-stretched,
+.ast-right-sidebar .elementor-section.elementor-section-stretched {
+  max-width: 100%;
+  right: 0 !important;
 }
 
 /**
