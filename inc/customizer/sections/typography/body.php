@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'suffix'      => '',
 		'input_attrs' => array(
 			'min'    => 1,
-			'step'   => 0.1,
+			'step'   => 0.01,
 			'max'    => 5,
 		),
 	) ) );
