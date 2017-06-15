@@ -23,11 +23,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) );
 
 	$wp_customize->add_control( new Astra_Control_Typography( $wp_customize, ASTRA_THEME_SETTINGS . '[body-font-family]', array(
-		'type'     => 'ast-font-family',
-		'section'  => 'section-body-typo',
-		'priority' => 5,
-		'label'    => __( 'Font Family', 'astra' ),
-		'connect'  => ASTRA_THEME_SETTINGS . '[body-font-weight]',
+		'type'        => 'ast-font-family',
+		'ast_inherit' => __( 'Default', 'astra' ),
+		'section'     => 'section-body-typo',
+		'priority'    => 5,
+		'label'       => __( 'Font Family', 'astra' ),
+		'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 	) ) );
 
 	/**
@@ -39,11 +40,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 	) );
 	$wp_customize->add_control( new Astra_Control_Typography( $wp_customize, ASTRA_THEME_SETTINGS . '[body-font-weight]', array(
-		'type'     => 'ast-font-weight',
-		'section'  => 'section-body-typo',
-		'priority' => 10,
-		'label'    => __( 'Font Weight', 'astra' ),
-		'connect'  => ASTRA_THEME_SETTINGS . '[body-font-family]',
+		'type'        => 'ast-font-weight',
+		'ast_inherit' => __( 'Default', 'astra' ),
+		'section'     => 'section-body-typo',
+		'priority'    => 10,
+		'label'       => __( 'Font Weight', 'astra' ),
+		'connect'     => ASTRA_THEME_SETTINGS . '[body-font-family]',
 	) ) );
 
 	/**
@@ -61,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'priority' => 15,
 		'label'    => __( 'Text Transform', 'astra' ),
 		'choices'  => array(
-			''           => __( 'Inherit', 'astra' ),
+			''           => __( 'Default', 'astra' ),
 			'none'       => __( 'None', 'astra' ),
 			'capitalize' => __( 'Capitalize', 'astra' ),
 			'uppercase'  => __( 'Uppercase', 'astra' ),
