@@ -36,12 +36,12 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public $mode = 'html';
 
 	/**
-	 * Used to set the mode for code controls.
+	 * Used to set the default font options.
 	 *
-	 * @since 1.0.0
-	 * @var bool $mode
+	 * @since 1.0.8
+	 * @var string $ast_inherit
 	 */
-	public $ast_inherit = 'Inherit';
+	public $ast_inherit = '';
 
 	/**
 	 * If true, the preview button for a control will be rendered.
@@ -52,6 +52,19 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public $preview_button = false;
 
 	/**
+	 * Set the default font options.
+	 *
+	 * @since 1.0.8
+	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param string               $id      Control ID.
+	 * @param array                $args    {
+	 */
+	public function __construct( $manager, $id, $args = array() ) {
+		$this->ast_inherit = __( 'Inherit', 'astra' );
+		parent::__construct( $manager, $id, $args );
+	}
+
+	/**
 	 * Renders the content for a control based on the type
 	 * of control specified when this class is initialized.
 	 *
@@ -60,7 +73,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @return void
 	 */
 	protected function render_content() {
-
+		
 		switch ( $this->type ) {
 
 			case 'ast-font-family':
@@ -144,7 +157,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->link();
 		$this->render_connect_attribute();
 		echo '>';
-		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . $default . '</option>';
+		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<optgroup label="System">';
 
 		foreach ( Astra_Font_Families::$system as $name => $variants ) {
@@ -176,7 +189,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->link();
 		$this->render_connect_attribute();
 		echo '>';
-		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . $default . '</option>';
+		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<option value="' . esc_attr( $this->value() ) . '" selected="selected">' . esc_attr( $this->value() ) . '</option>';
 		echo '</select>';
 		echo '</label>';
