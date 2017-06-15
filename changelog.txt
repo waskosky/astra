@@ -1,3 +1,6 @@
+v1.0.8 (Unreleased)
+# Improvement: Fixed admin notice messup issue from astra theme page.
+
 v1.0.7
 # Improvement: Moved 'Buttons' section from panel 'miscellaneous' to parent.
 # Improvement: Site logo, title, tagline spacing improved.
