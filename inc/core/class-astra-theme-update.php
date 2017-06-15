@@ -224,7 +224,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		static public function v_1_0_8() {
-			
+
 			$options = array(
 				'body-line-height',
 
@@ -259,7 +259,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 					if ( array_key_exists( $key, $astra_options ) && is_array( $astra_options[ $key ] ) ) {
 
-						if( in_array( $astra_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
+						if ( in_array( $astra_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
 							$astra_options[ $key ] = $astra_options[ $key ]['desktop'];
 						} else {
 							$astra_options[ $key ] = '';
@@ -267,7 +267,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					}
 				}
 			}
-			
+
 			update_option( 'astra-settings', $astra_options );
 		}
 
