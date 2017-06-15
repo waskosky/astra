@@ -57,7 +57,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @since 1.0.8
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      Control ID.
-	 * @param array                $args    {
+	 * @param array                $args    Default parent's arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		$this->ast_inherit = __( 'Inherit', 'astra' );
@@ -73,7 +73,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @return void
 	 */
 	protected function render_content() {
-		
+
 		switch ( $this->type ) {
 
 			case 'ast-font-family':
