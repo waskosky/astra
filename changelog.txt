@@ -1,5 +1,8 @@
-v1.0.8 (Unreleased)
+v1.0.8
 # Improvement: Fixed admin notice messup issue from astra theme page.
+# Improvement: Page Builder Compatibilty Styles.
+# Improvement: Slider param implemented for line-height.
+# Fixed: String Updated from "Inherit" to "Default" for Body Typography.
 
 v1.0.7
 # Improvement: Moved 'Buttons' section from panel 'miscellaneous' to parent.

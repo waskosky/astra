@@ -94,9 +94,9 @@ class Astra_Control_Slider extends WP_Customize_Control {
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 			<div class="wrapper">
-				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" {{{ data.link }}} data-reset_value="{{ data.default }}" />
+				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
 				<div class="astra_range_value">
-					<input type="number" class="value ast-range-value-input" value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
+					<input type="number" class="value ast-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
 					if ( data.suffix ) {
 
 					#><span class="ast-range-unit">{{ data.suffix }}</span><#

@@ -139,14 +139,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'tablet-unit'  => 'px',
 					'mobile-unit'  => 'px',
 				),
-				'body-line-height'                  => array(
-					'desktop'      => '',
-					'tablet'       => '',
-					'mobile'       => '',
-					'desktop-unit' => '',
-					'tablet-unit'  => '',
-					'mobile-unit'  => '',
-				),
+				'body-line-height'                  => '',
 				'body-text-transform'               => '',
 				'font-size-site-title'              => array(
 					'desktop'      => 35,

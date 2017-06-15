@@ -74,6 +74,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_5();
 			}
 
+			// Update to older version than 1.0.8 version.
+			if ( version_compare( $saved_version, '1.0.8', '<' ) && version_compare( $saved_version, '1.0.4', '>' ) ) {
+				self::v_1_0_8();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -210,6 +215,60 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Delete old option.
 			delete_option( 'ast-settings' );
+		}
+
+		/**
+		 * Update options of older version than 1.0.8.
+		 *
+		 * @since 1.0.8
+		 * @return void
+		 */
+		static public function v_1_0_8() {
+
+			$options = array(
+				'body-line-height',
+
+				// Addon Options.
+				'footer-adv-wgt-title-line-height',
+				'footer-adv-wgt-content-line-height',
+				'line-height-related-post',
+				'title-bar-title-line-height',
+				'title-bar-breadcrumb-line-height',
+				'line-height-page-title',
+				'line-height-post-meta',
+				'line-height-h1',
+				'line-height-h2',
+				'line-height-h3',
+				'line-height-h4',
+				'line-height-h5',
+				'line-height-h6',
+				'line-height-footer-content',
+				'line-height-site-title',
+				'line-height-site-tagline',
+				'line-height-primary-menu',
+				'line-height-primary-dropdown-menu',
+				'line-height-widget-title',
+				'line-height-widget-content',
+				'line-height-entry-title',
+			);
+
+			$astra_options = get_option( 'astra-settings', array() );
+
+			if ( 0 < count( $astra_options ) ) {
+				foreach ( $options as $key ) {
+
+					if ( array_key_exists( $key, $astra_options ) && is_array( $astra_options[ $key ] ) ) {
+
+						if ( in_array( $astra_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
+							$astra_options[ $key ] = $astra_options[ $key ]['desktop'];
+						} else {
+							$astra_options[ $key ] = '';
+						}
+					}
+				}
+			}
+
+			update_option( 'astra-settings', $astra_options );
 		}
 
 	}
