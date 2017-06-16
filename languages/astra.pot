@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.6\n"
+"Project-Id-Version: Astra 1.0.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-06-07 13:39:56+00:00\n"
+"POT-Creation-Date: 2017-06-16 14:16:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -300,12 +300,53 @@ msgid "Customize"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-partials.php:107
-#: inc/customizer/class-astra-customizer-partials.php:126 inc/extras.php:319
+#: inc/customizer/class-astra-customizer-partials.php:126 inc/extras.php:316
 msgid "Y"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-sanitizes.php:136
 msgid "Enter valid email address!"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:63
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:101
+msgid "Inherit"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:102
+msgid "Thin 100"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:103
+msgid "Extra-Light 200"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:104
+msgid "Light 300"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:105
+msgid "Normal 400"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:106
+msgid "Medium 500"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:107
+msgid "Semi-Bold 600"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:108
+msgid "Bold 700"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:109
+msgid "Extra-Bold 800"
+msgstr ""
+
+#: inc/customizer/custom-controls/typography/class-astra-control-typography.php:110
+msgid "Ultra-Bold 900"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:17
@@ -367,42 +408,38 @@ msgid "Single Page / Post"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:119
-msgid "Miscellaneous"
-msgstr ""
-
-#: inc/customizer/register-panels-and-sections.php:123
 msgid "Buttons"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:130
+#: inc/customizer/register-panels-and-sections.php:127
 msgid "Widget Areas"
 msgstr ""
 
-#: inc/customizer/sections/advanced/buttons.php:26
-msgid "Button Color"
+#: inc/customizer/sections/buttons/buttons.php:26
+msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer/sections/advanced/buttons.php:39
-msgid "Button Hover Color"
+#: inc/customizer/sections/buttons/buttons.php:39
+msgid "Button Text Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/advanced/buttons.php:52
+#: inc/customizer/sections/buttons/buttons.php:52
 msgid "Button Background Color"
 msgstr ""
 
-#: inc/customizer/sections/advanced/buttons.php:65
+#: inc/customizer/sections/buttons/buttons.php:65
 msgid "Button Background Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/advanced/buttons.php:79
+#: inc/customizer/sections/buttons/buttons.php:79
 msgid "Button Radius"
 msgstr ""
 
-#: inc/customizer/sections/advanced/buttons.php:99
+#: inc/customizer/sections/buttons/buttons.php:99
 msgid "Vertical Padding"
 msgstr ""
 
-#: inc/customizer/sections/advanced/buttons.php:119
+#: inc/customizer/sections/buttons/buttons.php:119
 msgid "Horizontal Padding"
 msgstr ""
 
@@ -459,6 +496,9 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:61
 #: inc/customizer/sections/layout/sidebar.php:82
 #: inc/customizer/sections/layout/sidebar.php:103
+#: inc/customizer/sections/typography/body.php:27
+#: inc/customizer/sections/typography/body.php:44
+#: inc/customizer/sections/typography/body.php:66
 msgid "Default"
 msgstr ""
 
@@ -567,7 +607,7 @@ msgstr ""
 #: inc/customizer/sections/layout/footer.php:73
 #: inc/customizer/sections/layout/footer.php:118
 #: inc/customizer/sections/layout/header.php:75
-#: inc/customizer/sections/typography/body.php:65
+#: inc/customizer/sections/typography/body.php:67
 msgid "None"
 msgstr ""
 
@@ -726,7 +766,7 @@ msgstr ""
 
 #: inc/customizer/sections/typography/archive.php:39
 #: inc/customizer/sections/typography/archive.php:73
-#: inc/customizer/sections/typography/body.php:84
+#: inc/customizer/sections/typography/body.php:86
 #: inc/customizer/sections/typography/content.php:39
 #: inc/customizer/sections/typography/content.php:73
 #: inc/customizer/sections/typography/content.php:107
@@ -743,35 +783,31 @@ msgstr ""
 msgid "Blog Post Title"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:29
+#: inc/customizer/sections/typography/body.php:30
 msgid "Font Family"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:45
+#: inc/customizer/sections/typography/body.php:47
 msgid "Font Weight"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:62
+#: inc/customizer/sections/typography/body.php:64
 msgid "Text Transform"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:64
-msgid "Inherit"
-msgstr ""
-
-#: inc/customizer/sections/typography/body.php:66
+#: inc/customizer/sections/typography/body.php:68
 msgid "Capitalize"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:67
+#: inc/customizer/sections/typography/body.php:69
 msgid "Uppercase"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:68
+#: inc/customizer/sections/typography/body.php:70
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:106
+#: inc/customizer/sections/typography/body.php:108
 msgid "Line Height"
 msgstr ""
 
@@ -811,19 +847,19 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:255
+#: inc/extras.php:252
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:368
+#: inc/extras.php:365
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:512
+#: inc/extras.php:509
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:922
+#: inc/extras.php:919
 msgid "Add Widget"
 msgstr ""
 
