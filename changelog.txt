@@ -1,3 +1,6 @@
+v1.0.9
+# New: Added accessibility ready support.
+
 v1.0.8
 # Improvement: Page Builder Compatibilty Styles.
 # Improvement: Slider param implemented for line-height.
