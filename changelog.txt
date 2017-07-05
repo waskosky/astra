@@ -1,4 +1,7 @@
 v1.0.9
+# New: 'Get more with Astra Pro' added in customizer.
+
+v1.0.9
 # New: Added accessibility ready support.
 
 v1.0.8
