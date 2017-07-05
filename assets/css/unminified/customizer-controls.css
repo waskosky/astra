@@ -143,21 +143,19 @@
  * Upgred To Astra Pro
 */
 .control-section-astra-pro h3 {
-    background: #0085ba;
-    color: #FFF;
-    margin: 0 0 2px;
+    margin: 0;
+   	padding: 1px 0;
+   	border: 0;
     position: relative;
 }
 .control-section-astra-pro h3 a {
     background: #FFF;
     display: block;
-    padding: 10px 10px 11px 14px;
+    padding: 11px 10px 12px 14px;
     text-decoration: none;
-    border-bottom: 1px solid #ddd;
 }
 .control-section-astra-pro h3 a:after {
 	content: "\f345";
-	color: #0085ba;
 	position: absolute;
 	top: 11px;
 	right: 10px;
