@@ -19,7 +19,7 @@ $wp_customize->add_section(
         'astra-pro',
         array(
             'title'    => esc_html__('Get more with Astra Pro', 'astra'),
-            'pro_url'  => 'https://wpastra.com/pro/',
+            'pro_url'  => esc_url('https://wpastra.com/pro/'),
             'priority' => 1,
         )
     )
