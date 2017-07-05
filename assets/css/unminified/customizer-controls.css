@@ -138,3 +138,39 @@
 .customize-pane-child > li[id$="-sidebar-layout"] > label select {
     margin-left: 10px;
 }
+
+/**
+ * Upgred To Astra Pro
+*/
+.control-section-astra-pro h3 {
+    background: #0085ba;
+    color: #FFF;
+    margin: 0 0 2px;
+    position: relative;
+}
+.control-section-astra-pro h3 a {
+    background: #FFF;
+    display: block;
+    padding: 10px 10px 11px 14px;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+}
+.control-section-astra-pro h3 a:after {
+	content: "\f345";
+	color: #0085ba;
+	position: absolute;
+	top: 11px;
+	right: 10px;
+	z-index: 1;
+	float: right;
+	border: none;
+	background: none;
+	font: normal 20px/1 dashicons;
+	speak: none;
+	display: block;
+	padding: 0;
+	text-indent: 0;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
