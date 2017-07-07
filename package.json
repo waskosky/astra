@@ -5,7 +5,7 @@
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "git@git.brainstormforce.com:astra/astra-theme.git"
+    "url": "https://github.com/brainstormforce/astra.git"
   },
   "author": "",
   "license": "ISC",
