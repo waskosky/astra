@@ -92,6 +92,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		function customize_register( $wp_customize ) {
 
 			/**
+			 * Astra Pro Upsell Link
+			 */
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
+				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/astra-pro-section-register.php';
+			}
+
+			/**
 			 * Register controls
 			 */
 			$wp_customize->register_control_type( 'Astra_Control_Sortable' );

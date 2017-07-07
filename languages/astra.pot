@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.0.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-06-16 14:16:15+00:00\n"
+"POT-Creation-Date: 2017-07-05 15:33:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -297,6 +297,10 @@ msgstr ""
 
 #: inc/core/view-general.php:29
 msgid "Customize"
+msgstr ""
+
+#: inc/customizer/astra-pro/astra-pro-section-register.php:21
+msgid "Get more with Astra Pro"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-partials.php:107
