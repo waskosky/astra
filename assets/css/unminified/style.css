@@ -2733,6 +2733,7 @@ body {
 
 .header-main-layout-1 .main-navigation {
   padding-left: 15px;
+  vertical-align: top;
 }
 
 .ast-header-break-point .header-main-layout-1 .site-branding {
