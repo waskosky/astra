@@ -4095,7 +4095,7 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1em;
 }
 
-.page .entry-header.ast-no-title {
+.ast-single-post .entry-header.ast-no-title {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -5084,6 +5084,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .js_active .ast-plain-container .entry-header.ast-no-title {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
