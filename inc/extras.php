@@ -937,12 +937,12 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 	 * @return array
 	 */
 	function astra_google_fonts_callback( $fonts ) {
-		
+
 		foreach ( $fonts as $font_name => $font_weight ) {
 
 			$is_true = false;
 			$new_font_weight = '';
-			
+
 			switch ( $font_name ) {
 				case 'Buda':
 				case 'Open Sans Condensed':
@@ -959,14 +959,14 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 					break;
 			}
 
-			if( $is_true ) {
-				if( in_array('normal', $font_weight ) ) {
+			if ( $is_true ) {
+				if ( in_array( 'normal', $font_weight ) ) {
 					$key = array_search( 'normal', $font_weight );
-					$fonts[$font_name][$key] = $new_font_weight;
+					$fonts[ $font_name ][ $key ] = $new_font_weight;
 				}
 			}
 		}
 		return $fonts;
 	}
-}
+}// End if().
 add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
