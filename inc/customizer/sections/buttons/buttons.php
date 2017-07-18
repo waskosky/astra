@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-color]', array(
-		'default'           => astra_get_option( 'button-color' ),
+		'default'           => '',
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Hover Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-h-color]', array(
-		'default'           => astra_get_option( 'button-h-color' ),
+		'default'           => '',
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Background Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-bg-color]', array(
-		'default'           => astra_get_option( 'button-bg-color' ),
+		'default'           => '',
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Background Hover Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[button-bg-h-color]', array(
-		'default'           => astra_get_option( 'button-bg-h-color' ),
+		'default'           => '',
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	) );
