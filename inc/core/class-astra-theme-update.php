@@ -294,7 +294,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if ( ! array_key_exists( $key, $astra_options ) ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
 					$astra_options[ $key ] = $value;
 				}
 			}
