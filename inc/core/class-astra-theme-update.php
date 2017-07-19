@@ -283,7 +283,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		static public function v_1_0_12() {
-			
+
 			$options = array(
 				'site-content-layout'         => 'plain-container',
 				'single-page-content-layout'  => 'plain-container',
@@ -294,8 +294,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if( ! array_key_exists( $key, $astra_options ) ) {
-					$astra_options[$key] = $value;
+				if ( ! array_key_exists( $key, $astra_options ) ) {
+					$astra_options[ $key ] = $value;
 				}
 			}
 
