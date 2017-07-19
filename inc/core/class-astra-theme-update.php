@@ -79,6 +79,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_8();
 			}
 
+			// Update to older version than 1.0.12 version.
+			if ( version_compare( $saved_version, '1.0.12', '<' ) ) {
+				self::v_1_0_12();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -252,7 +257,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( 'astra-settings', array() );
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			if ( 0 < count( $astra_options ) ) {
 				foreach ( $options as $key ) {
@@ -268,7 +273,33 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( 'astra-settings', $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update options of older version than 1.0.12.
+		 *
+		 * @since 1.0.12
+		 * @return void
+		 */
+		static public function v_1_0_12() {
+			
+			$options = array(
+				'site-content-layout'         => 'plain-container',
+				'single-page-content-layout'  => 'plain-container',
+				'single-post-content-layout'  => 'content-boxed-container',
+				'archive-post-content-layout' => 'content-boxed-container',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if( ! array_key_exists( $key, $astra_options ) ) {
+					$astra_options[$key] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
 	}
