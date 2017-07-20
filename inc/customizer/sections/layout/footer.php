@@ -181,7 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Top Border Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
-		'default'           => astra_get_option( 'footer-sml-divider-color' ),
+		'default'           => '#fff',
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),

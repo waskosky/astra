@@ -96,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Line Height
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[body-line-height]', array(
-		'default'           => astra_get_option( 'body-line-height' ),
+		'default'           => '',
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),

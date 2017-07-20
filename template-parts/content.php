@@ -16,7 +16,13 @@
 
 	<?php astra_entry_top(); ?>
 
-	<header class="entry-header">
+	<?php
+	$title_enabled = '';
+	if ( ! apply_filters( 'astra_the_title_enabled', true ) ) {
+		$title_enabled = 'ast-no-title';
+	}
+	?>
+	<header class="entry-header <?php echo esc_attr( $title_enabled ); ?>">
 
 		<?php the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
@@ -29,7 +35,7 @@
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'astra' ), array(
+				wp_kses( __( 'Continue reading %s', 'astra' ) . ' <span class="meta-nav">&rarr;</span>', array(
 					'span' => array(
 						'class' => array(),
 					),

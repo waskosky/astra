@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Background Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-color]', array(
-		'default'           => astra_get_option( 'site-layout-outside-bg-color' ),
+		'default'           => '',
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),

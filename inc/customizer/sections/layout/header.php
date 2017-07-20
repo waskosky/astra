@@ -128,7 +128,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Bottom Border Color
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-sep-color]', array(
-		'default'           => astra_get_option( 'header-main-sep-color' ),
+		'default'           => '',
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),

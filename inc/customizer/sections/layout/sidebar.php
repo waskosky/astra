@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Primary Content Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[site-sidebar-width]', array(
-		'default'           => astra_get_option( 'site-sidebar-width' ),
+		'default'           => 30,
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),

@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Enter Width
 	 */
 	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
-		'default'           => astra_get_option( 'blog-max-width' ),
+		'default'           => 1200,
 		'type'              => 'option',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),

@@ -15,7 +15,13 @@
 
 	<?php astra_single_header_before(); ?>
 
-	<header class="entry-header">
+	<?php
+	$title_enabled = '';
+	if ( ! apply_filters( 'astra_the_title_enabled', true ) ) {
+		$title_enabled = 'ast-no-title';
+	}
+	?>
+	<header class="entry-header <?php echo esc_attr( $title_enabled ); ?>">
 
 		<?php astra_single_header_top(); ?>
 

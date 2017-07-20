@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
 			</p>
 			<select name="site-sidebar-layout" id="site-sidebar-layout">
-				<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
+				<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
 				<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
 				<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
 				<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
@@ -171,7 +171,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 			</p>
 			<select name="site-content-layout" id="site-content-layout">
-				<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
+				<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
 				<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Plain', 'astra' ); ?></option>
 				<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
 				<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
