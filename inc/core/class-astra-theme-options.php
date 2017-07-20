@@ -124,10 +124,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				'site-content-width'               => 1200,
 				'site-layout-outside-bg-color'     => '',
 				// Container.
-				'site-content-layout'               => 'plain-container',
-				'single-page-content-layout'        => 'plain-container',
-				'single-post-content-layout'        => 'content-boxed-container',
-				'archive-post-content-layout'       => 'content-boxed-container',
+				'site-content-layout'               => 'content-boxed-container',
+				'single-page-content-layout'        => 'default',
+				'single-post-content-layout'        => 'default',
+				'archive-post-content-layout'       => 'default',
 				// Typography.
 				'body-font-family'                  => 'inherit',
 				'body-font-weight'                  => 'inherit',
