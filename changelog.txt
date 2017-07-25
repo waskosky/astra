@@ -4,6 +4,7 @@ v1.0.12
 # Improvement: 'astra_featured_image_enabled' filter added for Enable or Disable featured image.
 # Improvement: Smooth font Rendering style updated.
 # Fixed: Admin notice issue with Astra name.
+# Fixed: Fetal error while bb lite version is activated.
 
 v1.0.11
 # Removed: accessibility-ready tag until the final review is done.
