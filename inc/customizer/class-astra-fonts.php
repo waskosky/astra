@@ -113,8 +113,8 @@ final class Astra_Fonts {
 	 * Combine multiple google font in one URL
 	 *
 	 * @link https://shellcreeper.com/?p=1476
-	 * @param array $fonts 		Google Fonts array.
-	 * @param array $subsets 	Font's Subsets array.
+	 * @param array $fonts      Google Fonts array.
+	 * @param array $subsets    Font's Subsets array.
 	 *
 	 * @return string
 	 */

@@ -66,25 +66,27 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 *
 			 * @see http://php.net/manual/en/filter.filters.sanitize.php
 			 */
-			self::$meta_option = apply_filters( 'astra_meta_box_options', array(
-				'ast-main-header-display' => array(
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'footer-sml-layout' => array(
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'site-post-title' => array(
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'site-sidebar-layout' => array(
-					'default'  => 'default',
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'site-content-layout' => array(
-					'default'  => 'default',
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-			) );
+			self::$meta_option = apply_filters(
+				'astra_meta_box_options', array(
+					'ast-main-header-display' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-sml-layout' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-post-title' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-sidebar-layout' => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-content-layout' => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+				)
+			);
 		}
 
 		/**
@@ -201,7 +203,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 				$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
 
-				if ( 'disabled' != $footer_sml_layout ) { ?>
+				if ( 'disabled' != $footer_sml_layout ) {
+				?>
 				<span class="footer-sml-layout-option-wrap">
 					<label for="footer-sml-layout">
 						<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $small_footer, 'disabled' ); ?> />

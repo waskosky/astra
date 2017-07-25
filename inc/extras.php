@@ -109,10 +109,12 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 
 		if ( isset( $numpages ) ) {
 			echo "<div class='ast-pagination'>";
-			the_posts_pagination( array(
-				'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
-				'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
-			) );
+			the_posts_pagination(
+				array(
+					'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
+					'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
+				)
+			);
 			echo '</div>';
 		}
 	}
@@ -316,10 +318,12 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 					$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
 					$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
-					$theme_author = apply_filters( 'astra_theme_author', array(
-						'theme_name'       => __( 'Astra', 'astra' ),
-						'theme_author_url' => 'http://wpastra.com/',
-					) );
+					$theme_author = apply_filters(
+						'astra_theme_author', array(
+							'theme_name'       => __( 'Astra', 'astra' ),
+							'theme_author_url' => 'http://wpastra.com/',
+						)
+					);
 
 					$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
 				break;
@@ -502,7 +506,8 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
-			); ?>
+			);
+			?>
 
 			<div class="main-header-bar-navigation" >
 
@@ -912,7 +917,8 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 	function astra_get_sidebar( $sidebar_id ) {
 		if ( is_active_sidebar( $sidebar_id ) ) {
 			dynamic_sidebar( $sidebar_id );
-		} elseif ( current_user_can( 'edit_theme_options' ) ) { ?>
+		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+		?>
 			<div class="widget ast-no-widget-row">
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
