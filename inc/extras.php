@@ -978,12 +978,12 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
 
 /**
- * Register Advanced Footer Widgets
+ * Register Footer Widgets
  */
 if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
 
 	/**
-	 * Register Advanced Footer Widgets
+	 * Register Footer Widgets
 	 *
 	 * @since 1.0.12
 	 * @return void
@@ -991,7 +991,7 @@ if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
 	function register_advanced_footer_widget() {
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Advanced Footer Widget 1', 'astra-addon' ),
+				'name'          => esc_html__( 'Footer Widget 1', 'astra' ),
 				'id'            => 'advanced-footer-widget-1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -1001,7 +1001,7 @@ if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
 		);
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Advanced Footer Widget 2', 'astra-addon' ),
+				'name'          => esc_html__( 'Footer Widget 2', 'astra' ),
 				'id'            => 'advanced-footer-widget-2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -1011,7 +1011,7 @@ if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
 		);
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Advanced Footer Widget 3', 'astra-addon' ),
+				'name'          => esc_html__( 'Footer Widget 3', 'astra' ),
 				'id'            => 'advanced-footer-widget-3',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -1021,7 +1021,7 @@ if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
 		);
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Advanced Footer Widget 4', 'astra-addon' ),
+				'name'          => esc_html__( 'Footer Widget 4', 'astra' ),
 				'id'            => 'advanced-footer-widget-4',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -1056,7 +1056,7 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra-addon' ); ?>
+						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
 					</a>
 				</p>
 			</div>

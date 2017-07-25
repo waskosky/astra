@@ -3889,12 +3889,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 /**
- * 	Advanced Footer Layouts
- *
+ * Footer Widget Layouts
  */
 .footer-adv-overlay {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .footer-adv p:last-child {

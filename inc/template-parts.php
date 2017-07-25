@@ -300,12 +300,12 @@ if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
 }
 
 /**
- * Advanced Footer markup loader
+ * Footer widgets markup
  */
 if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
 
 	/**
-	 * Advanced Footer markup loader
+	 * Footer widgets markup
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *

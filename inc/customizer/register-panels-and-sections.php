@@ -45,7 +45,7 @@
 
 		$wp_customize->add_section(
 			'section-footer-small', array(
-				'title'    => __( 'Footer', 'astra' ),
+				'title'    => __( 'Footer Bar', 'astra' ),
 				'panel'    => 'panel-layout',
 				'priority' => 60,
 			)
@@ -164,11 +164,11 @@
 		);
 
 		/**
-		 * Advanced Footer Section
+		 * Footer Widgets Section
 		 */
 		$wp_customize->add_section(
 			'section-footer-adv', array(
-				'title'    => __( 'Advanced Footer', 'astra-addon' ),
+				'title'    => __( 'Footer Widgets', 'astra' ),
 				'panel'    => 'panel-layout',
 				'priority' => 55,
 			)

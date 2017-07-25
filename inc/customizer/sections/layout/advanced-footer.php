@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Advanced Footer Layout
+	 * Option: Footer Widgets Layout Layout
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[footer-adv]', array(
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Radio_Image(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv]', array(
 				'type'    => 'ast-radio-image',
-				'label'   => __( 'Advanced Footer', 'astra' ),
+				'label'   => __( 'Footer Widgets Layout', 'astra' ),
 				'section' => 'section-footer-adv',
 				'choices' => array(
 					'disabled'    => array(
