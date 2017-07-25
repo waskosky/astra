@@ -17,6 +17,7 @@ add_action( 'astra_footer_content',             'astra_footer_small_footer_templ
 add_action( 'astra_entry_content_single',       'astra_entry_content_single_template' );
 add_action( 'astra_entry_content_blog',         'astra_entry_content_blog_template' );
 add_action( 'astra_entry_content_404_page',     'astra_entry_content_404_page_template' );
+add_action( 'astra_footer_content',             'astra_advanced_footer_markup', 1 );
 
 /**
  * Header Custom Menu Item
@@ -295,5 +296,31 @@ if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
 		}
 
 		get_template_part( 'template-parts/404/404-layout', $layout_404 );
+	}
+}
+
+/**
+ * Footer widgets markup
+ */
+if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
+
+	/**
+	 * Footer widgets markup
+	 *
+	 * Loads appropriate template file based on the style option selected in options panel.
+	 *
+	 * @since 1.0.12
+	 */
+	function astra_advanced_footer_markup() {
+
+		$advanced_footer_layout = astra_get_option( 'footer-adv' );
+		$advanced_footer_meta = astra_get_option_meta( 'footer-adv-display' );
+
+		if ( apply_filters( 'astra_advanced_footer_disable', false ) || 'disabled' == $advanced_footer_layout ) {
+			return;
+		}
+
+		// Add markup.
+		get_template_part( 'template-parts/advanced-footer/layout-4' );
 	}
 }

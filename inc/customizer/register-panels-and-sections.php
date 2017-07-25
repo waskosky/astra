@@ -45,7 +45,7 @@
 
 		$wp_customize->add_section(
 			'section-footer-small', array(
-				'title'    => __( 'Footer', 'astra' ),
+				'title'    => __( 'Footer Bar', 'astra' ),
 				'panel'    => 'panel-layout',
 				'priority' => 60,
 			)
@@ -144,8 +144,8 @@
 		);
 
 		/**
-	 * Buttons Section
-	 */
+		 * Buttons Section
+		 */
 		$wp_customize->add_section(
 			'section-buttons', array(
 				'priority' => 50,
@@ -154,11 +154,22 @@
 		);
 
 		/**
-	 * Widget Areas Section
-	 */
+		 * Widget Areas Section
+		 */
 		$wp_customize->add_section(
 			'section-widget-areas', array(
 				'priority' => 55,
 				'title' => __( 'Widget Areas', 'astra' ),
+			)
+		);
+
+		/**
+		 * Footer Widgets Section
+		 */
+		$wp_customize->add_section(
+			'section-footer-adv', array(
+				'title'    => __( 'Footer Widgets', 'astra' ),
+				'panel'    => 'panel-layout',
+				'priority' => 55,
 			)
 		);

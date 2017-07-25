@@ -105,7 +105,7 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 		register_sidebar(
 			apply_filters(
 				'astra_footer_1_widgets_init', array(
-					'name'          => esc_html__( 'Footer Widget 1', 'astra' ),
+					'name'          => esc_html__( 'Footer Bar Section 1', 'astra' ),
 					'id'            => 'footer-widget-1',
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -119,7 +119,7 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 		register_sidebar(
 			apply_filters(
 				'astra_footer_2_widgets_init', array(
-					'name'          => esc_html__( 'Footer Widget 2', 'astra' ),
+					'name'          => esc_html__( 'Footer Bar Section 2', 'astra' ),
 					'id'            => 'footer-widget-2',
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
