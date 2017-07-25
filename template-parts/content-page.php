@@ -23,7 +23,8 @@
 	}
 	?>
 	<header class="entry-header <?php echo esc_attr( $title_enabled ); ?>">
-		<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) : ?>
+		<?php $featured_image = apply_filters( 'astra_featured_image_enabled', true ); ?>
+		<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() && $featured_image ) : ?>
 			<div class="post-thumb">
 				<?php the_post_thumbnail(); ?>
 			</div>
