@@ -545,6 +545,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 	 *
 	 * @param string $before Optional. Content to prepend to the title.
 	 * @param string $after  Optional. Content to append to the title.
+	 * @param int    $post_id Optional, default to 0. Post id.
 	 * @param bool   $echo   Optional, default to true.Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
@@ -576,6 +577,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 	 *
 	 * Return title for Title Bar and Normal Title.
 	 *
+	 * @param int  $post_id Optional, default to 0. Post id.
 	 * @param bool $echo   Optional, default to false. Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
