@@ -40,18 +40,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * - Global CSS
 			 * - Typography
 			 * - Page Layout
-			 * 	- Sidebar Positions CSS
-			 *  	- Full Width Layout CSS
+			 *   - Sidebar Positions CSS
+			 *      - Full Width Layout CSS
 			 *   - Fluid Width Layout CSS
 			 *   - Box Layout CSS
 			 *   - Padded Layout CSS
 			 * - Blog
-			 * 	- Single Blog
+			 *   - Single Blog
 			 * - Typography of Headings
 			 * - Header
 			 * - Footer
-			 * 	- Main Footer CSS
-			 *  	- Small Footer CSS
+			 *   - Main Footer CSS
+			 *     - Small Footer CSS
 			 * - 404 Page
 			 * - Secondary
 			 * - Global CSS
@@ -217,14 +217,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Main - Menu Items.
-				'.main-header-menu li:hover > a,
-				 .main-header-menu .ast-masthead-custom-menu-items a:hover,
-				 .main-header-menu .current-menu-item > a,
-				 .main-header-menu .current-menu-ancestor > a,
-				 .main-header-menu .current_page_item > a,
-				 .main-header-menu .current-menu-item > .ast-menu-toggle,
-				 .main-header-menu .current-menu-ancestor > .ast-menu-toggle,
-				 .main-header-menu .current_page_item > .ast-menu-toggle' => array(
+				'.main-header-menu li:hover > a, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .main-header-menu .current_page_item > .ast-menu-toggle' => array(
 					'color' => esc_attr( $link_color ),
 				),
 
@@ -318,10 +311,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Pagination.
 				'.ast-pagination a, .page-links .page-link, .single .post-navigation a' => array(
-						'color' => esc_attr( $link_color ),
+					'color' => esc_attr( $link_color ),
 				),
 				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
-						'color' => esc_attr( $link_hover_color ),
+					'color' => esc_attr( $link_hover_color ),
 				),
 			);
 
@@ -572,7 +565,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * - Page Layout
 			 *
-			 * 	- Sidebar Positions CSS
+			 *   - Sidebar Positions CSS
 			 */
 			$secondary_width        = astra_get_option( 'site-sidebar-width' );
 			$primary_width          = absint( 100 - $secondary_width );

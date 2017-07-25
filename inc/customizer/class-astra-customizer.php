@@ -172,33 +172,37 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
 
-			wp_localize_script( 'astra-customizer-controls-toggle-js', 'astra', apply_filters( 'astra_theme_customizer_js_localize', array(
-				'customizer' => array(
-					'settings' => array(
-						'sidebars' => array(
-							'single' => array(
-								'single-post-sidebar-layout',
-								'single-page-sidebar-layout',
-							),
-							'archive' => array(
-								'archive-post-sidebar-layout'
+			wp_localize_script(
+				'astra-customizer-controls-toggle-js', 'astra', apply_filters(
+					'astra_theme_customizer_js_localize', array(
+						'customizer' => array(
+							'settings' => array(
+								'sidebars' => array(
+									'single' => array(
+										'single-post-sidebar-layout',
+										'single-page-sidebar-layout',
+									),
+									'archive' => array(
+										'archive-post-sidebar-layout',
+									),
+								),
+								'container' => array(
+									'single' => array(
+										'single-post-content-layout',
+										'single-page-content-layout',
+									),
+									'archive' => array(
+										'archive-post-content-layout',
+									),
+								),
 							),
 						),
-						'container' => array(
-							'single' => array(
-								'single-post-content-layout',
-								'single-page-content-layout',
-							),
-							'archive' => array(
-								'archive-post-content-layout'
-							),
+						'theme' => array(
+							'option' => ASTRA_THEME_SETTINGS,
 						),
-					),
-				),
-				'theme' => array(
-					'option' => ASTRA_THEME_SETTINGS,
-				),
-			) ) );
+					)
+				)
+			);
 
 		}
 

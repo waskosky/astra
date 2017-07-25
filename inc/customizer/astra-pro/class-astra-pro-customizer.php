@@ -72,7 +72,8 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 				<# } #>
 			</h3>
 		</li>
-		<?php }
+		<?php
+		}
 	}
 
 } // End if().
