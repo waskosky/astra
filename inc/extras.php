@@ -106,8 +106,9 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 */
 	function astra_number_pagination() {
 		global $numpages;
+		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
-		if ( isset( $numpages ) ) {
+		if ( isset( $numpages ) && $enabled ) {
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination(
 				array(
