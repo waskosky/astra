@@ -3,6 +3,7 @@
  * Footer Layout 4
  *
  * @package Astra Addon
+ * @since   Astra 1.0.12
  */
 
 /**
