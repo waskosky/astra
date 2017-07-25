@@ -116,13 +116,12 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 		$css_val = '';
 
 		switch ( $unit ) {
-			case 'em' :
-			case '%' :
+			case 'em':
+			case '%':
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
 			case 'px':
-
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = astra_get_option( 'font-size-body' );
@@ -167,7 +166,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 	 */
 	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
-		if ( '' == $value &&  '' == $default ) {
+		if ( '' == $value && '' == $default ) {
 			return $value;
 		}
 
@@ -175,8 +174,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 		switch ( $unit ) {
 
-			case 'font' :
-
+			case 'font':
 				if ( 'inherit' != $value ) {
 					$css_val = esc_attr( $value );
 				} elseif ( '' != $default ) {
@@ -186,17 +184,16 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				break;
 
 			case 'px':
-			case '%' :
+			case '%':
 						$value = ( '' != $value ) ? $value : $default;
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
-			case 'url' :
+			case 'url':
 						$css_val = $unit . '(' . esc_url( $value ) . ')';
 				break;
 
 			case 'rem':
-
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = astra_get_option( 'font-size-body' );
@@ -242,14 +239,16 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 			foreach ( $css_output as $selector => $properties ) {
 
-				if ( ! count( $properties ) ) { continue; }
+				if ( ! count( $properties ) ) {
+					continue; }
 
 				$temp_parse_css   = $selector . '{';
 				$properties_added = 0;
 
 				foreach ( $properties as $property => $value ) {
 
-					if ( '' === $value ) { continue; }
+					if ( '' === $value ) {
+						continue; }
 
 					$properties_added++;
 					$temp_parse_css .= $property . ':' . $value . ';';
@@ -297,10 +296,10 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	/**
 	 * Return Theme options.
 	 *
-	 * @param  string $option  		Option key.
-	 * @param  string $default 		Option default value.
-	 * @param  string $deprecated 	Option default value.
-	 * @return string          		Return option value.
+	 * @param  string $option       Option key.
+	 * @param  string $default      Option default value.
+	 * @param  string $deprecated   Option default value.
+	 * @return string               Return option value.
 	 */
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
@@ -648,7 +647,8 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Category.
-			} elseif ( is_category() ) { ?>
+			} elseif ( is_category() ) {
+			?>
 
 				<section class="ast-archive-description">
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
@@ -658,7 +658,8 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Tag.
-			} elseif ( is_tag() ) { ?>
+			} elseif ( is_tag() ) {
+			?>
 
 				<section class="ast-archive-description">
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
@@ -668,7 +669,8 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Search.
-			} elseif ( is_search() ) { ?>
+			} elseif ( is_search() ) {
+			?>
 
 				<section class="ast-archive-description">
 					<?php
@@ -681,14 +683,16 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Other.
-			} else { ?>
+			} else {
+			?>
 
 				<section class="ast-archive-description">
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
 					<?php the_archive_description(); ?>
 				</section>
 
-		<?php }// End if().
+		<?php
+			}// End if().
 		}// End if().
 	}
 

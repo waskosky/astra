@@ -61,12 +61,14 @@
 		<?php astra_entry_content_after(); ?>
 
 		<?php
-			wp_link_pages( array(
-				'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
-				'after'       => '</div>',
-				'link_before' => '<span class="page-link">',
-				'link_after'  => '</span>',
-			) );
+			wp_link_pages(
+				array(
+					'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
+					'after'       => '</div>',
+					'link_before' => '<span class="page-link">',
+					'link_after'  => '</span>',
+				)
+			);
 		?>
 	</div><!-- .entry-content .clear -->
 </div>

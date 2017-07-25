@@ -210,7 +210,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					$url = self::get_page_url( $slug );
 
-					$active = ( $slug == $action ) ? 'nav-tab-active' : ''; ?>
+					$active = ( $slug == $action ) ? 'nav-tab-active' : '';
+					?>
 						<a class='nav-tab <?php echo esc_attr( $active ); ?>' href='<?php echo esc_url( $url ); ?>'> <?php echo esc_html( $data['label'] ); ?> </a>
 				<?php } ?>
 			</div><!-- .nav-tab-wrapper -->
