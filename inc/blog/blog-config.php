@@ -186,7 +186,8 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				 *
 				 * @see astra_default_strings()
 				 */
-				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) ); ?>
+				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) );
+				?>
 
 				<!-- Comment Schema Meta -->
 				<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">

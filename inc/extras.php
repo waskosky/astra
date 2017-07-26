@@ -106,13 +106,16 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 */
 	function astra_number_pagination() {
 		global $numpages;
+		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
-		if ( isset( $numpages ) ) {
+		if ( isset( $numpages ) && $enabled ) {
 			echo "<div class='ast-pagination'>";
-			the_posts_pagination( array(
-				'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
-				'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
-			) );
+			the_posts_pagination(
+				array(
+					'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
+					'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
+				)
+			);
 			echo '</div>';
 		}
 	}
@@ -316,10 +319,12 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 					$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
 					$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
-					$theme_author = apply_filters( 'astra_theme_author', array(
-						'theme_name'       => __( 'Astra', 'astra' ),
-						'theme_author_url' => 'http://wpastra.com/',
-					) );
+					$theme_author = apply_filters(
+						'astra_theme_author', array(
+							'theme_name'       => __( 'Astra', 'astra' ),
+							'theme_author_url' => 'http://wpastra.com/',
+						)
+					);
 
 					$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
 				break;
@@ -502,7 +507,8 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
-			); ?>
+			);
+			?>
 
 			<div class="main-header-bar-navigation" >
 
@@ -912,7 +918,8 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 	function astra_get_sidebar( $sidebar_id ) {
 		if ( is_active_sidebar( $sidebar_id ) ) {
 			dynamic_sidebar( $sidebar_id );
-		} elseif ( current_user_can( 'edit_theme_options' ) ) { ?>
+		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+		?>
 			<div class="widget ast-no-widget-row">
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
@@ -924,3 +931,137 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 		}
 	}
 }
+
+/**
+ * Filter google fonts
+ */
+if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
+	/**
+	 * Google Fonts
+	 *
+	 * @since 1.0.12
+	 * @param array $fonts   List of fonts.
+	 * @return array
+	 */
+	function astra_google_fonts_callback( $fonts ) {
+
+		foreach ( $fonts as $font_name => $font_weight ) {
+
+			$is_true = false;
+			$new_font_weight = '';
+
+			switch ( $font_name ) {
+				case 'Buda':
+				case 'Open Sans Condensed':
+						$is_true = true;
+						$new_font_weight = 300;
+					break;
+				case 'Coda Caption':
+						$is_true = true;
+						$new_font_weight = 800;
+					break;
+				case 'UnifrakturCook':
+						$is_true = true;
+						$new_font_weight = 700;
+					break;
+			}
+
+			if ( $is_true ) {
+				if ( in_array( 'normal', $font_weight ) ) {
+					$key = array_search( 'normal', $font_weight );
+					$fonts[ $font_name ][ $key ] = $new_font_weight;
+				}
+			}
+		}
+		return $fonts;
+	}
+}// End if().
+add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
+
+/**
+ * Register Footer Widgets
+ */
+if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
+
+	/**
+	 * Register Footer Widgets
+	 *
+	 * @since 1.0.12
+	 * @return void
+	 */
+	function register_advanced_footer_widget() {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Widget 1', 'astra' ),
+				'id'            => 'advanced-footer-widget-1',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Widget 2', 'astra' ),
+				'id'            => 'advanced-footer-widget-2',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Widget 3', 'astra' ),
+				'id'            => 'advanced-footer-widget-3',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Widget 4', 'astra' ),
+				'id'            => 'advanced-footer-widget-4',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+	}
+}// End if().
+add_action( 'init', 'register_advanced_footer_widget' );
+
+/**
+ * Get Footer widgets
+ */
+if ( ! function_exists( 'astra_get_footer_widget' ) ) {
+
+	/**
+	 * Get Footer Default Sidebar
+	 *
+	 * @param  string $sidebar_id   Sidebar Id..
+	 * @return void
+	 */
+	function astra_get_footer_widget( $sidebar_id ) {
+
+		if ( is_active_sidebar( $sidebar_id ) ) {
+			dynamic_sidebar( $sidebar_id );
+		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+			$sidebar_id = str_replace( '-', ' ', $sidebar_id );
+			?>
+			<div class="widget ast-no-widget-row">
+				<h2 class='widget-title'><?php echo esc_html( $sidebar_id ); ?></h2>
+
+				<p class='no-widget-text'>
+					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+					</a>
+				</p>
+			</div>
+			<?php
+		}
+	}
+}// End if().

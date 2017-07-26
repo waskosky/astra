@@ -116,13 +116,12 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 		$css_val = '';
 
 		switch ( $unit ) {
-			case 'em' :
-			case '%' :
+			case 'em':
+			case '%':
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
 			case 'px':
-
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = astra_get_option( 'font-size-body' );
@@ -167,7 +166,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 	 */
 	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
-		if ( '' == $value &&  '' == $default ) {
+		if ( '' == $value && '' == $default ) {
 			return $value;
 		}
 
@@ -175,8 +174,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 		switch ( $unit ) {
 
-			case 'font' :
-
+			case 'font':
 				if ( 'inherit' != $value ) {
 					$css_val = esc_attr( $value );
 				} elseif ( '' != $default ) {
@@ -186,17 +184,16 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				break;
 
 			case 'px':
-			case '%' :
+			case '%':
 						$value = ( '' != $value ) ? $value : $default;
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
-			case 'url' :
+			case 'url':
 						$css_val = $unit . '(' . esc_url( $value ) . ')';
 				break;
 
 			case 'rem':
-
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = astra_get_option( 'font-size-body' );
@@ -242,14 +239,16 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 			foreach ( $css_output as $selector => $properties ) {
 
-				if ( ! count( $properties ) ) { continue; }
+				if ( ! count( $properties ) ) {
+					continue; }
 
 				$temp_parse_css   = $selector . '{';
 				$properties_added = 0;
 
 				foreach ( $properties as $property => $value ) {
 
-					if ( '' === $value ) { continue; }
+					if ( '' === $value ) {
+						continue; }
 
 					$properties_added++;
 					$temp_parse_css .= $property . ':' . $value . ';';
@@ -297,10 +296,10 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	/**
 	 * Return Theme options.
 	 *
-	 * @param  string $option  		Option key.
-	 * @param  string $default 		Option default value.
-	 * @param  string $deprecated 	Option default value.
-	 * @return string          		Return option value.
+	 * @param  string $option       Option key.
+	 * @param  string $default      Option default value.
+	 * @param  string $deprecated   Option default value.
+	 * @return string               Return option value.
 	 */
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
@@ -546,14 +545,15 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 	 *
 	 * @param string $before Optional. Content to prepend to the title.
 	 * @param string $after  Optional. Content to append to the title.
+	 * @param int    $post_id Optional, default to 0. Post id.
 	 * @param bool   $echo   Optional, default to true.Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
-	function astra_the_title( $before = '', $after = '', $echo = true ) {
+	function astra_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
 		if ( apply_filters( 'astra_the_title_enabled', true ) ) {
 
-			$title  = astra_get_the_title();
+			$title  = astra_get_the_title( $post_id );
 			$before = apply_filters( 'astra_the_title_before', '' ) . $before;
 			$after  = $after . apply_filters( 'astra_the_title_after', '' );
 
@@ -577,36 +577,42 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 	 *
 	 * Return title for Title Bar and Normal Title.
 	 *
+	 * @param int  $post_id Optional, default to 0. Post id.
 	 * @param bool $echo   Optional, default to false. Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
-	function astra_get_the_title( $echo = false ) {
+	function astra_get_the_title( $post_id = 0, $echo = false ) {
 
-		$id    = astra_get_post_id();
 		$title = '';
-
-		// for 404 page - title always display.
-		if ( is_404() ) {
-
-			$title = apply_filters( 'astra_the_404_page_title', esc_html( 'This page doesn\'t seem to exist.', 'astra' ) );
-
-			// for search page - title always display.
-		} elseif ( is_search() ) {
-
-			/* translators: 1: search string */
-			$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
-
-		} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
-
-			$title = woocommerce_page_title();
-
-		} elseif ( is_archive() ) {
-
-			$title = get_the_archive_title();
-
+		if ( $post_id ) {
+			$title = get_the_title( $post_id );
 		} else {
 
-			$title = get_the_title( $id );
+			$post_id    = astra_get_post_id();
+
+			// for 404 page - title always display.
+			if ( is_404() ) {
+
+				$title = apply_filters( 'astra_the_404_page_title', esc_html( 'This page doesn\'t seem to exist.', 'astra' ) );
+
+				// for search page - title always display.
+			} elseif ( is_search() ) {
+
+				/* translators: 1: search string */
+				$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
+
+			} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
+
+				$title = woocommerce_page_title();
+
+			} elseif ( is_archive() ) {
+
+				$title = get_the_archive_title();
+
+			} else {
+
+				$title = get_the_title( $post_id );
+			}
 		}
 
 		// This will work same as `get_the_title` function but with Custom Title if exits.
@@ -648,7 +654,8 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Category.
-			} elseif ( is_category() ) { ?>
+			} elseif ( is_category() ) {
+			?>
 
 				<section class="ast-archive-description">
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
@@ -658,7 +665,8 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Tag.
-			} elseif ( is_tag() ) { ?>
+			} elseif ( is_tag() ) {
+			?>
 
 				<section class="ast-archive-description">
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
@@ -668,7 +676,8 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Search.
-			} elseif ( is_search() ) { ?>
+			} elseif ( is_search() ) {
+			?>
 
 				<section class="ast-archive-description">
 					<?php
@@ -681,14 +690,16 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			<?php
 
 			// Other.
-			} else { ?>
+			} else {
+			?>
 
 				<section class="ast-archive-description">
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
 					<?php the_archive_description(); ?>
 				</section>
 
-		<?php }// End if().
+		<?php
+			}// End if().
 		}// End if().
 	}
 
