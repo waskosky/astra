@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Theme Updates.
 			add_action( 'init', __CLASS__ . '::init' );
-
+			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
 		/**
@@ -115,6 +115,16 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			do_action( 'astra_update_after' );
 
+		}
+
+		/**
+		 * Footer Widgets compatibilty for astra pro.
+		 */
+		static public function astra_pro_compatibility() {
+
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
+				remove_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
+			}
 		}
 
 		/**
