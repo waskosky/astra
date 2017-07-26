@@ -117,6 +117,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 		}
 
+		/**
+		 * Footer Widgets compatibilty for astra pro.
+		 */
 		static public function astra_pro_compatibility() {
 
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
