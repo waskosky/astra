@@ -106,7 +106,7 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 			} else {
 				$font_size = astra_get_font_css_value( $font[ $device ], $font[ $device . '-unit' ] );
 			}
-		} elseif ( ! is_nan( $font ) ) {
+		} elseif ( is_numeric( $font ) ) {
 			$font_size = astra_get_css_value( $font );
 		} else {
 			$font_size = ( ! is_array( $font ) ) ? $font : '';
