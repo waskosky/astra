@@ -91,10 +91,10 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 	/**
 	 * Get Font CSS value
 	 *
-	 * @param  string $font        CSS value.
-	 * @param  string $unit         CSS unit.
-	 * @param  string $device       CSS device.
-	 * @return mixed                CSS value depends on $unit & $device
+	 * @param  array  $font    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
 	 */
 	function astra_responsive_font( $font, $device = 'desktop', $default = '' ) {
 
@@ -111,7 +111,7 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 		} else {
 			$font_size = ( ! is_array( $font ) ) ? $font : '';
 		}
-		
+
 		return $font_size;
 	}
 }// End if().
@@ -231,7 +231,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = astra_get_option( 'font-size-body' );
-					if( is_array( $body_font_size ) ) {
+					if ( is_array( $body_font_size ) ) {
 						$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
 					} else {
 						$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
