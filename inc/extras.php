@@ -1032,7 +1032,7 @@ if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
 		);
 	}
 }// End if().
-add_action( 'init', 'register_advanced_footer_widget' );
+add_action( 'widgets_init', 'register_advanced_footer_widget' );
 
 /**
  * Get Footer widgets
