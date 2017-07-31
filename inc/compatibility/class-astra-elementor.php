@@ -64,8 +64,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		/**
 		 * Elementor Content layout set as Page Builder
 		 *
-		 * @param  string $layout Content Layout.
-		 * @return string
+		 * @return void
 		 * @since  1.0.2
 		 */
 		function elementor_default_setting() {

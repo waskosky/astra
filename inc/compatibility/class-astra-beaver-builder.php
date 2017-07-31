@@ -43,16 +43,14 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets',  array( $this, 'add_styles' ) );
-			add_action( 'wp',                  array( $this, 'beaver_builder_default_setting' ), 20 );
+			add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
 		}
 
 		/**
 		 * Builder Template Content layout set as Page Builder
 		 *
-		 * @param  string $layout Content Layout.
-		 * @return string
-		 * @since  1.0.2
+		 * @since  1.0.13
+		 * @return void
 		 */
 		function beaver_builder_default_setting() {
 
