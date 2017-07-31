@@ -1,3 +1,32 @@
+v1.0.12
+# New: 'Footer Widgets' added un customizer.
+# Improvement: 'astra_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
+# Improvement: 'astra_featured_image_enabled' filter added for Enable or Disable featured image.
+# Improvement: Smooth font Rendering style updated.
+# Fixed: Admin notice issue with Astra name.
+# Fixed: Fetal error while bb lite version is activated.
+
+v1.0.11
+# Removed: accessibility-ready tag until the final review is done.
+
+v1.0.10
+# New: 'Get more with Astra Pro' added in customizer.
+# Fixed: Warning for sanitize_html callback.
+
+v1.0.9
+# New: Added accessibility ready support.
+
+v1.0.8
+# Improvement: Page Builder Compatibilty Styles.
+# Improvement: Slider param implemented for line-height.
+# Fixed: String Updated from "Inherit" to "Default" for Body Typography.
+
+v1.0.7
+# Improvement: Moved 'Buttons' section from panel 'miscellaneous' to parent.
+# Improvement: Site logo, title, tagline spacing improved.
+# Improvement: Menu toggle line height issue fixed for small devices.
+# Removed: Unwanted dyanamic css filter.
+
 v1.0.6
 # Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
 # Enhancement: Combined JS files 'flexibility', 'navigation' and 'skip-link-focus-fix' files in style.js

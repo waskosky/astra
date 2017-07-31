@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Theme Updates.
 			add_action( 'init', __CLASS__ . '::init' );
-
+			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
 		/**
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version' );
-			
+
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
@@ -74,9 +74,19 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_5();
 			}
 
-			// Update to older version than 1.0.7 version.
-			if ( version_compare( $saved_version, '1.0.7', '<' ) ) {
-				self::v_1_0_7();
+			// Update to older version than 1.0.8 version.
+			if ( version_compare( $saved_version, '1.0.8', '<' ) && version_compare( $saved_version, '1.0.4', '>' ) ) {
+				self::v_1_0_8();
+			}
+
+			// Update to older version than 1.0.12 version.
+			if ( version_compare( $saved_version, '1.0.12', '<' ) ) {
+				self::v_1_0_12();
+			}
+
+			// Update to older version than 1.0.13 version.
+			if ( version_compare( $saved_version, '1.0.13', '<' ) ) {
+				self::v_1_0_13();
 			}
 
 			// Not have stored?
@@ -110,6 +120,16 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			do_action( 'astra_update_after' );
 
+		}
+
+		/**
+		 * Footer Widgets compatibilty for astra pro.
+		 */
+		static public function astra_pro_compatibility() {
+
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
+				remove_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
+			}
 		}
 
 		/**
@@ -218,43 +238,123 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
+		 * Update options of older version than 1.0.8.
+		 *
+		 * @since 1.0.8
+		 * @return void
+		 */
+		static public function v_1_0_8() {
+
+			$options = array(
+				'body-line-height',
+
+				// Addon Options.
+				'footer-adv-wgt-title-line-height',
+				'footer-adv-wgt-content-line-height',
+				'line-height-related-post',
+				'title-bar-title-line-height',
+				'title-bar-breadcrumb-line-height',
+				'line-height-page-title',
+				'line-height-post-meta',
+				'line-height-h1',
+				'line-height-h2',
+				'line-height-h3',
+				'line-height-h4',
+				'line-height-h5',
+				'line-height-h6',
+				'line-height-footer-content',
+				'line-height-site-title',
+				'line-height-site-tagline',
+				'line-height-primary-menu',
+				'line-height-primary-dropdown-menu',
+				'line-height-widget-title',
+				'line-height-widget-content',
+				'line-height-entry-title',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( 0 < count( $astra_options ) ) {
+				foreach ( $options as $key ) {
+
+					if ( array_key_exists( $key, $astra_options ) && is_array( $astra_options[ $key ] ) ) {
+
+						if ( in_array( $astra_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
+							$astra_options[ $key ] = $astra_options[ $key ]['desktop'];
+						} else {
+							$astra_options[ $key ] = '';
+						}
+					}
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update options of older version than 1.0.12.
+		 *
+		 * @since 1.0.12
+		 * @return void
+		 */
+		static public function v_1_0_12() {
+
+			$options = array(
+				'site-content-layout'         => 'plain-container',
+				'single-page-content-layout'  => 'plain-container',
+				'single-post-content-layout'  => 'content-boxed-container',
+				'archive-post-content-layout' => 'content-boxed-container',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
 		 * Update options of older version than 1.0.7.
 		 *
 		 * @since 1.0.7
 		 * @return void
 		 */
-		static public function v_1_0_7() {
-			
-			$all_post_type = get_post_types( array( 
-				'public' => true 
-			) );
-			unset($all_post_type['attachment']);
+		static public function v_1_0_13() {
+
+			$all_post_type = get_post_types(
+				array(
+					'public' => true,
+				)
+			);
+			unset( $all_post_type['attachment'] );
 
 			/**
 			 * Update Page meta, if Page Builder layout implemented
 			 */
-			$query = array ( 
-				'post_type'      => $all_post_type, 
+			$query = array(
+				'post_type'      => $all_post_type,
 				'posts_per_page' => '-1',
 				'no_found_rows'  => true,
 				'post_status'    => 'any',
 				'fields'         => 'ids',
 				'meta_query'     => array(
-					'relation' 				=> 'AND',
-					'site_content_clause' 	=> array(
+					'relation'            => 'AND',
+					'site_content_clause' => array(
 						'key'   => 'site-content-layout',
 						'value' => 'page-builder',
 					),
-					'site_flag_clause' 		=> array(
+					'site_flag_clause'    => array(
 						'key'     => '_astra_content_layout_flag',
 						'compare' => 'NOT EXISTS',
 					),
 				),
 			);
 			$posts = new WP_Query( $query );
-			echo "<pre>";
-			print_r($posts);
-			echo "</pre>";
+
 			foreach ( $posts->posts as $id ) {
 				update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				update_post_meta( $id, 'site-post-title', 'disabled' );
@@ -267,19 +367,19 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			/**
 			 * Update Elementor Page meta
 			 */
-			$query = array ( 
-				'post_type'      => $all_post_type, 
+			$query = array(
+				'post_type'      => $all_post_type,
 				'posts_per_page' => '-1',
 				'no_found_rows'  => true,
 				'post_status'    => 'any',
 				'fields'         => 'ids',
 				'meta_query'     => array(
-					'relation' 				=> 'AND',
+					'relation'              => 'AND',
 					'elementor_edit_clause' => array(
 						'key'     => '_elementor_edit_mode',
 						'compare' => 'builder',
 					),
-					'site_flag_clause' 	=> array(
+					'site_flag_clause'      => array(
 						'key'     => '_astra_content_layout_flag',
 						'compare' => 'NOT EXISTS',
 					),
@@ -287,54 +387,44 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			$posts = new WP_Query( $query );
-			echo "<pre>";
-			print_r($posts);
-			echo "</pre>";
+
 			foreach ( $posts->posts as $id ) {
-				if( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
+				if ( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				}
 			}
-			
+
 			wp_reset_query();
 
 			/**
 			 * Update VC Page meta
 			 */
-			$query = array ( 
-				'post_type'      => $all_post_type, 
+			$query = array(
+				'post_type'      => $all_post_type,
 				'posts_per_page' => '-1',
 				'no_found_rows'  => true,
 				'post_status'    => 'any',
 				'fields'         => 'ids',
 				'meta_query'     => array(
-					'relation' 		=> 'AND',
-					'wpb_vc_js_clause' 	=> array(
+					'relation'         => 'AND',
+					'wpb_vc_js_clause' => array(
 						'key'   => '_wpb_vc_js_status',
 						'value' => 'true',
 					),
-					'site_flag_clause' 	=> array(
+					'site_flag_clause' => array(
 						'key'     => '_astra_content_layout_flag',
 						'compare' => 'NOT EXISTS',
 					),
 				),
 			);
 
-			$posts = new WP_Query( $query );
-			echo "<pre>";
-			print_r($posts);
-			echo "</pre>";
 			foreach ( $posts->posts as $id ) {
-				if( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
+				if ( empty( get_post_meta( $id, '_astra_content_layout_flag', true ) ) ) {
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				}
 			}
-			
+
 			wp_reset_query();
-			// print_r($posts->posts);  // Array of Post Ids 
-			// print_r($posts->post_count); // Number of Posts
-			// _wpb_vc_js_status meta for VC
-			// _elementor_edit_mode meta for elmentor
 		}
 	}
 }// End if().

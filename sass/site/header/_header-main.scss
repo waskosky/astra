@@ -83,7 +83,7 @@
 	transition: all .2s;
 	position: absolute;
 	z-index: 3;
-	right: -.5em;
+	right: 0;
 	top: 50%;
 	transform: translateY(-50%);
 
@@ -94,7 +94,7 @@
 	form {
 		border: 1px solid #e7e7e7;
 		line-height: 1;
-		padding: 0 2em 0 0;
+		padding: 0 3em 0 0;
 		@include ast-border-radius();
 		display: inline-block;
 		backface-visibility: hidden;
@@ -127,13 +127,13 @@
 		visibility: visible;
 		opacity: 1;
 		.search-field {
-			width: 250px;
+			width: 235px;
 		}
 	}
 }
 
 li.ast-masthead-custom-menu-items {
-	padding-left: 1em;
+	padding: 0 1em;
 
 	a {
 		padding-left: 0;
@@ -149,8 +149,11 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
-.main-header-menu li.ast-masthead-custom-menu-items {
-	padding-right: 0;
+.ast-masthead-custom-menu-items{
+	padding: 0 1em;
+	.ast-search-icon .astra-search-icon {
+		line-height: 1;
+	}
 }
 
 .ast-header-break-point {
@@ -202,17 +205,17 @@ li.ast-masthead-custom-menu-items {
 
 				display: inline-block;
 				position: absolute;
+				font-size: inherit;
+				top: -1px;
 				right: 20px;
 				cursor: pointer;
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
-				padding: 0.494em .907em;
+				padding: 0 0.907em;
 				font-weight: normal;
-				line-height: 1.85714285714286;
-
+				line-height: inherit;
+				transition: all .2s;
 				&::before {
-					font-size: 15px;
-					font-size: 1rem;
 					font-weight: bold;
 					content: "\e900";
 					font-family: 'Astra';

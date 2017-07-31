@@ -67,7 +67,6 @@ module.exports = function (grunt) {
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
                             'inc/customizer/custom-controls/responsive/responsive.css': 'inc/customizer/custom-controls/responsive/responsive.scss',
-                            'inc/customizer/custom-controls/toggle/toggle.css': 'inc/customizer/custom-controls/toggle/toggle.scss',
                             'inc/customizer/custom-controls/divider/divider.css': 'inc/customizer/custom-controls/divider/divider.scss',
                             'inc/customizer/custom-controls/radio-image/radio-image.css': 'inc/customizer/custom-controls/radio-image/radio-image.scss',
                             'inc/customizer/custom-controls/slider/slider.css': 'inc/customizer/custom-controls/slider/slider.scss',
@@ -188,24 +187,12 @@ module.exports = function (grunt) {
 	                    // Generating RTL files from '/unminified/site-compatible/' into '/minified/site-compatible/'
 	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
-                    		src: 'assets/css/unminified/site-compatible/bb-plugin-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/bb-plugin.min-rtl.css',
-	                    },
-                    	{
                     		src: 'assets/css/unminified/site-compatible/bne-flyout-rtl.css',
 	                        dest: 'assets/css/minified/site-compatible/bne-flyout.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/site-compatible/contact-form-7-rtl.css',
 	                        dest: 'assets/css/minified/site-compatible/contact-form-7.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/site-compatible/cornerstone-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/cornerstone.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/site-compatible/elementor-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/elementor.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/site-compatible/gravity-forms-rtl.css',
@@ -218,10 +205,6 @@ module.exports = function (grunt) {
                     	{
                     		src: 'assets/css/unminified/site-compatible/site-origin-rtl.css',
 	                        dest: 'assets/css/minified/site-compatible/site-origin.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/site-compatible/vc-plugin-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/vc-plugin.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/site-compatible/woocommerce-rtl.css',

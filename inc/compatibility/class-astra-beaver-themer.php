@@ -6,7 +6,7 @@
  */
 
 // If plugin - 'Beaver Themer' not exist then return.
-if ( ! class_exists( 'FLThemeBuilderLoader' ) ) {
+if ( ! class_exists( 'FLThemeBuilderLoader' ) || ! class_exists( 'FLThemeBuilderLayoutData' ) ) {
 	return;
 }
 

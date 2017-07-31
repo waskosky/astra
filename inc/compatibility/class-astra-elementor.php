@@ -45,8 +45,8 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', 	array( $this, 'add_styles' ) );
-			add_action( 'wp', 					array( $this, 'elementor_default_setting' ), 20 );
+			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_action( 'wp',                 array( $this, 'elementor_default_setting' ), 20 );
 		}
 
 		/**
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @since  1.0.2
 		 */
 		function elementor_default_setting() {
-			
+
 			global $post;
 			$id = astra_get_post_id();
 

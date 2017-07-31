@@ -43,9 +43,9 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'vc_before_init',   	array( $this, 'vc_set_as_theme' ) );
-			add_filter( 'astra_theme_assets', 	array( $this, 'add_styles' ) );
-			add_action( 'wp', 					array( $this, 'vc_default_setting' ), 20 );
+			add_action( 'vc_before_init',            array( $this, 'vc_set_as_theme' ) );
+			add_filter( 'astra_theme_assets',        array( $this, 'add_styles' ) );
+			add_action( 'wp',                        array( $this, 'vc_default_setting' ), 20 );
 			add_action( 'vc_frontend_editor_render', array( $this, 'vc_frontend_default_setting' ) );
 		}
 
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		}
 
 		function vc_frontend_default_setting() {
-			
+
 			global $post;
 			$id = astra_get_post_id();
 
@@ -105,19 +105,6 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 				vc_manager()->disableUpdater( true );
 			}
 		}
-
-		/**
-		 * Add assets in theme
-		 *
-		 * @param array $assets list of theme assets (JS & CSS).
-		 * @return array List of updated assets.
-		 * @since 1.0.0
-		 */
-		function add_styles( $assets ) {
-			$assets['css']['astra-vc-plugin'] = 'site-compatible/vc-plugin';
-			return $assets;
-		}
-
 	}
 
 endif;
