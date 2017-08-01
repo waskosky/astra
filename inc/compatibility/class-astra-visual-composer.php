@@ -44,7 +44,6 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'vc_before_init',            array( $this, 'vc_set_as_theme' ) );
-			add_filter( 'astra_theme_assets',        array( $this, 'add_styles' ) );
 			add_action( 'wp',                        array( $this, 'vc_default_setting' ), 20 );
 			add_action( 'vc_frontend_editor_render', array( $this, 'vc_frontend_default_setting' ) );
 		}
@@ -67,7 +66,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 
 				$content_layout = get_post_meta( $id, 'site-content-layout', true );
 				if ( empty( $content_layout ) || 'default' == $content_layout ) {
-					update_post_meta( $id, 'site-content-layout', 'page-builder' );
+					update_post_meta( $id, 'site-content-layout', 'plain-container' );
 				}
 
 				$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
