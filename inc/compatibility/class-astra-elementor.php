@@ -97,6 +97,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		/**
 		 * Check is elementor activated.
 		 *
+		 * @param int $id Post/Page Id.
 		 * @return boolean
 		 */
 		function is_elementor_activated( $id ) {
