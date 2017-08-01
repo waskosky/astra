@@ -50,7 +50,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Implement theme update logic.
 		 *
 		 * @since 1.0.0
-		 * @return void
 		 */
 		static public function init() {
 
@@ -136,7 +135,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.4.
 		 *
 		 * @since 1.0.4
-		 * @return void
 		 */
 		static public function v_1_0_4() {
 
@@ -220,7 +218,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.5.
 		 *
 		 * @since 1.0.5
-		 * @return void
 		 */
 		static public function v_1_0_5() {
 
@@ -241,7 +238,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.8.
 		 *
 		 * @since 1.0.8
-		 * @return void
 		 */
 		static public function v_1_0_8() {
 
@@ -295,7 +291,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.12.
 		 *
 		 * @since 1.0.12
-		 * @return void
 		 */
 		static public function v_1_0_12() {
 
@@ -321,7 +316,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.13.
 		 *
 		 * @since 1.0.13
-		 * @return void
 		 */
 		static public function v_1_0_13() {
 
