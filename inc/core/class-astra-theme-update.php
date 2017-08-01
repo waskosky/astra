@@ -50,7 +50,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Implement theme update logic.
 		 *
 		 * @since 1.0.0
-		 * @return void
 		 */
 		static public function init() {
 
@@ -82,6 +81,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Update to older version than 1.0.12 version.
 			if ( version_compare( $saved_version, '1.0.12', '<' ) ) {
 				self::v_1_0_12();
+			}
+
+			// Update to older version than 1.0.13 version.
+			if ( version_compare( $saved_version, '1.0.13', '<' ) ) {
+				self::v_1_0_13();
 			}
 
 			// Not have stored?
@@ -131,7 +135,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.4.
 		 *
 		 * @since 1.0.4
-		 * @return void
 		 */
 		static public function v_1_0_4() {
 
@@ -215,7 +218,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.5.
 		 *
 		 * @since 1.0.5
-		 * @return void
 		 */
 		static public function v_1_0_5() {
 
@@ -236,7 +238,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.8.
 		 *
 		 * @since 1.0.8
-		 * @return void
 		 */
 		static public function v_1_0_8() {
 
@@ -290,7 +291,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.12.
 		 *
 		 * @since 1.0.12
-		 * @return void
 		 */
 		static public function v_1_0_12() {
 
@@ -299,6 +299,30 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'single-page-content-layout'  => 'plain-container',
 				'single-post-content-layout'  => 'content-boxed-container',
 				'archive-post-content-layout' => 'content-boxed-container',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update options of older version than 1.0.13.
+		 *
+		 * @since 1.0.13
+		 */
+		static public function v_1_0_13() {
+
+			$options = array(
+				'footer-sml-divider'       => '4',
+				'footer-sml-divider-color' => '#fff',
+				'footer-adv'               => 'layout-4',
 			);
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
