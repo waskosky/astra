@@ -239,7 +239,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'archive-post-sidebar-layout'       => 'right-sidebar',
 
 					// Sidebar.
-					'footer-adv'                        => 'layout-4',
+					'footer-adv'                        => 'disabled',
 				)
 			);
 		}

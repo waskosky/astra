@@ -328,6 +328,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$options = array(
 				'footer-sml-divider'       => '4',
 				'footer-sml-divider-color' => '#fff',
+				'footer-adv'               => 'layout-4',
 			);
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
