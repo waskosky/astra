@@ -68,7 +68,9 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 
 				// Single Post Default Strings.
 				'string-single-page-links-before'        => __( 'Pages:', 'astra' ),
+				/* translators: 1: Post type label */
 				'string-single-navigation-next'          => __( 'Next %s', 'astra' ) . ' <span class="ast-right-arrow">&rarr;</span>',
+				/* translators: 1: Post type label */
 				'string-single-navigation-previous'      => '<span class="ast-left-arrow">&larr;</span> ' . __( 'Previous %s', 'astra' ),
 
 				// Content None.
