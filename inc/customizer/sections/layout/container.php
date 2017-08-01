@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);
@@ -119,7 +119,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);

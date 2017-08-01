@@ -861,12 +861,12 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 add_filter( 'astra_the_title_enabled', 'page_builder_disable_title', 12 );
 
 /**
- * Disbale title for Page Builder template
+ * Disbale title for Full Width / Stretched template
  */
 if ( ! function_exists( 'page_builder_disable_title' ) ) {
 
 	/**
-	 * Disbale title for Page Builder template
+	 * Disbale title for Full Width / Stretched template
 	 *
 	 * @since 1.0.0
 	 * @param boolean $default  Title enabled or not.
