@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'Sidebar Layout', 'astra' ),
+			'label'    => __( 'Default Layout', 'astra' ),
 			'choices'  => array(
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
 				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'select',
 			'section'     => 'section-sidebars',
 			'priority'    => 5,
-			'label'       => __( 'Page', 'astra' ),
+			'label'       => __( 'Pages', 'astra' ),
 			'choices'     => array(
 				'default'       => __( 'Default', 'astra' ),
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'select',
 			'section'     => 'section-sidebars',
 			'priority'    => 5,
-			'label'       => __( 'Blog Post', 'astra' ),
+			'label'       => __( 'Blog Posts', 'astra' ),
 			'choices'     => array(
 				'default'       => __( 'Default', 'astra' ),
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'select',
 			'section'     => 'section-sidebars',
 			'priority'    => 5,
-			'label'       => __( 'Blog Post Archive', 'astra' ),
+			'label'       => __( 'Blog Post Archives', 'astra' ),
 			'choices'     => array(
 				'default'       => __( 'Default', 'astra' ),
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),

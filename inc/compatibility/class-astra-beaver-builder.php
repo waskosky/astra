@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		}
 
 		/**
-		 * Builder Template Content layout set as Page Builder
+		 * Builder Template Content layout set as Full Width / Stretched
 		 *
 		 * @since  1.0.13
 		 * @return void

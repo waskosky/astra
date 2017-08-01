@@ -50,7 +50,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Implement theme update logic.
 		 *
 		 * @since 1.0.0
-		 * @return void
 		 */
 		static public function init() {
 
@@ -136,7 +135,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.4.
 		 *
 		 * @since 1.0.4
-		 * @return void
 		 */
 		static public function v_1_0_4() {
 
@@ -220,7 +218,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.5.
 		 *
 		 * @since 1.0.5
-		 * @return void
 		 */
 		static public function v_1_0_5() {
 
@@ -241,7 +238,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.8.
 		 *
 		 * @since 1.0.8
-		 * @return void
 		 */
 		static public function v_1_0_8() {
 
@@ -295,7 +291,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.12.
 		 *
 		 * @since 1.0.12
-		 * @return void
 		 */
 		static public function v_1_0_12() {
 
@@ -324,6 +319,22 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		static public function v_1_0_13() {
+
+			$options = array(
+				'footer-sml-divider'       => '4',
+				'footer-sml-divider-color' => '#fff',
+				'footer-adv'               => 'layout-4',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 
 			$all_post_type = get_post_types(
 				array(
