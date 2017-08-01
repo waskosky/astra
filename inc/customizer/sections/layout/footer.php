@@ -220,7 +220,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
-			'default'           => '#fff',
+			'default'           => '#7a7a7a',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
