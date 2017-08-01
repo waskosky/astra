@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 			if ( count( $result ) > 0 ) {
 				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
-				remove_filter( 'excerpt_more', 'astra_post_link', 1 );
+				add_filter( 'astra_post_link_enabled', '__return_false' );
 			}
 			return $classes;
 		}
