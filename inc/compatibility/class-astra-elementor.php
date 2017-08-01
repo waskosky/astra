@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			global $post;
 			$id = astra_get_post_id();
 
-			if ( is_singular() && empty( $post->post_content ) && $this->is_elementor_activated() ) {
+			if ( is_singular() && empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
 
 				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
 				if ( empty( $page_builder_flag ) ) {
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 *
 		 * @return boolean
 		 */
-		function is_elementor_activated() {
+		function is_elementor_activated( $id ) {
 			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
 				return ( 'builder' === Plugin::$instance->db->get_edit_mode( $id ) );
 			} else {
