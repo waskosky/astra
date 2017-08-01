@@ -339,7 +339,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $genral_global_responsive, '769' );
 			}
 
-			/* Width for Comments for Page Builder Template */
+			/* Width for Comments for Full Width / Stretched Template */
 			$page_builder_comment = array(
 				'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
