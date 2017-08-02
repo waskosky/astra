@@ -45,20 +45,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
-			add_action( 'wp',                 array( $this, 'elementor_default_setting' ), 20 );
-		}
-
-		/**
-		 * Add assets in theme
-		 *
-		 * @param array $assets list of theme assets (JS & CSS).
-		 * @return array List of updated assets.
-		 * @since 1.0.0
-		 */
-		function add_styles( $assets ) {
-			$assets['css']['astra-elementor'] = 'site-compatible/elementor' ;
-			return $assets;
+			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 		}
 
 		/**
