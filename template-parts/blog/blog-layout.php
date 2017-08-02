@@ -45,10 +45,6 @@
 				);
 			?>
 		</div><!-- .entry-content .clear -->
-
-		<footer class="entry-footer">
-			
-		</footer><!-- .entry-footer -->
 	</div><!-- .post-content -->
 
 </div> <!-- .blog-layout-1 -->
