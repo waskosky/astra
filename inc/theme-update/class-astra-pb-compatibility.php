@@ -61,8 +61,14 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 			}
 
 			// Get current post id.
-			$current_post_id = get_the_ID();
-			$this->update_meta_values( $current_post_id );
+			$current_post_id = (int) get_the_ID();
+			if ( $current_post_id ) {
+				$post_date     = strtotime( get_the_date( 'Y-m-d H:i:s', $current_post_id ) );
+				$backward_date = strtotime( $comp_time );
+				if ( $post_date < $backward_date ) {
+					$this->update_meta_values( $current_post_id );
+				}
+			}
 
 			// get all post types.
 			$all_post_type = get_post_types(
