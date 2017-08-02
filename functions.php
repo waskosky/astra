@@ -20,6 +20,7 @@ define( 'ASTRA_THEME_URI', get_template_directory_uri() . '/' );
  * Update theme
  */
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-theme-update.php';
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-pb-compatibility.php';
 
 /**
  * Load theme hooks
