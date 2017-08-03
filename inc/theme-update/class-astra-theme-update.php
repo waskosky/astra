@@ -321,9 +321,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		static public function v_1_0_13() {
 
 			$options = array(
-				'footer-sml-divider'       => '4',
-				'footer-sml-divider-color' => '#fff',
-				'footer-adv'               => 'layout-4',
+				'footer-sml-divider'          => '4',
+				'footer-sml-divider-color'    => '#fff',
+				'footer-adv'                  => 'layout-4',
+				'single-page-sidebar-layout'  => 'no-sidebar',
+				'single-post-sidebar-layout'  => 'right-sidebar',
+				'archive-post-sidebar-layout' => 'right-sidebar',
 			);
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
