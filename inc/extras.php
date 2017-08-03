@@ -958,62 +958,6 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
 
 /**
- * Register Footer Widgets
- */
-if ( ! function_exists( 'register_advanced_footer_widget' ) ) {
-
-	/**
-	 * Register Footer Widgets
-	 *
-	 * @since 1.0.12
-	 * @return void
-	 */
-	function register_advanced_footer_widget() {
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer Widget 1', 'astra' ),
-				'id'            => 'advanced-footer-widget-1',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-		);
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer Widget 2', 'astra' ),
-				'id'            => 'advanced-footer-widget-2',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-		);
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer Widget 3', 'astra' ),
-				'id'            => 'advanced-footer-widget-3',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-		);
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer Widget 4', 'astra' ),
-				'id'            => 'advanced-footer-widget-4',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-		);
-	}
-}// End if().
-add_action( 'widgets_init', 'register_advanced_footer_widget' );
-
-/**
  * Get Footer widgets
  */
 if ( ! function_exists( 'astra_get_footer_widget' ) ) {
