@@ -104,8 +104,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'footer-sml-section-2'              => '',
 					'footer-sml-section-2-credit'       => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
 					'footer-sml-dist-equal-align'       => true,
-					'footer-sml-divider'                => 4,
-					'footer-sml-divider-color'          => '#fff',
+					'footer-sml-divider'                => 1,
+					'footer-sml-divider-color'          => '#7a7a7a',
 					'footer-layout-width'               => 'content',
 					// General.
 					'display-site-title'                => 1,
@@ -234,12 +234,12 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Sidebar.
 					'site-sidebar-layout'               => 'right-sidebar',
 					'site-sidebar-width'                => 30,
-					'single-page-sidebar-layout'        => 'no-sidebar',
-					'single-post-sidebar-layout'        => 'right-sidebar',
-					'archive-post-sidebar-layout'       => 'right-sidebar',
+					'single-page-sidebar-layout'        => 'default',
+					'single-post-sidebar-layout'        => 'default',
+					'archive-post-sidebar-layout'       => 'default',
 
 					// Sidebar.
-					'footer-adv'                        => 'layout-4',
+					'footer-adv'                        => 'disabled',
 				)
 			);
 		}

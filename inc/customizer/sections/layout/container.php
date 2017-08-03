@@ -26,12 +26,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[site-content-layout]', array(
 			'type'    => 'select',
 			'section' => 'section-container-layout',
-			'label'   => __( 'Content Layout', 'astra' ),
+			'label'   => __( 'Default Layout', 'astra' ),
 			'choices' => array(
-				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);
@@ -63,13 +63,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[single-page-content-layout]', array(
 			'type'    => 'select',
 			'section' => 'section-container-layout',
-			'label'   => __( 'Page', 'astra' ),
+			'label'   => __( 'Pages', 'astra' ),
 			'choices' => array(
 				'default'                 => __( 'Default', 'astra' ),
-				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);
@@ -88,13 +88,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[single-post-content-layout]', array(
 			'type'    => 'select',
 			'section' => 'section-container-layout',
-			'label'   => __( 'Blog Post', 'astra' ),
+			'label'   => __( 'Blog Posts', 'astra' ),
 			'choices' => array(
 				'default'                 => __( 'Default', 'astra' ),
-				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);
@@ -113,13 +113,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[archive-post-content-layout]', array(
 			'type'    => 'select',
 			'section' => 'section-container-layout',
-			'label'   => __( 'Blog Post Archive', 'astra' ),
+			'label'   => __( 'Blog Post Archives', 'astra' ),
 			'choices' => array(
 				'default'                 => __( 'Default', 'astra' ),
-				'plain-container'         => __( 'Plain', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'page-builder'            => __( 'Page Builder', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
 		)
 	);

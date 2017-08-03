@@ -142,7 +142,8 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 	 */
 	function astra_post_link( $output_filter = '' ) {
 
-		if ( is_admin() ) {
+		$enabled = apply_filters( 'astra_post_link_enabled', '__return_true' );
+		if ( is_admin() || ! $enabled ) {
 			return $output_filter;
 		}
 

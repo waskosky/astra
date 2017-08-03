@@ -50,17 +50,16 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Implement theme update logic.
 		 *
 		 * @since 1.0.0
-		 * @return void
 		 */
 		static public function init() {
 
 			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
-			$saved_version = astra_get_option( 'theme-auto-version' );
+			$saved_version = astra_get_option( 'theme-auto-version', false );
 
 			// If equals then return.
-			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+			if ( ! $saved_version || version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
 			}
 
@@ -82,6 +81,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Update to older version than 1.0.12 version.
 			if ( version_compare( $saved_version, '1.0.12', '<' ) ) {
 				self::v_1_0_12();
+			}
+
+			// Update to older version than 1.0.13 version.
+			if ( version_compare( $saved_version, '1.0.13', '<' ) ) {
+				self::v_1_0_13();
 			}
 
 			// Not have stored?
@@ -131,7 +135,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.4.
 		 *
 		 * @since 1.0.4
-		 * @return void
 		 */
 		static public function v_1_0_4() {
 
@@ -215,7 +218,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.5.
 		 *
 		 * @since 1.0.5
-		 * @return void
 		 */
 		static public function v_1_0_5() {
 
@@ -236,7 +238,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.8.
 		 *
 		 * @since 1.0.8
-		 * @return void
 		 */
 		static public function v_1_0_8() {
 
@@ -290,7 +291,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.12.
 		 *
 		 * @since 1.0.12
-		 * @return void
 		 */
 		static public function v_1_0_12() {
 
@@ -312,6 +312,36 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
+		/**
+		 * Update options of older version than 1.0.13.
+		 *
+		 * @since 1.0.13
+		 * @return void
+		 */
+		static public function v_1_0_13() {
+
+			$options = array(
+				'footer-sml-divider'          => '4',
+				'footer-sml-divider-color'    => '#fff',
+				'footer-adv'                  => 'layout-4',
+				'single-page-sidebar-layout'  => 'no-sidebar',
+				'single-post-sidebar-layout'  => 'right-sidebar',
+				'archive-post-sidebar-layout' => 'right-sidebar',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+
+			update_option( '_astra_pb_compatibility_offset', 1 );
+			update_option( '_astra_pb_compatibility_time', date( 'Y-m-d H:i:s' ) );
+		}
 	}
 }// End if().
 

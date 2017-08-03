@@ -86,6 +86,39 @@ if ( ! function_exists( 'astra_css' ) ) {
 /**
  * Get Font Size value
  */
+if ( ! function_exists( 'astra_responsive_font' ) ) {
+
+	/**
+	 * Get Font CSS value
+	 *
+	 * @param  array  $font    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function astra_responsive_font( $font, $device = 'desktop', $default = '' ) {
+
+		$css_val = '';
+
+		if ( isset( $font[ $device ] ) && isset( $font[ $device . '-unit' ] ) ) {
+			if ( '' != $default ) {
+				$font_size = astra_get_css_value( $font[ $device ], $font[ $device . '-unit' ], $default );
+			} else {
+				$font_size = astra_get_font_css_value( $font[ $device ], $font[ $device . '-unit' ] );
+			}
+		} elseif ( is_numeric( $font ) ) {
+			$font_size = astra_get_css_value( $font );
+		} else {
+			$font_size = ( ! is_array( $font ) ) ? $font : '';
+		}
+
+		return $font_size;
+	}
+}// End if().
+
+/**
+ * Get Font Size value
+ */
 if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 
 	/**
@@ -123,14 +156,15 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 
 			case 'px':
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
-					$value          = intval( $value );
-					$body_font_size = astra_get_option( 'font-size-body' );
-					$body_font_size['desktop'] = ( '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
-					$body_font_size['tablet'] = ( '' != $body_font_size['tablet'] ) ? $body_font_size['tablet'] : $body_font_size['desktop'];
-					$body_font_size['mobile'] = ( '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $body_font_size['tablet'];
+					$value            = intval( $value );
+					$fonts            = array();
+					$body_font_size   = astra_get_option( 'font-size-body' );
+					$fonts['desktop'] = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
+					$fonts['tablet']  = ( isset( $body_font_size['tablet'] ) && '' != $body_font_size['tablet'] ) ? $body_font_size['tablet'] : $fonts['desktop'];
+					$fonts['mobile']  = ( isset( $body_font_size['mobile'] ) && '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $fonts['tablet'];
 
-					if ( $body_font_size[ $device ] ) {
-						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size[ $device ] ) ) . 'rem';
+					if ( $fonts[ $device ] ) {
+						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $fonts[ $device ] ) ) . 'rem';
 					}
 				} else {
 					$css_val = esc_attr( $value );
@@ -197,10 +231,14 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = astra_get_option( 'font-size-body' );
-					$body_font_size['desktop'] = ( '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
+					if ( is_array( $body_font_size ) ) {
+						$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
+					} else {
+						$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
+					}
 
-					if ( $body_font_size['desktop'] ) {
-						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size['desktop'] ) ) . $unit;
+					if ( $body_font_size_desktop ) {
+						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size_desktop ) ) . $unit;
 					}
 				} else {
 					$css_val = esc_attr( $value );
