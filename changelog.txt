@@ -1,5 +1,13 @@
+v1.0.13
+# New: Beaver Builder, Visual Composer & Elementor compatibility implemented. On create a new page/post with any of theme page builder, page/post meta will set as Full Width, No Sidebar & No Title.
+# Improvement: 'astra_post_link_enabled' filter added for Enable or Disable Read More link.
+# Improvement: Container Layout `Plain` renamed with `Full Width / Contained`
+# Improvement: Container Layout `Page Builder` renamed with `Full Width / Streched`
+# Fixed: Extra space at above with `Full Width / Streched` Layout on page.
+# Fixed: TinyMCE editor width set as 100%
+
 v1.0.12
-# New: 'Footer Widgets' added un customizer.
+# New: 'Footer Widgets' added in customizer.
 # Improvement: 'astra_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
 # Improvement: 'astra_featured_image_enabled' filter added for Enable or Disable featured image.
 # Improvement: Smooth font Rendering style updated.
