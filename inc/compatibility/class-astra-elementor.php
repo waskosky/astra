@@ -1,26 +1,28 @@
 <?php
 /**
- * Beaver Builder Compatibility File.
+ * Elementor Compatibility File.
  *
  * @package Astra
  */
 
-// If plugin - 'Builder Builder' not exist then return.
-if ( ! class_exists( 'FLBuilderModel' ) ) {
+namespace Elementor;
+
+// If plugin - 'Elementor' not exist then return.
+if ( ! class_exists( '\Elementor\Plugin' ) ) {
 	return;
 }
 
 /**
- * Astra Beaver Builder Compatibility
+ * Astra Elementor Compatibility
  */
-if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
+if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 	/**
-	 * Astra Beaver Builder Compatibility
+	 * Astra Elementor Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Beaver_Builder {
+	class Astra_Elementor {
 
 		/**
 		 * Member Variable
@@ -43,26 +45,23 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
+			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 		}
 
 		/**
-		 * Builder Template Content layout set as Full Width / Stretched
+		 * Elementor Content layout set as Page Builder
 		 *
-		 * @since  1.0.13
 		 * @return void
+		 * @since  1.0.2
 		 */
-		function beaver_builder_default_setting() {
+		function elementor_default_setting() {
 
 			global $post;
 			$id = astra_get_post_id();
 
-			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
-
-			if ( is_singular() && empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
+			if ( is_singular() && empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
 
 				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
-
 				if ( empty( $page_builder_flag ) ) {
 
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
@@ -82,6 +81,20 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 			}
 		}
 
+		/**
+		 * Check is elementor activated.
+		 *
+		 * @param int $id Post/Page Id.
+		 * @return boolean
+		 */
+		function is_elementor_activated( $id ) {
+			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
+				return ( 'builder' === Plugin::$instance->db->get_edit_mode( $id ) );
+			} else {
+				return Plugin::$instance->db->is_built_with_elementor( $id );
+			}
+		}
+
 	}
 
 endif;
@@ -89,4 +102,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Beaver_Builder::get_instance();
+Astra_Elementor::get_instance();
