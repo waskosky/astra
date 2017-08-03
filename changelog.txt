@@ -1,5 +1,5 @@
 v1.0.13
-# New: When using page builders Beaver Builder, Visual Composer or Elementor on a new page - Page layout will be changed to "Full width / Stretched" and title bar will be disabled hence reducing the number of clicks needed to get full-width pages.
+# New: When using page builders Beaver Builder or Elementor on a new page - Page layout will be changed to "Full width / Stretched" and for Visual Composer the page layout will be changed to "Full width / Contained" Also the title bar will be disabled hence reducing the number of clicks needed to get full-width pages.
 # Improvement: Added new filter `astra_post_link_enabled` to Enable or Disable read more links on archive pages.
 # Improvement: Renamed the layout option `Plain` with `Full Width / Contained`
 # Improvement: Renamed the layout option `Page Builder` with `Full Width / Streched`
