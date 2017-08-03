@@ -56,10 +56,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
-			$saved_version = astra_get_option( 'theme-auto-version' );
+			$saved_version = astra_get_option( 'theme-auto-version', false );
 
 			// If equals then return.
-			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+			if ( ! $saved_version || version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
 			}
 
