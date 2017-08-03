@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2017, Astra
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Astra 1.0.13
  */
 
 if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
@@ -14,7 +14,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 	/**
 	 * Astra_PB_Compatibility initial setup
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.13
 	 */
 	class Astra_PB_Compatibility {
 
@@ -47,9 +47,9 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		}
 
 		/**
-		 * Update options of older version than 1.0.7.
+		 * Update options of older version than 1.0.13.
 		 *
-		 * @since 1.0.7
+		 * @since 1.0.13
 		 * @return void
 		 */
 		public function page_builder_compatibility() {
@@ -116,6 +116,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		/**
 		 * Update meta values
 		 *
+		 * @since 1.0.13
 		 * @param  int $id Post id.
 		 * @return void
 		 */
