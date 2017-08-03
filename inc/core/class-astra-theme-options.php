@@ -234,9 +234,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Sidebar.
 					'site-sidebar-layout'               => 'right-sidebar',
 					'site-sidebar-width'                => 30,
-					'single-page-sidebar-layout'        => 'no-sidebar',
-					'single-post-sidebar-layout'        => 'right-sidebar',
-					'archive-post-sidebar-layout'       => 'right-sidebar',
+					'single-page-sidebar-layout'        => 'default',
+					'single-post-sidebar-layout'        => 'default',
+					'archive-post-sidebar-layout'       => 'default',
 
 					// Sidebar.
 					'footer-adv'                        => 'disabled',
