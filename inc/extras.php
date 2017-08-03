@@ -973,10 +973,15 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 		if ( is_active_sidebar( $sidebar_id ) ) {
 			dynamic_sidebar( $sidebar_id );
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			$sidebar_id = str_replace( '-', ' ', $sidebar_id );
+
+			global $wp_registered_sidebars;
+			$sidebar_name = '';
+			if ( isset( $wp_registered_sidebars[ $sidebar_id ] ) ) {
+				$sidebar_name = $wp_registered_sidebars[ $sidebar_id ]['name'];
+			}
 			?>
 			<div class="widget ast-no-widget-row">
-				<h2 class='widget-title'><?php echo esc_html( $sidebar_id ); ?></h2>
+				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
 
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
