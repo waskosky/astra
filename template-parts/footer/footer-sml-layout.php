@@ -21,13 +21,17 @@ $section_2 = astra_get_small_footer( 'footer-sml-section-2' );
 				
 				<?php if ( $section_1 ) : ?>
 					<div class="ast-small-footer-section ast-small-footer-section-1" >
-						<?php echo $section_1; ?>
+						<?php
+							echo $section_1; // WPCS: XSS OK.
+						?>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( $section_2 ) : ?>
 					<div class="ast-small-footer-section ast-small-footer-section-2" >
-						<?php echo $section_2; ?>
+						<?php
+							echo $section_2; // WPCS: XSS OK.
+						?>
 					</div>
 				<?php endif; ?>
 
