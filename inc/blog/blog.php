@@ -68,13 +68,14 @@ if ( ! function_exists( 'astra_blog_get_post_meta' ) ) {
 	 */
 	function astra_blog_get_post_meta() {
 
-		$post_meta = astra_get_option( 'blog-meta' );
+		$enable_meta = apply_filters( 'astra_blog_post_meta_enabled', '__return_true' );
+		$post_meta   = astra_get_option( 'blog-meta' );
 
-		if ( is_array( $post_meta ) ) {
+		if ( 'post' == get_post_type() && is_array( $post_meta ) && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 
-			if ( 'post' == get_post_type() && ! empty( $output_str ) ) {
+			if ( ! empty( $output_str ) ) {
 				echo apply_filters( 'astra_blog_post_meta', '<div class="entry-meta">' . wp_kses_post( $output_str ) . '</div>' );
 			}
 		}
