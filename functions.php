@@ -104,7 +104,10 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bb-ultimate-addon.
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-contact-form-7.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-visual-composer.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-site-origin.php';
-require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gravity-forms.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bne-flyout.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-lifter-lms.php';
+// Check PHP_VERSION for namespace.
+if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
+	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
+}
