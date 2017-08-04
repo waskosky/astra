@@ -1,7 +1,7 @@
 v1.0.14
 # Improvement: Added new filter `astra_blog_post_meta_enabled` to Enable or Disable meta on archive pages.
 # Improvement: Added new filter `astra_single_post_meta_enabled` to Enable or Disable meta on single post.
-# Fixed: Backward compatibility issue of v1.0.13
+# Fixed: Regression in v1.0.14 which caused page titles to be displayed on some of the pages.
 
 v1.0.13
 # New: When using page builders Beaver Builder or Elementor on a new page - Page layout will be changed to "Full width / Stretched" and for Visual Composer the page layout will be changed to "Full width / Contained" Also the title bar will be disabled hence reducing the number of clicks needed to get full-width pages.
