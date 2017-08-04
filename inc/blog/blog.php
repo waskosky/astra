@@ -64,11 +64,9 @@ if ( ! function_exists( 'astra_blog_get_post_meta' ) ) {
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
 	 * @since 1.0
-	 * @param  array  $disabled  Disabled post meta.
-	 * @param  string $separator Meta separator.
 	 * @return mixed            Markup.
 	 */
-	function astra_blog_get_post_meta( $disabled = array(), $separator = '/' ) {
+	function astra_blog_get_post_meta() {
 
 		$post_meta = astra_get_option( 'blog-meta' );
 
