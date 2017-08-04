@@ -316,9 +316,8 @@ if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
 	function astra_advanced_footer_markup() {
 
 		$advanced_footer_layout = astra_get_option( 'footer-adv' );
-		$advanced_footer_meta = astra_get_option_meta( 'footer-adv-display' );
 
-		if ( apply_filters( 'astra_advanced_footer_disable', false ) || 'disabled' == $advanced_footer_layout ) {
+		if ( apply_filters( 'astra_advanced_footer_disable', false ) || 'layout-4' !== $advanced_footer_layout ) {
 			return;
 		}
 

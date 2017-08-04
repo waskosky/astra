@@ -71,20 +71,18 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
-	 * @param  array  $disabled  Disabled meta.
-	 * @param  string $separator Separator.
 	 * @return mixed            Post meta markup.
 	 */
-	function astra_single_get_post_meta( $disabled = array(), $separator = '/' ) {
+	function astra_single_get_post_meta() {
 
-		$post_meta = astra_get_option( 'blog-single-meta' );
+		$enable_meta = apply_filters( 'astra_single_post_meta_enabled', '__return_true' );
+		$post_meta   = astra_get_option( 'blog-single-meta' );
 
-		if ( is_array( $post_meta ) ) {
+		if ( is_array( $post_meta ) && 'post' == get_post_type() && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
-
-			if ( 'post' == get_post_type() && ! empty( $output_str ) ) {
-				echo apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . wp_kses_post( $output_str ) . '</div>' );
+			if ( ! empty( $output_str ) ) {
+				echo apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
 			}
 		}
 	}
@@ -178,7 +176,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								<?php if ( '0' == $comment->comment_approved ) : ?>
 									<p class="ast-highlight-text comment-awaiting-moderation"><?php echo esc_html( astra_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
 								<?php endif; ?>
-							</section> <!-- .ast-comment-content -->	
+							</section> <!-- .ast-comment-content -->
 						</div>
 					</article><!-- #comment-## -->
 				<!-- </li> -->

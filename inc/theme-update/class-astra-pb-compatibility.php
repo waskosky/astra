@@ -123,9 +123,22 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		public function update_meta_values( $id ) {
 
 			$layout_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
-
 			if ( empty( $layout_flag ) ) {
 				$site_content = get_post_meta( $id, 'site-content-layout', true );
+
+				if ( 'default' == $site_content ) {
+					$post_type = get_post_type( $id );
+					if ( 'page' == $post_type ) {
+						$site_content = astra_get_option( 'single-page-content-layout', '' );
+					} elseif ( 'post' == $post_type ) {
+						$site_content = astra_get_option( 'single-post-content-layout', '' );
+					}
+
+					if ( 'default' == $site_content ) {
+						$site_content = astra_get_option( 'site-content-layout', '' );
+					}
+				}
+
 				$elementor    = get_post_meta( $id, '_elementor_edit_mode', true );
 				$vc           = get_post_meta( $id, '_wpb_vc_js_status', true );
 				if ( 'page-builder' === $site_content ) {
