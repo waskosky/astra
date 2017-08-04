@@ -43,7 +43,6 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'vc_before_init',            array( $this, 'vc_set_as_theme' ) );
 			add_action( 'wp',                        array( $this, 'vc_default_setting' ), 20 );
 			add_action( 'do_meta_boxes',             array( $this, 'vc_default_setting' ), 20 );
 			add_action( 'vc_frontend_editor_render', array( $this, 'vc_frontend_default_setting' ) );
@@ -108,19 +107,6 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 
 			if ( is_singular() && ( has_shortcode( $post->post_content, 'vc_row' ) || 'true' == $vc_active ) ) {
 				$this->vc_update_meta_setting();
-			}
-		}
-
-		/**
-		 * Force Visual Composer to initialize as "built into the theme". This will hide certain tabs under the Settings->Visual Composer page
-		 *
-		 * @since 1.0.0
-		 */
-		function vc_set_as_theme() {
-
-			if ( function_exists( 'vc_set_as_theme' ) ) {
-				vc_set_as_theme( true );
-				vc_manager()->disableUpdater( true );
 			}
 		}
 	}
