@@ -141,14 +141,6 @@ module.exports = function (grunt) {
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
 		                },
-	                    {
-		                    src: [
-		                        'assets/js/unminified/flexibility.js',
-		                    	'assets/js/unminified/navigation.js',
-		                    	'assets/js/unminified/skip-link-focus-fix.js',
-		                    ],
-		                    dest: 'assets/js/unminified/style.js',
-		                },
 	               	]
                 }
             },
@@ -346,6 +338,20 @@ module.exports = function (grunt) {
                         ]
                     }
                 }
+            },
+
+            concat: {
+                options: {
+                    separator: '\n'
+                },
+                dist: {
+                    src: [
+                        'assets/js/unminified/flexibility.js',
+                        'assets/js/unminified/navigation.js',
+                        'assets/js/unminified/skip-link-focus-fix.js',
+                    ],
+                    dest: 'assets/js/unminified/style.js',
+                }
             }
 
         }
@@ -357,6 +363,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -372,7 +379,7 @@ module.exports = function (grunt) {
     grunt.registerTask('style', ['scss', 'postcss:style', 'rtl']);
 
     // min all
-    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css']);
+    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css', 'concat']);
 
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);

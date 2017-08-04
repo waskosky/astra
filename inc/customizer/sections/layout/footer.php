@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Footer Layout
+	 * Option: Footer Bar Layout
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[footer-sml-layout]', array(
@@ -29,18 +29,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-radio-image',
 				'section'  => 'section-footer-small',
 				'priority' => 5,
-				'label'    => __( 'Footer', 'astra' ),
+				'label'    => __( 'Footer Bar Layout', 'astra' ),
 				'choices'  => array(
 					'disabled'            => array(
 						'label' => __( 'Disabled', 'astra' ),
 						'path'  => ASTRA_THEME_URI . 'assets/images/disabled-footer-76x48.png',
 					),
 					'footer-sml-layout-1' => array(
-						'label' => __( 'Footer Layout 1', 'astra' ),
+						'label' => __( 'Footer Bar Layout 1', 'astra' ),
 						'path'  => ASTRA_THEME_URI . 'assets/images/footer-layout-1-76x48.png',
 					),
 					'footer-sml-layout-2' => array(
-						'label' => __( 'Footer Layout 2', 'astra' ),
+						'label' => __( 'Footer Bar Layout 2', 'astra' ),
 						'path'  => ASTRA_THEME_URI . 'assets/images/footer-layout-2-76x48.png',
 					),
 				),
@@ -206,7 +206,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'number',
 			'section'     => 'section-footer-small',
 			'priority'    => 40,
-			'label'       => __( 'Footer Top Border', 'astra' ),
+			'label'       => __( 'Footer Bar Top Border', 'astra' ),
 			'input_attrs' => array(
 				'min'  => 0,
 				'step' => 1,
@@ -220,7 +220,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
-			'default'           => '#fff',
+			'default'           => '#7a7a7a',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
@@ -231,7 +231,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
 				'section'  => 'section-footer-small',
 				'priority' => 45,
-				'label'    => __( 'Footer Top Border Color', 'astra' ),
+				'label'    => __( 'Footer Bar Top Border Color', 'astra' ),
 			)
 		)
 	);
@@ -251,7 +251,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'select',
 			'section'     => 'section-footer-small',
 			'priority'    => 35,
-			'label'       => __( 'Footer Width', 'astra' ),
+			'label'       => __( 'Footer Bar Width', 'astra' ),
 			'choices'     => array(
 				'full'    => __( 'Full Width', 'astra' ),
 				'content' => __( 'Content Width', 'astra' ),

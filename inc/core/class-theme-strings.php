@@ -68,8 +68,10 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 
 				// Single Post Default Strings.
 				'string-single-page-links-before'        => __( 'Pages:', 'astra' ),
-				'string-single-navigation-next'          => __( 'Next Post', 'astra' ) . ' <span class="ast-right-arrow">&rarr;</span>',
-				'string-single-navigation-previous'      => '<span class="ast-left-arrow">&larr;</span> ' . __( 'Previous Post', 'astra' ),
+				/* translators: 1: Post type label */
+				'string-single-navigation-next'          => __( 'Next %s', 'astra' ) . ' <span class="ast-right-arrow">&rarr;</span>',
+				/* translators: 1: Post type label */
+				'string-single-navigation-previous'      => '<span class="ast-left-arrow">&larr;</span> ' . __( 'Previous %s', 'astra' ),
 
 				// Content None.
 				'string-content-nothing-found-message'   => __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'astra' ),

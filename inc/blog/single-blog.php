@@ -204,14 +204,25 @@ if ( ! function_exists( 'astra_single_post_navigation_markup' ) ) {
 
 		if ( is_single() ) {
 
+			$post_obj = get_post_type_object( get_post_type() );
+
+			$next_text = sprintf(
+				astra_default_strings( 'string-single-navigation-next', false ),
+				$post_obj->labels->singular_name
+			);
+
+			$prev_text = sprintf(
+				astra_default_strings( 'string-single-navigation-previous', false ),
+				$post_obj->labels->singular_name
+			);
 			/**
 			 * Filter the post pagination markup
 			 */
 			the_post_navigation(
 				apply_filters(
 					'astra_single_post_navigation', array(
-						'next_text' => astra_default_strings( 'string-single-navigation-next', false ),
-						'prev_text' => astra_default_strings( 'string-single-navigation-previous', false ),
+						'next_text' => $next_text,
+						'prev_text' => $prev_text,
 					)
 				)
 			);

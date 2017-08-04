@@ -109,6 +109,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
 		if ( isset( $numpages ) && $enabled ) {
+			ob_start();
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination(
 				array(
@@ -117,6 +118,8 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 				)
 			);
 			echo '</div>';
+			$output = ob_get_clean();
+			echo apply_filters( 'astra_pagination_markup', $output );
 		}
 	}
 }// End if().
@@ -858,30 +861,6 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }// End if().
 
-add_filter( 'astra_the_title_enabled', 'page_builder_disable_title', 12 );
-
-/**
- * Disbale title for Page Builder template
- */
-if ( ! function_exists( 'page_builder_disable_title' ) ) {
-
-	/**
-	 * Disbale title for Page Builder template
-	 *
-	 * @since 1.0.0
-	 * @param boolean $default  Title enabled or not.
-	 * @return boolean          Title enable or disable.
-	 */
-	function page_builder_disable_title( $default ) {
-		$content_layout = astra_get_content_layout();
-
-		if ( 'page-builder' == $content_layout ) {
-			$default = false;
-		}
-		return $default;
-	}
-}
-
 /**
  * Display Blog Post Excerpt
  */
@@ -977,3 +956,40 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 	}
 }// End if().
 add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
+
+/**
+ * Get Footer widgets
+ */
+if ( ! function_exists( 'astra_get_footer_widget' ) ) {
+
+	/**
+	 * Get Footer Default Sidebar
+	 *
+	 * @param  string $sidebar_id   Sidebar Id..
+	 * @return void
+	 */
+	function astra_get_footer_widget( $sidebar_id ) {
+
+		if ( is_active_sidebar( $sidebar_id ) ) {
+			dynamic_sidebar( $sidebar_id );
+		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+
+			global $wp_registered_sidebars;
+			$sidebar_name = '';
+			if ( isset( $wp_registered_sidebars[ $sidebar_id ] ) ) {
+				$sidebar_name = $wp_registered_sidebars[ $sidebar_id ]['name'];
+			}
+			?>
+			<div class="widget ast-no-widget-row">
+				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
+
+				<p class='no-widget-text'>
+					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+					</a>
+				</p>
+			</div>
+			<?php
+		}
+	}
+}// End if().
