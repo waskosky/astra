@@ -49,13 +49,13 @@ switch ( $sections ) {
 				
 					<?php if ( $section_1 ) : ?>
 						<div class="ast-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
-							<?php echo wp_kses_post( $section_1 ); ?>
+							<?php echo $section_1; ?>
 						</div>
 				<?php endif; ?>
 
 					<?php if ( $section_2 ) : ?>
 						<div class="ast-small-footer-section ast-small-footer-section-2 <?php echo esc_attr( $section_class ); ?>" >
-							<?php echo wp_kses_post( $section_2 ); ?>
+							<?php echo $section_2; ?>
 						</div>
 				<?php endif; ?>
 
