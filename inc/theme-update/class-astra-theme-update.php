@@ -83,9 +83,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_12();
 			}
 
-			// Update to older version than 1.0.13 version.
-			if ( version_compare( $saved_version, '1.0.13', '<' ) ) {
-				self::v_1_0_13();
+			// Update to older version than 1.0.14 version.
+			if ( version_compare( $saved_version, '1.0.14', '<' ) ) {
+				self::v_1_0_14();
 			}
 
 			// Not have stored?
@@ -313,12 +313,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
-		 * Update options of older version than 1.0.13.
+		 * Update options of older version than 1.0.14.
 		 *
-		 * @since 1.0.13
+		 * @since 1.0.14
 		 * @return void
 		 */
-		static public function v_1_0_13() {
+		static public function v_1_0_14() {
 
 			$options = array(
 				'footer-sml-divider'          => '4',
