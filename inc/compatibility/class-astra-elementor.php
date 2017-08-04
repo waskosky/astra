@@ -5,11 +5,6 @@
  * @package Astra
  */
 
-// Check PHP_VERSION for namespace.
-if ( ! version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-	return;
-}
-
 namespace Elementor;
 
 // If plugin - 'Elementor' not exist then return.
