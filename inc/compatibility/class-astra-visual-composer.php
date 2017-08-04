@@ -45,6 +45,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		public function __construct() {
 			add_action( 'vc_before_init',            array( $this, 'vc_set_as_theme' ) );
 			add_action( 'wp',                        array( $this, 'vc_default_setting' ), 20 );
+			add_action( 'do_meta_boxes',             array( $this, 'vc_default_setting' ), 20 );
 			add_action( 'vc_frontend_editor_render', array( $this, 'vc_frontend_default_setting' ) );
 		}
 

@@ -46,6 +46,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
+			add_action( 'do_meta_boxes', array( $this, 'elementor_default_setting' ), 20 );
 		}
 
 		/**
