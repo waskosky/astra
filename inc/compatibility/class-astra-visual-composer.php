@@ -52,6 +52,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 * VC Updated meta settings
 		 *
 		 * @since 1.0.13
+		 * @param int $id Post id.
 		 * @return void
 		 */
 		function vc_update_meta_setting( $id ) {
