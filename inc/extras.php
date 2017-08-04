@@ -318,23 +318,47 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 				break;
 
 			case 'custom':
-					$output = astra_get_option( $section . '-credit' );
-					$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
-					$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
-
-					$theme_author = apply_filters(
-						'astra_theme_author', array(
-							'theme_name'       => __( 'Astra', 'astra' ),
-							'theme_author_url' => 'http://wpastra.com/',
-						)
-					);
-
-					$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
+					$output = astra_get_small_footer_custom_text( $section . '-credit' );
 				break;
 
 			case 'widget':
 					$output = astra_get_custom_widget( $section );
 				break;
+		}
+
+		return $output;
+	}
+}// End if().
+
+/**
+ * Function to get Small Footer Custom Text
+ */
+if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
+
+	/**
+	 * Function to get Small Footer Custom Text
+	 *
+	 * @since 1.0.14
+	 * @param string $option Custom text option name.
+	 * @return mixed         Markup of custom text option.
+	 */
+	function astra_get_small_footer_custom_text( $option = '' ) {
+
+		$output = $option;
+
+		if ( '' != $option ) {
+			$output = astra_get_option( $option );
+			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
+			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
+
+			$theme_author = apply_filters(
+				'astra_theme_author', array(
+					'theme_name'       => __( 'Astra', 'astra' ),
+					'theme_author_url' => 'http://wpastra.com/',
+				)
+			);
+
+			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
 		}
 
 		return $output;

@@ -59,3 +59,8 @@
 		}
 	}
 }
+
+/* Hide edit shortcut button */
+.ast-footer-site-title .customize-partial-edit-shortcut-button {
+	display: none;
+}

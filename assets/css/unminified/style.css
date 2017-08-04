@@ -3812,6 +3812,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   }
 }
 
+/* Hide edit shortcut button */
+.ast-footer-site-title .customize-partial-edit-shortcut-button {
+  display: none;
+}
+
 .footer-sml-layout-1 {
   text-align: center;
 }
