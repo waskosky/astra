@@ -1035,12 +1035,12 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 }// End if().
 
 /**
- * Astra entry header class.
+ * Astra get post thumbnail image.
  */
 if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 	/**
-	 * Astra entry header class
+	 * Astra get post thumbnail image
 	 *
 	 * @since 1.0.15
 	 * @param string  $before Markup before thumbnail image.
