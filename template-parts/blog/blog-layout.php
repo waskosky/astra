@@ -16,7 +16,7 @@
 
 	<div class="post-content ast-col-md-12">
 		<header class="entry-header">
-			<?php astra_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() ); ?>
+			<?php astra_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() ); ?>
 			
 			<?php astra_blog_get_post_meta(); ?>
 		</header><!-- .entry-header -->
