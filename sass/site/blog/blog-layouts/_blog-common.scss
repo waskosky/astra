@@ -10,9 +10,11 @@
     margin-bottom: 1em;
 }
 
-.ast-single-post .entry-header.ast-no-title {
-	margin-top: 0;
-	margin-bottom: 0;
+.ast-single-post .entry-header {
+	&.ast-no-title.ast-no-meta,
+	&.ast-header-without-markup {
+		margin-bottom: 0;
+	}
 }
 
 .entry-header {

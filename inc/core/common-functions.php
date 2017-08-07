@@ -606,6 +606,40 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 }
 
 /**
+ * Wrapper function fot the_title()
+ */
+if ( ! function_exists( 'astra_the_title' ) ) {
+
+	/**
+	 * Wrapper function fot the_title()
+	 *
+	 * Displays title only if the page title bar is disabled.
+	 *
+	 * @param string $before Optional. Content to prepend to the title.
+	 * @param string $after  Optional. Content to append to the title.
+	 * @param int    $post_id Optional, default to 0. Post id.
+	 * @param bool   $echo   Optional, default to true.Whether to display or return.
+	 * @return string|void String if $echo parameter is false.
+	 */
+	function astra_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
+
+		if ( apply_filters( 'astra_the_title_enabled', true ) ) {
+
+			$title  = astra_get_the_title( $post_id );
+			$before = apply_filters( 'astra_the_title_before', '' ) . $before;
+			$after  = $after . apply_filters( 'astra_the_title_after', '' );
+
+			// This will work same as `the_title` function but with Custom Title if exits.
+			if ( $echo ) {
+				echo $before . $title . $after;
+			} else {
+				return $before . $title . $after;
+			}
+		}
+	}
+}
+
+/**
  * Wrapper function fot get_the_title()
  */
 if ( ! function_exists( 'astra_get_the_title' ) ) {

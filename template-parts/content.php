@@ -16,15 +16,9 @@
 
 	<?php astra_entry_top(); ?>
 
-	<?php
-	$title_enabled = '';
-	if ( ! apply_filters( 'astra_the_title_enabled', true ) ) {
-		$title_enabled = 'ast-no-title';
-	}
-	?>
-	<header class="entry-header <?php echo esc_attr( $title_enabled ); ?>">
+	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
-		<?php the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php astra_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 	</header><!-- .entry-header -->
 

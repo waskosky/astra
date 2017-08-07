@@ -993,3 +993,73 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 		}
 	}
 }// End if().
+
+/**
+ * Astra entry header class.
+ */
+if ( ! function_exists( 'astra_entry_header_class' ) ) {
+
+	/**
+	 * Astra entry header class
+	 *
+	 * @since 1.0.15
+	 * @return void
+	 */
+	function astra_entry_header_class() {
+
+		$post_id = astra_get_post_id();
+		$classes = array();
+
+		if ( empty( astra_the_title( '', '', $post_id, false ) ) && empty( astra_get_post_thumbnail( '', '', false ) ) && is_page() ) {
+			$classes[] = 'ast-header-without-markup';
+		} else {
+
+			if ( empty( astra_the_title( '', '', $post_id, false ) ) ) {
+				$classes[] = 'ast-no-title';
+			}
+
+			if ( empty( astra_get_post_thumbnail( '', '', false ) ) ) {
+				$classes[] = 'ast-no-thumbnail';
+			}
+
+			if ( is_page() ) {
+				$classes[] = 'ast-no-meta';
+			}
+		}
+
+		$classes = array_unique( apply_filters( 'astra_entry_header_class', $classes ) );
+		$classes = array_map( 'sanitize_html_class', $classes );
+
+		echo esc_attr( join( ' ', $classes ) );
+	}
+}// End if().
+
+/**
+ * Astra entry header class.
+ */
+if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
+
+	/**
+	 * Astra entry header class
+	 *
+	 * @since 1.0.15
+	 * @return void/string
+	 */
+	function astra_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
+
+		$output = '';
+		$featured_image = apply_filters( 'astra_featured_image_enabled', true );
+		if ( $featured_image && ( ! is_singular() || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+			$output .= '<div class="post-thumb">';
+			$output .= get_the_post_thumbnail();
+			$output .= '</div>';
+		}
+
+		if ( $echo ) {
+			echo $before . $output . $after; // WPCS: XSS OK.
+		} else {
+			return $before . $output . $after;
+		}
+	}
+}// End if().
+
