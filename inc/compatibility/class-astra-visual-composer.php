@@ -82,10 +82,9 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 
 			global $post;
 			$id = astra_get_post_id();
-
 			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
 
-			if ( empty( $page_builder_flag ) && is_singular() ) {
+			if ( empty( $page_builder_flag ) ) {
 				if ( $id > 0 && empty( $post->post_content ) ) {
 					$this->vc_update_meta_setting( $id );
 				}
