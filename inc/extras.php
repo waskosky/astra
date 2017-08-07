@@ -1043,7 +1043,10 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 	 * Astra entry header class
 	 *
 	 * @since 1.0.15
-	 * @return void/string
+	 * @param string  $before Markup before thumbnail image.
+	 * @param string  $after  Markup after thumbnail image.
+	 * @param boolean $echo   Output print or return.
+	 * @return mixed
 	 */
 	function astra_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
 
