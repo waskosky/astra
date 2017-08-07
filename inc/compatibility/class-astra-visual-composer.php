@@ -105,9 +105,8 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 
 			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
 
-			if ( empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
+			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 				$vc_active = get_post_meta( $id, '_wpb_vc_js_status', true );
-
 				if ( 'true' == $vc_active || has_shortcode( $post->post_content, 'vc_row' ) ) {
 					$this->vc_update_meta_setting( $id );
 				}
