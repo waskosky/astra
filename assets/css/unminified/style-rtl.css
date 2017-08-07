@@ -2226,6 +2226,10 @@ body {
   padding-left: 20px;
 }
 
+.ast-page-builder-template .entry-header.ast-no-title {
+  margin-top: 0;
+}
+
 @media (max-width: 768px) {
   .ast-page-builder-template .entry-header {
     margin-top: 1.5em;
@@ -4128,7 +4132,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-single-post .entry-header.ast-no-title {
-  display: none;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .entry-header {
@@ -5111,6 +5116,11 @@ input[type="color"]::-webkit-color-swatch {
 
 .js_active .ast-plain-container .entry-header {
   margin-top: 4em;
+}
+
+.js_active .ast-plain-container .entry-header.ast-no-title {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
