@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.14\n"
+"Project-Id-Version: Astra 1.0.15\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-08-04 13:33:27+00:00\n"
+"POT-Creation-Date: 2017-08-08 15:09:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -143,12 +143,12 @@ msgstr ""
 msgid "Settings saved successfully."
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:103
-#: inc/core/class-astra-theme-options.php:105
+#: inc/core/class-astra-theme-options.php:114
+#: inc/core/class-astra-theme-options.php:116
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:117
+#: inc/core/class-astra-theme-options.php:128
 msgid "Contact Us"
 msgstr ""
 
@@ -278,7 +278,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:640 inc/core/common-functions.php:723
+#: inc/core/common-functions.php:711 inc/core/common-functions.php:794
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -305,17 +305,13 @@ msgstr ""
 msgid "Get more with Astra Pro"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-partials.php:107
-#: inc/customizer/class-astra-customizer-partials.php:128 inc/extras.php:322
-msgid "Y"
-msgstr ""
-
 #: inc/customizer/class-astra-customizer-sanitizes.php:136
 msgid "Enter valid email address!"
 msgstr ""
 
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:63
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:101
+#: inc/customizer/sections/typography/body.php:237
 msgid "Inherit"
 msgstr ""
 
@@ -368,17 +364,18 @@ msgid "Container"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:40
-#: inc/customizer/register-panels-and-sections.php:124
+#: inc/customizer/register-panels-and-sections.php:140
 #: inc/customizer/sections/layout/header.php:32 inc/widgets.php:100
 msgid "Header"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:48
+#: inc/customizer/register-panels-and-sections.php:98
 msgid "Footer Bar"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:56
-#: inc/customizer/register-panels-and-sections.php:132
+#: inc/customizer/register-panels-and-sections.php:148
 msgid "Blog / Archive"
 msgstr ""
 
@@ -396,32 +393,36 @@ msgid "Colors & Background"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:90
-#: inc/customizer/register-panels-and-sections.php:108
 msgid "Body"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:102
+#: inc/customizer/register-panels-and-sections.php:106
+#: inc/customizer/register-panels-and-sections.php:187
+msgid "Footer Widgets"
+msgstr ""
+
+#: inc/customizer/register-panels-and-sections.php:118
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:116
+#: inc/customizer/register-panels-and-sections.php:124
+msgid "Base Typography"
+msgstr ""
+
+#: inc/customizer/register-panels-and-sections.php:132
 msgid "Content"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:140
+#: inc/customizer/register-panels-and-sections.php:156
 msgid "Single Page / Post"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:152
+#: inc/customizer/register-panels-and-sections.php:168
 msgid "Buttons"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:162
+#: inc/customizer/register-panels-and-sections.php:178
 msgid "Widget Areas"
-msgstr ""
-
-#: inc/customizer/register-panels-and-sections.php:171
-msgid "Footer Widgets"
 msgstr ""
 
 #: inc/customizer/sections/buttons/buttons.php:30
@@ -452,16 +453,35 @@ msgstr ""
 msgid "Horizontal Padding"
 msgstr ""
 
+#: inc/customizer/sections/colors-background/advanced-footer.php:30
+msgid "Widget Title Color"
+msgstr ""
+
+#: inc/customizer/sections/colors-background/advanced-footer.php:50
 #: inc/customizer/sections/colors-background/body.php:31
+#: inc/customizer/sections/colors-background/footer.php:30
 msgid "Text Color"
+msgstr ""
+
+#: inc/customizer/sections/colors-background/advanced-footer.php:69
+#: inc/customizer/sections/colors-background/footer.php:50
+msgid "Link Color"
+msgstr ""
+
+#: inc/customizer/sections/colors-background/advanced-footer.php:88
+#: inc/customizer/sections/colors-background/body.php:71
+#: inc/customizer/sections/colors-background/footer.php:70
+msgid "Link Hover Color"
+msgstr ""
+
+#: inc/customizer/sections/colors-background/advanced-footer.php:119
+#: inc/customizer/sections/colors-background/footer.php:103
+#: inc/customizer/sections/layout/container.php:143
+msgid "Background Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:51
 msgid "Theme Color / Link Color"
-msgstr ""
-
-#: inc/customizer/sections/colors-background/body.php:71
-msgid "Link Hover Color"
 msgstr ""
 
 #: inc/customizer/sections/layout/advanced-footer.php:31
@@ -517,9 +537,9 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:72
 #: inc/customizer/sections/layout/sidebar.php:97
 #: inc/customizer/sections/layout/sidebar.php:122
-#: inc/customizer/sections/typography/body.php:31
-#: inc/customizer/sections/typography/body.php:54
-#: inc/customizer/sections/typography/body.php:81
+#: inc/customizer/sections/typography/body.php:46
+#: inc/customizer/sections/typography/body.php:69
+#: inc/customizer/sections/typography/body.php:96
 msgid "Default"
 msgstr ""
 
@@ -605,10 +625,6 @@ msgstr ""
 msgid "Blog Post Archives"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:143
-msgid "Background Color"
-msgstr ""
-
 #: inc/customizer/sections/layout/footer.php:32
 msgid "Footer Bar Layout"
 msgstr ""
@@ -632,7 +648,8 @@ msgstr ""
 #: inc/customizer/sections/layout/footer.php:86
 #: inc/customizer/sections/layout/footer.php:141
 #: inc/customizer/sections/layout/header.php:88
-#: inc/customizer/sections/typography/body.php:82
+#: inc/customizer/sections/typography/body.php:97
+#: inc/customizer/sections/typography/body.php:238
 msgid "None"
 msgstr ""
 
@@ -701,7 +718,7 @@ msgstr ""
 msgid "Custom Menu Item"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:89
+#: inc/customizer/sections/layout/header.php:89 inc/extras.php:229
 msgid "Search"
 msgstr ""
 
@@ -787,7 +804,7 @@ msgstr ""
 
 #: inc/customizer/sections/typography/archive.php:47
 #: inc/customizer/sections/typography/archive.php:91
-#: inc/customizer/sections/typography/body.php:106
+#: inc/customizer/sections/typography/body.php:121
 #: inc/customizer/sections/typography/content.php:47
 #: inc/customizer/sections/typography/content.php:91
 #: inc/customizer/sections/typography/content.php:135
@@ -804,32 +821,46 @@ msgstr ""
 msgid "Blog Post Title"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:34
+#: inc/customizer/sections/typography/body.php:25
+msgid "Body & Content"
+msgstr ""
+
+#: inc/customizer/sections/typography/body.php:49
+#: inc/customizer/sections/typography/body.php:189
 msgid "Font Family"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:57
+#: inc/customizer/sections/typography/body.php:72
+#: inc/customizer/sections/typography/body.php:211
 msgid "Font Weight"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:79
+#: inc/customizer/sections/typography/body.php:94
+#: inc/customizer/sections/typography/body.php:233
 msgid "Text Transform"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:83
+#: inc/customizer/sections/typography/body.php:98
+#: inc/customizer/sections/typography/body.php:239
 msgid "Capitalize"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:84
+#: inc/customizer/sections/typography/body.php:99
+#: inc/customizer/sections/typography/body.php:240
 msgid "Uppercase"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:85
+#: inc/customizer/sections/typography/body.php:100
+#: inc/customizer/sections/typography/body.php:241
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:134
+#: inc/customizer/sections/typography/body.php:149
 msgid "Line Height"
+msgstr ""
+
+#: inc/customizer/sections/typography/body.php:169
+msgid "Headings"
 msgstr ""
 
 #: inc/customizer/sections/typography/content.php:24
@@ -872,19 +903,23 @@ msgstr ""
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:373
+#: inc/extras.php:351
+msgid "Y"
+msgstr ""
+
+#: inc/extras.php:397
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:518
+#: inc/extras.php:542
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:905
+#: inc/extras.php:929
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:988
+#: inc/extras.php:1012
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
@@ -917,8 +952,12 @@ msgstr ""
 msgid "Disable Primary Header"
 msgstr ""
 
-#: inc/template-tags.php:32 template-parts/content-page.php:62
-#: template-parts/single/single-layout.php:54
+#: inc/template-parts.php:163
+msgid "Main Menu"
+msgstr ""
+
+#: inc/template-tags.php:32 template-parts/content-page.php:52
+#: template-parts/single/single-layout.php:43
 #. translators: %s: Name of current post
 msgid "Edit %s"
 msgstr ""
@@ -956,7 +995,7 @@ msgstr ""
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content.php:40
+#: template-parts/content.php:34
 #. translators: %s: Name of current post.
 msgid "Continue reading %s"
 msgstr ""
