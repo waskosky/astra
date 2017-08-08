@@ -226,7 +226,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 */
 	function astra_get_search( $option = '' ) {
 
-		$search_html = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"></a></div>
+		$search_html = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'astra' ) . '</span></a></div>
 						<div class="ast-search-menu-icon slide-search" id="ast-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
