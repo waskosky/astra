@@ -1015,11 +1015,11 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
 
-			if ( empty( astra_the_title( '', '', $post_id, false ) ) ) {
+			if ( empty( $title_markup ) ) {
 				$classes[] = 'ast-no-title';
 			}
 
-			if ( empty( astra_get_post_thumbnail( '', '', false ) ) ) {
+			if ( empty( $thumb_markup ) ) {
 				$classes[] = 'ast-no-thumbnail';
 			}
 
