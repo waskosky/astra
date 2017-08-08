@@ -89,6 +89,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'text-color'                        => '#3a3a3a',
 					'link-color'                        => '#0085ba',
 					'link-h-color'                      => '#3a3a3a',
+					// Footer Colors.
+					'footer-bg-color'                   => '',
+					'footer-color'                      => '',
+					'footer-link-color'                 => '',
+					'footer-link-h-color'               => '',
 					// Buttons.
 					'button-color'                      => '',
 					'button-h-color'                    => '',

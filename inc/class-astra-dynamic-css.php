@@ -92,6 +92,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$btn_horizontal_padding          = astra_get_option( 'button-h-padding' );
 			$highlight_text_color            = astra_get_foreground_color( $link_color );
 
+			// Footer Bar Colors.
+			$footer_bg_color                 = astra_get_option( 'footer-bg-color' );
+			$footer_color                    = astra_get_option( 'footer-color' );
+			$footer_link_color               = astra_get_option( 'footer-link-color' );
+			$footer_link_h_color             = astra_get_option( 'footer-link-h-color' );
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -239,6 +245,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.site-footer a:hover + .post-count, .site-footer a:focus + .post-count' => array(
 					'background'   => esc_attr( $link_color ),
 					'border-color' => esc_attr( $link_color ),
+				),
+
+				'.ast-small-footer' => array(
+					'color' => esc_attr( $footer_color ),
+				),
+				'.ast-small-footer > .ast-footer-overlay' => array(
+					'background-color' => esc_attr( $footer_bg_color ),
+				),
+				'.ast-small-footer a' => array(
+					'color' => esc_attr( $footer_link_color ),
+				),
+				'.ast-small-footer a:hover' => array(
+					'color' => esc_attr( $footer_link_h_color ),
 				),
 
 				// Single Post Meta.

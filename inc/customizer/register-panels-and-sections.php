@@ -93,6 +93,14 @@
 			)
 		);
 
+		$wp_customize->add_section(
+			'section-colors-footer', array(
+				'title'    => __( 'Footer', 'astra-addon' ),
+				'panel'    => 'panel-colors-background',
+				'priority' => 60,
+			)
+		);
+
 		/**
 		 * Typography Panel
 		 */
