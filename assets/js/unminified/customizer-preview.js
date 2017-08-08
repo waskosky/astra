@@ -456,7 +456,7 @@ function astra_add_dynamic_css( control, style ) {
 
 			if ( bgcolor ) {
 				var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { background-color: ' + bgcolor + '; } ';
-				astra_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
+				astra_add_dynamic_css( 'footer-bg-color', dynamicStyle );
 			}
 
 		} );
@@ -474,7 +474,7 @@ function astra_add_dynamic_css( control, style ) {
 
 			if ( bgcolor ) {
 				var dynamicStyle = ' .footer-adv-overlay { background-color: ' + bgcolor + '; } ';
-				astra_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
+				astra_add_dynamic_css( 'footer-adv-bg-color', dynamicStyle );
 			}
 
 		} );
