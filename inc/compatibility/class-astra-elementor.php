@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			$id = astra_get_post_id();
 
 			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
-			if ( empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
+			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
 				if ( empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
 
