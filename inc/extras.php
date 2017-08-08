@@ -1006,10 +1006,12 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	 */
 	function astra_entry_header_class() {
 
-		$post_id = astra_get_post_id();
-		$classes = array();
+		$post_id      = astra_get_post_id();
+		$classes      = array();
+		$title_markup = astra_the_title( '', '', $post_id, false );
+		$thumb_markup = astra_get_post_thumbnail( '', '', false );
 
-		if ( empty( astra_the_title( '', '', $post_id, false ) ) && empty( astra_get_post_thumbnail( '', '', false ) ) && is_page() ) {
+		if ( empty( $title_markup ) && empty( $thumb_markup ) && is_page() ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
 
