@@ -441,6 +441,8 @@ function astra_add_dynamic_css( control, style ) {
 	astra_css( 'astra-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea' );
 	astra_css( 'astra-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
 
+	astra_css( 'astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' );
+
 	// Footer Bar.
 	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
 	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
