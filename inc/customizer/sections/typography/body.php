@@ -186,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Typography(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[headings-font-family]', array(
 				'type'     => 'ast-font-family',
-				'label'    => __( 'Font Family', 'astra-addon' ),
+				'label'    => __( 'Font Family', 'astra' ),
 				'section'  => 'section-body-typo',
 				'priority'    => 35,
 				'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
@@ -208,7 +208,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Typography(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[headings-font-weight]', array(
 				'type'     => 'ast-font-weight',
-				'label'    => __( 'Font Weight', 'astra-addon' ),
+				'label'    => __( 'Font Weight', 'astra' ),
 				'section'  => 'section-body-typo',
 				'priority' => 40,
 				'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-family]',
@@ -230,15 +230,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[headings-text-transform]', array(
 			'section'  => 'section-body-typo',
-			'label'    => __( 'Text Transform', 'astra-addon' ),
+			'label'    => __( 'Text Transform', 'astra' ),
 			'type'     => 'select',
 			'priority' => 45,
 			'choices'  => array(
-				''           => __( 'Inherit', 'astra-addon' ),
-				'none'       => __( 'None', 'astra-addon' ),
-				'capitalize' => __( 'Capitalize', 'astra-addon' ),
-				'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-				'lowercase'  => __( 'Lowercase', 'astra-addon' ),
+				''           => __( 'Inherit', 'astra' ),
+				'none'       => __( 'None', 'astra' ),
+				'capitalize' => __( 'Capitalize', 'astra' ),
+				'uppercase'  => __( 'Uppercase', 'astra' ),
+				'lowercase'  => __( 'Lowercase', 'astra' ),
 			),
 		)
 	);
