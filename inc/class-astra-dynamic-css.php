@@ -98,6 +98,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$footer_link_color               = astra_get_option( 'footer-link-color' );
 			$footer_link_h_color             = astra_get_option( 'footer-link-h-color' );
 
+			// Color.
+			$footer_adv_bg_color             = astra_get_option( 'footer-adv-bg-color' );
+			$footer_adv_text_color           = astra_get_option( 'footer-adv-text-color' );
+			$footer_adv_widget_title_color   = astra_get_option( 'footer-adv-wgt-title-color' );
+			$footer_adv_link_color           = astra_get_option( 'footer-adv-link-color' );
+			$footer_adv_link_h_color         = astra_get_option( 'footer-adv-link-h-color' );
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -260,6 +267,36 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_link_h_color ),
 				),
 
+				// Advanced Fotter colors/fonts.
+				'.footer-adv .widget-title,.footer-adv .widget-title a' => array(
+					'color' => esc_attr( $footer_adv_widget_title_color ),
+				),
+
+				'.footer-adv' => array(
+					'color' => esc_attr( $footer_adv_text_color ),
+				),
+
+				'.footer-adv a' => array(
+					'color' => esc_attr( $footer_adv_link_color ),
+				),
+
+				'.footer-adv .tagcloud a:hover, .footer-adv .tagcloud a.current-item' => array(
+					'border-color'     => esc_attr( $footer_adv_link_color ),
+					'background-color' => esc_attr( $footer_adv_link_color ),
+				),
+
+				'.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' => array(
+					'color' => esc_attr( $footer_adv_link_h_color ),
+				),
+
+				'.footer-adv .calendar_wrap #today, .footer-adv a:hover + .post-count' => array(
+					'background-color' => esc_attr( $footer_adv_link_color ),
+				),
+
+				'.footer-adv-overlay' => array(
+					'background-color' => esc_attr( $footer_adv_bg_color ),
+				),
+
 				// Single Post Meta.
 				'.ast-comment-meta' => array(
 					'line-height' => '1.666666667',
@@ -343,6 +380,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
+
+			// Foreground color.
+			if ( ! empty( $footer_adv_link_color ) ) {
+				$footer_adv_tagcloud = array(
+					'.footer-adv .tagcloud a:hover, .footer-adv .tagcloud a.current-item' => array(
+						'color' => astra_get_foreground_color( $footer_adv_link_color ),
+					),
+					'.footer-adv .calendar_wrap #today' => array(
+						'color' => astra_get_foreground_color( $footer_adv_link_color ),
+					),
+				);
+				$parse_css .= astra_parse_css( $footer_adv_tagcloud );
+			}
 
 			/* Width for Footer */
 			if ( 'content' != $astra_footer_width ) {

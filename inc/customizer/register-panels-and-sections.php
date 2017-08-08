@@ -95,9 +95,17 @@
 
 		$wp_customize->add_section(
 			'section-colors-footer', array(
-				'title'    => __( 'Footer', 'astra-addon' ),
+				'title'    => __( 'Footer', 'astra' ),
 				'panel'    => 'panel-colors-background',
 				'priority' => 60,
+			)
+		);
+
+		$wp_customize->add_section(
+			'section-footer-adv-color-bg', array(
+				'title'    => __( 'Footer Widgets', 'astra' ),
+				'panel'    => 'panel-colors-background',
+				'priority' => 55,
 			)
 		);
 

@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-color]', array(
-				'label'   => __( 'Text Color', 'astra-addon' ),
+				'label'   => __( 'Text Color', 'astra' ),
 				'section' => 'section-colors-footer',
 			)
 		)
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-color]', array(
-				'label'   => __( 'Link Color', 'astra-addon' ),
+				'label'   => __( 'Link Color', 'astra' ),
 				'section' => 'section-colors-footer',
 			)
 		)
@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-h-color]', array(
-				'label'       => __( 'Link Hover Color', 'astra-addon' ),
+				'label'       => __( 'Link Hover Color', 'astra' ),
 				'section'     => 'section-colors-footer',
 			)
 		)
@@ -100,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bg-color]', array(
-				'label'       => __( 'Background Color', 'astra-addon' ),
+				'label'       => __( 'Background Color', 'astra' ),
 				'section'     => 'section-colors-footer',
 			)
 		)
