@@ -106,6 +106,8 @@
 /**
  * Typography Control Style
  */
+.customize-pane-child > li[id="customize-control-astra-settings-headings-font-weight"],
+.customize-pane-child > li[id="customize-control-astra-settings-headings-text-transform"],
 .customize-pane-child > li[id="customize-control-astra-settings-body-font-weight"],
 .customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
     width: 50%;
@@ -114,10 +116,12 @@
     clear: none;
 }
 
+.customize-pane-child > li[id="customize-control-astra-settings-headings-font-weight"],
 .customize-pane-child > li[id="customize-control-astra-settings-body-font-weight"] {
     padding-right: 5px;
 }
 
+.customize-pane-child > li[id="customize-control-astra-settings-headings-text-transform"],
 .customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
     padding-left: 5px;
 }

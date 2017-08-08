@@ -74,6 +74,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$body_font_size                  = astra_get_option( 'font-size-body' );
 			$body_line_height                = astra_get_option( 'body-line-height' );
 			$body_text_transform             = astra_get_option( 'body-text-transform' );
+			$headings_font_family            = astra_get_option( 'headings-font-family' );
+			$headings_font_weight            = astra_get_option( 'headings-font-weight' );
+			$headings_text_transform         = astra_get_option( 'headings-text-transform' );
 			$site_title_font_size            = astra_get_option( 'font-size-site-title' );
 			$site_tagline_font_size          = astra_get_option( 'font-size-site-tagline' );
 			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
@@ -155,6 +158,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
 					'line-height'    => esc_attr( $body_line_height ),
 					'text-transform' => esc_attr( $body_text_transform ),
+				),
+				'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' => array(
+					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
+					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
+					'text-transform' => esc_attr( $headings_text_transform ),
 				),
 				'.site-title' => array(
 					'font-size' => astra_responsive_font( $site_title_font_size, 'desktop' ),
@@ -320,6 +328,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
+
 			);
 
 			/* Parse CSS from array() */
