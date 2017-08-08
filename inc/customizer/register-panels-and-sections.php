@@ -105,7 +105,7 @@
 
 		$wp_customize->add_section(
 			'section-body-typo', array(
-				'title'    => __( 'Body', 'astra' ),
+				'title'    => __( 'Base Typography', 'astra' ),
 				'panel'    => 'panel-typography',
 				'priority' => 1,
 			)

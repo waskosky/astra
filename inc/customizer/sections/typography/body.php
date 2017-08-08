@@ -14,6 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Heading 1 (H1) Divider
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-base-typo]', array(
+				'type'        => 'ast-divider',
+				'section'     => 'section-body-typo',
+				'priority'    => 4,
+				'label'       => __( 'Body & Content', 'astra' ),
+				'settings'    => array(),
+			)
+		)
+	);
+
+	/**
 	 * Option: Font Family
 	 */
 	$wp_customize->add_setting(
