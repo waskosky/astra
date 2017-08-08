@@ -44,6 +44,7 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
+			add_action( 'do_meta_boxes', array( $this, 'beaver_builder_default_setting' ), 20 );
 		}
 
 		/**
@@ -59,11 +60,10 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 
 			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
 
-			if ( is_singular() && empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
+			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
-				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
-
-				if ( empty( $page_builder_flag ) ) {
+				if ( empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
 
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );

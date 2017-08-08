@@ -119,7 +119,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			);
 			echo '</div>';
 			$output = ob_get_clean();
-			echo apply_filters( 'astra_pagination_markup', $output );
+			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
 		}
 	}
 }// End if().
@@ -226,7 +226,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 */
 	function astra_get_search( $option = '' ) {
 
-		$search_html = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"></a></div>
+		$search_html = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'astra' ) . '</span></a></div>
 						<div class="ast-search-menu-icon slide-search" id="ast-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
@@ -255,7 +255,7 @@ if ( ! function_exists( 'astra_get_custom_html' ) ) {
 		if ( ! empty( $custom_html_content ) ) {
 			$custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=astra-settings[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'astra' ) . '</a>';
+			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'astra' ) . '</a>';
 		}
 
 		return $custom_html;
@@ -805,7 +805,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		$args['title_reply']        = astra_default_strings( 'string-comment-title-reply', false );
 		$args['cancel_reply_link']  = astra_default_strings( 'string-comment-cancel-reply-link', false );
 		$args['label_submit']       = astra_default_strings( 'string-comment-label-submit', false );
-		$args['comment_field']      = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+		$args['comment_field']      = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 		return $args;
 	}
 }
@@ -1017,3 +1017,77 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 		}
 	}
 }// End if().
+
+/**
+ * Astra entry header class.
+ */
+if ( ! function_exists( 'astra_entry_header_class' ) ) {
+
+	/**
+	 * Astra entry header class
+	 *
+	 * @since 1.0.15
+	 */
+	function astra_entry_header_class() {
+
+		$post_id      = astra_get_post_id();
+		$classes      = array();
+		$title_markup = astra_the_title( '', '', $post_id, false );
+		$thumb_markup = astra_get_post_thumbnail( '', '', false );
+
+		if ( empty( $title_markup ) && empty( $thumb_markup ) && is_page() ) {
+			$classes[] = 'ast-header-without-markup';
+		} else {
+
+			if ( empty( $title_markup ) ) {
+				$classes[] = 'ast-no-title';
+			}
+
+			if ( empty( $thumb_markup ) ) {
+				$classes[] = 'ast-no-thumbnail';
+			}
+
+			if ( is_page() ) {
+				$classes[] = 'ast-no-meta';
+			}
+		}
+
+		$classes = array_unique( apply_filters( 'astra_entry_header_class', $classes ) );
+		$classes = array_map( 'sanitize_html_class', $classes );
+
+		echo esc_attr( join( ' ', $classes ) );
+	}
+}// End if().
+
+/**
+ * Astra get post thumbnail image.
+ */
+if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
+
+	/**
+	 * Astra get post thumbnail image
+	 *
+	 * @since 1.0.15
+	 * @param string  $before Markup before thumbnail image.
+	 * @param string  $after  Markup after thumbnail image.
+	 * @param boolean $echo   Output print or return.
+	 * @return string|void
+	 */
+	function astra_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
+
+		$output = '';
+		$featured_image = apply_filters( 'astra_featured_image_enabled', true );
+		if ( $featured_image && ( ! is_singular() || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+			$output .= '<div class="post-thumb">';
+			$output .= get_the_post_thumbnail();
+			$output .= '</div>';
+		}
+
+		if ( $echo ) {
+			echo $before . $output . $after; // WPCS: XSS OK.
+		} else {
+			return $before . $output . $after;
+		}
+	}
+}// End if().
+

@@ -81,6 +81,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$font_weight = astra_get_option( 'body-font-weight' );
 
 			Astra_Fonts::add_font( $font_family, $font_weight );
+
+			// Render headings font.
+			$font_family = astra_get_option( 'headings-font-family' );
+			$font_weight = astra_get_option( 'headings-font-weight' );
+
+			Astra_Fonts::add_font( $font_family, $font_weight );
 		}
 
 		/**

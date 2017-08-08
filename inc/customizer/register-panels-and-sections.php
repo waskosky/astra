@@ -93,6 +93,22 @@
 			)
 		);
 
+		$wp_customize->add_section(
+			'section-colors-footer', array(
+				'title'    => __( 'Footer', 'astra' ),
+				'panel'    => 'panel-colors-background',
+				'priority' => 60,
+			)
+		);
+
+		$wp_customize->add_section(
+			'section-footer-adv-color-bg', array(
+				'title'    => __( 'Footer Widgets', 'astra' ),
+				'panel'    => 'panel-colors-background',
+				'priority' => 55,
+			)
+		);
+
 		/**
 		 * Typography Panel
 		 */
@@ -105,7 +121,7 @@
 
 		$wp_customize->add_section(
 			'section-body-typo', array(
-				'title'    => __( 'Body', 'astra' ),
+				'title'    => __( 'Base Typography', 'astra' ),
 				'panel'    => 'panel-typography',
 				'priority' => 1,
 			)

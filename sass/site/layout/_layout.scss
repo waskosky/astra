@@ -134,12 +134,25 @@ body{
 		margin: 4em auto;
 	}
 
+	.ast-pagination {
+		padding: 2em;
+	}
+
 	.entry-header {
 		margin-top: 4em;
 		margin-left: auto;
 		margin-right: auto;
 		padding-left: ($grid-gutter-width / 2);
 		padding-right: ($grid-gutter-width / 2);
+
+		&.ast-header-without-markup {
+ 			margin-top: 0;
+ 			margin-bottom: 0;
+ 		}
+
+ 		&.ast-no-title.ast-no-meta {
+			margin-bottom: 0;
+		}
 
 		@media (max-width: $mx-col-md) { 
 			margin-top: 1.5em;
@@ -171,8 +184,16 @@ body{
 			}
 		}
 	}
-	&.single.post-navigation {
+	&.single .post-navigation {
 		padding-bottom: 2em;
+	}
+
+	.ast-archive-description {
+		margin-top: 4em;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: ($grid-gutter-width / 2);
+		padding-right: ($grid-gutter-width / 2);
 	}
 }
 

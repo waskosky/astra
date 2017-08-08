@@ -773,6 +773,7 @@ var toggleClass = function ( el, className ) {
 					toggleButton.setAttribute("role", "button");
 					toggleButton.setAttribute("class", "ast-menu-toggle");
 					toggleButton.setAttribute("aria-expanded", "false");
+					toggleButton.innerHTML="<span class='screen-reader-text'>Menu Toggle</span>";
 				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
 
 				var menuLeft         = parentList[i].getBoundingClientRect().left,

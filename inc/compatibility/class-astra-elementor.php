@@ -46,6 +46,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
+			add_action( 'do_meta_boxes', array( $this, 'elementor_default_setting' ), 20 );
 		}
 
 		/**
@@ -59,10 +60,10 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			global $post;
 			$id = astra_get_post_id();
 
-			if ( is_singular() && empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
+			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
-				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
-				if ( empty( $page_builder_flag ) ) {
+				if ( empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
 
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
