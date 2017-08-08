@@ -1003,7 +1003,6 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	 * Astra entry header class
 	 *
 	 * @since 1.0.15
-	 * @return void
 	 */
 	function astra_entry_header_class() {
 
