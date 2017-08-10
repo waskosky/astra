@@ -208,7 +208,7 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 				break;
 
 			case 'cart':
-					$output[] = ast_get_cart();
+					$output[] = astra_get_cart();
 				break;
 		}
 
@@ -219,8 +219,8 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 /**
  * Cart Icon in Navigation Menu
  */
-if ( ! function_exists( 'ast_get_cart' ) ) {
-	function ast_get_cart() {
+if ( ! function_exists( 'astra_get_cart' ) ) {
+	function astra_get_cart() {
 
 		$output = '';
 
