@@ -13,6 +13,8 @@ body {
         position: relative;
     }
 	overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #page {
@@ -37,6 +39,16 @@ a,
 
 img {
     vertical-align: middle;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 
+{
+    margin-bottom: 20px;
 }
 
 p {

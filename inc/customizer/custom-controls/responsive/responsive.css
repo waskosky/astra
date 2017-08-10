@@ -5,12 +5,12 @@
 
 .ast-responsive-btns {
   float: right;
-  vertical-align: middle;
+  line-height: 1;
+  margin-top: 5px;
 }
 
 .ast-responsive-btns > li {
   margin-bottom: 0;
-  vertical-align: middle;
   display: none;
 }
 
@@ -20,9 +20,7 @@
 
 .ast-responsive-btns button[type="button"] {
   padding: 0;
-  height: 15px;
   cursor: pointer;
-  vertical-align: middle;
   background: none;
   border: none;
   opacity: .75;
@@ -48,7 +46,11 @@
 .customize-control-ast-responsive .input-wrapper .ast-responsive-select {
   width: 50px;
   margin: 0;
-  display: inline-block;
+  display: none;
   padding: .1em;
   margin-left: 2px;
+}
+
+.customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+  display: inline-block;
 }

@@ -13,46 +13,37 @@
 			'use strict';
 
 			var control = this,
-		    value,
-		    thisInput,
-		    inputDefault,
-		    changeAction;
+				value,
+				thisInput,
+				inputDefault,
+				changeAction;
 
 			// Update the text value.
-			jQuery( 'input[type=range]' ).on( 'mousedown', function() {
-				value = jQuery( this ).attr( 'value' );
-				jQuery( this ).mousemove( function() {
-					value = jQuery( this ).attr( 'value' );
-					jQuery( this ).closest( 'label' ).find( '.ast_range_value .value' ).val( value );
-				});
-			});
+			jQuery( 'input[type=range]' ).on( 'input change', function() {
+				var value 		 = jQuery( this ).attr( 'value' ),
+					input_number = jQuery( this ).closest( '.wrapper' ).find( '.astra_range_value .value' );
 
-			jQuery( '.ast-range-value-input' ).on('keyup change', function(){
-				thisInput    = jQuery( this ).closest( 'label' ).find( 'input[type=range]' );
-				value = jQuery( this ).attr( 'value' );
-				thisInput.val( value );
-				thisInput.change();
+				input_number.val( value );
+				input_number.change();
 			});
 
 			// Handle the reset button.
 			jQuery( '.ast-slider-reset' ).click( function() {
-				thisInput    = jQuery( this ).closest( 'label' ).find( 'input[type=range]' );
-				inputDefault = thisInput.data( 'reset_value' );
-				thisInput.val( inputDefault );
-				thisInput.change();
-				jQuery( this ).closest( 'label' ).find( '.ast_range_value .value' ).val( inputDefault );
+				var wrapper 		= jQuery( this ).closest( '.wrapper' ),
+					input_range   	= wrapper.find( 'input[type=range]' ),
+					input_number 	= wrapper.find( '.astra_range_value .value' ),
+					default_value	= input_range.data( 'reset_value' );
+
+				input_range.val( default_value );
+				input_number.val( default_value );
+				input_number.change();
 			});
 
-			if ( 'postMessage' === control.setting.transport ) {
-				changeAction = 'mousemove change';
-			} else {
-				changeAction = 'change';
-			}
-
-				// Save changes.
-				this.container.on( changeAction, 'input[type=range]', function() {
-					control.setting.set( jQuery( this ).val() );
-				});
+			// Save changes.
+			this.container.on( 'input change', 'input[type=number]', function() {
+				var value = jQuery( this ).val();
+				jQuery( this ).closest( '.wrapper' ).find( 'input[type=range]' ).val( value );
+				control.setting.set( value );
+			});
 		}
-
 	});

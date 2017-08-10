@@ -1777,6 +1777,8 @@ html {
 
 body {
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body:not(.logged-in) {
@@ -1806,6 +1808,15 @@ a,
 
 img {
   vertical-align: middle;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  margin-bottom: 20px;
 }
 
 p {
@@ -1961,11 +1972,11 @@ textarea {
 }
 
 .site-title a {
-  line-height: 1.4;
+  line-height: 1;
 }
 
 .site-header .site-description {
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 .ast-single-post .entry-title,
@@ -2015,7 +2026,6 @@ textarea {
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   margin: 20px;
-  max-width: 600px;
   vertical-align: baseline;
   color: #3a3a3a;
 }
