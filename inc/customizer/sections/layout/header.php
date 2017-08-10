@@ -94,6 +94,7 @@ if( class_exists( 'WooCommerce' ) ) {
 		'label'       => __( 'Custom Menu Item', 'astra' ),
 		'choices'     => $header_rt_sections,
 	) );
+
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
 			'default'           => astra_get_option( 'header-main-rt-section' ),
