@@ -1,3 +1,12 @@
+v1.0.15
+# New: Font family, font weight and text transform options implemented for Headings.
+# New: Footer Bar Color options Implemented.
+# New: Footer Widgets Color options Implemented.
+# Improvement: Added new filter `astra_the_post_id` to Enable or Disable title of archive posts.
+# Fixed: System fonts should not call for googleapi.
+# Fixed: Featured images not showing up on Page after v1.0.14
+# Fixed: Notice - Getting property of Non-object variable with activated Visual Composer.
+
 v1.0.14
 # Improvement: Added new filter `astra_blog_post_meta_enabled` to Enable or Disable meta on archive pages.
 # Improvement: Added new filter `astra_single_post_meta_enabled` to Enable or Disable meta on single post.

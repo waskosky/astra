@@ -15,23 +15,12 @@
 
 	<?php astra_single_header_before(); ?>
 
-	<?php
-	$title_enabled = '';
-	if ( ! apply_filters( 'astra_the_title_enabled', true ) ) {
-		$title_enabled = 'ast-no-title';
-	}
-	?>
-	<header class="entry-header <?php echo esc_attr( $title_enabled ); ?>">
+	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
 		<?php astra_single_header_top(); ?>
 		
-		<?php $featured_image = apply_filters( 'astra_featured_image_enabled', true ); ?>
-		<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() && $featured_image ) : ?>
-			<div class="post-thumb">
-				<?php the_post_thumbnail(); ?>
-			</div>
-		<?php endif; ?>
-
+		<?php astra_get_post_thumbnail(); ?>
+		
 		<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
 
 		<?php astra_single_header_bottom(); ?>
