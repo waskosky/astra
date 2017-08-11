@@ -85,7 +85,7 @@ final class Astra_Fonts {
 	 */
 	static public function render_fonts() {
 
-		$font_list = self::get_fonts();
+		$font_list = apply_filters( 'astra_render_fonts', self::get_fonts() );
 
 		$google_fonts = array();
 		$font_subset = array();
