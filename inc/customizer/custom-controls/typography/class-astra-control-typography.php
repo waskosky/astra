@@ -145,6 +145,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Renders a font control.
 	 *
+	 * @since 1.0.16 Added the action 'astra_customizer_font_list' to support custom fonts.
 	 * @since 1.0.0
 	 * @param  string $default Inherit/Default.
 	 * @access protected
