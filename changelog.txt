@@ -1,6 +1,7 @@
 v1.0.16
 # Improvement: Added new filter `astra_render_fonts` to add the support for custom fonts.
 # Improvement: Added new action `astra_customizer_font_list` to add the custom fonts list into customizer.
+# Fixed: Default textarea height for contact form 7(https://wordpress.org/plugins/contact-form-7/) removed.
 
 v1.0.15
 # New: Font family, font weight and text transform options implemented for Headings.
