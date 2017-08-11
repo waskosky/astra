@@ -49,6 +49,13 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 	 */
 	final class Astra_Font_Families {
 
+		/**
+		 * System Fonts
+		 *
+		 * @since 1.0.16
+		 *
+		 * @return Array All the system fonts in Astra
+		 */
 		public static function system_fonts() {
 			$system_fonts = array(
 				'Helvetica' => array(
@@ -104,6 +111,14 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 			return apply_filters( 'astra_system_fonts', $system_fonts );
 		}
 
+		/**
+		 * Google Fonts used in astra.
+		 * Array is generated from the google-fonts.json file.
+		 *
+		 * @since  1.0.16
+		 *
+		 * @return Array Array of Google Fonts.
+		 */
 		public static function google_fonts() {
 
 			$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
@@ -112,19 +127,19 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 				return array();
 			}
 
-			$google_fonts 		= array();
-			$google_fonts_json 	= json_decode( file_get_contents( $google_fonts_file ), 1 );
+			$google_fonts       = array();
+			$google_fonts_json  = json_decode( file_get_contents( $google_fonts_file ), 1 );
 
 			foreach ( $google_fonts_json as $key => $font ) {
 				$name = key( $font );
-				foreach( $font[$name] as $font_key => $variant ) {
+				foreach ( $font[ $name ] as $font_key => $variant ) {
 
-					if( stristr( $variant, 'italic' ) ) {
-						unset( $font[$name][$font_key] );
+					if ( stristr( $variant, 'italic' ) ) {
+						unset( $font[ $name ][ $font_key ] );
 					}
 
-					if( 'regular' == $variant ) {
-						$font[$name][$font_key] = '400';
+					if ( 'regular' == $variant ) {
+						$font[ $name ][ $font_key ] = '400';
 					}
 
 					$google_fonts[ $name ] = $font[ $name ];
