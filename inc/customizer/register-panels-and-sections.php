@@ -87,7 +87,7 @@
 
 		$wp_customize->add_section(
 			'section-colors-body', array(
-				'title'    => __( 'Body', 'astra' ),
+				'title'    => __( 'Base Colors', 'astra' ),
 				'panel'    => 'panel-colors-background',
 				'priority' => 1,
 			)
