@@ -1,3 +1,12 @@
+v1.0.16
+# Improvement: Added new filter `astra_render_fonts` to add the support for custom fonts.
+# Improvement: Added new action `astra_customizer_font_list` to add the custom fonts list into customizer.
+# Improvement: Font size, Font weight, Line height updated for h1 to h6 and paragraph for Editor style.
+# Fixed: Default textarea height for contact form 7(https://wordpress.org/plugins/contact-form-7/) removed.
+# Improvement: Colors & Backgrounds for body renamed as Base Colors.
+# Improvement: Colors & Backgrounds - Theme Color / Link Color place at the first position.
+# Removed: Unwanted functions from template-tags.php.
+
 v1.0.15
 # New: Font family, font weight and text transform options implemented for Headings.
 # New: Footer Bar Color options Implemented.

@@ -145,6 +145,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Renders a font control.
 	 *
+	 * @since 1.0.16 Added the action 'astra_customizer_font_list' to support custom fonts.
 	 * @since 1.0.0
 	 * @param  string $default Inherit/Default.
 	 * @access protected
@@ -164,6 +165,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
+		// Add Custom Font List Into Customizer.
+		do_action( 'astra_customizer_font_list' , $this->value() );
 		echo '<optgroup label="Google">';
 
 		foreach ( Astra_Font_Families::$google as $name => $variants ) {

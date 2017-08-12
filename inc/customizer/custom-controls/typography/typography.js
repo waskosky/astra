@@ -92,7 +92,7 @@
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			weightValue         = init ? weightSelect.val() : '400',
 			inheritWeightObject = [ 'inherit' ],
-			weightObject        = null,
+			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
 			weightMap           = astraTypo;
 
