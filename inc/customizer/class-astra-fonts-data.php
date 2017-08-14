@@ -142,7 +142,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 						$font[ $name ][ $font_key ] = '400';
 					}
 
-					$google_fonts[ $name ] = $font[ $name ];
+					$google_fonts[ $name ] = array_values( $font[ $name ] );
 				}
 			}
 
