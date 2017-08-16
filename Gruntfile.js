@@ -409,7 +409,7 @@ module.exports = function (grunt) {
     });
 
     // Grunt release - Create installable package of the local files
-    grunt.registerTask('release', ['google-fonts', 'clean:zip', 'copy:main', 'compress:main', 'clean:main']);
+    grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
     grunt.registerTask('org-release', ['clean:zip', 'copy:org', 'compress:org', 'clean:main']);
 
     // i18n
