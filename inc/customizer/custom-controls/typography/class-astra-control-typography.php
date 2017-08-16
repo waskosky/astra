@@ -93,7 +93,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
@@ -161,7 +160,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<optgroup label="System">';
 
-		foreach ( Astra_Font_Families::$system as $name => $variants ) {
+		foreach ( Astra_Font_Families::system_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
@@ -169,7 +168,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		do_action( 'astra_customizer_font_list' , $this->value() );
 		echo '<optgroup label="Google">';
 
-		foreach ( Astra_Font_Families::$google as $name => $variants ) {
+		foreach ( Astra_Font_Families::google_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 

@@ -1,3 +1,6 @@
+v1.0.17
+# Improvement: Updated the latest google fonts. Also added a grunt command to make it easier to update the google fonts in the future.
+
 v1.0.16
 # Improvement: Added new filter `astra_render_fonts` to add the support for custom fonts.
 # Improvement: Added new action `astra_customizer_font_list` to add the custom fonts list into customizer.

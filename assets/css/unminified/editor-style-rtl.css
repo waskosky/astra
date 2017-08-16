@@ -1256,27 +1256,27 @@ h1,
 .entry-content h1 {
   color: #808285;
   font-size: 2em;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 h2,
 .entry-content h2 {
   color: #808285;
   font-size: 1.7em;
-  line-height: 1.6;
+  line-height: 1.3;
 }
 
 h3,
 .entry-content h3 {
   color: #808285;
   font-size: 1.5em;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 h4,
 .entry-content h4 {
   color: #808285;
-  line-height: 1.6;
+  line-height: 1.5;
   font-size: 1.3em;
 }
 
@@ -1290,7 +1290,7 @@ h5,
 h6,
 .entry-content h6 {
   color: #808285;
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 1.1em;
 }
 
@@ -2015,6 +2015,7 @@ h5,
 h6,
 .entry-content h6 {
   font-weight: bold;
+  line-height: 1.6;
 }
 
 p {
