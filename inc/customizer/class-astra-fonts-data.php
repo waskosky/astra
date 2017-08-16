@@ -129,8 +129,8 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 			global $wp_filesystem;
 			if ( empty( $wp_filesystem ) ) {
-			    require_once( ABSPATH .'/wp-admin/includes/file.php' );
-			    WP_Filesystem();
+				require_once( ABSPATH . '/wp-admin/includes/file.php' );
+				WP_Filesystem();
 			}
 
 			$google_fonts       = array();
