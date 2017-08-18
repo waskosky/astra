@@ -853,32 +853,38 @@ var toggleClass = function ( el, className ) {
 		 	var astra_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
 			AstraToggleMenu( astra_menu_toggle );
 
-			document.body.addEventListener("astra-header-responsive-enabled", function() {
 
+		};
+
+	}
+	
+	document.body.addEventListener("astra-header-responsive-enabled", function() {
+
+		if ( __main_header_all.length > 0 ) {
+
+			for (var i = 0; i < __main_header_all.length; i++) {
 				if( null != __main_header_all[i] ) {
 					__main_header_all[i].classList.remove( 'toggle-on' );
 					__main_header_all[i].style.display = '';
 				}
 
 				var sub_menu = __main_header_all[i].getElementsByClassName( 'sub-menu' );
-				for ( var i = 0; i < sub_menu.length; i++ ) {
-					sub_menu[i].style.display = '';
+				for ( var j = 0; j < sub_menu.length; j++ ) {
+					sub_menu[j].style.display = '';
 				}
 				var child_menu = __main_header_all[i].getElementsByClassName( 'children' );
-				for ( var i = 0; i < child_menu.length; i++ ) {
-					child_menu[i].style.display = '';
+				for ( var k = 0; k < child_menu.length; k++ ) {
+					child_menu[k].style.display = '';
 				}
 
 				var searchIcons = __main_header_all[i].getElementsByClassName( 'ast-search-menu-icon' );
-				for ( var i = 0; i < searchIcons.length; i++ ) {
-					searchIcons[i].classList.remove( 'ast-dropdown-active' );
-					searchIcons[i].style.display = '';
+				for ( var l = 0; l < searchIcons.length; l++ ) {
+					searchIcons[l].classList.remove( 'ast-dropdown-active' );
+					searchIcons[l].style.display = '';
 				}
-			}, false);
-
-		};
-
-	}
+			}
+		}
+	}, false);
 	
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
@@ -899,8 +905,8 @@ var toggleClass = function ( el, className ) {
 					// `ast-header-break-point` class will use for Responsive Style of Header.
 					if ( header_content_bp != break_point ) {
 						//remove menu toggled class.
-						if ( null != menu_toggle ) {
-							menu_toggle.classList.remove( 'toggled' );
+						if ( null != menu_toggle_all[i] ) {
+							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
 						document.body.classList.remove( "ast-header-break-point" );
 						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
