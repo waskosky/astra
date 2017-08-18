@@ -724,7 +724,7 @@ var toggleClass = function ( el, className ) {
 
 ( function() {
 
-	SAstraNavigationMenu = function( parentList ) {
+	AstraNavigationMenu = function( parentList ) {
 
 		for (var i = 0; i < parentList.length; i++) {
 
@@ -766,7 +766,7 @@ var toggleClass = function ( el, className ) {
 		};
 	};
 
-	SAstraToggleMenu = function( astra_menu_toggle ) {
+	AstraToggleMenu = function( astra_menu_toggle ) {
 		
 		/* Submenu button click */
 		for (var i = 0; i < astra_menu_toggle.length; i++) {
@@ -812,7 +812,6 @@ var toggleClass = function ( el, className ) {
 	var __main_header_all 	= document.querySelectorAll( '.main-header-bar-navigation' );
 	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
 
-	console.log( menu_toggle_all );
 	if ( menu_toggle_all.length > 0 ) {
 
 		for (var i = 0; i < menu_toggle_all.length; i++) {
@@ -849,10 +848,10 @@ var toggleClass = function ( el, className ) {
 		    }, false);
 			
 			var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
-			SAstraNavigationMenu( parentList );
+			AstraNavigationMenu( parentList );
 		 	
 		 	var astra_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
-			SAstraToggleMenu( astra_menu_toggle );
+			AstraToggleMenu( astra_menu_toggle );
 
 			document.body.addEventListener("astra-header-responsive-enabled", function() {
 
@@ -887,31 +886,32 @@ var toggleClass = function ( el, className ) {
 		var break_point = astra.break_point,
 			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
 
-		console.log( headerWrap );
-		for ( var i = 0; i < headerWrap.length; i++ ) {
+		if ( headerWrap.length > 0  ) {
+			for ( var i = 0; i < headerWrap.length; i++ ) {
 
-			if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
+				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
 
-				var header_content_bp = window.getComputedStyle( headerWrap[i] ).content;
+					var header_content_bp = window.getComputedStyle( headerWrap[i] ).content;
 
-				header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
-				header_content_bp = parseInt( header_content_bp );
+					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
+					header_content_bp = parseInt( header_content_bp );
 
-				// `ast-header-break-point` class will use for Responsive Style of Header.
-				if ( header_content_bp != break_point ) {
-					//remove menu toggled class.
-					if ( null != menu_toggle ) {
-						menu_toggle.classList.remove( 'toggled' );
+					// `ast-header-break-point` class will use for Responsive Style of Header.
+					if ( header_content_bp != break_point ) {
+						//remove menu toggled class.
+						if ( null != menu_toggle ) {
+							menu_toggle.classList.remove( 'toggled' );
+						}
+						document.body.classList.remove( "ast-header-break-point" );
+						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
+						document.body.dispatchEvent( responsive_enabled );
+
+					} else {
+
+						document.body.classList.add( "ast-header-break-point" );
+						var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
+						document.body.dispatchEvent( responsive_disabled );
 					}
-					document.body.classList.remove( "ast-header-break-point" );
-					var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
-					document.body.dispatchEvent( responsive_enabled );
-
-				} else {
-
-					document.body.classList.add( "ast-header-break-point" );
-					var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
-					document.body.dispatchEvent( responsive_disabled );
 				}
 			}
 		}
