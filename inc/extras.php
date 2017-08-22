@@ -106,14 +106,20 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 */
 	function astra_number_pagination() {
 		global $numpages;
+		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
-		if ( isset( $numpages ) ) {
+		if ( isset( $numpages ) && $enabled ) {
+			ob_start();
 			echo "<div class='ast-pagination'>";
-			the_posts_pagination( array(
-				'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
-				'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
-			) );
+			the_posts_pagination(
+				array(
+					'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
+					'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
+				)
+			);
 			echo '</div>';
+			$output = ob_get_clean();
+			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
 		}
 	}
 }// End if().
@@ -220,7 +226,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 */
 	function astra_get_search( $option = '' ) {
 
-		$search_html = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"></a></div>
+		$search_html = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'astra' ) . '</span></a></div>
 						<div class="ast-search-menu-icon slide-search" id="ast-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
@@ -249,7 +255,7 @@ if ( ! function_exists( 'astra_get_custom_html' ) ) {
 		if ( ! empty( $custom_html_content ) ) {
 			$custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=astra-settings[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'astra' ) . '</a>';
+			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'astra' ) . '</a>';
 		}
 
 		return $custom_html;
@@ -312,21 +318,47 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 				break;
 
 			case 'custom':
-					$output = astra_get_option( $section . '-credit' );
-					$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
-					$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
-
-					$theme_author = apply_filters( 'astra_theme_author', array(
-						'theme_name'       => __( 'Astra', 'astra' ),
-						'theme_author_url' => 'http://wpastra.com/',
-					) );
-
-					$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
+					$output = astra_get_small_footer_custom_text( $section . '-credit' );
 				break;
 
 			case 'widget':
 					$output = astra_get_custom_widget( $section );
 				break;
+		}
+
+		return $output;
+	}
+}// End if().
+
+/**
+ * Function to get Small Footer Custom Text
+ */
+if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
+
+	/**
+	 * Function to get Small Footer Custom Text
+	 *
+	 * @since 1.0.14
+	 * @param string $option Custom text option name.
+	 * @return mixed         Markup of custom text option.
+	 */
+	function astra_get_small_footer_custom_text( $option = '' ) {
+
+		$output = $option;
+
+		if ( '' != $option ) {
+			$output = astra_get_option( $option );
+			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
+			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
+
+			$theme_author = apply_filters(
+				'astra_theme_author', array(
+					'theme_name'       => __( 'Astra', 'astra' ),
+					'theme_author_url' => 'http://wpastra.com/',
+				)
+			);
+
+			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
 		}
 
 		return $output;
@@ -502,7 +534,8 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
-			); ?>
+			);
+			?>
 
 			<div class="main-header-bar-navigation" >
 
@@ -772,7 +805,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		$args['title_reply']        = astra_default_strings( 'string-comment-title-reply', false );
 		$args['cancel_reply_link']  = astra_default_strings( 'string-comment-cancel-reply-link', false );
 		$args['label_submit']       = astra_default_strings( 'string-comment-label-submit', false );
-		$args['comment_field']      = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+		$args['comment_field']      = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 		return $args;
 	}
 }
@@ -852,30 +885,6 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }// End if().
 
-add_filter( 'astra_the_title_enabled', 'page_builder_disable_title', 12 );
-
-/**
- * Disbale title for Page Builder template
- */
-if ( ! function_exists( 'page_builder_disable_title' ) ) {
-
-	/**
-	 * Disbale title for Page Builder template
-	 *
-	 * @since 1.0.0
-	 * @param boolean $default  Title enabled or not.
-	 * @return boolean          Title enable or disable.
-	 */
-	function page_builder_disable_title( $default ) {
-		$content_layout = astra_get_content_layout();
-
-		if ( 'page-builder' == $content_layout ) {
-			$default = false;
-		}
-		return $default;
-	}
-}
-
 /**
  * Display Blog Post Excerpt
  */
@@ -912,7 +921,8 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 	function astra_get_sidebar( $sidebar_id ) {
 		if ( is_active_sidebar( $sidebar_id ) ) {
 			dynamic_sidebar( $sidebar_id );
-		} elseif ( current_user_can( 'edit_theme_options' ) ) { ?>
+		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+		?>
 			<div class="widget ast-no-widget-row">
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
@@ -924,3 +934,167 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 		}
 	}
 }
+
+/**
+ * Filter google fonts
+ */
+if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
+	/**
+	 * Google Fonts
+	 *
+	 * @since 1.0.12
+	 * @param array $fonts   List of fonts.
+	 * @return array
+	 */
+	function astra_google_fonts_callback( $fonts ) {
+
+		foreach ( $fonts as $font_name => $font_weight ) {
+
+			$is_true = false;
+			$new_font_weight = '';
+
+			switch ( $font_name ) {
+				case 'Buda':
+				case 'Open Sans Condensed':
+						$is_true = true;
+						$new_font_weight = 300;
+					break;
+				case 'Coda Caption':
+						$is_true = true;
+						$new_font_weight = 800;
+					break;
+				case 'UnifrakturCook':
+						$is_true = true;
+						$new_font_weight = 700;
+					break;
+			}
+
+			if ( $is_true ) {
+				if ( in_array( 'normal', $font_weight ) ) {
+					$key = array_search( 'normal', $font_weight );
+					$fonts[ $font_name ][ $key ] = $new_font_weight;
+				}
+			}
+		}
+		return $fonts;
+	}
+}// End if().
+add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
+
+/**
+ * Get Footer widgets
+ */
+if ( ! function_exists( 'astra_get_footer_widget' ) ) {
+
+	/**
+	 * Get Footer Default Sidebar
+	 *
+	 * @param  string $sidebar_id   Sidebar Id..
+	 * @return void
+	 */
+	function astra_get_footer_widget( $sidebar_id ) {
+
+		if ( is_active_sidebar( $sidebar_id ) ) {
+			dynamic_sidebar( $sidebar_id );
+		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+
+			global $wp_registered_sidebars;
+			$sidebar_name = '';
+			if ( isset( $wp_registered_sidebars[ $sidebar_id ] ) ) {
+				$sidebar_name = $wp_registered_sidebars[ $sidebar_id ]['name'];
+			}
+			?>
+			<div class="widget ast-no-widget-row">
+				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
+
+				<p class='no-widget-text'>
+					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+					</a>
+				</p>
+			</div>
+			<?php
+		}
+	}
+}// End if().
+
+/**
+ * Astra entry header class.
+ */
+if ( ! function_exists( 'astra_entry_header_class' ) ) {
+
+	/**
+	 * Astra entry header class
+	 *
+	 * @since 1.0.15
+	 */
+	function astra_entry_header_class() {
+
+		$post_id           = astra_get_post_id();
+		$classes           = array();
+		$title_markup      = astra_the_title( '', '', $post_id, false );
+		$thumb_markup      = astra_get_post_thumbnail( '', '', false );
+		$post_meta_markup  = astra_single_get_post_meta( '', '', false );
+
+		if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
+			$classes[] = 'ast-header-without-markup';
+		} else {
+
+			if ( empty( $title_markup ) ) {
+				$classes[] = 'ast-no-title';
+			}
+
+			if ( empty( $thumb_markup ) ) {
+				$classes[] = 'ast-no-thumbnail';
+			}
+
+			if ( is_page() || empty( $post_meta_markup ) ) {
+				$classes[] = 'ast-no-meta';
+			}
+		}
+
+		$classes = array_unique( apply_filters( 'astra_entry_header_class', $classes ) );
+		$classes = array_map( 'sanitize_html_class', $classes );
+
+		echo esc_attr( join( ' ', $classes ) );
+	}
+}// End if().
+
+/**
+ * Astra get post thumbnail image.
+ */
+if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
+
+	/**
+	 * Astra get post thumbnail image
+	 *
+	 * @since 1.0.15
+	 * @param string  $before Markup before thumbnail image.
+	 * @param string  $after  Markup after thumbnail image.
+	 * @param boolean $echo   Output print or return.
+	 * @return string|void
+	 */
+	function astra_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
+
+		$output = '';
+		$featured_image = apply_filters( 'astra_featured_image_enabled', true );
+		if ( $featured_image && ( ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+			$output .= '<div class="post-thumb">';
+			if ( ! is_singular() ) {
+				$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+			}
+			$output .= get_the_post_thumbnail();
+			if ( ! is_singular() ) {
+				$output .= '</a>';
+			}
+			$output .= '</div>';
+		}
+
+		if ( $echo ) {
+			echo $before . $output . $after; // WPCS: XSS OK.
+		} else {
+			return $before . $output . $after;
+		}
+	}
+}// End if().
+

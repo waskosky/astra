@@ -6,8 +6,15 @@
 	margin-bottom: 1.5em;
 }
 
-.page .entry-header.ast-no-title {
-	margin-bottom: 0;
+.search .entry-header {
+    margin-bottom: 1em;
+}
+
+.ast-single-post .entry-header {
+	&.ast-no-title.ast-no-meta,
+	&.ast-header-without-markup {
+		margin-bottom: 0;
+	}
 }
 
 .entry-header {

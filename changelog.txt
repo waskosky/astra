@@ -1,3 +1,60 @@
+v1.0.17
+# Improvement: Updated the latest google fonts. Also added a grunt command to make it easier to update the google fonts in the future.
+
+v1.0.16
+# Improvement: Added new filter `astra_render_fonts` to add the support for custom fonts.
+# Improvement: Added new action `astra_customizer_font_list` to add the custom fonts list into customizer.
+# Improvement: Font size, Font weight, Line height updated for h1 to h6 and paragraph for Editor style.
+# Fixed: Default textarea height for contact form 7(https://wordpress.org/plugins/contact-form-7/) removed.
+# Improvement: Colors & Backgrounds for body renamed as Base Colors.
+# Improvement: Colors & Backgrounds - Theme Color / Link Color place at the first position.
+# Removed: Unwanted functions from template-tags.php.
+
+v1.0.15
+# New: Font family, font weight and text transform options implemented for Headings.
+# New: Footer Bar Color options Implemented.
+# New: Footer Widgets Color options Implemented.
+# Improvement: Added new filter `astra_the_post_id` to Enable or Disable title of archive posts.
+# Fixed: System fonts should not call for googleapi.
+# Fixed: Featured images not showing up on Page after v1.0.14
+# Fixed: Notice - Getting property of Non-object variable with activated Visual Composer.
+
+v1.0.14
+# Improvement: Added new filter `astra_blog_post_meta_enabled` to Enable or Disable meta on archive pages.
+# Improvement: Added new filter `astra_single_post_meta_enabled` to Enable or Disable meta on single post.
+# Fixed: Regression in v1.0.14 which caused page titles to be displayed on some of the pages.
+
+v1.0.13
+# New: When using page builders Beaver Builder or Elementor on a new page - Page layout will be changed to "Full width / Stretched" and for Visual Composer the page layout will be changed to "Full width / Contained" Also the title bar will be disabled hence reducing the number of clicks needed to get full-width pages.
+# Improvement: Added new filter `astra_post_link_enabled` to Enable or Disable read more links on archive pages.
+# Improvement: Renamed the layout option `Plain` with `Full Width / Contained`
+# Improvement: Renamed the layout option `Page Builder` with `Full Width / Streched`
+# Fixed: Extra space at above with `Full Width / Streched` Layout on page.
+# Fixed: Updated the TinyMCE editor's width to be 100%
+
+v1.0.12
+# New: 'Footer Widgets' added in customizer.
+# Improvement: 'astra_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
+# Improvement: 'astra_featured_image_enabled' filter added for Enable or Disable featured image.
+# Improvement: Smooth font Rendering style updated.
+# Fixed: Admin notice issue with Astra name.
+# Fixed: Fetal error while bb lite version is activated.
+
+v1.0.11
+# Removed: accessibility-ready tag until the final review is done.
+
+v1.0.10
+# New: 'Get more with Astra Pro' added in customizer.
+# Fixed: Warning for sanitize_html callback.
+
+v1.0.9
+# New: Added accessibility ready support.
+
+v1.0.8
+# Improvement: Page Builder Compatibilty Styles.
+# Improvement: Slider param implemented for line-height.
+# Fixed: String Updated from "Inherit" to "Default" for Body Typography.
+
 v1.0.7
 # Improvement: Moved 'Buttons' section from panel 'miscellaneous' to parent.
 # Improvement: Site logo, title, tagline spacing improved.

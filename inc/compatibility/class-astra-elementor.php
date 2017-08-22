@@ -5,6 +5,8 @@
  * @package Astra
  */
 
+namespace Elementor;
+
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {
 	return;
@@ -43,19 +45,55 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
+			add_action( 'do_meta_boxes', array( $this, 'elementor_default_setting' ), 20 );
 		}
 
 		/**
-		 * Add assets in theme
+		 * Elementor Content layout set as Page Builder
 		 *
-		 * @param array $assets list of theme assets (JS & CSS).
-		 * @return array List of updated assets.
-		 * @since 1.0.0
+		 * @return void
+		 * @since  1.0.2
 		 */
-		function add_styles( $assets ) {
-			$assets['css']['astra-elementor'] = 'site-compatible/elementor' ;
-			return $assets;
+		function elementor_default_setting() {
+
+			global $post;
+			$id = astra_get_post_id();
+
+			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
+
+				if ( empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
+
+					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, 'site-post-title', 'disabled' );
+					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
+
+					$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					if ( empty( $content_layout ) || 'default' == $content_layout ) {
+						update_post_meta( $id, 'site-content-layout', 'page-builder' );
+					}
+
+					$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
+					if ( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
+						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
+					}
+				}
+			}
+		}
+
+		/**
+		 * Check is elementor activated.
+		 *
+		 * @param int $id Post/Page Id.
+		 * @return boolean
+		 */
+		function is_elementor_activated( $id ) {
+			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
+				return ( 'builder' === Plugin::$instance->db->get_edit_mode( $id ) );
+			} else {
+				return Plugin::$instance->db->is_built_with_elementor( $id );
+			}
 		}
 
 	}

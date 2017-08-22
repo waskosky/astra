@@ -84,27 +84,17 @@
 		_setFontWeightOptions: function( init )
 		{
 			var i               = 0,
-			fontSelect      = api.control( this.id ).container.find( 'select' ),
-			fontValue       = this(),
-			selected 		= '',
-			weightKey       = fontSelect.data( 'connected-control' ),
-			weightSelect    = api.control( weightKey ).container.find( 'select' ),
-			weightValue     = init ? weightSelect.val() : '400',
-			inheritWeightObject    = [ 'inherit' ],
-			weightObject    = null,
-			weightOptions   = '',
-			weightMap       = {
-				'inherit'   : 'Inherit',
-				'100': 'Thin 100',
-				'200': 'Extra-Light 200',
-				'300': 'Light 300',
-				'400': 'Normal 400',
-				'500': 'Medium 500',
-				'600': 'Semi-Bold 600',
-				'700': 'Bold 700',
-				'800': 'Extra-Bold 800',
-				'900': 'Ultra-Bold 900'
-			};
+			fontSelect          = api.control( this.id ).container.find( 'select' ),
+			fontValue           = this(),
+			selected            = '',
+			weightKey           = fontSelect.data( 'connected-control' ),
+			inherit             = fontSelect.data( 'inherit' ),
+			weightSelect        = api.control( weightKey ).container.find( 'select' ),
+			weightValue         = init ? weightSelect.val() : '400',
+			inheritWeightObject = [ 'inherit' ],
+			weightObject        = [ '400', '600' ],
+			weightOptions       = '',
+			weightMap           = astraTypo;
 
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
@@ -119,7 +109,7 @@
 			}
 
 			weightObject = $.merge( inheritWeightObject, weightObject )
-
+			weightMap[ 'inherit' ] = inherit;
 			for ( ; i < weightObject.length; i++ ) {
 
 				if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {

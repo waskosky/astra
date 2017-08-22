@@ -102,17 +102,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 */
 		static function _render_footer_sml_section_1_credit() {
 
-			$site_credit = astra_get_option( 'footer-sml-section-1-credit' );
-
-			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $site_credit );
-			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
-
-			$theme_author = apply_filters( 'astra_theme_author', array(
-				'theme_name'       => __( 'Astra', 'astra' ),
-				'theme_author_url' => 'http://wpastra.com/',
-			) );
-
-			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
+			$output = astra_get_small_footer_custom_text( 'footer-sml-section-1-credit' );
 			return do_shortcode( $output );
 		}
 
@@ -121,17 +111,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 */
 		static function _render_footer_sml_section_2_credit() {
 
-			$site_credit = astra_get_option( 'footer-sml-section-2-credit' );
-
-			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $site_credit );
-			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
-
-			$theme_author = apply_filters( 'astra_theme_author', array(
-				'theme_name'       => __( 'Astra', 'astra' ),
-				'theme_author_url' => 'http://wpastra.com/',
-			) );
-
-			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
+			$output = astra_get_small_footer_custom_text( 'footer-sml-section-2-credit' );
 			return do_shortcode( $output );
 		}
 	}

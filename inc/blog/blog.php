@@ -64,20 +64,19 @@ if ( ! function_exists( 'astra_blog_get_post_meta' ) ) {
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
 	 * @since 1.0
-	 * @param  array  $disabled  Disabled post meta.
-	 * @param  string $separator Meta separator.
 	 * @return mixed            Markup.
 	 */
-	function astra_blog_get_post_meta( $disabled = array(), $separator = '/' ) {
+	function astra_blog_get_post_meta() {
 
-		$post_meta = astra_get_option( 'blog-meta' );
+		$enable_meta = apply_filters( 'astra_blog_post_meta_enabled', '__return_true' );
+		$post_meta   = astra_get_option( 'blog-meta' );
 
-		if ( is_array( $post_meta ) ) {
+		if ( 'post' == get_post_type() && is_array( $post_meta ) && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 
-			if ( 'post' == get_post_type() && ! empty( $output_str ) ) {
-				echo apply_filters( 'astra_blog_post_meta', '<div class="entry-meta">' . wp_kses_post( $output_str ) . '</div>' );
+			if ( ! empty( $output_str ) ) {
+				echo apply_filters( 'astra_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
 			}
 		}
 	}
@@ -112,11 +111,11 @@ if ( ! function_exists( 'astra_blog_post_get_featured_item' ) ) {
 					break;
 
 				case 'video':
-									$post_featured_data = astra_get_video_from_post( get_the_ID() );
+					$post_featured_data = astra_get_video_from_post( get_the_ID() );
 					break;
 
 				case 'gallery':
-									$post_featured_data = get_post_gallery( get_the_ID(), false );
+					$post_featured_data = get_post_gallery( get_the_ID(), false );
 					if ( isset( $post_featured_data['ids'] ) ) {
 						$img_ids = explode( ',', $post_featured_data['ids'] );
 
@@ -132,12 +131,12 @@ if ( ! function_exists( 'astra_blog_post_get_featured_item' ) ) {
 					break;
 
 				case 'audio':
-									$post_featured_data = do_shortcode( astra_get_audios_from_post( get_the_ID() ) );
+					$post_featured_data = do_shortcode( astra_get_audios_from_post( get_the_ID() ) );
 					break;
 			}
 		}// End if().
 
-		echo $post_featured_data;
+		echo $post_featured_data; // WPCS: XSS OK.
 	}
 }// End if().
 
@@ -168,20 +167,16 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 
 					// Blog Post Featured Image.
 					case 'image':
-						?>
-						<div class="ast-blog-featured-section post-thumb ast-col-md-12">
-							<?php astra_blog_post_featured_format(); ?>
-						</div><!-- .post-thumb -->
-					<?php
+						 astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ast-col-md-12">', '</div>' );
 						break;
 
 					// Blog Post Title and Blog Post Meta.
 					case 'title-meta':
 						?>
 						<header class="entry-header">
-							<?php the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							<?php astra_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() ); ?>
 							
-							<?php astra_blog_get_post_meta( array( 'date', 'link' ) ); ?>
+							<?php astra_blog_get_post_meta(); ?>
 						</header><!-- .entry-header -->
 						<?php
 						break;
@@ -193,7 +188,7 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 						if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) :
 							?>
 									<div class="post-thumb">
-										<?php the_post_thumbnail(); ?>
+										<?php astra_get_post_thumbnail(); ?>
 									</div>
 							<?php
 							endif;
@@ -208,6 +203,7 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 							astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
 
 							astra_single_get_post_meta();
+
 							?>
 						</div>
 				<?php

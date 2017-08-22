@@ -89,53 +89,6 @@ function astra_responsive_font_size( control, selector ) {
 }
 
 /**
- * Responsive Font Size CSS
- */
-function astra_responsive_line_height( control, selector ) {
-
-	wp.customize( control, function( value ) {
-		value.bind( function( value ) {
-
-			if ( value.desktop || value.mobile || value.tablet ) {
-
-				// Remove <style> first!
-				control = control.replace( '[', '-' );
-				control = control.replace( ']', '' );
-				jQuery( 'style#' + control ).remove();
-
-				var LineHeight = '';
-				var TabletLineHeight = '';
-				var MobileLineHeight = '';
-
-				if( value.desktop != '' ) {
-					LineHeight = 'line-height: ' + value.desktop + value['desktop-unit'];
-				}
-				if( value.tablet != '' ) {
-					TabletLineHeight = 'line-height: ' + value.tablet + value['tablet-unit'];
-				}
-				if( value.mobile != '' ) {
-					MobileLineHeight = 'line-height: ' + value.mobile + value['mobile-unit'];
-				}
-
-				// Concat and append new <style>.
-				jQuery( 'head' ).append(
-					'<style id="' + control + '">'
-					+ selector + '	{ ' + LineHeight + ' }'
-					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletLineHeight + ' } }'
-					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileLineHeight + ' } }'
-					+ '</style>'
-				);
-
-			} else {
-
-				jQuery( 'style#' + control ).remove();
-			}
-
-		} );
-	} );
-}
-
-/**
  * CSS
  */
 function astra_css_font_size( control, selector ) {
@@ -472,6 +425,7 @@ function astra_add_dynamic_css( control, style ) {
 		} );
 	} );
 
+
 	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );
 	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
@@ -484,8 +438,46 @@ function astra_add_dynamic_css( control, style ) {
 	astra_responsive_font_size( 'astra-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a' );
 	astra_responsive_font_size( 'astra-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
 
-	astra_responsive_line_height( 'astra-settings[body-line-height]', 'body, button, input, select, textarea' );
-
+	astra_css( 'astra-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea' );
 	astra_css( 'astra-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
+
+	astra_css( 'astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' );
+
+	// Footer Bar.
+	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
+	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
+	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
+
+	wp.customize( 'astra-settings[footer-bg-color]', function( value ) {
+		value.bind( function( bgcolor ) {
+			if ( bgcolor == '' ) {
+				wp.customize.preview.send( 'refresh' );
+			}
+
+			if ( bgcolor ) {
+				var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { background-color: ' + bgcolor + '; } ';
+				astra_add_dynamic_css( 'footer-bg-color', dynamicStyle );
+			}
+
+		} );
+	} );
+
+	// Footer Widgets.
+	astra_css( 'astra-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
+	astra_css( 'astra-settings[footer-adv-text-color]', 'color', '.footer-adv' );
+
+	wp.customize( 'astra-settings[footer-adv-bg-color]', function( value ) {
+		value.bind( function( bgcolor ) {
+			if ( bgcolor == '' ) {
+				wp.customize.preview.send( 'refresh' );
+			}
+
+			if ( bgcolor ) {
+				var dynamicStyle = ' .footer-adv-overlay { background-color: ' + bgcolor + '; } ';
+				astra_add_dynamic_css( 'footer-adv-bg-color', dynamicStyle );
+			}
+
+		} );
+	} );
 
 } )( jQuery );

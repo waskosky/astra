@@ -1,8 +1,8 @@
 module.exports = function (grunt) {
     'use strict';
     // Project configuration
-    var autoprefixer = require('autoprefixer');
-    var flexibility = require('postcss-flexibility');
+    var autoprefixer    = require('autoprefixer');
+    var flexibility     = require('postcss-flexibility');
 
     grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
@@ -67,7 +67,6 @@ module.exports = function (grunt) {
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
                             'inc/customizer/custom-controls/responsive/responsive.css': 'inc/customizer/custom-controls/responsive/responsive.scss',
-                            'inc/customizer/custom-controls/toggle/toggle.css': 'inc/customizer/custom-controls/toggle/toggle.scss',
                             'inc/customizer/custom-controls/divider/divider.css': 'inc/customizer/custom-controls/divider/divider.scss',
                             'inc/customizer/custom-controls/radio-image/radio-image.css': 'inc/customizer/custom-controls/radio-image/radio-image.scss',
                             'inc/customizer/custom-controls/slider/slider.css': 'inc/customizer/custom-controls/slider/slider.scss',
@@ -142,14 +141,6 @@ module.exports = function (grunt) {
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
 		                },
-	                    {
-		                    src: [
-		                        'assets/js/unminified/flexibility.js',
-		                    	'assets/js/unminified/navigation.js',
-		                    	'assets/js/unminified/skip-link-focus-fix.js',
-		                    ],
-		                    dest: 'assets/js/unminified/style.js',
-		                },
 	               	]
                 }
             },
@@ -188,24 +179,12 @@ module.exports = function (grunt) {
 	                    // Generating RTL files from '/unminified/site-compatible/' into '/minified/site-compatible/'
 	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
-                    		src: 'assets/css/unminified/site-compatible/bb-plugin-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/bb-plugin.min-rtl.css',
-	                    },
-                    	{
                     		src: 'assets/css/unminified/site-compatible/bne-flyout-rtl.css',
 	                        dest: 'assets/css/minified/site-compatible/bne-flyout.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/site-compatible/contact-form-7-rtl.css',
 	                        dest: 'assets/css/minified/site-compatible/contact-form-7.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/site-compatible/cornerstone-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/cornerstone.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/site-compatible/elementor-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/elementor.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/site-compatible/gravity-forms-rtl.css',
@@ -218,10 +197,6 @@ module.exports = function (grunt) {
                     	{
                     		src: 'assets/css/unminified/site-compatible/site-origin-rtl.css',
 	                        dest: 'assets/css/minified/site-compatible/site-origin.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/site-compatible/vc-plugin-rtl.css',
-	                        dest: 'assets/css/minified/site-compatible/vc-plugin.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/site-compatible/woocommerce-rtl.css',
@@ -363,6 +338,20 @@ module.exports = function (grunt) {
                         ]
                     }
                 }
+            },
+
+            concat: {
+                options: {
+                    separator: '\n'
+                },
+                dist: {
+                    src: [
+                        'assets/js/unminified/flexibility.js',
+                        'assets/js/unminified/navigation.js',
+                        'assets/js/unminified/skip-link-focus-fix.js',
+                    ],
+                    dest: 'assets/js/unminified/style.js',
+                }
             }
 
         }
@@ -374,6 +363,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -389,7 +379,34 @@ module.exports = function (grunt) {
     grunt.registerTask('style', ['scss', 'postcss:style', 'rtl']);
 
     // min all
-    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css']);
+    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css', 'concat']);
+
+    // Update google Fonts
+    grunt.registerTask('google-fonts', function () {
+        var done = this.async();
+        var request = require('request');
+        var fs = require('fs');
+
+        request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
+
+            if (response && response.statusCode == 200) {
+
+                var fonts = JSON.parse(body).items.map(function (font) {
+                    return {
+                        [font.family]: font.variants
+                    };
+                })
+
+                fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts), function (err) {
+                    if (! err ) {
+                        console.log("Google Fonts Updated!");
+                    }
+                });
+            }
+
+        });
+
+    });
 
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
@@ -400,3 +417,4 @@ module.exports = function (grunt) {
 
     grunt.util.linefeed = '\n';
 };
+

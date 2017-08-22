@@ -73,6 +73,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'single-image',
 						'single-title-meta',
 					),
+
 					'blog-single-width'                 => 'default',
 					'blog-single-max-width'             => 1200,
 					'blog-single-meta'                  => array(
@@ -97,6 +98,18 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'text-color'                        => '#3a3a3a',
 					'link-color'                        => '#0085ba',
 					'link-h-color'                      => '#3a3a3a',
+
+					// Footer Colors.
+					'footer-bg-color'                   => '',
+					'footer-color'                      => '',
+					'footer-link-color'                 => '',
+					'footer-link-h-color'               => '',
+					// Footer Widgets.
+					'footer-adv-bg-color'               => '',
+					'footer-adv-text-color'             => '',
+					'footer-adv-link-color'             => '',
+					'footer-adv-link-h-color'           => '',
+					'footer-adv-wgt-title-color'        => '',
 					// Buttons.
 					'button-color'                      => '',
 					'button-h-color'                    => '',
@@ -112,8 +125,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'footer-sml-section-2'              => '',
 					'footer-sml-section-2-credit'       => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
 					'footer-sml-dist-equal-align'       => true,
-					'footer-sml-divider'                => 4,
-					'footer-sml-divider-color'          => '#fff',
+					'footer-sml-divider'                => 1,
+					'footer-sml-divider-color'          => '#7a7a7a',
 					'footer-layout-width'               => 'content',
 					// General.
 					'display-site-title'                => 1,
@@ -133,10 +146,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'site-content-width'               => 1200,
 					'site-layout-outside-bg-color'     => '',
 					// Container.
-					'site-content-layout'               => 'plain-container',
-					'single-page-content-layout'        => 'plain-container',
-					'single-post-content-layout'        => 'content-boxed-container',
-					'archive-post-content-layout'       => 'content-boxed-container',
+					'site-content-layout'               => 'content-boxed-container',
+					'single-page-content-layout'        => 'default',
+					'single-post-content-layout'        => 'default',
+					'archive-post-content-layout'       => 'default',
 					// Typography.
 					'body-font-family'                  => 'inherit',
 					'body-font-weight'                  => 'inherit',
@@ -148,15 +161,12 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'body-line-height'                  => array(
-						'desktop'      => '',
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => '',
-						'tablet-unit'  => '',
-						'mobile-unit'  => '',
-					),
+
+					'body-line-height'                  => '',
 					'body-text-transform'               => '',
+					'headings-font-family'              => 'inherit',
+					'headings-font-weight'              => 'inherit',
+					'headings-text-transform'           => '',
 					'font-size-site-title'              => array(
 						'desktop'      => 35,
 						'tablet'       => '',
@@ -249,9 +259,12 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Sidebar.
 					'site-sidebar-layout'               => 'right-sidebar',
 					'site-sidebar-width'                => 30,
-					'single-page-sidebar-layout'        => 'no-sidebar',
-					'single-post-sidebar-layout'        => 'right-sidebar',
-					'archive-post-sidebar-layout'       => 'right-sidebar',
+					'single-page-sidebar-layout'        => 'default',
+					'single-post-sidebar-layout'        => 'default',
+					'archive-post-sidebar-layout'       => 'default',
+
+					// Sidebar.
+					'footer-adv'                        => 'disabled',
 				)
 			);
 		}
