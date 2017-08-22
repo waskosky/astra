@@ -162,47 +162,56 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 		}
 		if ( is_array( $blog_post_thumb_title_order ) ) {
 			// Append the custom class for second element for single post.
-
 			foreach ( $blog_post_thumb_title_order as $post_thumb_title_order ) {
 
 				switch ( $post_thumb_title_order ) {
 
 					// Blog Post Featured Image.
-					case 'image': ?>
+					case 'image':
+						?>
 						<div class="ast-blog-featured-section post-thumb ast-col-md-12">
 							<?php astra_blog_post_featured_format(); ?>
 						</div><!-- .post-thumb -->
-					<?php break;
+					<?php
+						break;
 
 					// Blog Post Title and Blog Post Meta.
-					case 'title-meta': ?>
+					case 'title-meta':
+						?>
 						<header class="entry-header">
 							<?php the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 							
 							<?php astra_blog_get_post_meta( array( 'date', 'link' ) ); ?>
 						</header><!-- .entry-header -->
-						<?php break;
+						<?php
+						break;
 
 					// Single Post Featured Image.
-					case 'single-image':?>
-						<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) :
+					case 'single-image':
+						?>
+						<?php
+						if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) :
 							?>
 									<div class="post-thumb">
 										<?php the_post_thumbnail(); ?>
 									</div>
-							<?php endif;
+							<?php
+							endif;
 						break;
 
 						// Single Post Title and Single Post Meta.
 					case 'single-title-meta':
-						 ?>
+							?>
 						<div class="ast-single-post-order">
 							
-							<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+							<?php
+							astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
 
-							astra_single_get_post_meta(); ?>
+							astra_single_get_post_meta();
+							?>
 						</div>
-				<?php break;
+				<?php
+						break;
 				}// End switch().
 			}// End foreach().
 		}// End if().
