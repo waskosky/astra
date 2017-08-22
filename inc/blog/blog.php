@@ -162,7 +162,6 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 		}
 		if ( is_array( $blog_post_thumb_title_order ) ) {
 			// Append the custom class for second element for single post.
-			$first_element_flag = false;
 
 			foreach ( $blog_post_thumb_title_order as $post_thumb_title_order ) {
 
@@ -187,11 +186,8 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 					// Single Post Featured Image.
 					case 'single-image':?>
 						<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) :
-							if ( $first_element_flag ) :
-								$first_element_class = 'second-section';
-							endif;
-							$first_element_flag = true; ?>
-									<div class="post-thumb <?php echo esc_attr( $first_element_class ); ?>">
+							?>
+									<div class="post-thumb">
 										<?php the_post_thumbnail(); ?>
 									</div>
 							<?php endif;
@@ -199,11 +195,8 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 
 						// Single Post Title and Single Post Meta.
 					case 'single-title-meta':
-						if ( $first_element_flag ) :
-								$first_element_class = 'second-section';
-						endif;
-						$first_element_flag = true; ?>
-						<div class="ast-single-post-order <?php echo esc_attr( $first_element_class ); ?>">
+						 ?>
+						<div class="ast-single-post-order">
 							
 							<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
 
