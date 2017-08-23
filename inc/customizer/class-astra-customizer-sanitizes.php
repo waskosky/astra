@@ -62,10 +62,29 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Integer
 		 *
-		 * @param  number $val Customizer setting input number.
-		 * @return number        Return number.
+		 * @param  number $val      Customizer setting input number.
+		 * @param  object $setting  Setting object.
+		 * @return number           Return number.
 		 */
-		static public function sanitize_number( $val ) {
+		static public function sanitize_number( $val, $setting ) {
+
+				$input_attrs = $setting->manager->get_control( $setting->id )->input_attrs;
+
+			if ( $val > $input_attrs['max'] ) {
+				$val = $input_attrs['max'];
+			} elseif ( $val < $input_attrs['min'] ) {
+				$val = $input_attrs['min'];
+			}
+
+				$diff = fmod( $val, $input_attrs['step'] );
+			if ( $diff ) {
+				$val = $val - $diff;
+			}
+				$val = number_format( (float) $val, 2, '.', '' );
+			if ( $val == (int) $val ) {
+				$val = (int) $val;
+			}
+
 			return is_numeric( $val ) ? $val : 0;
 		}
 
