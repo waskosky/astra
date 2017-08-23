@@ -163,6 +163,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 
 					'body-line-height'                  => '',
+					'para-margin-bottom'                => '',
 					'body-text-transform'               => '',
 					'headings-font-family'              => 'inherit',
 					'headings-font-weight'              => 'inherit',
