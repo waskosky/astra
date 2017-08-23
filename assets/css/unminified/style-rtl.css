@@ -4153,7 +4153,7 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1em;
 }
 
-.ast-single-post .entry-header.ast-no-title.ast-no-meta, .ast-single-post .entry-header.ast-header-without-markup {
+.ast-single-post .entry-header.ast-header-without-markup, .ast-single-post .entry-header.ast-no-title.ast-no-thumbnail {
   margin-bottom: 0;
 }
 

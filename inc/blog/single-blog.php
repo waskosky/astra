@@ -71,7 +71,8 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
-	 * @return mixed            Post meta markup.
+	 * @param boolean $echo   Output print or return.
+	 * @return string|void
 	 */
 	function astra_single_get_post_meta( $echo = true ) {
 

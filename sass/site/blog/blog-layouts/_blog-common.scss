@@ -11,10 +11,10 @@
 }
 
 .ast-single-post .entry-header {
-	&.ast-no-title.ast-no-meta,
-	&.ast-header-without-markup {
-		margin-bottom: 0;
-	}
+		&.ast-header-without-markup,
+		&.ast-no-title.ast-no-thumbnail {
+			margin-bottom: 0;
+		}
 }
 
 .entry-header {
