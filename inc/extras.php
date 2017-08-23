@@ -145,7 +145,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$html                 = '';
 
 		$has_custom_logo = apply_filters( 'asta_has_custom_logo', has_custom_logo() );
-		
+
 		// Site logo.
 		if ( $has_custom_logo ) {
 			$html .= '<span class="site-logo-img">';
@@ -153,7 +153,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$html .= '</span>';
 		}
 
-		if ( !apply_filters( 'asta_disable_site_identity', false ) ) {
+		if ( ! apply_filters( 'asta_disable_site_identity', false ) ) {
 			// Site Title.
 			if ( $display_site_tagline ) {
 
