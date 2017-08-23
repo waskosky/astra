@@ -200,9 +200,9 @@ if ( ! function_exists( 'astra_single_post_navigation_markup' ) ) {
 	 */
 	function astra_single_post_navigation_markup() {
 
-		$enabled = apply_filters( 'astra_sigle_post_navigation_enabled', true );
+		$single_post_navigation_enabled = apply_filters( 'astra_sigle_post_navigation_enabled', true );
 
-		if ( is_single() && $enabled ) {
+		if ( is_single() && $single_post_navigation_enabled ) {
 
 			$post_obj = get_post_type_object( get_post_type() );
 
