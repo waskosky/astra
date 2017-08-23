@@ -86,6 +86,9 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$page_layout = 'ast-' . astra_page_layout();
 		$classes[]   = esc_attr( $page_layout );
 
+		// Current Astra verion.
+		$classes[]   = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
+
 		return $classes;
 	}
 }// End if().
