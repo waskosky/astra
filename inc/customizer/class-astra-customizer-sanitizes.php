@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		static public function sanitize_number( $val, $setting ) {
 
-				$input_attrs = $setting->manager->get_control( $setting->id )->input_attrs;
+			$input_attrs = $setting->manager->get_control( $setting->id )->input_attrs;
 
 			if ( $val > $input_attrs['max'] ) {
 				$val = $input_attrs['max'];
@@ -76,11 +76,12 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				$val = $input_attrs['min'];
 			}
 
-				$diff = fmod( $val, $input_attrs['step'] );
+			$diff = fmod( $val, $input_attrs['step'] );
 			if ( $diff ) {
 				$val = $val - $diff;
 			}
-				$val = number_format( (float) $val, 2, '.', '' );
+
+			$val = number_format( (float) $val, 2, '.', '' );
 			if ( $val == (int) $val ) {
 				$val = (int) $val;
 			}
