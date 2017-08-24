@@ -177,9 +177,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'       => __( 'Paragraph Margin Bottom', 'astra' ),
 				'suffix'      => '',
 				'input_attrs' => array(
-					'min'    => 1,
+					'min'    => 0.5,
 					'step'   => 0.01,
-					'max'    => 10,
+					'max'    => 5,
 				),
 			)
 		)
