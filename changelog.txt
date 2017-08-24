@@ -1,3 +1,7 @@
+v1.0.18
+# New: Blog / Archive and Single Post Layout : Post Structure sortable option added to control the post title and post featured image.
+# New: Base Typography : Paragraph Margin Bottom option added to control all the paragraph's margin bottom.
+
 v1.0.17
 # Improvement: Updated the latest google fonts. Also added a grunt command to make it easier to update the google fonts in the future.
 

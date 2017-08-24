@@ -142,6 +142,73 @@ if ( ! function_exists( 'astra_blog_post_get_featured_item' ) ) {
 
 add_action( 'astra_blog_post_featured_format', 'astra_blog_post_get_featured_item' );
 
+
+/**
+ * Blog Post Thumbnail / Title & Meta Order
+ */
+if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
+
+	/**
+	 * Blog post Thubmnail, Title & Blog Meta order
+	 *
+	 * @since  1.0.8
+	 */
+	function astra_blog_post_thumbnai_and_title_order() {
+
+		$blog_post_thumb_title_order = astra_get_option( 'blog-post-structure' );
+		if ( is_single() ) {
+			$blog_post_thumb_title_order = astra_get_option( 'blog-single-post-structure' );
+		}
+		if ( is_array( $blog_post_thumb_title_order ) ) {
+			// Append the custom class for second element for single post.
+			foreach ( $blog_post_thumb_title_order as $post_thumb_title_order ) {
+
+				switch ( $post_thumb_title_order ) {
+
+					// Blog Post Featured Image.
+					case 'image':
+						 astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ast-col-md-12">', '</div>' );
+						break;
+
+					// Blog Post Title and Blog Post Meta.
+					case 'title-meta':
+						?>
+						<header class="entry-header">
+							<?php
+							/* translators: 1: Current post link, 2: Current post id */
+							astra_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
+							?>
+							
+							<?php astra_blog_get_post_meta(); ?>
+						</header><!-- .entry-header -->
+						<?php
+						break;
+
+					// Single Post Featured Image.
+					case 'single-image':
+						astra_get_post_thumbnail();
+						break;
+
+						// Single Post Title and Single Post Meta.
+					case 'single-title-meta':
+							?>
+						<div class="ast-single-post-order">
+							
+							<?php
+							astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+
+							astra_single_get_post_meta();
+
+							?>
+						</div>
+				<?php
+						break;
+				}// End switch().
+			}// End foreach().
+		}// End if().
+	}
+}// End if().
+
 /**
  * Get audio files from post content
  */
