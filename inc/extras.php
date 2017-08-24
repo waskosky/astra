@@ -147,34 +147,41 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$display_site_tagline = astra_get_option( 'display-site-title' );
 		$html                 = '';
 
+		$has_custom_logo = apply_filters( 'asta_has_custom_logo', has_custom_logo() );
+
 		// Site logo.
-		if ( has_custom_logo() ) {
+		if ( $has_custom_logo ) {
 			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
 			$html .= '</span>';
 		}
 
-		// Site Title.
-		if ( $display_site_tagline ) {
+		if ( ! apply_filters( 'asta_disable_site_identity', false ) ) {
+			// Site Title.
+			if ( $display_site_tagline ) {
 
-			$tag = 'span';
-			if ( is_home() || is_front_page() ) {
-				$tag = 'h1';
+				$tag = 'span';
+				if ( is_home() || is_front_page() ) {
+					$tag = 'h1';
+				}
+				$html .= '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 			}
-			$html .= '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
+
+			// Site description.
+			if ( $site_tagline ) {
+				$html .= '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+			}
 		}
 
-		// Site description.
-		if ( $site_tagline ) {
-			$html .= '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
-		}
+		$html = apply_filters( 'astra_logo', $html, $display_site_tagline, $site_tagline );
+
 		/**
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo apply_filters( 'astra_logo', $html );
+			echo $html;
 		} else {
-			return apply_filters( 'astra_logo', $html );
+			return $html;
 		}
 	}
 }// End if().
