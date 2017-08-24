@@ -155,7 +155,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$html .= '</span>';
 		}
 
-
 		if ( ! apply_filters( 'asta_disable_site_identity', false ) ) {
 			// Site Title.
 			if ( $display_site_tagline ) {
