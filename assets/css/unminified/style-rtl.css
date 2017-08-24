@@ -1790,11 +1790,11 @@ object {
 /*----------  Site Normalize  ----------*/
 ::-moz-selection {
   color: #fff;
-  background: #0085ba;
+  background: #0274be;
 }
 ::selection {
   color: #fff;
-  background: #0085ba;
+  background: #0274be;
 }
 
 html {
@@ -3716,7 +3716,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .widget_calendar thead a {
-  color: #0085ba;
+  color: #0274be;
   font-size: 1rem;
   vertical-align: middle;
 }
@@ -3746,7 +3746,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .widget_calendar #today {
-  background: #0085ba;
+  background: #0274be;
 }
 
 .ast-separate-container.ast-two-container #secondary .widget {
@@ -4042,12 +4042,12 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
   -webkit-box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
   box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
-  border: 7.9px solid #0085ba;
+  border: 7.9px solid #0274be;
   height: 20px;
   width: 20px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
-  background: #0085ba;
+  background: #0274be;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -5.7px;
@@ -4069,11 +4069,11 @@ input[type=range]::-moz-range-track {
 
 input[type=range]::-moz-range-thumb {
   box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
-  border: 7.9px solid #0085ba;
+  border: 7.9px solid #0274be;
   height: 20px;
   width: 20px;
   border-radius: 50px;
-  background: #0085ba;
+  background: #0274be;
   cursor: pointer;
 }
 
@@ -4102,11 +4102,11 @@ input[type=range]::-ms-fill-upper {
 
 input[type=range]::-ms-thumb {
   box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
-  border: 7.9px solid #0085ba;
+  border: 7.9px solid #0274be;
   height: 20px;
   width: 20px;
   border-radius: 50px;
-  background: #0085ba;
+  background: #0274be;
   cursor: pointer;
   height: 8.6px;
 }
