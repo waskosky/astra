@@ -11,7 +11,6 @@
 
 $section_1    = astra_get_small_footer( 'footer-sml-section-1' );
 $section_2    = astra_get_small_footer( 'footer-sml-section-2' );
-$section_wrap = 'ast-row ast-flex';
 $sections     = 0;
 $sections     = $sections + count( $section_1 );
 $sections     = $sections + count( $section_2 );
@@ -42,10 +41,7 @@ switch ( $sections ) {
 	<div class="ast-footer-overlay">
 		<div class="ast-container">
 			<div class="ast-small-footer-wrap" >
-				
-				<?php if ( '' != $section_wrap ) : ?>
-					<div class="<?php echo esc_attr( $section_wrap ); ?>">
-				<?php endif; ?>
+					<div class="ast-row ast-flex">
 				
 					<?php if ( $section_1 ) : ?>
 						<div class="ast-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
@@ -63,10 +59,7 @@ switch ( $sections ) {
 						</div>
 				<?php endif; ?>
 
-				<?php if ( '' != $section_wrap ) : ?>
-					</div>
-				<?php endif; ?><!-- .ast-row -->
-
+					</div> <!-- .ast-row.ast-flex -->
 			</div><!-- .ast-small-footer-wrap -->
 		</div><!-- .ast-container -->
 	</div><!-- .ast-footer-overlay -->
