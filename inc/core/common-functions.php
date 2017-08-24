@@ -632,17 +632,19 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 		if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
 			if ( apply_filters( 'astra_the_title_enabled', true ) ) {
 
-				$title  .= astra_get_the_title( $post_id );
+				$title  = astra_get_the_title( $post_id );
 				$before = apply_filters( 'astra_the_title_before', '' ) . $before;
 				$after  = $after . apply_filters( 'astra_the_title_after', '' );
 
+				$title  = $before . $title . $after;
 			}
 		}
+
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $before . $title . $after;
+			echo $title;
 		} else {
-			return $before . $title . $after;
+			return $title;
 		}
 	}
 }

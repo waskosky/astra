@@ -171,7 +171,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				$html .= '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
 			}
 		}
-
 		$html = apply_filters( 'astra_logo', $html, $display_site_tagline, $site_tagline );
 
 		/**
