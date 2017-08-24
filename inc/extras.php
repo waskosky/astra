@@ -1033,12 +1033,13 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	 */
 	function astra_entry_header_class() {
 
-		$post_id      = astra_get_post_id();
-		$classes      = array();
-		$title_markup = astra_the_title( '', '', $post_id, false );
-		$thumb_markup = astra_get_post_thumbnail( '', '', false );
+		$post_id           = astra_get_post_id();
+		$classes           = array();
+		$title_markup      = astra_the_title( '', '', $post_id, false );
+		$thumb_markup      = astra_get_post_thumbnail( '', '', false );
+		$post_meta_markup  = astra_single_get_post_meta( '', '', false );
 
-		if ( empty( $title_markup ) && empty( $thumb_markup ) && is_page() ) {
+		if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
 
@@ -1050,7 +1051,7 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 				$classes[] = 'ast-no-thumbnail';
 			}
 
-			if ( is_page() ) {
+			if ( is_page() || empty( $post_meta_markup ) ) {
 				$classes[] = 'ast-no-meta';
 			}
 		}
@@ -1080,10 +1081,22 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$output = '';
 		$featured_image = apply_filters( 'astra_featured_image_enabled', true );
-		if ( $featured_image && ( ! is_singular() || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
-			$output .= '<div class="post-thumb">';
-			$output .= get_the_post_thumbnail();
-			$output .= '</div>';
+
+		$blog_post_thumb = astra_get_option( 'blog-post-structure' );
+		$single_post_thumb = astra_get_option( 'blog-single-post-structure' );
+
+		if ( ( ( ! is_singular() && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
+			if ( $featured_image && ( ! (is_singular() ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+				$output .= '<div class="post-thumb">';
+				if ( ! is_singular() ) {
+					$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+				}
+				$output .= get_the_post_thumbnail();
+				if ( ! is_singular() ) {
+					$output .= '</a>';
+				}
+				$output .= '</div>';
+			}
 		}
 
 		if ( $echo ) {

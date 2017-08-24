@@ -155,29 +155,38 @@
 				}
 		}
 		],
-		'astra-settings[blog-meta]' :
+		'astra-settings[blog-post-structure]' :
 		[
 			{
 				controls: [
-					'astra-settings[blog-meta-comments]',
-					'astra-settings[blog-meta-category]',
-					'astra-settings[blog-meta-author]',
-					'astra-settings[blog-meta-date]',
-					'astra-settings[blog-meta-tag]',
+					'astra-settings[blog-meta]',
 				],
-				callback: function( enable_postmeta ) {
-
-					if ( '1' == enable_postmeta ) {
+				callback: function( blog_structure ) {
+					if ( jQuery.inArray ( "title-meta", blog_structure ) !== -1 ) {
 						return true;
 					}
 					return false;
 				}
-		}
+			}
 		],
 
 		/**
 		 * Blog Single
 		 */
+		 'astra-settings[blog-single-post-structure]' :
+		[
+			{
+				controls: [
+					'astra-settings[blog-single-meta]',
+				],
+				callback: function( blog_structure ) {
+					if ( jQuery.inArray ( "single-title-meta", blog_structure ) !== -1 ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 		'astra-settings[blog-single-width]' :
 		[
 			{
