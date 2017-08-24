@@ -158,6 +158,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
+	 * Option: Paragraph Margin Bottom
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[para-margin-bottom]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Slider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[para-margin-bottom]', array(
+				'type'        => 'ast-slider',
+				'section'     => 'section-body-typo',
+				'priority'    => 25,
+				'label'       => __( 'Paragraph Margin Bottom', 'astra' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'    => 0.5,
+					'step'   => 0.01,
+					'max'    => 5,
+				),
+			)
+		)
+	);
+
+	/**
 	 * Option: Body & Content Divider
 	 */
 	$wp_customize->add_control(

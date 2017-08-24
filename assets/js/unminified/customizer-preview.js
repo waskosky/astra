@@ -439,6 +439,21 @@ function astra_add_dynamic_css( control, style ) {
 	astra_responsive_font_size( 'astra-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
 
 	astra_css( 'astra-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea' );
+	// paragraph margin bottom.
+	wp.customize( 'astra-settings[para-margin-bottom]', function( value ) {
+		value.bind( function( marginBottom ) {
+			if ( marginBottom == '' ) {
+				wp.customize.preview.send( 'refresh' );
+			}
+
+			if ( marginBottom ) {
+				var dynamicStyle = ' p, .entry-content p { margin-bottom: ' + marginBottom + 'em; } ';
+				astra_add_dynamic_css( 'para-margin-bottom', dynamicStyle );
+			}
+
+		} );
+	} );
+
 	astra_css( 'astra-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
 
 	astra_css( 'astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' );
