@@ -14,6 +14,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Display Post Structure
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', array(
+			'default'           => astra_get_option( 'blog-single-post-structure' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Sortable(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', array(
+				'type'     => 'ast-sortable',
+				'section'  => 'section-blog-single',
+				'priority' => 5,
+				'label'    => __( 'Single Post Structure', 'astra' ),
+				'choices'  => array(
+					'single-image'      => __( 'Featured Image', 'astra' ),
+					'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
+				),
+			)
+		)
+	);
+
+	/**
 	 * Option: Single Post Meta
 	 */
 	$wp_customize->add_setting(

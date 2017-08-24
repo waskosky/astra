@@ -166,6 +166,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		// Add Custom Font List Into Customizer.
 		do_action( 'astra_customizer_font_list' , $this->value() );
+
 		echo '<optgroup label="Google">';
 
 		foreach ( Astra_Font_Families::google_fonts() as $name => $variants ) {

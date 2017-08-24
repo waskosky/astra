@@ -73,6 +73,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Typography.
 			$body_font_size                  = astra_get_option( 'font-size-body' );
 			$body_line_height                = astra_get_option( 'body-line-height' );
+			$para_margin_bottom              = astra_get_option( 'para-margin-bottom' );
 			$body_text_transform             = astra_get_option( 'body-text-transform' );
 			$headings_font_family            = astra_get_option( 'headings-font-family' );
 			$headings_font_weight            = astra_get_option( 'headings-font-weight' );
@@ -171,6 +172,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
 					'line-height'    => esc_attr( $body_line_height ),
 					'text-transform' => esc_attr( $body_text_transform ),
+				),
+				'p, .entry-content p' => array(
+					'margin-bottom'    => astra_get_css_value( $para_margin_bottom, 'em' ),
 				),
 				'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' => array(
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),

@@ -74,6 +74,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'footer-sml-layout' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'footer-adv-display' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 					'site-post-title' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -145,7 +148,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
 			$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
 			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
-			$small_footer        = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
+			$footer_bar        = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
+			$footer_widgets       = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 
 			do_action( 'astra_meta_box_markup_before', $meta );
@@ -182,7 +186,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			<?php
 			/**
-			 * Option: Small Footer
+			 * Option: Disable Sections - Primary Header, Title, Footer Widgets, Footer Bar
 			 */
 			?>
 			<p class="post-attributes-label-wrapper">
@@ -190,6 +194,14 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			</p>
 			<span>
 				<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
+
+				<span class="ast-main-header-display-option-wrap">
+					<label for="ast-main-header-display">
+						<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
+					</label>
+				</span>
+				<br />
 
 				<span class="site-post-title-option-wrap">
 					<label for="site-post-title">
@@ -200,27 +212,31 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<br />
 
 				<?php
+				$footer_adv_layout = astra_get_option( 'footer-adv' );
 
+				if ( 'disabled' != $footer_adv_layout ) {
+				?>
+				<span class="footer-adv-display-option-wrap">
+					<label for="footer-adv-display">
+						<input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled" <?php checked( $footer_widgets, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Footer Widgets', 'astra' ); ?>
+					</label>
+				</span>
+				<br />
+
+				<?php
+				}
 				$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
-
 				if ( 'disabled' != $footer_sml_layout ) {
 				?>
 				<span class="footer-sml-layout-option-wrap">
 					<label for="footer-sml-layout">
-						<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $small_footer, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Small Footer', 'astra' ); ?>
+						<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $footer_bar, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Footer Bar', 'astra' ); ?>
 					</label>
 				</span>
 				<br />
 				<?php } ?>
-
-				<span class="ast-main-header-display-option-wrap">
-					<label for="ast-main-header-display">
-						<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
-					</label>
-				</span>
-				<br />
 
 				<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
 			</span>

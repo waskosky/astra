@@ -66,14 +66,40 @@
 	}
 }
 /* 2 - Single Post Article Header */
-.single,
+.single {
+	.entry-header {
+		.ast-single-post-order {
+			+ .post-thumb {
+				img {
+					margin-top: 2em;
+					margin-bottom: 0;
+				}
+			}
+		}
+		.post-thumb {
+			+ .ast-single-post-order{
+				margin-top: 2em;
+			}
+		}
+		.post-thumb {
+			img {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+
+	}
+}
 .page {
-	.post-thumb {
-		img {
-			margin-bottom: 2.5em;
+	.has-post-thumbnail {
+		.post-thumb {
+			img {
+				margin-bottom: 1.5em;
+			}
 		}
 	}
 }
+
 .post-password-form {
     text-align: center;
     @media ( max-width: $mx-col-xs ) {

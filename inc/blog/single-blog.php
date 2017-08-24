@@ -71,22 +71,28 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
-	 * @return mixed            Post meta markup.
+	 * @param boolean $echo   Output print or return.
+	 * @return string|void
 	 */
-	function astra_single_get_post_meta() {
+	function astra_single_get_post_meta( $echo = true ) {
 
 		$enable_meta = apply_filters( 'astra_single_post_meta_enabled', '__return_true' );
 		$post_meta   = astra_get_option( 'blog-single-meta' );
 
+		$output = '';
 		if ( is_array( $post_meta ) && 'post' == get_post_type() && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 			if ( ! empty( $output_str ) ) {
-				echo apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
+				$output = apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
 			}
 		}
+		if ( $echo ) {
+			echo $output;
+		} else {
+			return $output;
+		}
 	}
-	add_action( 'astra_single_header_bottom', 'astra_single_get_post_meta' );
 }
 
 /**
@@ -200,7 +206,9 @@ if ( ! function_exists( 'astra_single_post_navigation_markup' ) ) {
 	 */
 	function astra_single_post_navigation_markup() {
 
-		if ( is_single() ) {
+		$single_post_navigation_enabled = apply_filters( 'astra_sigle_post_navigation_enabled', true );
+
+		if ( is_single() && $single_post_navigation_enabled ) {
 
 			$post_obj = get_post_type_object( get_post_type() );
 
