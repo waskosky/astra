@@ -18,10 +18,8 @@
 	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
 		<?php astra_single_header_top(); ?>
-		
-		<?php astra_get_post_thumbnail(); ?>
-		
-		<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+
+		<?php astra_blog_post_thumbnai_and_title_order(); ?>
 
 		<?php astra_single_header_bottom(); ?>
 
