@@ -1749,7 +1749,7 @@ object {
 /*----------  Break-point max-width Structure   ----------*/
 ::selection {
   color: #fff;
-  background: #0085ba;
+  background: #0274be;
 }
 
 html {
@@ -1994,7 +1994,7 @@ body {
 }
 
 a {
-  color: #0085ba;
+  color: #0274be;
 }
 
 a:hover,

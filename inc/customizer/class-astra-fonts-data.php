@@ -32,8 +32,12 @@ if ( ! class_exists( 'Astra_Fonts_Data' ) ) :
 
 			$system = json_encode( Astra_Font_Families::system_fonts() );
 			$google = json_encode( Astra_Font_Families::google_fonts() );
-
-			return 'var AstFontFamilies = { system: ' . $system . ', google: ' . $google . ' };';
+			$custom = json_encode( Astra_Font_Families::custom_fonts() );
+			if ( ! empty( $custom ) ) {
+				return 'var AstFontFamilies = { system: ' . $system . ', custom: ' . $custom . ', google: ' . $google . ' };';
+			} else {
+				return 'var AstFontFamilies = { system: ' . $system . ', google: ' . $google . ' };';
+			}
 		}
 	}
 
@@ -109,6 +113,19 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 			);
 
 			return apply_filters( 'astra_system_fonts', $system_fonts );
+		}
+
+		/**
+		 * Custom Fonts
+		 *
+		 * @since 1.0.16
+		 *
+		 * @return Array All the custom fonts in Astra
+		 */
+		public static function custom_fonts() {
+			$custom_fonts = array();
+
+			return apply_filters( 'astra_custom_fonts', $custom_fonts );
 		}
 
 		/**

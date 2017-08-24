@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					// Colors.
 					'text-color'                        => '#3a3a3a',
-					'link-color'                        => '#0085ba',
+					'link-color'                        => '#0274be',
 					'link-h-color'                      => '#3a3a3a',
 
 					// Footer Colors.
