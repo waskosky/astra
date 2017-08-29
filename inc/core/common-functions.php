@@ -666,11 +666,9 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 	function astra_get_the_title( $post_id = 0, $echo = false ) {
 
 		$title = '';
-		if ( $post_id ) {
+		if ( $post_id || is_singular() ) {
 			$title = get_the_title( $post_id );
 		} else {
-
-			$post_id    = astra_get_post_id();
 
 			// for 404 page - title always display.
 			if ( is_404() ) {
@@ -691,9 +689,6 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 				$title = get_the_archive_title();
 
-			} else {
-
-				$title = get_the_title( $post_id );
 			}
 		}
 
