@@ -182,7 +182,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function render_tab_menu( $action = '' ) {
 			?>
-			<div id="ast-menu-page" class="wrap">
+			<div id="ast-menu-page">
 				<?php self::render( $action ); ?>
 			</div>
 			<?php
