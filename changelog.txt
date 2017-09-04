@@ -1,3 +1,8 @@
+v1.0.19 - unreleased
+# Fixed: Title is not working for anspress questions shortcode.
+# Fixed: Accessibility, focus on navigation link, color not working as on hover
+# Fixed: Display correct page title When on Astra Settings Page.
+
 v1.0.18
 # New: Blog / Archive and Single Post Layout : Post Structure sortable option added to control the post title and post featured image.
 # New: Base Typography : Paragraph Margin Bottom option added to control all the paragraph's margin bottom.
