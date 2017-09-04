@@ -104,6 +104,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
 			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
+
+			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
 		}
 
 		/**
@@ -172,6 +174,33 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( '' !== $action ) {
 				self::render_tab_menu( $action );
 			}
+		}
+
+		/**
+		 * Update Admin Title.
+		 *
+		 * @since 1.0.19
+		 *
+		 * @param string $admin_title Admin Title.
+		 * @param string $title Title.
+		 * @return string
+		 */
+		static public function astra_admin_title( $admin_title, $title ) {
+
+			$screen = get_current_screen();
+			if ( 'appearance_page_astra' == $screen->id ) {
+
+				$view_actions = self::get_view_actions();
+
+				$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
+				$active_tab   = str_replace( '_', '-', $current_slug );
+
+				if ( 'general' != $active_tab && isset( $view_actions[ $active_tab ]['label'] ) ) {
+					$admin_title = str_replace( $title, $view_actions[ $active_tab ]['label'], $admin_title );
+				}
+			}
+
+			return $admin_title;
 		}
 
 		/**
@@ -303,3 +332,5 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 	new Astra_Admin_Settings;
 
 }// End if().
+
+
