@@ -91,23 +91,10 @@ final class Astra_Fonts {
 		$google_fonts = array();
 		$font_subset = array();
 
-		/**
-		 * System font which are not required to render.
-		 * Path: ./inc/customizer/class-astra-fonts-data.php#56
-		 *
-		 * @var array
-		 */
-		$system_fonts = array(
-			'Helvetica',
-			'Verdana',
-			'Arial',
-			'Times',
-			'Georgia',
-			'Courier',
-		);
+		$system_fonts = Astra_Font_Families::get_system_fonts();
 
 		foreach ( $font_list as $name => $font ) {
-			if ( ! empty( $name ) && ! in_array( $name, $system_fonts ) ) {
+			if ( ! empty( $name ) && ! isset( $system_fonts[$name] ) ) {
 
 				// Add font variants.
 				$google_fonts[ $name ] = $font['variants'];
