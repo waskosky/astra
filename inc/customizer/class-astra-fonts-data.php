@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Fonts_Data' ) ) :
 
 			$system = json_encode( Astra_Font_Families::get_system_fonts() );
 			$google = json_encode( Astra_Font_Families::get_google_fonts() );
-			$custom = json_encode( Astra_Font_Families::custom_fonts() );
+			$custom = json_encode( Astra_Font_Families::get_custom_fonts() );
 			if ( ! empty( $custom ) ) {
 				return 'var AstFontFamilies = { system: ' . $system . ', custom: ' . $custom . ', google: ' . $google . ' };';
 			} else {

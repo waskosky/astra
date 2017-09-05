@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2017, Astra
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Astra 1.0.19
  */
 
 // Exit if accessed directly.
@@ -107,11 +107,11 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		/**
 		 * Custom Fonts
 		 *
-		 * @since 1.0.16
+		 * @since 1.0.19
 		 *
 		 * @return Array All the custom fonts in Astra
 		 */
-		public static function custom_fonts() {
+		public static function get_custom_fonts() {
 			$custom_fonts = array();
 
 			return apply_filters( 'astra_custom_fonts', $custom_fonts );
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 * Google Fonts used in astra.
 		 * Array is generated from the google-fonts.json file.
 		 *
-		 * @since  1.0.16
+		 * @since  1.0.19
 		 *
 		 * @return Array Array of Google Fonts.
 		 */

@@ -175,10 +175,13 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 	}
 }// End if().
 
+/**
+ * Get Font family
+ */
 if ( ! function_exists( 'astra_get_font_family' ) ) {
 
 	/**
-	 * Get Font family value
+	 * Get Font family
 	 *
 	 * Syntax:
 	 *
@@ -187,6 +190,8 @@ if ( ! function_exists( 'astra_get_font_family' ) ) {
 	 * E.g.
 	 *  astra_get_font_family( VALUE, '' );
 	 *
+	 * @since  1.0.19
+	 * 
 	 * @param  string $value        CSS value.
 	 * @param  string $default      CSS default font.
 	 * @return mixed               CSS value depends on $unit
