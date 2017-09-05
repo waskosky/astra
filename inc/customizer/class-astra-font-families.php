@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 * @var array
 		 */
 		public static $google_fonts = array();
-		
+
 		/**
 		 * Get System Fonts
 		 *

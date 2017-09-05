@@ -191,15 +191,14 @@ if ( ! function_exists( 'astra_get_font_family' ) ) {
 	 *  astra_get_font_family( VALUE, '' );
 	 *
 	 * @since  1.0.19
-	 * 
-	 * @param  string $value        CSS value.
-	 * @param  string $default      CSS default font.
+	 *
+	 * @param  string $value       CSS value.
 	 * @return mixed               CSS value depends on $unit
 	 */
 	function astra_get_font_family( $value = '' ) {
 		$system_fonts = Astra_Font_Families::get_system_fonts();
-		if ( isset( $system_fonts[$value] ) && isset( $system_fonts[$value]['fallback'] ) ) {
-			$value .= ',' . $system_fonts[$value]['fallback'];
+		if ( isset( $system_fonts[ $value ] ) && isset( $system_fonts[ $value ]['fallback'] ) ) {
+			$value .= ',' . $system_fonts[ $value ]['fallback'];
 		}
 
 		return $value;
