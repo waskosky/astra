@@ -70,20 +70,27 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 			$input_attrs = $setting->manager->get_control( $setting->id )->input_attrs;
 
-			if ( $val > $input_attrs['max'] ) {
-				$val = $input_attrs['max'];
-			} elseif ( $val < $input_attrs['min'] ) {
-				$val = $input_attrs['min'];
-			}
+			if ( isset( $input_attrs ) ) {
 
-			$diff = fmod( $val, $input_attrs['step'] );
-			if ( $diff ) {
-				$val = $val - $diff;
-			}
+				$input_attrs['min'] = isset( $input_attrs['min'] ) ? $input_attrs['min'] : 0;
+				$input_attrs['step'] = isset( $input_attrs['step'] ) ? $input_attrs['step'] : 1;
 
-			$val = number_format( (float) $val, 2, '.', '' );
-			if ( $val == (int) $val ) {
-				$val = (int) $val;
+				if ( isset( $input_attrs['max'] ) && $val > $input_attrs['max'] ) {
+					$val = $input_attrs['max'];
+				} elseif ( $val < $input_attrs['min'] ) {
+					$val = $input_attrs['min'];
+				}
+
+						$dv = $val / $input_attrs['step'];
+
+						$dv = round( $dv );
+
+						$val = $dv * $input_attrs['step'];
+
+					$val = number_format( (float) $val, 2, '.', '' );
+				if ( $val == (int) $val ) {
+					$val = (int) $val;
+				}
 			}
 
 			return is_numeric( $val ) ? $val : 0;
