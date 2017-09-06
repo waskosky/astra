@@ -14,6 +14,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Retina logo selector
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', array(
+			'default'           => astra_get_option( 'ast-header-retina-logo' ),
+			'type'              => 'option',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', array(
+				'section'  => 'title_tagline',
+				'priority' => 5,
+				'label'    => __( 'Header Retina Logo', 'astra' ),
+				'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+			)
+		)
+	);
+
+	/**
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(

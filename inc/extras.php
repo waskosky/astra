@@ -147,12 +147,23 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$display_site_tagline = astra_get_option( 'display-site-title' );
 		$html                 = '';
 
+		$retina_logo = astra_get_option( 'ast-header-retina-logo' );
+
 		$has_custom_logo = apply_filters( 'asta_has_custom_logo', has_custom_logo() );
 		// Site logo.
 		if ( $has_custom_logo ) {
 			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
 			$html .= '</span>';
+
+			if ( '' !== $retina_logo ) {
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				$cutom_logo_url = $cutom_logo[0];
+
+				$replace_string = 'srcset="' . $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x" class=';
+				$html = str_replace( 'class=', $replace_string, $html );
+			}
 		}
 
 		if ( ! apply_filters( 'asta_disable_site_identity', false ) ) {
