@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'footer-sml-divider-color'          => '#7a7a7a',
 					'footer-layout-width'               => 'content',
 					// General.
-					'ast-header-retina-logo' 			=> '',
+					'ast-header-retina-logo'            => '',
 					'display-site-title'                => 1,
 					'display-site-tagline'              => 0,
 					// Header - Primary.
