@@ -677,7 +677,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
 		}
-		
+
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
