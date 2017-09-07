@@ -1143,7 +1143,7 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 		$is_ie = false;
 
 		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-		if ( preg_match( '~MSIE|Internet Explorer~i', $ua ) || (strpos( $ua, 'Trident/7.0; rv:11.0' ) !== false) ) {
+		if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
 			// do stuff for IE.
 			$is_ie = true;
 		}
