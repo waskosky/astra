@@ -296,7 +296,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			if ( apply_filters( 'astra_dashboard_admin_menu', true ) ) {
+				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			}else{
+				do_action( 'asta_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			}
 		}
 
 		/**
