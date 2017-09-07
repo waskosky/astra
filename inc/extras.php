@@ -161,8 +161,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 				$cutom_logo_url = $cutom_logo[0];
 
-				$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-				if ( preg_match( '~MSIE|Internet Explorer~i', $ua ) || (strpos( $ua, 'Trident/7.0; rv:11.0' ) !== false) ) {
+				if ( astra_check_is_ie() ) {
 					// do stuff for IE.
 					$html = str_replace( $cutom_logo_url, $retina_logo, $html );
 				}
@@ -1129,3 +1128,26 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 	}
 }// End if().
 
+/**
+ * Function to check if it is Internet Explorer
+ */
+if ( ! function_exists( 'astra_check_is_ie' ) ) :
+
+	/**
+	 * Function to check if it is Internet Explorer.
+	 *
+	 * @return true | false boolean
+	 */
+	function astra_check_is_ie() {
+
+		$is_ie = false;
+
+		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
+		if ( preg_match( '~MSIE|Internet Explorer~i', $ua ) || (strpos( $ua, 'Trident/7.0; rv:11.0' ) !== false) ) {
+			// do stuff for IE.
+			$is_ie = true;
+		}
+
+		return $is_ie;
+	}
+endif; // End if().
