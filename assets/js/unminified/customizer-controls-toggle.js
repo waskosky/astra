@@ -241,6 +241,11 @@
 					'astra-settings[footer-sml-divider]',
 					'astra-settings[section-ast-small-footer-layout-info]',
 					'astra-settings[footer-layout-width]',
+					'astra-settings[footer-color]',
+					'astra-settings[footer-link-color]',
+					'astra-settings[footer-link-h-color]',
+					'astra-settings[footer-bg-color]',
+					'astra-settings[divider-footer-image]',
 				],
 				callback: function( small_footer_layout ) {
 
@@ -372,6 +377,30 @@
 				callback: function( menu ) {
 					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
 					if ( !menu || 'none' !=  custom_menu) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
+		/**
+		 * Footer Widgets
+		 */
+		'astra-settings[footer-adv]' :
+		[
+			{
+				controls: [
+					'astra-settings[footer-adv-background-divider]',
+					'astra-settings[footer-adv-wgt-title-color]',
+					'astra-settings[footer-adv-text-color]',
+					'astra-settings[footer-adv-link-color]',
+					'astra-settings[footer-adv-link-h-color]',
+					'astra-settings[footer-adv-bg-color]',
+				],
+				callback: function( footer_widget_area ) {
+
+					if ( 'disabled' != footer_widget_area ) {
 						return true;
 					}
 					return false;
