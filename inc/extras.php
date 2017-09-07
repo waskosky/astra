@@ -161,13 +161,12 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 				$cutom_logo_url = $cutom_logo[0];
 
-				$ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
-
-				if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false)) {
-					// do stuff for IE
+				$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
+				if ( preg_match( '~MSIE|Internet Explorer~i', $ua ) || (strpos( $ua, 'Trident/7.0; rv:11.0' ) !== false) ) {
+					// do stuff for IE.
 					$html = str_replace( $cutom_logo_url, $retina_logo, $html );
 				}
-				
+
 				$replace_string = 'srcset="' . $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x" class=';
 				$html = str_replace( 'class=', $replace_string, $html );
 
