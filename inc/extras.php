@@ -162,7 +162,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				$cutom_logo_url = $cutom_logo[0];
 
 				if ( astra_check_is_ie() ) {
-					// do stuff for IE.
+					// Replace header logo url to retina logo url.
 					$html = str_replace( $cutom_logo_url, $retina_logo, $html );
 				}
 
