@@ -156,7 +156,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$html .= get_custom_logo();
 			$html .= '</span>';
 
-			if ( '' !== $retina_logo ) {
+			if ( apply_filters( 'asta_main_header_retina', true ) && '' !== $retina_logo ) {
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
 				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 				$cutom_logo_url = $cutom_logo[0];
@@ -166,8 +166,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 					$html = str_replace( $cutom_logo_url, $retina_logo, $html );
 				}
 
-				$replace_string = 'srcset="' . $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x" class=';
-				$html = str_replace( 'class=', $replace_string, $html );
+				$replace_string = 'srcset="' . $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x" src=';
+				$html = str_replace( 'src=', $replace_string, $html );
 
 			}
 		}
