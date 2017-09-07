@@ -88,6 +88,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'ast-featured-img' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 				)
 			);
 		}
@@ -148,10 +151,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
 			$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
 			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
-			$footer_bar        = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
-			$footer_widgets       = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
+			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
+			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
-
+			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
@@ -207,6 +210,14 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					<label for="site-post-title">
 						<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
 						<?php esc_html_e( 'Disable Title', 'astra' ); ?>
+					</label>
+				</span>
+				<br />
+
+				<span class="ast-featured-img-option-wrap">
+					<label for="ast-featured-img">
+						<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
 					</label>
 				</span>
 				<br />
