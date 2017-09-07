@@ -2938,6 +2938,16 @@ body {
     display: -ms-flexbox;
     display: flex;
   }
+  .ast-header-break-point .ast-mobile-header-inline .site-branding {
+    text-align: left;
+  }
+  .ast-header-break-point .ast-mobile-header-inline .site-title {
+    -webkit-box-pack: left;
+    -webkit-justify-content: left;
+    -moz-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+  }
   .ast-header-break-point .ast-mobile-header-stack .main-header-bar {
     padding: 1em 0 0;
   }
