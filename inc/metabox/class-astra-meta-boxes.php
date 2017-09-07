@@ -214,6 +214,14 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				</span>
 				<br />
 
+				<span class="ast-featured-img-option-wrap">
+					<label for="ast-featured-img">
+						<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
+					</label>
+				</span>
+				<br />
+
 				<?php
 				$footer_adv_layout = astra_get_option( 'footer-adv' );
 
@@ -241,13 +249,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<br />
 				<?php } ?>
 
-				<span class="ast-featured-img-option-wrap">
-					<label for="ast-featured-img">
-						<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
-					</label>
-				</span>
-				<br />
 				<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
 			</span>
 
