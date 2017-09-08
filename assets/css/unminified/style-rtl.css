@@ -3260,7 +3260,6 @@ body {
 .ast-search-menu-icon .search-field {
   border: none;
   background-color: transparent;
-  padding: .8em 1em .8em 0;
   -webkit-transition: width .2s;
   transition: width .2s;
   -webkit-border-radius: inherit;
