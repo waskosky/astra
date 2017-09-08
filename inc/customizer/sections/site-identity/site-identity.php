@@ -76,11 +76,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'number',
 			'section'  	  => 'title_tagline',
 			'priority' 	  => 5,
-			'label'       => __( 'Bottom Border Size', 'astra' ),
+			'label'       => __( 'Header Logo Width', 'astra' ),
 			'input_attrs' => array(
 				'min'  => 0,
 				'step' => 1,
-				'max'  => 250,
+				'max'  => 1000,
 			),
 		)
 	);

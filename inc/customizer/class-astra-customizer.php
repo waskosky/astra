@@ -250,7 +250,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 		
 			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
-		
+			
+			do_action( 'astra_customizer_save' );
 		}
 
 		/**
