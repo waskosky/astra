@@ -243,13 +243,45 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
-
-				
-
-			add_filter( 'intermediate_image_sizes_advanced', array( $this, 'logo_image_sizes' ) );
-
+			
+			add_filter( 'intermediate_image_sizes_advanced', array( $this, 'logo_image_sizes' ), 10, 2 );
+			
+			/* Generate Header Logo */
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
+		
+			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+		
+		}
 
+		/**
+		 * 
+		 *
+		 * @since 1.0.0
+		 * @return void
+		 */
+		function logo_image_sizes( $sizes, $metadata ) {
+
+			$logo_width = astra_get_option( 'ast-header-logo-width' );
+			
+			if ( is_array( $sizes ) && '' != $logo_width ) {
+
+				$sizes["ast-logo-size"] = array(
+					"width"		=> (int)$logo_width,
+					"height"	=> 0,
+					"crop"		=> false
+				);
+			}
+
+			return $sizes;
+		}
+
+		/**
+		 * 
+		 *
+		 * @since 1.0.0
+		 * @return void
+		 */
+		static public function generate_logo_by_width( $custom_logo_id ) {
 			if ( $custom_logo_id ) {
 				
 				$image = get_post( $custom_logo_id );
@@ -259,7 +291,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					
 					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
 
-						@set_time_limit( 900 ); // 5 minutes per image should be PLENTY
+						//@set_time_limit( 900 ); // 5 minutes per image should be PLENTY
 						
 						$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
 						
@@ -272,28 +304,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				//var_dump( wp_get_attachment_image_src( $custom_logo_id, 'ast-logo-size' ) );
 			}
-		}
-
-		/**
-		 * 
-		 *
-		 * @since 1.0.0
-		 * @return void
-		 */
-		function logo_image_sizes( $sizes, $metadata ) {
-
-			$logo_width = astra_get_option( 'ast-header-logo-width' );
-			// var_dump( $logo_width );
-			if ( is_array( $sizes ) && '' != $logo_width ) {
-
-				$sizes["ast-logo-size"] = array(
-					"width"		=> (int)$logo_width,
-					"height"	=> 0,
-					"crop"		=> false
-				);
-			}
-
-			return $sizes;
 		}
 	}
 }// End if().
