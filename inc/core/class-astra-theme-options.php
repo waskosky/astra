@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'footer-layout-width'               => 'content',
 					// General.
 					'ast-header-retina-logo'            => '',
-					'ast-header-logo-width'            	=> 0,
+					'ast-header-logo-width'             => 0,
 					'display-site-title'                => 1,
 					'display-site-tagline'              => 0,
 					// Header - Primary.

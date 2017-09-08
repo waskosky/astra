@@ -147,21 +147,20 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$display_site_tagline = astra_get_option( 'display-site-title' );
 		$html                 = '';
 
-
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
-		
+
 		// Site logo.
 		if ( $has_custom_logo ) {
-			
+
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
-				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4);
-				add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3);
-			} 
+				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
+				add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
+			}
 
 			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
 			$html .= '</span>';
-			
+
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				remove_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10 );
 				remove_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10 );
@@ -1157,20 +1156,25 @@ endif; // End if().
 
 
 /**
- * Function to check if it is Internet Explorer
+ * Replace heade logo.
  */
 if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 
 	/**
-	 * Function to check if it is Internet Explorer.
+	 * Replace header logo.
 	 *
-	 * @return true | false boolean
+	 * @param array  $image Size.
+	 * @param int    $attachment_id Image id.
+	 * @param sting  $size Size name.
+	 * @param string $icon Icon.
+	 *
+	 * @return array Size of image
 	 */
 	function astra_replace_header_logo( $image, $attachment_id, $size, $icon ) {
-				
+
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
-		
-		if (  $custom_logo_id == $attachment_id && $size == 'full' ) {
+
+		if ( $custom_logo_id == $attachment_id && 'full' == $size ) {
 
 			$data = wp_get_attachment_image_src( $attachment_id, 'ast-logo-size' );
 
@@ -1178,7 +1182,7 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 				$image = $data;
 			}
 		}
-		
+
 		return $image;
 	}
 endif; // End if().
@@ -1189,15 +1193,19 @@ endif; // End if().
 if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 
 	/**
-	 * Function to check if it is Internet Explorer.
+	 * Replace header logo.
 	 *
-	 * @return true | false boolean
+	 * @param array  $attr Image.
+	 * @param object $attachment Image obj.
+	 * @param sting  $size Size name.
+	 *
+	 * @return array Image attr.
 	 */
 	function astra_replace_header_attr( $attr, $attachment, $size ) {
-		
+
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		if ( $custom_logo_id == $attachment->ID ) {
-			
+
 			$attr['src'] = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' )[0];
 			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
 
