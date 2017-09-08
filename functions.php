@@ -8,6 +8,11 @@
  * @since 1.0.0
  */
 
+add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+    add_image_size( 'category-thumb', 120 ); // 300 pixels wide (and unlimited height)
+}
+
 /**
  * Define Constants
  */

@@ -243,6 +243,54 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
+
+				
+
+			add_filter( 'intermediate_image_sizes_advanced', array( $this, 'logo_image_sizes' ) );
+
+			$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+			if ( $custom_logo_id ) {
+				
+				$image = get_post( $custom_logo_id );
+				
+				if ( $image ) {
+					$fullsizepath = get_attached_file( $image->ID );
+					
+					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
+
+						@set_time_limit( 900 ); // 5 minutes per image should be PLENTY
+						
+						$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
+						
+						if ( !is_wp_error( $metadata ) && !empty( $metadata ) ) {
+							// If this fails, then it just means that nothing was changed (old value == new value)
+							wp_update_attachment_metadata( $image->ID, $metadata );
+						}
+					}
+				}
+
+				var_dump( wp_get_attachment_image_src( $custom_logo_id, 'ast-logo-size' ) );
+			}
+		}
+
+		/**
+		 * 
+		 *
+		 * @since 1.0.0
+		 * @return void
+		 */
+		function logo_image_sizes( $sizes, $metadata ) {
+
+			if ( is_array( $sizes ) ) {
+				$sizes["ast-logo-size"] = array(
+					"width"		=> 50,
+					"height"	=> 0,
+					"crop"		=> false
+				);
+			}
+
+			return $sizes;
 		}
 	}
 }// End if().
