@@ -270,7 +270,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 				}
 
-				var_dump( wp_get_attachment_image_src( $custom_logo_id, 'ast-logo-size' ) );
+				//var_dump( wp_get_attachment_image_src( $custom_logo_id, 'ast-logo-size' ) );
 			}
 		}
 
@@ -282,9 +282,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		function logo_image_sizes( $sizes, $metadata ) {
 
-			if ( is_array( $sizes ) ) {
+			$logo_width = astra_get_option( 'ast-header-logo-width' );
+			// var_dump( $logo_width );
+			if ( is_array( $sizes ) && '' != $logo_width ) {
+
 				$sizes["ast-logo-size"] = array(
-					"width"		=> 50,
+					"width"		=> (int)$logo_width,
 					"height"	=> 0,
 					"crop"		=> false
 				);
