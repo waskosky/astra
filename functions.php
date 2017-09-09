@@ -31,6 +31,7 @@ require_once ASTRA_THEME_DIR . 'inc/core/class-theme-strings.php';
 /**
  * Fonts Files
  */
+require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-font-families.php';
 if ( is_admin() ) {
 	require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts-data.php';
 }
