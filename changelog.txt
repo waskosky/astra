@@ -1,7 +1,10 @@
-v1.0.19 - unreleased
+v1.0.19
+# New: Introducing an option where you can upload the Retina Logo.
+# New: Retina Logo width option added.
 # Fixed: Title is not working for anspress questions shortcode.
 # Fixed: Accessibility, focus on navigation link, color not working as on hover
 # Fixed: Display correct page title When on Astra Settings Page.
+# Improvement: Register Astra meta box only for public post type.
 
 v1.0.18
 # New: Blog / Archive and Single Post Layout : Post Structure sortable option added to control the post title and post featured image.
