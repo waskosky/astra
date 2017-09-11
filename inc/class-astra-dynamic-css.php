@@ -392,7 +392,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 				
 			if ( is_customize_preview() ) {
-				$css_output['#masthead .site-logo-img img'] = array(
+				$css_output['#masthead .site-logo-img .custom-logo-link img'] = array(
 					'max-width' => astra_get_option( 'ast-header-logo-width' ).'px'
 				); 
 			}
