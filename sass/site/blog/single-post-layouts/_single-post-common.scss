@@ -76,6 +76,13 @@
 				}
 			}
 		}
+		&.ast-no-title{
+			.post-thumb {
+				+ .ast-single-post-order{
+					margin-top: 0;
+				}
+			}
+		}
 		.post-thumb {
 			+ .ast-single-post-order{
 				margin-top: 2em;
