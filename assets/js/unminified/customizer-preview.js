@@ -202,6 +202,21 @@ function astra_add_dynamic_css( control, style ) {
 ( function( $ ) {
 
 	/*
+	 * Site Identity Logo Width
+	 */
+	wp.customize( 'astra-settings[ast-header-logo-width]', function( setting ) {
+		setting.bind( function( logo_width ) {
+			if ( logo_width != '' ) {
+				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img {max-width: ' + logo_width + 'px}';
+				astra_add_dynamic_css( 'ast-header-logo-width', dynamicStyle );
+			}
+			else{
+				wp.customize.preview.send( 'refresh' );
+			}
+		} );
+	} );
+
+	/*
 	 * Full width layout
 	 */
 	wp.customize( 'astra-settings[site-content-width]', function( setting ) {
