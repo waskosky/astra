@@ -1417,6 +1417,7 @@ hr {
 }
 
 .ast-button,
+.button,
 button,
 input,
 select,
@@ -1500,6 +1501,7 @@ th, td {
 --------------------------------------------------------------*/
 button,
 .ast-button,
+.button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -1514,6 +1516,8 @@ input[type="submit"] {
 button:hover, button:focus,
 .ast-button:hover,
 .ast-button:focus,
+.button:hover,
+.button:focus,
 input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="reset"]:hover,
@@ -1527,6 +1531,8 @@ input[type="submit"]:focus {
 button:active, button:focus,
 .ast-button:active,
 .ast-button:focus,
+.button:active,
+.button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -1812,6 +1818,7 @@ blockquote {
 }
 
 .ast-button,
+.button,
 input[type="button"],
 input[type="submit"] {
   border-radius: 0;
@@ -1822,12 +1829,15 @@ input[type="submit"] {
 }
 
 .ast-button:hover,
+.button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
   box-shadow: none;
 }
 
 .ast-button:active, .ast-button:focus,
+.button:active,
+.button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="submit"]:active,

@@ -358,7 +358,7 @@ function astra_add_dynamic_css( control, style ) {
 	wp.customize( 'astra-settings[button-radius]', function( setting ) {
 		setting.bind( function( border ) {
 
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			var dynamicStyle = '.menu-toggle,button,.ast-button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
 			astra_add_dynamic_css( 'button-radius', dynamicStyle );
 
 		} );
@@ -370,7 +370,7 @@ function astra_add_dynamic_css( control, style ) {
 	wp.customize( 'astra-settings[button-v-padding]', function( setting ) {
 		setting.bind( function( padding ) {
 
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
+			var dynamicStyle = '.menu-toggle,button,.ast-button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
 			astra_add_dynamic_css( 'button-v-padding', dynamicStyle );
 
 		} );
@@ -382,7 +382,7 @@ function astra_add_dynamic_css( control, style ) {
 	wp.customize( 'astra-settings[button-h-padding]', function( setting ) {
 		setting.bind( function( padding ) {
 
-			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-left: ' + ( parseInt( padding ) ) + 'px; padding-right: ' + ( parseInt( padding ) ) + 'px } ';
+			var dynamicStyle = '.menu-toggle,button,.ast-button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { padding-left: ' + ( parseInt( padding ) ) + 'px; padding-right: ' + ( parseInt( padding ) ) + 'px } ';
 			astra_add_dynamic_css( 'button-h-padding', dynamicStyle );
 
 		} );

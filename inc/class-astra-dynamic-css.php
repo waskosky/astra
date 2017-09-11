@@ -319,21 +319,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'.menu-toggle, button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 					'color'            => esc_attr( $btn_text_color ),
 					'border-color'     => esc_attr( $btn_bg_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
 				),
-				'.menu-toggle, button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 					'color'            => esc_attr( $btn_text_color ),
 					'border-color'     => esc_attr( $btn_bg_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
 				),
-				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
 					'border-color'     => esc_attr( $btn_bg_hover_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
