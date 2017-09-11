@@ -295,9 +295,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
 
-						// @codingStandardsIgnoreStart
-						// @set_time_limit( 900 ); // 5 minutes per image should be PLENTY
-						// @codingStandardsIgnoreEnd
 						$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
 
 						if ( ! is_wp_error( $metadata ) && ! empty( $metadata ) ) {
