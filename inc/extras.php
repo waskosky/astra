@@ -1174,7 +1174,7 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-		if ( !is_customize_preview() && $custom_logo_id == $attachment_id && 'full' == $size ) {
+		if ( ! is_customize_preview() && $custom_logo_id == $attachment_id && 'full' == $size ) {
 
 			$data = wp_get_attachment_image_src( $attachment_id, 'ast-logo-size' );
 
@@ -1209,9 +1209,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 			if ( !is_customize_preview() ) {
 				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
 				if ( isset( $attach_data[0] ) ) {
-					$attr['src'] = $attach_data[0]
+					$attr['src'] = $attach_data[0];
 				}
 			} 
+
 			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
 
 			$attr['srcset'] = '';
