@@ -4482,6 +4482,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
+.single .entry-header.ast-no-title .post-thumb + .ast-single-post-order {
+  margin-top: 0;
+}
+
 .single .entry-header .post-thumb + .ast-single-post-order {
   margin-top: 2em;
 }
