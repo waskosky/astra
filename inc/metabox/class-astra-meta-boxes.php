@@ -100,7 +100,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		function setup_meta_box() {
 
-			// Get all posts.
+			// Get all public posts.
 			$post_types = get_post_types( array( 'public' => true ) );
 
 			// Enable for all posts.
