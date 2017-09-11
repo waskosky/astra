@@ -167,7 +167,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_hover_color ),
 				),
 				'body, button, input, select, textarea' => array(
-					'font-family'    => $body_font_family,
+					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
 					'line-height'    => esc_attr( $body_line_height ),
@@ -390,6 +390,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 			);
+
+			if ( is_customize_preview() ) {
+				$css_output['#masthead .site-logo-img .custom-logo-link img'] = array(
+					'max-width' => astra_get_option( 'ast-header-logo-width' ) . 'px',
+				);
+			}
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
