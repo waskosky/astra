@@ -1207,7 +1207,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		if ( $custom_logo_id == $attachment->ID ) {
 
 			if ( !is_customize_preview() ) {
-				$attr['src'] = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' )[0];
+				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
+				if ( isset( $attach_data[0] ) ) {
+					$attr['src'] = $attach_data[0]
+				}
 			} 
 			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
 
