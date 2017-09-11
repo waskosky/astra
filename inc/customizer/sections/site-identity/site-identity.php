@@ -42,6 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[ast-header-logo-width]', array(
 			'default'           => astra_get_option( 'ast-header-logo-width' ),
 			'type'              => 'option',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);

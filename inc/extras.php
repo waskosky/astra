@@ -152,7 +152,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		// Site logo.
 		if ( $has_custom_logo ) {
 
-			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
+			if ( !is_customize_preview() && apply_filters( 'astra_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
 				add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 			}
