@@ -43,20 +43,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => astra_get_option( 'ast-header-logo-width' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[ast-header-logo-width]', array(
-			'type'        => 'number',
-			'section'     => 'title_tagline',
-			'priority'    => 5,
-			'label'       => __( 'Header Logo Width', 'astra' ),
-			'input_attrs' => array(
-				'min'  => 0,
-				'step' => 1,
-				'max'  => 1000,
-			),
+		new Astra_Control_Slider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-logo-width]', array(
+				'type'        => 'ast-slider',
+				'section'     => 'title_tagline',
+				'priority'    => 5,
+				'label'       => __( 'Header Logo Width', 'astra' ),
+				'input_attrs' => array(
+					'min'  => 50,
+					'step' => 1,
+					'max'  => 600,
+				),
+			)
 		)
 	);
 
