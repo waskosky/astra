@@ -160,7 +160,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<optgroup label="System">';
 
-		foreach ( Astra_Font_Families::system_fonts() as $name => $variants ) {
+		foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
@@ -169,7 +169,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		echo '<optgroup label="Google">';
 
-		foreach ( Astra_Font_Families::google_fonts() as $name => $variants ) {
+		foreach ( Astra_Font_Families::get_google_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
