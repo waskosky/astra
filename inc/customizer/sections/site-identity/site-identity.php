@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', array(
 				'section'  => 'title_tagline',
 				'priority' => 5,
-				'label'    => __( 'Header Retina Logo', 'astra' ),
+				'label'    => __( 'Retina Logo', 'astra' ),
 				'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 			)
 		)
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-slider',
 				'section'     => 'title_tagline',
 				'priority'    => 5,
-				'label'       => __( 'Header Logo Width', 'astra' ),
+				'label'       => __( 'Logo Width', 'astra' ),
 				'input_attrs' => array(
 					'min'  => 50,
 					'step' => 1,
