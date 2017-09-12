@@ -1123,6 +1123,10 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 			}
 		}
 
+		if ( ! is_singular() ) {
+			$output = apply_filters( 'astra_blog_post_featured_image_after', $output );
+		}
+
 		if ( $echo ) {
 			echo $before . $output . $after; // WPCS: XSS OK.
 		} else {
