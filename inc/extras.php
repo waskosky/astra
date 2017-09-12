@@ -1108,18 +1108,25 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$blog_post_thumb = astra_get_option( 'blog-post-structure' );
 		$single_post_thumb = astra_get_option( 'blog-single-post-structure' );
-
+		
 		if ( ( ( ! is_singular() && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
+			
+			
 			if ( $featured_image && ( ! (is_singular() ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
-				$output .= '<div class="post-thumb">';
-				if ( ! is_singular() ) {
-					$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+				
+				$post_thumb = get_the_post_thumbnail();
+
+				if ( '' != $post_thumb ) {
+					$output .= '<div class="post-thumb">';
+					if ( ! is_singular() ) {
+						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+					}
+					$output .= $post_thumb;
+					if ( ! is_singular() ) {
+						$output .= '</a>';
+					}
+					$output .= '</div>';
 				}
-				$output .= get_the_post_thumbnail();
-				if ( ! is_singular() ) {
-					$output .= '</a>';
-				}
-				$output .= '</div>';
 			}
 		}
 
