@@ -167,7 +167,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_hover_color ),
 				),
 				'body, button, input, select, textarea' => array(
-					'font-family'    => $body_font_family,
+					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
 					'line-height'    => esc_attr( $body_line_height ),
@@ -246,7 +246,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Main - Menu Items.
-				'.main-header-menu li:hover > a, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .main-header-menu .current_page_item > .ast-menu-toggle' => array(
+				'.main-header-menu li:hover > a, .main-header-menu li:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .main-header-menu .current_page_item > .ast-menu-toggle' => array(
 					'color' => esc_attr( $link_color ),
 				),
 
@@ -319,21 +319,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'.menu-toggle, button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 					'color'            => esc_attr( $btn_text_color ),
 					'border-color'     => esc_attr( $btn_bg_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
 				),
-				'.menu-toggle, button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 					'color'            => esc_attr( $btn_text_color ),
 					'border-color'     => esc_attr( $btn_bg_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
 				),
-				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
 					'border-color'     => esc_attr( $btn_bg_hover_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
@@ -390,6 +390,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 			);
+
+			if ( is_customize_preview() ) {
+				$css_output['#masthead .site-logo-img .custom-logo-link img'] = array(
+					'max-width' => astra_get_option( 'ast-header-logo-width' ) . 'px',
+				);
+			}
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );

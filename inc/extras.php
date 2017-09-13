@@ -147,15 +147,27 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$display_site_tagline = astra_get_option( 'display-site-title' );
 		$html                 = '';
 
-		$has_custom_logo = apply_filters( 'asta_has_custom_logo', has_custom_logo() );
+		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
+
 		// Site logo.
 		if ( $has_custom_logo ) {
+
+			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
+				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
+				add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
+			}
+
 			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
 			$html .= '</span>';
+
+			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
+				remove_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10 );
+				remove_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10 );
+			}
 		}
 
-		if ( ! apply_filters( 'asta_disable_site_identity', false ) ) {
+		if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
 			// Site Title.
 			if ( $display_site_tagline ) {
 
@@ -677,9 +689,8 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
 		}
-		if ( 'stack' == $mobile_header_alignment ) {
-			$classes[] = 'ast-mobile-header-stack';
-		}
+
+		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
 
@@ -1085,7 +1096,15 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 	function astra_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
 
 		$output = '';
-		$featured_image = apply_filters( 'astra_featured_image_enabled', true );
+
+		$featured_image     = true;
+		$is_featured_image  = astra_get_option_meta( 'ast-featured-img' );
+
+		if ( 'disabled' === $is_featured_image ) {
+			$featured_image = false;
+		}
+
+		$featured_image = apply_filters( 'astra_featured_image_enabled', $featured_image );
 
 		$blog_post_thumb = astra_get_option( 'blog-post-structure' );
 		$single_post_thumb = astra_get_option( 'blog-single-post-structure' );
@@ -1111,4 +1130,108 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		}
 	}
 }// End if().
+
+/**
+ * Function to check if it is Internet Explorer
+ */
+if ( ! function_exists( 'astra_check_is_ie' ) ) :
+
+	/**
+	 * Function to check if it is Internet Explorer.
+	 *
+	 * @return true | false boolean
+	 */
+	function astra_check_is_ie() {
+
+		$is_ie = false;
+
+		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
+		if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
+			$is_ie = true;
+		}
+
+		return $is_ie;
+	}
+endif; // End if().
+
+
+/**
+ * Replace heade logo.
+ */
+if ( ! function_exists( 'astra_replace_header_logo' ) ) :
+
+	/**
+	 * Replace header logo.
+	 *
+	 * @param array  $image Size.
+	 * @param int    $attachment_id Image id.
+	 * @param sting  $size Size name.
+	 * @param string $icon Icon.
+	 *
+	 * @return array Size of image
+	 */
+	function astra_replace_header_logo( $image, $attachment_id, $size, $icon ) {
+
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+		if ( ! is_customize_preview() && $custom_logo_id == $attachment_id && 'full' == $size ) {
+
+			$data = wp_get_attachment_image_src( $attachment_id, 'ast-logo-size' );
+
+			if ( false != $data ) {
+				$image = $data;
+			}
+		}
+
+		return $image;
+	}
+endif; // End if().
+
+/**
+ * Function to check if it is Internet Explorer
+ */
+if ( ! function_exists( 'astra_replace_header_attr' ) ) :
+
+	/**
+	 * Replace header logo.
+	 *
+	 * @param array  $attr Image.
+	 * @param object $attachment Image obj.
+	 * @param sting  $size Size name.
+	 *
+	 * @return array Image attr.
+	 */
+	function astra_replace_header_attr( $attr, $attachment, $size ) {
+
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		if ( $custom_logo_id == $attachment->ID ) {
+
+			if ( ! is_customize_preview() ) {
+				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
+				if ( isset( $attach_data[0] ) ) {
+					$attr['src'] = $attach_data[0];
+				}
+			}
+
+			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
+
+			$attr['srcset'] = '';
+
+			if ( apply_filters( 'astra_main_header_retina', true ) && '' !== $retina_logo ) {
+				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				$cutom_logo_url = $cutom_logo[0];
+
+				if ( astra_check_is_ie() ) {
+					// Replace header logo url to retina logo url.
+					$attr['src'] = $retina_logo;
+				}
+
+				$attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
+
+			}
+		}
+
+		return $attr;
+	}
+endif; // End if().
 

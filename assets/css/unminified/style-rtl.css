@@ -1429,6 +1429,7 @@ hr {
 }
 
 .ast-button,
+.button,
 button,
 input,
 select,
@@ -1512,6 +1513,7 @@ th, td {
 --------------------------------------------------------------*/
 button,
 .ast-button,
+.button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -1527,6 +1529,8 @@ input[type="submit"] {
 button:hover, button:focus,
 .ast-button:hover,
 .ast-button:focus,
+.button:hover,
+.button:focus,
 input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="reset"]:hover,
@@ -1540,6 +1544,8 @@ input[type="submit"]:focus {
 button:active, button:focus,
 .ast-button:active,
 .ast-button:focus,
+.button:active,
+.button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -1858,6 +1864,7 @@ blockquote {
 }
 
 .ast-button,
+.button,
 input[type="button"],
 input[type="submit"] {
   -webkit-border-radius: 0;
@@ -1870,6 +1877,7 @@ input[type="submit"] {
 }
 
 .ast-button:hover,
+.button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
   -webkit-box-shadow: none;
@@ -1877,6 +1885,8 @@ input[type="submit"]:hover {
 }
 
 .ast-button:active, .ast-button:focus,
+.button:active,
+.button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="submit"]:active,
@@ -2930,6 +2940,24 @@ body {
 
 /* Mobile Header Alignment */
 @media (max-width: 544px) {
+  .ast-header-break-point .ast-mobile-header-inline .main-header-container {
+    -js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .ast-header-break-point .ast-mobile-header-inline .site-branding {
+    text-align: right;
+  }
+  .ast-header-break-point .ast-mobile-header-inline .site-title {
+    -webkit-box-pack: left;
+    -webkit-justify-content: left;
+    -moz-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+  }
   .ast-header-break-point .ast-mobile-header-stack .main-header-bar {
     padding: 1em 0 0;
   }
@@ -3242,7 +3270,6 @@ body {
 .ast-search-menu-icon .search-field {
   border: none;
   background-color: transparent;
-  padding: .8em 1em .8em 0;
   -webkit-transition: width .2s;
   transition: width .2s;
   -webkit-border-radius: inherit;
@@ -4453,6 +4480,10 @@ input[type="color"]::-webkit-color-swatch {
 .single .entry-header .ast-single-post-order + .post-thumb img {
   margin-top: 2em;
   margin-bottom: 0;
+}
+
+.single .entry-header.ast-no-title .post-thumb + .ast-single-post-order {
+  margin-top: 0;
 }
 
 .single .entry-header .post-thumb + .ast-single-post-order {

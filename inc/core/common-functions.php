@@ -176,6 +176,37 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 }// End if().
 
 /**
+ * Get Font family
+ */
+if ( ! function_exists( 'astra_get_font_family' ) ) {
+
+	/**
+	 * Get Font family
+	 *
+	 * Syntax:
+	 *
+	 *  astra_get_font_family( VALUE, DEFAULT );
+	 *
+	 * E.g.
+	 *  astra_get_font_family( VALUE, '' );
+	 *
+	 * @since  1.0.19
+	 *
+	 * @param  string $value       CSS value.
+	 * @return mixed               CSS value depends on $unit
+	 */
+	function astra_get_font_family( $value = '' ) {
+		$system_fonts = Astra_Font_Families::get_system_fonts();
+		if ( isset( $system_fonts[ $value ] ) && isset( $system_fonts[ $value ]['fallback'] ) ) {
+			$value .= ',' . $system_fonts[ $value ]['fallback'];
+		}
+
+		return $value;
+	}
+}
+
+
+/**
  * Get CSS value
  */
 if ( ! function_exists( 'astra_get_css_value' ) ) {
@@ -210,6 +241,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 			case 'font':
 				if ( 'inherit' != $value ) {
+					$value   = astra_get_font_family( $value );
 					$css_val = esc_attr( $value );
 				} elseif ( '' != $default ) {
 					$css_val = esc_attr( $default );
@@ -666,11 +698,9 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 	function astra_get_the_title( $post_id = 0, $echo = false ) {
 
 		$title = '';
-		if ( $post_id ) {
+		if ( $post_id || is_singular() ) {
 			$title = get_the_title( $post_id );
 		} else {
-
-			$post_id    = astra_get_post_id();
 
 			// for 404 page - title always display.
 			if ( is_404() ) {
@@ -691,9 +721,6 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 				$title = get_the_archive_title();
 
-			} else {
-
-				$title = get_the_title( $post_id );
 			}
 		}
 

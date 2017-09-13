@@ -11,7 +11,8 @@
 
 ?>
 
-<dev class="wrap ast-clear">
+<div class="wrap ast-clear">
+	<h1 class="screen-reader-text"> <?php esc_html_e( 'Astra', 'astra' ); ?> </h1>
 	<div id="poststuff">
 		<div id="post-body" class="metabox-holder">
 			<div id="postbox-container-2" class="postbox-container astra-row">
@@ -36,4 +37,4 @@
 		</div>
 	</div>
 
-</dev>
+</div>

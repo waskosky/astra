@@ -397,7 +397,7 @@ module.exports = function (grunt) {
                     };
                 })
 
-                fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts), function (err) {
+                fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
                     if (! err ) {
                         console.log("Google Fonts Updated!");
                     }

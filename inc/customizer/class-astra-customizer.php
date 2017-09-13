@@ -243,6 +243,68 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
+
+			/* Generate Header Logo */
+			$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+
+			do_action( 'astra_customizer_save' );
+		}
+
+		/**
+		 * Add logo image sizes in filter.
+		 *
+		 * @since 1.0.0
+		 * @param array $sizes Sizes.
+		 * @param array $metadata attachment data.
+		 *
+		 * @return array
+		 */
+		static public function logo_image_sizes( $sizes, $metadata ) {
+
+			$logo_width = astra_get_option( 'ast-header-logo-width' );
+
+			if ( is_array( $sizes ) && '' != $logo_width ) {
+
+				$sizes['ast-logo-size'] = array(
+					'width'     => (int) $logo_width,
+					'height'    => 0,
+					'crop'      => false,
+				);
+			}
+
+			return $sizes;
+		}
+
+		/**
+		 * Generate logo image by its width.
+		 *
+		 * @since 1.0.0
+		 * @param int $custom_logo_id Logo id.
+		 */
+		static public function generate_logo_by_width( $custom_logo_id ) {
+			if ( $custom_logo_id ) {
+
+				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
+
+				$image = get_post( $custom_logo_id );
+
+				if ( $image ) {
+					$fullsizepath = get_attached_file( $image->ID );
+
+					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
+
+						$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
+
+						if ( ! is_wp_error( $metadata ) && ! empty( $metadata ) ) {
+							wp_update_attachment_metadata( $image->ID, $metadata );
+						}
+					}
+				}
+
+				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
+			}
 		}
 	}
 }// End if().

@@ -39,10 +39,17 @@
 }
 
 /* Plugin title */
+#ast-menu-page {
+	margin-top: 10px;
+}
 
 #ast-menu-page .ast-title {
 	float: left;
-	padding: 0.2em 0;
+	font-size: 23px;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	line-height: 29px;
 }
 
 #ast-menu-page .ast-separator {
