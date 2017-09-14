@@ -392,7 +392,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_hover_color ),
 				),
 			);
-			
+
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
