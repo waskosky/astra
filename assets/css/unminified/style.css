@@ -4741,6 +4741,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1em;
 }
 
+.ast-separate-container .comments-area {
+  background-color: #fff;
+}
+
 .ast-separate-container .comments-count-wrapper {
   background-color: #fff;
   padding: 2em 6.67em 0;
