@@ -369,7 +369,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	 * @param  string $option       Option key.
 	 * @param  string $default      Option default value.
 	 * @param  string $deprecated   Option default value.
-	 * @return string               Return option value.
+	 * @return Mixed               Return option value.
 	 */
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
@@ -379,9 +379,24 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 
 		$theme_options = Astra_Theme_Options::get_options();
 
+		/**
+		 * Filter the options array for Astra Settings.
+		 *
+		 * @since  1.0.20
+		 * @var Array
+		 */
+		$theme_options = apply_filters( 'astra_get_option_array', $theme_options, $option, $default );
+
 		$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
 
-		return $value;
+		/**
+		 * Dynamic filter astra_get_option_$option.
+		 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
+		 *
+		 * @since  1.0.20
+		 * @var Mixed.
+		 */
+		return apply_filters( "astra_get_option_{$option}", $value,  $option, $default );
 	}
 }
 
@@ -398,7 +413,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 	 * @param  boolean $only_meta Get only meta value.
 	 * @param  string  $extension Is value from extension.
 	 * @param  string  $post_id   Get value from specific post by post ID.
-	 * @return string             Return option value.
+	 * @return Mixed             Return option value.
 	 */
 	function astra_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
 
@@ -421,7 +436,14 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 			}
 		}
 
-		return $value;
+		/**
+		 * Dynamic filter astra_get_option_meta_$option.
+		 * $option_id is the name of the Astra Meta Setting.
+		 *
+		 * @since  1.0.20
+		 * @var Mixed.
+		 */
+		return apply_filters( "astra_get_option_meta_{$option_id}", $value,  $default, $default );
 	}
 }// End if().
 
