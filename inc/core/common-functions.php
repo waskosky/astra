@@ -648,8 +648,8 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 		if ( $enabled ) {
 
 			$title  = astra_get_the_title( $post_id );
-			$before = apply_filters( 'astra_the_post_title_before', '' ) . $before;
-			$after  = $after . apply_filters( 'astra_the_post_title_after', '' );
+			$before = apply_filters( 'astra_the_post_title_before', $before );
+			$after  = apply_filters( 'astra_the_post_title_after', $after );
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
@@ -687,8 +687,8 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 			if ( apply_filters( 'astra_the_title_enabled', true ) ) {
 
 				$title  = astra_get_the_title( $post_id );
-				$before = apply_filters( 'astra_the_title_before', '' ) . $before;
-				$after  = $after . apply_filters( 'astra_the_title_after', '' );
+				$before = apply_filters( 'astra_the_title_before', $before );
+				$after  = apply_filters( 'astra_the_title_after', $after );
 
 				$title  = $before . $title . $after;
 			}
