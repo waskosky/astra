@@ -369,7 +369,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	 * @param  string $option       Option key.
 	 * @param  string $default      Option default value.
 	 * @param  string $deprecated   Option default value.
-	 * @return string               Return option value.
+	 * @return Mixed               Return option value.
 	 */
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
@@ -413,7 +413,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 	 * @param  boolean $only_meta Get only meta value.
 	 * @param  string  $extension Is value from extension.
 	 * @param  string  $post_id   Get value from specific post by post ID.
-	 * @return string             Return option value.
+	 * @return Mixed             Return option value.
 	 */
 	function astra_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
 
