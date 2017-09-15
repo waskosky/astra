@@ -723,10 +723,14 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 		if ( $post_id || is_singular() ) {
 			$title = get_the_title( $post_id );
 		} else {
-
-			// for 404 page - title always display.
-			if ( is_404() ) {
-
+			if ( is_front_page() && is_home() ) {
+				// Default homepage
+				$title = apply_filters( 'astra_the_default_home_page_title', get_bloginfo( 'name' ) );
+			} elseif ( is_home() ) {
+				// blog page
+				$title = get_the_title( get_option( 'page_for_posts', true ) );
+			} elseif ( is_404() ) {
+				// for 404 page - title always display.
 				$title = apply_filters( 'astra_the_404_page_title', esc_html( 'This page doesn\'t seem to exist.', 'astra' ) );
 
 				// for search page - title always display.
