@@ -727,7 +727,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 				// Default homepage.
 				$title = apply_filters( 'astra_the_default_home_page_title', esc_html( 'Home', 'astra' ) );
 			} elseif ( is_front_page() ) {
-				// Front page
+				// Front page.
 				$title = apply_filters( 'astra_the_front_page_title', esc_html( 'Home', 'astra' ) );
 			} elseif ( is_home() ) {
 				// blog page.
