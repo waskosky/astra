@@ -172,6 +172,7 @@
  */
 #message {
     display: block;
-    float: left;
-     width: 100%;
+    margin-left: 0;
+    /*float: left;
+    width: 100%;*/
 }
