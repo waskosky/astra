@@ -145,7 +145,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 
 			if ( apply_filters( 'astra_responsive_oembed', true ) ) {
-				// Filters the oEmbed process to run the responsive_oembed_wrapper() function
+				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 			}
 		}
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 * @return string       Updated embed markup.
 		 */
 		function responsive_oembed_wrapper( $html, $url, $attr ) {
-			return $html !== '' ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
+			return '' !== $html ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
 		}
 	}
 }// End if().
