@@ -127,6 +127,10 @@
 	padding-top: 0;
 }
 
+.appearance_page_astra .hndle.ui-sortable-handle {
+    cursor: default;
+}
+
 @media (min-width: 800px){
 	#astext-theme-branding-options {
 		float: left;
