@@ -1235,3 +1235,29 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	}
 endif; // End if().
 
+/**
+ * Astra Color Palletes.
+ */
+if ( ! function_exists( 'astra_color_pallets' ) ) :
+
+	/**
+	 * Astra Color Palletes.
+	 *
+	 * @return array Color Palletes.
+	 */
+	function astra_color_pallets() {
+
+		$color_pallets = array(
+			'#000000',
+			'#ffffff',
+			'#dd3333',
+			'#dd9933',
+			'#eeee22',
+			'#81d742',
+			'#1e73be',
+			'#8224e3',
+		);
+
+		return apply_filters( 'astra_color_palletes', $color_pallets );
+	}
+endif; // End if().

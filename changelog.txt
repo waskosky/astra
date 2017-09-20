@@ -1,3 +1,10 @@
+v1.0.20
+# New: Added filters for functions `astra_get_option()` and `astra_get_option_meta()`. This allows for modifying the theme options with very ease.
+# New: Added fullscreen support for any oEmbed markup.
+# New: Added filter 'astra_enable_default_fonts' to disable astra default font file.
+# New: Added filter 'astra_color_palletes' to set the default color palettes inside your color pickers in the Customizer.
+# Fix: SVG logos cannot be cropped hence this will fall back to resizing the logo with CSS when using a SVG logo.
+
 v1.0.19
 # New: Introducing an option where you can upload the Retina Logo.
 # New: Logo width option added.

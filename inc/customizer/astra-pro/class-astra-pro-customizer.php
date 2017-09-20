@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand control-section-default">
 			<h3 class="wp-ui-highlight">
 				<# if ( data.title && data.pro_url ) { #>
-				<a href="{{ data.pro_url }}" class="wp-ui-text-highlight" target="_blank">{{ data.title }}</a>
+				<a href="{{ data.pro_url }}" class="wp-ui-text-highlight" target="_blank" rel="noopener">{{ data.title }}</a>
 				<# } #>
 			</h3>
 		</li>
