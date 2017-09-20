@@ -1,6 +1,7 @@
 v1.0.20
 # New: Added filters for functions `astra_get_option()` and `astra_get_option_meta()`. This allows for modifying the theme options with very ease.
 # Fix: SVG logos cannot be cropped hence this will fall back to resizing the logo with CSS when using a SVG logo.
+# Fix: A cross-site scripting (XSS) vulnerability in the link modal.
 
 v1.0.19
 # New: Introducing an option where you can upload the Retina Logo.
