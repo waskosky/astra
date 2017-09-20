@@ -5813,15 +5813,3 @@ input[type="color"]::-webkit-color-swatch {
   -ms-grid-row-align: stretch;
   align-self: stretch;
 }
-
-/**
- * CSS is generated in /assets/css/{unminified/minified}/
- * And fonts are added in /assets/fonts/
- * For that added URL '../../' here.
- */
-@font-face {
-  font-family: 'Astra';
-  src: url(../../fonts/Astra.woff) format("woff"), url(../../fonts/Astra.ttf) format("truetype"), url(../../fonts/Astra.svg#Astra) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
