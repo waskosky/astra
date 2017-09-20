@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 
-			if ( apply_filters( 'astra_responsive_oembed', true ) ) {
+			if ( apply_filters( 'astra_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 			}
