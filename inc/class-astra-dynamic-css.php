@@ -601,7 +601,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Astra Fonts
 			 */
-			if ( apply_filters( 'astra_fonts_support', true ) ) {
+			if ( apply_filters( 'astra_enable_default_fonts', true ) ) {
 				$astra_fonts  = '@font-face {';
 					$astra_fonts .= 'font-family: "Astra";';
 					$astra_fonts .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.woff) format("woff"),';
