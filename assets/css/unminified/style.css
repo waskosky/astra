@@ -2240,6 +2240,10 @@ body {
   padding-right: 20px;
 }
 
+.ast-page-builder-template .entry-header.ast-no-title.ast-no-thumbnail {
+  margin-top: 0;
+}
+
 .ast-page-builder-template .entry-header.ast-header-without-markup {
   margin-top: 0;
   margin-bottom: 0;
