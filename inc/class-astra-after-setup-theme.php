@@ -143,6 +143,23 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
+
+			if ( apply_filters( 'astra_fullwidth_oembed', true ) ) {
+				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
+				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
+			}
+		}
+
+		/**
+		 * Adds a responsive embed wrapper around oEmbed content
+		 *
+		 * @param  string $html The oEmbed markup.
+		 * @param  string $url  The URL being embedded.
+		 * @param  array  $attr An array of attributes.
+		 * @return string       Updated embed markup.
+		 */
+		function responsive_oembed_wrapper( $html, $url, $attr ) {
+			return '' !== $html ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
 		}
 	}
 }// End if().
