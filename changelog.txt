@@ -1,3 +1,7 @@
+v1.0.21
+# Improvement: Updated the Toolset Types compatibility configuration.
+# Updated the theme screenshot.
+
 v1.0.20
 # New: Added filters for functions `astra_get_option()` and `astra_get_option_meta()`. This allows for modifying the theme options with very ease.
 # New: Added fullscreen support for any oEmbed markup.
