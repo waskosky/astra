@@ -1,3 +1,6 @@
+v1.0.22 (unrelease)
+# Fix: Divi Page builder preview for Tablet / Phone view not working.
+
 v1.0.21
 # Improvement: Updated the Toolset Types compatibility configuration.
 # Updated the theme screenshot.
