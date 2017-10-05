@@ -1,3 +1,6 @@
+v1.0.22
+# Improvement: Background Color picker with opacity option added the Customizer.
+
 v1.0.21
 # Improvement: Updated the Toolset Types compatibility configuration.
 # Updated the theme screenshot.
