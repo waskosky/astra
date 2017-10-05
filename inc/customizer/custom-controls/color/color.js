@@ -16,10 +16,7 @@
 				value,
 				thisInput,
 				inputDefault,
-				changeAction;
-
-			console.log( jQuery( '.ast-color-picker-alpha' ) );
-			
+				changeAction;			
 
 			this.container.find('.ast-color-picker-alpha' ).wpColorPicker({
 				/**
@@ -33,10 +30,6 @@
 			        var color = ui.color.toString();
 
 			       	control.setting.set( color );
-			        // if ( jQuery('html').hasClass('colorpicker-ready') ) {
-			        // }else{
-			        // 	jQuery('html').addClass('colorpicker-ready')
-			        // }
 			    },
 
 			    /**
