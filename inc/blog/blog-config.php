@@ -63,7 +63,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 					}
 					break;
 				default:
-					$output_str = apply_filters( 'astra_meta_case_'.$meta_value, $output_str, $loop_count, $separator );
+					$output_str = apply_filters( 'astra_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
 
 			}// End switch().
 
