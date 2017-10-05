@@ -6,6 +6,10 @@
  * @package Astra
  */
 
+jQuery(window).load(function() {
+  	jQuery('html').addClass('colorpicker-ready');
+});
+
 	wp.customize.controlConstructor['ast-color'] = wp.customize.Control.extend({
 
 		ready: function() {
@@ -29,7 +33,9 @@
 			        var element = event.target;
 			        var color = ui.color.toString();
 
-			       	control.setting.set( color );
+			        if ( jQuery('html').hasClass('colorpicker-ready') ) {
+						control.setting.set( color );
+			        }
 			    },
 
 			    /**
