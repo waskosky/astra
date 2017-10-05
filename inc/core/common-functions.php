@@ -369,7 +369,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	 * @param  string $option       Option key.
 	 * @param  string $default      Option default value.
 	 * @param  string $deprecated   Option default value.
-	 * @return string               Return option value.
+	 * @return Mixed               Return option value.
 	 */
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
@@ -379,9 +379,24 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 
 		$theme_options = Astra_Theme_Options::get_options();
 
+		/**
+		 * Filter the options array for Astra Settings.
+		 *
+		 * @since  1.0.20
+		 * @var Array
+		 */
+		$theme_options = apply_filters( 'astra_get_option_array', $theme_options, $option, $default );
+
 		$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
 
-		return $value;
+		/**
+		 * Dynamic filter astra_get_option_$option.
+		 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
+		 *
+		 * @since  1.0.20
+		 * @var Mixed.
+		 */
+		return apply_filters( "astra_get_option_{$option}", $value,  $option, $default );
 	}
 }
 
@@ -398,7 +413,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 	 * @param  boolean $only_meta Get only meta value.
 	 * @param  string  $extension Is value from extension.
 	 * @param  string  $post_id   Get value from specific post by post ID.
-	 * @return string             Return option value.
+	 * @return Mixed             Return option value.
 	 */
 	function astra_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
 
@@ -421,7 +436,14 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 			}
 		}
 
-		return $value;
+		/**
+		 * Dynamic filter astra_get_option_meta_$option.
+		 * $option_id is the name of the Astra Meta Setting.
+		 *
+		 * @since  1.0.20
+		 * @var Mixed.
+		 */
+		return apply_filters( "astra_get_option_meta_{$option_id}", $value,  $default, $default );
 	}
 }// End if().
 
@@ -626,8 +648,8 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 		if ( $enabled ) {
 
 			$title  = astra_get_the_title( $post_id );
-			$before = apply_filters( 'astra_the_post_title_before', '' ) . $before;
-			$after  = $after . apply_filters( 'astra_the_post_title_after', '' );
+			$before = apply_filters( 'astra_the_post_title_before', $before );
+			$after  = apply_filters( 'astra_the_post_title_after', $after );
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
@@ -665,8 +687,8 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 			if ( apply_filters( 'astra_the_title_enabled', true ) ) {
 
 				$title  = astra_get_the_title( $post_id );
-				$before = apply_filters( 'astra_the_title_before', '' ) . $before;
-				$after  = $after . apply_filters( 'astra_the_title_after', '' );
+				$before = apply_filters( 'astra_the_title_before', $before );
+				$after  = apply_filters( 'astra_the_title_after', $after );
 
 				$title  = $before . $title . $after;
 			}
@@ -701,10 +723,14 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 		if ( $post_id || is_singular() ) {
 			$title = get_the_title( $post_id );
 		} else {
-
-			// for 404 page - title always display.
-			if ( is_404() ) {
-
+			if ( is_front_page() && is_home() ) {
+				// Default homepage.
+				$title = apply_filters( 'astra_the_default_home_page_title', esc_html( 'Home', 'astra' ) );
+			} elseif ( is_home() ) {
+				// blog page.
+				$title = apply_filters( 'astra_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
+			} elseif ( is_404() ) {
+				// for 404 page - title always display.
 				$title = apply_filters( 'astra_the_404_page_title', esc_html( 'This page doesn\'t seem to exist.', 'astra' ) );
 
 				// for search page - title always display.

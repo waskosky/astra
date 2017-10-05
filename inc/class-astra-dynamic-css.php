@@ -184,6 +184,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.site-title' => array(
 					'font-size' => astra_responsive_font( $site_title_font_size, 'desktop' ),
 				),
+				'#masthead .site-logo-img .custom-logo-link img' => array(
+					'max-width' => esc_attr( astra_get_option( 'ast-header-logo-width' ) ) . 'px',
+				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
 				),
@@ -388,14 +391,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
-
 			);
-
-			if ( is_customize_preview() ) {
-				$css_output['#masthead .site-logo-img .custom-logo-link img'] = array(
-					'max-width' => astra_get_option( 'ast-header-logo-width' ) . 'px',
-				);
-			}
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
@@ -601,6 +597,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, '769' );
+
+			/**
+			 * Astra Fonts
+			 */
+			if ( apply_filters( 'astra_enable_default_fonts', true ) ) {
+				$astra_fonts  = '@font-face {';
+					$astra_fonts .= 'font-family: "Astra";';
+					$astra_fonts .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.woff) format("woff"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.ttf) format("truetype"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.svg#Astra) format("svg");';
+					$astra_fonts .= 'font-weight: normal;';
+					$astra_fonts .= 'font-style: normal;';
+				$astra_fonts .= '}';
+				$parse_css .= $astra_fonts;
+			}
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
