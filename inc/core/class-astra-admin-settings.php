@@ -150,6 +150,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Styles.
 			wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), ASTRA_THEME_VERSION );
+
+			$color_palettes = json_encode( astra_color_pallets() );
+			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
 
 		/**
@@ -253,7 +256,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Settings update message.
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
 				?>
-					<span id="message" class="notice notice-success is-dismissive"><p> <?php esc_html_e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
+					<span id="message" class="notice notice-success is-dismissive astra-notice"><p> <?php esc_html_e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
 				<?php
 			}
 
@@ -296,7 +299,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			if ( apply_filters( 'astra_dashboard_admin_menu', true ) ) {
+				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			} else {
+				do_action( 'asta_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			}
 		}
 
 		/**

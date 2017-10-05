@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.16\n"
+"Project-Id-Version: Astra 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-08-16 06:44:49+00:00\n"
+"POT-Creation-Date: 2017-10-03 09:17:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,15 +46,15 @@ msgstr ""
 msgid ", "
 msgstr ""
 
-#: inc/blog/single-blog.php:119
+#: inc/blog/single-blog.php:125
 msgid "Pingback:"
 msgstr ""
 
-#: inc/blog/single-blog.php:119
+#: inc/blog/single-blog.php:125
 msgid "(Edit)"
 msgstr ""
 
-#: inc/blog/single-blog.php:150
+#: inc/blog/single-blog.php:156
 #. translators: 1: date, 2: time
 msgid "%1$s at %2$s"
 msgstr ""
@@ -135,20 +135,20 @@ msgstr ""
 msgid "Astra"
 msgstr ""
 
-#: inc/core/class-astra-admin-settings.php:118
+#: inc/core/class-astra-admin-settings.php:120
 msgid "Welcome"
 msgstr ""
 
-#: inc/core/class-astra-admin-settings.php:223
+#: inc/core/class-astra-admin-settings.php:259
 msgid "Settings saved successfully."
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:114
-#: inc/core/class-astra-theme-options.php:116
+#: inc/core/class-astra-theme-options.php:124
+#: inc/core/class-astra-theme-options.php:126
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:128
+#: inc/core/class-astra-theme-options.php:140
 msgid "Contact Us"
 msgstr ""
 
@@ -278,26 +278,26 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:711 inc/core/common-functions.php:794
+#: inc/core/common-functions.php:740 inc/core/common-functions.php:820
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/core/view-general.php:21
+#: inc/core/view-general.php:22
 msgid "Welcome to Astra"
 msgstr ""
 
-#: inc/core/view-general.php:24
+#: inc/core/view-general.php:25
 msgid ""
 "Astra is a very lightweight and beautiful theme made to work with Page "
 "Builders."
 msgstr ""
 
-#: inc/core/view-general.php:27
+#: inc/core/view-general.php:28
 msgid "Go ahead and start customizing your website."
 msgstr ""
 
-#: inc/core/view-general.php:29
+#: inc/core/view-general.php:30
 msgid "Customize"
 msgstr ""
 
@@ -305,13 +305,13 @@ msgstr ""
 msgid "Get more with Astra Pro"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-sanitizes.php:136
+#: inc/customizer/class-astra-customizer-sanitizes.php:163
 msgid "Enter valid email address!"
 msgstr ""
 
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:63
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:100
-#: inc/customizer/sections/typography/body.php:237
+#: inc/customizer/sections/typography/body.php:265
 msgid "Inherit"
 msgstr ""
 
@@ -384,7 +384,7 @@ msgid "Single Post"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:72
-#: inc/metabox/class-astra-meta-boxes.php:158
+#: inc/metabox/class-astra-meta-boxes.php:169
 msgid "Sidebar"
 msgstr ""
 
@@ -497,40 +497,54 @@ msgid "Layout 4"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:32
-msgid "Single Post Meta"
+msgid "Single Post Structure"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:34
 #: inc/customizer/sections/layout/blog.php:57
-msgid "Comments"
+msgid "Featured Image"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:35
 #: inc/customizer/sections/layout/blog.php:58
+msgid "Title & Blog Meta"
+msgstr ""
+
+#: inc/customizer/sections/layout/blog-single.php:57
+msgid "Single Post Meta"
+msgstr ""
+
+#: inc/customizer/sections/layout/blog-single.php:59
+#: inc/customizer/sections/layout/blog.php:82
+msgid "Comments"
+msgstr ""
+
+#: inc/customizer/sections/layout/blog-single.php:60
+#: inc/customizer/sections/layout/blog.php:83
 msgid "Category"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:36
-#: inc/customizer/sections/layout/blog.php:59
+#: inc/customizer/sections/layout/blog-single.php:61
+#: inc/customizer/sections/layout/blog.php:84
 msgid "Author"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:37
-#: inc/customizer/sections/layout/blog.php:60
+#: inc/customizer/sections/layout/blog-single.php:62
+#: inc/customizer/sections/layout/blog.php:85
 msgid "Publish Date"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:38
-#: inc/customizer/sections/layout/blog.php:61
+#: inc/customizer/sections/layout/blog-single.php:63
+#: inc/customizer/sections/layout/blog.php:86
 msgid "Tag"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:73
+#: inc/customizer/sections/layout/blog-single.php:98
 msgid "Single Post Content Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:75
-#: inc/customizer/sections/layout/blog.php:98
+#: inc/customizer/sections/layout/blog-single.php:100
+#: inc/customizer/sections/layout/blog.php:123
 #: inc/customizer/sections/layout/container.php:68
 #: inc/customizer/sections/layout/container.php:93
 #: inc/customizer/sections/layout/container.php:118
@@ -543,13 +557,13 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:76
-#: inc/customizer/sections/layout/blog.php:99
+#: inc/customizer/sections/layout/blog-single.php:101
+#: inc/customizer/sections/layout/blog.php:124
 msgid "Custom"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:98
-#: inc/customizer/sections/layout/blog.php:121
+#: inc/customizer/sections/layout/blog-single.php:123
+#: inc/customizer/sections/layout/blog.php:146
 msgid "Enter Width"
 msgstr ""
 
@@ -566,10 +580,14 @@ msgid "Excerpt"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog.php:55
+msgid "Blog Post Structure"
+msgstr ""
+
+#: inc/customizer/sections/layout/blog.php:80
 msgid "Blog Meta"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:96
+#: inc/customizer/sections/layout/blog.php:121
 msgid "Blog Content Width"
 msgstr ""
 
@@ -582,7 +600,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:69
 #: inc/customizer/sections/layout/container.php:94
 #: inc/customizer/sections/layout/container.php:119
-#: inc/metabox/class-astra-meta-boxes.php:177
+#: inc/metabox/class-astra-meta-boxes.php:188
 msgid "Boxed"
 msgstr ""
 
@@ -590,7 +608,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:70
 #: inc/customizer/sections/layout/container.php:95
 #: inc/customizer/sections/layout/container.php:120
-#: inc/metabox/class-astra-meta-boxes.php:178
+#: inc/metabox/class-astra-meta-boxes.php:189
 msgid "Content Boxed"
 msgstr ""
 
@@ -598,7 +616,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:71
 #: inc/customizer/sections/layout/container.php:96
 #: inc/customizer/sections/layout/container.php:121
-#: inc/metabox/class-astra-meta-boxes.php:179
+#: inc/metabox/class-astra-meta-boxes.php:190
 msgid "Full Width / Contained"
 msgstr ""
 
@@ -606,7 +624,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:72
 #: inc/customizer/sections/layout/container.php:97
 #: inc/customizer/sections/layout/container.php:122
-#: inc/metabox/class-astra-meta-boxes.php:180
+#: inc/metabox/class-astra-meta-boxes.php:191
 msgid "Full Width / Stretched"
 msgstr ""
 
@@ -649,7 +667,7 @@ msgstr ""
 #: inc/customizer/sections/layout/footer.php:141
 #: inc/customizer/sections/layout/header.php:88
 #: inc/customizer/sections/typography/body.php:97
-#: inc/customizer/sections/typography/body.php:238
+#: inc/customizer/sections/typography/body.php:266
 msgid "None"
 msgstr ""
 
@@ -718,7 +736,7 @@ msgstr ""
 msgid "Custom Menu Item"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:89 inc/extras.php:229
+#: inc/customizer/sections/layout/header.php:89 inc/extras.php:249
 msgid "Search"
 msgstr ""
 
@@ -762,7 +780,7 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:73
 #: inc/customizer/sections/layout/sidebar.php:98
 #: inc/customizer/sections/layout/sidebar.php:123
-#: inc/metabox/class-astra-meta-boxes.php:164
+#: inc/metabox/class-astra-meta-boxes.php:175
 msgid "No Sidebar"
 msgstr ""
 
@@ -770,7 +788,7 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:74
 #: inc/customizer/sections/layout/sidebar.php:99
 #: inc/customizer/sections/layout/sidebar.php:124
-#: inc/metabox/class-astra-meta-boxes.php:162
+#: inc/metabox/class-astra-meta-boxes.php:173
 msgid "Left Sidebar"
 msgstr ""
 
@@ -778,7 +796,7 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:75
 #: inc/customizer/sections/layout/sidebar.php:100
 #: inc/customizer/sections/layout/sidebar.php:125
-#: inc/metabox/class-astra-meta-boxes.php:163
+#: inc/metabox/class-astra-meta-boxes.php:174
 msgid "Right Sidebar"
 msgstr ""
 
@@ -790,11 +808,19 @@ msgstr ""
 msgid "Container Width"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:44
+#: inc/customizer/sections/site-identity/site-identity.php:32
+msgid "Retina Logo"
+msgstr ""
+
+#: inc/customizer/sections/site-identity/site-identity.php:55
+msgid "Logo Width"
+msgstr ""
+
+#: inc/customizer/sections/site-identity/site-identity.php:93
 msgid "Display Site Title"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:64
+#: inc/customizer/sections/site-identity/site-identity.php:113
 msgid "Display Site Tagline"
 msgstr ""
 
@@ -826,32 +852,32 @@ msgid "Body & Content"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:49
-#: inc/customizer/sections/typography/body.php:189
+#: inc/customizer/sections/typography/body.php:217
 msgid "Font Family"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:72
-#: inc/customizer/sections/typography/body.php:211
+#: inc/customizer/sections/typography/body.php:239
 msgid "Font Weight"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:94
-#: inc/customizer/sections/typography/body.php:233
+#: inc/customizer/sections/typography/body.php:261
 msgid "Text Transform"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:98
-#: inc/customizer/sections/typography/body.php:239
+#: inc/customizer/sections/typography/body.php:267
 msgid "Capitalize"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:99
-#: inc/customizer/sections/typography/body.php:240
+#: inc/customizer/sections/typography/body.php:268
 msgid "Uppercase"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:100
-#: inc/customizer/sections/typography/body.php:241
+#: inc/customizer/sections/typography/body.php:269
 msgid "Lowercase"
 msgstr ""
 
@@ -859,7 +885,11 @@ msgstr ""
 msgid "Line Height"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:169
+#: inc/customizer/sections/typography/body.php:177
+msgid "Paragraph Margin Bottom"
+msgstr ""
+
+#: inc/customizer/sections/typography/body.php:197
 msgid "Headings"
 msgstr ""
 
@@ -899,57 +929,65 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:258
+#: inc/extras.php:278
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:351
+#: inc/extras.php:371
 msgid "Y"
 msgstr ""
 
-#: inc/extras.php:397
+#: inc/extras.php:417
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:542
+#: inc/extras.php:562
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:929
+#: inc/extras.php:948
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1012
+#: inc/extras.php:1031
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:106
+#: inc/metabox/class-astra-meta-boxes.php:116
 msgid "Astra Settings"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:161
-#: inc/metabox/class-astra-meta-boxes.php:176
+#: inc/metabox/class-astra-meta-boxes.php:172
+#: inc/metabox/class-astra-meta-boxes.php:187
 msgid "Customizer Setting"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:173
+#: inc/metabox/class-astra-meta-boxes.php:184
 msgid "Content Layout"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:189
+#: inc/metabox/class-astra-meta-boxes.php:200
 msgid "Disable Sections"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:197
+#: inc/metabox/class-astra-meta-boxes.php:208
+msgid "Disable Primary Header"
+msgstr ""
+
+#: inc/metabox/class-astra-meta-boxes.php:216
 msgid "Disable Title"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:211
-msgid "Disable Small Footer"
+#: inc/metabox/class-astra-meta-boxes.php:224
+msgid "Disable Featured Image"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:220
-msgid "Disable Primary Header"
+#: inc/metabox/class-astra-meta-boxes.php:237
+msgid "Disable Footer Widgets"
+msgstr ""
+
+#: inc/metabox/class-astra-meta-boxes.php:250
+msgid "Disable Footer Bar"
 msgstr ""
 
 #: inc/template-parts.php:163
@@ -957,7 +995,7 @@ msgid "Main Menu"
 msgstr ""
 
 #: inc/template-tags.php:32 template-parts/content-page.php:52
-#: template-parts/single/single-layout.php:43
+#: template-parts/single/single-layout.php:41
 #. translators: %s: Name of current post
 msgid "Edit %s"
 msgstr ""

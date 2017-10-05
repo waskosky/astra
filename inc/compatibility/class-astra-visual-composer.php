@@ -60,6 +60,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 			update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 			update_post_meta( $id, 'site-post-title', 'disabled' );
 			update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
+			update_post_meta( $id, 'ast-featured-img', 'disabled' );
 
 			$content_layout = get_post_meta( $id, 'site-content-layout', true );
 			if ( empty( $content_layout ) || 'default' == $content_layout ) {

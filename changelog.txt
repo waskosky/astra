@@ -1,7 +1,21 @@
-v1.0.19 - unreleased
+v1.0.21
+# Improvement: Updated the Toolset Types compatibility configuration.
+# Updated the theme screenshot.
+
+v1.0.20
+# New: Added filters for functions `astra_get_option()` and `astra_get_option_meta()`. This allows for modifying the theme options with very ease.
+# New: Added fullscreen support for any oEmbed markup.
+# New: Added filter 'astra_enable_default_fonts' to disable astra default font file.
+# New: Added filter 'astra_color_palletes' to set the default color palettes inside your color pickers in the Customizer.
+# Fix: SVG logos cannot be cropped hence this will fall back to resizing the logo with CSS when using a SVG logo.
+
+v1.0.19
+# New: Introducing an option where you can upload the Retina Logo.
+# New: Logo width option added.
 # Fixed: Title is not working for anspress questions shortcode.
 # Fixed: Accessibility, focus on navigation link, color not working as on hover
 # Fixed: Display correct page title When on Astra Settings Page.
+# Improvement: Register Astra meta box only for public post type.
 
 v1.0.18
 # New: Blog / Archive and Single Post Layout : Post Structure sortable option added to control the post title and post featured image.
