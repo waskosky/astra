@@ -1,4 +1,5 @@
 v1.0.22 (unrelease)
+# Improvement: Background Color picker with opacity option added the Customizer.
 # Fix: Divi Page builder preview for Tablet / Phone view not working.
 
 v1.0.21

@@ -2176,7 +2176,7 @@ body {
 
 .ast-separate-container .blog-layout-1 {
   padding: 0;
-  background-color: #fff;
+  /*background-color: $color-background-content;*/
   border-bottom: 0;
 }
 
@@ -3825,6 +3825,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
  *
  */
 .ast-footer-overlay {
+  background-color: #3a3a3a;
   padding-top: 2em;
   padding-bottom: 2em;
 }
@@ -3930,7 +3931,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .site-footer {
-  background-color: #3a3a3a;
   color: #fff;
 }
 
@@ -3963,6 +3963,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
  * Footer Widget Layouts
  */
 .footer-adv-overlay {
+  background-color: #3a3a3a;
   padding-top: 70px;
   padding-bottom: 70px;
 }
