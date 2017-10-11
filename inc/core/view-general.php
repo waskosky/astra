@@ -9,6 +9,7 @@
  * @since       Astra 1.0
  */
 
+$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) );
 ?>
 
 <div class="wrap ast-clear">
@@ -22,8 +23,9 @@
 						<h2 class="ui-sortable-handle">
 							<span>
 								<?php
+
 								/* translators: 1: Astra Theme name */
-								printf( esc_html__( 'Welcome to %1$s', 'astra' ), apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) ) );
+								printf( esc_html__( 'Welcome to %1$s', 'astra' ), $astra_theme_name );
 								?>
 							</span>
 						</h2>
@@ -31,7 +33,7 @@
 							<p>
 								<?php
 								/* translators: 1: Astra Theme name */
-								printf( esc_html__( '%1$s is a very lightweight and beautiful theme made to work with Page Builders.', 'astra' ), apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) ) );
+								printf( esc_html__( '%1$s is a very lightweight and beautiful theme made to work with Page Builders.', 'astra' ), $astra_theme_name );
 								?>
 							</p>
 							<p>
