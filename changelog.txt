@@ -1,3 +1,6 @@
+v1.0.23
+# Fix: Edge browser responsive navigation menu not working.
+
 v1.0.22
 # Improvement: Background Color picker with opacity option added the Customizer.
 # Fix: Divi Page builder preview for Tablet / Phone view not working.
