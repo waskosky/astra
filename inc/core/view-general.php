@@ -19,10 +19,20 @@
 
 				<div id="normal-sortables-1" class="astra-col-33">
 					 <div class="postbox ">
-						<h2 class="ui-sortable-handle"><span><?php esc_html_e( 'Welcome to Astra', 'astra' ); ?></span></h2>
+						<h2 class="ui-sortable-handle">
+							<span>
+								<?php
+								/* translators: 1: Astra Theme name */
+								printf( esc_html__( 'Welcome to %1$s', 'astra' ), apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) ) );
+								?>
+							</span>
+						</h2>
 						<div class="inside">
 							<p>
-								<?php esc_html_e( 'Astra is a very lightweight and beautiful theme made to work with Page Builders.', 'astra' ); ?>
+								<?php
+								/* translators: 1: Astra Theme name */
+								printf( esc_html__( '%1$s is a very lightweight and beautiful theme made to work with Page Builders.', 'astra' ), apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) ) );
+								?>
 							</p>
 							<p>
 								<?php esc_html_e( 'Go ahead and start customizing your website.', 'astra' ); ?>
