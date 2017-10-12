@@ -7,6 +7,9 @@
  * @package Astra
  */
 
+var isIE = false;
+var isEdge = false;
+
 /**
  * Get all of an element's parent elements up the DOM tree
  *
@@ -68,6 +71,14 @@ var toggleClass = function ( el, className ) {
 
 // CustomEvent() constructor functionality in Internet Explorer 9 and higher.
 (function () {
+
+	
+    // Internet Explorer 6-11
+    isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+    // Edge 20+
+    isEdge = !isIE && !!window.StyleMedia;
+
 
 	if ( typeof window.CustomEvent === "function" ) return false;
 
@@ -262,7 +273,7 @@ var toggleClass = function ( el, className ) {
 					var header_content_bp = window.getComputedStyle( headerWrap[i] ).content;
 
 					// Edge/Explorer header break point.
-					if( header_content_bp === 'normal' ) {
+					if( isEdge || isIE || header_content_bp === 'normal' ) {
 						if( window.innerWidth <= break_point ) {
 							header_content_bp = break_point;
 						}
