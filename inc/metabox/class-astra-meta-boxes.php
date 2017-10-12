@@ -107,10 +107,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				)
 			);
 
+			$post_types['fl-theme-layout'] = 'fl-theme-layout';
+			
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
-				if ( 'attachment' !== $type && 'fl-theme-layout' !== $type ) {
+				if ( 'attachment' !== $type /*&& 'fl-theme-layout' !== $type*/ ) {
 					add_meta_box(
 						'astra_settings_meta_box',              // Id.
 						__( 'Astra Settings', 'astra' ), // Title.
