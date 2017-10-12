@@ -112,3 +112,10 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-lifter-lms.php';
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
 }
+
+/**
+ * Load deprecated functions
+ */
+require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
+require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
+require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
