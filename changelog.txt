@@ -1,6 +1,8 @@
 v1.0.23
 # Fix: Edge browser responsive navigation menu not working.
 # Improvement: Added filter to support white-label for the theme name on theme's welcome page.
+# Tweak: Renamed filter astra_color_palletes to astra_color_palettes.
+# Tweak: Deprecated filter astra_color_palletes.
 
 v1.0.22
 # Improvement: Background Color picker with opacity option added the Customizer.
