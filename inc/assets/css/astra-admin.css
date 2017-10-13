@@ -33,7 +33,7 @@
 }
 
 #side-sortables #astra_settings_meta_box select {
-	min-width: 50%;
+	min-width: 100%;
 }
 
 #normal-sortables #astra_settings_meta_box select {
