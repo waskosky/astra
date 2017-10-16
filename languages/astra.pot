@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.21\n"
+"Project-Id-Version: Astra 1.0.23\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-10-03 09:17:30+00:00\n"
+"POT-Creation-Date: 2017-10-13 05:59:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -278,31 +278,41 @@ msgid ""
 "searching can help."
 msgstr ""
 
+#: inc/core/common-functions.php:728
+msgid "Home"
+msgstr ""
+
+#: inc/core/common-functions.php:734
+msgid "This page doesn't seem to exist."
+msgstr ""
+
 #: inc/core/common-functions.php:740 inc/core/common-functions.php:820
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/core/view-general.php:22
-msgid "Welcome to Astra"
+#: inc/core/view-general.php:28
+#. translators: 1: Astra Theme name
+msgid "Welcome to %1$s"
 msgstr ""
 
-#: inc/core/view-general.php:25
+#: inc/core/view-general.php:36
+#. translators: 1: Astra Theme name
 msgid ""
-"Astra is a very lightweight and beautiful theme made to work with Page "
+"%1$s is a very lightweight and beautiful theme made to work with Page "
 "Builders."
 msgstr ""
 
-#: inc/core/view-general.php:28
+#: inc/core/view-general.php:40
 msgid "Go ahead and start customizing your website."
 msgstr ""
 
-#: inc/core/view-general.php:30
+#: inc/core/view-general.php:42
 msgid "Customize"
 msgstr ""
 
 #: inc/customizer/astra-pro/astra-pro-section-register.php:19
-msgid "Get more with Astra Pro"
+msgid "Need More Options? Get Astra Pro!"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-sanitizes.php:163
@@ -474,9 +484,9 @@ msgstr ""
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/advanced-footer.php:119
-#: inc/customizer/sections/colors-background/footer.php:103
-#: inc/customizer/sections/layout/container.php:143
+#: inc/customizer/sections/colors-background/advanced-footer.php:120
+#: inc/customizer/sections/colors-background/footer.php:104
+#: inc/customizer/sections/layout/container.php:144
 msgid "Background Color"
 msgstr ""
 
