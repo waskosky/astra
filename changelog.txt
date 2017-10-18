@@ -1,3 +1,11 @@
+v1.0.24
+# Improvement: Save the current theme version in the database so that it can be used for data processing on theme upgrades.
+
+v1.0.23
+# Improvement: Whitelabel from Astra Pro now updates the strings on Astra's welcome page as well.
+# Improvement: Renamed filter `astra_color_palletes` to `astra_color_palettes`. The older filter will keep working but it is recommended to change to the new filter.
+# Fix: Mobile navigation breakpoint not working on IE11 and Edge.
+
 v1.0.22
 # Improvement: Background Color picker with opacity option added the Customizer.
 # Fix: Divi Page builder preview for Tablet / Phone view not working.
