@@ -1,5 +1,6 @@
 v1.0.24
 # Improvement: Save the current theme version in the database so that it can be used for data processing on theme upgrades.
+# Fixed: Elementor Nav Menu in Header and Footer css conflict.
 
 v1.0.23
 # Improvement: Whitelabel from Astra Pro now updates the strings on Astra's welcome page as well.
