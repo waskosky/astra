@@ -1,3 +1,6 @@
+v1.0.25
+# Fixed: Astra's menu CSS being applied to the Elementor's menu when used as replacement in the header.
+
 v1.0.24
 # Improvement: Save the current theme version in the database so that it can be used for data processing on theme upgrades.
 
