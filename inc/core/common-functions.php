@@ -725,13 +725,13 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 		} else {
 			if ( is_front_page() && is_home() ) {
 				// Default homepage.
-				$title = apply_filters( 'astra_the_default_home_page_title', esc_html( 'Home', 'astra' ) );
+				$title = apply_filters( 'astra_the_default_home_page_title', esc_html__( 'Home', 'astra' ) );
 			} elseif ( is_home() ) {
 				// blog page.
 				$title = apply_filters( 'astra_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
 			} elseif ( is_404() ) {
 				// for 404 page - title always display.
-				$title = apply_filters( 'astra_the_404_page_title', esc_html( 'This page doesn\'t seem to exist.', 'astra' ) );
+				$title = apply_filters( 'astra_the_404_page_title', esc_html__( 'This page doesn\'t seem to exist.', 'astra' ) );
 
 				// for search page - title always display.
 			} elseif ( is_search() ) {
