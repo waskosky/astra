@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 				$template_id 	= $template_ids[0];
 				$template_type 	= get_post_meta( $template_id, '_fl_theme_layout_type', true );
 
-				if ( 'archive' === $template_type || 'singular' === $template_type ) {
+				if ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) {
 
 					$sidebar = get_post_meta( $template_id, 'site-sidebar-layout', true );
 					
