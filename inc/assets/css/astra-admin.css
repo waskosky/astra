@@ -40,3 +40,13 @@
 	min-width: 200px;
 
 }
+
+.post-type-fl-theme-layout .site-post-title-option-wrap,
+.post-type-fl-theme-layout .site-post-title-option-wrap + br,
+.post-type-fl-theme-layout .ast-featured-img-option-wrap,
+.post-type-fl-theme-layout .ast-featured-img-option-wrap + br,
+.post-type-fl-theme-layout .adv-header-wrapper,
+.post-type-fl-theme-layout .stick-header-wrapper,
+.post-type-fl-theme-layout .transparent-header-wrapper {
+	display: none !important;
+}
