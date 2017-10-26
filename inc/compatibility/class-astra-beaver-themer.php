@@ -47,8 +47,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 			add_action( 'wp',                           array( $this, 'theme_header_footer_render' ) );
 			add_filter( 'fl_theme_builder_part_hooks',  array( $this, 'register_part_hooks' ) );
 			add_filter( 'post_class',                   array( $this, 'render_post_class' ), 99 );
-			//add_filter( 'astra_get_content_layout',     array( $this, 'builder_template_content_layout' ), 20 );
-			
+			// add_filter( 'astra_get_content_layout',     array( $this, 'builder_template_content_layout' ), 20 );
 			add_action( 'fl_theme_builder_before_render_content',     array( $this, 'builder_before_render_content' ), 10, 1 );
 			add_action( 'fl_theme_builder_after_render_content',     array( $this, 'builder_after_render_content' ), 10, 1 );
 		}
@@ -132,19 +131,18 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 				add_action( 'astra_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 			}
 
-
-			// BB Themer Support
+			// BB Themer Support.
 			$template_ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
 
 			if ( ! empty( $template_ids ) ) {
-				
-				$template_id 	= $template_ids[0];
-				$template_type 	= get_post_meta( $template_id, '_fl_theme_layout_type', true );
+
+				$template_id    = $template_ids[0];
+				$template_type  = get_post_meta( $template_id, '_fl_theme_layout_type', true );
 
 				if ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) {
 
 					$sidebar = get_post_meta( $template_id, 'site-sidebar-layout', true );
-					
+
 					if ( 'default' !== $sidebar ) {
 						add_filter(
 							'astra_page_layout', function( $page_layout ) use ( $sidebar ) {
@@ -154,7 +152,6 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 						);
 					}
 
-					
 					$content_layout = get_post_meta( $template_id, 'site-content-layout', true );
 					if ( 'default' !== $content_layout ) {
 						add_filter(
@@ -166,23 +163,22 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					}
 
 					$main_header_display = get_post_meta( $template_id, 'ast-main-header-display', true );
-					if ( 'disabled' ===  $main_header_display  ) {
-						
+					if ( 'disabled' === $main_header_display ) {
+
 						if ( 'archive' === $template_type ) {
-						 	remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
-						}else{
+							 remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+						} else {
 							add_filter(
 								'ast_main_header_display', function( $display_header ) {
 
 									return 'disabled';
 								}
 							);
-						} 
-
+						}
 					}
 
 					$footer_layout = get_post_meta( $template_id, 'footer-sml-layout', true );
-					if ( 'disabled' ===  $footer_layout  ) {
+					if ( 'disabled' === $footer_layout ) {
 
 						add_filter(
 							'ast_footer_sml_layout', function( $is_footer ) {
@@ -191,34 +187,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 							}
 						);
 					}
-
-					/*if ( 'singular' === $template_type ) {
-						
-						// Site Title.
-						$site_title = get_post_meta( $template_id, 'site-post-title', true );
-						if ( 'disabled' ===  $site_title  ) {
-
-							add_filter(
-								'astra_the_title_enabled', function( $is_title ) {
-
-									return false;
-								}
-							);
-						}
-
-						// Featured Image.
-						$featured_img = get_post_meta( $template_id, 'ast-featured-img', true );
-						if ( 'disabled' ===  $featured_img  ) {
-
-							add_filter(
-								'astra_featured_image_enabled', function( $is_featured_img ) {
-
-									return false;
-								}
-							);
-						}
-					}*/
-				} 
+				}
 			}
 		}
 
@@ -280,7 +249,13 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 				),
 			);
 		}
-		
+
+		/**
+		 * Function to theme before render content
+		 *
+		 * @param int $post_id Post ID.
+		 * @since 1.0.28
+		 */
 		function builder_before_render_content( $post_id ) {
 
 		?>
@@ -294,6 +269,12 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		<?php
 		}
 
+		/**
+		 * Function to theme after render content
+		 *
+		 * @param int $post_id Post ID.
+		 * @since 1.0.28
+		 */
 		function builder_after_render_content( $post_id ) {
 
 		?>

@@ -50,19 +50,22 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-			add_action( 'do_meta_boxes', 		 array( $this, 'remove_metabox' ) );
+			add_action( 'do_meta_boxes',         array( $this, 'remove_metabox' ) );
 		}
 
+		/**
+		 *  Remove Metabox for beaver themer specific layouts
+		 */
 		public function remove_metabox() {
 
-			$post_type 	= get_post_type();
-			$post_id 	= get_the_ID();
-			
-			if ( 'fl-theme-layout' === $post_type && $post_id ) {
-				
-				$template_type 	= get_post_meta( $post_id, '_fl_theme_layout_type', true );
+			$post_type  = get_post_type();
+			$post_id    = get_the_ID();
 
-				if( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
+			if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+				$template_type  = get_post_meta( $post_id, '_fl_theme_layout_type', true );
+
+				if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
 
 					remove_meta_box( 'astra_settings_meta_box', 'fl-theme-layout', 'side' );
 				}
@@ -124,11 +127,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			);
 
 			$post_types['fl-theme-layout'] = 'fl-theme-layout';
-			
+
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
-				if ( 'attachment' !== $type /*&& 'fl-theme-layout' !== $type*/ ) {
+				if ( 'attachment' !== $type ) {
 					add_meta_box(
 						'astra_settings_meta_box',              // Id.
 						__( 'Astra Settings', 'astra' ), // Title.
