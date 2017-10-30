@@ -42,9 +42,10 @@
 }
 
 .post-type-fl-theme-layout .site-post-title-option-wrap,
-.post-type-fl-theme-layout .site-post-title-option-wrap + br,
 .post-type-fl-theme-layout .ast-featured-img-option-wrap,
-.post-type-fl-theme-layout .ast-featured-img-option-wrap + br,
+.post-type-fl-theme-layout .footer-adv-display-option-wrap,
+.post-type-fl-theme-layout .ast-above-header-display-option-wrap,
+.post-type-fl-theme-layout .ast-below-header-display-option-wrap,
 .post-type-fl-theme-layout .adv-header-wrapper,
 .post-type-fl-theme-layout .stick-header-wrapper,
 .post-type-fl-theme-layout .transparent-header-wrapper {
