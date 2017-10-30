@@ -3222,6 +3222,10 @@ body {
   padding: 1em 0;
 }
 
+.main-header-bar .main-header-bar-navigation:empty {
+  padding: 0;
+}
+
 .main-header-bar .main-header-bar-navigation .children,
 .main-header-bar .main-header-bar-navigation .sub-menu {
   line-height: 1.45;
