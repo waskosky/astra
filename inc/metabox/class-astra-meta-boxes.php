@@ -54,6 +54,24 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
+		 * Check if layout is bb themer's layout
+		 */
+		public static function is_bb_themer_layout() {
+
+			$is_layout  = false;
+
+			$post_type  = get_post_type();
+			$post_id    = get_the_ID();
+
+			if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+				$is_layout      = true;
+			}
+
+			return $is_layout;
+		}
+
+		/**
 		 *  Remove Metabox for beaver themer specific layouts
 		 */
 		public function remove_metabox() {
@@ -180,6 +198,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+
+			$show_meta_field     = ! Astra_Meta_Boxes::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
@@ -233,25 +253,27 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						</label>
 					</div>
 
-					<div class="site-post-title-option-wrap">
-						<label for="site-post-title">
-							<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Title', 'astra' ); ?>
-						</label>
-					</div>
+					<?php if ( $show_meta_field ) { ?>
+						<div class="site-post-title-option-wrap">
+							<label for="site-post-title">
+								<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
+								<?php esc_html_e( 'Disable Title', 'astra' ); ?>
+							</label>
+						</div>
 
-					<div class="ast-featured-img-option-wrap">
-						<label for="ast-featured-img">
-							<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
-						</label>
-					</div>
+						<div class="ast-featured-img-option-wrap">
+							<label for="ast-featured-img">
+								<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
+								<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
+							</label>
+						</div>
+					<?php } ?>
 					
 
 					<?php
 					$footer_adv_layout = astra_get_option( 'footer-adv' );
 
-					if ( 'disabled' != $footer_adv_layout ) {
+					if ( $show_meta_field && 'disabled' != $footer_adv_layout ) {
 					?>
 					<div class="footer-adv-display-option-wrap">
 						<label for="footer-adv-display">
