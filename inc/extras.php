@@ -527,11 +527,14 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 	function astra_primary_navigation_markup() {
 
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
+		$custom_header_section = astra_get_option( 'header-main-rt-section' );
 
 		if ( $disable_primary_navigation ) {
-			echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
-			echo astra_masthead_get_menu_items();
-			echo '</div>';
+			if ( 'none' != $custom_header_section ) {
+				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+				echo astra_masthead_get_menu_items();
+				echo '</div>';
+			}
 		} else {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
