@@ -1248,16 +1248,16 @@ endif; // End if().
 /**
  * Astra Color Palletes.
  */
-if ( ! function_exists( 'astra_color_pallets' ) ) :
+if ( ! function_exists( 'astra_color_palette' ) ) :
 
 	/**
 	 * Astra Color Palletes.
 	 *
 	 * @return array Color Palletes.
 	 */
-	function astra_color_pallets() {
+	function astra_color_palette() {
 
-		$color_pallets = array(
+		$color_palette = array(
 			'#000000',
 			'#ffffff',
 			'#dd3333',
@@ -1268,6 +1268,6 @@ if ( ! function_exists( 'astra_color_pallets' ) ) :
 			'#8224e3',
 		);
 
-		return apply_filters( 'astra_color_palletes', $color_pallets );
+		return apply_filters( 'astra_color_palettes', $color_palette );
 	}
 endif; // End if().

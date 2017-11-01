@@ -1,3 +1,22 @@
+v1.0.26
+# Fix: duplicate menu dropdown toggle appearing on mobile devices
+
+v1.0.25
+# Fixed: Astra's menu CSS being applied to the Elementor's menu when used as replacement in the header.
+# Updated the theme screenshot and correct license details for the screenshot.
+
+v1.0.24
+# Improvement: Save the current theme version in the database so that it can be used for data processing on theme upgrades.
+
+v1.0.23
+# Improvement: Whitelabel from Astra Pro now updates the strings on Astra's welcome page as well.
+# Improvement: Renamed filter `astra_color_palletes` to `astra_color_palettes`. The older filter will keep working but it is recommended to change to the new filter.
+# Fix: Mobile navigation breakpoint not working on IE11 and Edge.
+
+v1.0.22
+# Improvement: Background Color picker with opacity option added the Customizer.
+# Fix: Divi Page builder preview for Tablet / Phone view not working.
+
 v1.0.21
 # Improvement: Updated the Toolset Types compatibility configuration.
 # Updated the theme screenshot.

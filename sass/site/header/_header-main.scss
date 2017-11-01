@@ -48,22 +48,31 @@
 /**
  * 4 - Search Form & Main Header
  */
-.main-header-bar {
+.main-header-bar .main-header-bar-navigation {
 	z-index: 4;
 	position: relative;
 	line-height: 4;
 	padding: 1em 0;
 
+	&:empty {
+	    padding: 0;
+	}
+	
 	.children,
 	.sub-menu {
 		line-height: 1.45;
 	}
 
-	.page_item_has_children > a:after,
-	.menu-item-has-children > a:after {
-		@include ast-has-child-menu-item();
-		line-height: normal;
+	@media (min-width: $mx-col-md) {
+
+		.page_item_has_children > a:after,
+		.menu-item-has-children > a:after {
+			@include ast-has-child-menu-item();
+			line-height: normal;
+		}
+
 	}
+
 	.ast-search-icon {
 		display: block;
 		z-index: 4;

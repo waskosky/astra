@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		 */
 		public function json() {
 			$json            = parent::json();
-			$json['pro_url'] = esc_url( $this->pro_url );
+			$json['pro_url'] = esc_url_raw( $this->pro_url );
 			return $json;
 		}
 

@@ -108,6 +108,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
 			$wp_customize->register_control_type( 'Astra_Control_Spacing' );
 			$wp_customize->register_control_type( 'Astra_Control_Divider' );
+			$wp_customize->register_control_type( 'Astra_Control_Color' );
 
 			/**
 			 * Helper files
@@ -247,7 +248,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/* Generate Header Logo */
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 
+			add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
 			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+			remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
 
 			do_action( 'astra_customizer_save' );
 		}
@@ -286,8 +289,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		static public function generate_logo_by_width( $custom_logo_id ) {
 			if ( $custom_logo_id ) {
 
-				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
-
 				$image = get_post( $custom_logo_id );
 
 				if ( $image ) {
@@ -302,8 +303,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						}
 					}
 				}
-
-				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
 			}
 		}
 	}

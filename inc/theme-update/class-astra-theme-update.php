@@ -58,8 +58,25 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
+			if ( ! $saved_version ) {
+
+				// Get all customizer options.
+				$customizer_options = get_option( ASTRA_THEME_SETTINGS );
+
+				// Get all customizer options.
+				$version_array = array(
+					'theme-auto-version' => ASTRA_THEME_VERSION,
+				);
+
+				// Merge customizer options with version.
+				$theme_options = wp_parse_args( $version_array, $customizer_options );
+
+				// Update auto saved version number.
+				update_option( ASTRA_THEME_SETTINGS, $theme_options );
+			}
+
 			// If equals then return.
-			if ( ! $saved_version || version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
 			}
 

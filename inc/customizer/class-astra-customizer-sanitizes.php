@@ -265,6 +265,29 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize Alpha color
+		 *
+		 * @param  string $color setting input.
+		 * @return string        setting input value.
+		 */
+		static public function sanitize_alpha_color( $color ) {
+
+			if ( '' === $color ) {
+				return '';
+			}
+
+			if ( false === strpos( $color, 'rgba' ) ) {
+				/* Hex sanitize */
+				return self::sanitize_hex_color( $color );
+			}
+
+			/* rgba sanitize */
+			$color = str_replace( ' ', '', $color );
+			sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+			return 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+		}
+
+		/**
 		 * Sanitize html
 		 *
 		 * @param  string $input    setting input.
