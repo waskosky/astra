@@ -65,14 +65,10 @@
 			line-height: 1.45;
 		}
 
-		@media (min-width: $mx-col-md) {
-
-			.page_item_has_children > a:after,
-			.menu-item-has-children > a:after {
-				@include ast-has-child-menu-item();
-				line-height: normal;
-			}
-
+		.page_item_has_children > a:after,
+		.menu-item-has-children > a:after {
+			@include ast-has-child-menu-item();
+			line-height: normal;
 		}
 
 		.ast-search-icon {
@@ -189,10 +185,12 @@ li.ast-masthead-custom-menu-items {
 	.ast-site-identity {
 		padding: 0;
 	}
+	.main-header-bar-navigation {
 
-	.page_item_has_children > a:after,
-	.menu-item-has-children > a:after {
-		display: none;
+		.page_item_has_children > a:after,
+		.menu-item-has-children > a:after {
+			display: none;
+		}
 	}
 
 	.main-header-bar {
