@@ -40,3 +40,13 @@
 	min-width: 200px;
 
 }
+
+.customize-control {
+	position: relative;
+}
+
+.customize-control .ast-control-tooltip {
+    position: absolute;
+    top: 6px;
+    right: 0;
+}
