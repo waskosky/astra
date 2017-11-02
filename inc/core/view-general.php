@@ -9,7 +9,7 @@
  * @since       Astra 1.0
  */
 
-$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) );
+$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
 ?>
 
 <div class="wrap ast-clear">
@@ -19,7 +19,7 @@ $astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) )
 			<div id="postbox-container-2" class="postbox-container astra-row">
 
 				<div id="normal-sortables-1" class="astra-col-33">
-					 <div class="postbox ">
+					<div class="postbox ">
 						<h2 class="ui-sortable-handle">
 							<span>
 								<?php
@@ -41,7 +41,7 @@ $astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra' , 'astra' ) )
 							</p>
 							<a class="submit button button-primary" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Customize', 'astra' ); ?></a>
 						</div>
-					 </div>
+					</div>
 				</div>
 
 			</div><!-- #postbox-container-2 -->

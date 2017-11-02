@@ -48,9 +48,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
+			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-			add_action( 'do_meta_boxes',         array( $this, 'remove_metabox' ) );
+			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
 		}
 
 		/**
@@ -58,14 +58,14 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public static function is_bb_themer_layout() {
 
-			$is_layout  = false;
+			$is_layout = false;
 
-			$post_type  = get_post_type();
-			$post_id    = get_the_ID();
+			$post_type = get_post_type();
+			$post_id   = get_the_ID();
 
 			if ( 'fl-theme-layout' === $post_type && $post_id ) {
 
-				$is_layout      = true;
+				$is_layout = true;
 			}
 
 			return $is_layout;
@@ -76,12 +76,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function remove_metabox() {
 
-			$post_type  = get_post_type();
-			$post_id    = get_the_ID();
+			$post_type = get_post_type();
+			$post_id   = get_the_ID();
 
 			if ( 'fl-theme-layout' === $post_type && $post_id ) {
 
-				$template_type  = get_post_meta( $post_id, '_fl_theme_layout_type', true );
+				$template_type = get_post_meta( $post_id, '_fl_theme_layout_type', true );
 
 				if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
 
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		public function init_metabox() {
 
 			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
-			add_action( 'save_post',      array( $this, 'save_meta_box' ) );
+			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 
 			/**
 			 * Set metabox options
@@ -108,24 +108,24 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-sml-layout' => array(
+					'footer-sml-layout'       => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-adv-display' => array(
+					'footer-adv-display'      => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-post-title' => array(
+					'site-post-title'         => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-sidebar-layout' => array(
+					'site-sidebar-layout'     => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-content-layout' => array(
+					'site-content-layout'     => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-featured-img' => array(
+					'ast-featured-img'        => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)
@@ -199,7 +199,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 
-			$show_meta_field     = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
@@ -268,7 +268,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 							</label>
 						</div>
 					<?php } ?>
-					
 
 					<?php
 					$footer_adv_layout = astra_get_option( 'footer-adv' );
@@ -281,7 +280,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 							<?php esc_html_e( 'Disable Footer Widgets', 'astra' ); ?>
 						</label>
 					</div>
-					
+
 					<?php
 					}
 					$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
