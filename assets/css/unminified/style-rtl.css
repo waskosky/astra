@@ -2599,6 +2599,10 @@ body {
   margin-left: 2px;
 }
 
+.ast-header-break-point .ast-header-custom-item {
+  background-color: #f9f9f9;
+}
+
 .ast-header-break-point .main-header-menu {
   background-color: #f9f9f9;
 }
