@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Header - Main Header CSS.
-				'.main-header-menu a'                     => array(
+				'.main-header-menu a, .ast-header-custom-item a'                     => array(
 					'color' => esc_attr( $text_color ),
 				),
 
