@@ -1877,7 +1877,7 @@ input[type="submit"]:focus {
   color: #999;
 }
 
-.ast-header-break-point .main-header-bar-wrap .ast-search-icon {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: none;
 }
 
@@ -1994,6 +1994,10 @@ textarea {
 
 .gallery-item:last-child {
   margin-bottom: 2em;
+}
+
+.elementor-image-gallery .gallery-icon {
+  border: none;
 }
 
 /* Astra Respnosive oEmbed Video container */

@@ -15,7 +15,7 @@
 <article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php astra_entry_top(); ?>
-	
+
 	<?php astra_entry_content_blog(); ?>
 
 	<?php astra_entry_bottom(); ?>

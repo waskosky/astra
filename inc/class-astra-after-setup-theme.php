@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'setup_theme' ),     2 );
+			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
 		}
 
 		/**
@@ -71,8 +71,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			do_action( 'astra_class_loaded' );
 
 			/**
-			  * Content Width
-			  */
+			 * Content Width
+			 */
 			if ( ! isset( $content_width ) ) {
 				$content_width = apply_filters( 'astra_content_width', 700 );
 			}
