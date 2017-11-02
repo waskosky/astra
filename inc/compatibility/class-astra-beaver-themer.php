@@ -43,12 +43,12 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme',            array( $this, 'header_footer_support' ) );
-			add_action( 'wp',                           array( $this, 'theme_header_footer_render' ) );
-			add_filter( 'fl_theme_builder_part_hooks',  array( $this, 'register_part_hooks' ) );
-			add_filter( 'post_class',                   array( $this, 'render_post_class' ), 99 );
-			add_action( 'fl_theme_builder_before_render_content',     array( $this, 'builder_before_render_content' ), 10, 1 );
-			add_action( 'fl_theme_builder_after_render_content',     array( $this, 'builder_after_render_content' ), 10, 1 );
+			add_action( 'after_setup_theme', array( $this, 'header_footer_support' ) );
+			add_action( 'wp', array( $this, 'theme_header_footer_render' ) );
+			add_filter( 'fl_theme_builder_part_hooks', array( $this, 'register_part_hooks' ) );
+			add_filter( 'post_class', array( $this, 'render_post_class' ), 99 );
+			add_action( 'fl_theme_builder_before_render_content', array( $this, 'builder_before_render_content' ), 10, 1 );
+			add_action( 'fl_theme_builder_after_render_content', array( $this, 'builder_after_render_content' ), 10, 1 );
 		}
 
 		/**
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		 */
 		function builder_template_content_layout( $layout ) {
 
-			$ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
+			$ids       = FLThemeBuilderLayoutData::get_current_page_content_ids();
 			$post_type = get_post_type();
 
 			if ( 'fl-theme-layout' == $post_type ) {
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		function render_post_class( $classes ) {
 
 			$post_class = array( 'fl-post-grid-post', 'fl-post-gallery-post', 'fl-post-feed-post' );
-			$result = array_intersect( $classes, $post_class );
+			$result     = array_intersect( $classes, $post_class );
 
 			if ( count( $result ) > 0 ) {
 				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
@@ -135,8 +135,8 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 			if ( ! empty( $template_ids ) ) {
 
-				$template_id    = $template_ids[0];
-				$template_type  = get_post_meta( $template_id, '_fl_theme_layout_type', true );
+				$template_id   = $template_ids[0];
+				$template_type = get_post_meta( $template_id, '_fl_theme_layout_type', true );
 
 				if ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) {
 
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					if ( 'disabled' === $main_header_display ) {
 
 						if ( 'archive' === $template_type ) {
-							 remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+							remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
 						} else {
 							add_filter(
 								'ast_main_header_display', function( $display_header ) {
@@ -236,14 +236,14 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 				array(
 					'label' => 'Posts',
 					'hooks' => array(
-						'loop_start'               => __( 'Loop Start', 'astra' ),
+						'loop_start'                 => __( 'Loop Start', 'astra' ),
 						'astra_entry_top'            => __( 'Before Post', 'astra' ),
 						'astra_entry_content_before' => __( 'Before Post Content', 'astra' ),
 						'astra_entry_content_after'  => __( 'After Post Content', 'astra' ),
 						'astra_entry_bottom'         => __( 'After Post', 'astra' ),
 						'astra_comments_before'      => __( 'Before Comments', 'astra' ),
 						'astra_comments_after'       => __( 'After Comments', 'astra' ),
-						'loop_end'                 => __( 'Loop End', 'astra' ),
+						'loop_end'                   => __( 'Loop End', 'astra' ),
 					),
 				),
 			);
@@ -278,7 +278,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 		?>
 			</div><!-- #primary -->
-				
+
 			<?php if ( 'right-sidebar' === astra_page_layout() ) : ?>
 
 				<?php get_sidebar(); ?>

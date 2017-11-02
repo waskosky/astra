@@ -170,10 +170,10 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 											$args, array(
 												'reply_text' => astra_default_strings( 'string-comment-reply-link', false ),
 												'add_below' => 'comment',
-												'depth'     => $depth,
+												'depth'  => $depth,
 												'max_depth' => $args['max_depth'],
-												'before'    => '<span class="ast-reply-link">',
-												'after'     => '</span>',
+												'before' => '<span class="ast-reply-link">',
+												'after'  => '</span>',
 											)
 										)
 									);

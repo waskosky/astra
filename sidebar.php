@@ -17,13 +17,13 @@ $sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
 	<div class="sidebar-main">
 
 		<?php astra_sidebars_before(); ?>
-		
+
 		<?php if ( is_active_sidebar( $sidebar ) ) : ?>
 
 			<?php dynamic_sidebar( $sidebar ); ?>
 
 		<?php endif; ?>
-		
+
 		<?php astra_sidebars_after(); ?>
 
 	</div><!-- .sidebar-main -->

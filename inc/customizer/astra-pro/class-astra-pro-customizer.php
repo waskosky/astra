@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		 * @access public
 		 * @var    string
 		 */
-		public $type     = 'astra-pro';
+		public $type = 'astra-pro';
 
 		/**
 		 * Custom pro button URL.
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		 * @access public
 		 * @var    string
 		 */
-		public $pro_url  = '';
+		public $pro_url = '';
 
 		/**
 		 * Add custom parameters to pass to the JS via JSON.
