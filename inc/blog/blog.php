@@ -167,7 +167,7 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 
 					// Blog Post Featured Image.
 					case 'image':
-						 astra_get_blog_post_thumbnail( 'archive' );
+						astra_get_blog_post_thumbnail( 'archive' );
 						break;
 
 					// Blog Post Title and Blog Post Meta.

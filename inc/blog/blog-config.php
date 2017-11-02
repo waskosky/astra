@@ -89,14 +89,14 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 	 */
 	function astra_post_date() {
 
-		$output = '';
-		$format = apply_filters( 'astra_post_date_format','' );
+		$output      = '';
+		$format      = apply_filters( 'astra_post_date_format', '' );
 		$time_string = esc_html( get_the_date( $format ) );
-		$posted_on = sprintf(
+		$posted_on   = sprintf(
 			esc_html( '%s' ),
 			$time_string
 		);
-		$output .= '<span class="posted-on" itemprop="datePublished"> ' . $posted_on . '</span>';
+		$output     .= '<span class="posted-on" itemprop="datePublished"> ' . $posted_on . '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
 }// End if().
@@ -317,7 +317,7 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 			$post_format = 'standard';
 		}
 
-		$classes[]   = 'ast-post-format-' . $post_format;
+		$classes[] = 'ast-post-format-' . $post_format;
 
 		if ( ! has_post_thumbnail() || ! wp_get_attachment_image_src( get_post_thumbnail_id() ) ) {
 			switch ( $post_format ) {

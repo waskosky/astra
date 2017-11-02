@@ -47,11 +47,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Customizer
 			 */
-			add_action( 'customize_preview_init',                  array( $this, 'preview_init' ) );
-			add_action( 'customize_controls_enqueue_scripts',      array( $this, 'controls_scripts' ) );
+			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
-			add_action( 'customize_register',                      array( $this, 'customize_register' ) );
-			add_action( 'customize_save_after',                    array( $this, 'customize_save' ) );
+			add_action( 'customize_register', array( $this, 'customize_register' ) );
+			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 		}
 
 		/**
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		public function print_footer_scripts() {
-			$output = '<script type="text/javascript">';
+			$output      = '<script type="text/javascript">';
 				$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	        	});';
 
 				$output .= Astra_Fonts_Data::js();
-			$output .= '</script>';
+			$output     .= '</script>';
 
 			echo $output;
 		}
@@ -182,8 +182,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize', array(
 						'customizer' => array(
 							'settings' => array(
-								'sidebars' => array(
-									'single' => array(
+								'sidebars'  => array(
+									'single'  => array(
 										'single-post-sidebar-layout',
 										'single-page-sidebar-layout',
 									),
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 									),
 								),
 								'container' => array(
-									'single' => array(
+									'single'  => array(
 										'single-post-content-layout',
 										'single-page-content-layout',
 									),
@@ -202,7 +202,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 							),
 						),
-						'theme' => array(
+						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
 						),
 					)
@@ -272,9 +272,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( is_array( $sizes ) && '' != $logo_width ) {
 
 				$sizes['ast-logo-size'] = array(
-					'width'     => (int) $logo_width,
-					'height'    => 0,
-					'crop'      => false,
+					'width'  => (int) $logo_width,
+					'height' => 0,
+					'crop'   => false,
 				);
 			}
 

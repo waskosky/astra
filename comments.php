@@ -22,10 +22,9 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-	
+
 	<?php astra_comments_before(); ?>
 
-	
 	<?php if ( have_comments() ) : ?>
 		<div class="comments-count-wrapper">
 			<h3 class="comments-title">
@@ -56,7 +55,7 @@ if ( post_password_required() ) {
 			wp_list_comments(
 				array(
 					'callback' => 'astra_theme_comment',
-					'style' => 'ol',
+					'style'    => 'ol',
 				)
 			);
 			?>
