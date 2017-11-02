@@ -1,3 +1,9 @@
+v1.0.27
+# Fix: Two primary menu navigation drop-down icon visible for responsive devices.
+# Fix: Remove empty div for responsive devices if primary menu and custom menu item is disabled.
+# Improvement: Renamed filter `astra_sigle_post_navigation_enabled` to `astra_single_post_navigation_enabled`. The older filter will keep working but it is recommended to change to the new filter.
+# Enhancement: Astra meta box support added to BB Themer for single, 404 and archive page.
+
 v1.0.26
 # Fix: duplicate menu dropdown toggle appearing on mobile devices
 
