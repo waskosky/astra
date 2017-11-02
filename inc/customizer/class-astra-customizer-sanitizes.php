@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 			if ( isset( $input_attrs ) ) {
 
-				$input_attrs['min'] = isset( $input_attrs['min'] ) ? $input_attrs['min'] : 0;
+				$input_attrs['min']  = isset( $input_attrs['min'] ) ? $input_attrs['min'] : 0;
 				$input_attrs['step'] = isset( $input_attrs['step'] ) ? $input_attrs['step'] : 1;
 
 				if ( isset( $input_attrs['max'] ) && $val > $input_attrs['max'] ) {
@@ -308,7 +308,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 			// Get list of choices from the control
 			// associated with the setting.
-			$choices = $setting->manager->get_control( $setting->id )->choices;
+			$choices    = $setting->manager->get_control( $setting->id )->choices;
 			$input_keys = $input;
 
 			foreach ( $input_keys as $key => $value ) {

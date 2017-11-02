@@ -95,8 +95,8 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer.php';
 
 
 /**
-  * Compatibility
-  */
+ * Compatibility
+ */
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-jetpack.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-woocommerce.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-beaver-builder.php';
