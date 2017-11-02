@@ -153,6 +153,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$color_palettes = json_encode( astra_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
+
+			/* Directory and Extension */
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+
+			$assets_js_uri = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
+
+			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), ASTRA_THEME_VERSION, true );
 		}
 
 		/**
