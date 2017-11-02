@@ -221,12 +221,6 @@
         ]
     },
     {
-        "Amatica SC": [
-            "regular",
-            "700"
-        ]
-    },
-    {
         "Amethysta": [
             "regular"
         ]
@@ -1465,25 +1459,6 @@
     {
         "Dr Sugiyama": [
             "regular"
-        ]
-    },
-    {
-        "Droid Sans": [
-            "regular",
-            "700"
-        ]
-    },
-    {
-        "Droid Sans Mono": [
-            "regular"
-        ]
-    },
-    {
-        "Droid Serif": [
-            "regular",
-            "italic",
-            "700",
-            "700italic"
         ]
     },
     {
