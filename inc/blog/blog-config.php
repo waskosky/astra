@@ -62,6 +62,9 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 						$output_str .= $comment;
 					}
 					break;
+				default:
+					$output_str = apply_filters( 'astra_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
+
 			}// End switch().
 
 			$loop_count ++;
