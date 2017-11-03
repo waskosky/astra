@@ -138,10 +138,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Color(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-color]', array(
-				'type'        => 'ast-color',
-				'section'     => 'section-colors-body',
-				'priority'    => 25,
-				'label'       => __( 'Background Color', 'astra' ),
+				'type'     => 'ast-color',
+				'section'  => 'section-colors-body',
+				'priority' => 25,
+				'label'    => __( 'Background Color', 'astra' ),
 			)
 		)
 	);
