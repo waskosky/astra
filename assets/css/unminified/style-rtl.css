@@ -2599,6 +2599,10 @@ body {
   margin-left: 2px;
 }
 
+.ast-header-break-point .ast-header-custom-item {
+  background-color: #f9f9f9;
+}
+
 .ast-header-break-point .main-header-menu {
   background-color: #f9f9f9;
 }
@@ -3220,13 +3224,10 @@ body {
  * 4 - Search Form & Main Header
  */
 .main-header-bar {
-  padding: 1em 0;
-}
-
-.main-header-bar .main-header-bar-navigation {
   z-index: 4;
   position: relative;
   line-height: 4;
+  padding: 1em 0;
 }
 
 .main-header-bar .main-header-bar-navigation:empty {

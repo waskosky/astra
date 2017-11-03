@@ -49,12 +49,12 @@
  * 4 - Search Form & Main Header
  */
 .main-header-bar{
+	z-index: 4;
+	position: relative;
+	line-height: 4;
 	padding: 1em 0;
 
 	.main-header-bar-navigation {
-		z-index: 4;
-		position: relative;
-		line-height: 4;
 
 		&:empty {
 		    padding: 0;
