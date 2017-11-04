@@ -1,3 +1,6 @@
+v1.0.28
+# Set correct page meta settings on themer layouts if they are empty.
+
 v1.0.27
 # Fix: Two primary menu navigation drop-down icon visible for responsive devices.
 # Fix: Remove empty div for responsive devices if primary menu and custom menu item is disabled.
