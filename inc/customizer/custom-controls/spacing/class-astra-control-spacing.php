@@ -55,10 +55,37 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 			$this->json['default'] = $this->default;
 		}
 
-		$this->json['value']   = maybe_unserialize( $this->value() );
+		$val = maybe_unserialize( $this->value() );
+
+		if ( ! is_array( $val ) || is_numeric( $val ) ) {
+
+			$val = array(
+				'desktop' => array(
+					'top'    => $val,
+					'right'  => '',
+					'bottom' => $val,
+					'left'   => '',
+				),
+				'tablet'  => array(
+					'top'    => $val,
+					'right'  => '',
+					'bottom' => $val,
+					'left'   => '',
+				),
+				'mobile'  => array(
+					'top'    => $val,
+					'right'  => '',
+					'bottom' => $val,
+					'left'   => '',
+				),
+			);
+		}
+
+		$this->json['value']   = $val;
 		$this->json['choices'] = $this->choices;
 		$this->json['link']    = $this->get_link();
 		$this->json['id']      = $this->id;
+		$this->json['label']   = esc_html( $this->label );
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -81,21 +108,90 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 	protected function content_template() {
 		?>
 		<label class='ast-spacing' for="" >
-			<span class="customize-control-title">
-				{{{ data.label }}}
-			</span>
+			<# if ( data.label ) { #>
+				<span class="customize-control-title">{{{ data.label }}} (px)</span>
+				<ul class="ast-spacing-responsive-btns">
+					<li class="desktop active">
+						<button type="button" class="preview-desktop active" data-device="desktop">
+							<i class="dashicons dashicons-desktop"></i>
+						</button>
+					</li>
+					<li class="tablet">
+						<button type="button" class="preview-tablet" data-device="tablet">
+							<i class="dashicons dashicons-tablet"></i>
+						</button>
+					</li>
+					<li class="mobile">
+						<button type="button" class="preview-mobile" data-device="mobile">
+							<i class="dashicons dashicons-smartphone"></i>
+						</button>
+					</li>
+				</ul>
+			<# } #>
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
+			<# } 
 
-			<ul class="ast-spacing-wrapper"><# 
+			value_desktop = '';
+			value_tablet  = '';
+			value_mobile  = '';
+
+			if ( data.value['desktop'] ) { 
+				value_desktop = data.value['desktop'];
+			} 
+
+			if ( data.value['tablet'] ) { 
+				value_tablet = data.value['tablet'];
+			} 
+
+			if ( data.value['mobile'] ) { 
+				value_mobile = data.value['mobile'];
+			} #>
+			<div class="input-wrapper ast-spacing-responsive-wrapper">
+
+				<ul class="ast-spacing-wrapper desktop active"><# 
 				_.each( data.choices, function( choiceLabel, choiceID ) { 
 				#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
-					<input type='number' class='ast-spacing-input ast-spacing-{{ choiceID }}' data-id='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
+					<input type='number' class='ast-spacing-input ast-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
 					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 				</li><# 
 				});
-			#><span class="ast-spacing-unit">px</span></ul>
+			#>
+				<li class="ast-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					</li>
+				</ul>
+
+			<ul class="ast-spacing-wrapper tablet"><# 
+				_.each( data.choices, function( choiceLabel, choiceID ) { 
+				#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
+					<input type='number' class='ast-spacing-input ast-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
+					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
+				</li><# 
+				});
+			#>
+				<li class="ast-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					</li>
+				</ul>
+
+			<ul class="ast-spacing-wrapper mobile"><# 
+				_.each( data.choices, function( choiceLabel, choiceID ) { 
+				#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
+					<input type='number' class='ast-spacing-input ast-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
+					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
+				</li><# 
+				});
+			#>
+				<li class="ast-spacing-input-item-link">
+					<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+				</li>
+			</ul>
+
+			</div>
 		</label>
 
 		<?php

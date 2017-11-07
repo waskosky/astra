@@ -115,8 +115,49 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		static public function sanitize_spacing( $val ) {
 
-			foreach ( $val as $key => $value ) {
-				$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
+			$spacing = array(
+				'desktop' => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'tablet'  => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'  => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+			);
+			if ( is_array( $val ) ) {
+				$spacing['desktop'] = array_map(
+					function ( $value ) {
+							return ( is_numeric( $value ) ) ? $value : '';
+					}, $val['desktop']
+				);
+
+				$spacing['tablet'] = array_map(
+					function ( $value ) {
+							return ( is_numeric( $value ) ) ? $value : '';
+					}, $val['tablet']
+				);
+
+				$spacing['mobile'] = array_map(
+					function ( $value ) {
+							return ( is_numeric( $value ) ) ? $value : '';
+					}, $val['mobile']
+				);
+
+			} else {
+				foreach ( $val as $key => $value ) {
+					$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
+				}
 			}
 
 			return $val;
