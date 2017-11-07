@@ -31,15 +31,39 @@
 			/**
 			 * Refresh preview frame on blur
 			 */
-			this.container.on( 'blur', 'input', function() {
+			var desktopInput = [],
+				tabletInput = [],
+				mobileInput = [];
 
-				value = jQuery( this ).val() || '';
+			this.container.on( 'blur', 'input.ast-spacing-desktop' ).each( function() {
+				var value = jQuery(this).val();
+				if (value) {
+					desktopInput.push(value);
+				}
+			});
 
-				if ( value == '' ) {
-					wp.customize.previewer.refresh();
+			this.container.on( 'blur', 'input.ast-spacing-tablet' ).each( function() {
+
+				var value = jQuery(this).val();
+				if (value) {
+					tabletInput.push(value);
 				}
 
 			});
+
+			this.container.on( 'blur', 'input.ast-spacing-mobile' ).each( function() {
+
+				var value = jQuery(this).val();
+				if (value) {
+					mobileInput.push(value);
+				}
+
+			});
+
+			if ( desktopInput.length === 0 || tabletInput.length === 0 || mobileInput.length === 0 ) {
+			    wp.customize.previewer.refresh();
+			}
+
 		},
 
 		/**
@@ -148,7 +172,6 @@
 	jQuery(' .wp-full-overlay-footer .devices button ').on('click', function() {
 
 		var device = jQuery(this).attr('data-device');
-		console.log(  device );
 		jQuery( '.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper, .customize-control .ast-spacing-responsive-btns > li' ).removeClass( 'active' );
 		jQuery( '.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper.' + device + ', .customize-control .ast-spacing-responsive-btns > li.' + device ).addClass( 'active' );
 	});
