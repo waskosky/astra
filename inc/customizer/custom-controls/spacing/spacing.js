@@ -28,42 +28,6 @@
 				control.updateValue();
 			});
 
-			/**
-			 * Refresh preview frame on blur
-			 */
-			var desktopInput = [],
-				tabletInput = [],
-				mobileInput = [];
-
-			this.container.on( 'blur', 'input.ast-spacing-desktop' ).each( function() {
-				var value = jQuery(this).val();
-				if (value) {
-					desktopInput.push(value);
-				}
-			});
-
-			this.container.on( 'blur', 'input.ast-spacing-tablet' ).each( function() {
-
-				var value = jQuery(this).val();
-				if (value) {
-					tabletInput.push(value);
-				}
-
-			});
-
-			this.container.on( 'blur', 'input.ast-spacing-mobile' ).each( function() {
-
-				var value = jQuery(this).val();
-				if (value) {
-					mobileInput.push(value);
-				}
-
-			});
-
-			if ( desktopInput.length === 0 || tabletInput.length === 0 || mobileInput.length === 0 ) {
-			    wp.customize.previewer.refresh();
-			}
-
 		},
 
 		/**
@@ -150,7 +114,7 @@
 			
 			// Add connected class
 			jQuery(this).parent().parent( '.ast-spacing-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
-			
+
 			// Add class
 			jQuery(this).parent( '.ast-spacing-input-item-link' ).addClass( 'disconnected' );
 
@@ -162,7 +126,7 @@
 			var dataElement 	  = jQuery(this).attr( 'data-element-connect' ),
 				currentFieldValue = jQuery( this ).val();
 
-			jQuery( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
+			jQuery(this).parent().parent( '.ast-spacing-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
 				jQuery(this).val( currentFieldValue ).change();
 			} );
 

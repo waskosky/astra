@@ -90,68 +90,53 @@ function astra_responsive_font_size( control, selector ) {
 /**
  * Responsive Spacing CSS
  */
-function astra_responsive_spacing_padding( control, selector ) {
+function astra_responsive_spacing_padding( control, selector, side ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
 
+			var sidesString = "";
 			if ( value.desktop.top || value.desktop.right || value.desktop.bottom || value.desktop.left || value.tablet.top || value.tablet.right || value.tablet.bottom || value.tablet.left || value.mobile.top || value.mobile.right || value.mobile.bottom || value.mobile.left ) {
-
+				if ( typeof side != undefined ) {
+					sidesString = side + "";
+					sidesString = sidesString.replace( ',', '-' );
+				}
 				// Remove <style> first!
 				control = control.replace( '[', '-' );
 				control = control.replace( ']', '' );
-				jQuery( 'style#' + control ).remove();
+				jQuery( 'style#' + control + '-' + sidesString ).remove();
 
 				var padding = '',
 					tabletPadding = '',
 					mobilePadding = '',
 					paddingUnit = 'px';
 
-				// Desktop.
-				if ( '' != value.desktop.top ) {
-					padding += 'padding-top: ' + value.desktop.top + paddingUnit +';';
-				}
-				if ( '' != value.desktop.right ) {
-					padding += 'padding-right: ' + value.desktop.right + paddingUnit +';';
-				}
-				if ( '' != value.desktop.bottom ) {
-					padding += 'padding-bottom: ' + value.desktop.bottom + paddingUnit +';';
-				}
-				if ( '' != value.desktop.left ) {
-					padding += 'padding-left: ' + value.desktop.left + paddingUnit +';';
-				}
-				// Tablet.
-				if ( '' != value.tablet.top ) {
-					tabletPadding += 'padding-top: ' + value.tablet.top + paddingUnit +';';
-				}
-				if ( '' != value.tablet.right ) {
-					tabletPadding += 'padding-right: ' + value.tablet.right + paddingUnit +';';
-				}
-				if ( '' != value.tablet.bottom ) {
-					tabletPadding += 'padding-bottom: ' + value.tablet.bottom + paddingUnit +';';
-				}
-				if ( '' != value.tablet.left ) {
-					tabletPadding += 'padding-left: ' + value.tablet.left + paddingUnit +';';
-				}
-				// Mobile.
-				if ( '' != value.mobile.top ) {
-					mobilePadding += 'padding-top: ' + value.mobile.top + paddingUnit +';';
-				}
-				if ( '' != value.mobile.right ) {
-					mobilePadding += 'padding-right: ' + value.mobile.right + paddingUnit +';';
-				}
-				if ( '' != value.mobile.bottom ) {
-					mobilePadding += 'padding-bottom: ' + value.mobile.bottom + paddingUnit +';';
-				}
-				if ( '' != value.mobile.left ) {
-					mobilePadding += 'padding-left: ' + value.mobile.left + paddingUnit +';';
-				}
+				var paddingSide = ( typeof side != undefined ) ? side : [ 'top','bottom','right','left' ];
 
+				var desktopPadding = '',
+				tabletPadding = '';
+				jQuery.each(paddingSide, function( index, sideValue ){
+					if ( '' != value['desktop'][sideValue] ) {
+						desktopPadding += 'padding-'+ sideValue +': ' + value['desktop'][sideValue] + paddingUnit +';';
+					}
+				});
+
+				jQuery.each(paddingSide, function( index, sideValue ){
+					if ( '' != value['tablet'][sideValue] ) {
+						tabletPadding += 'padding-'+ sideValue +': ' + value['tablet'][sideValue] + paddingUnit +';';
+					}
+				});
+
+				jQuery.each(paddingSide, function( index, sideValue ){
+					if ( '' != value['mobile'][sideValue] ) {
+						mobilePadding += 'padding-'+ sideValue +': ' + value['mobile'][sideValue] + paddingUnit +';';
+					}
+				});
 
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '">'
-					+ selector + '	{ ' + padding +' }'
+					'<style id="' + control + '-' + sidesString + '">'
+					+ selector + '	{ ' + desktopPadding +' }'
 					+ '@media (max-width: 768px) {' + selector + '	{ ' + tabletPadding + ' } }'
 					+ '@media (max-width: 544px) {' + selector + '	{ ' + mobilePadding + ' } }'
 					+ '</style>'
@@ -159,7 +144,7 @@ function astra_responsive_spacing_padding( control, selector ) {
 
 			} else {
 
-				jQuery( 'style#' + control ).remove();
+				jQuery( 'style#' + control + '-' + sidesString ).remove();
 			}
 
 		} );

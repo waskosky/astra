@@ -28,6 +28,14 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 	public $type = 'ast-spacing';
 
 	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $linked_choices = '';
+
+	/**
 	 * Enqueue control related scripts/styles.
 	 *
 	 * @access public
@@ -81,11 +89,12 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 			);
 		}
 
-		$this->json['value']   = $val;
-		$this->json['choices'] = $this->choices;
-		$this->json['link']    = $this->get_link();
-		$this->json['id']      = $this->id;
-		$this->json['label']   = esc_html( $this->label );
+		$this->json['value']          = $val;
+		$this->json['choices']        = $this->choices;
+		$this->json['link']           = $this->get_link();
+		$this->json['id']             = $this->id;
+		$this->json['label']          = esc_html( $this->label );
+		$this->json['linked_choices'] = $this->linked_choices;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -150,17 +159,19 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 			<div class="input-wrapper ast-spacing-responsive-wrapper">
 
 				<ul class="ast-spacing-wrapper desktop active"><# 
-				_.each( data.choices, function( choiceLabel, choiceID ) { 
-				#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
-					<input type='number' class='ast-spacing-input ast-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
-					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
-				</li><# 
-				});
-			#>
-				<li class="ast-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-					</li>
+					_.each( data.choices, function( choiceLabel, choiceID ) {
+					#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
+						<input type='number' class='ast-spacing-input ast-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
+						<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
+					</li><#
+					});
+					{{{ data.linked_choices }}}
+					if ( data.linked_choices ) { #>
+					<li class="ast-spacing-input-item-link">
+							<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+							<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						</li><#
+					} #>
 				</ul>
 
 			<ul class="ast-spacing-wrapper tablet"><# 
@@ -170,11 +181,12 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 				</li><# 
 				});
-			#>
+				if ( data.linked_choices ) { #>
 				<li class="ast-spacing-input-item-link">
 						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-					</li>
+					</li><#
+					} #>
 				</ul>
 
 			<ul class="ast-spacing-wrapper mobile"><# 
@@ -184,11 +196,12 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 				</li><# 
 				});
-			#>
+				if ( data.linked_choices ) { #>
 				<li class="ast-spacing-input-item-link">
 					<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 					<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-				</li>
+				</li><#
+				} #>
 			</ul>
 
 			</div>

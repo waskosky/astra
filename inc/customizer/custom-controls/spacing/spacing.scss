@@ -37,18 +37,19 @@
 .customize-control-ast-spacing .input-wrapper {
 	.ast-spacing-wrapper {
 		display: none;
-		width: 100%;
+		position: relative;
 		li{
-			width: 20%;
-			float: left;
 			text-align: center;
+			-webkit-box-flex: 1;
+			-ms-flex: auto;
+			flex: auto;
 			input.ast-spacing-input{
 				text-align: center;
 			}
 		 }
 
 		&.active {
-			display: block;
+			display: flex;
 		}
 
 		span.ast-spacing-title{
@@ -68,8 +69,7 @@
 				}
 			}
 			span {
-				display: block;
-				width: 100%;
+				width: 45px;
 				height: 26px;
 				line-height: 26px;
 				font-size: 16px;
