@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			$site_content_width = astra_get_option( 'site-content-width', 1200 );
-			$header_logo_width = astra_get_option( 'ast-header-logo-width' );
+			$header_logo_width  = astra_get_option( 'ast-header-logo-width' );
 
 			// Site Background Color.
 			$box_bg_color = astra_get_option( 'site-layout-outside-bg-color' );
@@ -186,8 +186,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'desktop' ),
 				),
 				'#masthead .site-logo-img .custom-logo-link img' => array(
-					'max-width' => astra_get_css_value( $header_logo_width ,'px' ),
-					'width' => astra_get_css_value( 100 , '%' ),
+					'max-width' => astra_get_css_value( $header_logo_width, 'px' ),
+					'width'     => astra_get_css_value( 100, '%' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
