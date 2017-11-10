@@ -1119,7 +1119,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 				$post_thumb = get_the_post_thumbnail();
 
 				if ( '' != $post_thumb ) {
-					$output .= '<div class="post-thumb">';
+					$output .= '<div class="post-thumb-img-content post-thumb">';
 					if ( ! is_singular() ) {
 						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
 					}
