@@ -187,7 +187,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'#masthead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width, 'px' ),
-					'width'     => astra_get_css_value( 100, '%' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
