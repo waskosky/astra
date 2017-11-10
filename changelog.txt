@@ -1,3 +1,6 @@
+v1.0.30
+# Fixed: Regression in v1.0.29 which caused site logo to be full width.
+
 v1.0.29
 # New: Added filters `astra_post_read_more` and `astra_post_read_more_class` to change the custom text and custom class to the read more text for blog posts.
 # Fix: Site SVG logo only visible if site title is enabled in some cases.
