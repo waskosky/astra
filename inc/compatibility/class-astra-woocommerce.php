@@ -46,8 +46,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function __construct() {
 
-			// Customizer.
-			add_action( 'customize_register',                       array( $this, 'customize_register' ) );
 			add_filter( 'astra_theme_defaults',                     array( $this, 'theme_defaults' ) );
 
 			add_action( 'after_setup_theme',                        array( $this, 'setup_theme' ) );
@@ -125,64 +123,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['shop-no-of-products'] = '9';
 
 			return $defaults;
-		}
-
-		/**
-		 * Add postMessage support for site title and description for the Theme Customizer.
-		 *
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-		 */
-		function customize_register( $wp_customize ) {
-
-			/**
-			 * Register Sections & Panels
-			 */
-			$wp_customize->add_section( 'section-shop', array(
-				'title'    => __( 'Shop Page', 'astra' ),
-				'panel'    => 'panel-layout',
-				'priority' => 55,
-			) );
-
-			/**
-			 * Option: Shop Columns
-			 */
-			$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[shop-grid]', array(
-				'default' => astra_get_option( 'shop-grid' ),
-				'type'    => 'option',
-			) );
-			$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[shop-grid]', array(
-				'section'  => 'section-shop',
-				'label'    => __( 'Shop Columns', 'astra' ),
-				'type'     => 'select',
-				'priority' => 5,
-				'choices'  => array(
-					'1' => __( '1 Column', 'astra' ),
-					'2' => __( '2 Columns', 'astra' ),
-					'3' => __( '3 Columns', 'astra' ),
-					'4' => __( '4 Columns', 'astra' ),
-					'5' => __( '5 Columns', 'astra' ),
-					'6' => __( '6 Columns', 'astra' ),
-				),
-			) );
-
-			/**
-			 * Option: Products Per Page
-			 */
-			$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[shop-no-of-products]', array(
-				'default' => astra_get_option( 'shop-no-of-products' ),
-				'type'    => 'option',
-			) );
-			$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[shop-no-of-products]', array(
-				'section'     => 'section-shop',
-				'label'       => __( 'Products Per Page', 'astra' ),
-				'type'        => 'number',
-				'priority'    => 10,
-				'input_attrs' => array(
-					'min'  => 1,
-					'step' => 1,
-					'max'  => 50,
-				),
-			) );
 		}
 
 		function dynamic_css_callback( $dynamic_css, $dynamic_css_filtered = '' ) {
