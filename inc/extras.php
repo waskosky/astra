@@ -1219,11 +1219,27 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		if ( $custom_logo_id == $attachment->ID ) {
 
+			$attach_data = array();
 			if ( ! is_customize_preview() ) {
 				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
+
 				if ( isset( $attach_data[0] ) ) {
 					$attr['src'] = $attach_data[0];
 				}
+			} else {
+				$attach_data = wp_get_attachment_image_src( $attachment->ID );
+
+				if ( isset( $attach_data[0] ) ) {
+					$attr['src'] = $attach_data[0];
+				}
+			}
+
+			$image_url      = isset( $attach_data[0] ) ? $attach_data[0] : false;
+			$file_type      = wp_check_filetype( $attach_data[0] );
+			$file_extension = $file_type['ext'];
+
+			if ( 'svg' == $file_extension ) {
+				$attr['class'] = 'astra-logo-svg';
 			}
 
 			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
