@@ -5,16 +5,7 @@
 	transform: translateX(-100%);
 }
 
-/* Nested Section Css */
-/*#customize-theme-controls .customize-pane-child.accordion-section-content.control-section-ast_section {
-    padding: 0;
-}*/
-
-/*#customize-controls li.control-section.control-section-ast_section h3.accordion-section-title {
-    margin-left: -12px;
-    margin-right: -12px;
-}*/
-
+/* Nested Customizer Section CSS */
 #customize-controls .control-section.control-section-ast_section .accordion-section-title {
     color: #555d66;
     background-color: #fff;
