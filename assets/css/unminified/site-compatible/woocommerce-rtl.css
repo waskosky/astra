@@ -92,6 +92,13 @@
   margin-top: .5em;
 }
 
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+  padding: .75em;
+  width: 2.5em;
+  height: 2.5em;
+}
+
 .woocommerce span.onsale {
   width: 3.236em;
   height: 3.236em;
@@ -209,12 +216,6 @@
 
 .ast-separate-container .ast-woocommerce-container {
   background-color: #fff;
-}
-
-.ast-separate-container .ast-woocommerce-container ul.products li.product:nth-last-child(3),
-.ast-separate-container .ast-woocommerce-container ul.products li.product:nth-last-child(2),
-.ast-separate-container .ast-woocommerce-container ul.products li.product:nth-last-child(1) {
-  margin-bottom: 0;
 }
 
 @media (max-width: 1200px) {

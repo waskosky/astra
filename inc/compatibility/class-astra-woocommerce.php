@@ -67,8 +67,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_shop_loop_item_title',  array( $this, 'product_flip_image' ), 10 );
 			add_filter( 'woocommerce_subcategory_count_html',       array( $this, 'subcategory_count_markup' ), 10, 2 );
-
-			add_filter( 'astra_primary_content_bottom',       array( $this, 'astra_woocommerce_number_pagination' ) );
 		}
 
 		/**
@@ -210,7 +208,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_horizontal_padding          = astra_get_option( 'button-h-padding' );
 
 			$css_output = array(
-				'.woocommerce .product span.onsale' => array(
+				'.woocommerce span.onsale' => array(
 					'background-color' => $theme_color
 				),
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit' => array(
@@ -231,6 +229,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a' => array(
 					'color' => $text_color
+				),
+				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
+					'border-color' => $theme_color,
+				),
+				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(
+					'background' => $theme_color,
+					'color'      => $btn_color,
 				),
 				'.woocommerce-MyAccount-navigation-link.is-active a' => array(
 					'color'      => $link_h_color,
@@ -316,7 +321,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
-			remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
 		}
 
 		/**
@@ -383,34 +387,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// RTL support.
 			wp_style_add_data( $key, 'rtl', 'replace' );
-		}
-
-		/**
-		 * Astra Woocommerce Pagination
-		 *
-		 * @since 1.0.0
-		 * @return void            Generate & echo pagination markup.
-		 */
-		function astra_woocommerce_number_pagination() {
-
-			if ( is_shop() || is_product_category() ) {
-				global $numpages;
-				$enabled = apply_filters( 'astra_woocommerce_pagination_enabled', true );
-
-				if ( isset( $numpages ) && $enabled ) {
-					ob_start();
-					echo "<div class='ast-pagination ast-woocommerce-ast-pagination'>";
-					the_posts_pagination(
-						array(
-							'prev_text' => apply_filters( 'astra_woocommerce_navigation_prev_string', '<span class="ast-left-arrow">&larr;</span> ' . __( 'Previous Page', 'astra' ) ),
-							'next_text' => apply_filters( 'astra_woocommerce_navigation_next_string', __( 'Next Page', 'astra' ) . ' <span class="ast-right-arrow">&rarr;</span>' ),
-						)
-					);
-					echo '</div>';
-					$output = ob_get_clean();
-					echo apply_filters( 'astra_woocommerce_pagination_markup', $output ); // WPCS: XSS OK.
-				}
-			}
 		}
 
 	}

@@ -97,6 +97,19 @@
 		margin-top: .5em;
 	}
 
+	nav.woocommerce-pagination {
+		ul {
+			li {
+				a,
+				span {
+					padding: .75em;
+					width: 2.5em;
+					height: 2.5em;
+				}
+			}
+		}
+	}
+
 	span.onsale {
 		width: 3.236em;
 		height: 3.236em;
@@ -232,11 +245,6 @@
 	.ast-woocommerce-container{
 		background-color: $color-background-content;
 
-		ul.products li.product:nth-last-child(3),
-		ul.products li.product:nth-last-child(2),
-		ul.products li.product:nth-last-child(1){
-		  margin-bottom: 0;  
-		}
 		@media (max-width: $mx-col-xl) {
 			    padding: 3.34em 2.4em;
 		}
