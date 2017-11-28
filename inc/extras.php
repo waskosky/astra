@@ -1101,7 +1101,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$output = '';
 
 		$featured_image    = true;
-		$is_featured_image = astra_get_option_meta( 'ast-featured-img' );
+		$is_featured_image = astra_get_option_meta( 'ast-featured-img', '', false, '', get_the_ID() );
 
 		if ( 'disabled' === $is_featured_image ) {
 			$featured_image = false;
