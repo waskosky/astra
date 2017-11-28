@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_main_content',          array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content',           array( $this, 'before_main_content_end' ) );
-			add_filter( 'astra_theme_assets',                         array( $this, 'add_styles' ) );
+			add_filter( 'wp_enqueue_scripts',                       array( $this, 'add_styles' ) );
 			add_action( 'init',                                     array( $this, 'woocommerce_init' ), 1 );
 
 			add_filter( 'loop_shop_columns',                        array( $this, 'shop_columns' ) );
@@ -67,6 +67,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_shop_loop_item_title',  array( $this, 'product_flip_image' ), 10 );
 			add_filter( 'woocommerce_subcategory_count_html',       array( $this, 'subcategory_count_markup' ), 10, 2 );
+
+			add_filter( 'astra_primary_content_bottom',       array( $this, 'astra_woocommerce_number_pagination' ) );
 		}
 
 		/**
@@ -203,16 +205,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
+			$btn_border_radius               = astra_get_option( 'button-radius' );
+			$btn_vertical_padding            = astra_get_option( 'button-v-padding' );
+			$btn_horizontal_padding          = astra_get_option( 'button-h-padding' );
+
 			$css_output = array(
 				'.woocommerce .product span.onsale' => array(
 					'background-color' => $theme_color
 				),
-				'.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover' => array(
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit' => array(
 					'color'            => $btn_color,
 					'border-color'     => $btn_bg_color,
 					'background-color' => $btn_bg_color
 				),
-				'.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce .product a.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover' => array(
+				'.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color
@@ -226,18 +232,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a' => array(
 					'color' => $text_color
 				),
-				'.woocommerce nav.woocommerce-pagination ul li' => array(
-					'border-color' => $theme_color,
-				),
-				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(
-					'background' => $theme_color,
-					'color'      => $btn_color,
-				),
 				'.woocommerce-MyAccount-navigation-link.is-active a' => array(
 					'color'      => $link_h_color,
 				),
 				'.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle' => array(
 					'background-color' => $theme_color,
+				),
+				// Button Typography.
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
+					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
 			);
 
@@ -309,6 +313,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+			remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
 		}
 
 		/**
@@ -348,15 +353,61 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Add assets in theme
+		 * Enqueue styles
 		 *
-		 * @param array $assets list of theme assets (JS & CSS).
-		 * @return array List of updated assets.
-		 * @since 1.0.0
+		 * @since 1.0.31
 		 */
-		function add_styles( $assets ) {
-			$assets['css']['astra-woocommerce'] = 'site-compatible/woocommerce';
-			return $assets;
+		function add_styles( ) {
+
+			/* Directory and Extension */
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+
+			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
+
+			$style      = 'site-compatible/woocommerce';
+			$key        = 'astra-woocommerce';
+
+			// Register & Enqueue Styles.
+			// Generate CSS URL.
+			$css_file = $css_uri . $style . $file_prefix . '.css';
+
+			// Register.
+			wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+
+			// Enqueue.
+			wp_enqueue_style( $key );
+
+			// RTL support.
+			wp_style_add_data( $key, 'rtl', 'replace' );
+		}
+
+		/**
+		 * Astra Woocommerce Pagination
+		 *
+		 * @since 1.0.0
+		 * @return void            Generate & echo pagination markup.
+		 */
+		function astra_woocommerce_number_pagination() {
+
+			if ( is_shop() || is_product_category() ) {
+				global $numpages;
+				$enabled = apply_filters( 'astra_woocommerce_pagination_enabled', true );
+
+				if ( isset( $numpages ) && $enabled ) {
+					ob_start();
+					echo "<div class='ast-pagination ast-woocommerce-ast-pagination'>";
+					the_posts_pagination(
+						array(
+							'prev_text' => apply_filters( 'astra_woocommerce_navigation_prev_string', '<span class="ast-left-arrow">&larr;</span> ' . __( 'Previous Page', 'astra' ) ),
+							'next_text' => apply_filters( 'astra_woocommerce_navigation_next_string', __( 'Next Page', 'astra' ) . ' <span class="ast-right-arrow">&rarr;</span>' ),
+						)
+					);
+					echo '</div>';
+					$output = ob_get_clean();
+					echo apply_filters( 'astra_woocommerce_pagination_markup', $output ); // WPCS: XSS OK.
+				}
+			}
 		}
 
 	}
