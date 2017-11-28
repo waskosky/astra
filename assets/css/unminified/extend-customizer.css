@@ -36,3 +36,8 @@
 #customize-controls .control-section.control-section-ast_section .accordion-section-title:hover:after {
     color: #0073aa;
 }
+
+#customize-controls .control-section-ast_section .accordion-section {
+    margin-left: -12px;
+    margin-right: -12px;
+}
