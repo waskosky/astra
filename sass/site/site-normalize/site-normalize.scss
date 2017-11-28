@@ -12,7 +12,6 @@ body {
     &:not(.logged-in) {
         position: relative;
     }
-	overflow: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -64,6 +63,7 @@ blockquote {
 }
 
 .ast-button,
+.button,
 input[type="button"],
 input[type="submit"] {
     border-radius: 0;
@@ -113,11 +113,12 @@ input[type="submit"] {
 }
 
 .ast-header-break-point {
-    .main-header-bar-wrap {
-        .ast-search-icon {
-            display: none;
+    .main-header-bar {
+        .main-header-bar-navigation {
+            .ast-search-icon {
+                display: none;
+            }
         }
-
     }
     
     .ast-search-menu-icon .search-field,

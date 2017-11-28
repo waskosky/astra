@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function init_admin_settings() {
 
-			self::$menu_page_title  = apply_filters( 'astra_menu_page_title', __( 'Astra' , 'astra' ) );
+			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra', 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -104,6 +104,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
 			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
+
+			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
 		}
 
 		/**
@@ -113,8 +115,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			if ( empty( self::$view_actions ) ) {
 
-				$actions = array(
-					'general'          => array(
+				$actions            = array(
+					'general' => array(
 						'label' => __( 'Welcome', 'astra' ),
 						'show'  => ! is_network_admin(),
 					),
@@ -148,6 +150,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Styles.
 			wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), ASTRA_THEME_VERSION );
+
+			$color_palettes = json_encode( astra_color_palette() );
+			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
+
+			/* Directory and Extension */
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+
+			$assets_js_uri = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
+
+			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), ASTRA_THEME_VERSION, true );
 		}
 
 		/**
@@ -175,6 +188,33 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
+		 * Update Admin Title.
+		 *
+		 * @since 1.0.19
+		 *
+		 * @param string $admin_title Admin Title.
+		 * @param string $title Title.
+		 * @return string
+		 */
+		static public function astra_admin_title( $admin_title, $title ) {
+
+			$screen = get_current_screen();
+			if ( 'appearance_page_astra' == $screen->id ) {
+
+				$view_actions = self::get_view_actions();
+
+				$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
+				$active_tab   = str_replace( '_', '-', $current_slug );
+
+				if ( 'general' != $active_tab && isset( $view_actions[ $active_tab ]['label'] ) ) {
+					$admin_title = str_replace( $title, $view_actions[ $active_tab ]['label'], $admin_title );
+				}
+			}
+
+			return $admin_title;
+		}
+
+		/**
 		 * Render tab menu
 		 *
 		 * @param mixed $action Action name.
@@ -182,7 +222,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function render_tab_menu( $action = '' ) {
 			?>
-			<div id="ast-menu-page" class="wrap">
+			<div id="ast-menu-page">
 				<?php self::render( $action ); ?>
 			</div>
 			<?php
@@ -210,6 +250,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					$url = self::get_page_url( $slug );
 
+					if ( $slug == self::$parent_page_slug ) {
+						update_option( 'astra_parent_page_url', $url );
+					}
+
 					$active = ( $slug == $action ) ? 'nav-tab-active' : '';
 					?>
 						<a class='nav-tab <?php echo esc_attr( $active ); ?>' href='<?php echo esc_url( $url ); ?>'> <?php echo esc_html( $data['label'] ); ?> </a>
@@ -220,7 +264,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Settings update message.
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
 				?>
-					<span id="message" class="notice notice-success is-dismissive"><p> <?php esc_html_e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
+					<span id="message" class="notice notice-success is-dismissive astra-notice"><p> <?php esc_html_e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
 				<?php
 			}
 
@@ -263,7 +307,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			if ( apply_filters( 'astra_dashboard_admin_menu', true ) ) {
+				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			} else {
+				do_action( 'asta_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
+			}
 		}
 
 		/**
@@ -299,3 +347,5 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 	new Astra_Admin_Settings;
 
 }// End if().
+
+

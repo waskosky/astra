@@ -47,11 +47,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Customizer
 			 */
-			add_action( 'customize_preview_init',                  array( $this, 'preview_init' ) );
-			add_action( 'customize_controls_enqueue_scripts',      array( $this, 'controls_scripts' ) );
+			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
-			add_action( 'customize_register',                      array( $this, 'customize_register' ) );
-			add_action( 'customize_save_after',                    array( $this, 'customize_save' ) );
+			add_action( 'customize_register', array( $this, 'customize_register' ) );
+			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 		}
 
 		/**
@@ -61,24 +61,25 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		public function print_footer_scripts() {
-			$output = '<script type="text/javascript">';
+			$output      = '<script type="text/javascript">';
 				$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
 	                	var desc = ctrl.container.find(".customize-control-description");
 	                	if( desc.length) {
-	                    	var title = ctrl.container.find(".customize-control-title");
+	                    	var title 		= ctrl.container.find(".customize-control-title");
+	                    	var li_wrapper 	= desc.closest("li");
 	                    	var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-	                    	title.append(" <i class=\'dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
 	                	}
 	            	});
 	        	});';
 
 				$output .= Astra_Fonts_Data::js();
-			$output .= '</script>';
+			$output     .= '</script>';
 
 			echo $output;
 		}
@@ -90,6 +91,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		function customize_register( $wp_customize ) {
+
+			/**
+			 * Register Extended Panel
+			 */
+			$wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
+			$wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
 
 			/**
 			 * Astra Pro Upsell Link
@@ -108,10 +115,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
 			$wp_customize->register_control_type( 'Astra_Control_Spacing' );
 			$wp_customize->register_control_type( 'Astra_Control_Divider' );
+			$wp_customize->register_control_type( 'Astra_Control_Color' );
 
 			/**
 			 * Helper files
 			 */
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/customizer-controls.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-partials.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-callback.php';
@@ -171,6 +181,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Customizer Core.
 			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
+			// Extended Customizer Assets - Panel extended.
+			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
+
 			// Customizer Controls.
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
@@ -180,8 +194,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize', array(
 						'customizer' => array(
 							'settings' => array(
-								'sidebars' => array(
-									'single' => array(
+								'sidebars'  => array(
+									'single'  => array(
 										'single-post-sidebar-layout',
 										'single-page-sidebar-layout',
 									),
@@ -190,7 +204,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 									),
 								),
 								'container' => array(
-									'single' => array(
+									'single'  => array(
 										'single-post-content-layout',
 										'single-page-content-layout',
 									),
@@ -200,7 +214,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 							),
 						),
-						'theme' => array(
+						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
 						),
 					)
@@ -243,6 +257,66 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
+
+			/* Generate Header Logo */
+			$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+			add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
+			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+			remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
+
+			do_action( 'astra_customizer_save' );
+		}
+
+		/**
+		 * Add logo image sizes in filter.
+		 *
+		 * @since 1.0.0
+		 * @param array $sizes Sizes.
+		 * @param array $metadata attachment data.
+		 *
+		 * @return array
+		 */
+		static public function logo_image_sizes( $sizes, $metadata ) {
+
+			$logo_width = astra_get_option( 'ast-header-logo-width' );
+
+			if ( is_array( $sizes ) && '' != $logo_width ) {
+
+				$sizes['ast-logo-size'] = array(
+					'width'  => (int) $logo_width,
+					'height' => 0,
+					'crop'   => false,
+				);
+			}
+
+			return $sizes;
+		}
+
+		/**
+		 * Generate logo image by its width.
+		 *
+		 * @since 1.0.0
+		 * @param int $custom_logo_id Logo id.
+		 */
+		static public function generate_logo_by_width( $custom_logo_id ) {
+			if ( $custom_logo_id ) {
+
+				$image = get_post( $custom_logo_id );
+
+				if ( $image ) {
+					$fullsizepath = get_attached_file( $image->ID );
+
+					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
+
+						$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
+
+						if ( ! is_wp_error( $metadata ) && ! empty( $metadata ) ) {
+							wp_update_attachment_metadata( $image->ID, $metadata );
+						}
+					}
+				}
+			}
 		}
 	}
 }// End if().

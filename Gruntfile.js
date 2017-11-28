@@ -1,8 +1,8 @@
 module.exports = function (grunt) {
     'use strict';
     // Project configuration
-    var autoprefixer = require('autoprefixer');
-    var flexibility = require('postcss-flexibility');
+    var autoprefixer    = require('autoprefixer');
+    var flexibility     = require('postcss-flexibility');
 
     grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
@@ -383,6 +383,33 @@ module.exports = function (grunt) {
     // min all
     grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css', 'concat']);
 
+    // Update google Fonts
+    grunt.registerTask('google-fonts', function () {
+        var done = this.async();
+        var request = require('request');
+        var fs = require('fs');
+
+        request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
+
+            if (response && response.statusCode == 200) {
+
+                var fonts = JSON.parse(body).items.map(function (font) {
+                    return {
+                        [font.family]: font.variants
+                    };
+                })
+
+                fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
+                    if (! err ) {
+                        console.log("Google Fonts Updated!");
+                    }
+                });
+            }
+
+        });
+
+    });
+
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
     grunt.registerTask('org-release', ['clean:zip', 'copy:org', 'compress:org', 'clean:main']);
@@ -392,3 +419,4 @@ module.exports = function (grunt) {
 
     grunt.util.linefeed = '\n';
 };
+

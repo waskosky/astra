@@ -93,8 +93,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$js_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		$astra_typo_localize = array(
@@ -145,6 +144,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Renders a font control.
 	 *
+	 * @since 1.0.16 Added the action 'astra_customizer_font_list' to support custom fonts.
 	 * @since 1.0.0
 	 * @param  string $default Inherit/Default.
 	 * @access protected
@@ -160,13 +160,16 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<optgroup label="System">';
 
-		foreach ( Astra_Font_Families::$system as $name => $variants ) {
+		foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
+		// Add Custom Font List Into Customizer.
+		do_action( 'astra_customizer_font_list', $this->value() );
+
 		echo '<optgroup label="Google">';
 
-		foreach ( Astra_Font_Families::$google as $name => $variants ) {
+		foreach ( Astra_Font_Families::get_google_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 

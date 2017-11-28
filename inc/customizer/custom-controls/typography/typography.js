@@ -92,7 +92,7 @@
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			weightValue         = init ? weightSelect.val() : '400',
 			inheritWeightObject = [ 'inherit' ],
-			weightObject        = null,
+			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
 			weightMap           = astraTypo;
 
@@ -106,6 +106,8 @@
 				weightObject = AstFontFamilies.system[ fontValue ].weights;
 			} else if ( 'undefined' != typeof AstFontFamilies.google[ fontValue ] ) {
 				weightObject = AstFontFamilies.google[ fontValue ];
+			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue.split(',')[0] ] ) {
+				weightObject = AstFontFamilies.custom[ fontValue.split(',')[0] ].weights;
 			}
 
 			weightObject = $.merge( inheritWeightObject, weightObject )

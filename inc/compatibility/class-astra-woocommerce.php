@@ -299,6 +299,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// WooCommerce.
 			add_theme_support( 'woocommerce' );
+			add_theme_support( 'wc-product-gallery-zoom' );
+			add_theme_support( 'wc-product-gallery-lightbox' );
+			add_theme_support( 'wc-product-gallery-slider' );
 
 			add_theme_support( 'wc-product-gallery-zoom' );
 			add_theme_support( 'wc-product-gallery-lightbox' );
@@ -322,7 +325,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function before_main_content_start() {
 			$site_sidebar = astra_page_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
-				 get_sidebar();
+				get_sidebar();
 			}
 			?>
 			<div id="primary" class="content-area primary">
@@ -348,7 +351,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			<?php
 			$site_sidebar = astra_page_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
-				 get_sidebar();
+				get_sidebar();
 			}
 		}
 

@@ -42,7 +42,7 @@ final class Astra_Fonts {
 		}
 
 		if ( is_array( $variants ) ) {
-			$key = array_search( 'inherit' , $variants );
+			$key = array_search( 'inherit', $variants );
 			if ( false !== $key ) {
 
 				unset( $variants[ $key ] );
@@ -80,33 +80,21 @@ final class Astra_Fonts {
 	/**
 	 * Renders the <link> tag for all fonts in the $fonts array.
 	 *
+	 * @since 1.0.16 Added the filter 'astra_render_fonts' to support custom fonts.
 	 * @since 1.0.0
 	 * @return void
 	 */
 	static public function render_fonts() {
 
-		$font_list = self::get_fonts();
+		$font_list = apply_filters( 'astra_render_fonts', self::get_fonts() );
 
 		$google_fonts = array();
-		$font_subset = array();
+		$font_subset  = array();
 
-		/**
-		 * System font which are not required to render.
-		 * Path: ./inc/customizer/class-astra-fonts-data.php#56
-		 *
-		 * @var array
-		 */
-		$system_fonts = array(
-			'Helvetica',
-			'Verdana',
-			'Arial',
-			'Times',
-			'Georgia',
-			'Courier',
-		);
+		$system_fonts = Astra_Font_Families::get_system_fonts();
 
 		foreach ( $font_list as $name => $font ) {
-			if ( ! empty( $name ) && ! in_array( $name, $system_fonts ) ) {
+			if ( ! empty( $name ) && ! isset( $system_fonts[ $name ] ) ) {
 
 				// Add font variants.
 				$google_fonts[ $name ] = $font['variants'];

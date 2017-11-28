@@ -12,6 +12,25 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+	/**
+	 * Option: Link Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[link-color]', array(
+			'default'           => '#0274be',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[link-color]', array(
+				'section'  => 'section-colors-body',
+				'priority' => 5,
+				'label'    => __( 'Theme Color / Link Color', 'astra' ),
+			)
+		)
+	);
 
 	/**
 	 * Option: Text Color
@@ -27,31 +46,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[text-color]', array(
 				'section'  => 'section-colors-body',
-				'priority' => 5,
+				'priority' => 10,
 				'label'    => __( 'Text Color', 'astra' ),
 			)
 		)
 	);
 
-	/**
-	 * Option: Link Color
-	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[link-color]', array(
-			'default'           => '#0085ba',
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[link-color]', array(
-				'section'     => 'section-colors-body',
-				'priority'    => 10,
-				'label'       => __( 'Theme Color / Link Color', 'astra' ),
-			)
-		)
-	);
 
 	/**
 	 * Option: Link Hover Color

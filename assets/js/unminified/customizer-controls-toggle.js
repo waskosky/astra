@@ -155,29 +155,38 @@
 				}
 		}
 		],
-		'astra-settings[blog-meta]' :
+		'astra-settings[blog-post-structure]' :
 		[
 			{
 				controls: [
-					'astra-settings[blog-meta-comments]',
-					'astra-settings[blog-meta-category]',
-					'astra-settings[blog-meta-author]',
-					'astra-settings[blog-meta-date]',
-					'astra-settings[blog-meta-tag]',
+					'astra-settings[blog-meta]',
 				],
-				callback: function( enable_postmeta ) {
-
-					if ( '1' == enable_postmeta ) {
+				callback: function( blog_structure ) {
+					if ( jQuery.inArray ( "title-meta", blog_structure ) !== -1 ) {
 						return true;
 					}
 					return false;
 				}
-		}
+			}
 		],
 
 		/**
 		 * Blog Single
 		 */
+		 'astra-settings[blog-single-post-structure]' :
+		[
+			{
+				controls: [
+					'astra-settings[blog-single-meta]',
+				],
+				callback: function( blog_structure ) {
+					if ( jQuery.inArray ( "single-title-meta", blog_structure ) !== -1 ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 		'astra-settings[blog-single-width]' :
 		[
 			{
@@ -232,6 +241,11 @@
 					'astra-settings[footer-sml-divider]',
 					'astra-settings[section-ast-small-footer-layout-info]',
 					'astra-settings[footer-layout-width]',
+					'astra-settings[footer-color]',
+					'astra-settings[footer-link-color]',
+					'astra-settings[footer-link-h-color]',
+					'astra-settings[footer-bg-color]',
+					'astra-settings[divider-footer-image]',
 				],
 				callback: function( small_footer_layout ) {
 
@@ -363,6 +377,30 @@
 				callback: function( menu ) {
 					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
 					if ( !menu || 'none' !=  custom_menu) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
+		/**
+		 * Footer Widgets
+		 */
+		'astra-settings[footer-adv]' :
+		[
+			{
+				controls: [
+					'astra-settings[footer-adv-background-divider]',
+					'astra-settings[footer-adv-wgt-title-color]',
+					'astra-settings[footer-adv-text-color]',
+					'astra-settings[footer-adv-link-color]',
+					'astra-settings[footer-adv-link-h-color]',
+					'astra-settings[footer-adv-bg-color]',
+				],
+				callback: function( footer_widget_area ) {
+
+					if ( 'disabled' != footer_widget_area ) {
 						return true;
 					}
 					return false;

@@ -12,14 +12,9 @@
 ?>
 <div <?php astra_blog_layout_class( 'blog-layout-1' ); ?>>
 
-	<?php astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ast-col-md-12">', '</div>' ); ?>
-
 	<div class="post-content ast-col-md-12">
-		<header class="entry-header">
-			<?php astra_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() ); ?>
-			
-			<?php astra_blog_get_post_meta(); ?>
-		</header><!-- .entry-header -->
+
+		<?php astra_blog_post_thumbnai_and_title_order(); ?>
 
 		<div class="entry-content clear" itemprop="text">
 

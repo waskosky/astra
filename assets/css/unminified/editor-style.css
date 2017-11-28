@@ -1262,21 +1262,21 @@ h1, h2, h3, h4, h5, h6 {
 h1,
 .entry-content h1 {
   color: #808285;
-  font-size: 48px;
+  font-size: 2em;
   line-height: 1.2;
 }
 
 h2,
 .entry-content h2 {
   color: #808285;
-  font-size: 42px;
+  font-size: 1.7em;
   line-height: 1.3;
 }
 
 h3,
 .entry-content h3 {
   color: #808285;
-  font-size: 30px;
+  font-size: 1.5em;
   line-height: 1.4;
 }
 
@@ -1284,21 +1284,21 @@ h4,
 .entry-content h4 {
   color: #808285;
   line-height: 1.5;
-  font-size: 20px;
+  font-size: 1.3em;
 }
 
 h5,
 .entry-content h5 {
   color: #808285;
   line-height: 1.6;
-  font-size: 18px;
+  font-size: 1.2em;
 }
 
 h6,
 .entry-content h6 {
   color: #808285;
   line-height: 1.7;
-  font-size: 15px;
+  font-size: 1.1em;
 }
 
 /*--------------------------------------------------------------
@@ -1428,6 +1428,7 @@ hr {
 }
 
 .ast-button,
+.button,
 button,
 input,
 select,
@@ -1511,6 +1512,7 @@ th, td {
 --------------------------------------------------------------*/
 button,
 .ast-button,
+.button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -1526,6 +1528,8 @@ input[type="submit"] {
 button:hover, button:focus,
 .ast-button:hover,
 .ast-button:focus,
+.button:hover,
+.button:focus,
 input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="reset"]:hover,
@@ -1539,6 +1543,8 @@ input[type="submit"]:focus {
 button:active, button:focus,
 .ast-button:active,
 .ast-button:focus,
+.button:active,
+.button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -1764,11 +1770,11 @@ object {
 /*----------  Break-point max-width Structure   ----------*/
 ::-moz-selection {
   color: #fff;
-  background: #0085ba;
+  background: #0274be;
 }
 ::selection {
   color: #fff;
-  background: #0085ba;
+  background: #0274be;
 }
 
 html {
@@ -1776,7 +1782,6 @@ html {
 }
 
 body {
-  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1832,6 +1837,7 @@ blockquote {
 }
 
 .ast-button,
+.button,
 input[type="button"],
 input[type="submit"] {
   -webkit-border-radius: 0;
@@ -1844,6 +1850,7 @@ input[type="submit"] {
 }
 
 .ast-button:hover,
+.button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
   -webkit-box-shadow: none;
@@ -1851,6 +1858,8 @@ input[type="submit"]:hover {
 }
 
 .ast-button:active, .ast-button:focus,
+.button:active,
+.button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="submit"]:active,
@@ -1898,7 +1907,7 @@ input[type="submit"]:focus {
   color: #999;
 }
 
-.ast-header-break-point .main-header-bar-wrap .ast-search-icon {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: none;
 }
 
@@ -2023,20 +2032,62 @@ textarea {
   margin-bottom: 2em;
 }
 
+.elementor-image-gallery .gallery-icon {
+  border: none;
+}
+
+/* Astra Respnosive oEmbed Video container */
+.ast-oembed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.ast-oembed-container iframe, .ast-oembed-container object, .ast-oembed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   margin: 20px;
   vertical-align: baseline;
   color: #3a3a3a;
 }
 
 a {
-  color: #0085ba;
+  color: #0274be;
 }
 
 a:hover,
 a:focus {
   color: #3a3a3a;
+}
+
+h1,
+.entry-content h1,
+h2,
+.entry-content h2,
+h3,
+.entry-content h3,
+h4,
+.entry-content h4,
+h5,
+.entry-content h5,
+h6,
+.entry-content h6 {
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 h1,
