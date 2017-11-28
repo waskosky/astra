@@ -13,14 +13,16 @@
 	 * Layout Panel
 	 */
 	$wp_customize->add_panel(
-		new Astra_WP_Customize_Panel( $wp_customize, 'panel-layout',
+		new Astra_WP_Customize_Panel(
+			$wp_customize, 'panel-layout',
 			array(
 				'priority' => 10,
 				'title'    => __( 'Layout', 'astra' ),
 			)
 		)
 	);
-	/*if ( ASTRA_EXTEND_PANEL_CHECK ) {
+	/*
+	if ( ASTRA_EXTEND_PANEL_CHECK ) {
 	}else{
 		$wp_customize->add_panel(
 			'panel-layout', array(
@@ -63,7 +65,8 @@
 			)
 		);
 
-		/*$wp_customize->add_section(
+		/*
+		$wp_customize->add_section(
 			'section-blog-group', array(
 				'title'    => __( 'Blog', 'astra' ),
 				'panel'    => 'panel-layout',
@@ -72,33 +75,36 @@
 		);*/
 
 		$wp_customize->add_section(
-			new Astra_WP_Customize_Section( $wp_customize, 'section-blog-group',
+			new Astra_WP_Customize_Section(
+				$wp_customize, 'section-blog-group',
 				array(
-					'priority' 	=> 40,
-					'title'    	=> __( 'Blog', 'astra' ),
-					'panel' 	=> 'panel-layout',
+					'priority' => 40,
+					'title'    => __( 'Blog', 'astra' ),
+					'panel'    => 'panel-layout',
 				)
 			)
 		);
 
 		$wp_customize->add_section(
-			new Astra_WP_Customize_Section( $wp_customize, 'section-blog',
+			new Astra_WP_Customize_Section(
+				$wp_customize, 'section-blog',
 				array(
-					'priority' 	=> 5,
-					'title'    	=> __( 'Blog / Archive', 'astra' ),
-					'panel' 	=> 'panel-layout',
-					'section' 	=> 'section-blog-group',
+					'priority' => 5,
+					'title'    => __( 'Blog / Archive', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-blog-group',
 				)
 			)
 		);
 
 		$wp_customize->add_section(
-			new Astra_WP_Customize_Section( $wp_customize, 'section-blog-single',
+			new Astra_WP_Customize_Section(
+				$wp_customize, 'section-blog-single',
 				array(
-					'priority' 	=> 10,
-					'title'    	=> __( 'Single Post', 'astra' ),
-					'panel' 	=> 'panel-layout',
-					'section' 	=> 'section-blog-group',
+					'priority' => 10,
+					'title'    => __( 'Single Post', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-blog-group',
 				)
 			)
 		);

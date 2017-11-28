@@ -95,8 +95,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Register Extended Panel
 			 */
-  			$wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
-  			$wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
+			  $wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
+			  $wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
 
 			/**
 			 * Astra Pro Upsell Link
@@ -183,7 +183,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Extended Customizer Assets - Panel extended
 			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
-
 
 			// Customizer Controls.
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
