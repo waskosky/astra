@@ -1234,7 +1234,6 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 				}
 			}
 
-			$image_url      = isset( $attach_data[0] ) ? $attach_data[0] : false;
 			$file_type      = wp_check_filetype( $attach_data[0] );
 			$file_extension = $file_type['ext'];
 
