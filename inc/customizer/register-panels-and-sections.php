@@ -193,13 +193,18 @@
 	);
 
 	$wp_customize->add_section(
-		'section-header-typo', array(
-			'title'    => __( 'Header', 'astra' ),
-			'panel'    => 'panel-typography',
-			'priority' => 20,
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-header-typo',
+			apply_filters( 'astra_customizer_primary_header_typo',
+				array(
+					'title'    => __( 'Header', 'astra' ),
+					'panel'    => 'panel-typography',
+					'priority' => 20,
+				)
+			)
 		)
 	);
-
+	
 	$wp_customize->add_section(
 		'section-archive-typo', array(
 			'title'    => __( 'Blog / Archive', 'astra' ),
