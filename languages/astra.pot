@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.0.30\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-11-10 13:30:54+00:00\n"
+"POT-Creation-Date: 2017-11-30 06:37:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -746,7 +746,7 @@ msgstr ""
 msgid "Custom Menu Item"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:89 inc/extras.php:249
+#: inc/customizer/sections/layout/header.php:89 inc/extras.php:247
 msgid "Search"
 msgstr ""
 
@@ -939,27 +939,27 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:278
+#: inc/extras.php:276
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:371
+#: inc/extras.php:369
 msgid "Y"
 msgstr ""
 
-#: inc/extras.php:417
+#: inc/extras.php:415
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:565
+#: inc/extras.php:563
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:951
+#: inc/extras.php:949
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1034
+#: inc/extras.php:1032
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
