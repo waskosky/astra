@@ -154,7 +154,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
-				add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 			}
 
 			$html .= '<span class="site-logo-img">';
@@ -163,7 +162,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				remove_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10 );
-				remove_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10 );
 			}
 		}
 
@@ -1100,8 +1098,15 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$output = '';
 
-		$featured_image    = true;
-		$is_featured_image = astra_get_option_meta( 'ast-featured-img' );
+		$check_is_singular = is_singular();
+
+		$featured_image = true;
+
+		if ( $check_is_singular ) {
+			$is_featured_image = astra_get_option_meta( 'ast-featured-img' );
+		} else {
+			$is_featured_image = astra_get_option( 'ast-featured-img' );
+		}
 
 		if ( 'disabled' === $is_featured_image ) {
 			$featured_image = false;
@@ -1112,19 +1117,19 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$blog_post_thumb   = astra_get_option( 'blog-post-structure' );
 		$single_post_thumb = astra_get_option( 'blog-single-post-structure' );
 
-		if ( ( ( ! is_singular() && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
+		if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
 
-			if ( $featured_image && ( ! ( is_singular() ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
 				$post_thumb = get_the_post_thumbnail();
 
 				if ( '' != $post_thumb ) {
 					$output .= '<div class="post-thumb-img-content post-thumb">';
-					if ( ! is_singular() ) {
+					if ( ! $check_is_singular ) {
 						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
 					}
 					$output .= $post_thumb;
-					if ( ! is_singular() ) {
+					if ( ! $check_is_singular ) {
 						$output .= '</a>';
 					}
 					$output .= '</div>';
@@ -1132,7 +1137,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 			}
 		}
 
-		if ( ! is_singular() ) {
+		if ( ! $check_is_singular ) {
 			$output = apply_filters( 'astra_blog_post_featured_image_after', $output );
 		}
 
@@ -1219,11 +1224,26 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		if ( $custom_logo_id == $attachment->ID ) {
 
+			$attach_data = array();
 			if ( ! is_customize_preview() ) {
 				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
+
 				if ( isset( $attach_data[0] ) ) {
 					$attr['src'] = $attach_data[0];
 				}
+			} else {
+				$attach_data = wp_get_attachment_image_src( $attachment->ID );
+
+				if ( isset( $attach_data[0] ) ) {
+					$attr['src'] = $attach_data[0];
+				}
+			}
+
+			$file_type      = wp_check_filetype( $attach_data[0] );
+			$file_extension = $file_type['ext'];
+
+			if ( 'svg' == $file_extension ) {
+				$attr['class'] = 'astra-logo-svg';
 			}
 
 			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
@@ -1247,6 +1267,8 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		return $attr;
 	}
 endif; // End if().
+
+add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 
 /**
  * Astra Color Palletes.
