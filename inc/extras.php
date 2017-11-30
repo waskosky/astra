@@ -154,7 +154,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
-				add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 			}
 
 			$html .= '<span class="site-logo-img">';
@@ -163,7 +162,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				remove_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10 );
-				remove_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10 );
 			}
 		}
 
@@ -1234,7 +1232,6 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 				}
 			}
 
-			$image_url      = isset( $attach_data[0] ) ? $attach_data[0] : false;
 			$file_type      = wp_check_filetype( $attach_data[0] );
 			$file_extension = $file_type['ext'];
 
@@ -1263,6 +1260,8 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		return $attr;
 	}
 endif; // End if().
+
+add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 
 /**
  * Astra Color Palletes.
