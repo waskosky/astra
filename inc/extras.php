@@ -1264,6 +1264,8 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	}
 endif; // End if().
 
+add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
+
 /**
  * Astra Color Palletes.
  */
