@@ -39,18 +39,53 @@
 	);
 
 	$wp_customize->add_section(
-		'section-header', array(
-			'title'    => __( 'Header', 'astra' ),
-			'panel'    => 'panel-layout',
-			'priority' => 20,
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-header',
+			apply_filters( 'astra_customizer_primary_header_layout',
+				array(
+					'title'    => __( 'Primary Header', 'astra' ),
+					'panel'    => 'panel-layout',
+					'priority' => 20,
+				)
+			)
+		)
+	);
+	
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-footer-group',
+			array(
+				'title'    => __( 'Footer', 'astra' ),
+				'panel'    => 'panel-layout',
+				'priority' => 55,
+			)
+		)
+	);
+
+	/**
+	 * Footer Widgets Section
+	 */
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-footer-adv',
+			array(
+				'title'    => __( 'Footer Widgets', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-footer-group',
+				'priority' => 5,
+			)
 		)
 	);
 
 	$wp_customize->add_section(
-		'section-footer-small', array(
-			'title'    => __( 'Footer Bar', 'astra' ),
-			'panel'    => 'panel-layout',
-			'priority' => 60,
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-footer-small',
+			array(
+				'title'    => __( 'Footer Bar', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-footer-group',
+				'priority' => 10,
+			)
 		)
 	);
 
@@ -198,16 +233,5 @@
 		'section-widget-areas', array(
 			'priority' => 55,
 			'title'    => __( 'Widget Areas', 'astra' ),
-		)
-	);
-
-	/**
-	 * Footer Widgets Section
-	 */
-	$wp_customize->add_section(
-		'section-footer-adv', array(
-			'title'    => __( 'Footer Widgets', 'astra' ),
-			'panel'    => 'panel-layout',
-			'priority' => 55,
 		)
 	);
