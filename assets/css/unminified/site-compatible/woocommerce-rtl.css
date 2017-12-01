@@ -7,6 +7,9 @@
 /*----------  Break-point max-width Structure   ----------*/
 .woocommerce {
   /**
+	 * Loading on add to cart button
+	 */
+  /**
 	 * Single Product
 	 */
 }
@@ -36,6 +39,20 @@
 
 .woocommerce .product #respond input#submit {
   padding: 0.5em 0.75em;
+}
+
+.woocommerce div.product form.cart {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .woocommerce div.product .woocommerce-product-rating {
@@ -115,6 +132,17 @@
   border-top: 0;
 }
 
+.woocommerce #respond input#submit.loading::after,
+.woocommerce a.button.loading::after,
+.woocommerce button.button.loading::after,
+.woocommerce input.button.loading::after {
+  top: auto;
+}
+
+.woocommerce a.added_to_cart {
+  padding: 0.5em;
+}
+
 .woocommerce.single-product div.product p.price {
   margin: 0 0 0.5em 0;
   font-size: 2rem;
@@ -179,6 +207,13 @@
 .woocommerce ul.products li.product .button,
 .woocommerce-page ul.products li.product .button {
   margin: .75em auto;
+}
+
+.woocommerce ul.products li.product .button.added,
+.woocommerce-page ul.products li.product .button.added {
+  margin-bottom: 0;
+  -webkit-transition: margin 0s;
+  transition: margin 0s;
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-category__title,
@@ -288,6 +323,20 @@
 .woocommerce-cart .hentry li.product,
 .woocommerce-cart ul.products li.product {
   margin-bottom: 0;
+}
+
+.woocommerce-cart table.cart td.actions .coupon {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .woocommerce-cart table.cart td.actions .coupon .input-text {
