@@ -58,8 +58,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'loop_shop_columns',                        array( $this, 'shop_columns' ) );
 			add_filter( 'loop_shop_per_page',                       array( $this, 'shop_no_of_products' ) );
 			add_filter( 'body_class',                               array( $this, 'shop_page_products_item_class' ) );
-			add_filter( 'astra_dynamic_css',                          array( $this, 'dynamic_css_callback' ), 10, 2 );
-
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'woocommerce_add_to_cart_fragments',        array( $this, 'add_to_cart_fragments' ) );
 
@@ -124,76 +122,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['shop-no-of-products'] = '9';
 
 			return $defaults;
-		}
-
-		function dynamic_css_callback( $dynamic_css, $dynamic_css_filtered = '' ) {
-
-			$theme_color  = astra_get_option( 'link-color' );
-			$text_color   = astra_get_option( 'text-color' );
-			$link_h_color = astra_get_option( 'link-h-color' );
-
-			$btn_color    = astra_get_option( 'button-color' );
-			if ( empty( $btn_color ) ) {
-				$btn_color = astra_get_foreground_color( $theme_color );
-			}
-
-			$btn_h_color = astra_get_option( 'button-h-color' );
-			if ( empty( $btn_h_color ) ) {
-				$btn_h_color = astra_get_foreground_color( $link_h_color );
-			}
-			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
-			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
-
-			$btn_border_radius               = astra_get_option( 'button-radius' );
-			$btn_vertical_padding            = astra_get_option( 'button-v-padding' );
-			$btn_horizontal_padding          = astra_get_option( 'button-h-padding' );
-
-			$css_output = array(
-				'.woocommerce span.onsale' => array(
-					'background-color' => $theme_color
-				),
-				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit' => array(
-					'color'            => $btn_color,
-					'border-color'     => $btn_bg_color,
-					'background-color' => $btn_bg_color
-				),
-				'.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover' => array(
-					'color'            => $btn_h_color,
-					'border-color'     => $btn_bg_h_color,
-					'background-color' => $btn_bg_h_color
-				),
-				'.woocommerce .woocommerce-message' => array(
-					'border-top-color' => $theme_color
-				),
-				'.woocommerce .woocommerce-message::before' => array(
-					'color' => $theme_color
-				),
-				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a' => array(
-					'color' => $text_color
-				),
-				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
-					'border-color' => $theme_color,
-				),
-				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(
-					'background' => $theme_color,
-					'color'      => $btn_color,
-				),
-				'.woocommerce-MyAccount-navigation-link.is-active a' => array(
-					'color'      => $link_h_color,
-				),
-				'.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle' => array(
-					'background-color' => $theme_color,
-				),
-				// Button Typography.
-				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
-					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
-					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
-				),
-			);
-
-			/* Parse CSS from array() */
-			$css_output = astra_parse_css( $css_output );
-			return $dynamic_css . $css_output;
 		}
 
 		/**
@@ -329,6 +257,77 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// RTL support.
 			wp_style_add_data( $key, 'rtl', 'replace' );
+
+			/**
+			 * - Variable Declaration
+			 */
+			$theme_color  = astra_get_option( 'link-color' );
+			$text_color   = astra_get_option( 'text-color' );
+			$link_h_color = astra_get_option( 'link-h-color' );
+
+			$btn_color    = astra_get_option( 'button-color' );
+			if ( empty( $btn_color ) ) {
+				$btn_color = astra_get_foreground_color( $theme_color );
+			}
+
+			$btn_h_color = astra_get_option( 'button-h-color' );
+			if ( empty( $btn_h_color ) ) {
+				$btn_h_color = astra_get_foreground_color( $link_h_color );
+			}
+			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
+			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
+
+			$btn_border_radius               = astra_get_option( 'button-radius' );
+			$btn_vertical_padding            = astra_get_option( 'button-v-padding' );
+			$btn_horizontal_padding          = astra_get_option( 'button-h-padding' );
+
+			$css_output = array(
+				'.woocommerce span.onsale' => array(
+					'background-color' => $theme_color
+				),
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit' => array(
+					'color'            => $btn_color,
+					'border-color'     => $btn_bg_color,
+					'background-color' => $btn_bg_color
+				),
+				'.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover' => array(
+					'color'            => $btn_h_color,
+					'border-color'     => $btn_bg_h_color,
+					'background-color' => $btn_bg_h_color
+				),
+				'.woocommerce .woocommerce-message' => array(
+					'border-top-color' => $theme_color
+				),
+				'.woocommerce .woocommerce-message::before' => array(
+					'color' => $theme_color
+				),
+				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a' => array(
+					'color' => $text_color
+				),
+				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
+					'border-color' => $theme_color,
+				),
+				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(
+					'background' => $theme_color,
+					'color'      => $btn_color,
+				),
+				'.woocommerce-MyAccount-navigation-link.is-active a' => array(
+					'color'      => $link_h_color,
+				),
+				'.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle' => array(
+					'background-color' => $theme_color,
+				),
+				// Button Typography.
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
+					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$css_output = astra_parse_css( $css_output );
+
+			wp_add_inline_style( $key, apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 		}
 
 	}

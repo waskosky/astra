@@ -191,6 +191,8 @@
 .woocommerce ul.products li.product .button,
 .woocommerce-page ul.products li.product .button {
   margin: .75em auto;
+  white-space: normal;
+  line-height: 1.3;
 }
 
 .woocommerce ul.products li.product .button.added,
