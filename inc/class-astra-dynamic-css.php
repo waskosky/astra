@@ -188,6 +188,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'#masthead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width, 'px' ),
 				),
+				'.astra-logo-svg'                         => array(
+					'width' => astra_get_css_value( $header_logo_width, 'px' ),
+				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
 				),
@@ -605,9 +608,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( apply_filters( 'astra_enable_default_fonts', true ) ) {
 				$astra_fonts          = '@font-face {';
 					$astra_fonts     .= 'font-family: "Astra";';
-					$astra_fonts     .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.woff) format("woff"),';
-						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.ttf) format("truetype"),';
-						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.svg#Astra) format("svg");';
+					$astra_fonts     .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.woff) format("woff"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.ttf) format("truetype"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
 					$astra_fonts     .= 'font-weight: normal;';
 					$astra_fonts     .= 'font-style: normal;';
 				$astra_fonts         .= '}';
