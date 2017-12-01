@@ -1231,15 +1231,9 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 				if ( isset( $attach_data[0] ) ) {
 					$attr['src'] = $attach_data[0];
 				}
-			} else {
-				$attach_data = wp_get_attachment_image_src( $attachment->ID );
-
-				if ( isset( $attach_data[0] ) ) {
-					$attr['src'] = $attach_data[0];
-				}
 			}
 
-			$file_type      = wp_check_filetype( $attach_data[0] );
+			$file_type      = wp_check_filetype( $attr['src'] );
 			$file_extension = $file_type['ext'];
 
 			if ( 'svg' == $file_extension ) {
