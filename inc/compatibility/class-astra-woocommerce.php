@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function theme_defaults( $defaults ) {
 
-			$defaults['shop-grid']           = '3';
+			$defaults['shop-grid']           = '4';
 			$defaults['shop-no-of-products'] = '9';
 
 			return $defaults;
