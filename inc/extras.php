@@ -1264,7 +1264,7 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 					$attr['src'] = $attach_data[0];
 				}
 			} else {
-				$attach_data = wp_get_attachment_image_src( $attachment->ID );
+				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'full' );
 
 				if ( isset( $attach_data[0] ) ) {
 					$attr['src'] = $attach_data[0];
