@@ -86,9 +86,7 @@
 
 .woocommerce .products .star-rating {
   color: #f9ca63;
-  position: absolute;
-  top: 1em;
-  right: 1em;
+  margin: .5em auto 0;
 }
 
 .woocommerce .woocommerce-result-count {

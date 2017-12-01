@@ -65,6 +65,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_shop_loop_item_title',  array( $this, 'product_flip_image' ), 10 );
 			add_filter( 'woocommerce_subcategory_count_html',       array( $this, 'subcategory_count_markup' ), 10, 2 );
+			add_action( 'woocommerce_after_shop_loop_item_title', 	'woocommerce_template_loop_rating', 11 );
 		}
 
 		/**
@@ -261,6 +262,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+			remove_action( 'woocommerce_after_shop_loop_item_title', 	'woocommerce_template_loop_rating', 5 );
 		}
 
 		/**
