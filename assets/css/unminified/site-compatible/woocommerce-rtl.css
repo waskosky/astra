@@ -41,20 +41,6 @@
   padding: 0.5em 0.75em;
 }
 
-.woocommerce div.product form.cart {
-  -js-display: flex;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 .woocommerce div.product .woocommerce-product-rating {
   margin: 0 0 0.5em 0;
 }
