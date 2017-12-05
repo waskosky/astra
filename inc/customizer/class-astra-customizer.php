@@ -50,6 +50,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
+			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 		}
@@ -85,18 +86,30 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
-		 * Add postMessage support for site title and description for the Theme Customizer.
+		 * Register custom section and panel.
 		 *
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		function customize_register_panel( $wp_customize ) {
 
 			/**
 			 * Register Extended Panel
 			 */
 			$wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
 			$wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
+
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
+		}
+
+		/**
+		 * Add postMessage support for site title and description for the Theme Customizer.
+		 *
+		 * @since 1.0.0
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		function customize_register( $wp_customize ) {
 
 			/**
 			 * Astra Pro Upsell Link
@@ -120,8 +133,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Helper files
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/customizer-controls.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-partials.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-callback.php';
