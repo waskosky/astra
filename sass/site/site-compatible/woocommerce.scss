@@ -247,11 +247,26 @@
 			margin-right: 0;
 		}
 	}
+	
 }
 
-.woocommerce-product-gallery__wrapper {
-	.woocommerce-product-gallery__image:first-child {
-		margin-bottom: 1em;
+/* Single Product Gallery */
+.woocommerce {
+	div.product .woocommerce-product-gallery {
+		.flex-viewport {
+			margin-bottom: 1em;
+		}
+
+		&.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
+			
+			width: calc( 25% - 0.75em );
+    		margin-right: 1em;
+    		margin-bottom: 1em;
+
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
+		}
 	}
 }
 
