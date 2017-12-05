@@ -1,3 +1,6 @@
+v1.0.32
+# Fixed: Logo being croped in customizer preview.
+
 v1.0.31
 # New: Filter `astra_enable_page_builder_compatibility` added to disable default page builder compatibility meta settings.
 # Fixed: Some SVG logos being not displayed.
