@@ -44,6 +44,11 @@
 		    margin: 0 0 0.5em 0;
 		}
 
+		form.cart {
+			display: flex;
+			align-items: center;
+		}
+		
 		// Tabs.
 		.woocommerce-tabs{
 
@@ -182,6 +187,10 @@
 			}
 		}
 
+		.product_meta span {
+			display: block;
+		}
+		
 		.woocommerce-tabs,
 		.related.products {
 		    display: inline-block;
