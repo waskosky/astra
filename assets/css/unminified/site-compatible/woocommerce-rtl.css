@@ -243,6 +243,10 @@
   margin-left: 0;
 }
 
+.woocommerce .quantity .qty {
+  min-height: 35px;
+}
+
 .woocommerce-tabs .shop_attributes td {
   padding: 0.5em;
 }
