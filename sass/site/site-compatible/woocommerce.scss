@@ -45,21 +45,52 @@
 		}
 
 		// Tabs.
-		.woocommerce-tabs ul.tabs {
-			li {
+		.woocommerce-tabs{
+
+			margin-top: 2em;
+			margin-bottom: 2em;
+			border-bottom: 1px solid rgba(0,0,0,.05);
+		
+			ul.tabs{
+				
+				margin: 0 0 2em;
 				padding: 0;
-			    border-radius: 0;
+				border-top: 1px solid rgba(0,0,0,.05);
+				border-bottom: 1px solid rgba(0,0,0,.05);
+				text-align: center;
+				
+				li {
+					border: 0;
+					display: inline-block;
+					border-radius: 0;
+					margin: 0 10px;
+					padding: 0;
+					background: none;
+				    
+				    a {
+				    	padding: .5em 1em;
+				    }
+					
+					&.active {
+						a {
+							outline: none;
+						}
+					}
 
-			    a {
-			    	padding: .5em 1em;
-			    }
+					&.active::before,
+					&.active::after,
+					&::after,
+					&::before {
+					    border: none;
+					    box-shadow: none;
+					}
+				}
 
-				&.active::before,
-				&.active::after,
-				&::after,
-				&::before {
-				    border: none;
-				    box-shadow: none;
+				li::after,
+				li::before,
+				&.tabs::before {
+				    display: none;
+				    border: 0;
 				}
 			}
 		}
@@ -115,18 +146,6 @@
 		line-height: 3;
 	}
 
-	div.product .woocommerce-tabs {
-		ul.tabs {
-			margin-bottom: 0;
-		}
-
-		.panel {
-			padding: 1.618em;
-			border: 1px solid #ebe9eb;
-			border-top: 0;
-		}
-	}
-
 	/**
 	 * Loading on add to cart button
 	 */
@@ -167,9 +186,7 @@
 		.related.products {
 		    display: inline-block;
 		}
-		.woocommerce-tabs {
-		    margin-top: 2em;
-		}
+		
 		.related.products {
 		    margin-top: 1em;
 		}
@@ -253,7 +270,12 @@
 /* Single Product Gallery */
 .woocommerce {
 	div.product .woocommerce-product-gallery {
+		.woocommerce-product-gallery__trigger {
+			backface-visibility: hidden;
+		}
+
 		.flex-viewport {
+			transform-style: preserve-3d;
 			margin-bottom: 1em;
 		}
 
@@ -271,7 +293,13 @@
 
 	.quantity .qty {
 		min-height: 35px;
+
+		/*&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+		    display: none
+		}*/
 	}
+
 }
 
 // Shop Page Tab Style
