@@ -197,7 +197,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+
+			add_filter( 'woocommerce_get_breadcrumb', array( $this, 'remove_product_title' ), 10, 2 );
 		}
+		
+		/**
+		 * Remove single product title from breadcrumb.
+		 *
+		 * @return void
+		 */
+		function remove_product_title( $crumbs, $obj ) {
+			
+			if ( is_product() ) {
+				
+				$removed = array_pop( $crumbs );
+			}
+			
+			return $crumbs;
+		}
+
 
 		/**
 		 * Remove Woo-Commerce Default actions
