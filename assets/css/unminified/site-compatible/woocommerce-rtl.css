@@ -124,7 +124,6 @@
 }
 
 .woocommerce .products .star-rating {
-  color: #f9ca63;
   margin: .5em auto 0;
 }
 
@@ -165,6 +164,7 @@
 }
 
 .woocommerce.single-product div.product .product_title {
+  border-top: 1px solid #ebebeb;
   margin: 0 0 0.5em 0;
 }
 

@@ -356,7 +356,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
-
+				'.woocommerce.single-product .star-rating' => array(
+					'color'			=> $theme_color,
+				),
+				
 				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active a' => array(
 					'border-top'	=> 'solid 3px ' . $theme_color,
 				),
