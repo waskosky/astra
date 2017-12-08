@@ -171,8 +171,12 @@
 	&.single-product {
 		div.product {
 			
+			.woocommerce-breadcrumb {
+			    padding: 0 0 1em 0;
+				border-bottom: 1px solid #ebebeb;
+			}
+
 			.product_title {
-				border-top: 1px solid #ebebeb;
 			    margin: 0 0 0.5em 0;
 			}
 			
@@ -211,16 +215,7 @@
 		.related.products {
 		    margin-top: 1em;
 		}
-
-		.star-rating {
-			color: #f9ca63;
-		}
-
-		.comment-form-rating .stars a {
-		    color: #f9ca63;
-		}
 	}
-
 }
 
 .up-sells,
