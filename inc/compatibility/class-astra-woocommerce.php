@@ -195,6 +195,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				return;
 			}
 
+			add_filter( 'woocommerce_product_description_heading', '__return_false' );
+			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
+
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
 
