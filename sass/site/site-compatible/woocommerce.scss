@@ -439,27 +439,33 @@
  * Checkout Page
  */
 .woocommerce {
-
-	form.checkout_coupon {
-		margin: 0;
-		border: 0;
-		padding: 0 0 2em;
-
-		@media ( min-width: $col-md ) {
-			width: 50%;
+	
+	form {
+		.form-row .required {
+			text-decoration: none;
 		}
-
-		.form-row {
+		
+		&.checkout_coupon {
 			margin: 0;
-			padding: 0;
-			float: none;
-			display: inline-block;
-		}
+			border: 0;
+			padding: 0 0 2em;
 
-		.button {
-			padding: .5em 1em;
-			vertical-align: initial;
-			line-height: 1.35;
+			@media ( min-width: $col-md ) {
+				width: 50%;
+			}
+
+			.form-row {
+				margin: 0;
+				padding: 0;
+				float: none;
+				display: inline-block;
+			}
+
+			.button {
+				padding: .5em 1em;
+				vertical-align: initial;
+				line-height: 1.35;
+			}
 		}
 	}
 }

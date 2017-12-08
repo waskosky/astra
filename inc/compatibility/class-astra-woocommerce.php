@@ -329,10 +329,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color
 				),
-				'.woocommerce .woocommerce-message' => array(
+				'.woocommerce-message, .woocommerce-info' => array(
 					'border-top-color' => $theme_color
 				),
-				'.woocommerce .woocommerce-message::before' => array(
+				'.woocommerce-message::before,.woocommerce-info::before' => array(
 					'color' => $theme_color
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a' => array(

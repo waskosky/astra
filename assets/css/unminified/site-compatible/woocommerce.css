@@ -427,6 +427,10 @@
 /**
  * Checkout Page
  */
+.woocommerce form .form-row .required {
+  text-decoration: none;
+}
+
 .woocommerce form.checkout_coupon {
   margin: 0;
   border: 0;
