@@ -41,7 +41,8 @@
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-header',
-			apply_filters( 'astra_customizer_primary_header_layout',
+			apply_filters(
+				'astra_customizer_primary_header_layout',
 				array(
 					'title'    => __( 'Primary Header', 'astra' ),
 					'panel'    => 'panel-layout',
@@ -50,7 +51,7 @@
 			)
 		)
 	);
-	
+
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-footer-group',
@@ -58,6 +59,51 @@
 				'title'    => __( 'Footer', 'astra' ),
 				'panel'    => 'panel-layout',
 				'priority' => 55,
+			)
+		)
+	);
+
+	/**
+	 * WooCommerce
+	 */
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section( $wp_customize, 'section-woo-group',
+			array(
+				'title'    	=> __( 'WooCommerce', 'astra' ),
+				'panel' 	=> 'panel-layout',
+				'priority' 	=> 60,
+			)
+		)
+	);
+
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section( $wp_customize, 'section-woo-general',
+			array(
+				'title'    	=> __( 'General', 'astra-addon' ),
+				'panel' 	=> 'panel-layout',
+				'section' 	=> 'section-woo-group',
+				'priority' 	=> 5,
+			)
+		)
+	);
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section( $wp_customize, 'section-shop',
+			array(
+				'title'    	=> __( 'Shop', 'astra-addon' ),
+				'panel' 	=> 'panel-layout',
+				'section' 	=> 'section-woo-group',
+				'priority' 	=> 10,
+			)
+		)
+	);
+
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section( $wp_customize, 'section-shop-single',
+			array(
+				'title'    	=> __( 'Single Product', 'astra-addon' ),
+				'panel' 	=> 'panel-layout',
+				'section' 	=> 'section-woo-group',
+				'priority' 	=> 15,
 			)
 		)
 	);
@@ -195,7 +241,8 @@
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-header-typo',
-			apply_filters( 'astra_customizer_primary_header_typo',
+			apply_filters(
+				'astra_customizer_primary_header_typo',
 				array(
 					'title'    => __( 'Header', 'astra' ),
 					'panel'    => 'panel-typography',
@@ -204,7 +251,7 @@
 			)
 		)
 	);
-	
+
 	$wp_customize->add_section(
 		'section-archive-typo', array(
 			'title'    => __( 'Blog / Archive', 'astra' ),

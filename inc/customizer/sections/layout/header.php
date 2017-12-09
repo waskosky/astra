@@ -17,10 +17,10 @@ $header_rt_sections = array(
 	'none'      => __( 'None', 'astra' ),
 	'search'    => __( 'Search', 'astra' ),
 	'text-html' => __( 'Text / HTML', 'astra' ),
-	'widget' 	=> __( 'Widget', 'astra' ),
+	'widget'    => __( 'Widget', 'astra' ),
 );
 
-if( class_exists( 'WooCommerce' ) ) {
+if ( class_exists( 'WooCommerce' ) ) {
 	$header_rt_sections['cart'] = __( 'Cart', 'astra' );
 }
 
@@ -82,18 +82,22 @@ if( class_exists( 'WooCommerce' ) ) {
 	/**
 	 * Option: Custom Menu Item
 	 */
-	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
-		'default'           => astra_get_option( 'header-main-rt-section' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-	) );
-	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
-		'type'        => 'select',
-		'section'     => 'section-header',
-		'priority'    => 5,
-		'label'       => __( 'Custom Menu Item', 'astra' ),
-		'choices'     => $header_rt_sections,
-	) );
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
+			'default'           => astra_get_option( 'header-main-rt-section' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
+			'type'     => 'select',
+			'section'  => 'section-header',
+			'priority' => 5,
+			'label'    => __( 'Custom Menu Item', 'astra' ),
+			'choices'  => $header_rt_sections,
+		)
+	);
 
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
