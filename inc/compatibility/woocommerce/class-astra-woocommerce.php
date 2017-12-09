@@ -383,6 +383,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
 			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 
+			$cart_h_color = astra_get_foreground_color( $link_h_color );
+
 			$css_output = array(
 				'.woocommerce span.onsale'                => array(
 					'background-color' => $theme_color,
@@ -441,6 +443,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.ast-site-header-cart a:focus, .ast-site-header-cart a:hover, .ast-site-header-cart .current-menu-item a' => array(
 					'color' => esc_attr( $theme_color ),
 				),
+				
+				'.ast-woocommerce-cart-menu .ast-cart-menu-wrap .count, .ast-woocommerce-cart-menu .ast-cart-menu-wrap .count:after' => array(
+					'border-color' => esc_attr( $theme_color ),
+					'color' => esc_attr( $theme_color ),
+				),
+
+				'.ast-woocommerce-cart-menu .ast-cart-menu-wrap:hover .count' => array(
+					'color' => esc_attr( $cart_h_color ),
+					'background-color' => esc_attr( $theme_color ),
+				),				
 				/**
 				 * Cart in menu Checkout button color
 				 */
@@ -526,15 +538,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			?>
 			<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'astra-addon' ); ?>">
 					<div class="ast-cart-menu-wrap">
-						<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span>
-
-						<span class="count"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'astra-addon' ), WC()->cart->get_cart_contents_count() ) );?></span>
-						<?php echo $icon;
-						if ( WC()->cart->get_cart_contents_count() ) : ?>
-							<span class="mobile-count">
-								<?php echo WC()->cart->get_cart_contents_count(); ?>
-							</span>
-						<?php endif; ?>
+						<span class="count">
+							<?php echo WC()->cart->get_cart_contents_count(); ?>
+						</span>
 					</div>
 			</a>
 		<?php
