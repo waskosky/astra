@@ -58,6 +58,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
 			add_filter( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_action( 'wp_head', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'init', array( $this, 'woocommerce_init' ), 1 );
 
@@ -128,16 +129,23 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// Container
-			$defaults['single-product-content-layout']          = 'default';
-			$defaults['archive-product-content-layout']         = 'default';
+			$defaults['single-product-content-layout'] = 'default';
+			$defaults['archive-product-content-layout'] = 'default';
 
 			// Sidebar.
-			$defaults['single-product-sidebar-layout']          = 'default';
-			$defaults['archive-product-sidebar-layout']         = 'default';
+			$defaults['single-product-sidebar-layout'] 	= 'default';
+			$defaults['archive-product-sidebar-layout']	= 'default';
 
-			$defaults['shop-grid']           = '3';
-			$defaults['shop-no-of-products'] = '9';
+			/* Shop */
+			$defaults['shop-grid']           	= '3';
+			$defaults['shop-no-of-products'] 	= '9';
+			$defaults['shop-product-structure'] = array();
+			
+			/* General */
 			$defaults['display-cart-menu']   = true;
+
+			/* Single */
+			$defaults['single-product-breadcrumb-disable'] = false;
 
 			return $defaults;
 		}
@@ -250,6 +258,71 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Shop customization.
+		 *
+		 * @return void
+		 */
+		function shop_customization() {
+			
+			if ( ! is_shop() ) {
+				return;
+			}
+
+			if ( ! apply_filters( 'astra-woo-shop-product-structure-override', false ) ) {
+				
+				remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+
+				$shop_structure = apply_filters( 'astra-woo-shop-product-structure', astra_get_option( 'shop-product-structure' ) );
+				
+				if ( is_array( $shop_structure ) && !empty( $shop_structure ) ) {
+					
+					$priority = 0;
+					
+					foreach ( $shop_structure as $value ) {
+						
+						$priority += 10;
+						
+						switch ( $value ) {
+							/*case 'title' :
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', $priority );
+								break;
+							case 'price' :
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', $priority );
+								break;
+							case 'ratings' :
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', $priority );
+								break;*/
+							case 'short_desc' :
+								add_action( 'woocommerce_after_shop_loop_item', array( $this, 'product_short_description'), $priority );
+								break;
+							case 'add_cart' :
+								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', $priority );
+								break;
+							/*case 'category' :
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', $priority );
+								break;*/
+							default:
+								$priority -= 10;
+								break;
+						}
+					}
+				}
+			}
+		}
+
+		/**
+		 * Product short description
+		 */
+		function product_short_description() { ?>
+			<?php if ( has_excerpt() ) { ?>
+				<div class="description">
+					<?php the_excerpt(); ?>
+				</div>
+			<?php } ?>
+			<?php
+		}
+
+		/**
 		 * Single product customization.
 		 *
 		 * @return void
@@ -263,8 +336,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 
+			// Breadcrumb.
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-			add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+			
+			if( !astra_get_option( 'single-product-breadcrumb-disable' ) ) {
+				//remove_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+				add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+			}
 
 			add_filter( 'woocommerce_get_breadcrumb', array( $this, 'remove_product_title' ), 10, 2 );
 		}
@@ -499,6 +577,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-container.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-sidebar.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php';
 
 		}
