@@ -673,12 +673,15 @@
  * Header Cart Icon with shopping cart.
  */
 .ast-woocommerce-cart-menu{
-    .ast-site-header-cart:hover { 
-        .widget_shopping_cart {
-            right: 0;
-    		left: auto;
-            display: block;
-        }
+    .ast-site-header-cart {
+    	&:focus,
+    	&:hover {
+	        .widget_shopping_cart {
+	            right: 0;
+	    		left: auto;
+	            display: block;
+	        }
+    	}
     }
    	/* Cart wrapper in header. */
     .ast-site-header-cart {
@@ -708,6 +711,10 @@
 				font-weight: 300;
 				opacity: .7;
 				font-size: .875em;
+			}
+
+			.mobile-count {
+				display: none;
 			}
 			.astra-icon{
 				padding: 0 .5em;
@@ -782,15 +789,34 @@
  */
 .ast-header-break-point{
 	&.ast-woocommerce-cart-menu{
-		.ast-site-header-cart:hover { 
-	        .widget_shopping_cart {
-	            display: none;
-	        }
+		.ast-site-header-cart { 
+			&:focus,
+	    	&:hover {
+		        .widget_shopping_cart {
+		            display: none;
+		        }
+	    	}
 	    }
 	    .ast-site-header-cart{
 	        order: initial;
 			line-height: 3;
-			padding-bottom: 1em
+			padding-bottom: 1em;
+
+			.cart-container {
+			 	.amount,
+			 	.count {
+					display:none;
+				}
+				.mobile-count {
+					display: inline-block;
+				}
+				.astra-icon{
+					padding: 0;
+				}
+			 }
+			.ast-cart-menu-wrap {
+	    		padding: 0 1em;
+	    	}
 	    }
 	}
 }

@@ -473,7 +473,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span>
 
 						<span class="count"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'astra-addon' ), WC()->cart->get_cart_contents_count() ) );?></span>
-						<?php echo $icon; ?>
+						<?php echo $icon;
+						if ( WC()->cart->get_cart_contents_count() ) : ?>
+							<span class="mobile-count">
+								<?php echo WC()->cart->get_cart_contents_count(); ?>
+							</span>
+						<?php endif; ?>
 					</div>
 			</a>
 		<?php
