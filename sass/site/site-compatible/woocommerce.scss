@@ -672,7 +672,7 @@
 /**
  * Header Cart Icon with shopping cart.
  */
-.woocommerce{
+.ast-woocommerce-cart-menu{
     .ast-site-header-cart {
    	/* Cart wrapper in header. */
     	position: relative;
@@ -832,7 +832,7 @@
  * Header Cart Icon with shopping cart for responsive devices.
  */
 .ast-header-break-point{
-	&.woocommerce{
+	&.ast-woocommerce-cart-menu{
 		.ast-site-header-cart { 
 			&:focus,
 	    	&:hover {
