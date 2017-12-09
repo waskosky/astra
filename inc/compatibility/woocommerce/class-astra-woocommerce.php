@@ -454,7 +454,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-color' => esc_attr( $theme_color ),
 				),
 
-				'.woocommerce .ast-site-header-cart .widget_shopping_cart .woocommerce-Price-amount' => array(
+				'.woocommerce .ast-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
 					'color' => esc_attr( $theme_color ),
 				),
 
