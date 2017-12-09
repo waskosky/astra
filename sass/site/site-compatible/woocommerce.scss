@@ -670,15 +670,153 @@
 }
 
 /**
- * Header cart icon
+ * Header Cart Icon with shopping cart.
  */
-.astra-cart-icon:before {
-	content: "\e854";
-    font-family: "Astra";
-    font-weight: normal;
-    font-style: normal;
+.ast-woocommerce-cart-menu{
+    .ast-site-header-cart {
+    	&:focus,
+    	&:hover {
+	        .widget_shopping_cart {
+	            right: 0;
+	    		left: auto;
+	            display: block;
+	        }
+    	}
+    }
+   	/* Cart wrapper in header. */
+    .ast-site-header-cart {
+    	position: relative;
+    	list-style-type: none;
+	    margin-left: 0;
+	    padding: 0;
+	    margin-bottom: 0;
+	    order: 1;
+
+			.ast-shopping-cart-icon{
+				display: initial;
+				vertical-align: middle;
+				&:before{
+					content: "\e854";
+					font-family: 'Astra';
+					font-size: 18px;
+					font-size: 1.2857rem;
+				}
+			}
+
+		 .cart-container {
+		 	.amount {
+				padding-left: 0.5em;
+			}
+			.count {
+				font-weight: 300;
+				opacity: .7;
+				font-size: .875em;
+			}
+
+			.mobile-count {
+				display: none;
+			}
+			.astra-icon{
+				padding: 0 .5em;
+			}
+		 }
+
+		.ast-cart-menu-wrap {
+    		display: inline-block;
+    		line-height: 1;
+    	}
+
+    	/* Cart container with border. */
+    	&.ast-menu-cart-with-border{
+    		.widget_shopping_cart {
+        		border: 1px solid #eaeaea;
+        	}
+    	}
+
+    	/* Cart container in header. */
+        .widget_shopping_cart {
+        	background-color: #fff;
+            position: absolute;
+            top: 100%;
+            width: 260px;
+            z-index: 999999;
+            font-size: .875em;
+            left: -999em;
+            display: block;
+            line-height: 1.618;
+
+           .product_list_widget {
+               padding: 1em 1.5em;
+               max-height: 260px;
+               overflow-y: auto;
+            	li{
+					padding: .5em 0 .5em 5em;
+    				border-bottom: 1px solid rgba(0,0,0,.05);
+
+    				&:last-child{
+    					border-bottom: 0;
+    				}
+    				img{
+						max-width: 4em;
+						margin: 0 0 .5em 0;
+    				}
+            	}
+            }
+
+			p.buttons, 
+			p.total {
+				padding: 1em 1.5em;
+				margin: 0;
+				text-align: center;
+			}
+
+			.buttons {
+				.button{
+					display: block;
+					margin-right: 0;
+				}
+			}
+
+			.woocommerce-mini-cart__empty-message {
+				margin: 1.41575em;
+			}
+        }
+    }
 }
 
-.astra-menu-cart-item .amount {
-    padding-left: 0.5em;
+/**
+ * Header Cart Icon with shopping cart for responsive devices.
+ */
+.ast-header-break-point{
+	&.ast-woocommerce-cart-menu{
+		.ast-site-header-cart { 
+			&:focus,
+	    	&:hover {
+		        .widget_shopping_cart {
+		            display: none;
+		        }
+	    	}
+	    }
+	    .ast-site-header-cart{
+	        order: initial;
+			line-height: 3;
+			padding-bottom: 1em;
+
+			.cart-container {
+			 	.amount,
+			 	.count {
+					display:none;
+				}
+				.mobile-count {
+					display: inline-block;
+				}
+				.astra-icon{
+					padding: 0;
+				}
+			 }
+			.ast-cart-menu-wrap {
+	    		padding: 0 1em;
+	    	}
+	    }
+	}
 }

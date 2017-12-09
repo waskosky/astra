@@ -20,9 +20,6 @@ $header_rt_sections = array(
 	'widget'    => __( 'Widget', 'astra' ),
 );
 
-if ( class_exists( 'WooCommerce' ) ) {
-	$header_rt_sections['cart'] = __( 'Cart', 'astra' );
-}
 
 	/**
 	 * Option: Header Layout
