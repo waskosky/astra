@@ -49,6 +49,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
+			
+			// Register Store Sidebars
+			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 15 );
+			// Replace Store Sidebars
+			add_filter( 'astra_get_sidebar', array( $this, 'replace_store_sidebar' ) );
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
@@ -201,6 +206,47 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_theme_support( 'wc-product-gallery-lightbox' );
 			add_theme_support( 'wc-product-gallery-slider' );
 
+		}
+
+		/**
+		 * Store widgets init.
+		 */
+		function store_widgets_init() {
+			register_sidebar(
+				array(
+					'name'          => esc_html__( 'Shop Sidebar', 'astra' ),
+					'id'            => 'astra-woo-shop-sidebar',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
+
+			register_sidebar(
+				array(
+					'name'          => esc_html__( 'Product Sidebar', 'astra' ),
+					'id'            => 'astra-woo-single-sidebar',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
+		}
+
+		/**
+		 * Assign shop sidebar for store page.
+		 */
+		function replace_store_sidebar( $sidebar ) {
+
+			if ( is_shop() ) {
+				$sidebar = 'astra-woo-shop-sidebar';
+			}elseif ( is_product() ) {
+				$sidebar = 'astra-woo-single-sidebar';
+			}
+
+			return $sidebar;
 		}
 
 		/**
