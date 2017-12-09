@@ -678,7 +678,7 @@
     	position: relative;
     	list-style-type: none;
 	    margin-left: 0;
-	    padding: 0;
+	    padding-left: 1em;
 	    margin-bottom: 0;
 	    order: 1;
 
@@ -844,7 +844,7 @@
 	    .ast-site-header-cart{
 	        order: initial;
 			line-height: 3;
-			padding-bottom: 1em;
+			padding: 0 0 1em 0;
 	    }
 
 	    .ast-cart-menu-wrap{
