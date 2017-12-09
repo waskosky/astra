@@ -129,12 +129,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// Container
-			$defaults['single-product-content-layout']          = 'default';
-			$defaults['archive-product-content-layout']         = 'default';
+			$defaults['single-product-content-layout'] = 'default';
+			$defaults['archive-product-content-layout'] = 'default';
 
 			// Sidebar.
-			$defaults['single-product-sidebar-layout']          = 'default';
-			$defaults['archive-product-sidebar-layout']         = 'default';
+			$defaults['single-product-sidebar-layout'] 	= 'default';
+			$defaults['archive-product-sidebar-layout']	= 'default';
 
 			/* Shop */
 			$defaults['shop-grid']           	= '3';
@@ -143,6 +143,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			
 			/* General */
 			$defaults['display-cart-menu']   = true;
+
+			/* Single */
+			$defaults['single-product-breadcrumb-disable'] = false;
 
 			return $defaults;
 		}
@@ -333,8 +336,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );
 			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 
+			// Breadcrumb.
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-			add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+			
+			if( !astra_get_option( 'single-product-breadcrumb-disable' ) ) {
+				//remove_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+				add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+			}
 
 			add_filter( 'woocommerce_get_breadcrumb', array( $this, 'remove_product_title' ), 10, 2 );
 		}
@@ -569,6 +577,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-container.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-sidebar.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php';
 
 		}
