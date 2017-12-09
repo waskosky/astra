@@ -675,7 +675,7 @@
 .woocommerce .ast-site-header-cart:focus .widget_shopping_cart, .woocommerce .ast-site-header-cart:hover .widget_shopping_cart {
   right: 0;
   left: auto;
-  display: block;
+  opacity: 1;
 }
 
 .woocommerce .ast-site-header-cart .ast-shopping-cart-icon {
@@ -702,9 +702,10 @@
   line-height: 1.618;
   -webkit-box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
   box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
-  -webkit-transition: all 0.3s ease 0.25s;
-  transition: all 0.3s ease 0.25s;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   border: 2px solid #E6E6E6;
+  opacity: 0;
 }
 
 .woocommerce .ast-site-header-cart .widget_shopping_cart:before {
