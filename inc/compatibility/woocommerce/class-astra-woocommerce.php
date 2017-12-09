@@ -378,6 +378,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 
 				/**
+				 * Cart in menu
+				 */
+				'.ast-site-header-cart a' => array(
+					'color' => esc_attr( $text_color ),
+				),
+
+				'.ast-site-header-cart a:focus, .ast-site-header-cart a:hover, .ast-site-header-cart .current-menu-item a' => array(
+					'color' => esc_attr( $theme_color ),
+				),
+				/**
 				 * Cart in menu Checkout button color
 				 */
 				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button.checkout' => array(
