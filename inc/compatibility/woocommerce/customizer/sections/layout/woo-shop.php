@@ -80,12 +80,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 30,
 				'label'    => __( 'Shop Product Structure', 'astra-addon' ),
 				'choices'  => array(
-					//'title' 		=> __( 'Title', 'astra-addon' ),
-					//'price' 		=> __( 'Price', 'astra-addon' ),
-					//'ratings'   	=> __( 'Ratings', 'astra-addon' ),
-					'short_desc'    => __( 'Short Description', 'astra-addon' ),
-					'add_cart'     	=> __( 'Add To Cart', 'astra-addon' ),
-					//'category'      => __( 'Category', 'astra-addon' ),
+					// 'title'       => __( 'Title', 'astra-addon' ),
+					// 'price'       => __( 'Price', 'astra-addon' ),
+					// 'ratings'     => __( 'Ratings', 'astra-addon' ),
+					'short_desc' => __( 'Short Description', 'astra-addon' ),
+					'add_cart'   => __( 'Add To Cart', 'astra-addon' ),
+					// 'category'      => __( 'Category', 'astra-addon' ),
 				),
 			)
 		)
