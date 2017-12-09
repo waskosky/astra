@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[shop-grid]', array(
-			'section'  => 'section-shop',
+			'section'  => 'section-woo-shop',
 			'label'    => __( 'Shop Columns', 'astra' ),
 			'type'     => 'select',
 			'priority' => 15,
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[shop-no-of-products]', array(
-			'section'     => 'section-shop',
+			'section'     => 'section-woo-shop',
 			'label'       => __( 'Products Per Page', 'astra' ),
 			'type'        => 'number',
 			'priority'    => 20,

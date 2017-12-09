@@ -67,43 +67,47 @@
 	 * WooCommerce
 	 */
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section( $wp_customize, 'section-woo-group',
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-woo-group',
 			array(
-				'title'    	=> __( 'WooCommerce', 'astra' ),
-				'panel' 	=> 'panel-layout',
-				'priority' 	=> 60,
+				'title'    => __( 'WooCommerce', 'astra' ),
+				'panel'    => 'panel-layout',
+				'priority' => 60,
 			)
 		)
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section( $wp_customize, 'section-woo-general',
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-woo-general',
 			array(
-				'title'    	=> __( 'General', 'astra-addon' ),
-				'panel' 	=> 'panel-layout',
-				'section' 	=> 'section-woo-group',
-				'priority' 	=> 5,
+				'title'    => __( 'General', 'astra-addon' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-woo-group',
+				'priority' => 5,
 			)
 		)
 	);
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section( $wp_customize, 'section-shop',
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-woo-shop',
 			array(
-				'title'    	=> __( 'Shop', 'astra-addon' ),
-				'panel' 	=> 'panel-layout',
-				'section' 	=> 'section-woo-group',
-				'priority' 	=> 10,
+				'title'    => __( 'Shop', 'astra-addon' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-woo-group',
+				'priority' => 10,
 			)
 		)
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section( $wp_customize, 'section-shop-single',
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-woo-shop-single',
 			array(
-				'title'    	=> __( 'Single Product', 'astra-addon' ),
-				'panel' 	=> 'panel-layout',
-				'section' 	=> 'section-woo-group',
-				'priority' 	=> 15,
+				'title'    => __( 'Single Product', 'astra-addon' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-woo-group',
+				'priority' => 15,
 			)
 		)
 	);

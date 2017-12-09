@@ -65,6 +65,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'product_flip_image' ), 10 );
 			add_filter( 'woocommerce_subcategory_count_html', array( $this, 'subcategory_count_markup' ), 10, 2 );
 			add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 11 );
+
+			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 		}
 
 		/**
@@ -375,6 +377,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$css_output = astra_parse_css( $css_output );
 
 			wp_add_inline_style( $key, apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
+		}
+
+		/**
+		 * Register Customizer sections and panel for woocommerce
+		 *
+		 * @since 1.0.0
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		function customize_register( $wp_customize ) {
+
+			/**
+			 * Register Sections & Panels
+			 */
+			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/register-panels-and-sections.php';
+
+			/**
+			 * Sections
+			 */
+			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php';
+
 		}
 
 	}
