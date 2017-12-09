@@ -16,52 +16,64 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[single-page-content-divider]', array(
-		'section'  => 'section-container-layout',
-		'type'     => 'ast-divider',
-		'priority' => 20,
-		'settings' => array(),
-	) ) );
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[single-page-content-divider]', array(
+				'section'  => 'section-container-layout',
+				'type'     => 'ast-divider',
+				'priority' => 20,
+				'settings' => array(),
+			)
+		)
+	);
 
 	/**
 	 * Option: Shop Page
 	 */
-	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[archive-product-content-layout]', array(
-		'default' => astra_get_option( 'archive-product-content-layout' ),
-		'type'    => 'option',
-	) );
-	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[archive-product-content-layout]', array(
-		'type'     => 'select',
-		'section'  => 'section-container-layout',
-		'priority' => 20,
-		'label'    => __( 'Shop Page', 'astra' ),
-		'choices'  => array(
-			'default'                 => __( 'Default', 'astra' ),
-			'boxed-container'         => __( 'Boxed', 'astra' ),
-			'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-			'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-			'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
-		),
-	) );
-	
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[archive-product-content-layout]', array(
+			'default' => astra_get_option( 'archive-product-content-layout' ),
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[archive-product-content-layout]', array(
+			'type'     => 'select',
+			'section'  => 'section-container-layout',
+			'priority' => 20,
+			'label'    => __( 'Shop Page', 'astra' ),
+			'choices'  => array(
+				'default'                 => __( 'Default', 'astra' ),
+				'boxed-container'         => __( 'Boxed', 'astra' ),
+				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+			),
+		)
+	);
+
 	/**
 	 * Option: Single Product
 	 */
-	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[single-product-content-layout]', array(
-		'default' => astra_get_option( 'single-product-content-layout' ),
-		'type'    => 'option',
-	) );
-	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[single-product-content-layout]', array(
-		'type'     => 'select',
-		'section'  => 'section-container-layout',
-		'priority' => 20,
-		'label'    => __( 'Single Product', 'astra' ),
-		'choices'  => array(
-			'default'                 => __( 'Default', 'astra' ),
-			'boxed-container'         => __( 'Boxed', 'astra' ),
-			'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-			'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-			'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
-		),
-	) );
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[single-product-content-layout]', array(
+			'default' => astra_get_option( 'single-product-content-layout' ),
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[single-product-content-layout]', array(
+			'type'     => 'select',
+			'section'  => 'section-container-layout',
+			'priority' => 20,
+			'label'    => __( 'Single Product', 'astra' ),
+			'choices'  => array(
+				'default'                 => __( 'Default', 'astra' ),
+				'boxed-container'         => __( 'Boxed', 'astra' ),
+				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+			),
+		)
+	);
 
