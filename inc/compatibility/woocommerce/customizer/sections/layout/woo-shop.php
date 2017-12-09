@@ -62,3 +62,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
+	/**
+	 * Option: Single Post Meta
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[shop-product-structure]', array(
+			'default'           => astra_get_option( 'shop-product-structure' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Sortable(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-product-structure]', array(
+				'type'     => 'ast-sortable',
+				'section'  => 'section-woo-shop',
+				'priority' => 30,
+				'label'    => __( 'Shop Product Structure', 'astra-addon' ),
+				'choices'  => array(
+					//'title' 		=> __( 'Title', 'astra-addon' ),
+					//'price' 		=> __( 'Price', 'astra-addon' ),
+					//'ratings'   	=> __( 'Ratings', 'astra-addon' ),
+					'short_desc'    => __( 'Short Description', 'astra-addon' ),
+					'add_cart'     	=> __( 'Add To Cart', 'astra-addon' ),
+					//'category'      => __( 'Category', 'astra-addon' ),
+				),
+			)
+		)
+	);
