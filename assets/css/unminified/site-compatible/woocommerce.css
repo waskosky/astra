@@ -580,6 +580,18 @@
   border-bottom: none;
 }
 
+.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a {
+  display: inline-block;
+  width: -webkit-calc( 50% - 5px);
+  width: calc( 50% - 5px);
+  margin-right: 5px;
+}
+
+.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons .checkout.wc-forward {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
 .woocommerce .widget_shopping_cart .total,
 .woocommerce.widget_shopping_cart .total {
   padding: 2px 0;
