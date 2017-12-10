@@ -371,6 +371,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+
+			// Add action when cross_sell products need to diaply on cart page.
+			remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+
 		}
 
 		/**
