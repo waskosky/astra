@@ -305,6 +305,11 @@
   margin-right: 0;
 }
 
+.woocommerce .pswp__caption__center,
+.woocommerce-page .pswp__caption__center {
+  text-align: center;
+}
+
 /* Single Product Gallery */
 .woocommerce div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
   -webkit-backface-visibility: hidden;
@@ -334,6 +339,10 @@
 		&::-webkit-inner-spin-button {
 		    display: none
 		}*/
+}
+
+.woocommerce .woocommerce-tabs .shop_attributes th {
+  border-left-width: 1px;
 }
 
 .woocommerce .woocommerce-tabs .shop_attributes td {

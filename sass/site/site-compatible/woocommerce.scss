@@ -327,6 +327,9 @@
 		}
 	}
 	
+	.pswp__caption__center {
+		text-align: center;
+	}
 }
 
 /* Single Product Gallery */
@@ -365,9 +368,14 @@
 	// Shop Page Tab Style
 
 	.woocommerce-tabs {
-		.shop_attributes td {
-	   		padding: 0.5em;
-	   	}
+		.shop_attributes{
+			th {
+				border-left-width: 1px;
+			}
+			td {
+				padding: 0.5em;
+			}
+		}
 	}
 }
 
