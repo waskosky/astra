@@ -122,6 +122,11 @@
   }
 }
 
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form {
+  border: 2px solid #efefef;
+  padding: 15px 30px;
+}
+
 .woocommerce .show-on-hover {
   position: absolute;
   top: 0;

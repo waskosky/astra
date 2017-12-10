@@ -108,8 +108,8 @@
 				}
 			}
 
-			@media (min-width: $col-md) {
-				.woocommerce-Reviews {
+			.woocommerce-Reviews {
+				@media (min-width: $col-md) {
 					#comments {
 						width: 55%;
 						float: left;
@@ -120,6 +120,11 @@
 						padding-left: 2em;
 					}
 				}
+				
+				#review_form {
+					border: 2px solid #efefef;
+	    			padding: 15px 30px;
+	    		}
 			}
 		}
 	}
