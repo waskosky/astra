@@ -245,7 +245,13 @@
 
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
-  text-align: center;
+  text-align: left;
+}
+
+.woocommerce ul.products li.product .star-rating,
+.woocommerce-page ul.products li.product .star-rating {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .woocommerce ul.products li.product .price,

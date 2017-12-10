@@ -274,7 +274,12 @@
 .woocommerce-page {
 	ul.products {
 		li.product {
-			text-align: center;
+			text-align: left;
+
+			.star-rating {
+				margin-left: 0;
+				margin-right: auto;
+			}
 
 			.onsale {
 			}
