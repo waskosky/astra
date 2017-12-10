@@ -609,7 +609,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
 				?>
 				<ul id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
-					<li class="<?php echo esc_attr( $class ); ?>">
+					<li class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
 						<?php $this->astra_get_cart_link(); ?>
 					</li>
 					<li>

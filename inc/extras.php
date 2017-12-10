@@ -689,8 +689,15 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$classes                 = array( 'site-header' );
 		$menu_logo_location      = astra_get_option( 'header-layouts' );
 		$mobile_header_alignment = astra_get_option( 'header-main-menu-align' );
+		$primary_menu_disable    = astra_get_option( 'disable-primary-nav' );
+		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
+
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
+		}
+
+		if ( $primary_menu_disable && 'none' == $primary_menu_custom_item ) {
+			$classes[] = 'ast-no-menu-items';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;

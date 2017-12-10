@@ -1046,6 +1046,22 @@
 	    		}
 			}
     	}
+
+    	/** 
+    	 * Header layout 1
+    	 * if no primary menu & no custom menu items
+    	 */
+    	 .header-main-layout-1 {
+    	 	&.ast-no-menu-items {
+	    	 	.ast-site-header-cart {
+	    	 		flex: 1;
+
+	    	 		.ast-site-header-cart-li {
+	    	 			text-align: right;
+	    	 		}
+	    	 	}
+    	 	}
+    	 }
 }
 
 /**
@@ -1066,5 +1082,25 @@
 			line-height: 3;
 			padding: 0 1em 1em 0;
 	    }
+    	 @media (max-width: $mx-col-sm) {
+	     	.header-main-layout-1 {
+	    	 	&.ast-mobile-header-stack{
+	    	 		&.ast-no-menu-items {
+	    	 			.ast-site-header-cart{
+	    	 				padding-right: 0;
+	    	 			}
+	    	 		}
+	    	 		.main-header-bar{
+	    	 			text-align: center;
+	    	 		}
+	    	 		.ast-site-header-cart {
+	    	 			display: inline-block;
+	    	 		}
+	    	 		.ast-mobile-menu-buttons {
+	    	 			display: inline-block;
+	    	 		}
+    	 	}
+			}
+    	}
 	}
 }
