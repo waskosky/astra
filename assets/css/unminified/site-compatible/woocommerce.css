@@ -523,9 +523,24 @@
 /**
  * Widgets Style
  */
-#secondary .widget_layered_nav_filters li,
-#secondary .widget.woocommerce li {
+#secondary .widget_layered_nav_filters > li,
+#secondary .widget.woocommerce > li {
   margin-bottom: 0;
+}
+
+#secondary .widget .select2-container .select2-selection--multiple .select2-selection__rendered {
+  display: block;
+  min-height: 42px;
+}
+
+#secondary .widget .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#secondary .widget .select2-search__field {
+  min-height: 42px;
+  margin: 0;
 }
 
 .woocommerce .widget_shopping_cart .cart_list li,
