@@ -90,7 +90,6 @@
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active::before {
   content: ' ';
-  background: red;
   position: absolute;
   width: 100%;
   height: 3px;
