@@ -593,12 +593,16 @@
   border: none;
 }
 
-.woocommerce del {
+.woocommerce .widget del {
   opacity: .5;
 }
 
-.woocommerce ins {
+.woocommerce .widget ins {
   background: inherit;
+}
+
+.woocommerce .widget .amount,
+.woocommerce .widget ins {
   font-weight: 700;
 }
 
