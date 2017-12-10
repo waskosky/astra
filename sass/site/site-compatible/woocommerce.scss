@@ -807,9 +807,9 @@
 	    		&:after{
 					bottom: 100%;
 					margin-bottom: 0;
-					margin-left: -6px;
-					height: 13px;
-					width: 13px;
+					margin-left: -.5em;
+					height: 1em;
+					width: 1em;
 					left: 50%;
 					top: -9px;
 					content: ' ';
@@ -817,8 +817,7 @@
 					pointer-events: none;
 					border-width: 2px;
 					border-style: solid;
-					border-top-left-radius: 99px;
-					border-top-right-radius: 99px;
+					border-radius: 99px 99px 0 0;
 					border-bottom: 0;
 	    		}
 			}
