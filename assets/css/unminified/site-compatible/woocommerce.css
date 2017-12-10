@@ -662,12 +662,7 @@
 }
 
 .woocommerce ul.product-categories > li {
-  border-top: 1px solid #ececec;
   padding: 2px 0px;
-}
-
-.woocommerce ul.product-categories > li ul {
-  margin-left: 0.5em;
 }
 
 .woocommerce ul.product-categories > li ul li:before {
