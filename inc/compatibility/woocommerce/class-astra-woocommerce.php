@@ -540,7 +540,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color' => esc_attr( $theme_color ),
 				),
 
-				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove:hover' => array(
+				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove:hover, .woocommerce-cart-form__cart-item td.product-remove a.remove:hover' => array(
 					'color'            => esc_attr( $theme_color . '!important' ),
 					'border-color'     => esc_attr( $theme_color ),
 					'background-color' => esc_attr( '#ffffff' ),

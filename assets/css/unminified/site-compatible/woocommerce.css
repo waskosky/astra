@@ -399,7 +399,9 @@
   font-size: 1.25em;
   height: 1.25em;
   width: 1.25em;
-  border: 1px solid transparent;
+  color: #ccc !important;
+  text-align: center;
+  border: 2px solid #ccc;
 }
 
 @media (min-width: 769px) {
