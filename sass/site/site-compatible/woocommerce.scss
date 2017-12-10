@@ -173,8 +173,6 @@
 	}
 
 	span.onsale {
-		width: 3em;
-		height: 3em;
 		min-width: 3em;
 		min-height: 3em;
 		line-height: 3em;
@@ -207,6 +205,11 @@
 	&.single-product {
 		div.product {
 			
+			p.stock {
+				font-size: 1em;
+				font-weight: 700;
+			}
+
 			.product_title {
 			    margin: 0 0 0.5em 0;
 			}
@@ -234,8 +237,7 @@
 		.product_meta {
 
 			border-top: 1px solid #ebebeb;
-    		border-bottom: 1px solid #ebebeb;
-    		padding: 14px 0;
+    		padding-top: 1em;
     		font-size: .9em;
 
 			> span {
@@ -243,6 +245,12 @@
 			}
 		}
 		
+		span.onsale {
+			min-height: 3.5em;
+    		min-width: 3.5em;
+			line-height: 3.5em;
+		}
+
 		.woocommerce-tabs,
 		.related.products {
 		    display: inline-block;
