@@ -939,6 +939,8 @@
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button {
   display: block;
   margin-right: 0;
+  width: 100%;
+  margin-left: 0;
 }
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .woocommerce-mini-cart__empty-message {
