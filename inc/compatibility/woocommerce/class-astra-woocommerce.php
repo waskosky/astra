@@ -526,7 +526,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color' => esc_attr( $theme_color ),
 				),
 
-				'.ast-woocommerce-cart-menu .ast-cart-menu-wrap .count' => array(
+				'.ast-woocommerce-cart-menu .ast-cart-menu-wrap .count, .ast-woocommerce-cart-menu .ast-cart-menu-wrap .count:after' => array(
+					'border-color' => esc_attr( $theme_color ),
+					'color'        => esc_attr( $theme_color ),
+				),
+
+				'.ast-woocommerce-cart-menu .ast-cart-menu-wrap:hover .count' => array(
 					'color'            => esc_attr( $cart_h_color ),
 					'background-color' => esc_attr( $theme_color ),
 				),
@@ -623,17 +628,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since  1.0.0
 		 */
 		function astra_get_cart_link() {
-			$icon = apply_filters( 'astra_woocommerce_menu_cart_icon', '<span class="astra-icon ast-shopping-cart-icon"></span>' );
 			?>
 			<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'astra-addon' ); ?>">
-					<div class="ast-cart-menu-wrap">
-							<?php echo $icon; ?>
-							<?php if( WC()->cart->get_cart_contents_count() ) : ?>
-								<span class="count">
-									<?php echo WC()->cart->get_cart_contents_count(); ?>
-								</span>
-							<?php endif; ?>
-					</div>
+				<div class="ast-cart-menu-wrap">
+					<span class="count">
+						<?php if( WC()->cart->get_cart_contents_count() ):
+								echo WC()->cart->get_cart_contents_count();
+							endif; ?>
+					</span>
+				</div>
 			</a>
 		<?php
 		}
