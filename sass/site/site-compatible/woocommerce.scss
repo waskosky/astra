@@ -28,8 +28,12 @@
 		}
 	}
 
-	.woocommerce-ordering select {
-		padding: .5em;
+	.woocommerce-ordering {
+		margin-bottom: 2.5em;
+		
+		select {
+			padding: .5em;
+		}
 	}
 
 	.product {
@@ -156,7 +160,7 @@
 	}
 
 	.woocommerce-result-count {
-		margin-top: .5em;
+		margin-top: 0;
 	}
 
 	nav.woocommerce-pagination {
@@ -284,6 +288,7 @@
 	ul.products {
 		li.product {
 			text-align: left;
+			margin-bottom: 2.9em;
 
 			.star-rating {
 				margin-left: 0;
