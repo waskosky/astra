@@ -694,6 +694,11 @@
   font-weight: 700;
 }
 
+.woocommerce .widget .star-rating {
+  height: 1.5em;
+  line-height: 1.5;
+}
+
 .woocommerce .price_slider_amount .price_label span {
   font-weight: 700;
 }
