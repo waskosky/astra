@@ -563,6 +563,31 @@
   transform: translateY(-50%);
 }
 
+.woocommerce ul.product-categories > li {
+  border-top: 1px solid #ececec;
+  padding: 2px 0px;
+}
+
+.woocommerce ul.product-categories > li ul {
+  margin-left: 0.5em;
+}
+
+.woocommerce ul.product-categories > li ul li:before {
+  content: "\e900";
+  padding: 0 5px 0 5px;
+  display: inline-block;
+  font-family: Astra;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  font-size: 11px;
+  font-size: 0.7rem;
+}
+
+.woocommerce ul.product-categories > li:first-child {
+  border: none;
+}
+
 .woocommerce del {
   opacity: .5;
 }

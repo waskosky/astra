@@ -591,6 +591,33 @@
 			}
 		}
 	}
+	
+	ul.product-categories {
+
+		> li {
+	    	border-top: 1px solid #ececec;
+	    	padding: 2px 0px;
+
+	    	ul {
+	    		margin-left: 0.5em;
+		    	
+		    	li:before {
+					content: "\e900";
+				    padding: 0 5px 0 5px;
+				    display: inline-block;
+				    font-family: Astra;
+				    transform: rotate(-90deg);
+				    font-size: 11px;
+				    font-size: 0.7rem;
+				}
+	    	}
+
+	    }
+
+		> li:first-child {
+			border:none;
+		}
+	}
 
 	del {
 		opacity: .5;
