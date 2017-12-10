@@ -666,6 +666,9 @@
 		}
 	}
 
+	.woocommerce .widget_product_tag_cloud .tagcloud a {
+}
+
 	.widget_product_tag_cloud {
 		.tagcloud a {
 			border: 1px solid #e2e2e2;
@@ -674,7 +677,17 @@
 			margin-bottom: 4px;
 			margin-right: 4px;
 			line-height: 1.5;
+		    padding: .5em 1.2em;
+		    font-size: 12px !important;
+		    font-size: 0.8rem !important;
+			
+			a:hover,
+			a:focus,
+			a.current-item {
+			    background-color: #fafafa;
+			}
 		}
+		
 	}
 }
 

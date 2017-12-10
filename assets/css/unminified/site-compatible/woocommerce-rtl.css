@@ -640,6 +640,15 @@
   margin-bottom: 4px;
   margin-left: 4px;
   line-height: 1.5;
+  padding: .5em 1.2em;
+  font-size: 12px !important;
+  font-size: 0.8rem !important;
+}
+
+.woocommerce .widget_product_tag_cloud .tagcloud a a:hover,
+.woocommerce .widget_product_tag_cloud .tagcloud a a:focus,
+.woocommerce .widget_product_tag_cloud .tagcloud a a.current-item {
+  background-color: #fafafa;
 }
 
 .woocommerce .widget_shopping_cart .cart_list li,
