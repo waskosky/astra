@@ -511,8 +511,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a' => array(
 					'color' => $theme_color,
 				),
-				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active a' => array(
-					'border-top' => 'solid 3px ' . $theme_color,
+				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
+					'background' => $theme_color,
 				),
 
 				/**
