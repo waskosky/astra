@@ -229,6 +229,11 @@
   font-size: 1.5rem;
 }
 
+.comment-reply-title {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
 .woocommerce-tabs {
   width: 100%;
 }
