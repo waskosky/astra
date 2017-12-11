@@ -258,7 +258,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function store_widgets_init() {
 			register_sidebar(
 				array(
-					'name'          => esc_html__( 'Shop Sidebar', 'astra' ),
+					'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
 					'id'            => 'astra-woo-shop-sidebar',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
@@ -282,7 +282,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Assign shop sidebar for store page.
 		 */
 		function replace_store_sidebar( $sidebar ) {
-			if ( is_shop() ) {
+
+			if ( is_shop() || is_checkout() || is_cart() || is_account_page() ) {
 				$sidebar = 'astra-woo-shop-sidebar';
 			} elseif ( is_product() ) {
 				$sidebar = 'astra-woo-single-sidebar';
