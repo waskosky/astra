@@ -46,6 +46,7 @@
 }
 
 .woocommerce div.product {
+  /* No Review for single product */
   /* Review tabs */
 }
 
@@ -105,6 +106,8 @@
   box-shadow: none;
   top: 0;
   left: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active::after, .woocommerce div.product .woocommerce-tabs ul.tabs li::after, .woocommerce div.product .woocommerce-tabs ul.tabs li::before {
@@ -133,6 +136,15 @@
 .woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form {
   border: 2px solid #efefef;
   padding: 15px 30px;
+}
+
+.woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #comments {
+  width: 100%;
+}
+
+.woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #review_form_wrapper {
+  width: 100%;
+  padding-left: 0;
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist li {

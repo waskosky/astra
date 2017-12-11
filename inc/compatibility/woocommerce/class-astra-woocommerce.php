@@ -65,6 +65,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'loop_shop_columns', array( $this, 'shop_columns' ) );
 			add_filter( 'loop_shop_per_page', array( $this, 'shop_no_of_products' ) );
 			add_filter( 'body_class', array( $this, 'shop_page_products_item_class' ) );
+			add_filter( 'post_class', array( $this, 'single_product_class' ) );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
 			// Add Cart icon in Menu
@@ -205,6 +206,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$display_cart_menu = astra_get_option( 'display-cart-menu' );
 			if ( $display_cart_menu ) {
 				$classes[] = 'ast-woocommerce-cart-menu';
+			}
+
+			return $classes;
+		}
+
+		/**
+		 * Add class on single product page
+		 */
+		function single_product_class( $classes ) {
+
+			global $product;
+			if ( is_product() && 0 == $product->get_review_count() ) {
+				$classes[] = 'ast-woo-product-no-review';
 			}
 
 			return $classes;
