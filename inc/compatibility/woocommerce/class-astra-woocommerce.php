@@ -81,6 +81,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_subcategory_count_html', array( $this, 'subcategory_count_markup' ), 10, 2 );
 			add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 11 );
 
+			add_action( 'woocommerce_shop_loop_item_title', array( $this, 'astra_shop_loop_category' ), 9 );
+
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 		}
 
@@ -118,6 +120,30 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
 			}
+		}
+
+		/**
+	 	 * Add and/or Remove Categories from shop archive page.
+	 	 *
+		 *
+		 * @param array $default Array of options value.
+		 * @return array
+		 */
+		function astra_shop_loop_category(){
+			if ( apply_filters( 'astra_woo_product_box_category', true ) ) : ?>
+				<span class="ast-woo-product-category">
+					<?php
+					global $product;
+					$product_categories = function_exists( 'wc_get_product_category_list' ) ? wc_get_product_category_list( get_the_ID(), ',', '', '' ) : $product->get_categories( ',', '', '' );
+
+					$product_categories = strip_tags( $product_categories );
+					if ( $product_categories ) {
+						list( $parent_cat ) = explode( ',', $product_categories );
+						echo $parent_cat;
+					}
+					?>
+				</span> <?php
+			endif;
 		}
 
 		/**
