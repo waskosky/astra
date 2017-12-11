@@ -139,7 +139,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$product_categories = strip_tags( $product_categories );
 					if ( $product_categories ) {
 						list( $parent_cat ) = explode( ',', $product_categories );
-						echo $parent_cat;
+						echo esc_html( $parent_cat );
 					}
 					?>
 				</span> <?php
