@@ -509,12 +509,13 @@
 		a.remove {
 			display: inline-block;
 			vertical-align: middle;
-			font-size: 1.25em;
-			height: 1.25em;
-			width: 1.25em;
-			color: #ccc!important;
-		    text-align: center;
-		    border: 2px solid #ccc;
+			font-size: 1.3em;
+			height: 1.2em;
+			width: 1.2em;
+			color: #ccc !important;
+			line-height: .8;
+			text-align: center;
+			border: 2px solid #ccc;
 		}
 	}
 }
@@ -892,9 +893,13 @@
 		left: auto;
 		right: 0;
 		top: .5em;
-		line-height: .75em;
 		font-weight: normal;
-		border: 1px solid transparent;
+		font-size: 1.2em;
+		height: 1.2em;
+		width: 1.2em;
+		color: #ccc !important;
+		line-height: .8;
+		border: 2px solid #ccc;
 	}
 }
 
@@ -1070,16 +1075,14 @@
 
 			.cart_list{
 				a.remove {
-				    display: block;
-				    width: 22px;
-				    height: 22px;
-				    font-size: 15px;
-				    line-height: 17px;
-				    border-radius: 100%;
-				    color: #ccc !important;
-				    font-weight: bold;
-				    text-align: center;
-				    border: 2px solid #ccc;
+					display: block;
+					font-size: 1.3em;
+					height: 1.2em;
+					width: 1.2em;
+					color: #ccc !important;
+					line-height: .8;
+					text-align: center;
+					border: 2px solid #ccc;
 				}
 			}
         }

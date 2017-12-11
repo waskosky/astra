@@ -507,10 +507,11 @@
 .woocommerce-cart-form__cart-item td.product-remove a.remove {
   display: inline-block;
   vertical-align: middle;
-  font-size: 1.25em;
-  height: 1.25em;
-  width: 1.25em;
+  font-size: 1.3em;
+  height: 1.2em;
+  width: 1.2em;
   color: #ccc !important;
+  line-height: .8;
   text-align: center;
   border: 2px solid #ccc;
 }
@@ -872,9 +873,13 @@
   right: auto;
   left: 0;
   top: .5em;
-  line-height: .75em;
   font-weight: normal;
-  border: 1px solid transparent;
+  font-size: 1.2em;
+  height: 1.2em;
+  width: 1.2em;
+  color: #ccc !important;
+  line-height: .8;
+  border: 2px solid #ccc;
 }
 
 .woocommerce-product-search {
@@ -1076,14 +1081,11 @@
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove {
   display: block;
-  width: 22px;
-  height: 22px;
-  font-size: 15px;
-  line-height: 17px;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
+  font-size: 1.3em;
+  height: 1.2em;
+  width: 1.2em;
   color: #ccc !important;
-  font-weight: bold;
+  line-height: .8;
   text-align: center;
   border: 2px solid #ccc;
 }
