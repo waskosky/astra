@@ -451,12 +451,17 @@
 		}*/
 }
 
+.woocommerce .woocommerce-tabs .shop_attributes {
+  border-style: solid;
+}
+
 .woocommerce .woocommerce-tabs .shop_attributes th {
   border-right-width: 1px;
 }
 
 .woocommerce .woocommerce-tabs .shop_attributes td {
   padding: 0.5em;
+  font-style: normal;
 }
 
 .ast-separate-container .ast-woocommerce-container {

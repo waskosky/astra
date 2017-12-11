@@ -457,11 +457,13 @@
 
 	.woocommerce-tabs {
 		.shop_attributes{
+			border-style: solid;
 			th {
 				border-left-width: 1px;
 			}
 			td {
 				padding: 0.5em;
+				font-style: normal;
 			}
 		}
 	}
