@@ -80,9 +80,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'product_flip_image' ), 10 );
 			add_filter( 'woocommerce_subcategory_count_html', array( $this, 'subcategory_count_markup' ), 10, 2 );
-			add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 11 );
-
-			add_action( 'woocommerce_shop_loop_item_title', array( $this, 'astra_shop_loop_category' ), 9 );
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 		}
@@ -125,7 +122,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 		/**
 	 	 * Add and/or Remove Categories from shop archive page.
-	 	 *
 		 *
 		 * @param array $default Array of options value.
 		 * @return array
@@ -307,6 +303,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			if ( ! apply_filters( 'astra-woo-shop-product-structure-override', false ) ) {
+
+				/**
+				 * Add rating on shop page above add to cart button.
+				 *
+				 * @hooked woocommerce_after_shop_loop_item_title - 11
+				 */
+				add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 11 );
+				/**
+				 * Add and/or Remove Categories from shop archive page.
+				 *
+				 * @hooked woocommerce_shop_loop_item_title - 9
+				 */
+				add_action( 'woocommerce_shop_loop_item_title', array( $this, 'astra_shop_loop_category' ), 9 );
 
 				remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
