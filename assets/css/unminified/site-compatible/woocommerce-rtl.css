@@ -184,7 +184,6 @@
   -moz-box-ordinal-group: 3;
   -ms-flex-order: 2;
   order: 2;
-  width: 100%;
   margin-bottom: .5em;
 }
 
@@ -758,6 +757,7 @@
   width: -webkit-calc( 50% - 5px);
   width: calc( 50% - 5px);
   margin-left: 5px;
+  text-align: center;
 }
 
 .woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons .checkout.wc-forward {

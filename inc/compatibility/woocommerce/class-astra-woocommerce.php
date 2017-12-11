@@ -548,7 +548,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
-				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a' => array(
+				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
 					'color' => $theme_color,
 				),
 				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
