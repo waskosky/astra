@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-product-structure]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-woo-shop',
-				'priority' => 30,
+				'priority' => 70,
 				'label'    => __( 'Shop Product Structure', 'astra-addon' ),
 				'choices'  => array(
 					// 'title'       => __( 'Title', 'astra-addon' ),
