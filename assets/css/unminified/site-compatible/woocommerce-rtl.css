@@ -238,6 +238,14 @@
   margin-top: 0;
 }
 
+.woocommerce nav.woocommerce-pagination {
+  text-align: right;
+}
+
+.woocommerce nav.woocommerce-pagination ul {
+  text-align: center;
+}
+
 .woocommerce nav.woocommerce-pagination ul li a,
 .woocommerce nav.woocommerce-pagination ul li span {
   padding: .75em;
