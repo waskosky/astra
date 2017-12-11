@@ -113,6 +113,7 @@
 			}
 
 			.woocommerce-Reviews {
+
 				@media (min-width: $col-md) {
 					#comments {
 						width: 55%;
@@ -129,6 +130,50 @@
 					border: 2px solid #efefef;
 	    			padding: 15px 30px;
 	    		}
+			}
+		}
+
+		/* Review tabs */
+		#reviews {
+			#comments{
+				ol{
+					&.commentlist{
+						li{
+							border-bottom: 1px solid #e2e2e2;
+							&:last-child{
+								border-bottom: 0;
+							}
+							img.avatar {
+							    border-radius: 100%;
+							    border: none;
+							    background: none;
+							    height: 4em;
+							    width: 4em;
+							}
+							.comment-text{
+								display: flex;
+								flex-wrap: wrap;
+								padding: 0em 1em 0;
+								border: none;
+								.star-rating{
+									order: 2;
+									width: 100%;
+									margin-bottom: .5em;
+								}
+								.meta{
+									order: 1;
+									width: 100%;
+									font-size: 1em;
+									margin-bottom: .5em;
+								}
+								.description{
+									order: 3;
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
