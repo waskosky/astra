@@ -526,6 +526,9 @@
 	.woocommerce-tabs {
 		.shop_attributes{
 			border-style: solid;
+			p {
+				padding: 0;
+			}
 			th {
 				border-left-width: 1px;
 				border-style: solid;
