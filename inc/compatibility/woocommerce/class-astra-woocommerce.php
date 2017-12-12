@@ -278,7 +278,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function shop_customization() {
 
-			if ( ! is_shop() ) {
+			if ( is_product() ) {
 				return;
 			}
 
