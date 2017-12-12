@@ -546,6 +546,10 @@
   border-style: solid;
 }
 
+.woocommerce .woocommerce-tabs .shop_attributes p {
+  padding: 0;
+}
+
 .woocommerce .woocommerce-tabs .shop_attributes th {
   border-right-width: 1px;
   border-style: solid;

@@ -147,10 +147,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Shop */
 			$defaults['shop-grid']              = '3';
 			$defaults['shop-no-of-products']    = '9';
-			$defaults['shop-product-structure'] = array();
+			$defaults['shop-product-structure'] = array( 'add_cart' );
 
 			/* General */
-			  $defaults['display-cart-menu'] = true;
+			$defaults['display-cart-menu'] = true;
 
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;

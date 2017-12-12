@@ -29,7 +29,12 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 			if ( empty( $layout ) ) {
 
-				$layout = astra_get_option( 'single-' . get_post_type() . '-sidebar-layout' );
+				$post_type = get_post_type();
+
+				if ( 'post' === $post_type || 'page' === $post_type || 'product' === $post_type ) {
+					$layout = astra_get_option( 'single-' . get_post_type() . '-sidebar-layout' );
+				}
+				
 
 				if ( 'default' == $layout || empty( $layout ) ) {
 
@@ -52,8 +57,14 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 					$layout = astra_get_option( 'site-sidebar-layout' );
 				}
 			} else {
+				
+				$post_type 	= get_post_type();
+				$layout 	= '';
 
-				$layout = astra_get_option( 'archive-' . get_post_type() . '-sidebar-layout' );
+				if ( 'post' === $post_type ) {
+					$layout = astra_get_option( 'archive-' . get_post_type() . '-sidebar-layout' );
+				}
+				
 
 				if ( 'default' == $layout || empty( $layout ) ) {
 
