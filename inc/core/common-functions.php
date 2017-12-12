@@ -435,7 +435,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 				$value = astra_get_option( $option_id, $default );
 			}
 		}
-
+		
 		/**
 		 * Dynamic filter astra_get_option_meta_$option.
 		 * $option_id is the name of the Astra Meta Setting.
