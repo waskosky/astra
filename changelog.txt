@@ -1,3 +1,6 @@
+v1.0.33
+# Fixed: Content layout bug fixed for custom post-types.
+
 v1.0.32
 # Fixed: Logo being croped in customizer preview.
 
