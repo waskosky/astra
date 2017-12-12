@@ -31,17 +31,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Shop Page
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[archive-product-content-layout]', array(
-			'default' => astra_get_option( 'archive-product-content-layout' ),
+		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
+			'default' => astra_get_option( 'woocommerce-content-layout' ),
 			'type'    => 'option',
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[archive-product-content-layout]', array(
+		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 20,
-			'label'    => __( 'Shop Page', 'astra' ),
+			'label'    => __( 'WooCommerce', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
@@ -51,29 +51,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 			),
 		)
 	);
-
-	/**
-	 * Option: Single Product
-	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[single-product-content-layout]', array(
-			'default' => astra_get_option( 'single-product-content-layout' ),
-			'type'    => 'option',
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[single-product-content-layout]', array(
-			'type'     => 'select',
-			'section'  => 'section-container-layout',
-			'priority' => 20,
-			'label'    => __( 'Single Product', 'astra' ),
-			'choices'  => array(
-				'default'                 => __( 'Default', 'astra' ),
-				'boxed-container'         => __( 'Boxed', 'astra' ),
-				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
-			),
-		)
-	);
-
