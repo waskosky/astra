@@ -421,6 +421,7 @@
 			.ast-shop-product-out-of-stock {
 				bottom: 1em;
 				text-transform: uppercase;
+				font-weight: bold;
 			}
 
 			.onsale {
@@ -516,10 +517,13 @@
 			border-style: solid;
 			th {
 				border-left-width: 1px;
+				border-style: solid;
+				padding-left: .9em;
 			}
 			td {
-				padding: 0.5em;
+				padding: .5em .5em .5em .9em;
 				font-style: normal;
+				border-style: solid;
 			}
 		}
 	}

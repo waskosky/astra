@@ -433,6 +433,7 @@
 .woocommerce-page ul.products li.product .ast-shop-product-out-of-stock {
   bottom: 1em;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .woocommerce ul.products li.product .price,
@@ -530,11 +531,14 @@
 
 .woocommerce .woocommerce-tabs .shop_attributes th {
   border-left-width: 1px;
+  border-style: solid;
+  padding-left: .9em;
 }
 
 .woocommerce .woocommerce-tabs .shop_attributes td {
-  padding: 0.5em;
+  padding: .5em .5em .5em .9em;
   font-style: normal;
+  border-style: solid;
 }
 
 .ast-separate-container .ast-woocommerce-container {
