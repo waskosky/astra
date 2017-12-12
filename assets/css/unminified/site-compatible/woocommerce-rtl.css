@@ -292,7 +292,7 @@
 }
 
 .woocommerce a.added_to_cart {
-  padding: 0.5em;
+  padding: .4em 0 0;
 }
 
 .woocommerce.single-product div.product {
