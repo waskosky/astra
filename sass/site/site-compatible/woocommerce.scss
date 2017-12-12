@@ -389,6 +389,7 @@
 			}
 			.star-rating {
 				margin: 0 auto .5em 0;
+				backface-visibility: hidden;
 			}
 
 			.ast-woo-shop-product-description{
@@ -399,6 +400,16 @@
 			.woocommerce-loop-product__link {
 				position: relative;
 				display: block;
+				&:hover{
+					.ast-shop-product-out-of-stock{
+						background-color: rgba(255, 255, 255, 1);
+					}
+				}
+			}
+			&.product-category > a:hover{
+				.woocommerce-loop-category__title{
+					background-color: rgba(255, 255, 255, 1);
+				}
 			}
 
 			.woocommerce-loop-category__title,
@@ -432,7 +443,7 @@
 				margin-bottom: 0;
 				font-weight: 700;
 				margin-bottom:.5em;
-
+				font-size: .9em;
 				del {
 					display: initial;
 				}
@@ -574,7 +585,7 @@
 			height: 1.2em;
 			width: 1.2em;
 			color: #ccc !important;
-			line-height: .8;
+			line-height: .9;
 			text-align: center;
 			border: 2px solid #ccc;
 		}
@@ -922,6 +933,7 @@
 		}
 		.ui-slider .ui-slider-handle {
 			top: -.4em;
+			cursor: pointer;
 		}
 		.price_slider_amount .button {
       		font-size: .9em !important;
