@@ -135,7 +135,15 @@
 
 .woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form {
   border: 2px solid #efefef;
-  padding: 15px 30px;
+  padding: 1.06667em 2em 2.4em;
+}
+
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form #respond p {
+  margin: 2px 0 6px;
+}
+
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form #respond #comment {
+  height: 90px;
 }
 
 .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #comments {
@@ -147,8 +155,13 @@
   padding-right: 0;
 }
 
+.woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #review_form {
+  padding: 1.5em 2em;
+}
+
 .woocommerce div.product #reviews #comments ol.commentlist li {
   border-bottom: 1px solid #e2e2e2;
+  margin: 0 0 1.0667em;
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist li:last-child {
@@ -160,8 +173,8 @@
   border-radius: 100%;
   border: none;
   background: none;
-  height: 4em;
-  width: 4em;
+  height: 3.6em;
+  width: 3.6em;
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist li .comment-text {
@@ -174,7 +187,7 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0em 1em 0;
+  padding: 0 1.5em;
   border: none;
 }
 
@@ -195,16 +208,21 @@
   order: 1;
   width: 100%;
   font-size: 1em;
-  margin-bottom: .5em;
+  margin-bottom: .2em;
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .description {
+  font-style: italic;
   -webkit-box-ordinal-group: 4;
   -webkit-order: 3;
   -moz-box-ordinal-group: 4;
   -ms-flex-order: 3;
   order: 3;
   width: 100%;
+}
+
+.woocommerce div.product #reviews #comments ol.commentlist li .comment-text p {
+  margin: 0 0 1.7em;
 }
 
 .woocommerce .show-on-hover {
