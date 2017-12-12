@@ -105,3 +105,28 @@ if ( ! function_exists( 'astra_woo_shop_product_short_description' ) ) :
 	<?php
 	}
 endif;
+/**
+ * Product page - Availability: in stock
+ */
+if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
+	/**
+	 * Availability: in stock string updated
+	 *
+	 * @since 1.1.0
+	 */
+	function astra_woo_product_in_stock( $markup, $product ) {
+
+		if ( is_product() ) {
+			$product_avail = $product->get_availability();
+			$availability = $product_avail['availability'];
+			ob_start(); ?>
+			<p class="stock in-stock">
+				<?php /* translators: 1: in stock string */
+				printf( __( 'Availability: %s', 'astra' ), $availability ); ?>
+			</p>
+			<?php $markup = ob_get_clean();
+		}
+		
+		return $markup;
+	}
+endif;

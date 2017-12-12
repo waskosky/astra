@@ -538,6 +538,15 @@
 			}
 		}
 	}
+
+	/* Popup for single product */ 
+	.pswp__bg{
+		opacity: .7 !important;
+	}
+	.pswp__ui--fit .pswp__top-bar,
+	.pswp__ui--fit .pswp__caption{
+		background-color: transparent;
+	}
 }
 
 

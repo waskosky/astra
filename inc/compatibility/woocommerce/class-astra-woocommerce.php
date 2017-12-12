@@ -88,6 +88,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_subcategory_count_html', array( $this, 'subcategory_count_markup' ), 10, 2 );
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
+
+			
+			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
 		}
 
 		/**

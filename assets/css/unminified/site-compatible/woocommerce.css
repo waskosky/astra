@@ -508,6 +508,10 @@
 }
 
 /* Single Product Gallery */
+.woocommerce {
+  /* Popup for single product */
+}
+
 .woocommerce div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -552,6 +556,15 @@
   padding: .5em .5em .5em .9em;
   font-style: normal;
   border-style: solid;
+}
+
+.woocommerce .pswp__bg {
+  opacity: .7 !important;
+}
+
+.woocommerce .pswp__ui--fit .pswp__top-bar,
+.woocommerce .pswp__ui--fit .pswp__caption {
+  background-color: transparent;
 }
 
 .ast-separate-container .ast-woocommerce-container {
