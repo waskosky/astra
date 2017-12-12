@@ -121,6 +121,10 @@
   border: 0;
 }
 
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews h2 {
+  font-weight: normal;
+}
+
 @media (min-width: 769px) {
   .woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #comments {
     width: 55%;
@@ -135,7 +139,7 @@
 
 .woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form {
   border: 2px solid #efefef;
-  padding: 1.06667em 2em 2.4em;
+  padding: 1em 1.9em 2.3em;
 }
 
 .woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form #respond p {
@@ -161,7 +165,7 @@
 
 .woocommerce div.product #reviews #comments ol.commentlist li {
   border-bottom: 1px solid #e2e2e2;
-  margin: 0 0 1.0667em;
+  margin: 0 0 1em;
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist li:last-child {

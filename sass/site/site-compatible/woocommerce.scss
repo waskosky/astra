@@ -114,7 +114,9 @@
 			}
 
 			.woocommerce-Reviews {
-
+				h2{
+					font-weight: normal;
+				}
 				@media (min-width: $col-md) {
 					#comments {
 						width: 55%;
@@ -129,7 +131,7 @@
 				
 				#review_form {
 					border: 2px solid #efefef;
-					padding: 1.06667em 2em 2.4em;
+					padding: 1em 1.9em 2.3em;
 
 					#respond{
 						p{
@@ -166,7 +168,7 @@
 					&.commentlist{
 						li{
 							border-bottom: 1px solid #e2e2e2;
-							margin: 0 0 1.0667em;
+							margin: 0 0 1em;
 							&:last-child{
 								border-bottom: 0;
 							}
