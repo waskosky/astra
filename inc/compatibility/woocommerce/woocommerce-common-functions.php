@@ -75,9 +75,10 @@ if ( ! function_exists( 'astra_woo_shop_out_of_stock' ) ) :
 	 * @since 1.1.0
 	 */
 	function astra_woo_shop_out_of_stock(){
-		$out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
+		$out_of_stock        = get_post_meta( get_the_ID(), '_stock_status', true );
+		$out_of_stock_string = apply_filters( 'astra_woo_shop_out_of_stock_string', __( 'Out of stock', 'astra' ) );
 		if( 'outofstock' === $out_of_stock ) { ?>
-			<span class="ast-shop-product-out-of-stock"><?php esc_html_e( 'Out of stock', 'astra' ); ?></span>
+			<span class="ast-shop-product-out-of-stock"><?php echo esc_html( $out_of_stock_string ); ?></span>
 		<?php }
 	}
 
