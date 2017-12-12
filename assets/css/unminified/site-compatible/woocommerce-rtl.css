@@ -704,7 +704,7 @@
   padding: 0 20px;
   border-width: 1px;
   border-style: solid;
-  border-color: #eaeaea;
+  border-color: #ebebeb;
   -webkit-border-radius: 0;
   border-radius: 0;
   margin-bottom: 2em;
@@ -907,9 +907,10 @@
 
 .woocommerce .widget_shopping_cart .total,
 .woocommerce.widget_shopping_cart .total {
-  padding: 2px 0;
+  padding: 5px 0;
   border-top: 1px solid #e2e2e2;
   border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 1.3em;
 }
 
 .woocommerce ul.product_list_widget li img {

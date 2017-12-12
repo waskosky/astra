@@ -617,9 +617,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 
 				/**
-				 * Cart in menu Checkout button color
+				 * Checkout button color for widget
 				 */
-				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button.checkout' => array(
+				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button.checkout, .woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons .checkout.wc-forward' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
