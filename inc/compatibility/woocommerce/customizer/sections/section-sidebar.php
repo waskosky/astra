@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'Shop Page', 'astra' ),
+			'label'    => __( 'WooCommerce', 'astra' ),
 			'choices'  => array(
 				'default'       => __( 'Default', 'astra' ),
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
