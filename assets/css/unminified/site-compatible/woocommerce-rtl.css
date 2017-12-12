@@ -377,6 +377,7 @@
 .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
   margin-bottom: .5em;
   padding: 0;
+  font-size: 0.9em;
 }
 
 .woocommerce ul.products li.product .ast-woo-product-category,
@@ -414,12 +415,18 @@
   text-align: center;
   right: 1em;
   left: 1em;
-  padding: 1em !important;
+  padding: 0.5em 0em 0.7em;
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-category__title,
 .woocommerce-page ul.products li.product .woocommerce-loop-category__title {
   bottom: 1.8em;
+  font-size: 0.9em;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title .count,
+.woocommerce-page ul.products li.product .woocommerce-loop-category__title .count {
+  font-size: .7em;
 }
 
 .woocommerce ul.products li.product .ast-shop-product-out-of-stock,
