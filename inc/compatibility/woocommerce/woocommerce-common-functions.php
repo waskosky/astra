@@ -119,12 +119,14 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 		if ( is_product() ) {
 			$product_avail = $product->get_availability();
 			$availability = $product_avail['availability'];
-			ob_start(); ?>
-			<p class="stock in-stock">
-				<?php /* translators: 1: in stock string */
-				printf( __( 'Availability: %s', 'astra' ), $availability ); ?>
-			</p>
-			<?php $markup = ob_get_clean();
+			if ( ! empty( $availability ) ) {
+				ob_start(); ?>
+				<p class="stock in-stock">
+					<?php /* translators: 1: in stock string */
+					printf( __( 'Availability: %s', 'astra' ), $availability ); ?>
+				</p>
+				<?php $markup = ob_get_clean();
+			}
 		}
 		
 		return $markup;
