@@ -871,6 +871,16 @@
 		    margin: 5px 0;
 		}
 	}
+	.widget_rating_filter{
+		ul{
+			li{
+				a{
+					display: inline-flex;
+					align-items: center;
+				}
+			}
+		}
+	}
 	
 
 	.price_slider_amount {
