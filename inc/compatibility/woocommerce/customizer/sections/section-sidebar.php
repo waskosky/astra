@@ -31,13 +31,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Shop Page
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[archive-product-sidebar-layout]', array(
-			'default' => astra_get_option( 'archive-product-sidebar-layout' ),
+		ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
+			'default' => astra_get_option( 'woocommerce-sidebar-layout' ),
 			'type'    => 'option',
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[archive-product-sidebar-layout]', array(
+		ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,

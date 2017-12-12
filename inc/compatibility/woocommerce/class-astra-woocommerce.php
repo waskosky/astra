@@ -53,9 +53,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 
 			// Register Store Sidebars
-			 add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 15 );
-			 // Replace Store Sidebars
-			 add_filter( 'astra_get_sidebar', array( $this, 'replace_store_sidebar' ) );
+			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 15 );
+			// Replace Store Sidebars
+			add_filter( 'astra_get_sidebar', array( $this, 'replace_store_sidebar' ) );
+			// Store Sidebar Layout
+			add_filter( 'astra_page_layout', array( $this, 'store_sidebar_layout' ) );
+			// Store Content Layout
+			add_filter( 'astra_get_content_layout', array( $this, 'store_content_layout' ) );
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
@@ -131,12 +135,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// Container
-			$defaults['single-product-content-layout']  = 'default';
-			$defaults['archive-product-content-layout'] = 'default';
+			$defaults['woocommerce-content-layout'] = 'default';
 
 			  // Sidebar.
+			$defaults['woocommerce-sidebar-layout'] 	= 'default';
 			$defaults['single-product-sidebar-layout']  = 'default';
-			$defaults['archive-product-sidebar-layout'] = 'default';
 
 			/* Shop */
 			$defaults['shop-grid']              = '3';
@@ -262,7 +265,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function replace_store_sidebar( $sidebar ) {
 
-			if ( is_shop() || is_checkout() || is_cart() || is_account_page() ) {
+			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
 				$sidebar = 'astra-woo-shop-sidebar';
 			} elseif ( is_product() ) {
 				$sidebar = 'astra-woo-single-sidebar';
@@ -270,6 +273,42 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			return $sidebar;
 		}
+
+		/**
+		 * WooCommerce Container
+		 */
+		function store_sidebar_layout( $sidebar_layout ) {
+			
+			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
+				
+				$woo_sidebar = astra_get_option( 'woocommerce-sidebar-layout' );
+				
+				if ( 'default' !== $woo_sidebar ) {
+					
+					$sidebar_layout = $woo_sidebar;
+				}
+			}
+
+			return $sidebar_layout;
+		}
+		/**
+		 * WooCommerce Container
+		 */
+		function store_content_layout( $layout ) {
+			
+			if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
+				
+				$woo_layout = astra_get_option( 'woocommerce-content-layout' );
+
+				if ( 'default' !== $woo_layout ) {
+					
+					$layout = $woo_layout;
+				}
+			}
+
+			return $layout;
+		}
+		
 
 		/**
 		 * Shop customization.
