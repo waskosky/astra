@@ -869,6 +869,19 @@
   margin: 5px 0;
 }
 
+.woocommerce .widget_rating_filter ul li a {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .woocommerce .price_slider_amount .price_label span {
   font-weight: 700;
 }
@@ -1150,12 +1163,12 @@
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  width: 1.8em;
-  height: 1.8em;
+  width: 2.1em;
+  height: 2.1em;
+  line-height: 1.5;
   font-size: 1em;
-  -webkit-border-radius: .8em .8em .4em .4em;
-  border-radius: .8em .8em .4em .4em;
-  line-height: 1.6;
+  -webkit-border-radius: 0em 0em 0.3em 0.3em;
+  border-radius: 0em 0em 0.3em 0.3em;
   border-width: 2px;
   border-style: solid;
 }

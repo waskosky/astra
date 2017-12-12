@@ -702,11 +702,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			?>
 			<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'astra-addon' ); ?>">
 				<div class="ast-cart-menu-wrap">
-					<span class="count">
-						<?php if( WC()->cart->get_cart_contents_count() ):
-								echo WC()->cart->get_cart_contents_count();
-							endif; ?>
-					</span>
+					<span class="count"> <?php echo WC()->cart->get_cart_contents_count(); ?> </span>
 				</div>
 			</a>
 		<?php
