@@ -317,10 +317,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function shop_customization() {
 
-			if ( is_product() ) {
-				return;
-			}
-
 			if ( ! apply_filters( 'astra-woo-shop-product-structure-override', false ) ) {
 
 				/**
