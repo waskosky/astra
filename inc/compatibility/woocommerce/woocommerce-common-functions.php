@@ -14,7 +14,7 @@
 /**
  * Shop page - Products Title markup updated
  */
-if ( ! function_exists( 'astra_woocommerce_shop_products_title' ) ) :
+if ( ! function_exists( 'astra_woo_shop_products_title' ) ) :
 
 	/**
 	 * Shop Page product titles with anchor 
@@ -22,9 +22,9 @@ if ( ! function_exists( 'astra_woocommerce_shop_products_title' ) ) :
 	 *
 	 * @hooked woocommerce_after_shop_loop_item - 10
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 */
-	function astra_woocommerce_shop_products_title(){
+	function astra_woo_shop_products_title(){
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
 
 		echo '<h2 class="woocommerce-loop-product__title">' . get_the_title() . '</h2>';
@@ -37,16 +37,16 @@ endif;
 /**
  * Shop page - Parent Category
  */
-if ( ! function_exists( 'astra_shop_loop_category' ) ) :
+if ( ! function_exists( 'astra_woo_shop_parent_category' ) ) :
 	/**
  	 * Add and/or Remove Categories from shop archive page.
 	 *
 	 * @hooked woocommerce_after_shop_loop_item - 9
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 */
-	function astra_shop_loop_category(){
-		if ( apply_filters( 'astra_woo_product_box_category', true ) ) : ?>
+	function astra_woo_shop_parent_category(){
+		if ( apply_filters( 'astra_woo_shop_parent_category', true ) ) : ?>
 			<span class="ast-woo-product-category">
 				<?php
 				global $product;
@@ -61,25 +61,46 @@ if ( ! function_exists( 'astra_shop_loop_category' ) ) :
 			</span> <?php
 		endif;
 	}
-
 endif;
 
 /**
  * Shop page - Out of Stock
  */
-if ( ! function_exists( 'astra_shop_out_of_stock' ) ) :
+if ( ! function_exists( 'astra_woo_shop_out_of_stock' ) ) :
 	/**
  	 * Add Out of Stock to the Shop page
 	 *
 	 * @hooked woocommerce_shop_loop_item_title - 8
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 */
-	function astra_shop_out_of_stock(){
+	function astra_woo_shop_out_of_stock(){
 		$out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
 		if( 'outofstock' === $out_of_stock ) { ?>
 			<span class="ast-shop-product-out-of-stock"><?php esc_html_e( 'Out of stock', 'astra' ); ?></span>
 		<?php }
 	}
 
+endif;
+
+/**
+ * Shop page - Short Description
+ */
+if ( ! function_exists( 'astra_woo_shop_product_short_description' ) ) :
+	/**
+	 * Product short description
+	 *
+	 * @hooked woocommerce_after_shop_loop_item
+	 *
+	 * @since 1.1.0
+	 */
+	function astra_woo_shop_product_short_description() {
+	?>
+	<?php if ( has_excerpt() ) { ?>
+		<div class="ast-woo-shop-product-description">
+			<?php the_excerpt(); ?>
+		</div>
+	<?php } ?>
+	<?php
+	}
 endif;

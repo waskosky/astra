@@ -370,6 +370,11 @@
   margin: 0 0 .5em auto;
 }
 
+.woocommerce ul.products li.product .ast-woo-shop-product-description,
+.woocommerce-page ul.products li.product .ast-woo-shop-product-description {
+  margin-bottom: .5em;
+}
+
 .woocommerce ul.products li.product .price,
 .woocommerce-page ul.products li.product .price {
   line-height: 1.3;

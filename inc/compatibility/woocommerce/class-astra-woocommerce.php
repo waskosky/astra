@@ -288,7 +288,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				 * Add Product Title on shop page for all products.
 				 *
 				 */
-				add_action( 'woocommerce_after_shop_loop_item', 'astra_woocommerce_shop_products_title', 10 );
+				add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_products_title', 10 );
 				/**
 				 * Add Product Price on shop page for all products.
 				 */
@@ -300,7 +300,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/**
 				 * Add and/or Remove Categories from shop archive page.
 				 */
-				add_action( 'woocommerce_after_shop_loop_item', 'astra_shop_loop_category' , 9 );
+				add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_parent_category' , 9 );
 				/**
 				 * Add sale flash before shop loop.
 				 */
@@ -309,7 +309,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/**
 				 * Add Out of Stock to the Shop page
 				 */
-				add_action( 'woocommerce_shop_loop_item_title', 'astra_shop_out_of_stock', 8 );
+				add_action( 'woocommerce_shop_loop_item_title', 'astra_woo_shop_out_of_stock', 8 );
 
 				remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
@@ -335,7 +335,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', $priority );
 								break;*/
 							case 'short_desc':
-								add_action( 'woocommerce_after_shop_loop_item', array( $this, 'product_short_description' ), $priority );
+								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_product_short_description', $priority );
 								break;
 							case 'add_cart':
 								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', $priority );
@@ -351,19 +351,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					}
 				}
 			}
-		}
-
-		/**
-		 * Product short description
-		 */
-		function product_short_description() {
-	?>
-			<?php if ( has_excerpt() ) { ?>
-				<div class="description">
-					<?php the_excerpt(); ?>
-				</div>
-			<?php } ?>
-			<?php
 		}
 
 		/**
