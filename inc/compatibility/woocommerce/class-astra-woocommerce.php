@@ -372,6 +372,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
+				/**
+				 * Checkout Page
+				 */
+				add_action( 'woocommerce_checkout_billing', array( WC_Checkout::instance(), 'checkout_form_shipping' ) );
+
 				$shop_structure = apply_filters( 'astra-woo-shop-product-structure', astra_get_option( 'shop-product-structure' ) );
 
 				if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
@@ -475,6 +480,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 			// Add action when cross_sell products need to diaply on cart page.
 			remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+			// Checkout Page.
+			remove_action( 'woocommerce_checkout_shipping', array( WC_Checkout::instance(), 'checkout_form_shipping' ) );
 
 		}
 
