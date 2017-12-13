@@ -228,6 +228,29 @@
   height: 90px;
 }
 
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form .comment-form-author,
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form .comment-form-email {
+  width: 49%;
+  display: inline-block;
+}
+
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form .comment-form-author input,
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form .comment-form-email input {
+  width: 100%;
+}
+
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form .comment-form-author {
+  float: left;
+}
+
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form .comment-form-email {
+  float: right;
+}
+
+.woocommerce div.product .woocommerce-tabs .woocommerce-Reviews #review_form input {
+  max-width: 100%;
+}
+
 .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #comments {
   width: 100%;
 }

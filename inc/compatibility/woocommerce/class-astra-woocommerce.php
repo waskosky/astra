@@ -387,7 +387,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								/**
 								 * Add Product Title on shop page for all products.
 								 */
-								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_title', $priority );
+								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_woocommerce_template_loop_product_title', $priority );
 								break;
 							case 'price' :
 								/**
@@ -577,7 +577,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-color'     => $btn_bg_color,
 					'background-color' => $btn_bg_color,
 				),
-				'.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover' => array(
+				'.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,

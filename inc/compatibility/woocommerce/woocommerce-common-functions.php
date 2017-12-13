@@ -152,3 +152,16 @@ if ( ! function_exists( 'astra_woo_return_to_shopping' ) ) :
 		</p>
 	<?php }
 endif;
+
+if ( ! function_exists( 'astra_woo_woocommerce_template_loop_product_title' ) ) {
+
+	/**
+	 * Show the product title in the product loop. By default this is an H2.
+	 */
+	function astra_woo_woocommerce_template_loop_product_title() {
+		
+		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="ast-loop-product__link">';
+			woocommerce_template_loop_product_title();
+		echo '</a>';
+	}
+}
