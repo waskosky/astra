@@ -153,6 +153,25 @@
 							height: 90px;
 						}
 					}
+					
+					.comment-form-author,
+					.comment-form-email {
+						width: 49%;
+						display: inline-block;
+
+						input {
+							width: 100%;
+						}
+					}
+					.comment-form-author{
+						float: left;
+					}
+					.comment-form-email{
+						float: right;
+					}
+					input{
+						max-width: 100%;
+					}
 	    		}
 			}
 		}
