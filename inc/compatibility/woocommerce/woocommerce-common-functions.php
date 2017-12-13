@@ -161,7 +161,7 @@ if ( ! function_exists( 'astra_woo_woocommerce_template_loop_product_title' ) ) 
 	function astra_woo_woocommerce_template_loop_product_title() {
 		
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="ast-loop-product__link">';
-			echo '<h2 class="woocommerce-loop-product__title">' . get_the_title() . '</h2>';
+			woocommerce_template_loop_product_title();
 		echo '</a>';
 	}
 }
