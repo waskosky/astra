@@ -387,7 +387,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								/**
 								 * Add Product Title on shop page for all products.
 								 */
-								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_title', $priority );
+								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_woocommerce_template_loop_product_title', $priority );
 								break;
 							case 'price' :
 								/**
