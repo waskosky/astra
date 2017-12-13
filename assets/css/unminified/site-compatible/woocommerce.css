@@ -308,6 +308,10 @@
   font-weight: 700;
 }
 
+.woocommerce.single-product div.product p.stock .ast-stock-avail {
+  font-weight: normal;
+}
+
 .woocommerce.single-product div.product .product_title {
   margin: 0 0 0.5em 0;
 }
@@ -386,6 +390,7 @@
   margin-bottom: .5em;
   display: block;
   line-height: 1.3;
+  opacity: .6;
 }
 
 .woocommerce ul.products li.product .star-rating,
@@ -652,7 +657,8 @@
 .woocommerce-Address h3,
 .woocommerce-checkout h3,
 .cart-collaterals h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  padding: .7em 1em;
 }
 
 /**
@@ -721,7 +727,6 @@
 
 .woocommerce-cart .cart-collaterals .cart_totals > h2,
 .woocommerce-cart .cart-collaterals .cross-sells > h2 {
-  padding: .5em 1em;
   margin: 0 -20px 20px;
   background-color: #fbfbfb;
   border-bottom: 1px solid #ebebeb;

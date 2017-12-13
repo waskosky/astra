@@ -588,7 +588,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce-message::before,.woocommerce-info::before' => array(
 					'color' => $theme_color,
 				),
-				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a' => array(
+				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a, .woocommerce-page ul.products li.product .ast-woo-product-category' => array(
 					'color' => $text_color,
 				),
 				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
