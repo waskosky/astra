@@ -124,7 +124,7 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 				ob_start(); ?>
 				<p class="stock in-stock">
 					<?php /* translators: 1: in stock string */
-					printf( __( 'Availability: %s', 'astra' ), $availability ); ?>
+					printf( __( '<span class="ast-stock-avail">Availability:</span> %s', 'astra' ), $availability ); ?>
 				</p>
 				<?php $markup = ob_get_clean();
 			}
