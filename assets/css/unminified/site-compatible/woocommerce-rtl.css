@@ -76,8 +76,27 @@
   margin: 0 0 1.2em;
 }
 
+.woocommerce div.product form.cart .variations {
+  position: relative;
+}
+
 .woocommerce div.product form.cart .variations td.label {
   vertical-align: middle;
+}
+
+.woocommerce div.product form.cart .variations select {
+  width: 100%;
+  margin-left: 0;
+}
+
+.woocommerce div.product form.cart .variations .reset_variations {
+  position: absolute;
+  left: 8px;
+  bottom: 95%;
+  color: currentColor;
+  opacity: 0.6;
+  font-size: 11px;
+  text-transform: uppercase;
 }
 
 .woocommerce div.product form.cart .variations_button {
@@ -1498,4 +1517,16 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
+}
+
+/**
+ * Woocommerce common form design
+ */
+.woocommerce-page input[type=text], .woocommerce-page input[type=email], .woocommerce-page input[type=url], .woocommerce-page input[type=password], .woocommerce-page input[type=number], .woocommerce-page input[type=search], .woocommerce-page input[type=reset], .woocommerce-page input[type=tel], .woocommerce-page select, .woocommerce-page textarea, .woocommerce-page form .form-row textarea {
+  border-color: #EBEBEB;
+  background: #fff;
+  -webkit-box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.02);
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
 }
