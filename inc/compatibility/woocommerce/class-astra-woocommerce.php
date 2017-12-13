@@ -89,8 +89,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 
-			
 			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
+
+			add_action( 'woocommerce_cart_actions', 'astra_woo_return_to_shopping' );
 		}
 
 		/**
@@ -147,7 +148,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Shop */
 			$defaults['shop-grid']              = '3';
 			$defaults['shop-no-of-products']    = '9';
-			$defaults['shop-product-structure'] = array( 'add_cart' );
+			$defaults['shop-product-structure'] = array(
+				'category',
+				'title',
+				'price',
+				'ratings',
+				'add_cart',
+			);
 
 			/* General */
 			$defaults['display-cart-menu'] = true;
@@ -354,23 +361,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( ! apply_filters( 'astra-woo-shop-product-structure-override', false ) ) {
 
 				/**
-				 * Add Product Title on shop page for all products.
-				 *
-				 */
-				add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_products_title', 10 );
-				/**
-				 * Add Product Price on shop page for all products.
-				 */
-				add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 10 );
-				/**
-				 * Add rating on shop page for all products.
-				 */
-				add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_rating', 10 );
-				/**
-				 * Add and/or Remove Categories from shop archive page.
-				 */
-				add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_parent_category' , 9 );
-				/**
 				 * Add sale flash before shop loop.
 				 */
 				add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_show_product_loop_sale_flash', 9 );
@@ -393,26 +383,36 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						$priority += 10;
 
 						switch ( $value ) {
-							/*
 							case 'title' :
-								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', $priority );
+								/**
+								 * Add Product Title on shop page for all products.
+								 */
+								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_title', $priority );
 								break;
 							case 'price' :
-								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', $priority );
+								/**
+								 * Add Product Price on shop page for all products.
+								 */
+								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', $priority );
 								break;
 							case 'ratings' :
-								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', $priority );
-								break;*/
+								/**
+								 * Add rating on shop page for all products.
+								 */
+								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_rating', $priority );
+								break;
 							case 'short_desc':
 								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_product_short_description', $priority );
 								break;
 							case 'add_cart':
 								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', $priority );
 								break;
-							/*
 							case 'category' :
-								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', $priority );
-								break;*/
+								/**
+								 * Add and/or Remove Categories from shop archive page.
+								 */
+								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_parent_category' , $priority );
+								break;
 							default:
 								$priority -= 10;
 								break;

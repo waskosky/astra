@@ -133,3 +133,22 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 		return $markup;
 	}
 endif;
+
+/**
+ * Cart Page - Return to Shopping button
+ */
+if ( ! function_exists( 'astra_woo_return_to_shopping' ) ) :
+	
+	/**
+	 * Add return to shopping button.
+	 *
+	 * @since 1.1.0
+	 */
+	function astra_woo_return_to_shopping() { ?>
+		<p class="ast-return-to-shop return-to-shop">
+			<a class="button wc-backward" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
+				<?php _e( 'Return to shop', 'woocommerce' ) ?>
+			</a>
+		</p>
+	<?php }
+endif;

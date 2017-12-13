@@ -78,14 +78,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-sortable',
 				'section'  => 'section-woo-shop',
 				'priority' => 70,
-				'label'    => __( 'Shop Product Structure', 'astra-addon' ),
+				'label'    => __( 'Shop Product Structure', 'astra' ),
 				'choices'  => array(
-					// 'title'       => __( 'Title', 'astra-addon' ),
-					// 'price'       => __( 'Price', 'astra-addon' ),
-					// 'ratings'     => __( 'Ratings', 'astra-addon' ),
-					'short_desc' => __( 'Short Description', 'astra-addon' ),
-					'add_cart'   => __( 'Add To Cart', 'astra-addon' ),
-					// 'category'      => __( 'Category', 'astra-addon' ),
+					'title'       	=> __( 'Title', 'astra' ),
+					'price'       	=> __( 'Price', 'astra' ),
+					'ratings'     	=> __( 'Ratings', 'astra' ),
+					'short_desc' 	=> __( 'Short Description', 'astra' ),
+					'add_cart'   	=> __( 'Add To Cart', 'astra' ),
+					'category'      => __( 'Category', 'astra' ),
 				),
 			)
 		)
