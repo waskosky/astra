@@ -379,6 +379,12 @@
   margin-top: 1em;
 }
 
+.woocommerce .ast-return-to-shop {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
 .up-sells h2,
 .related.products h2,
 .woocommerce-tabs h2 {
