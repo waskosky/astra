@@ -52,16 +52,48 @@
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
+			margin: 0 0 1.2em;
+			table{
+				margin: 0 0 1.2em;
+			}
 			.variations{
 				td.label{
 					vertical-align: middle;
 				}
 			}
 			.variations_button{
-				justify-content: center;
 				align-items: center;
 				display: flex;
 				flex-wrap: wrap;
+			}
+
+			.group_table { 
+				td{
+					vertical-align: middle;
+				}
+				td.label {
+					padding: 0.5em;
+					font-size: .8rem;
+					line-height: 1.3;
+				}
+				td.price {
+					padding-left: 0.8em;
+					font-weight: bold;
+					font-size: 0.9rem;
+					del{
+						opacity: .5;
+					}
+				}
+			}
+			p.stock {
+				line-height: 1.3;
+				margin-bottom: 0.8em;
+				font-size: .9em;
+			}
+			.single_variation_wrap{
+				p {
+					margin-bottom: 0.8em;
+				}
 			}
 		}
 		

@@ -69,6 +69,11 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin: 0 0 1.2em;
+}
+
+.woocommerce div.product form.cart table {
+  margin: 0 0 1.2em;
 }
 
 .woocommerce div.product form.cart .variations td.label {
@@ -76,11 +81,6 @@
 }
 
 .woocommerce div.product form.cart .variations_button {
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -moz-box-align: center;
@@ -95,6 +95,36 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+}
+
+.woocommerce div.product form.cart .group_table td {
+  vertical-align: middle;
+}
+
+.woocommerce div.product form.cart .group_table td.label {
+  padding: 0.5em;
+  font-size: .8rem;
+  line-height: 1.3;
+}
+
+.woocommerce div.product form.cart .group_table td.price {
+  padding-left: 0.8em;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.woocommerce div.product form.cart .group_table td.price del {
+  opacity: .5;
+}
+
+.woocommerce div.product form.cart p.stock {
+  line-height: 1.3;
+  margin-bottom: 0.8em;
+  font-size: .9em;
+}
+
+.woocommerce div.product form.cart .single_variation_wrap p {
+  margin-bottom: 0.8em;
 }
 
 .woocommerce div.product .woocommerce-tabs {
