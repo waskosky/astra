@@ -51,6 +51,18 @@
 		form.cart {
 			display: flex;
 			align-items: center;
+			flex-wrap: wrap;
+			.variations{
+				td.label{
+					vertical-align: middle;
+				}
+			}
+			.variations_button{
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				flex-wrap: wrap;
+			}
 		}
 		
 		// Tabs.
@@ -292,9 +304,8 @@
 			
 			p.stock {
 				font-size: 1em;
-				font-weight: 700;
 				.ast-stock-avail{
-					font-weight: normal;
+					font-weight: 700;
 				}
 			}
 
