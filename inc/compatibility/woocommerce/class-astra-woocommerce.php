@@ -252,6 +252,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				array(
 					'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
 					'id'            => 'astra-woo-shop-sidebar',
+					'description'   => __('This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<h2 class="widget-title">',
@@ -262,6 +263,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				array(
 					'name'          => esc_html__( 'Product Sidebar', 'astra' ),
 					'id'            => 'astra-woo-single-sidebar',
+					'description'   => __('This sidebar will be used on Single Product page.', 'astra' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<h2 class="widget-title">',
@@ -595,7 +597,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce-message::before,.woocommerce-info::before' => array(
 					'color' => $theme_color,
 				),
-				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a, .woocommerce-page ul.products li.product .ast-woo-product-category' => array(
+				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a, .woocommerce-page ul.products li.product .ast-woo-product-category, .wc-layered-nav-rating a' => array(
 					'color' => $text_color,
 				),
 				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
