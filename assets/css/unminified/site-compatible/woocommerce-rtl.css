@@ -913,7 +913,7 @@
   border-bottom: 0;
   border-width: 1px 1px 0 1px;
   border-style: solid;
-  border-color: #e5e5e5;
+  margin: 0;
 }
 
 .woocommerce-checkout form #customer_details.col2-set .col-1 {
