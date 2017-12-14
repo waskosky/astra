@@ -686,10 +686,10 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 	 */
 	function astra_header_classes() {
 
-		$classes                 = array( 'site-header' );
-		$menu_logo_location      = astra_get_option( 'header-layouts' );
-		$mobile_header_alignment = astra_get_option( 'header-main-menu-align' );
-		$primary_menu_disable    = astra_get_option( 'disable-primary-nav' );
+		$classes                  = array( 'site-header' );
+		$menu_logo_location       = astra_get_option( 'header-layouts' );
+		$mobile_header_alignment  = astra_get_option( 'header-main-menu-align' );
+		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
 
 		if ( $menu_logo_location ) {
@@ -902,12 +902,12 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 		} else {
 
 			$content_layout = '';
-			$post_type = get_post_type();
+			$post_type      = get_post_type();
 
 			if ( 'post' === $post_type ) {
 				$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
 			}
-			
+
 			if ( is_search() ) {
 				$content_layout = astra_get_option( 'archive-post-content-layout' );
 			}

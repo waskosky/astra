@@ -225,6 +225,10 @@
 					}
 	    		}
 			}
+
+			.panel{
+				margin: 0 0 1.2em;
+			}
 		}
 
 		/* No Review for single product */
@@ -424,16 +428,17 @@
 		.related.products {
 		    display: inline-block;
 		}
-		
 		.related.products {
-		    margin-top: 1em;
+			ul.products{
+				margin:0;
+			}
 		}
 
 	}
 
 	.ast-return-to-shop {
 		display: inline-block;
-		margin-bottom: 0;
+		margin: 5px 0;
 		vertical-align: middle;
 	}
 }
@@ -460,7 +465,7 @@
 	ul.products {
 		li.product {
 			text-align: left;
-			margin-bottom: 2.9em;
+			margin-bottom: 2.5em;
 
 			a{
 				img{
@@ -578,6 +583,38 @@
 	.pswp__caption__center {
 		text-align: center;
 	}
+
+
+	/*
+	 * Common table style for woocommerce
+	 */
+	table.shop_table{
+		    border: 1px solid #ebebeb;
+		    border-radius: 0px;
+			.product-thumbnail{
+				img{
+					width: auto;
+    				max-width: 70px;
+				}
+			}
+			thead{
+				background-color: #fbfbfb;
+
+				th {
+					border-width: 0;
+				}
+			}
+			td,th{
+				border-bottom-width: 0;
+				padding: .7em 1em;
+			}
+			td{
+				border-top: 1px solid #ebebeb;
+			}
+			.woocommerce-Price-amount{
+				font-weight: 700;
+			}
+		}
 }
 
 /* Single Product Gallery */
@@ -685,13 +722,13 @@
 		a.remove {
 			display: inline-block;
 			vertical-align: middle;
-			font-size: 1.3em;
-			height: 1.2em;
-			width: 1.2em;
+			font-size: 18px;
+			width: 24px;
+			height: 24px;
+			line-height: 21px;
 			color: #ccc !important;
-			line-height: .9;
 			text-align: center;
-			border: 2px solid #ccc;
+			border: 1px solid #ccc;
 		}
 	}
 }
@@ -730,28 +767,8 @@
 .woocommerce-cart {
 		
 		table.shop_table{
-		    border: 1px solid #ebebeb;
-		    border-radius: 0px;
-			.product-thumbnail{
-				img{
-					width: auto;
-    				max-width: 70px;
-				}
-			}
-			thead{
-				background-color: #fbfbfb;
-
-				th {
-					border: 0;
-				}
-			}
 			td,th{
 				border-right: 0;
-				border-bottom: 0;
-				padding: .7em 1em;
-			}
-			td{
-				border-top: 1px solid #ebebeb;
 			}
 			.woocommerce-Price-amount{
 				font-weight: 700;
@@ -798,6 +815,7 @@
 		.coupon {
 			display: flex;
 			align-items: center;
+			margin: 5px 0;
 			.input-text {
 				padding: .5em .75em;
 			}
@@ -828,28 +846,9 @@
  */
 .woocommerce-wishlist {
 	table.shop_table{
-		    border: 1px solid #ebebeb;
-		    border-radius: 0px;
-			.product-thumbnail{
-				img{
-					width: auto;
-    				max-width: 70px;
-				}
-			}
-			thead{
-				background-color: #fbfbfb;
-
-				th {
-					border: 0;
-				}
-			}
 			td,th{
 				border-right: 0;
 				border-bottom: 0;
-				padding: .7em 1em;
-			}
-			td{
-				border-top: 1px solid #ebebeb;
 			}
 			.woocommerce-Price-amount{
 				font-weight: 700;
@@ -880,13 +879,13 @@
 			a.remove {
 				display: inline-block;
 				vertical-align: middle;
-				font-size: 1.3em;
-				height: 1.2em;
-				width: 1.2em;
+				font-size: 18px;
+				width: 24px;
+				height: 24px;
+				line-height: 21px;
 				color: #ccc !important;
-				line-height: .9;
 				text-align: center;
-				border: 2px solid #ccc;
+				border: 1px solid #ccc;
 				&:hover{
 					background-color: #ffffff;
 				}
@@ -898,90 +897,166 @@
 /**
  * Checkout Page
  */
-.woocommerce-checkout {
-	h3{
-		font-size: 1.2rem;
-	    padding: 20px;
-	    margin-bottom: 0;
-	    margin: 0 -20px 0;
-	    background-color: #fbfbfb;
-	    border-bottom: 1px solid #ebebeb;
-	    &#ship-to-different-address{
-	    	margin-top: 20px;
-	    	border-top: 1px solid #ebebeb;
-	    }
-	}
+.woocommerce-page{
+	&.woocommerce-checkout {
 
-	form {
-
-		#order_review_heading {
-			border-bottom:0;
-			border-width: 1px 1px 0 1px;
-		    border-style: solid;
-		    margin: 0;
+		table.shop_table{
+			thead{
+				background-color: #ffffff;
+			}
+			th{
+				padding: 14px 12px;
+			}
+			td{
+				padding: 10px 10px 10px 0;
+				border-color: #ebebeb;
+				opacity: 0.8;
+			}
+			tfoot td{
+				opacity: 1;	
+			}
+			td,th{
+				border-bottom-width: 1px;
+			}
+		}
+		#customer_details{
+			h3{
+				font-size: 1.2rem;
+				padding: 20px 0 14px;
+				margin: 0 0 20px;
+				background-color: #ffffff;
+				border-bottom: 1px solid #ebebeb;
+			}
 		}
 
-		#customer_details.col2-set {
-			.col-1{
-				padding: 0 20px 20px;
-				border: 1px solid rgba(0,0,0,.1);
+		form {
+
+			#order_review_heading {
+				border-width: 2px 2px 0 2px;
+				border-style: solid;
+				font-size: 1.2rem;
+				margin: 0;
+			    background-color: #fff;
+			    padding: 1.5em 1.5em 1em;
+			    border-color: #ebebeb;
+			}
+
+			#customer_details.col2-set {
+				.col-1{
+					padding: 0 20px 20px;
+				}
+				@media ( min-width: $col-md ) {
+				    width: 58%;
+				    float: left;
+				    margin-right: 4.347826087%;
+				    .col-1,
+				    .col-2{
+				    	float: none;
+				    	width: auto;
+				    }
+				}
+			}	
+			#order_review{
+				padding: 0 2em;
+				border-width: 0 2px 2px;
+				border-style: solid;
+				border-color: #ebebeb;
+				table{ 
+				    border-width:0;
+				}
+				td,
+				th{ 
+				    border-top:0;
+				    border-right:0;
+				    padding-left:0;
+				}
 			}
 			@media ( min-width: $col-md ) {
-			    width: 47.8260869565%;
-			    float: left;
-			    margin-right: 4.347826087%;
-			    .col-1,
-			    .col-2{
-			    	float: none;
-			    	width: auto;
-			    }
-			}
-		}	
-		#order_review{
-			padding: 0 20px;
-			border-width: 0 1px 1px;
-			border-style: solid;
-			table{ 
-			    border-width:0;
-			}
-			td,
-			th{ 
-			    border-top:0;
-			    border-right:0;
-			    padding-left:0;
-			}
-		}
-		@media ( min-width: $col-md ) {
-			#order_review, 
-			#order_review_heading {
-			    width: 47.8260869565%;
-			    float: right;
-			    margin-right: 0;
-			    clear:right;
-			    }
+				#order_review, 
+				#order_review_heading {
+					width: 37%;
+					float: right;
+					margin-right: 0;
+					clear: right;
+
+				}
 			}
 
-		.form-row:last-child{
-			margin-bottom: 0;
-		}
-	}
-
-	#payment{
-	    background: #ffffff;
-	    border-radius: 0;
-		ul{
-			&.payment_methods{
-				padding: 0;
+			.form-row:last-child{
+				margin-bottom: 0;
 			}
 		}
-		div.payment_box{
-			background-color: #efefef;
-			&:before{
-				border-bottom-color: #efefef;
+
+		#payment{
+		    background: #ffffff;
+		    border-radius: 0;
+			ul{
+				&.payment_methods{
+					padding: 0;
+				}
+			}
+			div.payment_box{
+				background-color: #efefef;
+				&:before{
+					border-bottom-color: #efefef;
+				}
+			}
+			div.form-row {
+				padding: 0 0 3em;
+			}
+			#place_order {
+			   width: 100%;
+			}
+		}
+
+		/* Ordered received style */
+		.woocommerce-order{
+			table.shop_table{
+				th,td{
+					padding: .7em 1em;
+					border-bottom-width: 0px;
+					&:last-child{
+						border-right-width: 0px;
+					}
+				}
+			}
+			h2{
+				&.woocommerce-column__title,
+				&.woocommerce-order-details__title{
+					background: #fbfbfb;
+					padding: 1em;
+					margin-bottom: 0;
+					font-size: 1.3rem;
+					border-width: 1px 1px 0 1px;
+					border-style: solid;
+					border-color: #e5e5e5;
+				}
+				&.wc-bacs-bank-details-heading{
+					font-size: 1.5rem;
+					border-top: 3px solid #ebebeb;
+					padding-top: .5em;
+				}
+			}
+			h3{
+				font-size: 1.1rem;
+			}
+
+			ul.order_details{
+				margin-bottom:2em;
+			}
+		}
+
+		.woocommerce-customer-details{
+			address{
+				border-right-width:1px;
+				border-bottom-width:1px;
+				border-radius:0;
 			}
 		}
 	}
 }
+
+
 .woocommerce {
 
 	form {
@@ -1257,12 +1332,12 @@
 		right: 0;
 		top: .5em;
 		font-weight: normal;
-		font-size: 1.2em;
-		height: 1.2em;
-		width: 1.2em;
 		color: #ccc !important;
-		line-height: .8;
-		border: 2px solid #ccc;
+		font-size: 18px;
+		width: 24px;
+		height: 24px;
+		line-height: 21px;
+		border: 1px solid #ccc;
 	}
 }
 
@@ -1439,13 +1514,13 @@
 			.cart_list{
 				a.remove {
 					display: block;
-					font-size: 1.3em;
-					height: 1.2em;
-					width: 1.2em;
+					font-size: 18px;
+					width: 24px;
+					height: 24px;
+					line-height: 21px;
 					color: #ccc !important;
-					line-height: .8;
 					text-align: center;
-					border: 2px solid #ccc;
+					border: 1px solid #ccc;
 				}
 			}
         }
@@ -1462,8 +1537,8 @@
 				text-align: center;
 				width: 2.1em;
 				height: 2.1em;
+				font-size: 0.860em;
 				line-height: 1.8;
-				font-size: 1em;
     			border-radius: 0em 0em 0.3em 0.3em;
 				border-width: 2px;
 				border-style: solid;
