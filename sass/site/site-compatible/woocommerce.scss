@@ -1002,6 +1002,51 @@
 			   width: 100%;
 			}
 		}
+
+		/* Ordered received style */
+		.woocommerce-order{
+			table.shop_table{
+				th,td{
+					padding: .7em 1em;
+					border-bottom-width: 0px;
+					&:last-child{
+						border-right-width: 0px;
+					}
+				}
+			}
+			h2{
+				&.woocommerce-column__title,
+				&.woocommerce-order-details__title{
+					background: #fbfbfb;
+					padding: 1em;
+					margin-bottom: 0;
+					font-size: 1.3rem;
+					border-width: 1px 1px 0 1px;
+					border-style: solid;
+					border-color: #e5e5e5;
+				}
+				&.wc-bacs-bank-details-heading{
+					font-size: 1.5rem;
+					border-top: 3px solid #ebebeb;
+					padding-top: .5em;
+				}
+			}
+			h3{
+				font-size: 1.1rem;
+			}
+
+			ul.order_details{
+				margin-bottom:2em;
+			}
+		}
+
+		.woocommerce-customer-details{
+			address{
+				border-right-width:1px;
+				border-bottom-width:1px;
+				border-radius:0;
+			}
+		}
 	}
 }
 

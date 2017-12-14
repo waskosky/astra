@@ -968,6 +968,10 @@
 /**
  * Checkout Page
  */
+.woocommerce-page.woocommerce-checkout {
+  /* Ordered received style */
+}
+
 .woocommerce-page.woocommerce-checkout table.shop_table thead {
   background-color: #ffffff;
 }
@@ -1081,6 +1085,46 @@
 
 .woocommerce-page.woocommerce-checkout #payment #place_order {
   width: 100%;
+}
+
+.woocommerce-page.woocommerce-checkout .woocommerce-order table.shop_table th, .woocommerce-page.woocommerce-checkout .woocommerce-order table.shop_table td {
+  padding: .7em 1em;
+  border-bottom-width: 0px;
+}
+
+.woocommerce-page.woocommerce-checkout .woocommerce-order table.shop_table th:last-child, .woocommerce-page.woocommerce-checkout .woocommerce-order table.shop_table td:last-child {
+  border-right-width: 0px;
+}
+
+.woocommerce-page.woocommerce-checkout .woocommerce-order h2.woocommerce-column__title, .woocommerce-page.woocommerce-checkout .woocommerce-order h2.woocommerce-order-details__title {
+  background: #fbfbfb;
+  padding: 1em;
+  margin-bottom: 0;
+  font-size: 1.3rem;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: #e5e5e5;
+}
+
+.woocommerce-page.woocommerce-checkout .woocommerce-order h2.wc-bacs-bank-details-heading {
+  font-size: 1.5rem;
+  border-top: 3px solid #ebebeb;
+  padding-top: .5em;
+}
+
+.woocommerce-page.woocommerce-checkout .woocommerce-order h3 {
+  font-size: 1.1rem;
+}
+
+.woocommerce-page.woocommerce-checkout .woocommerce-order ul.order_details {
+  margin-bottom: 2em;
+}
+
+.woocommerce-page.woocommerce-checkout .woocommerce-customer-details address {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 .woocommerce form .form-row .required {
