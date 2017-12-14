@@ -45,20 +45,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			
+
 			require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce-common-functions.php';
 
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 
-			// Register Store Sidebars
+			// Register Store Sidebars.
 			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 15 );
-			// Replace Store Sidebars
+			// Replace Store Sidebars.
 			add_filter( 'astra_get_sidebar', array( $this, 'replace_store_sidebar' ) );
-			// Store Sidebar Layout
+			// Store Sidebar Layout.
 			add_filter( 'astra_page_layout', array( $this, 'store_sidebar_layout' ) );
-			// Store Content Layout
+			// Store Content Layout.
 			add_filter( 'astra_get_content_layout', array( $this, 'store_content_layout' ) );
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'post_class', array( $this, 'single_product_class' ) );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
-			// Add Cart icon in Menu
+			// Add Cart icon in Menu.
 			add_action( 'astra_masthead_content', array( $this, 'astra_header_cart' ), 8 );
 
 			// Cart fragment.
@@ -133,17 +133,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Theme Defaults.
 		 *
-		 * @param array $default Array of options value.
+		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
 		function theme_defaults( $defaults ) {
 
-			// Container
+			// Container.
 			$defaults['woocommerce-content-layout'] = 'default';
 
-			  // Sidebar.
-			$defaults['woocommerce-sidebar-layout'] 	= 'default';
-			$defaults['single-product-sidebar-layout']  = 'default';
+			// Sidebar.
+			$defaults['woocommerce-sidebar-layout']    = 'default';
+			$defaults['single-product-sidebar-layout'] = 'default';
 
 			/* Shop */
 			$defaults['shop-grid']              = '3';
@@ -177,6 +177,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			return $col;
 		}
 
+		/**
+		 * Update Shop page grid
+		 *
+		 * @return int
+		 */
 		function shop_no_of_products() {
 			$products = astra_get_option( 'shop-no-of-products' );
 			return $products;
@@ -184,11 +189,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 		/**
 		 * Add products item class on shop page
+		 *
+		 * @param Array $classes product classes.
+		 *
+		 * @return array.
 		 */
 		function shop_page_products_item_class( $classes = '' ) {
 
 			if ( is_shop() || 'product' == get_post_type() ) {
-				$classes[] = 'columns-' . astra_get_option( 'shop-grid' ); // self::get_grid_classes( $grid_columns );
+				$classes[] = 'columns-' . astra_get_option( 'shop-grid' );
 			}
 			// Cart menu is emabled.
 			$display_cart_menu = astra_get_option( 'display-cart-menu' );
@@ -201,6 +210,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 		/**
 		 * Add class on single product page
+		 *
+		 * @param Array $classes product classes.
+		 *
+		 * @return array.
 		 */
 		function single_product_class( $classes ) {
 
@@ -252,7 +265,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				array(
 					'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
 					'id'            => 'astra-woo-shop-sidebar',
-					'description'   => __('This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
+					'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<h2 class="widget-title">',
@@ -263,7 +276,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				array(
 					'name'          => esc_html__( 'Product Sidebar', 'astra' ),
 					'id'            => 'astra-woo-single-sidebar',
-					'description'   => __('This sidebar will be used on Single Product page.', 'astra' ),
+					'description'   => __( 'This sidebar will be used on Single Product page.', 'astra' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<h2 class="widget-title">',
@@ -274,6 +287,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 		/**
 		 * Assign shop sidebar for store page.
+		 *
+		 * @param String $sidebar Sidebar.
+		 *
+		 * @return String $sidebar Sidebar.
 		 */
 		function replace_store_sidebar( $sidebar ) {
 
@@ -288,27 +305,30 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 		/**
 		 * WooCommerce Container
+		 *
+		 * @param String $sidebar_layout Layout type.
+		 *
+		 * @return String $sidebar_layout Layout type.
 		 */
 		function store_sidebar_layout( $sidebar_layout ) {
-			
+
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
-				
+
 				$woo_sidebar = astra_get_option( 'woocommerce-sidebar-layout' );
-				
+
 				if ( 'default' !== $woo_sidebar ) {
-					
+
 					$sidebar_layout = $woo_sidebar;
 				}
 
 				if ( is_shop() ) {
-					$shop_page_id 	= get_option( 'woocommerce_shop_page_id' ); 
-					$shop_sidebar 	= get_post_meta( $shop_page_id, 'site-sidebar-layout', true );
-				}else{
-					$shop_sidebar 	= astra_get_option_meta( 'site-sidebar-layout', '', true );
+					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+					$shop_sidebar = get_post_meta( $shop_page_id, 'site-sidebar-layout', true );
+				} else {
+					$shop_sidebar = astra_get_option_meta( 'site-sidebar-layout', '', true );
 				}
 
-				
-				if ( 'default' !== $shop_sidebar && !empty( $shop_sidebar ) ) {
+				if ( 'default' !== $shop_sidebar && ! empty( $shop_sidebar ) ) {
 					$sidebar_layout = $shop_sidebar;
 				}
 			}
@@ -317,33 +337,37 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 		/**
 		 * WooCommerce Container
+		 *
+		 * @param String $layout Layout type.
+		 *
+		 * @return String $layout Layout type.
 		 */
 		function store_content_layout( $layout ) {
-			
+
 			if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
-				
+
 				$woo_layout = astra_get_option( 'woocommerce-content-layout' );
 
 				if ( 'default' !== $woo_layout ) {
-					
+
 					$layout = $woo_layout;
 				}
 
 				if ( is_shop() ) {
-					$shop_page_id 	= get_option( 'woocommerce_shop_page_id' ); 
-					$shop_layout 	= get_post_meta( $shop_page_id, 'site-content-layout', true );
-				}else{
-					$shop_layout 	= astra_get_option_meta( 'site-content-layout', '', true );
+					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+					$shop_layout  = get_post_meta( $shop_page_id, 'site-content-layout', true );
+				} else {
+					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
 				}
-				
-				if ( 'default' !== $shop_layout && !empty( $shop_sidebar ) ) {
+
+				if ( 'default' !== $shop_layout && ! empty( $shop_sidebar ) ) {
 					$layout = $shop_layout;
 				}
 			}
 
 			return $layout;
 		}
-		
+
 
 		/**
 		 * Shop customization.
@@ -353,19 +377,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function shop_customization() {
 
 			// Page Title.
-
 			if ( is_shop() ) {
 
-				$shop_page_id 	= get_option( 'woocommerce_shop_page_id' ); 
-				$shop_title 	= get_post_meta( $shop_page_id, 'site-post-title', true );
-				
+				$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+				$shop_title   = get_post_meta( $shop_page_id, 'site-post-title', true );
+
 				if ( 'disabled' === $shop_title ) {
-					
+
 					add_filter( 'woocommerce_show_page_title', '__return_false' );
 				}
 			}
 
-			if ( ! apply_filters( 'astra-woo-shop-product-structure-override', false ) ) {
+			if ( ! apply_filters( 'astra_woo_shop_product_structure_override', false ) ) {
 
 				/**
 				 * Add sale flash before shop loop.
@@ -383,7 +406,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				 * Checkout Page
 				 */
 				add_action( 'woocommerce_checkout_billing', array( WC_Checkout::instance(), 'checkout_form_shipping' ) );
-				
+
 				/**
 				 * Shop Page Product Content Sorting
 				 */
@@ -408,8 +431,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Breadcrumb.
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 			if ( ! astra_get_option( 'single-product-breadcrumb-disable' ) ) {
-				 // remove_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
-				 add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
+				add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
 			}
 
 			add_filter( 'woocommerce_get_breadcrumb', array( $this, 'remove_product_title' ), 10, 2 );
@@ -418,7 +440,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Remove single product title from breadcrumb.
 		 *
-		 * @return void
+		 * @param  array  $crumbs Related products array.
+		 * @param  object $obj Related products array.
+		 *
+		 * @return array
 		 */
 		function remove_product_title( $crumbs, $obj ) {
 
@@ -660,11 +685,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 		/**
 		 * Add Cart icon markup
-		 *
-		 * => Used in hooks:
-		 *
-		 * @param string $markup Custom menu item
-		 * @return string $markup updated markup with cart icon
 		 *
 		 * @since 1.0.0
 		 */

@@ -80,12 +80,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 70,
 				'label'    => __( 'Shop Product Structure', 'astra' ),
 				'choices'  => array(
-					'title'       	=> __( 'Title', 'astra' ),
-					'price'       	=> __( 'Price', 'astra' ),
-					'ratings'     	=> __( 'Ratings', 'astra' ),
-					'short_desc' 	=> __( 'Short Description', 'astra' ),
-					'add_cart'   	=> __( 'Add To Cart', 'astra' ),
-					'category'      => __( 'Category', 'astra' ),
+					'title'      => __( 'Title', 'astra' ),
+					'price'      => __( 'Price', 'astra' ),
+					'ratings'    => __( 'Ratings', 'astra' ),
+					'short_desc' => __( 'Short Description', 'astra' ),
+					'add_cart'   => __( 'Add To Cart', 'astra' ),
+					'category'   => __( 'Category', 'astra' ),
 				),
 			)
 		)
