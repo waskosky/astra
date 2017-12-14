@@ -230,6 +230,7 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 	}
 }
 
+
 /**
  * Adding Wrapper for Search Form.
  */
@@ -396,7 +397,8 @@ if ( ! function_exists( 'astra_get_small_footer_menu' ) ) {
 	 */
 	function astra_get_small_footer_menu() {
 
-		ob_start(); ?>
+		ob_start();
+		?>
 
 		<div class="footer-primary-navigation">
 			<?php
@@ -684,11 +686,18 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 	 */
 	function astra_header_classes() {
 
-		$classes                 = array( 'site-header' );
-		$menu_logo_location      = astra_get_option( 'header-layouts' );
-		$mobile_header_alignment = astra_get_option( 'header-main-menu-align' );
+		$classes                  = array( 'site-header' );
+		$menu_logo_location       = astra_get_option( 'header-layouts' );
+		$mobile_header_alignment  = astra_get_option( 'header-main-menu-align' );
+		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
+		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
+
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
+		}
+
+		if ( $primary_menu_disable && 'none' == $primary_menu_custom_item ) {
+			$classes[] = 'ast-no-menu-items';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
@@ -877,7 +886,11 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 			if ( empty( $content_layout ) ) {
 
-				$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
+				$post_type = get_post_type();
+
+				if ( 'post' === $post_type || 'page' === $post_type ) {
+					$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
+				}
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
@@ -888,7 +901,13 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			}
 		} else {
 
-			$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
+			$content_layout = '';
+			$post_type      = get_post_type();
+
+			if ( 'post' === $post_type ) {
+				$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
+			}
+
 			if ( is_search() ) {
 				$content_layout = astra_get_option( 'archive-post-content-layout' );
 			}

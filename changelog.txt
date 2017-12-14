@@ -1,4 +1,7 @@
-v1.1.0-bbeta.1
+v1.1.0-beta.1
+# New: Added Woocommerce support.
+# Fixed: Content layout bug fixed for custom post-types.
+# Fixed: Sidebar bug fixed for custom post-types.
 # Fixed: Astra Pro upgrade link pointing to correct page.
 
 v1.0.32
