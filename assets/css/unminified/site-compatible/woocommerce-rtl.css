@@ -1640,7 +1640,7 @@
 /**
  * Woocommerce common form design
  */
-.woocommerce-page input[type=text], .woocommerce-page input[type=email], .woocommerce-page input[type=url], .woocommerce-page input[type=password], .woocommerce-page input[type=number], .woocommerce-page input[type=search], .woocommerce-page input[type=reset], .woocommerce-page input[type=tel], .woocommerce-page select, .woocommerce-page textarea, .woocommerce-page form .form-row textarea, .woocommerce-page .select2-container .select2-selection--single {
+.woocommerce-page input[type=text], .woocommerce-page input[type=email], .woocommerce-page input[type=url], .woocommerce-page input[type=password], .woocommerce-page input[type=number], .woocommerce-page input[type=search], .woocommerce-page input[type=reset], .woocommerce-page input[type=tel], .woocommerce-page select, .woocommerce-page textarea, .woocommerce-page form .form-row textarea {
   border-color: #EBEBEB;
   background: #fff;
   -webkit-box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.02);
@@ -1649,8 +1649,17 @@
   border-radius: 0px;
 }
 
-.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page select:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus, .woocommerce-page .select2-container .select2-selection--single:focus {
+.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page select:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus {
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
   border-color: #EBEBEB;
+}
+
+.woocommerce-page .select2-container .select2-selection--single {
+  padding: .75em;
+  border: 1px solid #EBEBEB;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 -1.4em 1em 0 #ebebeb33;
+  box-shadow: inset 0 -1.4em 1em 0 #ebebeb33;
 }
