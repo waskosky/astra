@@ -101,23 +101,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
-		}
-
-		/**
-		 * Add postMessage support for site title and description for the Theme Customizer.
-		 *
-		 * @since 1.0.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-		 */
-		function customize_register( $wp_customize ) {
-
-			/**
-			 * Astra Pro Upsell Link
-			 */
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/astra-pro-section-register.php';
-			}
 
 			/**
 			 * Register controls
@@ -137,6 +120,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-partials.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-callback.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-sanitizes.php';
+		}
+
+		/**
+		 * Add postMessage support for site title and description for the Theme Customizer.
+		 *
+		 * @since 1.0.0
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		function customize_register( $wp_customize ) {
+
+			/**
+			 * Astra Pro Upsell Link
+			 */
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
+				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/astra-pro-section-register.php';
+			}
 
 			/**
 			 * Override Defaults
