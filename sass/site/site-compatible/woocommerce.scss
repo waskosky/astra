@@ -225,6 +225,10 @@
 					}
 	    		}
 			}
+
+			.panel{
+				margin: 0 0 1.2em;
+			}
 		}
 
 		/* No Review for single product */
@@ -424,9 +428,10 @@
 		.related.products {
 		    display: inline-block;
 		}
-		
 		.related.products {
-		    margin-top: 1em;
+			ul.products{
+				margin:0;
+			}
 		}
 
 	}
@@ -460,7 +465,7 @@
 	ul.products {
 		li.product {
 			text-align: left;
-			margin-bottom: 2.9em;
+			margin-bottom: 2.5em;
 
 			a{
 				img{
@@ -717,13 +722,13 @@
 		a.remove {
 			display: inline-block;
 			vertical-align: middle;
-			font-size: 1.3em;
-			height: 1.2em;
-			width: 1.2em;
+			font-size: 18px;
+			width: 24px;
+			height: 24px;
+			line-height: 21px;
 			color: #ccc !important;
-			line-height: .9;
 			text-align: center;
-			border: 2px solid #ccc;
+			border: 1px solid #ccc;
 		}
 	}
 }
@@ -873,13 +878,13 @@
 			a.remove {
 				display: inline-block;
 				vertical-align: middle;
-				font-size: 1.3em;
-				height: 1.2em;
-				width: 1.2em;
+				font-size: 18px;
+				width: 24px;
+				height: 24px;
+				line-height: 21px;
 				color: #ccc !important;
-				line-height: .9;
 				text-align: center;
-				border: 2px solid #ccc;
+				border: 1px solid #ccc;
 				&:hover{
 					background-color: #ffffff;
 				}
@@ -1326,12 +1331,12 @@
 		right: 0;
 		top: .5em;
 		font-weight: normal;
-		font-size: 1.2em;
-		height: 1.2em;
-		width: 1.2em;
 		color: #ccc !important;
-		line-height: .8;
-		border: 2px solid #ccc;
+		font-size: 18px;
+		width: 24px;
+		height: 24px;
+		line-height: 21px;
+		border: 1px solid #ccc;
 	}
 }
 
@@ -1508,13 +1513,13 @@
 			.cart_list{
 				a.remove {
 					display: block;
-					font-size: 1.3em;
-					height: 1.2em;
-					width: 1.2em;
+					font-size: 18px;
+					width: 24px;
+					height: 24px;
+					line-height: 21px;
 					color: #ccc !important;
-					line-height: .8;
 					text-align: center;
-					border: 2px solid #ccc;
+					border: 1px solid #ccc;
 				}
 			}
         }

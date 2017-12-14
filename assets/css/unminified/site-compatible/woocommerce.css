@@ -259,6 +259,10 @@
   max-width: 100%;
 }
 
+.woocommerce div.product .woocommerce-tabs .panel {
+  margin: 0 0 1.2em;
+}
+
 .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #comments {
   width: 100%;
 }
@@ -455,8 +459,8 @@
   display: inline-block;
 }
 
-.woocommerce.single-product .related.products {
-  margin-top: 1em;
+.woocommerce.single-product .related.products ul.products {
+  margin: 0;
 }
 
 .woocommerce .ast-return-to-shop {
@@ -490,7 +494,7 @@
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
   text-align: left;
-  margin-bottom: 2.9em;
+  margin-bottom: 2.5em;
 }
 
 .woocommerce ul.products li.product a img,
@@ -784,13 +788,13 @@
 .woocommerce-cart-form__cart-item td.product-remove a.remove {
   display: inline-block;
   vertical-align: middle;
-  font-size: 1.3em;
-  height: 1.2em;
-  width: 1.2em;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  line-height: 21px;
   color: #ccc !important;
-  line-height: .9;
   text-align: center;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 @media (min-width: 769px) {
@@ -952,13 +956,13 @@
 .woocommerce-wishlist table.wishlist_table td.product-remove a.remove {
   display: inline-block;
   vertical-align: middle;
-  font-size: 1.3em;
-  height: 1.2em;
-  width: 1.2em;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  line-height: 21px;
   color: #ccc !important;
-  line-height: .9;
   text-align: center;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 .woocommerce-wishlist table.wishlist_table td.product-remove a.remove:hover {
@@ -1379,12 +1383,12 @@
   right: 0;
   top: .5em;
   font-weight: normal;
-  font-size: 1.2em;
-  height: 1.2em;
-  width: 1.2em;
   color: #ccc !important;
-  line-height: .8;
-  border: 2px solid #ccc;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  line-height: 21px;
+  border: 1px solid #ccc;
 }
 
 .woocommerce-product-search {
@@ -1592,13 +1596,13 @@
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove {
   display: block;
-  font-size: 1.3em;
-  height: 1.2em;
-  width: 1.2em;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  line-height: 21px;
   color: #ccc !important;
-  line-height: .8;
   text-align: center;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 .ast-woocommerce-cart-menu .ast-cart-menu-wrap {
