@@ -304,7 +304,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$shop_page_id 	= get_option( 'woocommerce_shop_page_id' ); 
 					$shop_sidebar 	= get_post_meta( $shop_page_id, 'site-sidebar-layout', true );
 					
-					if ( 'default' !== $shop_sidebar ) {
+					if ( 'default' !== $shop_sidebar && '' !== $shop_sidebar ) {
 						$sidebar_layout = $shop_sidebar;
 					}
 				}
