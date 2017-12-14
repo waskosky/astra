@@ -23,7 +23,6 @@
 		input[type="number"]:focus,
 		input[type="email"]:focus {
 	  	  outline:none;
-	  	  box-shadow: none;
 	  	  border-color:$color-border-input;
 		}
 	}
@@ -729,7 +728,7 @@
  * Cart Page
  */
 .woocommerce-cart {
-	
+		
 		table.shop_table{
 		    border: 1px solid #ebebeb;
 		    border-radius: 0px;
@@ -822,6 +821,78 @@
 #customer_details {
 	margin-bottom: 2em;
 	border-radius:0;
+}
+
+/**
+ * Wishlist page
+ */
+.woocommerce-wishlist {
+	table.shop_table{
+		    border: 1px solid #ebebeb;
+		    border-radius: 0px;
+			.product-thumbnail{
+				img{
+					width: auto;
+    				max-width: 70px;
+				}
+			}
+			thead{
+				background-color: #fbfbfb;
+
+				th {
+					border: 0;
+				}
+			}
+			td,th{
+				border-right: 0;
+				border-bottom: 0;
+				padding: .7em 1em;
+			}
+			td{
+				border-top: 1px solid #ebebeb;
+			}
+			.woocommerce-Price-amount{
+				font-weight: 700;
+			}
+	}
+	table.wishlist_table {
+		font-size: 100%;
+		tr td,
+		tr th.wishlist-delete,
+		tr th.product-checkbox{
+			text-align: left;
+		}
+		tr th,
+		tr td,
+		tr td.product-remove{
+		    padding: .7em 1em;
+		}
+		td.product-add-to-cart{
+			a {
+			    display: initial !important;
+			    margin-right: .5em;
+			}
+			span.dateadded {
+				margin-bottom: .5em;
+			}
+		} 
+		td.product-remove{
+			a.remove {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 1.3em;
+				height: 1.2em;
+				width: 1.2em;
+				color: #ccc !important;
+				line-height: .9;
+				text-align: center;
+				border: 2px solid #ccc;
+				&:hover{
+					background-color: #ffffff;
+				}
+			}
+		}
+	}
 }
 
 /**

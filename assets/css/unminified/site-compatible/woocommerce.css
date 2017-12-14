@@ -28,8 +28,6 @@
 .woocommerce .quantity input[type="number"]:focus,
 .woocommerce .quantity input[type="email"]:focus {
   outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
   border-color: #eaeaea;
 }
 
@@ -890,6 +888,83 @@
   margin-bottom: 2em;
   -webkit-border-radius: 0;
   border-radius: 0;
+}
+
+/**
+ * Wishlist page
+ */
+.woocommerce-wishlist table.shop_table {
+  border: 1px solid #ebebeb;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.woocommerce-wishlist table.shop_table .product-thumbnail img {
+  width: auto;
+  max-width: 70px;
+}
+
+.woocommerce-wishlist table.shop_table thead {
+  background-color: #fbfbfb;
+}
+
+.woocommerce-wishlist table.shop_table thead th {
+  border: 0;
+}
+
+.woocommerce-wishlist table.shop_table td, .woocommerce-wishlist table.shop_table th {
+  border-right: 0;
+  border-bottom: 0;
+  padding: .7em 1em;
+}
+
+.woocommerce-wishlist table.shop_table td {
+  border-top: 1px solid #ebebeb;
+}
+
+.woocommerce-wishlist table.shop_table .woocommerce-Price-amount {
+  font-weight: 700;
+}
+
+.woocommerce-wishlist table.wishlist_table {
+  font-size: 100%;
+}
+
+.woocommerce-wishlist table.wishlist_table tr td,
+.woocommerce-wishlist table.wishlist_table tr th.wishlist-delete,
+.woocommerce-wishlist table.wishlist_table tr th.product-checkbox {
+  text-align: left;
+}
+
+.woocommerce-wishlist table.wishlist_table tr th,
+.woocommerce-wishlist table.wishlist_table tr td,
+.woocommerce-wishlist table.wishlist_table tr td.product-remove {
+  padding: .7em 1em;
+}
+
+.woocommerce-wishlist table.wishlist_table td.product-add-to-cart a {
+  display: initial !important;
+  margin-right: .5em;
+}
+
+.woocommerce-wishlist table.wishlist_table td.product-add-to-cart span.dateadded {
+  margin-bottom: .5em;
+}
+
+.woocommerce-wishlist table.wishlist_table td.product-remove a.remove {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.3em;
+  height: 1.2em;
+  width: 1.2em;
+  color: #ccc !important;
+  line-height: .9;
+  text-align: center;
+  border: 2px solid #ccc;
+}
+
+.woocommerce-wishlist table.wishlist_table td.product-remove a.remove:hover {
+  background-color: #ffffff;
 }
 
 /**
