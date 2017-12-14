@@ -330,7 +330,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$shop_page_id 	= get_option( 'woocommerce_shop_page_id' ); 
 					$shop_layout 	= get_post_meta( $shop_page_id, 'site-content-layout', true );
 					
-					if ( 'default' !== $shop_layout ) {
+					if ( 'default' !== $shop_layout && '' !== $shop_layout ) {
 						$layout = $shop_layout;
 					}
 				}
@@ -378,54 +378,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				 * Checkout Page
 				 */
 				add_action( 'woocommerce_checkout_billing', array( WC_Checkout::instance(), 'checkout_form_shipping' ) );
-
-				$shop_structure = apply_filters( 'astra-woo-shop-product-structure', astra_get_option( 'shop-product-structure' ) );
-
-				if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
-
-					$priority = 0;
-
-					foreach ( $shop_structure as $value ) {
-
-						$priority += 10;
-
-						switch ( $value ) {
-							case 'title' :
-								/**
-								 * Add Product Title on shop page for all products.
-								 */
-								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_woocommerce_template_loop_product_title', $priority );
-								break;
-							case 'price' :
-								/**
-								 * Add Product Price on shop page for all products.
-								 */
-								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', $priority );
-								break;
-							case 'ratings' :
-								/**
-								 * Add rating on shop page for all products.
-								 */
-								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_rating', $priority );
-								break;
-							case 'short_desc':
-								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_product_short_description', $priority );
-								break;
-							case 'add_cart':
-								add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', $priority );
-								break;
-							case 'category' :
-								/**
-								 * Add and/or Remove Categories from shop archive page.
-								 */
-								add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_parent_category' , $priority );
-								break;
-							default:
-								$priority -= 10;
-								break;
-						}
-					}
-				}
+				
+				/**
+				 * Shop Page Product Content Sorting
+				 */
+				add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_woocommerce_shop_product_content' );
 			}
 		}
 

@@ -165,3 +165,67 @@ if ( ! function_exists( 'astra_woo_woocommerce_template_loop_product_title' ) ) 
 		echo '</a>';
 	}
 }
+
+if ( ! function_exists( 'astra_woo_woocommerce_shop_product_content' ) ) {
+
+	/**
+	 * Show the product title in the product loop. By default this is an H2.
+	 */
+	function astra_woo_woocommerce_shop_product_content() {
+		
+		$shop_structure = apply_filters( 'astra-woo-shop-product-structure', astra_get_option( 'shop-product-structure' ) );
+
+		if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
+
+			foreach ( $shop_structure as $value ) {
+
+				switch ( $value ) {
+					case 'title' :
+						/**
+						 * Add Product Title on shop page for all products.
+						 */
+						do_action('astra_woo_shop_title_before');
+						astra_woo_woocommerce_template_loop_product_title();
+						do_action('astra_woo_shop_title_after');
+						break;
+					case 'price' :
+						/**
+						 * Add Product Price on shop page for all products.
+						 */
+						do_action('astra_woo_shop_price_before');
+						woocommerce_template_loop_price();
+						do_action('astra_woo_shop_price_after');
+						break;
+					case 'ratings' :
+						/**
+						 * Add rating on shop page for all products.
+						 */
+						do_action('astra_woo_shop_rating_before');
+						woocommerce_template_loop_rating();
+						do_action('astra_woo_shop_rating_after');
+						break;
+					case 'short_desc':
+						do_action('astra_woo_shop_short_description_before');
+						astra_woo_shop_product_short_description();
+						do_action('astra_woo_shop_short_description_after');
+						break;
+					case 'add_cart':
+						do_action('astra_woo_shop_add_to_cart_before');
+						woocommerce_template_loop_add_to_cart();
+						do_action('astra_woo_shop_add_to_cart_after');
+						break;
+					case 'category' :
+						/**
+						 * Add and/or Remove Categories from shop archive page.
+						 */
+						do_action('astra_woo_shop_category_before');
+						astra_woo_shop_parent_category();
+						do_action('astra_woo_shop_category_after');
+						break;
+					default:
+						break;
+				}
+			}
+		}
+	}
+}
