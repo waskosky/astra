@@ -94,7 +94,8 @@
   right: 8px;
   bottom: 95%;
   color: inherit;
-  opacity: 0.6;
+  opacity: .6;
+  font-size: 11px;
   text-transform: uppercase;
 }
 
@@ -141,8 +142,18 @@
   font-size: .9em;
 }
 
+.woocommerce div.product form.cart .single_variation_wrap {
+  width: 100%;
+}
+
 .woocommerce div.product form.cart .single_variation_wrap p {
   margin-bottom: 0.8em;
+}
+
+.woocommerce div.product form.cart .single_variation_wrap .single_variation {
+  margin-bottom: 1.2em;
+  border-top: 1px solid #ebebeb;
+  padding-top: 0.3em;
 }
 
 .woocommerce div.product .woocommerce-tabs {
@@ -881,14 +892,6 @@
   border-radius: 0;
 }
 
-#order_review_heading {
-  /*margin-bottom: .5em;*/
-  border-bottom: 0;
-  border-width: 1px 1px 0 1px;
-  border-style: solid;
-  border-color: #e5e5e5;
-}
-
 /**
  * Checkout Page
  */
@@ -904,6 +907,80 @@
 .woocommerce-checkout h3#ship-to-different-address {
   margin-top: 20px;
   border-top: 1px solid #ebebeb;
+}
+
+.woocommerce-checkout form #order_review_heading {
+  border-bottom: 0;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: #e5e5e5;
+}
+
+.woocommerce-checkout form #customer_details.col2-set .col-1 {
+  padding: 0 20px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 769px) {
+  .woocommerce-checkout form #customer_details.col2-set {
+    width: 47.8260869565%;
+    float: left;
+    margin-right: 4.347826087%;
+  }
+  .woocommerce-checkout form #customer_details.col2-set .col-1,
+  .woocommerce-checkout form #customer_details.col2-set .col-2 {
+    float: none;
+    width: auto;
+  }
+}
+
+.woocommerce-checkout form #order_review {
+  padding: 0 20px;
+  border-width: 0 1px 1px;
+  border-style: solid;
+}
+
+.woocommerce-checkout form #order_review table {
+  border-width: 0;
+}
+
+.woocommerce-checkout form #order_review td,
+.woocommerce-checkout form #order_review th {
+  border-top: 0;
+  border-right: 0;
+  padding-left: 0;
+}
+
+@media (min-width: 769px) {
+  .woocommerce-checkout form #order_review,
+  .woocommerce-checkout form #order_review_heading {
+    width: 47.8260869565%;
+    float: right;
+    margin-right: 0;
+    clear: right;
+  }
+}
+
+.woocommerce-checkout form .form-row:last-child {
+  margin-bottom: 0;
+}
+
+.woocommerce-checkout #payment {
+  background: #ffffff;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.woocommerce-checkout #payment ul.payment_methods {
+  padding: 0;
+}
+
+.woocommerce-checkout #payment div.payment_box {
+  background-color: #efefef;
+}
+
+.woocommerce-checkout #payment div.payment_box:before {
+  border-bottom-color: #efefef;
 }
 
 .woocommerce form .form-row .required {
@@ -933,34 +1010,6 @@
   padding: .5em 1em;
   vertical-align: initial;
   line-height: 1.35;
-}
-
-.woocommerce form #customer_details.col2-set .col-1 {
-  padding: 0 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 769px) {
-  .woocommerce form #customer_details.col2-set {
-    width: 47.8260869565%;
-    float: left;
-    margin-right: 4.347826087%;
-  }
-  .woocommerce form #customer_details.col2-set .col-1,
-  .woocommerce form #customer_details.col2-set .col-2 {
-    float: none;
-    width: auto;
-  }
-}
-
-@media (min-width: 769px) {
-  .woocommerce form #order_review,
-  .woocommerce form #order_review_heading {
-    width: 47.8260869565%;
-    float: right;
-    margin-right: 0;
-    clear: right;
-  }
 }
 
 .checkout_coupon .input-text {
@@ -1591,7 +1640,7 @@
 /**
  * Woocommerce common form design
  */
-.woocommerce-page input[type=text], .woocommerce-page input[type=email], .woocommerce-page input[type=url], .woocommerce-page input[type=password], .woocommerce-page input[type=number], .woocommerce-page input[type=search], .woocommerce-page input[type=reset], .woocommerce-page input[type=tel], .woocommerce-page select, .woocommerce-page textarea, .woocommerce-page form .form-row textarea {
+.woocommerce-page input[type=text], .woocommerce-page input[type=email], .woocommerce-page input[type=url], .woocommerce-page input[type=password], .woocommerce-page input[type=number], .woocommerce-page input[type=search], .woocommerce-page input[type=reset], .woocommerce-page input[type=tel], .woocommerce-page select, .woocommerce-page textarea, .woocommerce-page form .form-row textarea, .woocommerce-page .select2-container .select2-selection--single {
   border-color: #EBEBEB;
   background: #fff;
   -webkit-box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.02);

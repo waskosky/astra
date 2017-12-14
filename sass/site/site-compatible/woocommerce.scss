@@ -67,11 +67,12 @@
 				}
 				.reset_variations {
 					position: absolute;
-					right: 8px;
-					bottom: 95%;
-					color: inherit;
-					opacity: 0.6;
-					text-transform: uppercase;
+				    right: 8px;
+				    bottom: 95%;
+				    color: inherit;
+				    opacity: .6;
+				    font-size: 11px;
+				    text-transform: uppercase;
 				}
 			}
 			.variations_button{
@@ -104,9 +105,15 @@
 				font-size: .9em;
 			}
 			.single_variation_wrap{
+				width: 100%;
 				p {
 					margin-bottom: 0.8em;
 				}
+				.single_variation{
+					margin-bottom: 1.2em;
+    				border-top: 1px solid #ebebeb;
+    				padding-top: 0.3em;
+    			}
 			}
 		}
 		
@@ -817,14 +824,6 @@
 	border-radius:0;
 }
 
-#order_review_heading {
-	/*margin-bottom: .5em;*/
-	border-bottom:0;
-	border-width: 1px 1px 0 1px;
-    border-style: solid;
-    border-color: #e5e5e5;
-}
-
 /**
  * Checkout Page
  */
@@ -840,6 +839,76 @@
 	    	margin-top: 20px;
 	    	border-top: 1px solid #ebebeb;
 	    }
+	}
+
+	form {
+
+		#order_review_heading {
+			border-bottom:0;
+			border-width: 1px 1px 0 1px;
+		    border-style: solid;
+		    border-color: #e5e5e5;
+		}
+
+		#customer_details.col2-set {
+			.col-1{
+				padding: 0 20px 20px;
+				border: 1px solid rgba(0,0,0,.1);
+			}
+			@media ( min-width: $col-md ) {
+			    width: 47.8260869565%;
+			    float: left;
+			    margin-right: 4.347826087%;
+			    .col-1,
+			    .col-2{
+			    	float: none;
+			    	width: auto;
+			    }
+			}
+		}	
+		#order_review{
+			padding: 0 20px;
+			border-width: 0 1px 1px;
+			border-style: solid;
+			table{ 
+			    border-width:0;
+			}
+			td,
+			th{ 
+			    border-top:0;
+			    border-right:0;
+			    padding-left:0;
+			}
+		}
+		@media ( min-width: $col-md ) {
+			#order_review, 
+			#order_review_heading {
+			    width: 47.8260869565%;
+			    float: right;
+			    margin-right: 0;
+			    clear:right;
+			    }
+			}
+
+		.form-row:last-child{
+			margin-bottom: 0;
+		}
+	}
+
+	#payment{
+	    background: #ffffff;
+	    border-radius: 0;
+		ul{
+			&.payment_methods{
+				padding: 0;
+			}
+		}
+		div.payment_box{
+			background-color: #efefef;
+			&:before{
+				border-bottom-color: #efefef;
+			}
+		}
 	}
 }
 .woocommerce {
@@ -871,33 +940,7 @@
 				line-height: 1.35;
 			}
 		}
-
-		#customer_details.col2-set {
-			.col-1{
-				padding: 0 20px 20px;
-				border: 1px solid rgba(0,0,0,.1);
-			}
-			@media ( min-width: $col-md ) {
-			    width: 47.8260869565%;
-			    float: left;
-			    margin-right: 4.347826087%;
-			    .col-1,
-			    .col-2{
-			    	float: none;
-			    	width: auto;
-			    }
-			}
-		}
-			@media ( min-width: $col-md ) {
-				#order_review, 
-				#order_review_heading {
-				    width: 47.8260869565%;
-				    float: right;
-				    margin-right: 0;
-				    clear:right;
-				    }
-				}
-		}
+	}
 }
 
 .checkout_coupon .input-text {
@@ -1511,7 +1554,7 @@
  * Woocommerce common form design
  */
 .woocommerce-page{
-	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], select, textarea, form .form-row textarea {
+	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], select, textarea, form .form-row textarea, .select2-container .select2-selection--single {
 		border-color: #EBEBEB;
 		background: #fff;
 		box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
