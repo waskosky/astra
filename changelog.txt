@@ -1,4 +1,5 @@
 v1.1.0-beta.1
+# New: Added Woocommerce support.
 # Fixed: Content layout bug fixed for custom post-types.
 # Fixed: Sidebar bug fixed for custom post-types.
 

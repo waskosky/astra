@@ -81,7 +81,7 @@
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-woo-general',
 			array(
-				'title'    => __( 'General', 'astra-addon' ),
+				'title'    => __( 'General', 'astra' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-woo-group',
 				'priority' => 5,
@@ -92,7 +92,7 @@
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-woo-shop',
 			array(
-				'title'    => __( 'Shop', 'astra-addon' ),
+				'title'    => __( 'Shop', 'astra' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-woo-group',
 				'priority' => 10,
@@ -104,7 +104,7 @@
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-woo-shop-single',
 			array(
-				'title'    => __( 'Single Product', 'astra-addon' ),
+				'title'    => __( 'Single Product', 'astra' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-woo-group',
 				'priority' => 15,
