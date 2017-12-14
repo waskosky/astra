@@ -1,3 +1,6 @@
+v1.1.0-bbeta.1
+# Fixed: Astra Pro upgrade link pointing to correct page.
+
 v1.0.32
 # Fixed: Logo being croped in customizer preview.
 
