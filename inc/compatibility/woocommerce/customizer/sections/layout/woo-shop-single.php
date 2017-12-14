@@ -14,22 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[single-product-meta-divider]', array(
-				'section'  => 'section-woo-shop-single',
-				'label'    => __( 'Enable / Disable', 'astra-addon' ),
-				// 'description' => __( 'Using below options you can enable or disable the product contents.', 'astra-addon' ),
-				'type'     => 'ast-divider',
-				'priority' => 30,
-				'settings' => array(),
-			)
-		)
-	);
-
-	/**
 	 * Option: Disable Breadcrumb
 	 */
 	$wp_customize->add_setting(
