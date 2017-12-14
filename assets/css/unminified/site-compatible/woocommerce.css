@@ -1648,3 +1648,9 @@
   -webkit-border-radius: 0px;
   border-radius: 0px;
 }
+
+.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page select:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus, .woocommerce-page .select2-container .select2-selection--single:focus {
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+  border-color: #EBEBEB;
+}
