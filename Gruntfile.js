@@ -90,6 +90,13 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/site-compatible',
                             ext: '.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'sass/site/site-compatible/woocommerce',
+                            src: ['**.scss'],
+                            dest: 'assets/css/unminified/site-compatible/woocommerce',
+                            ext: '.css'
+                        },
                     ]
                 }
             },
