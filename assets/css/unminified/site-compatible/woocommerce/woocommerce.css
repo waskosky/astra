@@ -893,6 +893,11 @@ p.demo_store a,
   z-index: 1;
 }
 
+.woocommerce div.product .woocommerce-tabs ul.tabs li::after, .woocommerce div.product .woocommerce-tabs ul.tabs.tabs::before {
+  display: none;
+  border: 0;
+}
+
 .woocommerce div.product .woocommerce-tabs .panel {
   margin: 0 0 1.2em;
   padding: 0;
