@@ -96,6 +96,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'woocommerce_cart_actions', 'astra_woo_return_to_shopping' );
 		}
 
+		/**
+		 * Subcategory Count Markup
+		 *
+		 * @param  array  $styles  Css files.
+		 *
+		 * @return array
+		 */
 		function woo_filter_style ( $styles ) {
 			
 			/* Directory and Extension */
@@ -135,6 +142,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			return $new_style;
 		}
+		
 		/**
 		 * Subcategory Count Markup
 		 *
@@ -557,26 +565,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function add_styles() {
 
 			/* Directory and Extension */
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			//$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			//$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
+			//$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
-			$style = 'site-compatible/woocommerce';
-			$key   = 'astra-woocommerce';
+			//$style = 'site-compatible/woocommerce';
+			//$key   = 'astra-woocommerce';
 
 			// Register & Enqueue Styles.
 			// Generate CSS URL.
-			$css_file = $css_uri . $style . $file_prefix . '.css';
+			//$css_file = $css_uri . $style . $file_prefix . '.css';
 
 			// Register.
-			wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+			//wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 
 			// Enqueue.
-			wp_enqueue_style( $key );
+			//wp_enqueue_style( $key );
 
 			// RTL support.
-			wp_style_add_data( $key, 'rtl', 'replace' );
+			//wp_style_add_data( $key, 'rtl', 'replace' );
 
 			/**
 			 * - Variable Declaration
@@ -695,7 +703,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
-			wp_add_inline_style( $key, apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
+			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 		}
 
 		/**
