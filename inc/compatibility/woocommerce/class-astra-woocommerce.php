@@ -521,26 +521,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
-			// $style = 'site-compatible/woocommerce';
-			// $key   = 'astra-woocommerce';
-
-			// // Register & Enqueue Styles.
-			// // Generate CSS URL.
-			// $css_file = $css_uri . $style . $file_prefix . '.css';
-
-			// // // Register.
-			// // wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
-
-			// // // Enqueue.
-			// wp_enqueue_style( $key );
-
-			// // // RTL support.
-			// wp_style_add_data( $key, 'rtl', 'replace' );
-
-
-			//Add css to handled conflicts from the woocommerce,css file for developement purpose only.
-			$style = 'site-compatible/woocommerce-responsive-style';
-			$key   = 'woocommerce-responsive-style';
+			$style = 'site-compatible/woocommerce';
+			$key   = 'astra-woocommerce';
 
 			// Register & Enqueue Styles.
 			// Generate CSS URL.
@@ -554,7 +536,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// RTL support.
 			wp_style_add_data( $key, 'rtl', 'replace' );
-
 
 			/**
 			 * - Variable Declaration
