@@ -2409,11 +2409,24 @@ body {
   .ast-right-sidebar #primary {
     border-right: 1px solid #eeeeee;
   }
+  .ast-right-sidebar #secondary {
+    border-left: 1px solid #eeeeee;
+    margin-left: -1px;
+  }
   .ast-left-sidebar #primary {
     border-left: 1px solid #eeeeee;
   }
+  .ast-left-sidebar #secondary {
+    border-right: 1px solid #eeeeee;
+    margin-right: -1px;
+  }
   .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary {
     border: 0;
+  }
+  .ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary {
+    border: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   .ast-separate-container.ast-two-container.ast-right-sidebar #secondary {
     padding-left: 30px;
@@ -2978,6 +2991,10 @@ body {
 
 /* Mobile Header Alignment */
 @media (max-width: 544px) {
+  .ast-header-break-point .site-branding img,
+  .ast-header-break-point #masthead .site-logo-img .custom-logo-link img {
+    max-width: 100%;
+  }
   .ast-header-break-point .ast-mobile-header-inline .main-header-container {
     -js-display: flex;
     display: -webkit-box;
