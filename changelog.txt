@@ -1,3 +1,10 @@
+v1.1.0-beta.2
+# Fixed: Woocommerce Single product description and review tab full width for responsive devices.
+# Fixed: Woocommerce Shop page pagination numbers style updated.
+# Fixed: Woocommerce Cart page Continue shopping, Update cart style updated for responsive devices.
+# Fixed: Woocommerce My Account page overall style updated.
+# Improvement: Site logo max width 100% for mobile devices.
+
 v1.1.0-beta.1
 # New: Added Woocommerce support.
 # Fixed: Content layout bug fixed for custom post-types.
