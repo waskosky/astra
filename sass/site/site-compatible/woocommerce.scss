@@ -238,9 +238,17 @@
 				#review_form {
 					padding: 1.5em 2em;
 
+					#respond{
+						p{
+							&.comment-form-author,
+							&.comment-form-email{
+								margin-bottom: 1em;
+							}
+						}
+					}
 					@media (min-width: $col-xl) {
-						p.comment-form-author,
-						p.comment-form-email {
+						.comment-form-author,
+						.comment-form-email {
 							width: 49%;
 							display: inline-block;
 
@@ -248,11 +256,10 @@
 								width: 100%;
 							}
 						}
-						p.comment-form-author{
+						.comment-form-author{
 							float: left;
-							margin-bottom: 1em;
 						}
-						p.comment-form-email{
+						.comment-form-email{
 							float: right;
 						}
 					}
