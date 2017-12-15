@@ -20,6 +20,8 @@
 @import "../../variables-site/structure";
 @import "../../variables-site/colors";
 
+@import "../woocommerce";
+
 /**
  * Global styles
  */
@@ -332,23 +334,27 @@ p.demo_store,
 		}
 
 		.woocommerce-tabs {
+			margin-bottom: 2em;
+
 			ul.tabs {
 				list-style: none;
-				padding: 0 0 0 1em;
-				margin: 0 0 1.618em;
+				padding: 0;
+				margin: 0 0 1em;
 				overflow: hidden;
 				position: relative;
+				border-top: 1px solid rgba(0,0,0,.05);
 
 				li {
-					border: 1px solid darken( $secondary, 10% );
-					background-color: $secondary;
+					border: 0;
+					background: none;
 					display: inline-block;
 					position: relative;
 					z-index: 0;
 					border-radius: 4px 4px 0 0;
-					margin: 0 -5px;
-					padding: 0 1em;
-
+					margin: 0 1em 0 0;
+					padding: 0;
+					border-radius: 0;
+			    
 					a {
 						display: inline-block;
 						padding: 0.5em 0;
@@ -370,27 +376,38 @@ p.demo_store,
 						a {
 							color: inherit;
 							text-shadow: inherit;
+							outline: none;
 						}
 
 						&::before {
-							box-shadow: 2px 2px 0 $contentbg;
+							content: ' ';
+	    					position: absolute;
+	    					width: 100%;
+	    					height: 3px;
+	    					box-shadow: none;
+	    					top: 0;
+	    					left: 0;
+							border-radius: 0;
 						}
 
 						&::after {
-							box-shadow: -2px 2px 0 $contentbg;
+							border: none;
+					    	box-shadow: none;
 						}
 					}
 
 					&::before,
 					&::after {
-						border: 1px solid darken( $secondary, 10% );
-						position: absolute;
+						content: ' ';
+					    position: absolute;
 						bottom: -1px;
 						width: 5px;
 						height: 5px;
-						content: ' ';
+						border: none;
+					    box-shadow: none;
 					}
 
+					/* Need to check later if any issue found
 					&::before {
 						left: -6px;
 						border-bottom-right-radius: 4px;
@@ -403,7 +420,7 @@ p.demo_store,
 						border-bottom-left-radius: 4px;
 						border-width: 0 0 1px 1px;
 						box-shadow: -2px 2px 0 $secondary;
-					}
+					}*/
 				}
 
 				&::before {
@@ -418,8 +435,24 @@ p.demo_store,
 			}
 
 			.panel {
-				margin: 0 0 2em;
+				margin: 0 0 1.2em;
 				padding: 0;
+			}
+		}
+		
+		/* No Review for single product */
+		&.ast-woo-product-no-review{
+			.woocommerce-Reviews {
+				#comments {
+					width: 100%;
+				}
+				#review_form_wrapper {
+					width: 100%;
+					padding-left: 0;
+				}
+				#review_form {
+					padding: 1.5em 2em;
+				}
 			}
 		}
 
@@ -844,15 +877,19 @@ p.demo_store,
 	 * Reviews
 	 */
 	#reviews {
-		h2 small {
-			float: right;
-			color: $subtext;
-			font-size: 15px;
-			margin: 10px 0 0;
+		h2 {
+			font-weight: normal;
 
-			a {
-				text-decoration: none;
+			small {
+				float: right;
 				color: $subtext;
+				font-size: 15px;
+				margin: 10px 0 0;
+
+				a {
+					text-decoration: none;
+					color: $subtext;
+				}
 			}
 		}
 
@@ -888,11 +925,16 @@ p.demo_store,
 
 				li {
 					padding: 0;
-					margin: 0 0 20px;
+					margin: 0 0 1em;
 					border: 0;
 					position: relative;
 					background: 0;
 					border: 0;
+					border-bottom: 1px solid #e2e2e2;
+
+					&:last-child{
+						border-bottom: 0;
+					}
 
 					.meta {
 						color: $subtext;
@@ -905,27 +947,52 @@ p.demo_store,
 						top: 0;
 						left: 0;
 						padding: 3px;
-						width: 32px;
-						height: auto;
-						background: $secondary;
-						border: 1px solid darken( $secondary, 3% );
+						/*width: 32px;
+						height: auto;*/
+						height: 3.6em;
+						width: 3.6em;
+						border: none;
+						background: none;
 						margin: 0;
+						border-radius: 100%;
 						box-shadow: none;
+
 					}
 
 					.comment-text {
+
 						margin: 0 0 0 50px;
-						border: 1px solid darken( $secondary, 3% );
+						border: none;
 						border-radius: 4px;
-						padding: 1em 1em 0;
+						padding: 0 1.5em;
 						@include clearfix();
+						display: flex;
+						flex-wrap: wrap;
 
 						p {
-							margin: 0 0 1em;
+							margin: 0 0 1.7em;
 						}
-
+						
 						p.meta {
 							font-size: 0.83em;
+						}
+
+						.meta{
+							order: 1;
+							width: 100%;
+							font-size: 1em;
+							margin-bottom: .2em;
+						}
+
+						.description{
+							font-style: italic;
+							order: 3;
+							width: 100%;
+						}
+
+						.star-rating{
+							order: 2;
+							margin-bottom: .5em;
 						}
 					}
 				}
@@ -949,6 +1016,51 @@ p.demo_store,
 
 			.commentlist > li::before {
 				content: '';
+			}
+		}
+
+		@media (min-width: $col-md) {
+			#comments {
+				width: 55%;
+				float: left;
+			}
+			#review_form_wrapper {
+				width: 45%;
+				float: right;
+				padding-left: 2em;
+			}
+		}
+
+		#review_form {
+			border: 2px solid #efefef;
+			padding: 1em 1.9em 2.3em;
+
+			#respond{
+				p{
+					margin: 2px 0 6px;
+				}
+				#comment {
+					height: 90px;
+				}
+			}
+			
+			.comment-form-author,
+			.comment-form-email {
+				width: 49%;
+				display: inline-block;
+
+				input {
+					width: 100%;
+				}
+			}
+			.comment-form-author{
+				float: left;
+			}
+			.comment-form-email{
+				float: right;
+			}
+			input{
+				max-width: 100%;
 			}
 		}
 	}
@@ -1005,7 +1117,7 @@ p.demo_store,
 
 	.products .star-rating {
 		display: block;
-		margin: 0 0 0.5em;
+		margin: 0.5em auto 0;
 		float: none;
 	}
 
@@ -1693,6 +1805,28 @@ p.demo_store,
 			@include iconbefore( '\e013' );
 			color: $red;
 		}
+	}
+
+	/* Product Hover */
+	.show-on-hover {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    height: 100%;
+	    right: 0;
+	    bottom: 0;
+	    padding: 0;
+	    margin: 0;
+
+	    opacity: 0;
+	    filter: blur(0);
+	    @include ast-transition();
+	}
+
+	li.product:hover .show-on-hover {
+	    opacity: 1;
+	    transform: scale(1) translateZ(0) translateY(0);
+	    pointer-events: inherit;
 	}
 }
 
