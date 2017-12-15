@@ -314,11 +314,3 @@
   float: none;
   width: 100%;
 }
-
-/**
- * Twenty Thirteen specific styles
- */
-.single-product .twentythirteen .panel {
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-}
