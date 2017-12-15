@@ -128,11 +128,14 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 			if ( ! empty( $availability ) && $stock_quantity ) {
 				ob_start();
 				?>
-				<p class="stock in-stock">
-					<?php
-					/* translators: 1: in stock string */
-					printf( __( '<span class="ast-stock-avail">Availability:</span> %s', 'astra' ), $availability );
-					?>
+				<p class="ast-stock-detail">
+					<span class="ast-stock-avail">Availability:</span>
+					<span class="stock in-stock">
+						<?php
+						/* translators: 1: in stock string */
+						printf( __( '%s', 'astra' ), $availability );
+						?>
+					</span>
 				</p>
 				<?php
 				$markup = ob_get_clean();
