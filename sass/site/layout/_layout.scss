@@ -308,10 +308,18 @@ body{
 		#primary {
 			border-right: 1px solid $color-border-content;
 		}
+		#secondary{
+			border-left: 1px solid $color-border-content;
+			margin-left: -1px;
+		}
 	}
 	.ast-left-sidebar {
 		#primary {
 			border-left: 1px solid $color-border-content;
+		}
+		#secondary{
+			border-right: 1px solid $color-border-content;
+			margin-right: -1px;
 		}
 	}
 	.ast-separate-container{
@@ -319,6 +327,11 @@ body{
 		&.ast-left-sidebar {
 			#primary {
 				border: 0;
+			}
+			#secondary{
+				border: 0;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
 		&.ast-two-container{

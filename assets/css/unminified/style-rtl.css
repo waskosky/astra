@@ -2409,11 +2409,24 @@ body {
   .ast-right-sidebar #primary {
     border-left: 1px solid #eeeeee;
   }
+  .ast-right-sidebar #secondary {
+    border-right: 1px solid #eeeeee;
+    margin-right: -1px;
+  }
   .ast-left-sidebar #primary {
     border-right: 1px solid #eeeeee;
   }
+  .ast-left-sidebar #secondary {
+    border-left: 1px solid #eeeeee;
+    margin-left: -1px;
+  }
   .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary {
     border: 0;
+  }
+  .ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary {
+    border: 0;
+    margin-right: auto;
+    margin-left: auto;
   }
   .ast-separate-container.ast-two-container.ast-right-sidebar #secondary {
     padding-right: 30px;
