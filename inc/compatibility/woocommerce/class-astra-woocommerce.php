@@ -508,8 +508,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 			remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
-			// Add action when cross_sell products need to diaply on cart page.
-			remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 			// Checkout Page.
 			remove_action( 'woocommerce_checkout_shipping', array( WC_Checkout::instance(), 'checkout_form_shipping' ) );
 
@@ -762,7 +760,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function astra_get_cart_link() {
 			?>
-			<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'astra-addon' ); ?>">
+			<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'astra' ); ?>">
 				<div class="ast-cart-menu-wrap">
 					<span class="count"> <?php echo WC()->cart->get_cart_contents_count(); ?> </span>
 				</div>

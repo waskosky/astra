@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
 			'section'  => 'section-woo-shop-single',
-			'label'    => __( 'Disable Breadcrumb', 'astra-addon' ),
+			'label'    => __( 'Disable Breadcrumb', 'astra' ),
 			'priority' => 35,
 			'type'     => 'checkbox',
 		)
