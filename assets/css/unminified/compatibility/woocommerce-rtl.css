@@ -432,11 +432,11 @@
 			}*/
 }
 
-.woocommerce.single-product div.product p.stock {
+.woocommerce.single-product div.product p.ast-stock-detail {
   font-size: 1em;
 }
 
-.woocommerce.single-product div.product p.stock .ast-stock-avail {
+.woocommerce.single-product div.product p.ast-stock-detail .ast-stock-avail {
   font-weight: 700;
 }
 
