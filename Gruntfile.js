@@ -46,6 +46,19 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/site-compatible',
                             ext: '-rtl.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'assets/css/unminified/site-compatible/woocommerce',
+                            src: [
+                                    '*.css',
+                                    '!*-rtl.css',
+                                    '!customizer-controls.css',
+                                    '!font-awesome.css',
+                                    '!astra-fonts.css',
+                                ],
+                            dest: 'assets/css/unminified/site-compatible/woocommerce',
+                            ext: '-rtl.css'
+                        },
                     ]
               	}
             },
