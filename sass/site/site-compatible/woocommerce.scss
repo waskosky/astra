@@ -351,8 +351,10 @@
 		
 		ul {
 			text-align: center;
-			
+			border: 0;
 			li {
+				margin: 0 3px 5px 0;
+				border: 1px solid #d3ced2;
 				a,
 				span {
 					padding: .75em;
@@ -502,7 +504,7 @@
 			.woocommerce-loop-product__title{
 				margin-bottom:.5em;
 				padding: 0;
-				font-size: 0.9em;
+				font-size: 1rem;
 			}
 			.ast-woo-product-category {
 				font-size: .85em;
@@ -1228,6 +1230,7 @@
 	}
 
 	.widget_shopping_cart .woocommerce-mini-cart__buttons {
+		margin-bottom:0;
 		a {
 			display: inline-block;
 			width: calc( 50% - 5px );

@@ -391,6 +391,12 @@
 
 .woocommerce nav.woocommerce-pagination ul {
   text-align: center;
+  border: 0;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+  margin: 0 0 5px 3px;
+  border: 1px solid #d3ced2;
 }
 
 .woocommerce nav.woocommerce-pagination ul li a,
@@ -529,7 +535,7 @@
 .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
   margin-bottom: .5em;
   padding: 0;
-  font-size: 0.9em;
+  font-size: 1rem;
 }
 
 .woocommerce ul.products li.product .ast-woo-product-category,
@@ -1283,6 +1289,10 @@
 .woocommerce ul.product_list_widget li:last-child,
 .woocommerce ul.product_list_widget li:last-child {
   border-bottom: none;
+}
+
+.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons {
+  margin-bottom: 0;
 }
 
 .woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a {
