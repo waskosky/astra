@@ -2991,6 +2991,10 @@ body {
 
 /* Mobile Header Alignment */
 @media (max-width: 544px) {
+  .ast-header-break-point .site-branding img,
+  .ast-header-break-point #masthead .site-logo-img .custom-logo-link img {
+    max-width: 100%;
+  }
   .ast-header-break-point .ast-mobile-header-inline .main-header-container {
     -js-display: flex;
     display: -webkit-box;
