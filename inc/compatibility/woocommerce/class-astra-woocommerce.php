@@ -67,6 +67,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'wp_head', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'init', array( $this, 'woocommerce_init' ), 1 );
+			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 
 			add_filter( 'loop_shop_columns', array( $this, 'shop_columns' ) );
 			add_filter( 'loop_shop_per_page', array( $this, 'shop_no_of_products' ) );
@@ -92,6 +93,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
 
 			add_action( 'woocommerce_cart_actions', 'astra_woo_return_to_shopping' );
+		}
+
+		/**
+		 * Cart Page Upselles products.
+		 *
+		 * @return void
+		 */
+		function cart_page_upselles() {
+
+			$upselles_enabled = astra_get_option( 'enable-cart-upsells' );
+			if ( ! $upselles_enabled ) {
+				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+			}
 		}
 
 		/**
@@ -161,6 +175,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;
+
+			/* Cart */
+			$defaults['enable-cart-upsells'] = true;
 
 			return $defaults;
 		}
@@ -469,7 +486,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 			// Checkout Page.
 			remove_action( 'woocommerce_checkout_shipping', array( WC_Checkout::instance(), 'checkout_form_shipping' ) );
-
 		}
 
 		/**
@@ -683,6 +699,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-sidebar.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php';
 
 		}

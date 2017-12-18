@@ -6,6 +6,45 @@
 @import "../variables-site/structure";
 @import "../variables-site/colors";
 
+.woocommerce,
+.woocommerce-page{
+	
+	#content {
+		table.cart {
+			td.actions{
+				.button	{
+					line-height: 1;
+					border-width: 1px;
+					border-style: solid;	
+				}
+			}
+		}
+	}
+
+	@media (min-width: $col-sm) {
+		#content {
+			table.cart {
+				td.actions {
+					& > input[type="submit"] {
+						margin: 5px auto;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: $mx-col-sm) {
+		#content {
+			table.cart {
+				td.actions .button	{
+					padding-left: 1em;
+					padding-right: 1em;
+				}
+			}
+		}
+	}
+}
+
 .woocommerce {
 
 	div.product {
@@ -77,8 +116,6 @@
 		}
 	}
 }
-
-
 
 /**
  * Woocommerce common form design
