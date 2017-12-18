@@ -521,14 +521,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
-			$style = 'compatibility/woocommerce';
-			$key   = 'astra-woocommerce';
+			$style     = 'compatibility/woocommerce';
+			$key       = 'astra-woocommerce';
 			$new_style = 'compatibility/woocommerce-new';
 			$new_key   = 'astra-woocommerce-new';
 
 			// Register & Enqueue Styles.
 			// Generate CSS URL.
-			$css_file = $css_uri . $style . $file_prefix . '.css';
+			$css_file     = $css_uri . $style . $file_prefix . '.css';
 			$new_css_file = $css_uri . $new_style . $file_prefix . '.css';
 
 			// Register.
