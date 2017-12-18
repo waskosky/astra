@@ -849,6 +849,13 @@
   width: auto;
 }
 
+.woocommerce #content table.cart td,
+.woocommerce table.cart td,
+.woocommerce-page #content table.cart td,
+.woocommerce-page table.cart td {
+  min-height: 3.25em;
+}
+
 .woocommerce-Address h3,
 .cart-collaterals h2 {
   font-size: 1.2rem;

@@ -779,9 +779,15 @@
 		}
 	}
 
-	#content table.cart td.actions .input-text,
-	table.cart td.actions .input-text {
-		width: auto;
+	#content table.cart,
+	table.cart {
+		td.actions .input-text {
+			width: auto;
+		}
+		
+		td {
+			min-height: 3.25em; // ( top-bottom padding (1.4em) + line-height (1.85em) );
+		}
 	}
 }
 
