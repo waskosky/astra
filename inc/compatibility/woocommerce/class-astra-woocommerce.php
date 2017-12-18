@@ -600,15 +600,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Generate CSS URL.
 			$new_css_file = $css_uri . $new_style . $file_prefix . '.css';
 
-			// Register.
-			// wp_register_style( $new_key, $new_css_file, array(), ASTRA_THEME_VERSION, 'all' );
-
-			// Enqueue.
-			wp_enqueue_style( $new_key );
-
-			// RTL support.
-			wp_style_add_data( $new_key, 'rtl', 'replace' );
-
 			/**
 			 * - Variable Declaration
 			 */
