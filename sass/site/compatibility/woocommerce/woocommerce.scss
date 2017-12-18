@@ -2685,6 +2685,7 @@ button.pswp__button--zoom:hover {
 
 		.edit {
 			float: right;
+			padding: .7em 1em;
 		}
 	}
 
@@ -3397,16 +3398,20 @@ button.pswp__button--zoom:hover {
 	list-style: none;
 	border: 1px solid rgba(0,0,0,.1);
 	border-bottom-width: 0;
-	border-left: none;
-
+	&:last-child{
+		border-bottom-width: 1px;
+	}
+	&.is-active{
+		a{
+			background-color: #fbfbfb;
+		}
+	}
 	a {
 		display: block;
-		padding: .5em 1em .5em 0;
+		padding: .5em 1em;
 	}
 
-	&:first-child {
-	    border-top: none;
-	}
+
 }
 
 .woocommerce-MyAccount-navigation > ul {
