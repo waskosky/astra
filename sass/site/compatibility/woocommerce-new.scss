@@ -65,6 +65,17 @@
 			}
 		}
 	}
+
+	@media (max-width: $mx-col-sm) {
+		.woocommerce-message{
+			display: flex;
+    		flex-wrap: wrap;
+    		a.button{
+    			order: 1;
+    			margin-top: .5em;
+    		}
+		}
+	}
 }
 
 
@@ -106,4 +117,36 @@
 			}
 		}
 	}
+}
+
+/**
+ * Cart in menu
+ */
+
+ .ast-woocommerce-cart-menu{
+ 	.ast-site-header-cart{
+ 		.widget_shopping_cart{
+ 			.cart_list{
+ 				a{
+ 					font-weight: normal;
+ 				}
+ 			}
+
+ 			.product_list_widget {
+	 			li {
+	 				padding: .5em 1.8em .5em 5em;
+	 			}
+	 		}
+ 		}
+ 	}
+}
+
+
+/**
+ * Woocommerce widgets
+ */
+
+ .woocommerce .widget_shopping_cart .cart_list li,
+.woocommerce.widget_shopping_cart .cart_list li {
+	padding: .5em 1.8em .5em 5em;
 }
