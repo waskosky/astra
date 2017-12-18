@@ -17,6 +17,7 @@
 				td,th{
 					padding-top:0;
 					padding-bottom:0;
+					padding-right: 0;
 					display: block;
 				}
 				td.label{
@@ -27,7 +28,6 @@
 				select{
 					padding-top:.5em;
 					padding-bottom:.5em;
-					padding-right: 0;
 				}
 				.reset_variations {
 					position: static;
