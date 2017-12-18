@@ -23,6 +23,7 @@
 .woocommerce div.product form.cart .variations select {
   padding-top: .5em;
   padding-bottom: .5em;
+  padding-right: 0;
 }
 
 .woocommerce div.product form.cart .variations .reset_variations {
