@@ -48,6 +48,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce-common-functions.php';
 
+			add_filter( 'woocommerce_enqueue_styles', array( $this, 'woo_filter_style' ) );
+
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
@@ -111,6 +113,53 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Subcategory Count Markup
 		 *
+		 * @param  array $styles  Css files.
+		 *
+		 * @return array
+		 */
+		function woo_filter_style( $styles ) {
+
+			/* Directory and Extension */
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+
+			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
+			$key     = 'astra-woocommerce';
+
+			// Register & Enqueue Styles.
+			// Generate CSS URL.
+			$css_file = $css_uri . '' . $file_prefix . '.css';
+
+			$styles = array(
+				'woocommerce-layout'      => array(
+					'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
+					'deps'    => '',
+					'version' => ASTRA_THEME_VERSION,
+					'media'   => 'all',
+					'has_rtl' => true,
+				),
+				'woocommerce-smallscreen' => array(
+					'src'     => $css_uri . 'woocommerce-smallscreen' . $file_prefix . '.css',
+					'deps'    => 'woocommerce-layout',
+					'version' => ASTRA_THEME_VERSION,
+					'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', '768px' ) . ')',
+					'has_rtl' => true,
+				),
+				'woocommerce-general'     => array(
+					'src'     => $css_uri . 'woocommerce' . $file_prefix . '.css',
+					'deps'    => '',
+					'version' => ASTRA_THEME_VERSION,
+					'media'   => 'all',
+					'has_rtl' => true,
+				),
+			);
+
+			return $styles;
+		}
+
+		/**
+		 * Subcategory Count Markup
+		 *
 		 * @param  mixed  $content  Count Markup.
 		 * @param  object $category Object of Category.
 		 * @return mixed
@@ -160,7 +209,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-sidebar-layout'] = 'default';
 
 			/* Shop */
-			$defaults['shop-grid']              = '3';
+			$defaults['shop-grids']             = array(
+				'desktop' => 3,
+				'tablet'  => 2,
+				'mobile'  => 1,
+			);
 			$defaults['shop-no-of-products']    = '9';
 			$defaults['shop-product-structure'] = array(
 				'category',
@@ -190,8 +243,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function shop_columns( $col ) {
 
-			$col = astra_get_option( 'shop-grid' );
-			return $col;
+			$col = astra_get_option( 'shop-grids' );
+			return $col['desktop'];
 		}
 
 		/**
@@ -214,7 +267,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function shop_page_products_item_class( $classes = '' ) {
 
 			if ( is_shop() || 'product' == get_post_type() ) {
-				$classes[] = 'columns-' . astra_get_option( 'shop-grid' );
+				$shop_grid = astra_get_option( 'shop-grids' );
+				$classes[] = 'columns-' . $shop_grid['desktop'];
+				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
+				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
 			}
 			// Cart menu is emabled.
 			$display_cart_menu = astra_get_option( 'display-cart-menu' );
@@ -250,8 +306,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function related_products_args( $args ) {
 
-			$col                    = astra_get_option( 'shop-grid' );
-			$args['posts_per_page'] = $col;
+			$col                    = astra_get_option( 'shop-grids' );
+			$args['posts_per_page'] = $col['desktop'];
 			return $args;
 		}
 
@@ -537,27 +593,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
-			$style     = 'compatibility/woocommerce';
-			$key       = 'astra-woocommerce';
 			$new_style = 'compatibility/woocommerce-new';
 			$new_key   = 'astra-woocommerce-new';
 
 			// Register & Enqueue Styles.
 			// Generate CSS URL.
-			$css_file     = $css_uri . $style . $file_prefix . '.css';
 			$new_css_file = $css_uri . $new_style . $file_prefix . '.css';
-
-			// Register.
-			wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
-			wp_register_style( $new_key, $new_css_file, array(), ASTRA_THEME_VERSION, 'all' );
-
-			// Enqueue.
-			wp_enqueue_style( $key );
-			wp_enqueue_style( $new_key );
-
-			// RTL support.
-			wp_style_add_data( $key, 'rtl', 'replace' );
-			wp_style_add_data( $new_key, 'rtl', 'replace' );
 
 			/**
 			 * - Variable Declaration
@@ -676,7 +717,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
-			wp_add_inline_style( $key, apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
+			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 		}
 
 		/**

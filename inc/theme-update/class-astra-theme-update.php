@@ -111,6 +111,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_28();
 			}
 
+			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			if ( version_compare( $saved_version, '1.1.0-beta.3', '<' ) ) {
+				self::v_1_1_0_beta_3();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -401,6 +406,29 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
+		}
+
+		/**
+		 * Update options of older version than 1.1.0-beta.3.
+		 *
+		 * @since 1.1.0-beta.3
+		 */
+		static public function v_1_1_0_beta_3() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( isset( $astra_options[ 'shop-grid' ] ) ) {
+				
+				$astra_options[ 'shop-grids' ] = array(
+					'desktop' => $astra_options[ 'shop-grid' ],
+					'tablet'  => 2,
+					'mobile'  => 1,
+				);
+
+				unset( $astra_options[ 'shop-grid' ] );
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
 	}
