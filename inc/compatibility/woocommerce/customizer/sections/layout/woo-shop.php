@@ -17,25 +17,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Shop Columns
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[shop-grid]', array(
-			'default' => astra_get_option( 'shop-grid' ),
+		ASTRA_THEME_SETTINGS . '[shop-grids]', array(
+			'default' => array(
+				'desktop' => 3,
+				'tablet'  => 2,
+				'mobile'  => 1,
+			),
 			'type'    => 'option',
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[shop-grid]', array(
-			'section'  => 'section-woo-shop',
-			'label'    => __( 'Shop Columns', 'astra' ),
-			'type'     => 'select',
-			'priority' => 15,
-			'choices'  => array(
-				'1' => __( '1 Column', 'astra' ),
-				'2' => __( '2 Columns', 'astra' ),
-				'3' => __( '3 Columns', 'astra' ),
-				'4' => __( '4 Columns', 'astra' ),
-				'5' => __( '5 Columns', 'astra' ),
-				'6' => __( '6 Columns', 'astra' ),
-			),
+		new Astra_Control_Responsive_Slider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-grids]', array(
+				'type'     => 'ast-responsive-slider',
+				'section'  => 'section-woo-shop',
+				'priority' => 0,
+				'label'    => __( 'Shop Columns', 'astra' ),
+				'input_attrs' => array(
+					'step' => 1,
+					'min'  => 1,
+					'max'  => 6,
+				)
+			)
 		)
 	);
 
