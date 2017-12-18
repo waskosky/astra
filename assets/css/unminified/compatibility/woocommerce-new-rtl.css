@@ -1,0 +1,77 @@
+/**
+ * Astra Theme compatibility with WooCommerce
+ */
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+.woocommerce div.product form.cart .variations {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce div.product form.cart .variations td, .woocommerce div.product form.cart .variations th {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  display: block;
+}
+
+.woocommerce div.product form.cart .variations td.label {
+  margin-top: 8px;
+  margin-bottom: 1px;
+}
+
+.woocommerce div.product form.cart .variations select {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.woocommerce div.product form.cart .variations .reset_variations {
+  position: static;
+  display: inline-block;
+}
+
+.woocommerce div.product form.cart .group_table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce div.product form.cart .group_table td:first-child {
+  text-align: right;
+}
+
+.woocommerce div.product form.cart .group_table tr:last-child td {
+  border-bottom: 0;
+}
+
+.woocommerce div.product form.cart .group_table td.label {
+  font-weight: bold;
+}
+
+.woocommerce div.product form.cart .group_table .button {
+  padding: .8em;
+}
+
+.woocommerce div.product form.cart .single_variation_wrap .single_variation {
+  padding-top: 0;
+  border-top: 0;
+}
+
+/**
+ * Woocommerce common form design
+ */
+.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus {
+  outline: none;
+}
+
+.woocommerce-page select {
+  padding: .75em;
+  border: 1px solid #EBEBEB;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 -1.4em 1em 0 #ebebeb33;
+  box-shadow: inset 0 -1.4em 1em 0 #ebebeb33;
+}
+
+.woocommerce-page select:focus {
+  outline: none;
+}
