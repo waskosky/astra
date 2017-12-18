@@ -3095,6 +3095,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-account .addresses .title .edit {
   float: left;
+  padding: .7em 1em;
 }
 
 .woocommerce-account ol.commentlist.notes li.note p.meta {
@@ -4030,16 +4031,19 @@ button.pswp__button--zoom:hover {
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom-width: 0;
-  border-right: none;
+}
+
+.woocommerce-MyAccount-navigation-link:last-child {
+  border-bottom-width: 1px;
+}
+
+.woocommerce-MyAccount-navigation-link.is-active a {
+  background-color: #fbfbfb;
 }
 
 .woocommerce-MyAccount-navigation-link a {
   display: block;
-  padding: .5em 0 .5em 1em;
-}
-
-.woocommerce-MyAccount-navigation-link:first-child {
-  border-top: none;
+  padding: .5em 1em;
 }
 
 .woocommerce-MyAccount-navigation > ul {
