@@ -29,15 +29,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Responsive_Slider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-grids]', array(
-				'type'     => 'ast-responsive-slider',
-				'section'  => 'section-woo-shop',
-				'priority' => 0,
-				'label'    => __( 'Shop Columns', 'astra' ),
+				'type'        => 'ast-responsive-slider',
+				'section'     => 'section-woo-shop',
+				'priority'    => 0,
+				'label'       => __( 'Shop Columns', 'astra' ),
 				'input_attrs' => array(
 					'step' => 1,
 					'min'  => 1,
 					'max'  => 6,
-				)
+				),
 			)
 		)
 	);
