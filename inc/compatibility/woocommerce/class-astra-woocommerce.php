@@ -99,25 +99,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Subcategory Count Markup
 		 *
-		 * @param  array  $styles  Css files.
+		 * @param  array $styles  Css files.
 		 *
 		 * @return array
 		 */
-		function woo_filter_style ( $styles ) {
-			
+		function woo_filter_style( $styles ) {
+
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
-			$key   = 'astra-woocommerce';
+			$key     = 'astra-woocommerce';
 
 			// Register & Enqueue Styles.
 			// Generate CSS URL.
 			$css_file = $css_uri . '' . $file_prefix . '.css';
 
 			$new_style = array(
-				'woocommerce-layout' => array(
+				'woocommerce-layout'      => array(
 					'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
 					'deps'    => '',
 					'version' => ASTRA_THEME_VERSION,
@@ -128,21 +128,21 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'src'     => $css_uri . 'woocommerce-smallscreen' . $file_prefix . '.css',
 					'deps'    => 'woocommerce-layout',
 					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', $breakpoint = '768px' ) . ')',
+					'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', '768px' ) . ')',
 					'has_rtl' => true,
 				),
-				'woocommerce-general' => array(
+				'woocommerce-general'     => array(
 					'src'     => $css_uri . 'woocommerce' . $file_prefix . '.css',
 					'deps'    => '',
 					'version' => ASTRA_THEME_VERSION,
 					'media'   => 'all',
 					'has_rtl' => true,
-				)
+				),
 			);
 
 			return $new_style;
 		}
-		
+
 		/**
 		 * Subcategory Count Markup
 		 *
