@@ -146,7 +146,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-sidebar-layout'] = 'default';
 
 			/* Shop */
-			$defaults['shop-grid']              = '3';
+			$defaults['shop-grids']             = array(
+													'desktop' => 3,
+													'tablet'  => 2,
+													'mobile'  => 1,
+												);
 			$defaults['shop-no-of-products']    = '9';
 			$defaults['shop-product-structure'] = array(
 				'category',
@@ -173,8 +177,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function shop_columns( $col ) {
 
-			$col = astra_get_option( 'shop-grid' );
-			return $col;
+			$col = astra_get_option( 'shop-grids' );
+			return $col['desktop'];
 		}
 
 		/**
@@ -197,7 +201,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function shop_page_products_item_class( $classes = '' ) {
 
 			if ( is_shop() || 'product' == get_post_type() ) {
-				$classes[] = 'columns-' . astra_get_option( 'shop-grid' );
+				$shop_grid = astra_get_option( 'shop-grids' );
+				$classes[] = 'columns-' . $shop_grid['desktop'];
+				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
+				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
 			}
 			// Cart menu is emabled.
 			$display_cart_menu = astra_get_option( 'display-cart-menu' );
@@ -233,8 +240,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function related_products_args( $args ) {
 
-			$col                    = astra_get_option( 'shop-grid' );
-			$args['posts_per_page'] = $col;
+			$col                    = astra_get_option( 'shop-grids' );
+			$args['posts_per_page'] = $col['desktop'];
 			return $args;
 		}
 

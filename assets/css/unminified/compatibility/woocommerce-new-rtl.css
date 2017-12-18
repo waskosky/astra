@@ -56,6 +56,98 @@
   border-top: 0;
 }
 
+@media (max-width: 768px) {
+  .woocommerce ul.products li.product {
+    float: initial !important;
+    clear: initial !important;
+    margin-right: 0 !important;
+    margin-left: 10px !important;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 545px) {
+  .woocommerce.tablet-columns-1 ul.products li.product {
+    width: 100% !important;
+  }
+  .woocommerce.tablet-columns-2 ul.products li.product {
+    width: -webkit-calc(50% - 7px) !important;
+    width: calc(50% - 7px) !important;
+  }
+  .woocommerce.tablet-columns-2 ul.products li.product:nth-child(2n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.tablet-columns-3 ul.products li.product {
+    width: -webkit-calc(33.33% - 10px) !important;
+    width: calc(33.33% - 10px) !important;
+  }
+  .woocommerce.tablet-columns-3 ul.products li.product:nth-child(3n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.tablet-columns-4 ul.products li.product {
+    width: -webkit-calc(25% - 11px) !important;
+    width: calc(25% - 11px) !important;
+  }
+  .woocommerce.tablet-columns-4 ul.products li.product:nth-child(4n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.tablet-columns-5 ul.products li.product {
+    width: -webkit-calc(20% - 11px) !important;
+    width: calc(20% - 11px) !important;
+  }
+  .woocommerce.tablet-columns-5 ul.products li.product:nth-child(5n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.tablet-columns-6 ul.products li.product {
+    width: -webkit-calc(16.66% - 12px) !important;
+    width: calc(16.66% - 12px) !important;
+  }
+  .woocommerce.tablet-columns-6 ul.products li.product:nth-child(6n) {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 544px) {
+  .woocommerce.mobile-columns-1 ul.products li.product {
+    width: 100% !important;
+  }
+  .woocommerce.mobile-columns-2 ul.products li.product {
+    width: -webkit-calc(50% - 7px) !important;
+    width: calc(50% - 7px) !important;
+  }
+  .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.mobile-columns-3 ul.products li.product {
+    width: -webkit-calc(33.33% - 10px) !important;
+    width: calc(33.33% - 10px) !important;
+  }
+  .woocommerce.mobile-columns-3 ul.products li.product:nth-child(3n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.mobile-columns-4 ul.products li.product {
+    width: -webkit-calc(25% - 11px) !important;
+    width: calc(25% - 11px) !important;
+  }
+  .woocommerce.mobile-columns-4 ul.products li.product:nth-child(4n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.mobile-columns-5 ul.products li.product {
+    width: -webkit-calc(20% - 11px) !important;
+    width: calc(20% - 11px) !important;
+  }
+  .woocommerce.mobile-columns-5 ul.products li.product:nth-child(5n) {
+    margin-left: 0 !important;
+  }
+  .woocommerce.mobile-columns-6 ul.products li.product {
+    width: -webkit-calc(16.66% - 12px) !important;
+    width: calc(16.66% - 12px) !important;
+  }
+  .woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n) {
+    margin-left: 0 !important;
+  }
+}
+
 /**
  * Woocommerce common form design
  */
