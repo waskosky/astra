@@ -174,7 +174,7 @@ p.demo_store a,
   position: relative;
   list-style-type: none;
   margin-left: 0;
-  padding-left: 1em;
+  padding-left: 0;
   margin-bottom: 0;
   order: 1;
   /* Cart container in header. */

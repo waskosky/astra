@@ -77,8 +77,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
 			// Add Cart icon in Menu.
-			add_action( 'astra_masthead_content', array( $this, 'astra_header_cart' ), 8 );
-
+			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
+			
+			// Add Cart option in dropdown			
+			add_filter( 'astra_primary_header_main_rt_section', array( $this, 'header_main_rt_option' ) );
+			
 			// Cart fragment.
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
 				add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'cart_link_fragment' ) );
@@ -735,28 +738,51 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since 1.0.0
 		 */
-		function astra_header_cart() {
+		function astra_header_cart( $output, $section, $section_type ) {
 
-			$display_cart_menu = astra_get_option( 'display-cart-menu' );
-			if ( $display_cart_menu ) {
-				if ( is_cart() ) {
-					$class = 'current-menu-item';
-				} else {
-					$class = '';
+			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type ) {
+				
+				$display_cart_menu = astra_get_option( 'display-cart-menu' );
+				if ( $display_cart_menu ) {
+					if ( is_cart() ) {
+						$class = 'current-menu-item';
+					} else {
+						$class = '';
+					}
+
+					$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+
+					ob_start();
+					?>
+					<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
+						<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
+							<?php $this->astra_get_cart_link(); ?>
+						</div>
+						<div>
+							<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+						</div>
+					</div>
+					<?php
+					$output = ob_get_clean();
 				}
-
-				$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
-				?>
-				<ul id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
-					<li class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
-						<?php $this->astra_get_cart_link(); ?>
-					</li>
-					<li>
-						<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
-					</li>
-				</ul>
-				<?php
 			}
+			
+			return $output;
+		}
+
+		/**
+		 * Add Cart icon markup
+		 *
+		 * @param Array $options header options array.
+		 * 
+		 * @return Array header options array.
+		 * @since 1.0.0
+		 */
+		function header_main_rt_option( $options ) {
+			
+			$options['woocommerce'] = 'WooCommerce';
+
+			return $options;
 		}
 
 		/**

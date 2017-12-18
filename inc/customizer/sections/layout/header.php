@@ -109,11 +109,13 @@ $header_rt_sections = array(
 			'section'  => 'section-header',
 			'priority' => 5,
 			'label'    => __( 'Custom Menu Item', 'astra' ),
-			'choices'  => array(
-				'none'      => __( 'None', 'astra' ),
-				'search'    => __( 'Search', 'astra' ),
-				'text-html' => __( 'Text / HTML', 'astra' ),
-				'widget'    => __( 'Widget', 'astra' ),
+			'choices'  => apply_filters( 'astra_primary_header_main_rt_section',
+				array(
+					'none'      => __( 'None', 'astra' ),
+					'search'    => __( 'Search', 'astra' ),
+					'text-html' => __( 'Text / HTML', 'astra' ),
+					'widget'    => __( 'Widget', 'astra' ),
+				)
 			),
 		)
 	);

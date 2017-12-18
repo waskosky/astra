@@ -224,6 +224,10 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 			case 'widget':
 					$output[] = astra_get_custom_widget( $option );
 				break;
+
+			default:
+					$output[] = apply_filters( 'astra_get_dynamic_header_content', '',  $option, $section );
+				break;
 		}
 
 		return $output;
