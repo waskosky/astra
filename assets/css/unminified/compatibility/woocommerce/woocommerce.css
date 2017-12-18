@@ -2940,23 +2940,27 @@ p.demo_store a,
 /**
  * Woocommerce common form design
  */
-.woocommerce-page input[type=text], .woocommerce-page input[type=email], .woocommerce-page input[type=url], .woocommerce-page input[type=password], .woocommerce-page input[type=number], .woocommerce-page input[type=search], .woocommerce-page input[type=reset], .woocommerce-page input[type=tel], .woocommerce-page select, .woocommerce-page textarea, .woocommerce-page form .form-row textarea {
+.woocommerce-page input[type=text], .woocommerce-page input[type=email], .woocommerce-page input[type=url], .woocommerce-page input[type=password], .woocommerce-page input[type=number], .woocommerce-page input[type=search], .woocommerce-page input[type=reset], .woocommerce-page input[type=tel], .woocommerce-page textarea, .woocommerce-page form .form-row textarea {
   border-color: #EBEBEB;
   background: #fff;
   box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.02);
   border-radius: 0px;
 }
 
-.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page select:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus {
+.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
   border-color: #EBEBEB;
 }
 
-.woocommerce-page .select2-container .select2-selection--single {
+.woocommerce-page .select, .woocommerce-page .select2-container .select2-selection--single {
   padding: .75em;
   border: 1px solid #EBEBEB;
   border-radius: 0px;
   box-shadow: inset 0 -1.4em 1em 0 #ebebeb33;
+}
+
+.woocommerce-page .select:focus, .woocommerce-page .select2-container .select2-selection--single:focus {
+  outline: none;
 }
 
 button.pswp__button {
@@ -3126,6 +3130,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-account .addresses .title .edit {
   float: right;
+  padding: .7em 1em;
 }
 
 .woocommerce-account ol.commentlist.notes li.note p.meta {
@@ -4061,16 +4066,19 @@ button.pswp__button--zoom:hover {
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom-width: 0;
-  border-left: none;
+}
+
+.woocommerce-MyAccount-navigation-link:last-child {
+  border-bottom-width: 1px;
+}
+
+.woocommerce-MyAccount-navigation-link.is-active a {
+  background-color: #fbfbfb;
 }
 
 .woocommerce-MyAccount-navigation-link a {
   display: block;
-  padding: .5em 1em .5em 0;
-}
-
-.woocommerce-MyAccount-navigation-link:first-child {
-  border-top: none;
+  padding: .5em 1em;
 }
 
 .woocommerce-MyAccount-navigation > ul {
