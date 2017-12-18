@@ -1,12 +1,12 @@
 v1.1.0-beta.3
-New: Responsive control for the grid settings for the shop page.
-Fixed: Styles for the WooCommerce my account pages improved.
-Fixed: Remove extra padding from checkout page form.
-Fixed: Cart page coupon box align to Apply Coupon button.
-Fixed: Single Product variation design improved.
-Fixed: Single Product group products design improved.
-Fixed: WooCommerce select box style updated.
-Fixed: `Remove from cart` icon overlaps the title when the title is larger.
+# New: Responsive control for the grid settings for the shop page.
+# Fixed: Styles for the WooCommerce my account pages improved.
+# Fixed: Remove extra padding from checkout page form.
+# Fixed: Cart page coupon box align to Apply Coupon button.
+# Fixed: Single Product variation design improved.
+# Fixed: Single Product group products design improved.
+# Fixed: WooCommerce select box style updated.
+# Fixed: `Remove from cart` icon overlaps the title when the title is larger.
 
 v1.1.0-beta.2
 # Fixed: Woocommerce Single product description and review tab full width for responsive devices.
