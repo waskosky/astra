@@ -59,6 +59,19 @@
 /**
  * Woocommerce common form design
  */
-.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page select:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus {
+.woocommerce-page input[type=text]:focus, .woocommerce-page input[type=email]:focus, .woocommerce-page input[type=url]:focus, .woocommerce-page input[type=password]:focus, .woocommerce-page input[type=number]:focus, .woocommerce-page input[type=search]:focus, .woocommerce-page input[type=reset]:focus, .woocommerce-page input[type=tel]:focus, .woocommerce-page textarea:focus, .woocommerce-page form .form-row textarea:focus {
+  outline: none;
+}
+
+.woocommerce-page select {
+  padding: .75em;
+  border: 1px solid #EBEBEB;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 -1.4em 1em 0 #ebebeb33;
+  box-shadow: inset 0 -1.4em 1em 0 #ebebeb33;
+}
+
+.woocommerce-page select:focus {
   outline: none;
 }
