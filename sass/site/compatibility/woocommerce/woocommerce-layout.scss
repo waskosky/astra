@@ -10,6 +10,11 @@
 @import 'variables';
 
 /**
+ * Astra Theme compatibility with WooCommerce
+ */
+@import "../../variables-site/structure";
+
+/**
  * Styling begins
  */
 .woocommerce, .woocommerce-page {
@@ -244,11 +249,27 @@
 				width: 80px;
 			}
 
+			.button	{
+				line-height: 1;
+				border-width: 1px;
+				border-style: solid;
+				@media (max-width: $mx-col-sm) {
+					padding-left: 1em;
+					padding-right: 1em;
+				}
+			}
+
 			.coupon {
 				float: left;
 
 				label {
 					display: none;
+				}
+			}
+
+			@media (min-width: $col-sm) {
+				& > input[type="submit"] {
+					margin: 5px auto;
 				}
 			}
 		}

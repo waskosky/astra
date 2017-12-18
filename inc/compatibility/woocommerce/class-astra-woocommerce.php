@@ -594,7 +594,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$new_css_file = $css_uri . $new_style . $file_prefix . '.css';
 
 			// Register.
-			wp_register_style( $new_key, $new_css_file, array(), ASTRA_THEME_VERSION, 'all' );
+			// wp_register_style( $new_key, $new_css_file, array(), ASTRA_THEME_VERSION, 'all' );
 
 			// Enqueue.
 			wp_enqueue_style( $new_key );
