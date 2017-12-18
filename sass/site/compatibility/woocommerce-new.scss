@@ -11,6 +11,29 @@
 	div.product {
 
 		form.cart {
+
+			.variations{
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				td,th{
+					padding-top:0;
+					padding-bottom:0;
+					display: block;
+				}
+				td.label{
+					margin-top: 8px;
+    				margin-bottom: 1px;
+				}
+
+				select{
+					padding-top:.5em;
+					padding-bottom:.5em
+				}
+				.reset_variations {
+					position: static;
+					display: inline-block;
+				}
+			}
+
 			.group_table { 
 				td{
 					border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -32,6 +55,27 @@
 					padding: .8em;
 				}
 			}
+
+			.single_variation_wrap{
+				.single_variation{
+				    padding-top: 0;
+    				border-top: 0;
+    			}
+			}
+		}
+	}
+}
+
+
+
+/**
+ * Woocommerce common form design
+ */
+.woocommerce-page{
+	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], select, textarea, form .form-row textarea {
+
+		&:focus{
+			outline:none;
 		}
 	}
 }
