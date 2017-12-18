@@ -136,7 +136,7 @@ p.demo_store,
                max-height: 50vh;
                overflow-y: auto;
             	li{
-					padding: .5em 0 .5em 5em;
+					padding: .5em 1.8em .5em 5em;
     				border-bottom: 1px solid rgba(0,0,0,.05);
 
     				&:last-child{
@@ -170,16 +170,19 @@ p.demo_store,
 			}
 
 			.cart_list{
-				a.remove {
-					display: block;
-					font-size: 18px;
-					font-weight:normal;
-					width: 24px;
-					height: 24px;
-					line-height: 21px;
-					color: #ccc !important;
-					text-align: center;
-					border: 1px solid #ccc;
+				a{
+					font-weight: normal;
+					&.remove {
+						display: block;
+						font-size: 18px;
+						font-weight:normal;
+						width: 24px;
+						height: 24px;
+						line-height: 21px;
+						color: #ccc !important;
+						text-align: center;
+						border: 1px solid #ccc;
+					}
 				}
 			}
         }
@@ -2582,7 +2585,7 @@ p.demo_store,
 			border-color: #EBEBEB;
 		}
 	}
-	.select, .select2-container .select2-selection--single{
+	select, .select2-container .select2-selection--single{
 		padding: .75em;
 		border: 1px solid #EBEBEB;
 		border-radius: 0px;
@@ -3269,9 +3272,6 @@ button.pswp__button--zoom:hover {
 			}
 
 			#customer_details.col2-set {
-				.col-1{
-					padding: 0 20px 20px;
-				}
 				@media ( min-width: $col-md ) {
 				    width: 58%;
 				    float: left;
@@ -3657,7 +3657,7 @@ button.pswp__button--zoom:hover {
 .woocommerce .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
 
-	padding: .5em 0 .5em 5em;
+	padding: .5em 1.8em .5em 5em;
 	a.remove {
 		left: auto;
 		right: 0;
