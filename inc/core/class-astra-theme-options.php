@@ -137,6 +137,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'disable-primary-nav'             => false,
 					'header-layouts'                  => 'header-main-layout-1',
 					'header-main-rt-section'          => 'none',
+					'header-display-outside-menu'	  => false,
 					'header-main-rt-section-html'     => '<button>' . __( 'Contact Us', 'astra' ) . '</button>',
 					'header-main-sep'                 => 1,
 					'header-main-sep-color'           => '',

@@ -121,6 +121,26 @@ $header_rt_sections = array(
 	);
 
 	/**
+	 * Option: Display outside menu
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
+			'default'           => astra_get_option( 'header-display-outside-menu' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-header',
+			'label'    => __( 'Display Outside Menu', 'astra' ),
+			'priority' => 5,
+		)
+	);
+
+
+	/**
 	 * Option: Right Section Text / HTML
 	 */
 	$wp_customize->add_setting(
