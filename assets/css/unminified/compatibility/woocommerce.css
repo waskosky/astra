@@ -518,6 +518,16 @@
     margin-bottom: 2em;
     width: 100%;
   }
+  .woocommerce ul.products a.button,
+  .woocommerce-page ul.products a.button {
+    padding: .618em 1em;
+  }
+  .woocommerce ul.products a.button.loading::after,
+  .woocommerce-page ul.products a.button.loading::after {
+    display: inline-block;
+    margin-left: 5px;
+    position: initial;
+  }
 }
 
 .woocommerce ul.products li.product,
