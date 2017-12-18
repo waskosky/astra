@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Generate CSS URL.
 			$css_file = $css_uri . '' . $file_prefix . '.css';
 
-			$new_style = array(
+			$styles = array(
 				'woocommerce-layout'      => array(
 					'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
 					'deps'    => '',
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 
-			return $new_style;
+			return $styles;
 		}
 
 		/**
