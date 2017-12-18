@@ -65,6 +65,17 @@
 			}
 		}
 	}
+
+	@media (max-width: $mx-col-sm) {
+		.woocommerce-message{
+			display: flex;
+    		flex-wrap: wrap;
+    		a.button{
+    			order: 1;
+    			margin-top: .5em;
+    		}
+		}
+	}
 }
 
 
@@ -123,5 +134,4 @@
 .woocommerce.widget_shopping_cart .cart_list li {
 	padding: .5em 1.8em .5em 5em;
 }
-
 
