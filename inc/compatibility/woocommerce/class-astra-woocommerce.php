@@ -758,7 +758,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
 							<?php $this->astra_get_cart_link(); ?>
 						</div>
-						<div>
+						<div class="ast-site-header-cart-data">
 							<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 						</div>
 					</div>

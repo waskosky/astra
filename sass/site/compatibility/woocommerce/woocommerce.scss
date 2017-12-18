@@ -98,6 +98,27 @@ p.demo_store,
 				}
 			}
 
+		.ast-site-header-cart-data {
+			.widget_shopping_cart_content > ul {
+				text-align: left;
+				width: auto;
+				position: static;
+				left: auto;
+				top: auto;
+			}
+
+			ul {
+				.remove_from_cart_button {
+					padding: 0;
+				}
+				
+				li a {
+					padding: 0;
+    				border: 0;
+				}
+			}
+		}
+
     	/* Cart container in header. */
         .widget_shopping_cart {
         	background-color: #fff;
@@ -157,7 +178,7 @@ p.demo_store,
 			}
 
 			.buttons {
-				.button{
+				.button.wc-forward{
 					display: block;
 				    margin-right: 0;
 				    width: 100%;
