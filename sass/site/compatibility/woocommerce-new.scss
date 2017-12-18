@@ -102,6 +102,22 @@
 }
 
 
+/**
+ * Checkout Page
+ */
+.woocommerce-page{
+	&.woocommerce-checkout {
+
+		form {
+
+			#customer_details.col2-set {
+				.col-1{
+					padding: 0;
+				}
+			}
+		}
+	}
+}
 
 /**
  * Cart in menu
@@ -134,4 +150,3 @@
 .woocommerce.widget_shopping_cart .cart_list li {
 	padding: .5em 1.8em .5em 5em;
 }
-

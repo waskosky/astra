@@ -99,6 +99,13 @@
 }
 
 /**
+ * Checkout Page
+ */
+.woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-1 {
+  padding: 0;
+}
+
+/**
  * Cart in menu
  */
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a {
