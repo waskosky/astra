@@ -46,6 +46,19 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/compatibility',
                             ext: '-rtl.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'assets/css/unminified/compatibility/woocommerce',
+                            src: [
+                                    '*.css',
+                                    '!*-rtl.css',
+                                    '!customizer-controls.css',
+                                    '!font-awesome.css',
+                                    '!astra-fonts.css',
+                                ],
+                            dest: 'assets/css/unminified/compatibility/woocommerce',
+                            ext: '-rtl.css'
+                        },
                     ]
               	}
             },
@@ -88,6 +101,13 @@ module.exports = function (grunt) {
                             cwd: 'sass/site/compatibility/',
                             src: ['**.scss'],
                             dest: 'assets/css/unminified/compatibility',
+                            ext: '.css'
+                        },
+                        {
+                            expand: true,
+                            cwd: 'sass/site/compatibility/woocommerce',
+                            src: ['**.scss'],
+                            dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '.css'
                         },
                     ]
