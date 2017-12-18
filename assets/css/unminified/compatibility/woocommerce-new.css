@@ -75,3 +75,10 @@
 .woocommerce-page select:focus {
   outline: none;
 }
+
+/**
+ * Checkout Page
+ */
+.woocommerce-page.woocommerce-checkout form #customer_details.col2-set .col-1 {
+  padding: 0;
+}
