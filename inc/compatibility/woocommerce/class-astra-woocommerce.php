@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/site-compatible/woocommerce/';
+			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
 			$key   = 'astra-woocommerce';
 
 			// Register & Enqueue Styles.
@@ -569,9 +569,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			//$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
 			//$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
-
-			//$style = 'site-compatible/woocommerce';
-			//$key   = 'astra-woocommerce';
 
 			//$style = 'compatibility/woocommerce';
 			//$key   = 'astra-woocommerce';
