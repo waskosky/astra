@@ -7,5 +7,31 @@
 @import "../variables-site/colors";
 
 .woocommerce {
-	
+
+	div.product {
+
+		form.cart {
+			.group_table { 
+				td{
+					border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+					&:first-child{
+						text-align: left;
+					}
+				}
+				tr{
+					&:last-child{
+						td{
+							border-bottom: 0;
+						}
+					}
+				}
+				td.label {
+					font-weight: bold;
+				}
+				.button{
+					padding: .8em;
+				}
+			}
+		}
+	}
 }

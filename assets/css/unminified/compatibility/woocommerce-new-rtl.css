@@ -5,3 +5,22 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.woocommerce div.product form.cart .group_table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce div.product form.cart .group_table td:first-child {
+  text-align: right;
+}
+
+.woocommerce div.product form.cart .group_table tr:last-child td {
+  border-bottom: 0;
+}
+
+.woocommerce div.product form.cart .group_table td.label {
+  font-weight: bold;
+}
+
+.woocommerce div.product form.cart .group_table .button {
+  padding: .8em;
+}
