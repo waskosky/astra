@@ -506,8 +506,9 @@
 
 		.wc-terms-and-conditions, .terms {
 			text-align: left;
-			padding: 0 1em 0 0;
-			float:left;
+			padding: 0;
+			width: 100%;
+			margin-bottom: 1em;
 		}
 
 		#place_order {

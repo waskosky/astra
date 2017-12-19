@@ -3921,6 +3921,13 @@ button.pswp__button--zoom:hover {
   border-bottom: 1px solid #ebebeb;
 }
 
+.woocommerce-page.woocommerce-checkout #customer_details label {
+  font-weight: bold;
+  font-size: 13.5px;
+  font-size: 0.9rem;
+  margin-bottom: 0.3em;
+}
+
 .woocommerce-page.woocommerce-checkout form #order_review_heading {
   border-width: 2px 2px 0 2px;
   border-style: solid;
@@ -3933,7 +3940,7 @@ button.pswp__button--zoom:hover {
 
 @media (min-width: 769px) {
   .woocommerce-page.woocommerce-checkout form #customer_details.col2-set {
-    width: 58%;
+    width: 55%;
     float: left;
     margin-right: 4.347826087%;
   }
@@ -3965,7 +3972,7 @@ button.pswp__button--zoom:hover {
 @media (min-width: 769px) {
   .woocommerce-page.woocommerce-checkout form #order_review,
   .woocommerce-page.woocommerce-checkout form #order_review_heading {
-    width: 37%;
+    width: 40%;
     float: right;
     margin-right: 0;
     clear: right;
@@ -3983,6 +3990,8 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-page.woocommerce-checkout #payment ul.payment_methods {
   padding: 0;
+  margin-bottom: 1em;
+  border-bottom: 0;
 }
 
 .woocommerce-page.woocommerce-checkout #payment div.payment_box {
@@ -3994,7 +4003,7 @@ button.pswp__button--zoom:hover {
 }
 
 .woocommerce-page.woocommerce-checkout #payment div.form-row {
-  padding: 0 0 3em;
+  padding: 0 0 2em;
 }
 
 .woocommerce-page.woocommerce-checkout #payment #place_order {
