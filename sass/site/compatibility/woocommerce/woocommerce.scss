@@ -333,6 +333,10 @@ p.demo_store,
 .ast-header-break-point{
 	&.ast-woocommerce-cart-menu{
 		.ast-site-header-cart { 
+	        order: initial;
+			line-height: 3;
+			padding: 0 1em 1em 0;
+
 			&:focus,
 	    	&:hover {
 		        .widget_shopping_cart {
@@ -340,11 +344,15 @@ p.demo_store,
 		        }
 	    	}
 	    }
-	    .ast-site-header-cart{
-	        order: initial;
-			line-height: 3;
-			padding: 0 1em 1em 0;
-	    }
+	    .ast-mobile-menu-buttons {
+			order: 2;
+		}
+	    .main-header-bar-navigation{
+			order: 3;
+		}
+	    .ast-masthead-custom-menu-items{
+			order: 1;
+		}
 
 	    .header-main-layout-3 {
 	    	.ast-site-header-cart{
@@ -352,8 +360,14 @@ p.demo_store,
 	        }
 	    }
 
+	    &.ast-header-custom-item-outside {
+	    	.ast-site-header-cart{
+	        	padding: 0 0 1em 0;
+	        }
+	    }
 
-    	 @media (max-width: $mx-col-sm) {
+
+    	@media (max-width: $mx-col-sm) {
 	     	.header-main-layout-1,
 	     	.header-main-layout-3 {
 	    	 	&.ast-mobile-header-stack{
