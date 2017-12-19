@@ -3227,6 +3227,12 @@ button.pswp__button--zoom:hover {
 			line-height: 1.8em;
 		}
 	}
+
+	@media (max-width: $mx-col-sm) {
+		.woocommerce-shipping-calculator .button {
+			width: 100%;
+		}
+	}
 }
 
 
