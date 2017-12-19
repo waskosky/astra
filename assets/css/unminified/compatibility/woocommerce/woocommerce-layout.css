@@ -652,8 +652,9 @@
 
 .woocommerce #payment .wc-terms-and-conditions, .woocommerce #payment .terms, .woocommerce-page #payment .wc-terms-and-conditions, .woocommerce-page #payment .terms {
   text-align: left;
-  padding: 0 1em 0 0;
-  float: left;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 1em;
 }
 
 .woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
