@@ -203,24 +203,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// Container.
-			$defaults['woocommerce-content-layout'] = 'default';
+			$defaults['woocommerce-content-layout'] = 'plain-container';
 
 			// Sidebar.
-			$defaults['woocommerce-sidebar-layout']    = 'default';
+			$defaults['woocommerce-sidebar-layout']    = 'no-sidebar';
 			$defaults['single-product-sidebar-layout'] = 'default';
 
 			/* Shop */
 			$defaults['shop-grids']             = array(
-				'desktop' => 3,
+				'desktop' => 4,
 				'tablet'  => 2,
 				'mobile'  => 2,
 			);
-			$defaults['shop-no-of-products']    = '9';
+			$defaults['shop-no-of-products']    = '12';
 			$defaults['shop-product-structure'] = array(
 				'category',
 				'title',
-				'price',
 				'ratings',
+				'price',
 				'add_cart',
 			);
 

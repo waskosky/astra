@@ -492,19 +492,21 @@ p.demo_store,
 		span.price,
 		p.price {
 			color: $highlight;
-			font-size: 1.5rem;
+			font-size: 1.5em;
 		    font-weight: 700;
 		    margin: 0 0 0.2em;
 
 			ins {
 				background: inherit;
+				font-size: 1.5em;
 				font-weight: 700;
 				display: inline-block;
 			}
 
 			del {
 				opacity: 0.5;
-				font-size: 1.5rem;
+				font-size: 1.5em;
+		    	font-weight: normal;
 				display: inline-block;
 			}
 		}
@@ -3314,6 +3316,13 @@ button.pswp__button--zoom:hover {
 				background-color: #ffffff;
 				border-bottom: 1px solid #ebebeb;
 			}
+
+			label{
+				font-weight: bold;
+				font-size: 13.5px;
+				font-size: 0.9rem;
+				margin-bottom: 0.3em;
+			}
 		}
 
 		form {
@@ -3330,7 +3339,7 @@ button.pswp__button--zoom:hover {
 
 			#customer_details.col2-set {
 				@media ( min-width: $col-md ) {
-				    width: 58%;
+				    width: 55%;
 				    float: left;
 				    margin-right: 4.347826087%;
 				    .col-1,
@@ -3358,7 +3367,7 @@ button.pswp__button--zoom:hover {
 			@media ( min-width: $col-md ) {
 				#order_review, 
 				#order_review_heading {
-					width: 37%;
+					width: 40%;
 					float: right;
 					margin-right: 0;
 					clear: right;
@@ -3377,6 +3386,8 @@ button.pswp__button--zoom:hover {
 			ul{
 				&.payment_methods{
 					padding: 0;
+					margin-bottom: 1em;
+					border-bottom: 0;
 				}
 			}
 			div.payment_box{
@@ -3386,7 +3397,7 @@ button.pswp__button--zoom:hover {
 				}
 			}
 			div.form-row {
-				padding: 0 0 3em;
+				padding: 0 0 2em;
 			}
 			#place_order {
 			   width: 100%;

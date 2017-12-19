@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[shop-grids]', array(
 			'default'           => array(
-				'desktop' => 3,
+				'desktop' => 4,
 				'tablet'  => 2,
 				'mobile'  => 2,
 			),
