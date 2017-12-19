@@ -208,9 +208,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'add_cart',
 			);
 
-			/* General */
-			$defaults['display-cart-menu'] = true;
-
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;
 
@@ -252,8 +249,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$classes[] = 'columns-' . astra_get_option( 'shop-grid' );
 			}
 			// Cart menu is emabled.
-			$display_cart_menu = astra_get_option( 'display-cart-menu' );
-			if ( $display_cart_menu ) {
+			$rt_section = astra_get_option( 'header-main-rt-section' );
+			
+			if ( 'woocommerce' === $rt_section ) {
 				$classes[] = 'ast-woocommerce-cart-menu';
 			}
 
@@ -742,29 +740,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type ) {
 				
-				$display_cart_menu = astra_get_option( 'display-cart-menu' );
-				if ( $display_cart_menu ) {
-					if ( is_cart() ) {
-						$class = 'current-menu-item';
-					} else {
-						$class = '';
-					}
-
-					$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
-
-					ob_start();
-					?>
-					<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
-						<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
-							<?php $this->astra_get_cart_link(); ?>
-						</div>
-						<div class="ast-site-header-cart-data">
-							<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
-						</div>
-					</div>
-					<?php
-					$output = ob_get_clean();
+				if ( is_cart() ) {
+					$class = 'current-menu-item';
+				} else {
+					$class = '';
 				}
+
+				$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+
+				ob_start();
+				?>
+				<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
+					<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
+						<?php $this->astra_get_cart_link(); ?>
+					</div>
+					<div class="ast-site-header-cart-data">
+						<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+					</div>
+				</div>
+				<?php
+				$output = ob_get_clean();
 			}
 			
 			return $output;
@@ -810,14 +805,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return array            Fragments to refresh via AJAX
 		 */
 		function cart_link_fragment( $fragments ) {
-			global $woocommerce;
-
-			$display_cart_menu = astra_get_option( 'display-cart-menu' );
-			if ( $display_cart_menu ) {
-				ob_start();
-				$this->astra_get_cart_link();
-				$fragments['a.cart-container'] = ob_get_clean();
-			}
+			
+			ob_start();
+			$this->astra_get_cart_link();
+			$fragments['a.cart-container'] = ob_get_clean();
 
 			return $fragments;
 		}
