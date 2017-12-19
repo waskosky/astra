@@ -2796,6 +2796,7 @@ p.demo_store a,
 .woocommerce table.shop_table td,
 .woocommerce-page table.shop_table td {
   border-top: 1px solid #ebebeb;
+  font-weight: 700;
 }
 
 .woocommerce table.shop_table .woocommerce-Price-amount,
@@ -2850,6 +2851,14 @@ p.demo_store a,
   .woocommerce #content table.cart .product-thumbnail:before,
   .woocommerce-page #content table.cart .product-thumbnail:before {
     display: none;
+  }
+  .woocommerce #content table.cart td.actions .coupon,
+  .woocommerce-page #content table.cart td.actions .coupon {
+    float: none;
+  }
+  .woocommerce #content table.cart td.actions .coupon .button,
+  .woocommerce-page #content table.cart td.actions .coupon .button {
+    flex: 1;
   }
 }
 
@@ -3866,6 +3875,12 @@ button.pswp__button--zoom:hover {
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
   font-size: 1.1em;
   line-height: 1.8em;
+}
+
+@media (max-width: 544px) {
+  .woocommerce-cart .woocommerce-shipping-calculator .button {
+    width: 100%;
+  }
 }
 
 /**

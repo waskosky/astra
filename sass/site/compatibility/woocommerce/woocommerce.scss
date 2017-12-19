@@ -2442,6 +2442,7 @@ p.demo_store,
 		}
 		td{
 			border-top: 1px solid #ebebeb;
+			font-weight: 700;
 		}
 		.woocommerce-Price-amount{
 			font-weight: 700;
@@ -2488,6 +2489,13 @@ p.demo_store,
 
 					&:before{
 						display: none;
+					}
+				}
+
+				td.actions .coupon {
+					float: none;
+					.button{
+						flex: 1;
 					}
 				}
 			}
@@ -3218,6 +3226,12 @@ button.pswp__button--zoom:hover {
 		a.checkout-button{
 			font-size: 1.1em;
 			line-height: 1.8em;
+		}
+	}
+
+	@media (max-width: $mx-col-sm) {
+		.woocommerce-shipping-calculator .button {
+			width: 100%;
 		}
 	}
 }
