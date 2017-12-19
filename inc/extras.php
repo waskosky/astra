@@ -89,6 +89,14 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Current Astra verion.
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
+		$outside_menu = astra_get_option( 'header-display-outside-menu' );
+				
+		if ( $outside_menu ) {
+			$classes[] = 'ast-header-custom-item-outside';
+		}else{
+			$classes[] = 'ast-header-custom-item-inside';
+		}
+
 		return $classes;
 	}
 }// End if().
@@ -223,6 +231,10 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 
 			case 'widget':
 					$output[] = astra_get_custom_widget( $option );
+				break;
+
+			default:
+					$output[] = apply_filters( 'astra_get_dynamic_header_content', '', $option, $section );
 				break;
 		}
 

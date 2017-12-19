@@ -109,14 +109,37 @@ $header_rt_sections = array(
 			'section'  => 'section-header',
 			'priority' => 5,
 			'label'    => __( 'Custom Menu Item', 'astra' ),
-			'choices'  => array(
-				'none'      => __( 'None', 'astra' ),
-				'search'    => __( 'Search', 'astra' ),
-				'text-html' => __( 'Text / HTML', 'astra' ),
-				'widget'    => __( 'Widget', 'astra' ),
+			'choices'  => apply_filters(
+				'astra_primary_header_main_rt_section',
+				array(
+					'none'      => __( 'None', 'astra' ),
+					'search'    => __( 'Search', 'astra' ),
+					'text-html' => __( 'Text / HTML', 'astra' ),
+					'widget'    => __( 'Widget', 'astra' ),
+				)
 			),
 		)
 	);
+
+	/**
+	 * Option: Display outside menu
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
+			'default'           => astra_get_option( 'header-display-outside-menu' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-header',
+			'label'    => __( 'Display Outside Menu', 'astra' ),
+			'priority' => 5,
+		)
+	);
+
 
 	/**
 	 * Option: Right Section Text / HTML
