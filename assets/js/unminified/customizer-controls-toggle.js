@@ -135,6 +135,18 @@
 					return false;
 				}
 			},
+			{
+				controls: [
+					'astra-settings[header-display-outside-menu]',
+				],
+				callback: function( custom_menu ) {
+					
+					if ( 'none' !=  custom_menu ) {
+						return true;
+					}
+					return false;
+				}
+			}
 		],
 
 		/**

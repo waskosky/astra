@@ -78,7 +78,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
 			// Add Cart icon in Menu.
-			add_action( 'astra_masthead_content', array( $this, 'astra_header_cart' ), 8 );
+			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
+
+			// Add Cart option in dropdown.
+			add_filter( 'astra_primary_header_main_rt_section', array( $this, 'header_main_rt_option' ) );
 
 			// Cart fragment.
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
@@ -93,8 +96,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 
 			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
-
-			add_action( 'woocommerce_cart_actions', 'astra_woo_return_to_shopping' );
 		}
 
 		/**
@@ -182,14 +183,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			global $product;
 
-			$attachment_ids = $product->get_gallery_image_ids();
+			$hover_style = astra_get_option( 'shop-hover-style' );
+			
+			if ( 'swap' === $hover_style  ) {
+				
+				$attachment_ids = $product->get_gallery_image_ids();
 
-			if ( $attachment_ids ) {
+				if ( $attachment_ids ) {
 
-				// @see woocommerce_get_product_thumbnail()
-				$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
+					// @see woocommerce_get_product_thumbnail()
+					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
 
-				echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
+					echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
+				}
 			}
 		}
 
@@ -202,29 +208,28 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// Container.
-			$defaults['woocommerce-content-layout'] = 'default';
+			$defaults['woocommerce-content-layout'] = 'plain-container';
 
 			// Sidebar.
-			$defaults['woocommerce-sidebar-layout']    = 'default';
+			$defaults['woocommerce-sidebar-layout']    = 'no-sidebar';
 			$defaults['single-product-sidebar-layout'] = 'default';
 
 			/* Shop */
 			$defaults['shop-grids']             = array(
-				'desktop' => 3,
+				'desktop' => 4,
 				'tablet'  => 2,
-				'mobile'  => 1,
+				'mobile'  => 2,
 			);
-			$defaults['shop-no-of-products']    = '9';
+			$defaults['shop-no-of-products']    = '12';
 			$defaults['shop-product-structure'] = array(
 				'category',
 				'title',
-				'price',
 				'ratings',
+				'price',
 				'add_cart',
 			);
-
-			/* General */
-			$defaults['display-cart-menu'] = true;
+			$defaults['shop-hover-style']    	= '';
+			
 
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;
@@ -273,8 +278,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
 			}
 			// Cart menu is emabled.
-			$display_cart_menu = astra_get_option( 'display-cart-menu' );
-			if ( $display_cart_menu ) {
+			$rt_section = astra_get_option( 'header-main-rt-section' );
+
+			if ( 'woocommerce' === $rt_section ) {
 				$classes[] = 'ast-woocommerce-cart-menu';
 			}
 
@@ -293,6 +299,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			global $product;
 			if ( is_product() && 0 == $product->get_review_count() ) {
 				$classes[] = 'ast-woo-product-no-review';
+			}
+
+			if ( is_shop() || is_product_taxonomy() ) {
+				$hover_style = astra_get_option( 'shop-hover-style' );
+
+				if ( '' !== $hover_style ) {
+					$classes[] = 'astra-woo-hover-' . $hover_style;
+				}
 			}
 
 			return $classes;
@@ -748,12 +762,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Add Cart icon markup
 		 *
+		 * @param String $output Markup.
+		 * @param String $section Section name.
+		 * @param String $section_type Section selected option.
+		 * @return Markup String.
+		 *
 		 * @since 1.0.0
 		 */
-		function astra_header_cart() {
+		function astra_header_cart( $output, $section, $section_type ) {
 
-			$display_cart_menu = astra_get_option( 'display-cart-menu' );
-			if ( $display_cart_menu ) {
+			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type ) {
+
 				if ( is_cart() ) {
 					$class = 'current-menu-item';
 				} else {
@@ -761,17 +780,37 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 
 				$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+
+				ob_start();
 				?>
-				<ul id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
-					<li class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
+				<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
+					<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
 						<?php $this->astra_get_cart_link(); ?>
-					</li>
-					<li>
+					</div>
+					<div class="ast-site-header-cart-data">
 						<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
-					</li>
-				</ul>
+					</div>
+				</div>
 				<?php
+				$output = ob_get_clean();
 			}
+
+			return $output;
+		}
+
+		/**
+		 * Add Cart icon markup
+		 *
+		 * @param Array $options header options array.
+		 *
+		 * @return Array header options array.
+		 * @since 1.0.0
+		 */
+		function header_main_rt_option( $options ) {
+
+			$options['woocommerce'] = 'WooCommerce';
+
+			return $options;
 		}
 
 		/**
@@ -799,14 +838,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return array            Fragments to refresh via AJAX
 		 */
 		function cart_link_fragment( $fragments ) {
-			global $woocommerce;
 
-			$display_cart_menu = astra_get_option( 'display-cart-menu' );
-			if ( $display_cart_menu ) {
-				ob_start();
-				$this->astra_get_cart_link();
-				$fragments['a.cart-container'] = ob_get_clean();
-			}
+			ob_start();
+			$this->astra_get_cart_link();
+			$fragments['a.cart-container'] = ob_get_clean();
 
 			return $fragments;
 		}
