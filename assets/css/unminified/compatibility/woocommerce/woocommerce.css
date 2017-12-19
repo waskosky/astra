@@ -3906,6 +3906,13 @@ button.pswp__button--zoom:hover {
   border-bottom: 1px solid #ebebeb;
 }
 
+.woocommerce-page.woocommerce-checkout #customer_details label {
+  font-weight: bold;
+  font-size: 13.5px;
+  font-size: 0.9rem;
+  margin-bottom: 0.3em;
+}
+
 .woocommerce-page.woocommerce-checkout form #order_review_heading {
   border-width: 2px 2px 0 2px;
   border-style: solid;
