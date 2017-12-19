@@ -2122,6 +2122,9 @@ p.demo_store a,
 
 .woocommerce form .form-row label {
   line-height: 2;
+  font-weight: bold;
+  font-size: 13.5px;
+  font-size: 0.9rem;
 }
 
 .woocommerce form .form-row label.hidden {
@@ -2797,7 +2800,6 @@ p.demo_store a,
 .woocommerce table.shop_table td,
 .woocommerce-page table.shop_table td {
   border-top: 1px solid #ebebeb;
-  font-weight: 700;
 }
 
 .woocommerce table.shop_table .woocommerce-Price-amount,
@@ -3863,7 +3865,8 @@ button.pswp__button--zoom:hover {
   border-right: 0;
 }
 
-.woocommerce-cart table.shop_table .woocommerce-Price-amount {
+.woocommerce-cart table.shop_table .woocommerce-Price-amount,
+.woocommerce-cart table.shop_table td.product-name {
   font-weight: 700;
 }
 
@@ -3988,14 +3991,6 @@ button.pswp__button--zoom:hover {
   margin: 0 0 20px;
   background-color: #ffffff;
   border-bottom: 1px solid #ebebeb;
-}
-
-.woocommerce.woocommerce-checkout #customer_details label,
-.woocommerce-page.woocommerce-checkout #customer_details label {
-  font-weight: bold;
-  font-size: 13.5px;
-  font-size: 0.9rem;
-  margin-bottom: 0.3em;
 }
 
 .woocommerce.woocommerce-checkout form #order_review_heading,

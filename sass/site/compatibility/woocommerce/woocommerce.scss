@@ -1859,6 +1859,9 @@ p.demo_store,
 
 		label {
 			line-height: 2;
+			font-weight: bold;
+			font-size: 13.5px;
+			font-size: 0.9rem;
 		}
 
 		label.hidden {
@@ -2442,7 +2445,6 @@ p.demo_store,
 		}
 		td{
 			border-top: 1px solid #ebebeb;
-			font-weight: 700;
 		}
 		.woocommerce-Price-amount{
 			font-weight: 700;
@@ -3154,7 +3156,8 @@ button.pswp__button--zoom:hover {
 		td,th{
 			border-right: 0;
 		}
-		.woocommerce-Price-amount{
+		.woocommerce-Price-amount,
+		td.product-name{
 			font-weight: 700;
 		}
 	}
@@ -3273,13 +3276,6 @@ button.pswp__button--zoom:hover {
 				margin: 0 0 20px;
 				background-color: #ffffff;
 				border-bottom: 1px solid #ebebeb;
-			}
-
-			label{
-				font-weight: bold;
-				font-size: 13.5px;
-				font-size: 0.9rem;
-				margin-bottom: 0.3em;
 			}
 		}
 
