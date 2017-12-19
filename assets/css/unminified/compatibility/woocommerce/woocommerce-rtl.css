@@ -2796,6 +2796,7 @@ p.demo_store a,
 .woocommerce table.shop_table td,
 .woocommerce-page table.shop_table td {
   border-top: 1px solid #ebebeb;
+  font-weight: 700;
 }
 
 .woocommerce table.shop_table .woocommerce-Price-amount,
