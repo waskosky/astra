@@ -1328,7 +1328,7 @@ p.demo_store a,
   font-weight: normal;
   padding: 0.75em;
   display: block;
-  min-width: 1em;
+  min-width: 2.5em;
 }
 
 .woocommerce nav.woocommerce-pagination ul li span.current,
