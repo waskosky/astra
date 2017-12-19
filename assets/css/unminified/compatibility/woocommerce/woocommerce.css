@@ -2852,6 +2852,14 @@ p.demo_store a,
   .woocommerce-page #content table.cart .product-thumbnail:before {
     display: none;
   }
+  .woocommerce #content table.cart td.actions .coupon,
+  .woocommerce-page #content table.cart td.actions .coupon {
+    float: none;
+  }
+  .woocommerce #content table.cart td.actions .coupon .button,
+  .woocommerce-page #content table.cart td.actions .coupon .button {
+    flex: 1;
+  }
 }
 
 @media (max-width: 544px) {

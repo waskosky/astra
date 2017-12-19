@@ -133,7 +133,6 @@
 			text-align: left;
 
 			.coupon {
-				float: none;
 				@include clearfix();
 				padding-bottom: 0.5em;
 
@@ -148,11 +147,6 @@
 				.button.alt {
 					float: right;
 				}
-			}
-
-			.button {
-				display: block;
-				width: 100%;
 			}
 		}
 	}

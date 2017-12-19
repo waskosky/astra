@@ -203,7 +203,6 @@
 .woocommerce #content table.cart td.actions .coupon,
 .woocommerce-page table.cart td.actions .coupon,
 .woocommerce-page #content table.cart td.actions .coupon {
-  float: none;
   *zoom: 1;
   padding-bottom: 0.5em;
 }
@@ -251,14 +250,6 @@
 .woocommerce-page #content table.cart td.actions .coupon .input-text + .button,
 .woocommerce-page #content table.cart td.actions .coupon .button.alt {
   float: right;
-}
-
-.woocommerce table.cart td.actions .button,
-.woocommerce #content table.cart td.actions .button,
-.woocommerce-page table.cart td.actions .button,
-.woocommerce-page #content table.cart td.actions .button {
-  display: block;
-  width: 100%;
 }
 
 .woocommerce .cart-collaterals .cart_totals,

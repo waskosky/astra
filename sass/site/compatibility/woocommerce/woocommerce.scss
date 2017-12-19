@@ -2490,6 +2490,13 @@ p.demo_store,
 						display: none;
 					}
 				}
+
+				td.actions .coupon {
+					float: none;
+					.button{
+						flex: 1;
+					}
+				}
 			}
 		}
 

@@ -93,8 +93,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 
 			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
-
-			add_action( 'woocommerce_cart_actions', 'astra_woo_return_to_shopping' );
 		}
 
 		/**
