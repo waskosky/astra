@@ -190,11 +190,14 @@ p.demo_store,
 			}
 
 			.buttons {
-				.button.wc-forward{
-					display: block;
-				    margin-right: 0;
-				    width: 100%;
-				    margin-left: 0;
+				.button{
+					&,
+					&.wc-forward {
+						display: block;
+						margin-right: 0;
+						width: 100%;
+						margin-left: 0;
+					}
 				}
 			}
 

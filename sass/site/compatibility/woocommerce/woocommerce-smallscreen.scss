@@ -106,8 +106,9 @@
 		ul.products {
 			li.product {
 				display: inline-block;
-				margin-right: 10px;
-				float: none;
+				margin-right: 20px;
+				vertical-align: top;
+				clear: none;
 			}
 		}
 	}
