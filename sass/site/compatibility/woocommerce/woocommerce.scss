@@ -1004,6 +1004,7 @@ p.demo_store,
 				td {
 					vertical-align: middle;
 					padding-bottom: 0.5em;
+					border-right: 0;
 					border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 					&:first-child{
 						text-align: left;
@@ -1021,6 +1022,9 @@ p.demo_store,
 				}
 				.button{
 					padding: .8em;
+					font-weight: normal;
+					font-size: 0.9rem;
+					white-space: nowrap;
 				}
 
 				.wc-grouped-product-add-to-cart-checkbox {
@@ -1213,7 +1217,7 @@ p.demo_store,
 					font-weight: normal;
 					padding: 0.75em;
 					display: block;
-					min-width: 1em;
+					min-width: 2.5em;
 				}
 
 				span.current,
