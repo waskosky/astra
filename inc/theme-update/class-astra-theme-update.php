@@ -417,15 +417,15 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options[ 'shop-grid' ] ) ) {
-				
-				$astra_options[ 'shop-grids' ] = array(
-					'desktop' => $astra_options[ 'shop-grid' ],
+			if ( isset( $astra_options['shop-grid'] ) ) {
+
+				$astra_options['shop-grids'] = array(
+					'desktop' => $astra_options['shop-grid'],
 					'tablet'  => 2,
 					'mobile'  => 1,
 				);
 
-				unset( $astra_options[ 'shop-grid' ] );
+				unset( $astra_options['shop-grid'] );
 			}
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
