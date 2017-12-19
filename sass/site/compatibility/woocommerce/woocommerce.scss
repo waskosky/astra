@@ -1909,6 +1909,9 @@ p.demo_store,
 
 		label {
 			line-height: 2;
+			font-weight: bold;
+			font-size: 13.5px;
+			font-size: 0.9rem;
 		}
 
 		label.hidden {
@@ -2492,7 +2495,6 @@ p.demo_store,
 		}
 		td{
 			border-top: 1px solid #ebebeb;
-			font-weight: 700;
 		}
 		.woocommerce-Price-amount{
 			font-weight: 700;
@@ -2630,6 +2632,7 @@ p.demo_store,
 /**
  * Woocommerce common form design
  */
+ .woocommerce,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
 		border-color: #EBEBEB;
@@ -2760,6 +2763,7 @@ button.pswp__button--zoom:hover {
 /**
  * Account page
  */
+.woocommerce,
 .woocommerce-account {
 	.woocommerce {
 		@include clearfix();
@@ -2812,6 +2816,7 @@ button.pswp__button--zoom:hover {
 	}
 
 	.woocommerce-Addresses,
+	.woocommerce-customer-details,
 	.woocommerce-MyAccount-content{
 		.woocommerce-Address-title,
 		.woocommerce-column__title{
@@ -3201,7 +3206,8 @@ button.pswp__button--zoom:hover {
 		td,th{
 			border-right: 0;
 		}
-		.woocommerce-Price-amount{
+		.woocommerce-Price-amount,
+		td.product-name{
 			font-weight: 700;
 		}
 	}
@@ -3290,6 +3296,7 @@ button.pswp__button--zoom:hover {
 /**
  * Checkout Page
  */
+ .woocommerce,
 .woocommerce-page{
 	&.woocommerce-checkout {
 
@@ -3319,13 +3326,6 @@ button.pswp__button--zoom:hover {
 				margin: 0 0 20px;
 				background-color: #ffffff;
 				border-bottom: 1px solid #ebebeb;
-			}
-
-			label{
-				font-weight: bold;
-				font-size: 13.5px;
-				font-size: 0.9rem;
-				margin-bottom: 0.3em;
 			}
 		}
 
