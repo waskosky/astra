@@ -183,14 +183,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			global $product;
 
-			$attachment_ids = $product->get_gallery_image_ids();
+			$hover_style = astra_get_option( 'shop-hover-style' );
+			
+			if ( 'swap' === $hover_style  ) {
+				
+				$attachment_ids = $product->get_gallery_image_ids();
 
-			if ( $attachment_ids ) {
+				if ( $attachment_ids ) {
 
-				// @see woocommerce_get_product_thumbnail()
-				$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
+					// @see woocommerce_get_product_thumbnail()
+					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
 
-				echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
+					echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
+				}
 			}
 		}
 
@@ -223,6 +228,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'price',
 				'add_cart',
 			);
+			$defaults['shop-hover-style']    	= '';
+			
 
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;
@@ -292,6 +299,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			global $product;
 			if ( is_product() && 0 == $product->get_review_count() ) {
 				$classes[] = 'ast-woo-product-no-review';
+			}
+
+			if ( is_shop() || is_product_taxonomy() ) {
+				$hover_style = astra_get_option( 'shop-hover-style' );
+
+				if ( '' !== $hover_style ) {
+					$classes[] = 'astra-woo-hover-' . $hover_style;
+				}
 			}
 
 			return $classes;
