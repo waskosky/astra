@@ -606,6 +606,7 @@ p.demo_store a,
 .woocommerce div.product p.price del {
   opacity: 0.5;
   font-size: 1.5rem;
+  font-weight: normal;
   display: inline-block;
 }
 
