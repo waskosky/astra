@@ -212,7 +212,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Shop */
 			$defaults['shop-grids']             = array(
 				'desktop' => 4,
-				'tablet'  => 2,
+				'tablet'  => 3,
 				'mobile'  => 2,
 			);
 			$defaults['shop-no-of-products']    = '12';
