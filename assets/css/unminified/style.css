@@ -3431,6 +3431,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .ast-header-break-point .main-header-bar {
   display: block;
   padding: 1.5em 0 0;
+  line-height: 3;
 }
 
 .ast-header-break-point .main-header-bar .main-header-bar-navigation {
@@ -3532,6 +3533,39 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point .main-header-menu ul ul {
   top: 0;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .ast-search-icon {
+  display: none;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-menu-buttons {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -moz-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .main-header-bar-navigation {
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+  -moz-box-ordinal-group: 4;
+  -ms-flex-order: 3;
+  order: 3;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .ast-masthead-custom-menu-items {
+  padding-bottom: 1.5em;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -moz-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-masthead-custom-menu-items {
+  text-align: center;
 }
 
 /* 7 - Header Toggle Buttons */
