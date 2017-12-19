@@ -1099,9 +1099,16 @@ p.demo_store a,
   font-weight: bold;
 }
 
+@media (min-width: 993px) {
+  .woocommerce div.product form.cart .group_table td.label {
+    min-width: 8em;
+  }
+}
+
 .woocommerce div.product form.cart .group_table td {
   vertical-align: middle;
   padding-bottom: 0.5em;
+  border-left: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -1122,6 +1129,9 @@ p.demo_store a,
 
 .woocommerce div.product form.cart .group_table .button {
   padding: .8em;
+  font-weight: normal;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .woocommerce div.product form.cart .group_table .wc-grouped-product-add-to-cart-checkbox {
