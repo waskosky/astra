@@ -169,9 +169,9 @@
 .woocommerce-page ul.products li.product,
 .woocommerce-page[class*='columns-'] ul.products li.product {
   display: inline-block;
-  margin-left: 10px;
-  float: none;
+  margin-left: 20px;
   vertical-align: top;
+  clear: none;
 }
 
 .woocommerce div.product div.images,
