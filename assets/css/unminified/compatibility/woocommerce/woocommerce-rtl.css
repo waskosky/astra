@@ -1099,12 +1099,6 @@ p.demo_store a,
   font-weight: bold;
 }
 
-@media (min-width: 993px) {
-  .woocommerce div.product form.cart .group_table td.label {
-    min-width: 8em;
-  }
-}
-
 .woocommerce div.product form.cart .group_table td {
   vertical-align: middle;
   padding-bottom: 0.5em;
