@@ -344,15 +344,6 @@ p.demo_store,
 		        }
 	    	}
 	    }
-	    .ast-mobile-menu-buttons {
-			order: 2;
-		}
-	    .main-header-bar-navigation{
-			order: 3;
-		}
-	    .ast-masthead-custom-menu-items{
-			order: 1;
-		}
 
 	    .header-main-layout-3 {
 	    	.ast-site-header-cart{
@@ -362,7 +353,7 @@ p.demo_store,
 
 	    &.ast-header-custom-item-outside {
 	    	.ast-site-header-cart{
-	        	padding: 0 0 1em 0;
+	        	padding: 0;
 	        }
 	    }
 
