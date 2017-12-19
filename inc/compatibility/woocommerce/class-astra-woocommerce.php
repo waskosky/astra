@@ -79,10 +79,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Add Cart icon in Menu.
 			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
-			
-			// Add Cart option in dropdown			
+
+			// Add Cart option in dropdown.
 			add_filter( 'astra_primary_header_main_rt_section', array( $this, 'header_main_rt_option' ) );
-			
+
 			// Cart fragment.
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
 				add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'cart_link_fragment' ) );
@@ -274,7 +274,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 			// Cart menu is emabled.
 			$rt_section = astra_get_option( 'header-main-rt-section' );
-			
+
 			if ( 'woocommerce' === $rt_section ) {
 				$classes[] = 'ast-woocommerce-cart-menu';
 			}
@@ -749,12 +749,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Add Cart icon markup
 		 *
+		 * @param String $output Markup.
+		 * @param String $section Section name.
+		 * @param String $section_type Section selected option.
+		 * @return Markup String.
+		 *
 		 * @since 1.0.0
 		 */
 		function astra_header_cart( $output, $section, $section_type ) {
 
 			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type ) {
-				
+
 				if ( is_cart() ) {
 					$class = 'current-menu-item';
 				} else {
@@ -776,7 +781,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				<?php
 				$output = ob_get_clean();
 			}
-			
+
 			return $output;
 		}
 
@@ -784,12 +789,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Add Cart icon markup
 		 *
 		 * @param Array $options header options array.
-		 * 
+		 *
 		 * @return Array header options array.
 		 * @since 1.0.0
 		 */
 		function header_main_rt_option( $options ) {
-			
+
 			$options['woocommerce'] = 'WooCommerce';
 
 			return $options;
@@ -820,7 +825,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return array            Fragments to refresh via AJAX
 		 */
 		function cart_link_fragment( $fragments ) {
-			
+
 			ob_start();
 			$this->astra_get_cart_link();
 			$fragments['a.cart-container'] = ob_get_clean();

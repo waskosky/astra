@@ -226,7 +226,7 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 				break;
 
 			default:
-					$output[] = apply_filters( 'astra_get_dynamic_header_content', '',  $option, $section );
+					$output[] = apply_filters( 'astra_get_dynamic_header_content', '', $option, $section );
 				break;
 		}
 

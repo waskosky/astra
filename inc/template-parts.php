@@ -32,6 +32,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 	 *
 	 * @see astra_masthead_get_menu_items
 	 * @see astra_masthead_custom_nav_menu_items
+	 * @param boolean $display_outside_markup Outside / Inside markup.
 	 *
 	 * @since 1.0.0
 	 */
@@ -39,11 +40,11 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 
 		// Get selected custom menu items.
 		$markup = '';
-		
+
 		$sections                   = astra_get_dynamic_header_content( 'header-main-rt-section' );
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
-		
+
 		if ( $disable_primary_navigation || $display_outside_markup ) {
 			$html_element = 'div';
 		}
@@ -62,7 +63,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 			</<?php echo esc_attr( $html_element ); ?>>
 			<?php
 			$markup = ob_get_clean();
-		}			
+		}
 
 		return apply_filters( 'astra_masthead_get_menu_items', $markup );
 	}
@@ -87,7 +88,7 @@ if ( ! function_exists( 'astra_masthead_custom_page_menu_items' ) ) :
 	 */
 	function astra_masthead_custom_page_menu_items( $args ) {
 
-		if ( isset( $args['theme_location'] ) && !astra_get_option( 'header-display-outside-menu' ) ) {
+		if ( isset( $args['theme_location'] ) && ! astra_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args['theme_location'] ) {
 
@@ -123,7 +124,7 @@ if ( ! function_exists( 'astra_masthead_custom_nav_menu_items' ) ) :
 	 */
 	function astra_masthead_custom_nav_menu_items( $items, $args ) {
 
-		if ( isset( $args->theme_location ) && !astra_get_option( 'header-display-outside-menu' ) ) {
+		if ( isset( $args->theme_location ) && ! astra_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args->theme_location ) {
 
@@ -350,6 +351,6 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
 			$markup = astra_masthead_get_menu_items( true );
 
 			echo $markup;
-		} 
+		}
 	}
 }
