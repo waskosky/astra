@@ -19,7 +19,8 @@
     color: #a0a5aa;
 }
 
-#customize-controls .control-section.control-section-ast_section .accordion-section-title:hover {
+#customize-controls .control-section.control-section-ast_section .accordion-section-title:hover,
+#customize-controls .control-section.control-section-ast_section .accordion-section-title:focus {
     color: #0073aa;
     background: #f3f3f5;
     border-left-color: #0073aa;

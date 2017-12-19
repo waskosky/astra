@@ -18,12 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[shop-grids]', array(
-			'default' => array(
+			'default'           => array(
 				'desktop' => 3,
 				'tablet'  => 2,
 				'mobile'  => 1,
 			),
-			'type'    => 'option',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
