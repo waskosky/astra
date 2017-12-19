@@ -171,6 +171,7 @@
   display: inline-block;
   margin-left: 10px;
   float: none;
+  vertical-align: top;
 }
 
 .woocommerce div.product div.images,

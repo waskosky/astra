@@ -258,7 +258,7 @@ p.demo_store a,
   text-align: center;
 }
 
-.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button {
+.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button, .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button.wc-forward {
   display: block;
   margin-left: 0;
   width: 100%;

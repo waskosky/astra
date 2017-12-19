@@ -158,10 +158,13 @@ p.demo_store,
 
 			.buttons {
 				.button{
-					display: block;
-				    margin-right: 0;
-				    width: 100%;
-				    margin-left: 0;
+					&,
+					&.wc-forward {
+						display: block;
+						margin-right: 0;
+						width: 100%;
+						margin-left: 0;
+					}
 				}
 			}
 
