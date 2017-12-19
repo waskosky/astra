@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default' => array(
 				'desktop' => 3,
 				'tablet'  => 2,
-				'mobile'  => 1,
+				'mobile'  => 2,
 			),
 			'type'    => 'option',
 		)
