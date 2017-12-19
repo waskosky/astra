@@ -229,21 +229,47 @@ p.demo_store a,
   transition: all 0.3s ease;
   border: 2px solid #E6E6E6;
   opacity: 0;
+  /*&:before {
+			    content: '';
+			    display: block;
+			    top: -15px;
+			    border: solid transparent;
+			    content: " ";
+			    height: 0;
+			    width: 0;
+			    position: absolute;
+			    pointer-events: none;
+			    border-color: rgba(136, 183, 213, 0);
+			    border-bottom-color: #E6E6E6;
+			    border-width: 7px 8px;
+			    right: 5px;
+	    	}*/
 }
 
-.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart:before {
-  content: '';
-  display: block;
-  top: -15px;
+.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart:after, .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart:before {
+  bottom: 100%;
+  left: auto;
+  right: 8px;
   border: solid transparent;
   content: " ";
   height: 0;
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(136, 183, 213, 0);
+}
+
+.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 5px;
+  margin-left: -5px;
+}
+
+.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart:before {
+  border-color: rgba(230, 230, 230, 0);
   border-bottom-color: #E6E6E6;
-  border-width: 7px 8px;
+  border-width: 8px;
+  margin-left: -5px;
   right: 5px;
 }
 
@@ -365,9 +391,14 @@ p.demo_store a,
   transition: left 0s;
 }
 
-.ast-woocommerce-cart-menu .header-main-layout-3 .ast-site-header-cart .widget_shopping_cart:before {
+.ast-woocommerce-cart-menu .header-main-layout-3 .ast-site-header-cart .widget_shopping_cart:before, .ast-woocommerce-cart-menu .header-main-layout-3 .ast-site-header-cart .widget_shopping_cart:after {
+  left: 15px;
   right: auto;
-  left: 1.5em;
+}
+
+.ast-woocommerce-cart-menu .header-main-layout-3 .ast-site-header-cart .widget_shopping_cart:before {
+  left: 12px;
+  right: auto;
 }
 
 .ast-woocommerce-cart-menu .header-main-layout-3.ast-no-menu-items .ast-site-header-cart {
