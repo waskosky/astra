@@ -141,27 +141,6 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 	}
 endif;
 
-/**
- * Cart Page - Return to Shopping button
- */
-if ( ! function_exists( 'astra_woo_return_to_shopping' ) ) :
-
-	/**
-	 * Add return to shopping button.
-	 *
-	 * @since 1.1.0
-	 */
-	function astra_woo_return_to_shopping() {
-	?>
-		<p class="ast-return-to-shop return-to-shop">
-			<a class="button wc-backward" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-				<?php _e( 'Continue shopping', 'astra' ); ?>
-			</a>
-		</p>
-	<?php
-	}
-endif;
-
 if ( ! function_exists( 'astra_woo_woocommerce_template_loop_product_title' ) ) {
 
 	/**

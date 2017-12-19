@@ -136,6 +136,11 @@
   display: none;
 }
 
+.woocommerce table.shop_table_responsive tr td .shipping-calculator-form,
+.woocommerce-page table.shop_table_responsive tr td .shipping-calculator-form {
+  text-align: left;
+}
+
 .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
 .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
   background-color: rgba(0, 0, 0, 0.025);
@@ -203,7 +208,6 @@
 .woocommerce #content table.cart td.actions .coupon,
 .woocommerce-page table.cart td.actions .coupon,
 .woocommerce-page #content table.cart td.actions .coupon {
-  float: none;
   *zoom: 1;
   padding-bottom: 0.5em;
 }
@@ -251,14 +255,6 @@
 .woocommerce-page #content table.cart td.actions .coupon .input-text + .button,
 .woocommerce-page #content table.cart td.actions .coupon .button.alt {
   float: right;
-}
-
-.woocommerce table.cart td.actions .button,
-.woocommerce #content table.cart td.actions .button,
-.woocommerce-page table.cart td.actions .button,
-.woocommerce-page #content table.cart td.actions .button {
-  display: block;
-  width: 100%;
 }
 
 .woocommerce .cart-collaterals .cart_totals,
