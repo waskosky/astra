@@ -1647,11 +1647,8 @@ p.demo_store a,
   margin: 0 0 1.7em;
 }
 
-.woocommerce #reviews #comments ol.commentlist li .comment-text p.meta {
-  font-size: 0.83em;
-}
-
-.woocommerce #reviews #comments ol.commentlist li .comment-text .meta {
+.woocommerce #reviews #comments ol.commentlist li .comment-text p.meta,
+.woocommerce #reviews #comments ol.commentlist li .comment-text meta {
   order: 1;
   width: 100%;
   font-size: 1em;
