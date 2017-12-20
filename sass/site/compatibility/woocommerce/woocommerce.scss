@@ -1101,8 +1101,9 @@ p.demo_store,
 
 		.woocommerce-tabs,
 		.related.products {
-		    display: inline-block;
+		    display: block;
 		}
+		
 		.related.products {
 			ul.products{
 				margin:0;
