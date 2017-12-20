@@ -454,6 +454,19 @@ p.demo_store a,
   }
 }
 
+.ast-header-break-point .ast-masthead-custom-menu-items.woocommerce-custom-menu-item {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.ast-header-break-point .ast-masthead-custom-menu-items.woocommerce-custom-menu-item .ast-site-header-cart {
+  padding: 0;
+}
+
+.ast-header-break-point .ast-masthead-custom-menu-items.woocommerce-custom-menu-item .ast-site-header-cart a {
+  border: none;
+}
+
 /**
  * Main WooCommerce styles
  */
@@ -515,7 +528,7 @@ p.demo_store a,
   margin-top: -0.5em;
   content: '';
   animation: spin 1s ease-in-out infinite;
-  background: url("../images/icons/loader.svg") center center;
+  background: url("../../../../../assets/images/loader.svg") center center;
   background-size: cover;
   line-height: 1;
   text-align: center;
@@ -534,7 +547,7 @@ p.demo_store a,
   margin-top: -0.5em;
   content: '';
   animation: spin 1s ease-in-out infinite;
-  background: url("../images/icons/loader.svg") center center;
+  background: url("../../../../../assets/images/loader.svg") center center;
   background-size: cover;
   line-height: 1;
   text-align: center;
@@ -789,8 +802,18 @@ p.demo_store a,
   opacity: 1;
 }
 
+.woocommerce div.product div.woocommerce-product-gallery--columns-3 .flex-control-thumbs li {
+  width: calc( 33.33% - 0.7em);
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
 .woocommerce div.product div.woocommerce-product-gallery--columns-3 .flex-control-thumbs li:nth-child(3n+1) {
   clear: left;
+}
+
+.woocommerce div.product div.woocommerce-product-gallery--columns-3 .flex-control-thumbs li:nth-child(3n) {
+  margin-right: 0;
 }
 
 .woocommerce div.product div.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
@@ -807,8 +830,18 @@ p.demo_store a,
   margin-right: 0;
 }
 
+.woocommerce div.product div.woocommerce-product-gallery--columns-5 .flex-control-thumbs li {
+  width: calc( 20% - 0.8em);
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
 .woocommerce div.product div.woocommerce-product-gallery--columns-5 .flex-control-thumbs li:nth-child(5n+1) {
   clear: left;
+}
+
+.woocommerce div.product div.woocommerce-product-gallery--columns-5 .flex-control-thumbs li:nth-child(5n) {
+  margin-right: 0;
 }
 
 .woocommerce div.product div.summary {

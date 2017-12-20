@@ -41,6 +41,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 		// Get selected custom menu items.
 		$markup = '';
 
+		$section                    = astra_get_option( 'header-main-rt-section' );
 		$sections                   = astra_get_dynamic_header_content( 'header-main-rt-section' );
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
@@ -52,7 +53,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 		if ( array_filter( $sections ) ) {
 			ob_start();
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="ast-masthead-custom-menu-items">
+			<<?php echo esc_attr( $html_element ); ?> class="ast-masthead-custom-menu-items <?php echo esc_attr( $section ); ?>-custom-menu-item">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
