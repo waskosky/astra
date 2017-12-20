@@ -671,6 +671,7 @@ p.demo_store,
 		div.woocommerce-product-gallery--columns-3 {
 			.flex-control-thumbs li {
 
+				width: 32%;
 				width: calc( 33.33% - 0.7em );
 	    		margin-right: 1em;
 	    		margin-bottom: 1em;
@@ -688,6 +689,7 @@ p.demo_store,
 		div.woocommerce-product-gallery--columns-4 {
 			.flex-control-thumbs li {
 				
+				width: 24%;
 				width: calc( 25% - 0.75em );
 	    		margin-right: 1em;
 	    		margin-bottom: 1em;
@@ -705,6 +707,7 @@ p.demo_store,
 		div.woocommerce-product-gallery--columns-5 {
 			.flex-control-thumbs li {
 
+				width: 18.5%;
 				width: calc( 20% - 0.8em );
 	    		margin-right: 1em;
 	    		margin-bottom: 1em;
