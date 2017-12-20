@@ -184,9 +184,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			global $product;
 
 			$hover_style = astra_get_option( 'shop-hover-style' );
-			
-			if ( 'swap' === $hover_style  ) {
-				
+
+			if ( 'swap' === $hover_style ) {
+
 				$attachment_ids = $product->get_gallery_image_ids();
 
 				if ( $attachment_ids ) {
@@ -228,8 +228,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'price',
 				'add_cart',
 			);
-			$defaults['shop-hover-style']    	= '';
-			
+			$defaults['shop-hover-style']       = '';
 
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;
@@ -761,7 +760,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce .wishlist_table td.product-add-to-cart a' => array(
 					'display' => esc_attr( 'inherit !important' ),
 				),
-				'.wishlist_table tr td, .wishlist_table tr th.wishlist-delete, .wishlist_table tr th.product-checkbox'                => array(
+				'.wishlist_table tr td, .wishlist_table tr th.wishlist-delete, .wishlist_table tr th.product-checkbox' => array(
 					'text-align' => esc_attr( 'left' ),
 				),
 				'.woocommerce #content table.wishlist_table.cart a.remove' => array(
@@ -792,9 +791,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 			/* Parse CSS from array()*/
-  			$yith_wcwl_main_style .= astra_parse_css( $yith_wcwl_main_style_small, '', '768' );
+			$yith_wcwl_main_style .= astra_parse_css( $yith_wcwl_main_style_small, '', '768' );
 
-			wp_add_inline_style( 'yith-wcwl-main', $yith_wcwl_main_style );	
+			wp_add_inline_style( 'yith-wcwl-main', $yith_wcwl_main_style );
 		}
 
 		/**
