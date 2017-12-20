@@ -58,7 +58,7 @@ if ( ! function_exists( 'astra_single_post_class' ) ) {
 
 			// Remove hentry from page.
 			if ( 'page' == get_post_type() ) {
-		    	$classes = array_diff( $classes, array( 'hentry' ) );
+				$classes = array_diff( $classes, array( 'hentry' ) );
 			}
 		}
 
