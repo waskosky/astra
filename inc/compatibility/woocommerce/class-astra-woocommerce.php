@@ -410,6 +410,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				if ( is_shop() ) {
 					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
 					$shop_sidebar = get_post_meta( $shop_page_id, 'site-sidebar-layout', true );
+				} elseif ( is_product_taxonomy() ) {
+					$shop_sidebar = 'default';
 				} else {
 					$shop_sidebar = astra_get_option_meta( 'site-sidebar-layout', '', true );
 				}
@@ -442,11 +444,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				if ( is_shop() ) {
 					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
 					$shop_layout  = get_post_meta( $shop_page_id, 'site-content-layout', true );
+				} elseif ( is_product_taxonomy() ) {
+					$shop_layout = 'default';
 				} else {
 					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
 				}
 
-				if ( 'default' !== $shop_layout && ! empty( $shop_sidebar ) ) {
+				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
 					$layout = $shop_layout;
 				}
 			}
