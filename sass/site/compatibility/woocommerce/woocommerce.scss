@@ -402,6 +402,19 @@ p.demo_store,
 			}
     	}
 	}
+
+	.ast-masthead-custom-menu-items.woocommerce-custom-menu-item {
+		margin-bottom: 0;
+		margin-top: 0;
+
+		.ast-site-header-cart {
+			padding: 0;
+
+			a {
+				border: none;
+			}
+		}
+	}
 }
 
 /**
