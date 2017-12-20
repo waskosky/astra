@@ -655,13 +655,13 @@ p.demo_store,
 			}
 		}
 
-		.woocommerce-product-gallery--columns-3 {
+		div.woocommerce-product-gallery--columns-3 {
 			.flex-control-thumbs li:nth-child(3n+1) {
 				clear: left;
 			}
 		}
 
-		.woocommerce-product-gallery--columns-4 {
+		div.woocommerce-product-gallery--columns-4 {
 			.flex-control-thumbs li {
 				
 				width: calc( 25% - 0.75em );
@@ -678,7 +678,7 @@ p.demo_store,
 			}
 		}
 
-		.woocommerce-product-gallery--columns-5 {
+		div.woocommerce-product-gallery--columns-5 {
 			.flex-control-thumbs li:nth-child(5n+1) {
 				clear: left;
 			}

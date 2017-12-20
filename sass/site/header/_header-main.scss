@@ -156,6 +156,26 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
+.ast-primary-menu-disabled{
+	
+	.ast-masthead-custom-menu-items {
+		flex: 1;
+		text-align: right;
+	}
+
+	&.header-main-layout-2 {
+		.ast-masthead-custom-menu-items {
+			text-align: center;
+		}
+	}
+	
+	&.header-main-layout-3 {
+		.ast-masthead-custom-menu-items {
+			text-align: left;
+		}
+	}
+}
+
 .ast-masthead-custom-menu-items{
 	padding: 0 1em;
 	.ast-search-icon .astra-search-icon {
