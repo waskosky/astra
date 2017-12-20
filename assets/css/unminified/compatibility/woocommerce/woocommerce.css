@@ -640,7 +640,7 @@ p.demo_store a,
 .woocommerce div.product span.price,
 .woocommerce div.product p.price {
   color: #77a464;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: 700;
   margin: 0 0 0.2em;
 }
@@ -648,7 +648,6 @@ p.demo_store a,
 .woocommerce div.product span.price ins,
 .woocommerce div.product p.price ins {
   background: inherit;
-  font-size: 1.5em;
   font-weight: 700;
   display: inline-block;
 }
@@ -656,7 +655,6 @@ p.demo_store a,
 .woocommerce div.product span.price del,
 .woocommerce div.product p.price del {
   opacity: 0.5;
-  font-size: 1.5em;
   font-weight: normal;
   display: inline-block;
 }
@@ -803,6 +801,7 @@ p.demo_store a,
 }
 
 .woocommerce div.product div.woocommerce-product-gallery--columns-3 .flex-control-thumbs li {
+  width: 32%;
   width: calc( 33.33% - 0.7em);
   margin-right: 1em;
   margin-bottom: 1em;
@@ -817,6 +816,7 @@ p.demo_store a,
 }
 
 .woocommerce div.product div.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
+  width: 24%;
   width: calc( 25% - 0.75em);
   margin-right: 1em;
   margin-bottom: 1em;
@@ -831,6 +831,7 @@ p.demo_store a,
 }
 
 .woocommerce div.product div.woocommerce-product-gallery--columns-5 .flex-control-thumbs li {
+  width: 18.5%;
   width: calc( 20% - 0.8em);
   margin-right: 1em;
   margin-bottom: 1em;
