@@ -438,10 +438,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 		/**
 		 * Update options of older version than 1.1.0-beta.3.
-		 * 
-		 * Container Style 
-		 * Sidebar 
-		 * Grid 
+		 *
+		 * Container Style
+		 * Sidebar
+		 * Grid
 		 *
 		 * @since 1.1.0-beta.3
 		 */
@@ -450,15 +450,15 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			$options = array(
-				'woocommerce-content-layout'   => 'default',
-				'woocommerce-sidebar-layout'   => 'default',
+				'woocommerce-content-layout' => 'default',
+				'woocommerce-sidebar-layout' => 'default',
 				/* Shop */
-				'shop-grids'        			=> array(
-													'desktop' => 3,
-													'tablet'  => 2,
-													'mobile'  => 1,
-												),
-				'shop-no-of-products' 			=> '9'
+				'shop-grids'                 => array(
+					'desktop' => 3,
+					'tablet'  => 2,
+					'mobile'  => 1,
+				),
+				'shop-no-of-products'        => '9',
 			);
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
