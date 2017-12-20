@@ -530,10 +530,6 @@
 
 		.form-row-first {
 			float: left;
-
-			/*rtl:raw:
-			float: right;
-			*/
 		}
 
 		.form-row-last {
@@ -607,22 +603,6 @@
 			.form-row{
 				padding-left: 0;
 				padding-right: 0;
-			}
-		}
-	}
-}
-
-/**
- * RTL styles.
- */
-.rtl {
-	.woocommerce, .woocommerce-page {
-		.col2-set {
-			.col-1 {
-				float: right;
-			}
-			.col-2 {
-				float: left;
 			}
 		}
 	}

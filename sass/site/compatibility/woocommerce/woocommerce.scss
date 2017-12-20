@@ -106,17 +106,6 @@ p.demo_store,
 				left: auto;
 				top: auto;
 			}
-
-			ul {
-				.remove_from_cart_button {
-					padding: 0;
-				}
-				
-				li a {
-					padding: 0;
-    				border: 0;
-				}
-			}
 		}
 
     	/* Cart container in header. */
@@ -208,17 +197,6 @@ p.demo_store,
 			.cart_list{
 				a{
 					font-weight: normal;
-					&.remove {
-						display: block;
-						font-size: 18px;
-						font-weight:normal;
-						width: 24px;
-						height: 24px;
-						line-height: 21px;
-						color: #ccc !important;
-						text-align: center;
-						border: 1px solid #ccc;
-					}
 				}
 			}
         }
@@ -436,21 +414,15 @@ p.demo_store,
 
 	a.remove {
 		display: block;
-		font-size: 1.5em;
-		height: 1em;
-		width: 1em;
+		font-size: 18px;
+		width: 24px;
+		height: 24px;
 		text-align: center;
-		line-height: 1;
+		line-height: 21px;
 		border-radius: 100%;
-		color: red !important; // Required for default theme compatibility
+		color: #ccc;
 		text-decoration: none;
-		font-weight: 700;
-		border: 0;
-
-		&:hover {
-			color: #fff !important; // Required for default theme compatibility
-			background: red;
-		}
+		border: 1px solid #ccc;
 	}
 
 	small.note {
@@ -820,21 +792,6 @@ p.demo_store,
 						border: none;
 					    box-shadow: none;
 					}
-
-					/* Need to check later if any issue found
-					&::before {
-						left: -6px;
-						border-bottom-right-radius: 4px;
-						border-width: 0 1px 1px 0;
-						box-shadow: 2px 2px 0 $secondary;
-					}
-
-					&::after {
-						right: -6px;
-						border-bottom-left-radius: 4px;
-						border-width: 0 0 1px 1px;
-						box-shadow: -2px 2px 0 $secondary;
-					}*/
 				}
 
 				&::before {
@@ -1445,8 +1402,6 @@ p.demo_store,
 						top: 0;
 						left: 0;
 						padding: 3px;
-						/*width: 32px;
-						height: auto;*/
 						height: 3.6em;
 						width: 3.6em;
 						border: none;
@@ -1900,9 +1855,6 @@ p.demo_store,
 	&.widget_shopping_cart,
 	.widget_shopping_cart {
 		.total {
-			border-top: 3px double $secondary;
-			padding: 4px 0 0;
-
 			strong {
 				min-width: 40px;
 				display: inline-block;
@@ -2762,12 +2714,6 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-/**
- * Right to left styles
- */
-.rtl.woocommerce div.product div.images .flex-control-thumbs li {
-	float: right;
-}
 
 .woocommerce-message {
 	border-top-color: #8fae1b;
@@ -3136,34 +3082,34 @@ button.pswp__button--zoom:hover {
 				background-size: 32px 20px;
 
 				&.visa {
-					background-image: url('../images/icons/credit-cards/visa.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/visa.svg');
 				}
 
 				&.mastercard {
-					background-image: url('../images/icons/credit-cards/mastercard.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/mastercard.svg');
 				}
 
 				&.laser {
-					background-image: url('../images/icons/credit-cards/laser.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/laser.svg');
 				}
 
 				&.dinersclub {
-					background-image: url('../images/icons/credit-cards/diners.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/diners.svg');
 				}
 
 				&.maestro {
-					background-image: url('../images/icons/credit-cards/maestro.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/maestro.svg');
 				}
 
 				&.jcb {
-					background-image: url('../images/icons/credit-cards/jcb.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/jcb.svg');
 				}
 
 				&.amex {
-					background-image: url('../images/icons/credit-cards/amex.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/amex.svg');
 				}
 				&.discover {
-					background-image: url('../images/icons/credit-cards/discover.svg');
+					background-image: url('../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/discover.svg');
 				}
 			}
 
@@ -3220,14 +3166,6 @@ button.pswp__button--zoom:hover {
 		a.remove {
 			display: inline-block;
 			vertical-align: middle;
-			font-size: 18px;
-			font-weight:normal;
-			width: 24px;
-			height: 24px;
-			line-height: 21px;
-			color: #ccc !important;
-			text-align: center;
-			border: 1px solid #ccc;
 		}
 	}
 }
@@ -3770,13 +3708,6 @@ button.pswp__button--zoom:hover {
 		left: auto;
 		right: 0;
 		top: .5em;
-		color: #ccc !important;
-		font-size: 18px;
-		font-weight: normal;
-		width: 24px;
-		height: 24px;
-		line-height: 21px;
-		border: 1px solid #ccc;
 	}
 }
 
