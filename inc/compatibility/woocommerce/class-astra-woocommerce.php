@@ -519,28 +519,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( ! astra_get_option( 'single-product-breadcrumb-disable' ) ) {
 				add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
 			}
-
-			add_filter( 'woocommerce_get_breadcrumb', array( $this, 'remove_product_title' ), 10, 2 );
 		}
-
-		/**
-		 * Remove single product title from breadcrumb.
-		 *
-		 * @param  array  $crumbs Related products array.
-		 * @param  object $obj Related products array.
-		 *
-		 * @return array
-		 */
-		function remove_product_title( $crumbs, $obj ) {
-
-			if ( is_product() ) {
-
-				$removed = array_pop( $crumbs );
-			}
-
-			return $crumbs;
-		}
-
 
 		/**
 		 * Remove Woo-Commerce Default actions
