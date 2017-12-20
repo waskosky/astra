@@ -732,6 +732,42 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$css_output = astra_parse_css( $css_output );
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
+
+			/**
+			 * YITH WooCommerce Wishlist Style
+			 */
+			$yith_wcwl_main_style = '
+				.yes-js.js_active .ast-plain-container.ast-single-post #primary{
+					margin: 4em 0;
+				}
+				.js_active .ast-plain-container.ast-single-post .entry-header{
+    				margin-top: 0;
+				}
+				.woocommerce table.wishlist_table{
+					font-size: 100%;
+				}
+				.woocommerce table.wishlist_table tbody td.product-name{
+					font-weight: 700;
+				}
+				.woocommerce table.wishlist_table thead th{
+					border-top: 0;
+				}
+				.woocommerce table.wishlist_table tr td.product-remove {
+				    padding: .7em 1em;
+				}
+				.woocommerce table.wishlist_table tbody td{
+					border-right: 0;
+				}
+				.woocommerce .wishlist_table td.product-add-to-cart a{
+					display: inherit !important;
+				}
+				.wishlist_table tr td,
+				.wishlist_table tr th.wishlist-delete,
+				.wishlist_table tr th.product-checkbox{
+					text-align:left;
+				}
+				';
+			wp_add_inline_style( 'yith-wcwl-main', $yith_wcwl_main_style );	
 		}
 
 		/**
