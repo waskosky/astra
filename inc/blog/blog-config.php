@@ -89,14 +89,22 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 	 */
 	function astra_post_date() {
 
-		$output      = '';
-		$format      = apply_filters( 'astra_post_date_format', '' );
-		$time_string = esc_html( get_the_date( $format ) );
-		$posted_on   = sprintf(
+		$output        = '';
+		$format        = apply_filters( 'astra_post_date_format', '' );
+		$time_string   = esc_html( get_the_date( $format ) );
+		$modified_date = esc_html( get_the_modified_date( $format ) );
+		$posted_on     = sprintf(
 			esc_html( '%s' ),
 			$time_string
 		);
-		$output     .= '<span class="posted-on" itemprop="datePublished"> ' . $posted_on . '</span>';
+		$modified_on     = sprintf(
+			esc_html( '%s' ),
+			$modified_date
+		);
+		$output .= '<span class="posted-on">';
+		$output .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
+		$output .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
+		$output .= '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
 }// End if().
@@ -123,7 +131,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" itemprop="url"> <span class="author-name" itemprop="name">' . esc_html( get_the_author() ) . '</span> </a>'
 		);
 
-		$output .= '<span class="posted-by" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
+		$output .= '<span class="posted-by vcard author" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
 
 		return apply_filters( 'astra_post_author', $output, $output_filter );
 	}
