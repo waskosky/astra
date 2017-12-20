@@ -86,10 +86,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'choices'  => apply_filters(
 				'astra_woo_shop_hover_style',
 				array(
-					''    	=> __( 'None', 'astra' ),
-					'swap'  => __( 'Swap Images', 'astra' ),
+					''     => __( 'None', 'astra' ),
+					'swap' => __( 'Swap Images', 'astra' ),
 				)
-			)
+			),
 		)
 	);
 

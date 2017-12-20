@@ -184,9 +184,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			global $product;
 
 			$hover_style = astra_get_option( 'shop-hover-style' );
-			
-			if ( 'swap' === $hover_style  ) {
-				
+
+			if ( 'swap' === $hover_style ) {
+
 				$attachment_ids = $product->get_gallery_image_ids();
 
 				if ( $attachment_ids ) {
@@ -228,8 +228,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'price',
 				'add_cart',
 			);
-			$defaults['shop-hover-style']    	= '';
-			
+			$defaults['shop-hover-style']       = '';
 
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;
