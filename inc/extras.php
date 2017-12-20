@@ -90,10 +90,10 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
 		$outside_menu = astra_get_option( 'header-display-outside-menu' );
-				
+
 		if ( $outside_menu ) {
 			$classes[] = 'ast-header-custom-item-outside';
-		}else{
+		} else {
 			$classes[] = 'ast-header-custom-item-inside';
 		}
 
