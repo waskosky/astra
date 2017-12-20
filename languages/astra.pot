@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.1.0-beta.2\n"
+"Project-Id-Version: Astra 1.1.0-beta.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-12-15 15:26:23+00:00\n"
+"POT-Creation-Date: 2017-12-20 15:22:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/blog/blog-config.php:153
+#: inc/blog/blog-config.php:161
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:234 inc/blog/blog-config.php:266
+#: inc/blog/blog-config.php:242 inc/blog/blog-config.php:274
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
@@ -131,25 +131,25 @@ msgstr ""
 msgid "Loop End"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:266
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:352
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:268
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:354
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:277
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:363
 msgid "Product Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:279
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:365
 msgid "This sidebar will be used on Single Product page."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:722
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:870
 msgid "View your shopping cart"
 msgstr ""
 
@@ -176,71 +176,69 @@ msgstr ""
 msgid "Single Product"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php:29
-msgid "Display Cart in Menu"
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:65
+msgid "Cart"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php:28
+msgid "Enable Upsells"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php:28
 msgid "Disable Breadcrumb"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:28
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:36
 msgid "Shop Columns"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:32
-msgid "1 Column"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:33
-msgid "2 Columns"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:34
-msgid "3 Columns"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:35
-msgid "4 Columns"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:36
-msgid "5 Columns"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:37
-msgid "6 Columns"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:54
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:58
 msgid "Products Per Page"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:81
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:85
+msgid "Hover Style"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:89
+#: inc/customizer/sections/layout/footer.php:86
+#: inc/customizer/sections/layout/footer.php:141
+#: inc/customizer/sections/layout/header.php:17
+#: inc/customizer/sections/layout/header.php:115
+#: inc/customizer/sections/typography/body.php:97
+#: inc/customizer/sections/typography/body.php:266
+msgid "None"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:90
+msgid "Swap Images"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:112
 msgid "Shop Product Structure"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:83
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:114
 msgid "Title"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:84
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:115
 msgid "Price"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:85
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:116
 msgid "Ratings"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:86
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:117
 msgid "Short Description"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:87
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:118
 msgid "Add To Cart"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:88
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:119
 #: inc/customizer/sections/layout/blog-single.php:60
 #: inc/customizer/sections/layout/blog.php:83
 msgid "Category"
@@ -333,13 +331,8 @@ msgstr ""
 msgid "Out of stock"
 msgstr ""
 
-#: inc/compatibility/woocommerce/woocommerce-common-functions.php:134
-#. translators: 1: in stock string
-msgid "<span class=\"ast-stock-avail\">Availability:</span> %s"
-msgstr ""
-
-#: inc/compatibility/woocommerce/woocommerce-common-functions.php:160
-msgid "Continue shopping"
+#: inc/compatibility/woocommerce/woocommerce-common-functions.php:132
+msgid "Availability:"
 msgstr ""
 
 #. Theme Name of the plugin/theme
@@ -359,7 +352,7 @@ msgstr ""
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:140
+#: inc/core/class-astra-theme-options.php:141
 msgid "Contact Us"
 msgstr ""
 
@@ -526,7 +519,7 @@ msgstr ""
 msgid "Need More Options? Get Astra Pro!"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-sanitizes.php:163
+#: inc/customizer/class-astra-customizer-sanitizes.php:199
 msgid "Enter valid email address!"
 msgstr ""
 
@@ -844,15 +837,6 @@ msgstr ""
 msgid "Section 1"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:86
-#: inc/customizer/sections/layout/footer.php:141
-#: inc/customizer/sections/layout/header.php:17
-#: inc/customizer/sections/layout/header.php:113
-#: inc/customizer/sections/typography/body.php:97
-#: inc/customizer/sections/typography/body.php:266
-msgid "None"
-msgstr ""
-
 #: inc/customizer/sections/layout/footer.php:88
 #: inc/customizer/sections/layout/footer.php:143
 msgid "Custom Text"
@@ -861,7 +845,7 @@ msgstr ""
 #: inc/customizer/sections/layout/footer.php:89
 #: inc/customizer/sections/layout/footer.php:144
 #: inc/customizer/sections/layout/header.php:20
-#: inc/customizer/sections/layout/header.php:116
+#: inc/customizer/sections/layout/header.php:118
 msgid "Widget"
 msgstr ""
 
@@ -890,22 +874,22 @@ msgid "Footer Bar Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:256
-#: inc/customizer/sections/layout/header.php:214
+#: inc/customizer/sections/layout/header.php:237
 msgid "Full Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:257
-#: inc/customizer/sections/layout/header.php:215
+#: inc/customizer/sections/layout/header.php:238
 msgid "Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:18
-#: inc/customizer/sections/layout/header.php:114 inc/extras.php:248
+#: inc/customizer/sections/layout/header.php:116 inc/extras.php:260
 msgid "Search"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:19
-#: inc/customizer/sections/layout/header.php:115
+#: inc/customizer/sections/layout/header.php:117
 msgid "Text / HTML"
 msgstr ""
 
@@ -930,35 +914,39 @@ msgstr ""
 msgid "Custom Menu Item"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:137
+#: inc/customizer/sections/layout/header.php:138
+msgid "Display Outside Menu"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:160
 msgid "Custom Menu Text / HTML"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:167
+#: inc/customizer/sections/layout/header.php:190
 msgid "Bottom Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:192
+#: inc/customizer/sections/layout/header.php:215
 msgid "Bottom Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:212
+#: inc/customizer/sections/layout/header.php:235
 msgid "Header Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:250
+#: inc/customizer/sections/layout/header.php:273
 msgid "Menu Label on Small Devices"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:270
+#: inc/customizer/sections/layout/header.php:293
 msgid "Mobile Header Alignment"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:272
+#: inc/customizer/sections/layout/header.php:295
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:273
+#: inc/customizer/sections/layout/header.php:296
 msgid "Stack"
 msgstr ""
 
@@ -1091,27 +1079,27 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:277
+#: inc/extras.php:289
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:370
+#: inc/extras.php:382
 msgid "Y"
 msgstr ""
 
-#: inc/extras.php:417
+#: inc/extras.php:429
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:565
+#: inc/extras.php:580
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:968
+#: inc/extras.php:988
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1051
+#: inc/extras.php:1071
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
@@ -1152,7 +1140,7 @@ msgstr ""
 msgid "Disable Footer Bar"
 msgstr ""
 
-#: inc/template-parts.php:163
+#: inc/template-parts.php:168
 msgid "Main Menu"
 msgstr ""
 
@@ -1237,7 +1225,7 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:108
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:172
 #. translators: 1: number of products
 msgctxt "product categories"
 msgid "<mark class=\"count\">%1$s Product</mark>"
