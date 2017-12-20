@@ -545,7 +545,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$display_outside = astra_get_option( 'header-display-outside-menu' );
 
-			if ( 'none' != $custom_header_section && !$display_outside ) {
+			if ( 'none' != $custom_header_section && ! $display_outside ) {
 				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
 				echo astra_masthead_get_menu_items();
 				echo '</div>';
@@ -714,7 +714,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		if ( $primary_menu_disable ) {
 
 			$classes[] = 'ast-primary-menu-disabled';
-			
+
 			if ( 'none' == $primary_menu_custom_item ) {
 				$classes[] = 'ast-no-menu-items';
 			}
