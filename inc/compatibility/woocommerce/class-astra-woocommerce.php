@@ -712,7 +712,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color' => esc_attr( $theme_color ),
 				),
 
-				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove:hover, .woocommerce-cart-form__cart-item td.product-remove a.remove:hover,.woocommerce .widget_shopping_cart .cart_list li a.remove:hover, .woocommerce.widget_shopping_cart .cart_list li a.remove:hover, .woocommerce #content table.wishlist_table.cart a.remove:hover:hover' => array(
+				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove:hover, .woocommerce-cart-form__cart-item td.product-remove a.remove:hover,.woocommerce .widget_shopping_cart .cart_list li a.remove:hover, .woocommerce.widget_shopping_cart .cart_list li a.remove:hover' => array(
 					'color'            => esc_attr( $theme_color . '!important' ),
 					'border-color'     => esc_attr( $theme_color ),
 					'background-color' => esc_attr( '#ffffff' ),
@@ -736,37 +736,64 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/**
 			 * YITH WooCommerce Wishlist Style
 			 */
-			$yith_wcwl_main_style = '
-				.yes-js.js_active .ast-plain-container.ast-single-post #primary{
-					margin: 4em 0;
-				}
-				.js_active .ast-plain-container.ast-single-post .entry-header{
-    				margin-top: 0;
-				}
-				.woocommerce table.wishlist_table{
-					font-size: 100%;
-				}
-				.woocommerce table.wishlist_table tbody td.product-name{
-					font-weight: 700;
-				}
-				.woocommerce table.wishlist_table thead th{
-					border-top: 0;
-				}
-				.woocommerce table.wishlist_table tr td.product-remove {
-				    padding: .7em 1em;
-				}
-				.woocommerce table.wishlist_table tbody td{
-					border-right: 0;
-				}
-				.woocommerce .wishlist_table td.product-add-to-cart a{
-					display: inherit !important;
-				}
-				.wishlist_table tr td,
-				.wishlist_table tr th.wishlist-delete,
-				.wishlist_table tr th.product-checkbox{
-					text-align:left;
-				}
-				';
+			$yith_wcwl_main_style = array(
+				'.yes-js.js_active .ast-plain-container.ast-single-post #primary' => array(
+					'margin' => esc_attr( '4em 0' ),
+				),
+				'.js_active .ast-plain-container.ast-single-post .entry-header' => array(
+					'margin-top' => esc_attr( '0' ),
+				),
+				'.woocommerce table.wishlist_table' => array(
+					'font-size' => esc_attr( '100%' ),
+				),
+				'.woocommerce table.wishlist_table tbody td.product-name' => array(
+					'font-weight' => esc_attr( '700' ),
+				),
+				'.woocommerce table.wishlist_table thead th' => array(
+					'border-top' => esc_attr( '0' ),
+				),
+				'.woocommerce table.wishlist_table tr td.product-remove' => array(
+					'padding' => esc_attr( '.7em 1em' ),
+				),
+				'.woocommerce table.wishlist_table tbody td' => array(
+					'border-right' => esc_attr( '0' ),
+				),
+				'.woocommerce .wishlist_table td.product-add-to-cart a' => array(
+					'display' => esc_attr( 'inherit !important' ),
+				),
+				'.wishlist_table tr td, .wishlist_table tr th.wishlist-delete, .wishlist_table tr th.product-checkbox'                => array(
+					'text-align' => esc_attr( 'left' ),
+				),
+				'.woocommerce #content table.wishlist_table.cart a.remove' => array(
+					'display'        => esc_attr( 'inline-block' ),
+					'vertical-align' => esc_attr( 'middle' ),
+					'font-size'      => esc_attr( '18px' ),
+					'font-weight'    => esc_attr( 'normal' ),
+					'width'          => esc_attr( '24px' ),
+					'height'         => esc_attr( '24px' ),
+					'line-height'    => esc_attr( '21px' ),
+					'color'          => esc_attr( '#ccc !important' ),
+					'text-align'     => esc_attr( 'center' ),
+					'border'         => esc_attr( '1px solid #ccc' ),
+				),
+				'.woocommerce #content table.wishlist_table.cart a.remove:hover' => array(
+					'color'            => esc_attr( $theme_color . '!important' ),
+					'border-color'     => esc_attr( $theme_color ),
+					'background-color' => esc_attr( '#ffffff' ),
+				),
+			);
+			/* Parse CSS from array() */
+			$yith_wcwl_main_style = astra_parse_css( $yith_wcwl_main_style );
+
+			$yith_wcwl_main_style_small = array(
+				'.yes-js.js_active .ast-plain-container.ast-single-post #primary' => array(
+					'padding' => esc_attr( '1.5em 0' ),
+					'margin'  => esc_attr( '0' ),
+				),
+			);
+			/* Parse CSS from array()*/
+  			$yith_wcwl_main_style .= astra_parse_css( $yith_wcwl_main_style_small, '', '768' );
+
 			wp_add_inline_style( 'yith-wcwl-main', $yith_wcwl_main_style );	
 		}
 
