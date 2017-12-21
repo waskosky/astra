@@ -290,6 +290,12 @@ p.demo_store a,
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a {
   font-weight: normal;
+  padding: 0;
+  border-width: 0;
+}
+
+.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove {
+  border-width: 1px;
 }
 
 .ast-woocommerce-cart-menu .ast-cart-menu-wrap {
@@ -328,6 +334,10 @@ p.demo_store a,
   border-top-left-radius: 10em;
   border-top-right-radius: 10em;
   border-bottom: 0;
+}
+
+.ast-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove {
+  color: #ccc;
 }
 
 .ast-woocommerce-cart-menu .header-main-layout-1.ast-no-menu-items .ast-site-header-cart {
@@ -2095,20 +2105,6 @@ p.demo_store a,
 .woocommerce .widget_shopping_cart .total strong {
   min-width: 40px;
   display: inline-block;
-}
-
-.woocommerce.widget_shopping_cart .cart_list li,
-.woocommerce .widget_shopping_cart .cart_list li {
-  padding-left: 2em;
-  position: relative;
-  padding-top: 0;
-}
-
-.woocommerce.widget_shopping_cart .cart_list li a.remove,
-.woocommerce .widget_shopping_cart .cart_list li a.remove {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .woocommerce.widget_shopping_cart .buttons,
@@ -4393,6 +4389,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce .widget_shopping_cart .cart_list li a.remove,
 .woocommerce.widget_shopping_cart .cart_list li a.remove {
+  position: absolute;
   left: auto;
   right: 0;
   top: .5em;

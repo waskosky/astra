@@ -1874,18 +1874,6 @@ p.demo_store,
 			}
 		}
 
-		.cart_list li {
-			padding-left: 2em;
-			position: relative;
-			padding-top: 0;
-
-			a.remove {
-				position: absolute;
-				top: 0;
-				left: 0;
-			}
-		}
-
 		.buttons {
 			@include clearfix();
 			a {
@@ -3718,6 +3706,7 @@ button.pswp__button--zoom:hover {
 
 	padding: .5em 1.8em .5em 5em;
 	a.remove {
+		position: absolute;
 		left: auto;
 		right: 0;
 		top: .5em;

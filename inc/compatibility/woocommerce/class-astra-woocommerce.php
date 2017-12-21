@@ -694,7 +694,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color' => esc_attr( $theme_color ),
 				),
 
-				'.woocommerce a.remove:hover' => array(
+				'.woocommerce a.remove:hover, .ast-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover' => array(
 					'color'            => esc_attr( $theme_color ),
 					'border-color'     => esc_attr( $theme_color ),
 					'background-color' => esc_attr( '#ffffff' ),
