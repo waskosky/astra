@@ -18,8 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[enable-cart-upsells]', array(
-			'default' => astra_get_option( 'enable-cart-upsells' ),
-			'type'    => 'option',
+			'default'           => astra_get_option( 'enable-cart-upsells' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(

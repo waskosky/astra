@@ -48,8 +48,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[shop-no-of-products]', array(
-			'default' => astra_get_option( 'shop-no-of-products' ),
-			'type'    => 'option',
+			'default'           => astra_get_option( 'shop-no-of-products' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
