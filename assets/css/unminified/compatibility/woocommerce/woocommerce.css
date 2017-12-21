@@ -3514,7 +3514,6 @@ button.pswp__button--zoom:hover {
 .woocommerce-cart #payment,
 .woocommerce-checkout #payment,
 #add_payment_method #payment {
-  background: #ebe9eb;
   border-radius: 5px;
 }
 
@@ -3964,7 +3963,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce.woocommerce-checkout table.shop_table thead,
 .woocommerce-page.woocommerce-checkout table.shop_table thead {
-  background-color: #ffffff;
+  background: none;
 }
 
 .woocommerce.woocommerce-checkout table.shop_table th,
@@ -3995,7 +3994,6 @@ button.pswp__button--zoom:hover {
   font-size: 1.2rem;
   padding: 20px 0 14px;
   margin: 0 0 20px;
-  background-color: #ffffff;
   border-bottom: 1px solid #ebebeb;
 }
 
@@ -4005,7 +4003,6 @@ button.pswp__button--zoom:hover {
   border-style: solid;
   font-size: 1.2rem;
   margin: 0;
-  background-color: #fff;
   padding: 1.5em 1.5em 1em;
   border-color: #ebebeb;
 }
@@ -4046,6 +4043,7 @@ button.pswp__button--zoom:hover {
   border-top: 0;
   border-right: 0;
   padding-left: 0;
+  border-color: #ebebeb;
 }
 
 @media (min-width: 769px) {
@@ -4067,7 +4065,6 @@ button.pswp__button--zoom:hover {
 
 .woocommerce.woocommerce-checkout #payment,
 .woocommerce-page.woocommerce-checkout #payment {
-  background: #ffffff;
   border-radius: 0;
 }
 

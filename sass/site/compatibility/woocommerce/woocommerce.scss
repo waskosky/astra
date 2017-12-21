@@ -2981,7 +2981,6 @@ button.pswp__button--zoom:hover {
 	}
 
 	#payment {
-		background: $secondary;
 		border-radius: 5px;
 
 		ul.payment_methods {
@@ -3278,7 +3277,7 @@ button.pswp__button--zoom:hover {
 
 		table.shop_table{
 			thead{
-				background-color: #ffffff;
+				background: none;
 			}
 			th{
 				padding: 14px 12px;
@@ -3300,7 +3299,6 @@ button.pswp__button--zoom:hover {
 				font-size: 1.2rem;
 				padding: 20px 0 14px;
 				margin: 0 0 20px;
-				background-color: #ffffff;
 				border-bottom: 1px solid #ebebeb;
 			}
 		}
@@ -3312,7 +3310,6 @@ button.pswp__button--zoom:hover {
 				border-style: solid;
 				font-size: 1.2rem;
 				margin: 0;
-			    background-color: #fff;
 			    padding: 1.5em 1.5em 1em;
 			    border-color: #ebebeb;
 			}
@@ -3342,6 +3339,7 @@ button.pswp__button--zoom:hover {
 				    border-top:0;
 				    border-right:0;
 				    padding-left:0;
+				    border-color: #ebebeb;
 				}
 			}
 			@media ( min-width: $col-md ) {
@@ -3361,7 +3359,6 @@ button.pswp__button--zoom:hover {
 		}
 
 		#payment{
-		    background: #ffffff;
 		    border-radius: 0;
 			ul{
 				&.payment_methods{
