@@ -1,3 +1,9 @@
+v1.1.0
+# New: Added Woocommerce complete support.
+# New: Added option for Custom Menu Item to Display Outside Menu in primary header.
+# New: Organized customizer layout panels.
+# Fixed: Missing Structured Data microformat.
+
 v1.0.32
 # Fixed: Logo being croped in customizer preview.
 

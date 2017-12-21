@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.32\n"
+"Project-Id-Version: Astra 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-12-01 14:21:32+00:00\n"
+"POT-Creation-Date: 2017-12-21 14:09:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,24 +37,24 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/blog/blog-config.php:153
+#: inc/blog/blog-config.php:161
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:234 inc/blog/blog-config.php:266
+#: inc/blog/blog-config.php:242 inc/blog/blog-config.php:274
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: inc/blog/single-blog.php:125
+#: inc/blog/single-blog.php:130
 msgid "Pingback:"
 msgstr ""
 
-#: inc/blog/single-blog.php:125
+#: inc/blog/single-blog.php:130
 msgid "(Edit)"
 msgstr ""
 
-#: inc/blog/single-blog.php:156
+#: inc/blog/single-blog.php:161
 #. translators: 1: date, 2: time
 msgid "%1$s at %2$s"
 msgstr ""
@@ -131,6 +131,210 @@ msgstr ""
 msgid "Loop End"
 msgstr ""
 
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:352
+msgid "WooCommerce Sidebar"
+msgstr ""
+
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:354
+msgid ""
+"This sidebar will be used on Product archive, Cart, Checkout and My Account "
+"pages."
+msgstr ""
+
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:363
+msgid "Product Sidebar"
+msgstr ""
+
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:365
+msgid "This sidebar will be used on Single Product page."
+msgstr ""
+
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:870
+msgid "View your shopping cart"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:19
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:44
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:44
+#: inc/customizer/register-panels-and-sections.php:73
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:30
+#: inc/customizer/register-panels-and-sections.php:84
+msgid "General"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:41
+#: inc/customizer/register-panels-and-sections.php:95
+msgid "Shop"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:53
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:68
+#: inc/customizer/register-panels-and-sections.php:107
+msgid "Single Product"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:65
+msgid "Cart"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php:28
+msgid "Enable Upsells"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php:28
+msgid "Disable Breadcrumb"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:36
+msgid "Shop Columns"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:58
+msgid "Products Per Page"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:85
+msgid "Hover Style"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:89
+#: inc/customizer/sections/layout/footer.php:86
+#: inc/customizer/sections/layout/footer.php:141
+#: inc/customizer/sections/layout/header.php:17
+#: inc/customizer/sections/layout/header.php:115
+#: inc/customizer/sections/typography/body.php:97
+#: inc/customizer/sections/typography/body.php:266
+msgid "None"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:90
+msgid "Swap Images"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:112
+msgid "Shop Product Structure"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:114
+msgid "Title"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:115
+msgid "Price"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:116
+msgid "Ratings"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:117
+msgid "Short Description"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:118
+msgid "Add To Cart"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:119
+#: inc/customizer/sections/layout/blog-single.php:60
+#: inc/customizer/sections/layout/blog.php:83
+msgid "Category"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:46
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:46
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:70
+#: inc/customizer/sections/layout/blog-single.php:100
+#: inc/customizer/sections/layout/blog.php:123
+#: inc/customizer/sections/layout/container.php:68
+#: inc/customizer/sections/layout/container.php:93
+#: inc/customizer/sections/layout/container.php:118
+#: inc/customizer/sections/layout/sidebar.php:72
+#: inc/customizer/sections/layout/sidebar.php:97
+#: inc/customizer/sections/layout/sidebar.php:122
+#: inc/customizer/sections/typography/body.php:46
+#: inc/customizer/sections/typography/body.php:69
+#: inc/customizer/sections/typography/body.php:96
+msgid "Default"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:47
+#: inc/customizer/sections/layout/container.php:31
+#: inc/customizer/sections/layout/container.php:69
+#: inc/customizer/sections/layout/container.php:94
+#: inc/customizer/sections/layout/container.php:119
+#: inc/metabox/class-astra-meta-boxes.php:231
+msgid "Boxed"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:48
+#: inc/customizer/sections/layout/container.php:32
+#: inc/customizer/sections/layout/container.php:70
+#: inc/customizer/sections/layout/container.php:95
+#: inc/customizer/sections/layout/container.php:120
+#: inc/metabox/class-astra-meta-boxes.php:232
+msgid "Content Boxed"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:49
+#: inc/customizer/sections/layout/container.php:33
+#: inc/customizer/sections/layout/container.php:71
+#: inc/customizer/sections/layout/container.php:96
+#: inc/customizer/sections/layout/container.php:121
+#: inc/metabox/class-astra-meta-boxes.php:233
+msgid "Full Width / Contained"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:50
+#: inc/customizer/sections/layout/container.php:34
+#: inc/customizer/sections/layout/container.php:72
+#: inc/customizer/sections/layout/container.php:97
+#: inc/customizer/sections/layout/container.php:122
+#: inc/metabox/class-astra-meta-boxes.php:234
+msgid "Full Width / Stretched"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:47
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:71
+#: inc/customizer/sections/layout/sidebar.php:34
+#: inc/customizer/sections/layout/sidebar.php:73
+#: inc/customizer/sections/layout/sidebar.php:98
+#: inc/customizer/sections/layout/sidebar.php:123
+#: inc/metabox/class-astra-meta-boxes.php:217
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:48
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:72
+#: inc/customizer/sections/layout/sidebar.php:35
+#: inc/customizer/sections/layout/sidebar.php:74
+#: inc/customizer/sections/layout/sidebar.php:99
+#: inc/customizer/sections/layout/sidebar.php:124
+#: inc/metabox/class-astra-meta-boxes.php:215
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:49
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:73
+#: inc/customizer/sections/layout/sidebar.php:36
+#: inc/customizer/sections/layout/sidebar.php:75
+#: inc/customizer/sections/layout/sidebar.php:100
+#: inc/customizer/sections/layout/sidebar.php:125
+#: inc/metabox/class-astra-meta-boxes.php:216
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/compatibility/woocommerce/woocommerce-common-functions.php:79
+msgid "Out of stock"
+msgstr ""
+
+#: inc/compatibility/woocommerce/woocommerce-common-functions.php:132
+msgid "Availability:"
+msgstr ""
+
 #. Theme Name of the plugin/theme
 msgid "Astra"
 msgstr ""
@@ -148,7 +352,7 @@ msgstr ""
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:140
+#: inc/core/class-astra-theme-options.php:141
 msgid "Contact Us"
 msgstr ""
 
@@ -315,7 +519,7 @@ msgstr ""
 msgid "Need More Options? Get Astra Pro!"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-sanitizes.php:163
+#: inc/customizer/class-astra-customizer-sanitizes.php:199
 msgid "Enter valid email address!"
 msgstr ""
 
@@ -361,77 +565,88 @@ msgstr ""
 msgid "Ultra-Bold 900"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:18
+#: inc/customizer/register-panels-and-sections.php:20
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:26
+#: inc/customizer/register-panels-and-sections.php:29
 msgid "Site Layout"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:34
+#: inc/customizer/register-panels-and-sections.php:37
 msgid "Container"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:40
-#: inc/customizer/register-panels-and-sections.php:140
-#: inc/customizer/sections/layout/header.php:32 inc/widgets.php:100
-msgid "Header"
+#: inc/customizer/register-panels-and-sections.php:47
+msgid "Primary Header"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:48
-#: inc/customizer/register-panels-and-sections.php:98
+#: inc/customizer/register-panels-and-sections.php:59
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/register-panels-and-sections.php:122
+#: inc/customizer/register-panels-and-sections.php:213
+msgid "Footer Widgets"
+msgstr ""
+
+#: inc/customizer/register-panels-and-sections.php:134
+#: inc/customizer/register-panels-and-sections.php:205
 msgid "Footer Bar"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:56
-#: inc/customizer/register-panels-and-sections.php:148
+#: inc/customizer/register-panels-and-sections.php:147
+msgid "Blog"
+msgstr ""
+
+#: inc/customizer/register-panels-and-sections.php:158
+#: inc/customizer/register-panels-and-sections.php:261
 msgid "Blog / Archive"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:64
+#: inc/customizer/register-panels-and-sections.php:170
 msgid "Single Post"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:72
+#: inc/customizer/register-panels-and-sections.php:179
 #: inc/metabox/class-astra-meta-boxes.php:211
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:84
+#: inc/customizer/register-panels-and-sections.php:191
 msgid "Colors & Background"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:90
+#: inc/customizer/register-panels-and-sections.php:197
 msgid "Base Colors"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:106
-#: inc/customizer/register-panels-and-sections.php:187
-msgid "Footer Widgets"
-msgstr ""
-
-#: inc/customizer/register-panels-and-sections.php:118
+#: inc/customizer/register-panels-and-sections.php:225
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:124
+#: inc/customizer/register-panels-and-sections.php:231
 msgid "Base Typography"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:132
+#: inc/customizer/register-panels-and-sections.php:239
 msgid "Content"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:156
+#: inc/customizer/register-panels-and-sections.php:251
+#: inc/customizer/sections/layout/header.php:40 inc/widgets.php:100
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/register-panels-and-sections.php:269
 msgid "Single Page / Post"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:168
+#: inc/customizer/register-panels-and-sections.php:281
 msgid "Buttons"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:178
+#: inc/customizer/register-panels-and-sections.php:291
 msgid "Widget Areas"
 msgstr ""
 
@@ -529,11 +744,6 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:60
-#: inc/customizer/sections/layout/blog.php:83
-msgid "Category"
-msgstr ""
-
 #: inc/customizer/sections/layout/blog-single.php:61
 #: inc/customizer/sections/layout/blog.php:84
 msgid "Author"
@@ -551,20 +761,6 @@ msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:98
 msgid "Single Post Content Width"
-msgstr ""
-
-#: inc/customizer/sections/layout/blog-single.php:100
-#: inc/customizer/sections/layout/blog.php:123
-#: inc/customizer/sections/layout/container.php:68
-#: inc/customizer/sections/layout/container.php:93
-#: inc/customizer/sections/layout/container.php:118
-#: inc/customizer/sections/layout/sidebar.php:72
-#: inc/customizer/sections/layout/sidebar.php:97
-#: inc/customizer/sections/layout/sidebar.php:122
-#: inc/customizer/sections/typography/body.php:46
-#: inc/customizer/sections/typography/body.php:69
-#: inc/customizer/sections/typography/body.php:96
-msgid "Default"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:101
@@ -606,38 +802,6 @@ msgstr ""
 msgid "Default Layout"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:31
-#: inc/customizer/sections/layout/container.php:69
-#: inc/customizer/sections/layout/container.php:94
-#: inc/customizer/sections/layout/container.php:119
-#: inc/metabox/class-astra-meta-boxes.php:231
-msgid "Boxed"
-msgstr ""
-
-#: inc/customizer/sections/layout/container.php:32
-#: inc/customizer/sections/layout/container.php:70
-#: inc/customizer/sections/layout/container.php:95
-#: inc/customizer/sections/layout/container.php:120
-#: inc/metabox/class-astra-meta-boxes.php:232
-msgid "Content Boxed"
-msgstr ""
-
-#: inc/customizer/sections/layout/container.php:33
-#: inc/customizer/sections/layout/container.php:71
-#: inc/customizer/sections/layout/container.php:96
-#: inc/customizer/sections/layout/container.php:121
-#: inc/metabox/class-astra-meta-boxes.php:233
-msgid "Full Width / Contained"
-msgstr ""
-
-#: inc/customizer/sections/layout/container.php:34
-#: inc/customizer/sections/layout/container.php:72
-#: inc/customizer/sections/layout/container.php:97
-#: inc/customizer/sections/layout/container.php:122
-#: inc/metabox/class-astra-meta-boxes.php:234
-msgid "Full Width / Stretched"
-msgstr ""
-
 #: inc/customizer/sections/layout/container.php:66
 #: inc/customizer/sections/layout/sidebar.php:70
 msgid "Pages"
@@ -673,14 +837,6 @@ msgstr ""
 msgid "Section 1"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:86
-#: inc/customizer/sections/layout/footer.php:141
-#: inc/customizer/sections/layout/header.php:88
-#: inc/customizer/sections/typography/body.php:97
-#: inc/customizer/sections/typography/body.php:266
-msgid "None"
-msgstr ""
-
 #: inc/customizer/sections/layout/footer.php:88
 #: inc/customizer/sections/layout/footer.php:143
 msgid "Custom Text"
@@ -688,7 +844,8 @@ msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:89
 #: inc/customizer/sections/layout/footer.php:144
-#: inc/customizer/sections/layout/header.php:91
+#: inc/customizer/sections/layout/header.php:20
+#: inc/customizer/sections/layout/header.php:118
 msgid "Widget"
 msgstr ""
 
@@ -717,97 +874,80 @@ msgid "Footer Bar Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:256
-#: inc/customizer/sections/layout/header.php:189
+#: inc/customizer/sections/layout/header.php:237
 msgid "Full Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:257
-#: inc/customizer/sections/layout/header.php:190
+#: inc/customizer/sections/layout/header.php:238
 msgid "Content Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:36
-msgid "Logo Left"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:40
-msgid "Logo Center"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:44
-msgid "Logo Right"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:66
-msgid "Disable Menu"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:86
-msgid "Custom Menu Item"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:89 inc/extras.php:247
+#: inc/customizer/sections/layout/header.php:18
+#: inc/customizer/sections/layout/header.php:116 inc/extras.php:260
 msgid "Search"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:90
+#: inc/customizer/sections/layout/header.php:19
+#: inc/customizer/sections/layout/header.php:117
 msgid "Text / HTML"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:112
+#: inc/customizer/sections/layout/header.php:44
+msgid "Logo Left"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:48
+msgid "Logo Center"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:52
+msgid "Logo Right"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:74
+msgid "Disable Menu"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:94
+#: inc/customizer/sections/layout/header.php:111
+msgid "Custom Menu Item"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:138
+msgid "Display Outside Menu"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:160
 msgid "Custom Menu Text / HTML"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:142
+#: inc/customizer/sections/layout/header.php:190
 msgid "Bottom Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:167
+#: inc/customizer/sections/layout/header.php:215
 msgid "Bottom Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:187
+#: inc/customizer/sections/layout/header.php:235
 msgid "Header Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:225
+#: inc/customizer/sections/layout/header.php:273
 msgid "Menu Label on Small Devices"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:245
+#: inc/customizer/sections/layout/header.php:293
 msgid "Mobile Header Alignment"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:247
+#: inc/customizer/sections/layout/header.php:295
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:248
+#: inc/customizer/sections/layout/header.php:296
 msgid "Stack"
-msgstr ""
-
-#: inc/customizer/sections/layout/sidebar.php:34
-#: inc/customizer/sections/layout/sidebar.php:73
-#: inc/customizer/sections/layout/sidebar.php:98
-#: inc/customizer/sections/layout/sidebar.php:123
-#: inc/metabox/class-astra-meta-boxes.php:217
-msgid "No Sidebar"
-msgstr ""
-
-#: inc/customizer/sections/layout/sidebar.php:35
-#: inc/customizer/sections/layout/sidebar.php:74
-#: inc/customizer/sections/layout/sidebar.php:99
-#: inc/customizer/sections/layout/sidebar.php:124
-#: inc/metabox/class-astra-meta-boxes.php:215
-msgid "Left Sidebar"
-msgstr ""
-
-#: inc/customizer/sections/layout/sidebar.php:36
-#: inc/customizer/sections/layout/sidebar.php:75
-#: inc/customizer/sections/layout/sidebar.php:100
-#: inc/customizer/sections/layout/sidebar.php:125
-#: inc/metabox/class-astra-meta-boxes.php:216
-msgid "Right Sidebar"
 msgstr ""
 
 #: inc/customizer/sections/layout/sidebar.php:161
@@ -939,27 +1079,27 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:276
+#: inc/extras.php:289
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:369
+#: inc/extras.php:382
 msgid "Y"
 msgstr ""
 
-#: inc/extras.php:415
+#: inc/extras.php:429
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:563
+#: inc/extras.php:580
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:949
+#: inc/extras.php:988
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1032
+#: inc/extras.php:1071
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
@@ -1000,7 +1140,7 @@ msgstr ""
 msgid "Disable Footer Bar"
 msgstr ""
 
-#: inc/template-parts.php:163
+#: inc/template-parts.php:168
 msgid "Main Menu"
 msgstr ""
 
@@ -1082,5 +1222,13 @@ msgstr ""
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:172
+#. translators: 1: number of products
+msgctxt "product categories"
+msgid "<mark class=\"count\">%1$s Product</mark>"
+msgid_plural "<mark class=\"count\">%1$s Products</mark>"
 msgstr[0] ""
 msgstr[1] ""
