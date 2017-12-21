@@ -71,7 +71,7 @@ p.demo_store,
  */
 .ast-woocommerce-cart-menu{
     .ast-site-header-cart {
-   	/* Cart wrapper in header. */
+   		/* Cart wrapper in header. */
     	position: relative;
     	list-style-type: none;
 	    margin-left: 0;
@@ -197,6 +197,11 @@ p.demo_store,
 			.cart_list{
 				a{
 					font-weight: normal;
+					padding:0;
+					border-width: 0;
+					&.remove{
+						border-width: 1px;
+					}
 				}
 			}
         }
@@ -236,6 +241,14 @@ p.demo_store,
 			    border-top-right-radius: 10em;
 			    border-bottom: 0;
     		}
+		}
+	}
+
+	.main-header-menu {
+		.woocommerce-custom-menu-item{
+			li:hover > a.remove{
+				color: #ccc;
+			}
 		}
 	}
 
