@@ -1,4 +1,38 @@
-v1.1.0-bbeta.1
+v1.1.0-beta.5
+# Fixed: Fine-tuned default values of Shop Columns for a tablet.
+# Fixed: Sidebar layout not working on category pages.
+# Fixed: Inconsistent grid columns for related products.
+# Fixed: Added spacing for single product thumbnails.
+
+v1.1.0-beta.4
+# New: Added Product image hover style option.
+# New: Display outside Custom Menu Item option added in Layout -> Primary Header.
+# Fixed: Updated Single product group product style.
+# Fixed: Updated Tracking order pages design.
+# Fixed: Updated Checkout Page payment box style.
+# Moved: Cart in Menu option moved to Layout -> Primary Header -> Custom Menu Item.
+
+v1.1.0-beta.3
+# New: Responsive control for the grid settings for the shop page.
+# Fixed: Styles for the WooCommerce my account pages improved.
+# Fixed: Remove extra padding from checkout page form.
+# Fixed: Cart page coupon box align to Apply Coupon button.
+# Fixed: Single Product variation design improved.
+# Fixed: Single Product group products design improved.
+# Fixed: WooCommerce select box style updated.
+# Fixed: `Remove from cart` icon overlaps the title when the title is larger.
+
+v1.1.0-beta.2
+# Fixed: Woocommerce Single product description and review tab full width for responsive devices.
+# Fixed: Woocommerce Shop page pagination numbers style updated.
+# Fixed: Woocommerce Cart page Continue shopping, Update cart style updated for responsive devices.
+# Fixed: Woocommerce My Account page overall style updated.
+# Improvement: Site logo max width 100% for mobile devices.
+
+v1.1.0-beta.1
+# New: Added Woocommerce support.
+# Fixed: Content layout bug fixed for custom post-types.
+# Fixed: Sidebar bug fixed for custom post-types.
 # Fixed: Astra Pro upgrade link pointing to correct page.
 
 v1.0.32

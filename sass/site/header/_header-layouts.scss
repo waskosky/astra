@@ -164,6 +164,12 @@
 /* Mobile Header Alignment */
 @media (max-width: $mx-col-sm) {
 	.ast-header-break-point {
+		.site-branding,
+		#masthead .site-logo-img .custom-logo-link{
+			img{
+				max-width: 100%;
+			}
+		}
 		.ast-mobile-header-inline {
 			.main-header-container {
 				display: flex;

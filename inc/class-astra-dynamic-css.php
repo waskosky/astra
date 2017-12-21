@@ -630,7 +630,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Single Blog */
 			if ( 'custom' === $single_post_max ) :
 					$single_blog_css  = '@media (min-width:769px) {';
-					$single_blog_css .= '.single .site-content > .ast-container{';
+					$single_blog_css .= '.single-post .site-content > .ast-container{';
 					$single_blog_css .= 'max-width:' . esc_attr( $single_post_max_width ) . 'px;';
 					$single_blog_css .= '}';
 					$single_blog_css .= '}';
