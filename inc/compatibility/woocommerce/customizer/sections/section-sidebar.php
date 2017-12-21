@@ -32,8 +32,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
-			'default' => astra_get_option( 'woocommerce-sidebar-layout' ),
-			'type'    => 'option',
+			'default'           => astra_get_option( 'woocommerce-sidebar-layout' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -56,8 +57,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
-			'default' => astra_get_option( 'single-product-sidebar-layout' ),
-			'type'    => 'option',
+			'default'           => astra_get_option( 'single-product-sidebar-layout' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(

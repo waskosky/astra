@@ -32,8 +32,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
-			'default' => astra_get_option( 'woocommerce-content-layout' ),
-			'type'    => 'option',
+			'default'           => astra_get_option( 'woocommerce-content-layout' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
