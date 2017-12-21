@@ -18,8 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
-			'default' => astra_get_option( 'single-product-breadcrumb-disable' ),
-			'type'    => 'option',
+			'default'           => astra_get_option( 'single-product-breadcrumb-disable' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
