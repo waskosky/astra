@@ -221,9 +221,17 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
 	                    },
                     	{
-                    		src: 'assets/css/unminified/compatibility/woocommerce-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/woocommerce.min-rtl.css',
+                    		src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
+	                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
 	                    },
+                        {
+                            src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css',
+                            dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css',
+                            dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css',
+                        },
                     ]
                 }
             },
