@@ -270,7 +270,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function shop_page_products_item_class( $classes = '' ) {
 
-			if ( is_shop() || 'product' == get_post_type() ) {
+			if ( is_shop() || is_product_taxonomy() ) {
 				$shop_grid = astra_get_option( 'shop-grids' );
 				$classes[] = 'columns-' . $shop_grid['desktop'];
 				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];

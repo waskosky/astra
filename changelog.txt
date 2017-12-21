@@ -1,3 +1,9 @@
+v1.1.0-beta.5
+# Fixed: Fine-tuned default values of Shop Columns for a tablet.
+# Fixed: Sidebar layout not working on category pages.
+# Fixed: Inconsistent grid columns for related products.
+# Fixed: Added spacing for single product thumbnails.
+
 v1.1.0-beta.4
 # New: Added Product image hover style option.
 # New: Display outside Custom Menu Item option added in Layout -> Primary Header.

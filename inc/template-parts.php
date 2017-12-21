@@ -177,9 +177,9 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
 				<?php if ( '' != $menu_title ) { ?>
 
-					<div class="mobile-menu-wrap">
+					<span class="mobile-menu-wrap">
 						<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
-					</div>
+					</span>
 
 				<?php } ?>
 			</button>
