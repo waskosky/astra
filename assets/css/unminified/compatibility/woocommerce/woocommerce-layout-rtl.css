@@ -692,7 +692,6 @@
 
 .woocommerce form .form-row-first, .woocommerce-page form .form-row-first {
   float: right;
-			float: right;
 }
 
 .woocommerce form .form-row-last, .woocommerce-page form .form-row-last {
@@ -774,15 +773,4 @@
 .woocommerce-account .woocommerce-MyAccount-content fieldset .form-row {
   padding-right: 0;
   padding-left: 0;
-}
-
-/**
- * RTL styles.
- */
-.rtl .woocommerce .col2-set .col-1, .rtl .woocommerce-page .col2-set .col-1 {
-  float: left;
-}
-
-.rtl .woocommerce .col2-set .col-2, .rtl .woocommerce-page .col2-set .col-2 {
-  float: right;
 }

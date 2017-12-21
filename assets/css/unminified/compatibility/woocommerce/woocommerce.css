@@ -206,15 +206,6 @@ p.demo_store a,
   top: auto;
 }
 
-.ast-woocommerce-cart-menu .ast-site-header-cart .ast-site-header-cart-data ul .remove_from_cart_button {
-  padding: 0;
-}
-
-.ast-woocommerce-cart-menu .ast-site-header-cart .ast-site-header-cart-data ul li a {
-  padding: 0;
-  border: 0;
-}
-
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart {
   background-color: #fff;
   position: absolute;
@@ -299,18 +290,12 @@ p.demo_store a,
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a {
   font-weight: normal;
+  padding: 0;
+  border-width: 0;
 }
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .cart_list a.remove {
-  display: block;
-  font-size: 18px;
-  font-weight: normal;
-  width: 24px;
-  height: 24px;
-  line-height: 21px;
-  color: #ccc !important;
-  text-align: center;
-  border: 1px solid #ccc;
+  border-width: 1px;
 }
 
 .ast-woocommerce-cart-menu .ast-cart-menu-wrap {
@@ -349,6 +334,10 @@ p.demo_store a,
   border-top-left-radius: 10em;
   border-top-right-radius: 10em;
   border-bottom: 0;
+}
+
+.ast-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove {
+  color: #ccc;
 }
 
 .ast-woocommerce-cart-menu .header-main-layout-1.ast-no-menu-items .ast-site-header-cart {
@@ -528,7 +517,7 @@ p.demo_store a,
   margin-top: -0.5em;
   content: '';
   animation: spin 1s ease-in-out infinite;
-  background: url("../../../../../assets/images/loader.svg") center center;
+  background: url("../../../../../../../plugins/woocommerce/assets/images/loader.svg") center center;
   background-size: cover;
   line-height: 1;
   text-align: center;
@@ -547,7 +536,7 @@ p.demo_store a,
   margin-top: -0.5em;
   content: '';
   animation: spin 1s ease-in-out infinite;
-  background: url("../../../../../assets/images/loader.svg") center center;
+  background: url("../../../../../../../plugins/woocommerce/assets/images/loader.svg") center center;
   background-size: cover;
   line-height: 1;
   text-align: center;
@@ -561,21 +550,15 @@ p.demo_store a,
 
 .woocommerce a.remove {
   display: block;
-  font-size: 1.5em;
-  height: 1em;
-  width: 1em;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   text-align: center;
-  line-height: 1;
+  line-height: 21px;
   border-radius: 100%;
-  color: red !important;
+  color: #ccc;
   text-decoration: none;
-  font-weight: 700;
-  border: 0;
-}
-
-.woocommerce a.remove:hover {
-  color: #fff !important;
-  background: red;
+  border: 1px solid #ccc;
 }
 
 .woocommerce small.note {
@@ -896,20 +879,6 @@ p.demo_store a,
   margin: 0 1em 0 0;
   padding: 0;
   border-radius: 0;
-  /* Need to check later if any issue found
-					&::before {
-						left: -6px;
-						border-bottom-right-radius: 4px;
-						border-width: 0 1px 1px 0;
-						box-shadow: 2px 2px 0 $secondary;
-					}
-
-					&::after {
-						right: -6px;
-						border-bottom-left-radius: 4px;
-						border-width: 0 0 1px 1px;
-						box-shadow: -2px 2px 0 $secondary;
-					}*/
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a {
@@ -1647,8 +1616,6 @@ p.demo_store a,
   top: 0;
   left: 0;
   padding: 3px;
-  /*width: 32px;
-						height: auto;*/
   height: 3.6em;
   width: 3.6em;
   border: none;
@@ -2135,30 +2102,10 @@ p.demo_store a,
   float: none;
 }
 
-.woocommerce.widget_shopping_cart .total,
-.woocommerce .widget_shopping_cart .total {
-  border-top: 3px double #ebe9eb;
-  padding: 4px 0 0;
-}
-
 .woocommerce.widget_shopping_cart .total strong,
 .woocommerce .widget_shopping_cart .total strong {
   min-width: 40px;
   display: inline-block;
-}
-
-.woocommerce.widget_shopping_cart .cart_list li,
-.woocommerce .widget_shopping_cart .cart_list li {
-  padding-left: 2em;
-  position: relative;
-  padding-top: 0;
-}
-
-.woocommerce.widget_shopping_cart .cart_list li a.remove,
-.woocommerce .widget_shopping_cart .cart_list li a.remove {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .woocommerce.widget_shopping_cart .buttons,
@@ -3174,13 +3121,6 @@ button.pswp__button--zoom:hover {
   }
 }
 
-/**
- * Right to left styles
- */
-.rtl.woocommerce div.product div.images .flex-control-thumbs li {
-  float: right;
-}
-
 .woocommerce-message {
   border-top-color: #8fae1b;
 }
@@ -3770,7 +3710,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.visa,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.visa,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.visa {
-  background-image: url("../images/icons/credit-cards/visa.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/visa.svg");
 }
 
 .woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.mastercard,
@@ -3782,7 +3722,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.mastercard,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard {
-  background-image: url("../images/icons/credit-cards/mastercard.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/mastercard.svg");
 }
 
 .woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.laser,
@@ -3794,7 +3734,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.laser,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.laser,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.laser {
-  background-image: url("../images/icons/credit-cards/laser.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/laser.svg");
 }
 
 .woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,
@@ -3806,7 +3746,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub {
-  background-image: url("../images/icons/credit-cards/diners.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/diners.svg");
 }
 
 .woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.maestro,
@@ -3818,7 +3758,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.maestro,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.maestro {
-  background-image: url("../images/icons/credit-cards/maestro.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/maestro.svg");
 }
 
 .woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.jcb,
@@ -3830,7 +3770,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.jcb,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.jcb {
-  background-image: url("../images/icons/credit-cards/jcb.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/jcb.svg");
 }
 
 .woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.amex,
@@ -3842,7 +3782,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.amex,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.amex,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.amex {
-  background-image: url("../images/icons/credit-cards/amex.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/amex.svg");
 }
 
 .woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.discover,
@@ -3854,7 +3794,7 @@ button.pswp__button--zoom:hover {
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.discover,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.discover,
 #add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.discover {
-  background-image: url("../images/icons/credit-cards/discover.svg");
+  background-image: url("../../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/discover.svg");
 }
 
 .woocommerce-cart #payment div.payment_box span.help,
@@ -3918,14 +3858,6 @@ button.pswp__button--zoom:hover {
 .woocommerce-cart-form__cart-item td.product-remove a.remove {
   display: inline-block;
   vertical-align: middle;
-  font-size: 18px;
-  font-weight: normal;
-  width: 24px;
-  height: 24px;
-  line-height: 21px;
-  color: #ccc !important;
-  text-align: center;
-  border: 1px solid #ccc;
 }
 
 /**
@@ -4458,16 +4390,10 @@ button.pswp__button--zoom:hover {
 
 .woocommerce .widget_shopping_cart .cart_list li a.remove,
 .woocommerce.widget_shopping_cart .cart_list li a.remove {
+  position: absolute;
   left: auto;
   right: 0;
   top: .5em;
-  color: #ccc !important;
-  font-size: 18px;
-  font-weight: normal;
-  width: 24px;
-  height: 24px;
-  line-height: 21px;
-  border: 1px solid #ccc;
 }
 
 .woocommerce-product-search {
