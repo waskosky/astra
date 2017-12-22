@@ -151,8 +151,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 	 */
 	function astra_logo( $echo = true ) {
 
-		$site_tagline         = astra_get_option( 'display-site-tagline' );
-		$display_site_tagline = astra_get_option( 'display-site-title' );
+		$display_site_tagline = astra_get_option( 'display-site-tagline' );
+		$display_site_title   = astra_get_option( 'display-site-title' );
 		$html                 = '';
 
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
@@ -174,22 +174,30 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		}
 
 		if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
+
 			// Site Title.
-			if ( $display_site_tagline ) {
-
-				$tag = 'span';
-				if ( is_home() || is_front_page() ) {
-					$tag = 'h1';
-				}
-				$html .= '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
+			$tag = 'span';
+			if ( is_home() || is_front_page() ) {
+				$tag = 'h1';
 			}
+			$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 
-			// Site description.
-			if ( $site_tagline ) {
-				$html .= '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+			// Site Description.
+			$site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+
+			if ( $display_site_title || $display_site_tagline ) {
+				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
+				$html .= sprintf(
+					'<div class="ast-site-title-wrap">
+							%1$s
+							%2$s
+						</div>',
+					( $display_site_title ) ? $site_title_markup : '',
+					( $display_site_tagline ) ? $site_tagline_markup : ''
+				);
 			}
 		}
-		$html = apply_filters( 'astra_logo', $html, $display_site_tagline, $site_tagline );
+		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
 
 		/**
 		 * Echo or Return the Logo Markup
@@ -706,6 +714,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$mobile_header_alignment  = astra_get_option( 'header-main-menu-align' );
 		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
+		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -718,6 +727,10 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			if ( 'none' == $primary_menu_custom_item ) {
 				$classes[] = 'ast-no-menu-items';
 			}
+		}
+		// Add class if Inline Logo & Site Title.
+		if ( $logo_title_inline ) {
+			$classes[] = 'ast-logo-title-inline';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;

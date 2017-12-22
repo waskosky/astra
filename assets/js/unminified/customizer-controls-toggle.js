@@ -77,6 +77,22 @@
 					return false;
 				}
 			},
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
+					var has_custom_logo = api( 'custom_logo' ).get();
+					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+
+					if ( ( value || site_tagline ) && ( has_custom_logo || has_retina_logo ) ) {
+						return true;
+					}
+					return false;
+				}
+			},
 		],
 
 		'astra-settings[display-site-tagline]' :
@@ -89,6 +105,62 @@
 				callback: function( value ) {
 
 					if ( value ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var site_title = api( 'astra-settings[display-site-title]' ).get();
+					var has_custom_logo = api( 'custom_logo' ).get();
+					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+
+					if ( ( value || site_title ) && ( has_custom_logo || has_retina_logo ) ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
+		'astra-settings[ast-header-retina-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var has_custom_logo = api( 'custom_logo' ).get();
+					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
+					var site_title = api( 'astra-settings[display-site-title]' ).get();
+
+					if ( ( value || has_custom_logo ) && ( site_title || site_tagline ) ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
+		'custom_logo' :
+		[
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
+					var site_title = api( 'astra-settings[display-site-title]' ).get();
+
+					if ( ( value || has_retina_logo ) && ( site_title || site_tagline ) ) {
 						return true;
 					}
 					return false;
