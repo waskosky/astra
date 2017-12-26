@@ -1329,3 +1329,18 @@ if ( ! function_exists( 'astra_color_palette' ) ) :
 		return apply_filters( 'astra_color_palettes', $color_palette );
 	}
 endif; // End if().
+
+if ( ! function_exists( 'astra_get_theme_name' ) ) :
+
+	/**
+	 * Get theme name.
+	 *
+	 * @return string Theme Name.
+	 */
+	function astra_get_theme_name() {
+
+		$theme_name = __( 'Astra', 'astra' );
+
+		return apply_filters( 'astra_theme_name', $theme_name );
+	}
+endif; // End if().
