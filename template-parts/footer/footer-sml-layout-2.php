@@ -12,8 +12,14 @@
 $section_1 = astra_get_small_footer( 'footer-sml-section-1' );
 $section_2 = astra_get_small_footer( 'footer-sml-section-2' );
 $sections  = 0;
-$sections  = $sections + count( $section_1 );
-$sections  = $sections + count( $section_2 );
+
+if ( '' != $section_1   ) {
+	$sections++;
+}
+
+if ( '' != $section_2   ) {
+	$sections++;
+}
 
 switch ( $sections ) {
 
