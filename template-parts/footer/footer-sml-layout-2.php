@@ -27,14 +27,6 @@ switch ( $sections ) {
 			$section_class = 'ast-small-footer-section-equally ast-col-md-6 ast-col-xs-12';
 		break;
 
-	case '3':
-			$section_class = 'ast-small-footer-section-equally ast-col-md-4 ast-col-xs-12';
-		break;
-
-	case '4':
-			$section_class = 'ast-small-footer-section-equally ast-col-md-3 ast-col-xs-12';
-		break;
-
 	case '1':
 	default:
 			$section_class = 'ast-small-footer-section-equally ast-col-xs-12';
