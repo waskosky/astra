@@ -898,8 +898,11 @@ endif;
 
 add_action( 'after_setup_theme', 'astra_woocommerce_integration', 999 );
 
-function astra_woocommerce_integration(){
-	
+/**
+ * Create WooCommerce instance.
+ */
+function astra_woocommerce_integration() {
+
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */
