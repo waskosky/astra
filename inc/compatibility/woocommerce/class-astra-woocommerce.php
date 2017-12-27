@@ -895,7 +895,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 endif;
 
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Astra_Woocommerce::get_instance();
+
+add_action( 'after_setup_theme', 'astra_woocommerce_integration', 999 );
+
+function astra_woocommerce_integration(){
+	
+	/**
+	 * Kicking this off by calling 'get_instance()' method
+	 */
+	if ( apply_filters( 'astra_enable_woocommerce_integration', true ) ) {
+		Astra_Woocommerce::get_instance();
+	}
+}
