@@ -25,7 +25,7 @@ add_filter( 'astra_color_palettes', 'deprecated_astra_color_palette', 10, 1 );
  */
 function deprecated_astra_color_palette( $color_palette ) {
 
-	$color_palette = apply_astra_filters_deprecated( 'astra_color_palletes', array( $color_palette ), '1.0.22', 'astra_color_palettes', '' );
+	$color_palette = astra_apply_filters_deprecated( 'astra_color_palletes', array( $color_palette ), '1.0.22', 'astra_color_palettes', '' );
 
 	return $color_palette;
 }
@@ -43,12 +43,12 @@ add_filter( 'astra_single_post_navigation_enabled', 'deprecated_astra_sigle_post
  */
 function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 
-	$post_nav = apply_astra_filters_deprecated( 'astra_sigle_post_navigation_enabled', array( $post_nav ), '1.0.27', 'astra_single_post_navigation_enabled', '' );
+	$post_nav = astra_apply_filters_deprecated( 'astra_sigle_post_navigation_enabled', array( $post_nav ), '1.0.27', 'astra_single_post_navigation_enabled', '' );
 
 	return $post_nav;
 }
 
-if ( ! function_exists( 'apply_astra_filters_deprecated' ) ) {
+if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 	/**
 	 * Astra Filter Deprecated
 	 *
@@ -59,7 +59,7 @@ if ( ! function_exists( 'apply_astra_filters_deprecated' ) ) {
 	 * @param string $replacement Optional. The hook that should have been used. Default false.
 	 * @param string $message     Optional. A message regarding the change. Default null.
 	 */
-	function apply_astra_filters_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
+	function astra_apply_filters_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
 		if ( function_exists( 'apply_filters_deprecated' ) ) { /* WP >= 4.6 */
 			return apply_filters_deprecated( $tag, $args, $version, $replacement, $message );
 		} else {
