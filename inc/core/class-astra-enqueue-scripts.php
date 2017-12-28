@@ -94,6 +94,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
+			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
+
+			if ( ! $astra_enqueue ) {
+				return;
+			}
+
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
@@ -106,32 +112,34 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$styles     = $all_assets['css'];
 			$scripts    = $all_assets['js'];
 
-			// Register & Enqueue Styles.
-			foreach ( $styles as $key => $style ) {
+			if ( is_array( $styles ) && ! empty( $styles ) ) {
+				// Register & Enqueue Styles.
+				foreach ( $styles as $key => $style ) {
 
-				// Generate CSS URL.
-				$css_file = $css_uri . $style . $file_prefix . '.css';
+					// Generate CSS URL.
+					$css_file = $css_uri . $style . $file_prefix . '.css';
 
-				// Register.
-				wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+					// Register.
+					wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 
-				// Enqueue.
-				wp_enqueue_style( $key );
+					// Enqueue.
+					wp_enqueue_style( $key );
 
-				// RTL support.
-				wp_style_add_data( $key, 'rtl', 'replace' );
-
+					// RTL support.
+					wp_style_add_data( $key, 'rtl', 'replace' );
+				}
 			}
 
-			// Register & Enqueue Scripts.
-			foreach ( $scripts as $key => $script ) {
+			if ( is_array( $scripts ) && ! empty( $scripts ) ) {
+				// Register & Enqueue Scripts.
+				foreach ( $scripts as $key => $script ) {
 
-				// Register.
-				wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
+					// Register.
+					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
 
-				// Enqueue.
-				wp_enqueue_script( $key );
-
+					// Enqueue.
+					wp_enqueue_script( $key );
+				}
 			}
 
 			// Fonts - Render Fonts.

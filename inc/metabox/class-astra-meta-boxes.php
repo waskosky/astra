@@ -146,17 +146,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$post_types['fl-theme-layout'] = 'fl-theme-layout';
 
+			$metabox_name = astra_get_theme_name() . __( ' Settings', 'astra' );
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
 				if ( 'attachment' !== $type ) {
 					add_meta_box(
 						'astra_settings_meta_box',              // Id.
-						__( 'Astra Settings', 'astra' ), // Title.
-						array( $this, 'markup_meta_box' ),    // Callback.
-						$type,                                // Post_type.
-						'side',                               // Context.
-						'default'                             // Priority.
+						$metabox_name,                          // Title.
+						array( $this, 'markup_meta_box' ),      // Callback.
+						$type,                                  // Post_type.
+						'side',                                 // Context.
+						'default'                               // Priority.
 					);
 				}
 			}

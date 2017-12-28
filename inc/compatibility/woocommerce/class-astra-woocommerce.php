@@ -332,7 +332,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function setup_theme() {
 
 			// WooCommerce.
-			add_theme_support( 'woocommerce' );
 			add_theme_support( 'wc-product-gallery-zoom' );
 			add_theme_support( 'wc-product-gallery-lightbox' );
 			add_theme_support( 'wc-product-gallery-slider' );
@@ -895,7 +894,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 endif;
 
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Astra_Woocommerce::get_instance();
+if ( apply_filters( 'astra_enable_woocommerce_integration', true ) ) {
+	Astra_Woocommerce::get_instance();
+}
