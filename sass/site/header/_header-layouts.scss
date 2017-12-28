@@ -5,8 +5,9 @@
  * 1 - Header Layout 1
  * 2 - Header Layout 2
  * 3 - Header Layout 3
- * 4 - Next Button Menu Item
- * 5 - Responsive Style
+ * 4 - Header Inline Logo & Site Title 
+ * 5 - Next Button Menu Item
+ * 6 - Responsive Style
 */
 
 /* 4 - Next Button Menu Item */
@@ -161,6 +162,25 @@
 	}
 }
 
+/**
+ * 4 - Header Inline Logo & Site Title 
+*/
+.ast-logo-title-inline{
+	.ast-site-identity {
+	    display: inline-flex;
+	    vertical-align: middle;
+	    align-items: center;
+	}
+	.site-logo-img{
+		padding-right: 1em;
+	}
+	&.header-main-layout-2{
+		.site-logo-img + .ast-site-title-wrap .site-title{
+			justify-content: flex-start;
+		}
+	}
+}
+
 /* Mobile Header Alignment */
 @media (max-width: $mx-col-sm) {
 	.ast-header-break-point {
@@ -198,6 +218,15 @@
 				justify-content: center;
 				text-align: center;
 				padding-bottom: 1em;
+				padding-right: 0;
+			}
+		}
+
+		.ast-logo-title-inline{
+			.ast-site-identity {
+		    	display: block;
+		    }
+		    .site-logo-img{
 				padding-right: 0;
 			}
 		}
