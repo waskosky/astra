@@ -332,7 +332,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function setup_theme() {
 
 			// WooCommerce.
-			add_theme_support( 'woocommerce' );
 			add_theme_support( 'wc-product-gallery-zoom' );
 			add_theme_support( 'wc-product-gallery-lightbox' );
 			add_theme_support( 'wc-product-gallery-slider' );
@@ -895,18 +894,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 endif;
 
-
-add_action( 'after_setup_theme', 'astra_woocommerce_integration', 999 );
-
-/**
- * Create WooCommerce instance.
- */
-function astra_woocommerce_integration() {
-
-	/**
-	 * Kicking this off by calling 'get_instance()' method
-	 */
-	if ( apply_filters( 'astra_enable_woocommerce_integration', true ) ) {
-		Astra_Woocommerce::get_instance();
-	}
+if ( apply_filters( 'astra_enable_woocommerce_integration', true ) ) {
+	Astra_Woocommerce::get_instance();
 }
