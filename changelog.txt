@@ -1,7 +1,8 @@
 v1.1.1
-# New: Added option to Display Logo & Site Title inline.
-# Improvement: Added filter `astra_enable_woocommerce_integration` for disabling WooCommerce support.
-# Fixed: Small Footer layout warning.
+# New: Added option to display inline the logo and site title/site description.
+# New: Added filter `astra_woocommerce_integration` to disable WooCommerce integration in Astra.
+# New: Added filter `astra_enqueue_theme_assets` to disable loading of Astra's CSS and JS.
+# Fixed: PHP notice in the small footer on PHP 7.2
 # Fixed: Updated woocommerce Related products design for responsive devices.
 
 v1.1.0
