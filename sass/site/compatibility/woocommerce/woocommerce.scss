@@ -1077,7 +1077,41 @@ p.demo_store,
 		.related.products {
 			ul.products{
 				margin:0;
+
+				li.product {
+					width: 22.5%;
+					width: calc( 25% - 15px );
+				}
+
+				@media( max-width: $mx-col-md ) and ( min-width: $col-sm ) {
+					li.product {
+						width: 30.2%;
+						width: calc(33.33% - 14px);
+						&:nth-child(3n) {
+							margin-right: 0;
+							clear: right;
+						}
+						&:nth-child(3n+1) {
+							clear: left;
+						}
+					}
+				}
+
+				@media( max-width: $mx-col-sm ) {
+					li.product {
+						width: 46.1%;
+						width: calc(50% - 10px);
+						&:nth-child(2n) {
+							margin-right: 0;
+							clear: right;
+						}
+						&:nth-child(2n+1) {
+							clear: left;
+						}
+					}
+				}
 			}
+
 		}
 	}
 

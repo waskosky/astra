@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.1.0\n"
+"Project-Id-Version: Astra 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-12-21 14:09:36+00:00\n"
+"POT-Creation-Date: 2017-12-28 09:10:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,31 +131,31 @@ msgstr ""
 msgid "Loop End"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:352
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:351
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:354
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:353
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:363
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:362
 msgid "Product Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:365
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:364
 msgid "This sidebar will be used on Single Product page."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:870
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:869
 msgid "View your shopping cart"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:19
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:44
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:44
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:45
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:45
 #: inc/customizer/register-panels-and-sections.php:73
 msgid "WooCommerce"
 msgstr ""
@@ -171,7 +171,7 @@ msgid "Shop"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:53
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:68
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:70
 #: inc/customizer/register-panels-and-sections.php:107
 msgid "Single Product"
 msgstr ""
@@ -180,11 +180,11 @@ msgstr ""
 msgid "Cart"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php:28
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php:29
 msgid "Enable Upsells"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php:28
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php:29
 msgid "Disable Breadcrumb"
 msgstr ""
 
@@ -192,15 +192,15 @@ msgstr ""
 msgid "Shop Columns"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:58
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:59
 msgid "Products Per Page"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:85
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:86
 msgid "Hover Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:89
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:90
 #: inc/customizer/sections/layout/footer.php:86
 #: inc/customizer/sections/layout/footer.php:141
 #: inc/customizer/sections/layout/header.php:17
@@ -210,43 +210,43 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:90
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:91
 msgid "Swap Images"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:112
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:113
 msgid "Shop Product Structure"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:114
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:115
 msgid "Title"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:115
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:116
 msgid "Price"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:116
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:117
 msgid "Ratings"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:117
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:118
 msgid "Short Description"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:118
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:119
 msgid "Add To Cart"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:119
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:120
 #: inc/customizer/sections/layout/blog-single.php:60
 #: inc/customizer/sections/layout/blog.php:83
 msgid "Category"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:46
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:46
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:70
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:47
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:47
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:72
 #: inc/customizer/sections/layout/blog-single.php:100
 #: inc/customizer/sections/layout/blog.php:123
 #: inc/customizer/sections/layout/container.php:68
@@ -261,69 +261,69 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:47
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:48
 #: inc/customizer/sections/layout/container.php:31
 #: inc/customizer/sections/layout/container.php:69
 #: inc/customizer/sections/layout/container.php:94
 #: inc/customizer/sections/layout/container.php:119
-#: inc/metabox/class-astra-meta-boxes.php:231
+#: inc/metabox/class-astra-meta-boxes.php:232
 msgid "Boxed"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:48
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:49
 #: inc/customizer/sections/layout/container.php:32
 #: inc/customizer/sections/layout/container.php:70
 #: inc/customizer/sections/layout/container.php:95
 #: inc/customizer/sections/layout/container.php:120
-#: inc/metabox/class-astra-meta-boxes.php:232
+#: inc/metabox/class-astra-meta-boxes.php:233
 msgid "Content Boxed"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:49
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:50
 #: inc/customizer/sections/layout/container.php:33
 #: inc/customizer/sections/layout/container.php:71
 #: inc/customizer/sections/layout/container.php:96
 #: inc/customizer/sections/layout/container.php:121
-#: inc/metabox/class-astra-meta-boxes.php:233
+#: inc/metabox/class-astra-meta-boxes.php:234
 msgid "Full Width / Contained"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:50
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:51
 #: inc/customizer/sections/layout/container.php:34
 #: inc/customizer/sections/layout/container.php:72
 #: inc/customizer/sections/layout/container.php:97
 #: inc/customizer/sections/layout/container.php:122
-#: inc/metabox/class-astra-meta-boxes.php:234
+#: inc/metabox/class-astra-meta-boxes.php:235
 msgid "Full Width / Stretched"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:47
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:71
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:48
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:73
 #: inc/customizer/sections/layout/sidebar.php:34
 #: inc/customizer/sections/layout/sidebar.php:73
 #: inc/customizer/sections/layout/sidebar.php:98
 #: inc/customizer/sections/layout/sidebar.php:123
-#: inc/metabox/class-astra-meta-boxes.php:217
+#: inc/metabox/class-astra-meta-boxes.php:218
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:48
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:72
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:49
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:74
 #: inc/customizer/sections/layout/sidebar.php:35
 #: inc/customizer/sections/layout/sidebar.php:74
 #: inc/customizer/sections/layout/sidebar.php:99
 #: inc/customizer/sections/layout/sidebar.php:124
-#: inc/metabox/class-astra-meta-boxes.php:215
+#: inc/metabox/class-astra-meta-boxes.php:216
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:49
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:73
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:50
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:75
 #: inc/customizer/sections/layout/sidebar.php:36
 #: inc/customizer/sections/layout/sidebar.php:75
 #: inc/customizer/sections/layout/sidebar.php:100
 #: inc/customizer/sections/layout/sidebar.php:125
-#: inc/metabox/class-astra-meta-boxes.php:216
+#: inc/metabox/class-astra-meta-boxes.php:217
 msgid "Right Sidebar"
 msgstr ""
 
@@ -352,7 +352,7 @@ msgstr ""
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:141
+#: inc/core/class-astra-theme-options.php:142
 msgid "Contact Us"
 msgstr ""
 
@@ -609,7 +609,7 @@ msgid "Single Post"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:179
-#: inc/metabox/class-astra-meta-boxes.php:211
+#: inc/metabox/class-astra-meta-boxes.php:212
 msgid "Sidebar"
 msgstr ""
 
@@ -884,7 +884,8 @@ msgid "Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:18
-#: inc/customizer/sections/layout/header.php:116 inc/extras.php:260
+#: inc/customizer/sections/layout/header.php:116 inc/extras.php:268
+#. translators: 1: Site Title Markup, 2: Site Tagline Markup
 msgid "Search"
 msgstr ""
 
@@ -972,6 +973,10 @@ msgstr ""
 
 #: inc/customizer/sections/site-identity/site-identity.php:113
 msgid "Display Site Tagline"
+msgstr ""
+
+#: inc/customizer/sections/site-identity/site-identity.php:132
+msgid "Inline Logo & Site Title"
 msgstr ""
 
 #: inc/customizer/sections/typography/archive.php:25
@@ -1079,64 +1084,64 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:289
+#: inc/extras.php:297
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:382
+#: inc/extras.php:390
 msgid "Y"
 msgstr ""
 
-#: inc/extras.php:429
+#: inc/extras.php:437
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:580
+#: inc/extras.php:588
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:988
+#: inc/extras.php:1001
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1071
+#: inc/extras.php:1084
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:155
-msgid "Astra Settings"
+#: inc/metabox/class-astra-meta-boxes.php:149
+msgid " Settings"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:214
-#: inc/metabox/class-astra-meta-boxes.php:230
+#: inc/metabox/class-astra-meta-boxes.php:215
+#: inc/metabox/class-astra-meta-boxes.php:231
 msgid "Customizer Setting"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:227
+#: inc/metabox/class-astra-meta-boxes.php:228
 msgid "Content Layout"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:244
+#: inc/metabox/class-astra-meta-boxes.php:245
 msgid "Disable Sections"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:252
+#: inc/metabox/class-astra-meta-boxes.php:253
 msgid "Disable Primary Header"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:260
+#: inc/metabox/class-astra-meta-boxes.php:261
 msgid "Disable Title"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:267
+#: inc/metabox/class-astra-meta-boxes.php:268
 msgid "Disable Featured Image"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:280
+#: inc/metabox/class-astra-meta-boxes.php:281
 msgid "Disable Footer Widgets"
 msgstr ""
 
-#: inc/metabox/class-astra-meta-boxes.php:292
+#: inc/metabox/class-astra-meta-boxes.php:293
 msgid "Disable Footer Bar"
 msgstr ""
 
