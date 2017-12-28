@@ -48,18 +48,17 @@ function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 	return $post_nav;
 }
 
-
-/**
- * Astra Filter Deprecated
- *
- * @since 1.1.1
- * @param string $tag         The name of the filter hook.
- * @param array  $args        Array of additional function arguments to be passed to apply_filters().
- * @param string $version     The version of WordPress that deprecated the hook.
- * @param string $replacement Optional. The hook that should have been used. Default false.
- * @param string $message     Optional. A message regarding the change. Default null.
- */
 if ( ! function_exists( 'apply_astra_filters_deprecated' ) ) {
+	/**
+	 * Astra Filter Deprecated
+	 *
+	 * @since 1.1.1
+	 * @param string $tag         The name of the filter hook.
+	 * @param array  $args        Array of additional function arguments to be passed to apply_filters().
+	 * @param string $version     The version of WordPress that deprecated the hook.
+	 * @param string $replacement Optional. The hook that should have been used. Default false.
+	 * @param string $message     Optional. A message regarding the change. Default null.
+	 */
 	function apply_astra_filters_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
 		if ( function_exists( 'apply_filters_deprecated' ) ) { /* WP >= 4.6 */
 			return apply_filters_deprecated( $tag, $args, $version, $replacement, $message );
