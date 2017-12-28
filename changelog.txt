@@ -4,6 +4,7 @@ v1.1.1
 # New: Added filter `astra_enqueue_theme_assets` to disable loading of Astra's CSS and JS.
 # Fixed: PHP notice in the small footer on PHP 7.2
 # Fixed: Updated woocommerce Related products design for responsive devices.
+# Fixed: Deprecated filter fatal error in WordPress 4.5 & below.
 
 v1.1.0
 # New: Added Woocommerce complete support.
