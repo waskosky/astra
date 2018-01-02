@@ -3309,6 +3309,12 @@ button.pswp__button--zoom:hover {
 .woocommerce-page{
 	&.woocommerce-checkout {
 
+		form.checkout.woocommerce-checkout:after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
 		table.shop_table{
 			thead{
 				background: none;

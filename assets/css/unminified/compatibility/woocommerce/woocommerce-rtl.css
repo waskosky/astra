@@ -3993,6 +3993,13 @@ button.pswp__button--zoom:hover {
   /* Ordered received style */
 }
 
+.woocommerce.woocommerce-checkout form.checkout.woocommerce-checkout:after,
+.woocommerce-page.woocommerce-checkout form.checkout.woocommerce-checkout:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .woocommerce.woocommerce-checkout table.shop_table thead,
 .woocommerce-page.woocommerce-checkout table.shop_table thead {
   background: none;
