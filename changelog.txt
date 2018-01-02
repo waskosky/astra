@@ -1,3 +1,6 @@
+v1.1.2
+# Fixed: Updated woocommerce loading icon url.
+
 v1.1.1
 # New: Added option to display inline the logo and site title/site description.
 # New: Added filter `astra_woocommerce_integration` to disable WooCommerce integration in Astra.
