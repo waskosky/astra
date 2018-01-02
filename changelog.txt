@@ -1,5 +1,5 @@
 v1.1.2
-# Fixed: Updated woocommerce loading icon url.
+# Fixed: Incorrect URL for the WooCommerce loading icon.
 
 v1.1.1
 # New: Added option to display inline the logo and site title/site description.
