@@ -1,5 +1,6 @@
 v1.1.2
 # Fixed: Incorrect URL for the WooCommerce loading icon.
+# Fixed: Added woocommerce shortcode grid support for responsive devices.
 
 v1.1.1
 # New: Added option to display inline the logo and site title/site description.
