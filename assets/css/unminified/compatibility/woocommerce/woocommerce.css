@@ -517,7 +517,7 @@ p.demo_store a,
   margin-top: -0.5em;
   content: '';
   animation: spin 1s ease-in-out infinite;
-  background: url("../../../../../../../plugins/woocommerce/assets/images/loader.svg") center center;
+  background: url("../../../../../../../plugins/woocommerce/assets/images/icons/loader.svg") center center;
   background-size: cover;
   line-height: 1;
   text-align: center;
@@ -536,7 +536,7 @@ p.demo_store a,
   margin-top: -0.5em;
   content: '';
   animation: spin 1s ease-in-out infinite;
-  background: url("../../../../../../../plugins/woocommerce/assets/images/loader.svg") center center;
+  background: url("../../../../../../../plugins/woocommerce/assets/images/icons/loader.svg") center center;
   background-size: cover;
   line-height: 1;
   text-align: center;
@@ -3052,7 +3052,7 @@ p.demo_store a,
 
 button.pswp__button {
   box-shadow: none !important;
-  background-image: url("photoswipe/default-skin/default-skin.png") !important;
+  background-image: url("../../../../../../../plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.png") !important;
 }
 
 button.pswp__button,
@@ -3987,6 +3987,13 @@ button.pswp__button--zoom:hover {
 .woocommerce.woocommerce-checkout,
 .woocommerce-page.woocommerce-checkout {
   /* Ordered received style */
+}
+
+.woocommerce.woocommerce-checkout form.checkout.woocommerce-checkout:after,
+.woocommerce-page.woocommerce-checkout form.checkout.woocommerce-checkout:after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .woocommerce.woocommerce-checkout table.shop_table thead,

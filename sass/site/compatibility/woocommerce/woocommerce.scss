@@ -2679,7 +2679,7 @@ p.demo_store,
 
 button.pswp__button {
 	box-shadow: none !important;
-	background-image: url('photoswipe/default-skin/default-skin.png') !important;
+	background-image: url('../../../../../../../plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.png') !important;
 }
 
 button.pswp__button,
@@ -3305,6 +3305,12 @@ button.pswp__button--zoom:hover {
  .woocommerce,
 .woocommerce-page{
 	&.woocommerce-checkout {
+
+		form.checkout.woocommerce-checkout:after {
+			content: "";
+			clear: both;
+			display: table;
+		}
 
 		table.shop_table{
 			thead{

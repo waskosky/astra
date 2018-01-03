@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[enable-cart-upsells]', array(
 			'section'  => 'section-woo-shop-cart',
 			'label'    => __( 'Enable Upsells', 'astra' ),
-			'priority' => 0,
+			'priority' => 10,
 			'type'     => 'checkbox',
 		)
 	);
