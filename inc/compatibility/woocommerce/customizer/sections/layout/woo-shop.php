@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-grids]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-woo-shop',
-				'priority'    => 0,
+				'priority'    => 10,
 				'label'       => __( 'Shop Columns', 'astra' ),
 				'input_attrs' => array(
 					'step' => 1,
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'section'     => 'section-woo-shop',
 			'label'       => __( 'Products Per Page', 'astra' ),
 			'type'        => 'number',
-			'priority'    => 20,
+			'priority'    => 15,
 			'input_attrs' => array(
 				'min'  => 1,
 				'step' => 1,
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[shop-hover-style]', array(
 			'type'     => 'select',
 			'section'  => 'section-woo-shop',
-			'priority' => 24,
+			'priority' => 20,
 			'label'    => __( 'Hover Style', 'astra' ),
 			'choices'  => apply_filters(
 				'astra_woo_shop_hover_style',
@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-product-structure]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-woo-shop',
-				'priority' => 70,
+				'priority' => 30,
 				'label'    => __( 'Shop Product Structure', 'astra' ),
 				'choices'  => array(
 					'title'      => __( 'Title', 'astra' ),

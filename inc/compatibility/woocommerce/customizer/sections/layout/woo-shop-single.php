@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
 			'section'  => 'section-woo-shop-single',
 			'label'    => __( 'Disable Breadcrumb', 'astra' ),
-			'priority' => 35,
+			'priority' => 10,
 			'type'     => 'checkbox',
 		)
 	);
