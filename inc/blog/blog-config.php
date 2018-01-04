@@ -154,7 +154,7 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 	function astra_post_link( $output_filter = '' ) {
 
 		$enabled = apply_filters( 'astra_post_link_enabled', '__return_true' );
-		if ( is_admin() || ! $enabled ) {
+		if ( ( is_admin() && ! wp_doing_ajax() ) || ! $enabled ) {
 			return $output_filter;
 		}
 
