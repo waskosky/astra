@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0
  */
