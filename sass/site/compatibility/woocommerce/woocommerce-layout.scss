@@ -349,6 +349,27 @@
 					}
 				}
 			}
+
+			// Set default 3 columns for tab.
+			// Added this to support woocommerce shortcodes.
+			&.columns-3,
+			&.columns-4,
+			&.columns-5,
+			&.columns-6 {
+				ul.products {
+					li.product {
+						width: 30.2%;
+						width: calc(33.33% - 14px);
+						&:nth-child(3n) {
+							margin-right: 0;
+							clear: right;
+						}
+						&:nth-child(3n+1) {
+							clear: left;
+						}
+					}
+				}
+			}
 		}
 
 		@media( max-width: $mx-col-sm ) {
@@ -430,6 +451,27 @@
 							clear: right;
 						}
 						&:nth-child(6n+1) {
+							clear: left;
+						}
+					}
+				}
+			}
+
+			// Set default 2 columns for mobile.
+			// Added this to support woocommerce shortcodes.
+			&.columns-3,
+			&.columns-4,
+			&.columns-5,
+			&.columns-6 {
+				ul.products {
+					li.product {
+						width: 46.1%;
+						width: calc(50% - 10px);
+						&:nth-child(2n) {
+							margin-right: 0;
+							clear: right;
+						}
+						&:nth-child(2n+1) {
 							clear: left;
 						}
 					}

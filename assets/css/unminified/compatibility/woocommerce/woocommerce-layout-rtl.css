@@ -460,6 +460,17 @@
   .woocommerce.tablet-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.tablet-columns-6 ul.products li.product:nth-child(6n+1) {
     clear: right;
   }
+  .woocommerce.columns-3 ul.products li.product, .woocommerce.columns-4 ul.products li.product, .woocommerce.columns-5 ul.products li.product, .woocommerce.columns-6 ul.products li.product, .woocommerce-page.columns-3 ul.products li.product, .woocommerce-page.columns-4 ul.products li.product, .woocommerce-page.columns-5 ul.products li.product, .woocommerce-page.columns-6 ul.products li.product {
+    width: 30.2%;
+    width: calc(33.33% - 14px);
+  }
+  .woocommerce.columns-3 ul.products li.product:nth-child(3n), .woocommerce.columns-4 ul.products li.product:nth-child(3n), .woocommerce.columns-5 ul.products li.product:nth-child(3n), .woocommerce.columns-6 ul.products li.product:nth-child(3n), .woocommerce-page.columns-3 ul.products li.product:nth-child(3n), .woocommerce-page.columns-4 ul.products li.product:nth-child(3n), .woocommerce-page.columns-5 ul.products li.product:nth-child(3n), .woocommerce-page.columns-6 ul.products li.product:nth-child(3n) {
+    margin-left: 0;
+    clear: left;
+  }
+  .woocommerce.columns-3 ul.products li.product:nth-child(3n+1), .woocommerce.columns-4 ul.products li.product:nth-child(3n+1), .woocommerce.columns-5 ul.products li.product:nth-child(3n+1), .woocommerce.columns-6 ul.products li.product:nth-child(3n+1), .woocommerce-page.columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page.columns-4 ul.products li.product:nth-child(3n+1), .woocommerce-page.columns-5 ul.products li.product:nth-child(3n+1), .woocommerce-page.columns-6 ul.products li.product:nth-child(3n+1) {
+    clear: right;
+  }
 }
 
 @media (max-width: 544px) {
@@ -519,6 +530,17 @@
     clear: left;
   }
   .woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n+1) {
+    clear: right;
+  }
+  .woocommerce.columns-3 ul.products li.product, .woocommerce.columns-4 ul.products li.product, .woocommerce.columns-5 ul.products li.product, .woocommerce.columns-6 ul.products li.product, .woocommerce-page.columns-3 ul.products li.product, .woocommerce-page.columns-4 ul.products li.product, .woocommerce-page.columns-5 ul.products li.product, .woocommerce-page.columns-6 ul.products li.product {
+    width: 46.1%;
+    width: calc(50% - 10px);
+  }
+  .woocommerce.columns-3 ul.products li.product:nth-child(2n), .woocommerce.columns-4 ul.products li.product:nth-child(2n), .woocommerce.columns-5 ul.products li.product:nth-child(2n), .woocommerce.columns-6 ul.products li.product:nth-child(2n), .woocommerce-page.columns-3 ul.products li.product:nth-child(2n), .woocommerce-page.columns-4 ul.products li.product:nth-child(2n), .woocommerce-page.columns-5 ul.products li.product:nth-child(2n), .woocommerce-page.columns-6 ul.products li.product:nth-child(2n) {
+    margin-left: 0;
+    clear: left;
+  }
+  .woocommerce.columns-3 ul.products li.product:nth-child(2n+1), .woocommerce.columns-4 ul.products li.product:nth-child(2n+1), .woocommerce.columns-5 ul.products li.product:nth-child(2n+1), .woocommerce.columns-6 ul.products li.product:nth-child(2n+1), .woocommerce-page.columns-3 ul.products li.product:nth-child(2n+1), .woocommerce-page.columns-4 ul.products li.product:nth-child(2n+1), .woocommerce-page.columns-5 ul.products li.product:nth-child(2n+1), .woocommerce-page.columns-6 ul.products li.product:nth-child(2n+1) {
     clear: right;
   }
 }
