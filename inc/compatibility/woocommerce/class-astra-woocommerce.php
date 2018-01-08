@@ -295,8 +295,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function single_product_class( $classes ) {
 
-			global $product;
-			if ( is_product() && 0 == $product->get_review_count() ) {
+			if ( is_product() && 0 == get_post_meta( get_the_ID(), '_wc_review_count', true ) ) {
 				$classes[] = 'ast-woo-product-no-review';
 			}
 
