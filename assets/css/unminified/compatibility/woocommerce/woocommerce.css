@@ -972,37 +972,37 @@ p.demo_store a,
   border-style: solid;
 }
 
-.woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #comments {
+.woocommerce div.product.ast-woo-product-no-review #reviews #comments {
   width: 100%;
 }
 
-.woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #review_form_wrapper {
+.woocommerce div.product.ast-woo-product-no-review #reviews #review_form_wrapper {
   width: 100%;
   padding-left: 0;
 }
 
-.woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #review_form {
+.woocommerce div.product.ast-woo-product-no-review #reviews #review_form {
   padding: 1.5em 2em;
 }
 
-.woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #respond p.comment-form-author, .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews #respond p.comment-form-email {
+.woocommerce div.product.ast-woo-product-no-review #reviews #respond p.comment-form-author, .woocommerce div.product.ast-woo-product-no-review #reviews #respond p.comment-form-email {
   margin-bottom: 1em;
 }
 
 @media (min-width: 1201px) {
-  .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews .comment-form-author,
-  .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews .comment-form-email {
+  .woocommerce div.product.ast-woo-product-no-review #reviews .comment-form-author,
+  .woocommerce div.product.ast-woo-product-no-review #reviews .comment-form-email {
     width: 49%;
     display: inline-block;
   }
-  .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews .comment-form-author input,
-  .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews .comment-form-email input {
+  .woocommerce div.product.ast-woo-product-no-review #reviews .comment-form-author input,
+  .woocommerce div.product.ast-woo-product-no-review #reviews .comment-form-email input {
     width: 100%;
   }
-  .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews .comment-form-author {
+  .woocommerce div.product.ast-woo-product-no-review #reviews .comment-form-author {
     float: left;
   }
-  .woocommerce div.product.ast-woo-product-no-review .woocommerce-Reviews .comment-form-email {
+  .woocommerce div.product.ast-woo-product-no-review #reviews .comment-form-email {
     float: right;
   }
 }
