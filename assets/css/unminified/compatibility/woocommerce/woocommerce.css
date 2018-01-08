@@ -2812,11 +2812,6 @@ p.demo_store a,
   font-size: .75em;
 }
 
-.woocommerce ul.products li.last,
-.woocommerce-page ul.products li.last {
-  margin-right: 0;
-}
-
 .woocommerce .related.products li.product:last-child,
 .woocommerce-page .related.products li.product:last-child {
   margin-right: 0;
