@@ -850,7 +850,7 @@ p.demo_store,
 		
 		/* No Review for single product */
 		&.ast-woo-product-no-review{
-			.woocommerce-Reviews {
+			#reviews {
 				#comments {
 					width: 100%;
 				}

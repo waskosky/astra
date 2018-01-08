@@ -1,3 +1,7 @@
+v1.1.3
+# Fixed: Updated Single Product review style when there is no review.
+# Fixed: Updated Single product without review condition which caused an error for some plugins.
+
 v1.1.2
 # Fixed: Incorrect URL for the WooCommerce loading icon.
 # Fixed: Added woocommerce shortcode grid support for responsive devices.
