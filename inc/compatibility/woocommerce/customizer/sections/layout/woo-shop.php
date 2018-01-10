@@ -83,7 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-woo-shop',
 			'priority' => 20,
-			'label'    => __( 'Hover Style', 'astra' ),
+			'label'    => __( 'Product Image Hover Style', 'astra' ),
 			'choices'  => apply_filters(
 				'astra_woo_shop_hover_style',
 				array(
