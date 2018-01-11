@@ -670,6 +670,14 @@
   width: 48%;
 }
 
+.woocommerce .cart-collaterals .cross-sells ul.products li.first, .woocommerce-page .cart-collaterals .cross-sells ul.products li.first {
+  clear: both;
+}
+
+.woocommerce .cart-collaterals .cross-sells ul.products li.last, .woocommerce-page .cart-collaterals .cross-sells ul.products li.last {
+  margin-right: 0;
+}
+
 .woocommerce .cart-collaterals .shipping_calculator, .woocommerce-page .cart-collaterals .shipping_calculator {
   width: 48%;
   *zoom: 1;
