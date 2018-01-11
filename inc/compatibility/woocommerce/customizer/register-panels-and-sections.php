@@ -62,10 +62,10 @@ $wp_customize->add_section(
 	new Astra_WP_Customize_Section(
 		$wp_customize, 'section-woo-shop-cart',
 		array(
-			'title'    => __( 'Cart', 'astra' ),
+			'title'    => __( 'Cart Page', 'astra' ),
 			'panel'    => 'panel-layout',
 			'section'  => 'section-woo-group',
-			'priority' => 15,
+			'priority' => 20,
 		)
 	)
 );
