@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.1.2\n"
+"Project-Id-Version: Astra 1.1.4-beta.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-01-04 13:24:04+00:00\n"
+"POT-Creation-Date: 2018-01-11 15:40:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,25 +131,25 @@ msgstr ""
 msgid "Loop End"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:351
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:350
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:353
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:352
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:362
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:361
 msgid "Product Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:364
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:363
 msgid "This sidebar will be used on Single Product page."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:869
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:868
 msgid "View your shopping cart"
 msgstr ""
 
@@ -197,7 +197,7 @@ msgid "Products Per Page"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:86
-msgid "Hover Style"
+msgid "Product Image Hover Style"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:90
