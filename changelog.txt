@@ -1,4 +1,4 @@
-v1.1.4
+1.1.4-beta.1
 # Fixed: Woocommerce shortcode grid style conflict.
 # Fixed: Woocommerce Cart option renamed to Cart Page.
 
