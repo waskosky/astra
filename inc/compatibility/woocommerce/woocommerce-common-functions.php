@@ -164,7 +164,7 @@ if ( ! function_exists( 'astra_woo_woocommerce_shop_product_content' ) ) {
 		$shop_structure = apply_filters( 'astra_woo_shop_product_structure', astra_get_option( 'shop-product-structure' ) );
 
 		if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
-			
+
 			do_action( 'astra_woo_shop_before_summary_wrap' );
 			echo '<div class="astra-shop-summary-wrap">';
 			do_action( 'astra_woo_shop_summary_wrap_top' );
