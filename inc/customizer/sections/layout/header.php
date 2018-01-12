@@ -135,7 +135,7 @@ $header_rt_sections = array(
 		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
 			'type'     => 'checkbox',
 			'section'  => 'section-header',
-			'label'    => __( 'Display Outside Menu', 'astra' ),
+			'label'    => __( 'Take custom menu item outside', 'astra' ),
 			'priority' => 5,
 		)
 	);
