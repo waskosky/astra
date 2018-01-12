@@ -165,6 +165,10 @@ if ( ! function_exists( 'astra_woo_woocommerce_shop_product_content' ) ) {
 
 		if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
 
+			do_action( 'astra_woo_shop_before_summary_wrap' );
+			echo '<div class="astra-shop-summary-wrap">';
+			do_action( 'astra_woo_shop_summary_wrap_top' );
+
 			foreach ( $shop_structure as $value ) {
 
 				switch ( $value ) {
@@ -214,6 +218,32 @@ if ( ! function_exists( 'astra_woo_woocommerce_shop_product_content' ) ) {
 						break;
 				}
 			}
+
+			do_action( 'astra_woo_shop_summary_wrap_bottom' );
+			echo '</div>';
+			do_action( 'astra_woo_shop_after_summary_wrap' );
 		}
+	}
+}
+
+if ( ! function_exists( 'astra_woo_shop_thumbnail_wrap_start' ) ) {
+
+	/**
+	 * Thumbnail wrap start.
+	 */
+	function astra_woo_shop_thumbnail_wrap_start() {
+
+		echo '<div class="astra-shop-thumbnail-wrap">';
+	}
+}
+
+if ( ! function_exists( 'astra_woo_shop_thumbnail_wrap_end' ) ) {
+
+	/**
+	 * Thumbnail wrap end.
+	 */
+	function astra_woo_shop_thumbnail_wrap_end() {
+
+		echo '</div>';
 	}
 }
