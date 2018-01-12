@@ -1130,6 +1130,10 @@ p.demo_store a,
   float: right;
 }
 
+.woocommerce div.product form.cart .button.single_add_to_cart_button {
+  padding: 10px 40px;
+}
+
 .woocommerce div.product form.cart .group_table tr:last-child td {
   border-bottom: 0;
 }
@@ -2880,10 +2884,20 @@ p.demo_store a,
   min-height: 3.25em;
 }
 
+.woocommerce #content table.cart [name="coupon_code"],
+.woocommerce-page #content table.cart [name="coupon_code"] {
+  max-height: 35px;
+}
+
 .woocommerce #content table.cart .button,
 .woocommerce-page #content table.cart .button {
   display: inline-block;
   width: auto;
+}
+
+.woocommerce #content table.cart .button[name="apply_coupon"],
+.woocommerce-page #content table.cart .button[name="apply_coupon"] {
+  padding: 10px 40px;
 }
 
 @media (max-width: 544px) {
@@ -4201,10 +4215,19 @@ button.pswp__button--zoom:hover {
   display: inline-block;
 }
 
+.woocommerce form.checkout_coupon [name="coupon_code"] {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
 .woocommerce form.checkout_coupon .button {
   padding: .5em 1em;
   vertical-align: initial;
   line-height: 1.35;
+}
+
+.woocommerce form.checkout_coupon .button[name="apply_coupon"] {
+  padding: 10px 40px;
 }
 
 .checkout_coupon .input-text {
