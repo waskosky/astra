@@ -993,6 +993,10 @@ p.demo_store,
 			.button {
 				vertical-align: middle;
 				float: left;
+
+				&.single_add_to_cart_button {
+					padding: 10px 40px;
+				}
 			}
 
 			.group_table {
@@ -2546,10 +2550,18 @@ p.demo_store,
 				min-height: 3.25em;
 				// ( top-bottom padding (1.4em) + line-height (1.85em) );
 			}
+			
+			[name="coupon_code"] {
+				max-height: 35px;
+			}
 
 			.button{
 				display: inline-block;
 				width: auto;
+
+				&[name="apply_coupon"] {
+					padding: 10px 40px;
+				}
 				@media (max-width: $mx-col-sm) {
 					width: 100%;
 				}			
@@ -3487,11 +3499,18 @@ button.pswp__button--zoom:hover {
 				float: none;
 				display: inline-block;
 			}
+			[name="coupon_code"] {
+				padding-top: 9px;
+    			padding-bottom: 9px;
+			}
 
 			.button {
 				padding: .5em 1em;
 				vertical-align: initial;
 				line-height: 1.35;
+				&[name="apply_coupon"] {
+					padding: 10px 40px;
+				}
 			}
 		}
 	}

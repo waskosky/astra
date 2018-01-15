@@ -269,6 +269,38 @@
 
 	@media( max-width: $mx-col-md ) and ( min-width: $col-sm ) {
 
+			// Set default 3 columns for tab.
+			// Added this to support woocommerce shortcodes.
+			&[class*='columns-']{
+				&.columns-3,
+				&.columns-4,
+				&.columns-5,
+				&.columns-6 {
+					> ul.products {
+						li.product {
+							width: 30.2%;
+							width: calc(33.33% - 14px);
+							margin-right: 20px;
+							&:nth-child(3n) {
+								margin-right: 0;
+								clear: right;
+							}
+							&:nth-child(3n+1) {
+								clear: left;
+							}
+						}
+					}
+				}
+			}
+			&[class*='columns-'] {
+				ul.products {
+					li.product:nth-child(n) {
+						margin-right: 20px;
+						clear: none;
+					}
+				}
+			}
+
 			&.tablet-columns-1 {
 				ul.products {
 					li.product {
@@ -351,35 +383,50 @@
 					}
 				}
 			}
+		}
 
-			// Set default 3 columns for tab.
+		@media( max-width: $mx-col-sm ) {
+
+			// Set default 2 columns for mobile.
 			// Added this to support woocommerce shortcodes.
-			&.columns-3,
-			&.columns-4,
-			&.columns-5,
-			&.columns-6 {
-				ul.products {
-					li.product {
-						width: 30.2%;
-						width: calc(33.33% - 14px);
-						&:nth-child(3n) {
-							margin-right: 0;
-							clear: right;
-						}
-						&:nth-child(3n+1) {
-							clear: left;
+			&[class*='columns-']{
+				&.columns-3,
+				&.columns-4,
+				&.columns-5,
+				&.columns-6 {
+					> ul.products {
+						li.product {
+							width: 46.1%;
+							width: calc(50% - 10px);
+							margin-right: 20px;
+							&:nth-child(2n) {
+								margin-right: 0;
+								clear: right;
+							}
+							&:nth-child(2n+1) {
+								clear: left;
+							}
 						}
 					}
 				}
 			}
-		}
 
-		@media( max-width: $mx-col-sm ) {
+			&[class*='columns-'] {
+				ul.products {
+					li.product:nth-child(n) {
+						margin-right: 20px;
+						clear: none;
+					}
+				}
+			}
 
 			&.mobile-columns-1 {
 				ul.products {
 					li.product {
 						width: 100%;
+						&:nth-child(n){
+							margin-right: 0;
+						}
 					}
 				}
 			}
@@ -459,26 +506,6 @@
 				}
 			}
 
-			// Set default 2 columns for mobile.
-			// Added this to support woocommerce shortcodes.
-			&.columns-3,
-			&.columns-4,
-			&.columns-5,
-			&.columns-6 {
-				ul.products {
-					li.product {
-						width: 46.1%;
-						width: calc(50% - 10px);
-						&:nth-child(2n) {
-							margin-right: 0;
-							clear: right;
-						}
-						&:nth-child(2n+1) {
-							clear: left;
-						}
-					}
-				}
-			}
 		}
 
 	.woocommerce-result-count {
@@ -554,6 +581,13 @@
 
 				li {
 					width: 48%;
+				}
+				li.first {
+					clear: both;
+				}
+
+				li.last {
+					margin-right: 0;
 				}
 			}
 		}

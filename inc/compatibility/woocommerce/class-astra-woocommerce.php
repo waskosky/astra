@@ -478,11 +478,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( ! apply_filters( 'astra_woo_shop_product_structure_override', false ) ) {
 
+				add_action( 'woocommerce_before_shop_loop_item', 'astra_woo_shop_thumbnail_wrap_start', 6 );
 				/**
 				 * Add sale flash before shop loop.
 				 */
 				add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_show_product_loop_sale_flash', 9 );
 
+				add_action( 'woocommerce_after_shop_loop_item', 'astra_woo_shop_thumbnail_wrap_end', 8 );
 				/**
 				 * Add Out of Stock to the Shop page
 				 */
