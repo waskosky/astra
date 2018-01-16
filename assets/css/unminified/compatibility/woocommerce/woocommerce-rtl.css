@@ -895,7 +895,6 @@ p.demo_store a,
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-  background: #fff;
   z-index: 2;
   border-bottom-color: #fff;
 }
