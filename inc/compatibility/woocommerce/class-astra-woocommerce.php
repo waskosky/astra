@@ -816,7 +816,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function astra_header_cart( $output, $section, $section_type ) {
 
-			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type ) {
+			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type && apply_filters( 'astra_woo_header_cart_icon', true ) ) {
 
 				if ( is_cart() ) {
 					$class = 'current-menu-item';
@@ -868,9 +868,27 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function astra_get_cart_link() {
 			?>
 			<a class="cart-container" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'astra' ); ?>">
-				<div class="ast-cart-menu-wrap">
-					<span class="count"> <?php echo WC()->cart->get_cart_contents_count(); ?> </span>
-				</div>
+
+						<?php
+						do_action( 'astra_woo_header_cart_icons_before' );
+
+						if ( apply_filters( 'astra_woo_default_header_cart_icon', true ) ) {
+						?>
+							<div class="ast-cart-menu-wrap">
+								<span class="count"> 
+									<?php
+									if ( apply_filters( 'astra_woo_header_cart_total', true ) ) {
+										echo WC()->cart->get_cart_contents_count();
+									}
+									?>
+								</span>
+							</div>
+						<?php
+						}
+
+						do_action( 'astra_woo_header_cart_icons_after' );
+
+						?>
 			</a>
 		<?php
 		}
