@@ -769,7 +769,6 @@ p.demo_store,
 					}
 
 					&.active {
-						background: $contentbg;
 						z-index: 2;
 						border-bottom-color: $contentbg;
 
@@ -2183,6 +2182,17 @@ p.demo_store,
 					@include iconbefore( '\e013' );
 					color: $red;
 				}
+			}
+		}
+	}
+
+	/**
+	 * Product categories
+	 */
+	.widget_product_categories {
+		.product-categories{
+			.count{
+				float: right;
 			}
 		}
 	}
