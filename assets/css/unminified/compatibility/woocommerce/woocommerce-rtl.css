@@ -891,7 +891,7 @@ p.demo_store a,
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
   text-decoration: none;
-  color: #6b6b6b;
+  color: #6b6a6b;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
@@ -4228,6 +4228,17 @@ button.pswp__button--zoom:hover {
 
 .woocommerce form.checkout_coupon .button[name="apply_coupon"] {
   padding: 10px 40px;
+}
+
+@media (max-width: 420px) {
+  .woocommerce form.checkout_coupon .form-row-first,
+  .woocommerce form.checkout_coupon .form-row-last {
+    display: block;
+    margin: 0 auto;
+  }
+  .woocommerce form.checkout_coupon .form-row-first {
+    margin-bottom: 10px;
+  }
 }
 
 .checkout_coupon .input-text {
