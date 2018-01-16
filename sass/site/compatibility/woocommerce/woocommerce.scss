@@ -3518,9 +3518,15 @@ button.pswp__button--zoom:hover {
 				.form-row-last {
 					display: block;
 					margin: 0 auto;
+					width: 100%;
 				}
 				.form-row-first {
 					margin-bottom: 10px;
+				}
+
+				.button[name="apply_coupon"] {
+					width: 100%;
+    				padding: 10px 5px;
 				}
 			}
 		}

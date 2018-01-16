@@ -4235,9 +4235,14 @@ button.pswp__button--zoom:hover {
   .woocommerce form.checkout_coupon .form-row-last {
     display: block;
     margin: 0 auto;
+    width: 100%;
   }
   .woocommerce form.checkout_coupon .form-row-first {
     margin-bottom: 10px;
+  }
+  .woocommerce form.checkout_coupon .button[name="apply_coupon"] {
+    width: 100%;
+    padding: 10px 5px;
   }
 }
 
