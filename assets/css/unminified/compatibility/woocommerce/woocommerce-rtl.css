@@ -464,6 +464,9 @@ p.demo_store a,
 	 * Layered nav widget
 	 */
   /**
+	 * Product categories
+	 */
+  /**
 	 * Price filter widget
 	 */
   /**
@@ -868,7 +871,6 @@ p.demo_store a,
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-  background: #fff;
   z-index: 2;
   border-bottom-color: #fff;
 }
@@ -2453,6 +2455,10 @@ p.demo_store a,
   content: "";
   text-decoration: none;
   color: #a00;
+}
+
+.woocommerce .widget_product_categories .product-categories .count {
+  float: left;
 }
 
 .woocommerce .widget_price_filter .price_slider {
@@ -4201,6 +4207,22 @@ button.pswp__button--zoom:hover {
 
 .woocommerce form.checkout_coupon .button[name="apply_coupon"] {
   padding: 10px 40px;
+}
+
+@media (max-width: 420px) {
+  .woocommerce form.checkout_coupon .form-row-first,
+  .woocommerce form.checkout_coupon .form-row-last {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .woocommerce form.checkout_coupon .form-row-first {
+    margin-bottom: 10px;
+  }
+  .woocommerce form.checkout_coupon .button[name="apply_coupon"] {
+    width: 100%;
+    padding: 10px 5px;
+  }
 }
 
 .checkout_coupon .input-text {
