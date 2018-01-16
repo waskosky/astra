@@ -3522,6 +3522,23 @@ button.pswp__button--zoom:hover {
 					padding: 10px 40px;
 				}
 			}
+
+			@media ( max-width: 420px ) {
+				.form-row-first,
+				.form-row-last {
+					display: block;
+					margin: 0 auto;
+					width: 100%;
+				}
+				.form-row-first {
+					margin-bottom: 10px;
+				}
+
+				.button[name="apply_coupon"] {
+					width: 100%;
+    				padding: 10px 5px;
+				}
+			}
 		}
 	}
 }

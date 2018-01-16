@@ -741,7 +741,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 			} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
 
-				$title = woocommerce_page_title();
+				$title = woocommerce_page_title( false );
 
 			} elseif ( is_archive() ) {
 
