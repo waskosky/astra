@@ -491,6 +491,9 @@ p.demo_store a,
 	 * Layered nav widget
 	 */
   /**
+	 * Product categories
+	 */
+  /**
 	 * Price filter widget
 	 */
   /**
@@ -2479,6 +2482,10 @@ p.demo_store a,
   content: "";
   text-decoration: none;
   color: #a00;
+}
+
+.woocommerce .widget_product_categories .product-categories .count {
+  float: left;
 }
 
 .woocommerce .widget_price_filter .price_slider {

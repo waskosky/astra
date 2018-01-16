@@ -2187,6 +2187,17 @@ p.demo_store,
 	}
 
 	/**
+	 * Product categories
+	 */
+	.widget_product_categories {
+		.product-categories{
+			.count{
+				float: right;
+			}
+		}
+	}
+
+	/**
 	 * Price filter widget
 	 */
 	.widget_price_filter {
