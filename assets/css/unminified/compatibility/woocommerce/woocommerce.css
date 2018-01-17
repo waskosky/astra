@@ -204,6 +204,7 @@ p.demo_store a,
   position: static;
   left: auto;
   top: auto;
+  border-top: 0;
 }
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart {
