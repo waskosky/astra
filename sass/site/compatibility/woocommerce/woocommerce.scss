@@ -140,8 +140,9 @@ p.demo_store,
 			&:after {
 				border-color: rgba(255, 255, 255, 0);
 				border-bottom-color: #fff;
-				border-width: 5px;
-				margin-left: -5px;
+				border-width: 6px;
+			    margin-left: -5px;
+				margin-bottom: -0.3px;
 			}
 			
 			&:before {
