@@ -204,6 +204,7 @@ p.demo_store a,
   position: static;
   right: auto;
   top: auto;
+  border-top: 0;
 }
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart {
@@ -237,14 +238,15 @@ p.demo_store a,
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart:after {
   border-color: rgba(255, 255, 255, 0);
   border-bottom-color: #fff;
-  border-width: 5px;
-  margin-right: -5px;
+  border-width: 6px;
+  margin-right: -6px;
+  margin-bottom: -0.3px;
 }
 
 .ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart:before {
   border-color: rgba(230, 230, 230, 0);
   border-bottom-color: #E6E6E6;
-  border-width: 8px;
+  border-width: 9px;
   margin-right: -5px;
   left: 5px;
 }
@@ -371,7 +373,7 @@ p.demo_store a,
 }
 
 .ast-woocommerce-cart-menu .header-main-layout-3 .ast-site-header-cart .widget_shopping_cart:before {
-  right: 12px;
+  right: 11px;
   left: auto;
 }
 
@@ -489,6 +491,9 @@ p.demo_store a,
 	 */
   /**
 	 * Layered nav widget
+	 */
+  /**
+	 * Product categories
 	 */
   /**
 	 * Price filter widget
@@ -891,11 +896,10 @@ p.demo_store a,
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
   text-decoration: none;
-  color: #6b6b6b;
+  color: #6b6a6b;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-  background: #fff;
   z-index: 2;
   border-bottom-color: #fff;
 }
@@ -2480,6 +2484,10 @@ p.demo_store a,
   content: "";
   text-decoration: none;
   color: #a00;
+}
+
+.woocommerce .widget_product_categories .product-categories .count {
+  float: left;
 }
 
 .woocommerce .widget_price_filter .price_slider {
@@ -4228,6 +4236,22 @@ button.pswp__button--zoom:hover {
 
 .woocommerce form.checkout_coupon .button[name="apply_coupon"] {
   padding: 10px 40px;
+}
+
+@media (max-width: 420px) {
+  .woocommerce form.checkout_coupon .form-row-first,
+  .woocommerce form.checkout_coupon .form-row-last {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .woocommerce form.checkout_coupon .form-row-first {
+    margin-bottom: 10px;
+  }
+  .woocommerce form.checkout_coupon .button[name="apply_coupon"] {
+    width: 100%;
+    padding: 10px 5px;
+  }
 }
 
 .checkout_coupon .input-text {

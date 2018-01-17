@@ -105,6 +105,7 @@ p.demo_store,
 				position: static;
 				left: auto;
 				top: auto;
+				border-top: 0;
 			}
 		}
 
@@ -140,14 +141,15 @@ p.demo_store,
 			&:after {
 				border-color: rgba(255, 255, 255, 0);
 				border-bottom-color: #fff;
-				border-width: 5px;
-				margin-left: -5px;
+				border-width: 6px;
+			    margin-left: -6px;
+				margin-bottom: -0.3px;
 			}
 			
 			&:before {
 				border-color: rgba(230, 230, 230, 0);
 				border-bottom-color: #E6E6E6;
-				border-width: 8px;
+				border-width: 9px;
 				margin-left: -5px;
 				right: 5px;
 			}
@@ -290,7 +292,7 @@ p.demo_store,
 				}
 
 				&:before {
-					left: 12px;
+					left: 11px;
 					right: auto;
 				}
 			}
@@ -769,7 +771,6 @@ p.demo_store,
 					}
 
 					&.active {
-						background: $contentbg;
 						z-index: 2;
 						border-bottom-color: $contentbg;
 
@@ -2188,6 +2189,17 @@ p.demo_store,
 	}
 
 	/**
+	 * Product categories
+	 */
+	.widget_product_categories {
+		.product-categories{
+			.count{
+				float: right;
+			}
+		}
+	}
+
+	/**
 	 * Price filter widget
 	 */
 	.widget_price_filter {
@@ -3510,6 +3522,23 @@ button.pswp__button--zoom:hover {
 				line-height: 1.35;
 				&[name="apply_coupon"] {
 					padding: 10px 40px;
+				}
+			}
+
+			@media ( max-width: 420px ) {
+				.form-row-first,
+				.form-row-last {
+					display: block;
+					margin: 0 auto;
+					width: 100%;
+				}
+				.form-row-first {
+					margin-bottom: 10px;
+				}
+
+				.button[name="apply_coupon"] {
+					width: 100%;
+    				padding: 10px 5px;
 				}
 			}
 		}
