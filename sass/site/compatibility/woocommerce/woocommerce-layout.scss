@@ -129,6 +129,8 @@
 	 * Product loops
 	 */
 	ul.products {
+		display: flex;
+    	flex-wrap: wrap;
 		clear: both;
 		@include clearfix();
 

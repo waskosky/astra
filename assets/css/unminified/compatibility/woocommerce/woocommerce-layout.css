@@ -283,6 +283,8 @@
 }
 
 .woocommerce ul.products, .woocommerce-page ul.products {
+  display: flex;
+  flex-wrap: wrap;
   clear: both;
   *zoom: 1;
 }
