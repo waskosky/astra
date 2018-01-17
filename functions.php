@@ -99,6 +99,7 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer.php';
  */
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-jetpack.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/class-astra-woocommerce.php';
+require_once ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/class-astra-lifterlms.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-beaver-builder.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-beaver-themer.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bb-ultimate-addon.php';
@@ -107,7 +108,6 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-visual-composer.ph
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-site-origin.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gravity-forms.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bne-flyout.php';
-require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-lifter-lms.php';
 // Check PHP_VERSION for namespace.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
