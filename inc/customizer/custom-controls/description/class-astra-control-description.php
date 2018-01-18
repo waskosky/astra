@@ -54,9 +54,9 @@ class Astra_Control_Description extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 
-		$this->json['label']       	= esc_html( $this->label );
-		$this->json['description'] 	= $this->description;
-		$this->json['help'] 		= $this->help;
+		$this->json['label']       = esc_html( $this->label );
+		$this->json['description'] = $this->description;
+		$this->json['help']        = $this->help;
 	}
 
 	/**
