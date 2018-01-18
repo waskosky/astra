@@ -397,6 +397,19 @@ p.demo_store a,
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
+.ast-header-break-point .woocommerce-custom-menu-item .ast-cart-menu-wrap {
+  width: 2em;
+  height: 2em;
+  font-size: 1.4em;
+  line-height: 2;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.ast-header-break-point .ast-button-wrap .main-header-menu-toggle {
+  font-size: 1.4em;
+}
+
 .ast-header-break-point.ast-woocommerce-cart-menu .ast-site-header-cart {
   order: initial;
   line-height: 3;
