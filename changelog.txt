@@ -1,4 +1,12 @@
-1.1.4
+v1.1.5
+# Improvement: Slightly improved the size of woocomerce header cart icon for small devices for better accessibility.
+# Improvement: Improved woocommerce invalid input field default color.
+# Fixed: Alignment of empty cart message to the left in header cart.
+# Fixed: Updated the size of coupon button for small devices.
+# Fixed: Removed single product tabs background color.
+# Fixed: Updated position of product category widget counts to the right.
+
+v1.1.4
 # Fixed: Woocommerce shortcode grid style conflict.
 # Fixed: Woocommerce Cart option renamed to Cart Page.
 
