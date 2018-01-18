@@ -70,6 +70,62 @@
   padding: 0;
 }
 
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author,
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title,
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
+  padding: 0 15px;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author,
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
+  margin-bottom: 0;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author {
+  font-size: inherit;
+  margin-bottom: 10px;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author .llms-author-info {
+  vertical-align: middle;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
+  font-size: .9em;
+  font-weight: 600;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta .length,
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta .difficulty {
+  font-weight: 400;
+  opacity: .75;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title:hover {
+  color: inherit;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-footer {
+  margin-top: 10px;
+}
+
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-content {
+  padding-bottom: 15px;
+}
+
+.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link {
+  background: #fff;
+}
+
+.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link:hover {
+  background: #fafafa;
+}
+
 .single-lesson .llms-course-navigation {
   padding: 2em 0 0;
   border-top: 1px solid #eeeeee;
@@ -78,6 +134,11 @@
 .single-lesson .llms-course-navigation .llms-lesson-preview {
   vertical-align: top;
   margin-top: 0;
+}
+
+.single-lesson .llms-course-navigation .llms-lesson-preview .llms-lesson-link {
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .single-lesson .llms-course-navigation .llms-next-lesson {
@@ -109,6 +170,109 @@
   text-align: left;
 }
 
+.course .llms-featured-image {
+  margin-bottom: 0;
+}
+
+.course .llms-instructor-info,
+.course .llms-instructor-info .llms-meta-info {
+  margin-top: 1.5em;
+}
+
+.course .llms-instructor-info .llms-instructors .llms-author .llms-author-info.name {
+  font-size: 1.25em;
+}
+
+.course .llms-instructor-info .llms-instructors .llms-author .llms-author-info.label {
+  font-size: 1em;
+}
+
+.course .llms-syllabus-wrapper {
+  margin: 0 auto 1.5em;
+}
+
+.course #review_box,
+.course #old_reviews {
+  margin: 0;
+  padding: 2em 0 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.course #old_reviews > hr {
+  display: none;
+}
+
+.course #old_reviews .llms_review {
+  padding: 20px;
+  margin: 20px 0px;
+}
+
+.course #old_reviews .llms_review:last-of-type {
+  margin-bottom: 2em;
+}
+
+.course #old_reviews .llms_review p:last-child {
+  margin-bottom: 0;
+}
+
+.course #old_reviews .llms_review h5 {
+  margin-bottom: 5px;
+}
+
+.course #old_reviews:last-child .llms_review:last-of-type {
+  margin-bottom: 0;
+}
+
+.course #review_box #review_text,
+.course #review_box #review_title {
+  margin-bottom: 1em;
+  width: 100%;
+  border-color: #dddddd;
+  background: #fff;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.single-course article.course {
+  margin-bottom: 2em;
+}
+
+.llms_membership .llms-featured-image {
+  margin-bottom: 0;
+}
+
+.llms-access-plan .llms-access-plan-footer {
+  padding: 15px;
+}
+
+.llms-access-plan .llms-access-plan-title,
+.llms-access-plan .llms-access-plan-pricing,
+.llms-access-plan .llms-access-plan-description {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.llms-access-plan .llms-access-plan-schedule,
+.llms-access-plan .llms-access-plan-trial,
+.llms-access-plan .llms-access-plan-expiration,
+.llms-access-plan .llms-access-plan-description {
+  font-size: inherit;
+}
+
+.llms-access-plan .llms-access-plan-price {
+  font-size: 1.2em;
+}
+
+.llms-access-plan .stamp {
+  font-size: 0.6em;
+  padding: 2px 5px;
+  font-weight: normal;
+}
+
+.llms-access-plan .llms-button-action {
+  display: inline-block;
+}
+
 .llms-syllabus-wrapper .llms-lesson-preview {
   display: block;
   width: auto;
@@ -116,6 +280,12 @@
 
 .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
   line-height: 1.75;
+  margin-bottom: 5px;
+}
+
+.llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete {
+  line-height: 1.25;
+  margin-bottom: 0;
 }
 
 .llms-pagination {
@@ -159,4 +329,182 @@
 .llms-pagination ul li a:focus {
   background: #ebe9eb;
   color: #8a7e88;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-notice {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin-bottom: 2em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-1 {
+  width: -webkit-calc(58% - 2em);
+  width: calc(58% - 2em);
+  margin: 0 0 0 2em;
+}
+
+@media (max-width: 768px) {
+  .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-1 {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
+  width: 42%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
+    width: 100%;
+  }
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-field > label {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-field input,
+.lifterlms .llms-checkout-wrapper .llms-form-field select,
+.lifterlms .llms-checkout-wrapper .llms-form-field textarea {
+  margin-bottom: 15px;
+  background: #fff;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-field input[type="checkbox"] {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2,
+.lifterlms .llms-checkout-wrapper .llms-login {
+  padding: 20px;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
+  border: 2px solid #ebebeb;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-login {
+  border: 1px solid #d3ced2;
+  margin-bottom: 2em;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .lifterlms .llms-checkout-wrapper .llms-login .llms-form-field.align-right {
+    text-align: right;
+    width: 100%;
+    clear: both;
+    margin-top: 10px;
+  }
+}
+
+.lifterlms .llms-checkout-wrapper .llms-login .llms-form-field.type-checkbox, .lifterlms .llms-checkout-wrapper .llms-login .llms-form-field.type-submit {
+  width: auto;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-section {
+  border: none;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-heading {
+  background: none;
+  color: inherit;
+  margin-bottom: 1em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-heading,
+.lifterlms .llms-checkout-wrapper .llms-form-field {
+  padding: 0;
+}
+
+.lifterlms .llms-checkout-wrapper .flush .llms-form-field {
+  padding: 0;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-order-summary .llms-label {
+  font-variant: normal;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content span.llms-description {
+  font-size: .9em;
+  line-height: 1.5;
+  opacity: .75;
+  display: inline-block;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper,
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-checkout-confirm,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-checkout-confirm {
+  margin: 0;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-8,
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-6,
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-4,
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-3,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-8,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-6,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-4,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-3 {
+  margin-left: 20px;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-last,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-last {
+  margin-left: 0;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-6,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-6 {
+  width: -webkit-calc( 50% - 10px);
+  width: calc( 50% - 10px);
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-8,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-8 {
+  width: -webkit-calc( 66.66% - 10px);
+  width: calc( 66.66% - 10px);
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-4,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-4 {
+  width: -webkit-calc( 33.33% - 10px);
+  width: calc( 33.33% - 10px);
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-3,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-3 {
+  width: -webkit-calc( 25% - 15px);
+  width: calc( 25% - 15px);
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-last,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-last {
+  float: left;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-payment-gateways label:before {
+  width: 1em;
+  height: 1em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-payment-gateways .llms-gateway-description {
+  margin-right: 1.25em;
+  margin-right: -webkit-calc(1em + 5px);
+  margin-right: calc(1em + 5px);
+}
+
+.lifterlms .llms-checkout-wrapper .llms-payment-gateways li:last-child:after {
+  margin: 10px auto;
 }

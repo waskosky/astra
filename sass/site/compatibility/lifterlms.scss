@@ -71,12 +71,69 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	ul.llms-loop-list {
 		li.llms-loop-item {
 			padding: 0;
+
+			.llms-author, 
+			.llms-loop-title, 
+			.llms-meta {
+				padding: 0 15px;
+			}
+			
+			.llms-loop-title {
+				font-weight: 600;
+				margin-top: 10px;
+			}
+
+			.llms-author, 
+			.llms-meta {
+				margin-bottom: 0;
+			}
+			.llms-author {
+				font-size: inherit;
+				margin-bottom: 10px;
+
+				.llms-author-info {
+					vertical-align: middle;
+				}
+			}
+			.llms-meta {
+				font-size: .9em;
+				font-weight: 600;
+
+				.length,
+				.difficulty {
+					font-weight: 400;
+					opacity: .75;
+				}
+			}
+
+			.llms-loop-title:hover {
+				color: inherit;
+			}
+
+			.llms-loop-item-footer {
+				margin-top: 10px;
+			}
+
+			.llms-loop-item-content {
+				padding-bottom: 15px;
+			}
 		}
 	}
 }
 
 // Single Lesson
 .single-lesson {
+
+	&.ast-separate-container {
+		.llms-lesson-preview .llms-lesson-link {
+			background: #fff;
+
+			&:hover {
+				background: #fafafa;
+			}
+		}
+	}
+
 	.llms-course-navigation {
 		padding: 2em 0 0;
 		border-top: 1px solid #eeeeee;
@@ -84,6 +141,11 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		.llms-lesson-preview {
 			vertical-align: top;
 			margin-top: 0;
+
+			.llms-lesson-link {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
 		}
 
 		.llms-next-lesson {
@@ -120,18 +182,150 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	}
 }
 
+// Single Course
+.course {
+	.llms-featured-image {
+		margin-bottom: 0;
+	}
+
+	.llms-instructor-info {
+		
+		&,
+		.llms-meta-info {
+			margin-top: 1.5em;
+		}
+
+		.llms-instructors {
+			.llms-author {
+				.llms-author-info{
+					&.name {
+						font-size: 1.25em;
+					}
+					&.label {
+						font-size: 1em;
+					}
+				}
+			}
+		}
+	}
+	
+	.llms-syllabus-wrapper {
+		margin: 0 auto 1.5em;
+	}
+
+	#review_box,
+	#old_reviews {
+		margin: 0;
+		padding: 2em 0 0;
+		border-top: 1px solid #eeeeee;
+	}
+
+	#old_reviews {
+		> hr {
+			display: none;
+		}
+
+		.llms_review {
+			padding: 20px;
+			margin:20px 0px;
+
+			&:last-of-type {
+				margin-bottom: 2em;
+			}
+
+			p:last-child {
+				margin-bottom: 0;
+			}
+
+			h5 {
+				margin-bottom: 5px;
+			}
+		}
+
+		&:last-child {
+			.llms_review:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	#review_box {
+
+		#review_text,
+		#review_title {
+			margin-bottom: 1em;
+			width: 100%;
+			border-color: #dddddd;
+			background: #fff;
+			border-radius: 0;
+		}
+	}
+}
+
+.single-course {
+	article.course {
+		margin-bottom: 2em;
+	}	
+}
+
+.llms_membership{
+	.llms-featured-image {
+		margin-bottom: 0;
+	}	
+}
+.llms-access-plan {
+		
+	.llms-access-plan-footer {
+		padding: 15px;
+	}
+
+	.llms-access-plan-title,
+	.llms-access-plan-pricing,
+	.llms-access-plan-description {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.llms-access-plan-schedule,
+	.llms-access-plan-trial,
+	.llms-access-plan-expiration,
+	.llms-access-plan-description {
+		font-size: inherit;
+	}
+
+	.llms-access-plan-price {
+		font-size: 1.2em;
+	}
+
+	.stamp {
+		font-size: 0.6em;
+		padding: 2px 5px;
+		font-weight: normal;
+	}
+
+	.llms-button-action {
+		display: inline-block;
+	}
+}
+
 .llms-syllabus-wrapper {
+
 	.llms-lesson-preview {
 		display: block;
 		width: auto;
 
 		.llms-lesson-counter {
 			line-height: 1.75;
+			margin-bottom: 5px;
+		}
+		.llms-lesson-complete {
+			line-height: 1.25;
+			margin-bottom: 0;
 		}
 	}
 }
 
-// NEXT PAGINATION
+// Pagination
 .llms-pagination {
     text-align: left;
 
@@ -171,6 +365,172 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 				background: $secondary;
 				color: darken( $secondary, 40% );
 			}
+		}
+	}
+}
+
+// Checkout
+.lifterlms .llms-checkout-wrapper {
+	.llms-notice {
+		border: 0;
+		background: none;
+		padding: 0;
+		margin-bottom: 2em;
+	}
+
+	.llms-checkout-col {
+		&.llms-col-1 {
+			width: calc(58% - 2em);
+			margin: 0 2em 0 0;
+
+			@media( max-width: $mx-col-md ) {
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+		&.llms-col-2 {
+			width: 42%;
+			margin: 0;
+
+			@media( max-width: $mx-col-md ) {
+				width: 100%;
+			}
+		}
+	}
+
+	.llms-form-field {
+		> label {
+			display: inline-block;
+			font-size: 0.9em;
+			font-weight: 600;
+			vertical-align: middle;
+		}
+
+		input,
+		select,
+		textarea {
+			margin-bottom: 15px;
+			background: #fff;
+		}
+		input[type="checkbox"] {
+			margin-bottom: 0;
+			vertical-align: middle;
+		}
+	} 
+
+	.llms-checkout-col.llms-col-2,
+	.llms-login {
+		padding: 20px;
+	}
+	
+	.llms-checkout-col.llms-col-2 {
+		border: 2px solid #ebebeb;
+	}
+
+	.llms-login {
+		border: 1px solid #d3ced2;
+		margin-bottom: 2em;
+		border-radius: 5px;
+
+		@media( max-width: $mx-col-md ) {
+			.llms-form-field.align-right {
+				text-align: left;
+				width: 100%;
+				clear: both;
+				margin-top: 10px;
+			}
+		}
+
+		.llms-form-field {
+			&.type-checkbox,
+			&.type-submit {
+				width: auto;
+			}
+		}
+	}
+
+	.llms-checkout-section {
+		border: none;
+	}
+
+	.llms-form-heading {
+		background: none;
+		color: inherit;
+		margin-bottom: 1em;
+	}
+	
+	.llms-form-heading,
+	.llms-form-field {
+		padding: 0;
+	}
+
+	.flush .llms-form-field {
+		padding: 0;
+	}
+	
+	.llms-checkout-section-content {
+		.llms-order-summary .llms-label {
+			font-variant: normal;
+			text-transform: none;
+			font-weight: 600;
+		}
+		span.llms-description {
+			font-size: .9em;
+			line-height: 1.5;
+			opacity: .75;
+			display: inline-block;
+		}
+	}
+	
+	.llms-person-login-form-wrapper,
+	.llms-checkout-section-content {
+
+		&,
+		.llms-checkout-confirm {
+			margin: 0
+		}
+
+		.llms-cols-8,
+		.llms-cols-6,
+		.llms-cols-4,
+		.llms-cols-3 {
+			margin-right: 20px;
+		}
+
+		.llms-cols-last {
+			margin-right: 0;
+		}
+
+		.llms-cols-6 {
+		    width: calc( 50% - 10px );
+		}
+		.llms-cols-8 {
+			width: calc( 66.66% - 10px );
+		}
+		.llms-cols-4 {
+			width: calc( 33.33% - 10px );
+		}
+		.llms-cols-3 {
+			width: calc( 25% - 15px );
+		}
+		.llms-cols-last {
+			float:right;
+		}
+	}
+
+	.llms-payment-gateways {
+		label:before {
+			width: 1em;
+			height: 1em;
+		}
+
+		.llms-gateway-description {
+			margin-left: 1.25em;
+			margin-left: calc(1em + 5px);
+		}
+
+		li:last-child:after {
+			margin: 10px auto;
 		}
 	}
 }

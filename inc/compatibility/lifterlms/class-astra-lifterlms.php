@@ -77,6 +77,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
 			}
+
+			remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_reviews', 100 );
+			add_action( 'lifterlms_single_course_after_summary', array( $this, 'single_reviews' ), 100 );
 		}
 
 		/**
@@ -113,6 +116,110 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		}
 
 		/**
+		 * This function handles the HTML output of the reviews and review form.
+		 * If the option is enabled, the review form will be output,
+		 * if not, nothing will happen. This function also checks to
+		 * see if a user is allowed to review more than once.
+		 */
+		public function single_reviews() {
+
+			/**
+			 * Check to see if we are supposed to output the code at all
+			 */
+			if ( get_post_meta( get_the_ID(),'_llms_display_reviews',true ) ) {
+			?>
+				<div id="old_reviews">
+				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ); ?></h3>
+				<?php
+				$args = array(
+					'posts_per_page'   => get_post_meta( get_the_ID(),'_llms_num_reviews',true ),
+					'post_type'        => 'llms_review',
+					'post_status'      => 'publish',
+					'post_parent'	   => get_the_ID(),
+					'suppress_filters' => true,
+				);
+				$posts_array = get_posts( $args );
+
+				$styles = array(
+					'background-color' => '#EFEFEF',
+					'title-color' => 'inherit',
+					'text-color' => 'inherit',
+					'custom-css' => '',
+				);
+
+				if ( has_filter( 'llms_review_custom_styles' ) ) {
+					$styles = apply_filters( 'llms_review_custom_styles', $styles );
+				}
+
+				foreach ( $posts_array as $post ) {
+					echo $styles['custom-css'];
+
+					?>
+					<div class="llms_review" style="background-color:<?php echo $styles['background-color']; ?>;">
+						<h5 style="color:<?php echo $styles['title-color']; ?>;"><strong><?php echo get_the_title( $post->ID );?></strong></h5>
+						<h6 style="color:<?php echo $styles['text-color']; ?>;"><?php echo sprintf( __( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h5>
+						<p style="color:<?php echo $styles['text-color']; ?>;"><?php echo get_post_field( 'post_content', $post->ID );?></p>
+					</div>
+					<?php
+				}
+				?>
+				<hr>
+				</div>
+				<?php
+			}// End if().
+
+			/**
+			 * Check to see if reviews are open
+			 */
+			if ( get_post_meta( get_the_ID(),'_llms_reviews_enabled',true ) && is_user_logged_in() ) {
+				/**
+				 * Look for previous reviews that we have written on this course.
+				 * @var array
+				 */
+				$args = array(
+					'posts_per_page'   => 1,
+					'post_type'        => 'llms_review',
+					'post_status'      => 'publish',
+					'post_parent'	   => get_the_ID(),
+					'author'		   => get_current_user_id(),
+					'suppress_filters' => true,
+				);
+				$posts_array = get_posts( $args );
+
+				/**
+				 * Check to see if we are allowed to write more than one review.
+				 * If we are not, check to see if we have written a review already.
+				 */
+				if ( get_post_meta( get_the_ID(),'_llms_multiple_reviews_disabled',true ) && $posts_array ) {
+				?>
+					<div id="thank_you_box">
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!','lifterlms' ) ); ?></h2>
+					</div>
+					<?php
+				} else {
+					?>
+					<div class="review_box" id="review_box">
+					<h3><?php _e( 'Write a Review', 'astra' ); ?></h3>
+					<!--<form method="post" name="review_form" id="review_form">-->
+						<input type="text" name="review_title" placeholder="<?php _e( 'Review Title', 'astra' ); ?>" id="review_title">
+						<h5 style="color:red; display:none" id="review_title_error"><?php _e( 'Review Title is required.', 'astra' ); ?></h5>
+						<textarea name="review_text" placeholder="<?php _e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
+						<h5 style="color:red; display:none" id="review_text_error"><?php _e( 'Review Text is required.', 'astra' ); ?></h5>
+						<?php wp_nonce_field( 'submit_review','submit_review_nonce_code' ); ?>
+						<input name="action" value="submit_review" type="hidden">
+						<input name="post_ID" value="<?php echo get_the_ID() ?>" type="hidden" id="post_ID">
+						<input type="submit" class="button" value="<?php _e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
+					<!--</form>	-->
+					</div>
+					<div id="thank_you_box" style="display:none;">
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!','lifterlms' ) ); ?></h2>
+					</div>
+					<?php
+				}
+			}// End if().
+		}
+
+		/**
 		 * Enqueue styles
 		 *
 		 */
@@ -142,16 +249,16 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 
 			$css_output = array(
-				'a.llms-button-primary, button.llms-button-action, button.llms-field-button, a.llms-field-button' => array(
+				'a.llms-button-primary, .llms-button-action, button.llms-field-button, a.llms-field-button' => array(
 					'color'            => $btn_color,
 					'border-color'     => $btn_bg_color,
 					'background-color' => $btn_bg_color,
 				),
-				'a.llms-button-primary, button.llms-button-action' => array(
+				'a.llms-button-primary, .llms-button-action' => array(
 					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
-				'a.llms-button-primary:hover, button.llms-button-action:hover, button.llms-field-button:hover, a.llms-field-button:hover' => array(
+				'a.llms-button-primary:hover, a.llms-button-primary:focus, .llms-button-action:hover, .llms-button-action:focus, button.llms-field-button:hover, button.llms-field-button:focus, a.llms-field-button:hover, a.llms-field-button:focus' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
@@ -163,13 +270,13 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				'nav.llms-pagination ul, nav.llms-pagination ul li, .llms-instructor-info .llms-instructors .llms-author, .llms-instructor-info .llms-instructors .llms-author .avatar' => array(
 					'border-color' => $theme_color,
 				),
-				'.llms-progress .progress-bar-complete, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free' => array(
+				'.llms-progress .progress-bar-complete, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp' => array(
 					'background' => $theme_color,
 				),
 				'.llms-lesson-preview.is-complete .llms-lesson-complete, .llms-lesson-preview.is-free .llms-lesson-complete, .llms-widget-syllabus .lesson-complete-placeholder.done, .llms-widget-syllabus .llms-lesson-complete.done' => array(
 					'color' => $theme_color,
 				),
-				'h4.llms-access-plan-title' => array(
+				'h4.llms-access-plan-title, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp' => array(
 					'color' => $btn_color,
 				),
 			);
