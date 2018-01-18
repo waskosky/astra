@@ -163,7 +163,7 @@ p.demo_store,
                max-height: 50vh;
                overflow-y: auto;
             	li{
-					padding: .5em 1.8em .5em 5em;
+					padding: .5em 2em .5em 5em;
     				border-bottom: 1px solid rgba(0,0,0,.05);
 
     				&:last-child{
@@ -1994,9 +1994,6 @@ p.demo_store,
 		}
 
 		&.woocommerce-invalid {
-			label {
-				color: $red;
-			}
 			.select2-container,
 			input.input-text,
 			select {
