@@ -20,3 +20,4 @@ require $control_dir . '/typography/class-astra-control-typography.php';
 require $control_dir . '/spacing/class-astra-control-spacing.php';
 require $control_dir . '/divider/class-astra-control-divider.php';
 require $control_dir . '/color/class-astra-control-color.php';
+require $control_dir . '/description/class-astra-control-description.php';
