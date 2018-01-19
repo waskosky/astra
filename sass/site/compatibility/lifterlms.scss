@@ -67,6 +67,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 }
 
 // Course Catalog
+.llms-student-dashboard,
 .ast-lifterlms-container {
 	ul.llms-loop-list {
 		li.llms-loop-item {
@@ -328,6 +329,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 // Pagination
 .llms-pagination {
     text-align: left;
+    margin-top: 2em;
 
 	ul {
 		display: inline-block;
@@ -387,6 +389,10 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 				width: 100%;
 				margin-right: 0;
 			}
+
+			.llms-checkout-section-content {
+				margin: 0 -10px;
+			}
 		}
 		&.llms-col-2 {
 			width: 42%;
@@ -394,6 +400,14 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 			@media( max-width: $mx-col-md ) {
 				width: 100%;
+			}
+
+			.llms-order-summary {
+				font-size: .9em;
+			}
+
+			.llms-coupon-entry .type-text {
+				margin-bottom: 1em;
 			}
 		}
 	}
@@ -409,7 +423,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		input,
 		select,
 		textarea {
-			margin-bottom: 15px;
+			margin-bottom: 0;
 			background: #fff;
 		}
 		input[type="checkbox"] {
@@ -459,8 +473,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		margin-bottom: 1em;
 	}
 	
-	.llms-form-heading,
-	.llms-form-field {
+	.llms-form-heading {
 		padding: 0;
 	}
 
@@ -489,33 +502,6 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		.llms-checkout-confirm {
 			margin: 0
 		}
-
-		.llms-cols-8,
-		.llms-cols-6,
-		.llms-cols-4,
-		.llms-cols-3 {
-			margin-right: 20px;
-		}
-
-		.llms-cols-last {
-			margin-right: 0;
-		}
-
-		.llms-cols-6 {
-		    width: calc( 50% - 10px );
-		}
-		.llms-cols-8 {
-			width: calc( 66.66% - 10px );
-		}
-		.llms-cols-4 {
-			width: calc( 33.33% - 10px );
-		}
-		.llms-cols-3 {
-			width: calc( 25% - 15px );
-		}
-		.llms-cols-last {
-			float:right;
-		}
 	}
 
 	.llms-payment-gateways {
@@ -531,6 +517,197 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 		li:last-child:after {
 			margin: 10px auto;
+		}
+	}
+}
+
+// My Courses
+.llms-student-dashboard {
+	.llms-sd-header {
+		float: left;
+		width: 30%;
+
+		@media( max-width: $mx-col-md) {
+			width: 100%;
+			margin-bottom: 2em;
+		}
+
+		.llms-sd-item {
+			list-style: none;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-bottom-width: 0;
+			width: 100%;
+
+			a {
+				display: block;
+				padding: .5em 1em;
+			}
+
+			&.current a {
+				background-color: #fbfbfb;
+			}
+
+			.llms-sep {
+				display: none;
+			}
+		}
+
+		.llms-sd-item:last-child {
+			border-bottom-width: 1px;
+		}
+	}
+
+	.llms-sd-header ~ .llms-notice,
+	.llms-sd-header ~ form,
+	.llms-sd-header ~ .llms-sd-section,
+	.llms-person-form-wrapper,
+	.llms-sd-notification-center,
+	.llms-sd-tab {
+		float: right;
+		width: 68%;
+
+		@media( max-width: $mx-col-md) {
+			width: 100%;
+		}
+	}
+
+	.llms-sd-section {
+		.llms-loop-list {
+			margin: -10px;
+		}
+		
+		.llms-button-secondary {
+			display: inline-block;
+		}
+	}
+
+	.llms-my-orders {
+		.orders-table {
+			font-size: 0.85em;
+
+			th:first-child,
+			td:first-child {
+				width: 100%;
+
+				a {
+					vertical-align: middle;
+				}
+				
+				@media( min-width: $col-md ) {
+					width: 20%;
+				}
+			}
+
+			@media( max-width: $mx-col-md ) {
+				thead {
+					display: none;
+				}
+
+				td {
+					display: block;
+					width: 100%;
+					border-bottom-width: 1px;
+					text-align: right;
+
+					&:before {
+						content: attr(data-label);
+						font-weight: 700;
+						float: left;
+						display: block;
+					}
+				}
+			}
+		}
+
+		.llms-status {
+			padding: 1px 5px;
+		}
+	}
+	
+	.llms-person-form-wrapper {
+		.llms-form-field {
+			> label {
+				display: inline-block;
+				font-size: 0.9em;
+				font-weight: 600;
+				vertical-align: middle;
+			}
+
+			input,
+			select,
+			textarea {
+				margin-bottom: 0;
+				background: #fff;
+			}
+			input[type="checkbox"] {
+				vertical-align: middle;
+			}
+		}
+
+		.llms-form-fields {
+			margin: 0 -10px;
+		}
+	}
+
+	.llms-sd-header ~ form {
+		.form-row-first {
+			 > label {
+				display: none;
+			}
+
+			input {
+				width: 100%;
+			}
+
+			display: inline-block;
+			margin-bottom: 0;
+			
+			& ~ button {
+				line-height: 1.5;
+
+				@media( max-width: $mx-col-sm) {
+					width: 100%;
+				}
+			}
+
+			@media( max-width: $mx-col-sm) {
+				width: 100%;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+// Notices
+.ast-container {
+	
+	.lifterlms .llms-notice {
+		margin: 0 0 2em;
+	}
+	.llms-notice {
+		border-width: 0;
+		border-top-width: 3px;
+		border-color: #b81c23;
+		padding: 1em 2em;
+		position: relative;
+		background-color: #f7f6f7;
+		color: #515151;
+
+		&.llms-error {
+			background-color: #f7f6f7;
+			border-color: #b81c23;
+		}
+	}
+}
+
+.llms-notification {
+	.llms-notification-content {
+		.llms-notification-body {
+			font-size: inherit;
+			line-height: inherit;
+		}
+		.llms-notification-title {
+			font-size: 1.3em;
 		}
 	}
 }

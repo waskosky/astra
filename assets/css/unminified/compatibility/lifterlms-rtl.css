@@ -66,54 +66,69 @@
   }
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item {
   padding: 0;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author,
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-title,
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
   padding: 0 15px;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-title,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title {
   font-weight: 600;
   margin-top: 10px;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author,
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
   margin-bottom: 0;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author {
   font-size: inherit;
   margin-bottom: 10px;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author .llms-author-info,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author .llms-author-info {
   vertical-align: middle;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
   font-size: .9em;
   font-weight: 600;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta .length,
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta .difficulty,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta .length,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta .difficulty {
   font-weight: 400;
   opacity: .75;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-title:hover,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title:hover {
   color: inherit;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-item-footer,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-footer {
   margin-top: 10px;
 }
 
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-item-content,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-content {
   padding-bottom: 15px;
 }
@@ -290,6 +305,7 @@
 
 .llms-pagination {
   text-align: right;
+  margin-top: 2em;
 }
 
 .llms-pagination ul {
@@ -351,6 +367,10 @@
   }
 }
 
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-1 .llms-checkout-section-content {
+  margin: 0 -10px;
+}
+
 .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
   width: 42%;
   margin: 0;
@@ -360,6 +380,14 @@
   .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
     width: 100%;
   }
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 .llms-order-summary {
+  font-size: .9em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 .llms-coupon-entry .type-text {
+  margin-bottom: 1em;
 }
 
 .lifterlms .llms-checkout-wrapper .llms-form-field > label {
@@ -372,7 +400,7 @@
 .lifterlms .llms-checkout-wrapper .llms-form-field input,
 .lifterlms .llms-checkout-wrapper .llms-form-field select,
 .lifterlms .llms-checkout-wrapper .llms-form-field textarea {
-  margin-bottom: 15px;
+  margin-bottom: 0;
   background: #fff;
 }
 
@@ -420,8 +448,7 @@
   margin-bottom: 1em;
 }
 
-.lifterlms .llms-checkout-wrapper .llms-form-heading,
-.lifterlms .llms-checkout-wrapper .llms-form-field {
+.lifterlms .llms-checkout-wrapper .llms-form-heading {
   padding: 0;
 }
 
@@ -449,51 +476,6 @@
   margin: 0;
 }
 
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-8,
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-6,
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-4,
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-3,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-8,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-6,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-4,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-3 {
-  margin-left: 20px;
-}
-
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-last,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-last {
-  margin-left: 0;
-}
-
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-6,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-6 {
-  width: -webkit-calc( 50% - 10px);
-  width: calc( 50% - 10px);
-}
-
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-8,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-8 {
-  width: -webkit-calc( 66.66% - 10px);
-  width: calc( 66.66% - 10px);
-}
-
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-4,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-4 {
-  width: -webkit-calc( 33.33% - 10px);
-  width: calc( 33.33% - 10px);
-}
-
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-3,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-3 {
-  width: -webkit-calc( 25% - 15px);
-  width: calc( 25% - 15px);
-}
-
-.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-cols-last,
-.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-cols-last {
-  float: left;
-}
-
 .lifterlms .llms-checkout-wrapper .llms-payment-gateways label:before {
   width: 1em;
   height: 1em;
@@ -507,4 +489,192 @@
 
 .lifterlms .llms-checkout-wrapper .llms-payment-gateways li:last-child:after {
   margin: 10px auto;
+}
+
+.llms-student-dashboard .llms-sd-header {
+  float: right;
+  width: 30%;
+}
+
+@media (max-width: 768px) {
+  .llms-student-dashboard .llms-sd-header {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item {
+  list-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-width: 0;
+  width: 100%;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item a {
+  display: block;
+  padding: .5em 1em;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.current a {
+  background-color: #fbfbfb;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item .llms-sep {
+  display: none;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item:last-child {
+  border-bottom-width: 1px;
+}
+
+.llms-student-dashboard .llms-sd-header ~ .llms-notice,
+.llms-student-dashboard .llms-sd-header ~ form,
+.llms-student-dashboard .llms-sd-header ~ .llms-sd-section,
+.llms-student-dashboard .llms-person-form-wrapper,
+.llms-student-dashboard .llms-sd-notification-center,
+.llms-student-dashboard .llms-sd-tab {
+  float: left;
+  width: 68%;
+}
+
+@media (max-width: 768px) {
+  .llms-student-dashboard .llms-sd-header ~ .llms-notice,
+  .llms-student-dashboard .llms-sd-header ~ form,
+  .llms-student-dashboard .llms-sd-header ~ .llms-sd-section,
+  .llms-student-dashboard .llms-person-form-wrapper,
+  .llms-student-dashboard .llms-sd-notification-center,
+  .llms-student-dashboard .llms-sd-tab {
+    width: 100%;
+  }
+}
+
+.llms-student-dashboard .llms-sd-section .llms-loop-list {
+  margin: -10px;
+}
+
+.llms-student-dashboard .llms-sd-section .llms-button-secondary {
+  display: inline-block;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table {
+  font-size: 0.85em;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table th:first-child,
+.llms-student-dashboard .llms-my-orders .orders-table td:first-child {
+  width: 100%;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table th:first-child a,
+.llms-student-dashboard .llms-my-orders .orders-table td:first-child a {
+  vertical-align: middle;
+}
+
+@media (min-width: 769px) {
+  .llms-student-dashboard .llms-my-orders .orders-table th:first-child,
+  .llms-student-dashboard .llms-my-orders .orders-table td:first-child {
+    width: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .llms-student-dashboard .llms-my-orders .orders-table thead {
+    display: none;
+  }
+  .llms-student-dashboard .llms-my-orders .orders-table td {
+    display: block;
+    width: 100%;
+    border-bottom-width: 1px;
+    text-align: left;
+  }
+  .llms-student-dashboard .llms-my-orders .orders-table td:before {
+    content: attr(data-label);
+    font-weight: 700;
+    float: right;
+    display: block;
+  }
+}
+
+.llms-student-dashboard .llms-my-orders .llms-status {
+  padding: 1px 5px;
+}
+
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field > label {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field input,
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field select,
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field textarea {
+  margin-bottom: 0;
+  background: #fff;
+}
+
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-fields {
+  margin: 0 -10px;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first > label {
+  display: none;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first input {
+  width: 100%;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first ~ button {
+  line-height: 1.5;
+}
+
+@media (max-width: 544px) {
+  .llms-student-dashboard .llms-sd-header ~ form .form-row-first ~ button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 544px) {
+  .llms-student-dashboard .llms-sd-header ~ form .form-row-first {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.ast-container .lifterlms .llms-notice {
+  margin: 0 0 2em;
+}
+
+.ast-container .llms-notice {
+  border-width: 0;
+  border-top-width: 3px;
+  border-color: #b81c23;
+  padding: 1em 2em;
+  position: relative;
+  background-color: #f7f6f7;
+  color: #515151;
+}
+
+.ast-container .llms-notice.llms-error {
+  background-color: #f7f6f7;
+  border-color: #b81c23;
+}
+
+.llms-notification .llms-notification-content .llms-notification-body {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.llms-notification .llms-notification-content .llms-notification-title {
+  font-size: 1.3em;
 }
