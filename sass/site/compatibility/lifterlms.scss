@@ -585,6 +585,17 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		.orders-table {
 			font-size: 0.85em;
 
+			thead {
+				td {
+					background: #f9f9f9;
+				}
+			}
+			tbody {
+				tr:nth-child(even) td {
+					background: none;
+				}
+			}
+
 			th:first-child,
 			td:first-child {
 				width: 100%;
@@ -710,4 +721,38 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			font-size: 1.3em;
 		}
 	}
+}
+
+// Quiz
+.llms-quiz-meta-item {
+    font-weight: 600;
+
+    span {
+	    font-weight: 400;
+	    opacity: .75;
+	}
+}
+
+.llms-quiz-question-wrapper {
+	clear: both;
+
+	.llms-error {
+    	color: #b81c23;
+	    margin-bottom: .5em;
+	}
+	
+	.llms-question-count {
+		p {
+		    font-weight: 600;
+		    margin-bottom: 0;
+		}
+		& ~ p {
+			margin-bottom: .5em;
+		}
+	}
+
+	.llms-question-wrapper {
+	    margin-bottom: 1.5em;
+	}
+
 }

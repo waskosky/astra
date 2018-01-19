@@ -560,6 +560,14 @@
   font-size: 0.85em;
 }
 
+.llms-student-dashboard .llms-my-orders .orders-table thead td {
+  background: #f9f9f9;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table tbody tr:nth-child(even) td {
+  background: none;
+}
+
 .llms-student-dashboard .llms-my-orders .orders-table th:first-child,
 .llms-student-dashboard .llms-my-orders .orders-table td:first-child {
   width: 100%;
@@ -677,4 +685,35 @@
 
 .llms-notification .llms-notification-content .llms-notification-title {
   font-size: 1.3em;
+}
+
+.llms-quiz-meta-item {
+  font-weight: 600;
+}
+
+.llms-quiz-meta-item span {
+  font-weight: 400;
+  opacity: .75;
+}
+
+.llms-quiz-question-wrapper {
+  clear: both;
+}
+
+.llms-quiz-question-wrapper .llms-error {
+  color: #b81c23;
+  margin-bottom: .5em;
+}
+
+.llms-quiz-question-wrapper .llms-question-count p {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.llms-quiz-question-wrapper .llms-question-count ~ p {
+  margin-bottom: .5em;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper {
+  margin-bottom: 1.5em;
 }
