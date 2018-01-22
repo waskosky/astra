@@ -239,7 +239,7 @@ if ( ! function_exists( 'astra_post_tags' ) ) {
 		$output = '';
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'astra' ) );
+		$tags_list = get_the_tag_list( '', __( ', ', 'astra' ) );
 
 		if ( $tags_list ) {
 			$output .= '<span class="tags-links">' . $tags_list . '</span>';
