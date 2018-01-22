@@ -342,6 +342,12 @@ p.demo_store,
 	    font-size: 1.4em;
 	}
 
+	.main-header-menu .woocommerce-custom-menu-item .ast-cart-menu-wrap {
+	    height: 3em;
+	    line-height: 3;
+	    text-align: left;
+	}
+
 	&.ast-woocommerce-cart-menu{
 
 		.ast-site-header-cart { 
