@@ -240,12 +240,9 @@ if ( ! function_exists( 'astra_post_tags' ) ) {
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'astra' ) );
-		if ( $tags_list ) {
-			$tags = sprintf( // WPCS: XSS OK.
-				esc_html( '%1$s' ), $tags_list
-			);
 
-			$output .= '<span class="tags-links">' . $tags . '</span>';
+		if ( $tags_list ) {
+			$output .= '<span class="tags-links">' . $tags_list . '</span>';
 		}
 
 		return apply_filters( 'astra_post_tags', $output, $output_filter );
@@ -271,14 +268,10 @@ if ( ! function_exists( 'astra_post_categories' ) ) {
 		$output = '';
 
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'astra' ) );
+		$categories_list = get_the_category_list( __( ', ', 'astra' ) );
 
 		if ( $categories_list ) {
-			$categories = sprintf(
-				esc_html( '%1$s' ), $categories_list
-			);
-
-			$output .= '<span class="cat-links">' . $categories . '</span>';
+			$output .= '<span class="cat-links">' . $categories_list . '</span>';
 		}
 
 		return apply_filters( 'astra_post_categories', $output, $output_filter );
