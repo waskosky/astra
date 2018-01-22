@@ -1,5 +1,6 @@
 v1.1.6
-# Fix: Astra Settings options on shop page are not working.
+# Fixed: Astra Settings options on shop page are not working.
+# Fixed: Reduce unnecessary escaping when rendering tags and categories.
 
 v1.1.5
 # Improvement: Slightly improved the size of woocomerce header cart icon for small devices for better accessibility.
