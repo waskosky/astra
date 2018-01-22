@@ -414,6 +414,12 @@ p.demo_store a,
   font-size: 1.4em;
 }
 
+.ast-header-break-point .main-header-menu .woocommerce-custom-menu-item .ast-cart-menu-wrap {
+  height: 3em;
+  line-height: 3;
+  text-align: right;
+}
+
 .ast-header-break-point.ast-woocommerce-cart-menu .ast-site-header-cart {
   order: initial;
   line-height: 3;
@@ -572,6 +578,8 @@ p.demo_store a,
 
 .woocommerce a.remove {
   display: block;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-weight: 400;
   font-size: 18px;
   width: 24px;
   height: 24px;
