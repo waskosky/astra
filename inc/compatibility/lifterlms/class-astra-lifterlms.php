@@ -68,6 +68,46 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 */
 		function lifterlms_init() {
 
+			// Page Title.
+			if ( is_courses() ) {
+				$course_page_id      = get_option( 'lifterlms_shop_page_id' );
+				$course_title        = get_post_meta( $course_page_id, 'site-post-title', true );
+				$main_header_display = get_post_meta( $course_page_id, 'ast-main-header-display', true );
+				$footer_layout       = get_post_meta( $course_page_id, 'footer-sml-layout', true );
+
+				if ( 'disabled' === $course_title ) {
+					add_filter( 'lifterlms_show_page_title', '__return_false' );
+				}
+
+				if ( 'disabled' === $main_header_display ) {
+					remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+				}
+
+				if ( 'disabled' === $footer_layout ) {
+					remove_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
+				}
+			}
+
+			// Page Title.
+			if ( is_memberships() ) {
+				$membership_page_id  = get_option( 'lifterlms_memberships_page_id' );
+				$membership_title    = get_post_meta( $membership_page_id, 'site-post-title', true );
+				$main_header_display = get_post_meta( $membership_page_id, 'ast-main-header-display', true );
+				$footer_layout       = get_post_meta( $membership_page_id, 'footer-sml-layout', true );
+				
+				if ( 'disabled' === $membership_title ) {
+					add_filter( 'lifterlms_show_page_title', '__return_false' );
+				}
+
+				if ( 'disabled' === $main_header_display ) {
+					remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+				}
+
+				if ( 'disabled' === $footer_layout ) {
+					remove_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
+				}
+			}
+
 			remove_action( 'lifterlms_before_main_content', 'lifterlms_output_content_wrapper', 10 );
 			remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
 			remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
