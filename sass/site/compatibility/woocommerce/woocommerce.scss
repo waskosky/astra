@@ -1153,8 +1153,8 @@ p.demo_store,
 		font-weight: normal;
 		position: absolute;
 		text-align: center;
-		top: -0.5em;
-		left: -0.5em;
+		top: 0.5em;
+		left: 0.5em;
 		margin: 0;
 		border-radius: 100%;
 		background-color: $highlight;
@@ -1574,6 +1574,10 @@ p.demo_store,
 					&.comment-form-author,
 					&.comment-form-email{
 						margin-bottom: 1em;
+						label{
+							display: inline-block;
+							min-width: 100px;
+						}
 					}
 				}
 				#comment {

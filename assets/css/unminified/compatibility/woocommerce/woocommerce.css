@@ -1289,8 +1289,8 @@ p.demo_store a,
   font-weight: normal;
   position: absolute;
   text-align: center;
-  top: -0.5em;
-  left: -0.5em;
+  top: 0.5em;
+  left: 0.5em;
   margin: 0;
   border-radius: 100%;
   background-color: #77a464;
@@ -1781,6 +1781,11 @@ p.demo_store a,
 
 .woocommerce #reviews #review_form #respond p.comment-form-author, .woocommerce #reviews #review_form #respond p.comment-form-email {
   margin-bottom: 1em;
+}
+
+.woocommerce #reviews #review_form #respond p.comment-form-author label, .woocommerce #reviews #review_form #respond p.comment-form-email label {
+  display: inline-block;
+  min-width: 100px;
 }
 
 .woocommerce #reviews #review_form #respond #comment {
