@@ -80,11 +80,11 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 		);
 
 		if ( is_rtl() ) {
-			$defaults[ 'string-blog-navigation-next' ]        = __( 'Next Page', 'astra' ) . ' <span class="ast-left-arrow">&larr;</span>';
-			$defaults[ 'string-blog-navigation-previous' ]    = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous Page', 'astra' );
+			$defaults['string-blog-navigation-next']     = __( 'Next Page', 'astra' ) . ' <span class="ast-left-arrow">&larr;</span>';
+			$defaults['string-blog-navigation-previous'] = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous Page', 'astra' );
 
-			$defaults[ 'string-single-navigation-next' ]      = __( 'Next %s', 'astra' ) . ' <span class="ast-left-arrow">&larr;</span>';
-			$defaults[ 'string-single-navigation-previous' ]  = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous %s', 'astra' );
+			$defaults['string-single-navigation-next']     = __( 'Next %s', 'astra' ) . ' <span class="ast-left-arrow">&larr;</span>';
+			$defaults['string-single-navigation-previous'] = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous %s', 'astra' );
 		}
 
 		$output = isset( $defaults[ $key ] ) ? $defaults[ $key ] : '';
