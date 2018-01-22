@@ -1775,6 +1775,11 @@ p.demo_store a,
   margin-bottom: 1em;
 }
 
+.woocommerce #reviews #review_form #respond p.comment-form-author label, .woocommerce #reviews #review_form #respond p.comment-form-email label {
+  display: inline-block;
+  min-width: 100px;
+}
+
 .woocommerce #reviews #review_form #respond #comment {
   height: 90px;
 }

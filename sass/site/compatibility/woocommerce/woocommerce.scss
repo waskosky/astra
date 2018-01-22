@@ -1566,6 +1566,10 @@ p.demo_store,
 					&.comment-form-author,
 					&.comment-form-email{
 						margin-bottom: 1em;
+						label{
+							display: inline-block;
+							min-width: 100px;
+						}
 					}
 				}
 				#comment {
