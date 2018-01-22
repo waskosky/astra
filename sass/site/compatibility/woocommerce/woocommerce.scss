@@ -342,6 +342,12 @@ p.demo_store,
 	    font-size: 1.4em;
 	}
 
+	.main-header-menu .woocommerce-custom-menu-item .ast-cart-menu-wrap {
+	    height: 3em;
+	    line-height: 3;
+	    text-align: left;
+	}
+
 	&.ast-woocommerce-cart-menu{
 
 		.ast-site-header-cart { 
@@ -480,10 +486,6 @@ p.demo_store,
 		input[type="number"],
 		input[type="email"] {
 	  	  padding: 0.3em;
-		}
-		input[type="number"] {
-			padding-right: 0;
-			padding-left: 1.1em;
 		}
 
 		input[type="text"]:focus,
