@@ -264,9 +264,109 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 }
 
 .single-course {
-	article.course {
-		margin-bottom: 2em;
-	}	
+	article {
+		&.course {
+			margin-bottom: 2em;
+		}
+
+		.llms-course-progress {
+			max-width: 100%;
+		}
+		.llms-progress {
+			
+			height: auto;
+			margin: 0 auto 15px;
+
+			.llms-progress-bar {
+				height: 2em;
+				top: 0;
+				border-radius: 1em;
+			}
+
+			.progress__indicator {
+				display: none;
+			}
+
+			.progress-bar-complete {
+				border-radius: 1em;
+				
+				&:after {
+					display: inline-block;
+					line-height: 2;
+					padding: 0 5px;
+				}
+			}
+		}
+
+		.llms-syllabus-wrapper {
+			
+			.llms-section-title {
+				margin-top: 15px;
+				text-align: left;
+				font-size: 1.1em;
+				padding: 5px 15px;
+				background: #e8e8e8;
+				font-weight: 600;
+				line-height: 1.75;
+			}
+
+			.llms-lesson-preview {
+				margin-top: 1px;
+				display: block;
+				width: auto;
+
+				.llms-lesson-link {
+					background-color: #f0f0f0;
+					padding: 5px 15px;
+				}
+
+				.llms-lesson-title {
+					font-size: 1em;
+					line-height: 1.75;
+					font-weight: 600;
+					margin-bottom: 0;
+				}
+
+				.llms-lesson-counter {
+					line-height: 1.75;
+					margin-bottom: 0;
+					font-size: inherit;
+				}
+			}
+		}
+
+		&.is-enrolled {
+
+			.llms-syllabus-wrapper {
+				
+				.llms-lesson-preview {
+					
+					.llms-lesson-complete {
+						margin-bottom: 0;
+						position: absolute;
+						top: 5px;
+						left: 15px;
+						font-size: 1.4em;
+						height: 1.2em;
+						line-height: 1.2;
+						width: 1em;
+					}
+
+					.llms-main {
+						margin-left: 2em;
+						margin-left: calc(1.2em + 15px);
+						width: 83%;
+						width: calc(85% - 1.2em - 15px);
+					}
+				}
+			}
+		}
+
+		.llms-lesson-link-locked,
+		.llms-lesson-link-locked:hover {
+			box-shadow: none;
+		}
+	}
 }
 
 .llms_membership{
@@ -306,23 +406,6 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 	.llms-button-action {
 		display: inline-block;
-	}
-}
-
-.llms-syllabus-wrapper {
-
-	.llms-lesson-preview {
-		display: block;
-		width: auto;
-
-		.llms-lesson-counter {
-			line-height: 1.75;
-			margin-bottom: 5px;
-		}
-		.llms-lesson-complete {
-			line-height: 1.25;
-			margin-bottom: 0;
-		}
 	}
 }
 

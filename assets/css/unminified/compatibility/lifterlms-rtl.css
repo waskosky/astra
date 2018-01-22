@@ -252,6 +252,97 @@
   margin-bottom: 2em;
 }
 
+.single-course article .llms-course-progress {
+  max-width: 100%;
+}
+
+.single-course article .llms-progress {
+  height: auto;
+  margin: 0 auto 15px;
+}
+
+.single-course article .llms-progress .llms-progress-bar {
+  height: 2em;
+  top: 0;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+}
+
+.single-course article .llms-progress .progress__indicator {
+  display: none;
+}
+
+.single-course article .llms-progress .progress-bar-complete {
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+}
+
+.single-course article .llms-progress .progress-bar-complete:after {
+  display: inline-block;
+  line-height: 2;
+  padding: 0 5px;
+}
+
+.single-course article .llms-syllabus-wrapper .llms-section-title {
+  margin-top: 15px;
+  text-align: right;
+  font-size: 1.1em;
+  padding: 5px 15px;
+  background: #e8e8e8;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.single-course article .llms-syllabus-wrapper .llms-lesson-preview {
+  margin-top: 1px;
+  display: block;
+  width: auto;
+}
+
+.single-course article .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-link {
+  background-color: #f0f0f0;
+  padding: 5px 15px;
+}
+
+.single-course article .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-title {
+  font-size: 1em;
+  line-height: 1.75;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.single-course article .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
+  line-height: 1.75;
+  margin-bottom: 0;
+  font-size: inherit;
+}
+
+.single-course article.is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete {
+  margin-bottom: 0;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 1.4em;
+  height: 1.2em;
+  line-height: 1.2;
+  width: 1em;
+}
+
+.single-course article.is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-main {
+  margin-right: 2em;
+  margin-right: -webkit-calc(1.2em + 15px);
+  margin-right: calc(1.2em + 15px);
+  width: 83%;
+  width: -webkit-calc(85% - 1.2em - 15px);
+  width: calc(85% - 1.2em - 15px);
+}
+
+.single-course article .llms-lesson-link-locked,
+.single-course article .llms-lesson-link-locked:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .llms_membership .llms-featured-image {
   margin-bottom: 0;
 }
@@ -286,21 +377,6 @@
 
 .llms-access-plan .llms-button-action {
   display: inline-block;
-}
-
-.llms-syllabus-wrapper .llms-lesson-preview {
-  display: block;
-  width: auto;
-}
-
-.llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
-  line-height: 1.75;
-  margin-bottom: 5px;
-}
-
-.llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete {
-  line-height: 1.25;
-  margin-bottom: 0;
 }
 
 .llms-pagination {
