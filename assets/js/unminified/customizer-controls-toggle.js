@@ -77,6 +77,22 @@
 					return false;
 				}
 			},
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
+					var has_custom_logo = api( 'custom_logo' ).get();
+					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+
+					if ( ( value || site_tagline ) && ( has_custom_logo || has_retina_logo ) ) {
+						return true;
+					}
+					return false;
+				}
+			},
 		],
 
 		'astra-settings[display-site-tagline]' :
@@ -89,6 +105,62 @@
 				callback: function( value ) {
 
 					if ( value ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var site_title = api( 'astra-settings[display-site-title]' ).get();
+					var has_custom_logo = api( 'custom_logo' ).get();
+					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+
+					if ( ( value || site_title ) && ( has_custom_logo || has_retina_logo ) ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
+		'astra-settings[ast-header-retina-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var has_custom_logo = api( 'custom_logo' ).get();
+					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
+					var site_title = api( 'astra-settings[display-site-title]' ).get();
+
+					if ( ( value || has_custom_logo ) && ( site_title || site_tagline ) ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
+		'custom_logo' :
+		[
+			{
+				controls: [
+					'astra-settings[logo-title-inline]',
+				],
+				callback: function( value ) {
+
+					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
+					var site_title = api( 'astra-settings[display-site-title]' ).get();
+
+					if ( ( value || has_retina_logo ) && ( site_title || site_tagline ) ) {
 						return true;
 					}
 					return false;
@@ -135,6 +207,18 @@
 					return false;
 				}
 			},
+			{
+				controls: [
+					'astra-settings[header-display-outside-menu]',
+				],
+				callback: function( custom_menu ) {
+					
+					if ( 'none' !=  custom_menu ) {
+						return true;
+					}
+					return false;
+				}
+			}
 		],
 
 		/**
@@ -407,72 +491,5 @@
 				}
 			},
 		],
-
 	};
-
-	/**
-	 * Sidebar Manager
-	 *
-	 * => Dependent Addons:
-	 *
-	 * @ Spacing Addon
-	 */
-	var site_layout      = [ 'site-sidebar-layout' ],
-		sidebars_single  = astra.customizer.settings.sidebars.single,
-		sidebars_archive = astra.customizer.settings.sidebars.archive,
-		merged_sidebars  = jQuery.merge( site_layout, sidebars_single ),
-		merged_sidebars  = jQuery.merge( merged_sidebars, sidebars_archive );
-
-	jQuery.each( merged_sidebars , function( sidebar_switch, sidebar_layout ) {
-
-		ASTControlTrigger.addHook( 'astra-toggle-control', function( argument, api ) {
-
-			ASTCustomizerToggles[ 'astra-settings['+sidebar_layout+']' ] =
-			[
-				{
-					controls: [
-						'astra-settings[site-sidebar-width]',
-						'astra-settings[divider-section-sidebar-width]',
-
-						// @SPACING addon setting
-						'astra-settings[sidebar-content-plain-spacing]',
-						'astra-settings[sidebar-content-boxed-spacing]',
-
-						// @BLOGPRO addon setting
-						'astra-settings[responsive-sidebar]',
-						'astra-settings[responsive-sidebar-divider]',
-					],
-					callback: function( sidebar ) {
-
-						var any_layout = '';
-						var sidebar    = api( 'astra-settings[site-sidebar-layout]' ).get();
-
-						jQuery.each( merged_sidebars, function( index, s_layout ) {
-
-							var type   = api( 'astra-settings['+s_layout+']' ).get() || '';
-
-							// Is no-sidebar?
-							if( 'no-sidebar' != type && 'default' != type ) {
-								any_layout = 'yes';
-								return false;
-							}
-						});
-
-						// Sidebar.
-						if( 'no-sidebar' != sidebar && 'default' != sidebar ) {
-							any_layout = 'yes';
-						}
-
-						if( any_layout ) {
-							return true;
-						} else {
-							return false;
-						}
-					}
-				},
-			]
-
-		});
-	});
-
 } )( jQuery );

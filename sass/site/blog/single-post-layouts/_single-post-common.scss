@@ -42,6 +42,11 @@
 		}
 
 		@media ( max-width: $mx-col-xs ) { 
+			.ast-left-arrow,
+			.ast-right-arrow {
+				display: none;
+			}
+
 			.nav-previous,
 			.nav-next {
 				width: 100%;

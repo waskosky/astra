@@ -17,7 +17,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -148,6 +148,9 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 			}
+
+			// WooCommerce.
+			add_theme_support( 'woocommerce' );
 		}
 
 		/**

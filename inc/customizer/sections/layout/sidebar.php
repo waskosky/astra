@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -165,6 +165,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'step' => 1,
 					'max'  => 50,
 				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Description(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[site-sidebar-width-description]', array(
+				'type'     => 'ast-description',
+				'section'  => 'section-sidebars',
+				'priority' => 15,
+				'label'    => '',
+				'help'     => __( 'Sidebar width will apply only when one of the above sidebar is set.', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);

@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -67,6 +67,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$version_array = array(
 					'theme-auto-version' => ASTRA_THEME_VERSION,
 				);
+				$saved_version = ASTRA_THEME_VERSION;
 
 				// Merge customizer options with version.
 				$theme_options = wp_parse_args( $version_array, $customizer_options );
@@ -108,6 +109,16 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Update astra meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.0.28', '<' ) ) {
 				self::v_1_0_28();
+			}
+
+			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			if ( version_compare( $saved_version, '1.1.0-beta.3', '<' ) ) {
+				self::v_1_1_0_beta_3();
+			}
+
+			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			if ( version_compare( $saved_version, '1.1.0-beta.4', '<' ) ) {
+				self::v_1_1_0_beta_4();
 			}
 
 			// Not have stored?
@@ -400,6 +411,65 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
+		}
+
+		/**
+		 * Update options of older version than 1.1.0-beta.3.
+		 *
+		 * @since 1.1.0-beta.3
+		 */
+		static public function v_1_1_0_beta_3() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( isset( $astra_options['shop-grid'] ) ) {
+
+				$astra_options['shop-grids'] = array(
+					'desktop' => $astra_options['shop-grid'],
+					'tablet'  => 2,
+					'mobile'  => 1,
+				);
+
+				unset( $astra_options['shop-grid'] );
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update options of older version than 1.1.0-beta.3.
+		 *
+		 * Container Style
+		 * Sidebar
+		 * Grid
+		 *
+		 * @since 1.1.0-beta.3
+		 */
+		static public function v_1_1_0_beta_4() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			$options = array(
+				'woocommerce-content-layout' => 'default',
+				'woocommerce-sidebar-layout' => 'default',
+				/* Shop */
+				'shop-grids'                 => array(
+					'desktop' => 3,
+					'tablet'  => 2,
+					'mobile'  => 1,
+				),
+				'shop-no-of-products'        => '9',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
 	}

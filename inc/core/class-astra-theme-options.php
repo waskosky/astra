@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -133,10 +133,12 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'ast-header-logo-width'           => '',
 					'display-site-title'              => 1,
 					'display-site-tagline'            => 0,
+					'logo-title-inline'               => 0,
 					// Header - Primary.
 					'disable-primary-nav'             => false,
 					'header-layouts'                  => 'header-main-layout-1',
 					'header-main-rt-section'          => 'none',
+					'header-display-outside-menu'     => false,
 					'header-main-rt-section-html'     => '<button>' . __( 'Contact Us', 'astra' ) . '</button>',
 					'header-main-sep'                 => 1,
 					'header-main-sep-color'           => '',

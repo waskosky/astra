@@ -6,7 +6,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -89,6 +89,14 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Current Astra verion.
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
+		$outside_menu = astra_get_option( 'header-display-outside-menu' );
+
+		if ( $outside_menu ) {
+			$classes[] = 'ast-header-custom-item-outside';
+		} else {
+			$classes[] = 'ast-header-custom-item-inside';
+		}
+
 		return $classes;
 	}
 }// End if().
@@ -143,8 +151,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 	 */
 	function astra_logo( $echo = true ) {
 
-		$site_tagline         = astra_get_option( 'display-site-tagline' );
-		$display_site_tagline = astra_get_option( 'display-site-title' );
+		$display_site_tagline = astra_get_option( 'display-site-tagline' );
+		$display_site_title   = astra_get_option( 'display-site-title' );
 		$html                 = '';
 
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
@@ -154,7 +162,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
-				add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 			}
 
 			$html .= '<span class="site-logo-img">';
@@ -163,27 +170,34 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				remove_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10 );
-				remove_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10 );
 			}
 		}
 
 		if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
+
 			// Site Title.
-			if ( $display_site_tagline ) {
-
-				$tag = 'span';
-				if ( is_home() || is_front_page() ) {
-					$tag = 'h1';
-				}
-				$html .= '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
+			$tag = 'span';
+			if ( is_home() || is_front_page() ) {
+				$tag = 'h1';
 			}
+			$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 
-			// Site description.
-			if ( $site_tagline ) {
-				$html .= '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+			// Site Description.
+			$site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+
+			if ( $display_site_title || $display_site_tagline ) {
+				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
+				$html .= sprintf(
+					'<div class="ast-site-title-wrap">
+							%1$s
+							%2$s
+						</div>',
+					( $display_site_title ) ? $site_title_markup : '',
+					( $display_site_tagline ) ? $site_tagline_markup : ''
+				);
 			}
 		}
-		$html = apply_filters( 'astra_logo', $html, $display_site_tagline, $site_tagline );
+		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
 
 		/**
 		 * Echo or Return the Logo Markup
@@ -226,11 +240,16 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 			case 'widget':
 					$output[] = astra_get_custom_widget( $option );
 				break;
+
+			default:
+					$output[] = apply_filters( 'astra_get_dynamic_header_content', '', $option, $section );
+				break;
 		}
 
 		return $output;
 	}
 }
+
 
 /**
  * Adding Wrapper for Search Form.
@@ -398,7 +417,8 @@ if ( ! function_exists( 'astra_get_small_footer_menu' ) ) {
 	 */
 	function astra_get_small_footer_menu() {
 
-		ob_start(); ?>
+		ob_start();
+		?>
 
 		<div class="footer-primary-navigation">
 			<?php
@@ -530,7 +550,10 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
 
 		if ( $disable_primary_navigation ) {
-			if ( 'none' != $custom_header_section ) {
+
+			$display_outside = astra_get_option( 'header-display-outside-menu' );
+
+			if ( 'none' != $custom_header_section && ! $display_outside ) {
 				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
 				echo astra_masthead_get_menu_items();
 				echo '</div>';
@@ -686,11 +709,28 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 	 */
 	function astra_header_classes() {
 
-		$classes                 = array( 'site-header' );
-		$menu_logo_location      = astra_get_option( 'header-layouts' );
-		$mobile_header_alignment = astra_get_option( 'header-main-menu-align' );
+		$classes                  = array( 'site-header' );
+		$menu_logo_location       = astra_get_option( 'header-layouts' );
+		$mobile_header_alignment  = astra_get_option( 'header-main-menu-align' );
+		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
+		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
+		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
+
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
+		}
+
+		if ( $primary_menu_disable ) {
+
+			$classes[] = 'ast-primary-menu-disabled';
+
+			if ( 'none' == $primary_menu_custom_item ) {
+				$classes[] = 'ast-no-menu-items';
+			}
+		}
+		// Add class if Inline Logo & Site Title.
+		if ( $logo_title_inline ) {
+			$classes[] = 'ast-logo-title-inline';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
@@ -879,7 +919,11 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 			if ( empty( $content_layout ) ) {
 
-				$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
+				$post_type = get_post_type();
+
+				if ( 'post' === $post_type || 'page' === $post_type ) {
+					$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
+				}
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
@@ -890,7 +934,13 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			}
 		} else {
 
-			$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
+			$content_layout = '';
+			$post_type      = get_post_type();
+
+			if ( 'post' === $post_type ) {
+				$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
+			}
+
 			if ( is_search() ) {
 				$content_layout = astra_get_option( 'archive-post-content-layout' );
 			}
@@ -1100,8 +1150,15 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$output = '';
 
-		$featured_image    = true;
-		$is_featured_image = astra_get_option_meta( 'ast-featured-img' );
+		$check_is_singular = is_singular();
+
+		$featured_image = true;
+
+		if ( $check_is_singular ) {
+			$is_featured_image = astra_get_option_meta( 'ast-featured-img' );
+		} else {
+			$is_featured_image = astra_get_option( 'ast-featured-img' );
+		}
 
 		if ( 'disabled' === $is_featured_image ) {
 			$featured_image = false;
@@ -1112,19 +1169,19 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$blog_post_thumb   = astra_get_option( 'blog-post-structure' );
 		$single_post_thumb = astra_get_option( 'blog-single-post-structure' );
 
-		if ( ( ( ! is_singular() && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
+		if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
 
-			if ( $featured_image && ( ! ( is_singular() ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
 				$post_thumb = get_the_post_thumbnail();
 
 				if ( '' != $post_thumb ) {
-					$output .= '<div class="post-thumb">';
-					if ( ! is_singular() ) {
+					$output .= '<div class="post-thumb-img-content post-thumb">';
+					if ( ! $check_is_singular ) {
 						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
 					}
 					$output .= $post_thumb;
-					if ( ! is_singular() ) {
+					if ( ! $check_is_singular ) {
 						$output .= '</a>';
 					}
 					$output .= '</div>';
@@ -1132,7 +1189,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 			}
 		}
 
-		if ( ! is_singular() ) {
+		if ( ! $check_is_singular ) {
 			$output = apply_filters( 'astra_blog_post_featured_image_after', $output );
 		}
 
@@ -1219,11 +1276,20 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		if ( $custom_logo_id == $attachment->ID ) {
 
+			$attach_data = array();
 			if ( ! is_customize_preview() ) {
 				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
+
 				if ( isset( $attach_data[0] ) ) {
 					$attr['src'] = $attach_data[0];
 				}
+			}
+
+			$file_type      = wp_check_filetype( $attr['src'] );
+			$file_extension = $file_type['ext'];
+
+			if ( 'svg' == $file_extension ) {
+				$attr['class'] = 'astra-logo-svg';
 			}
 
 			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
@@ -1247,6 +1313,8 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		return $attr;
 	}
 endif; // End if().
+
+add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 
 /**
  * Astra Color Palletes.
@@ -1272,5 +1340,20 @@ if ( ! function_exists( 'astra_color_palette' ) ) :
 		);
 
 		return apply_filters( 'astra_color_palettes', $color_palette );
+	}
+endif; // End if().
+
+if ( ! function_exists( 'astra_get_theme_name' ) ) :
+
+	/**
+	 * Get theme name.
+	 *
+	 * @return string Theme Name.
+	 */
+	function astra_get_theme_name() {
+
+		$theme_name = __( 'Astra', 'astra' );
+
+		return apply_filters( 'astra_theme_name', $theme_name );
 	}
 endif; // End if().

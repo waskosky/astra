@@ -5,7 +5,7 @@
  * @package     Astra
  * @subpackage  Class
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -61,6 +61,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			$site_content_width = astra_get_option( 'site-content-width', 1200 );
+			$header_logo_width  = astra_get_option( 'ast-header-logo-width' );
 
 			// Site Background Color.
 			$box_bg_color = astra_get_option( 'site-layout-outside-bg-color' );
@@ -185,7 +186,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'desktop' ),
 				),
 				'#masthead .site-logo-img .custom-logo-link img' => array(
-					'max-width' => esc_attr( astra_get_option( 'ast-header-logo-width' ) ) . 'px',
+					'max-width' => astra_get_css_value( $header_logo_width, 'px' ),
+				),
+				'.astra-logo-svg'                         => array(
+					'width' => astra_get_css_value( $header_logo_width, 'px' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
@@ -604,9 +608,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( apply_filters( 'astra_enable_default_fonts', true ) ) {
 				$astra_fonts          = '@font-face {';
 					$astra_fonts     .= 'font-family: "Astra";';
-					$astra_fonts     .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.woff) format("woff"),';
-						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.ttf) format("truetype"),';
-						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.svg#Astra) format("svg");';
+					$astra_fonts     .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.woff) format("woff"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.ttf) format("truetype"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
 					$astra_fonts     .= 'font-weight: normal;';
 					$astra_fonts     .= 'font-style: normal;';
 				$astra_fonts         .= '}';
@@ -626,7 +630,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Single Blog */
 			if ( 'custom' === $single_post_max ) :
 					$single_blog_css  = '@media (min-width:769px) {';
-					$single_blog_css .= '.single .site-content > .ast-container{';
+					$single_blog_css .= '.single-post .site-content > .ast-container{';
 					$single_blog_css .= 'max-width:' . esc_attr( $single_post_max_width ) . 'px;';
 					$single_blog_css .= '}';
 					$single_blog_css .= '}';

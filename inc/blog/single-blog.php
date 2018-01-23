@@ -55,6 +55,11 @@ if ( ! function_exists( 'astra_single_post_class' ) ) {
 		// Blog layout.
 		if ( is_singular() ) {
 			$classes[] = 'ast-article-single';
+
+			// Remove hentry from page.
+			if ( 'page' == get_post_type() ) {
+				$classes = array_diff( $classes, array( 'hentry' ) );
+			}
 		}
 
 		return $classes;

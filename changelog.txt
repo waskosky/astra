@@ -1,3 +1,57 @@
+v1.1.6
+# Fixed: Astra Settings options on shop page are not working.
+# Fixed: Reduce unnecessary escaping when rendering tags and categories.
+
+v1.1.5
+# Improvement: Slightly improved the size of woocomerce header cart icon for small devices for better accessibility.
+# Improvement: Improved woocommerce invalid input field default color.
+# Fixed: Alignment of empty cart message to the left in header cart.
+# Fixed: Updated the size of coupon button for small devices.
+# Fixed: Removed single product tabs background color.
+# Fixed: Updated position of product category widget counts to the right.
+
+v1.1.4
+# Fixed: Woocommerce shortcode grid style conflict.
+# Fixed: Woocommerce Cart option renamed to Cart Page.
+
+v1.1.3
+# Fixed: Updated Single Product review style when there is no review.
+# Fixed: Updated Single product without review condition which caused an error for some plugins.
+
+v1.1.2
+# Fixed: Incorrect URL for the WooCommerce loading icon.
+# Fixed: Added woocommerce shortcode grid support for responsive devices.
+# Fixed: Products grid style updated for Desktop.
+
+v1.1.1
+# New: Added option to display inline the logo and site title/site description.
+# New: Added filter `astra_woocommerce_integration` to disable WooCommerce integration in Astra.
+# New: Added filter `astra_enqueue_theme_assets` to disable loading of Astra's CSS and JS.
+# Fixed: PHP notice in the small footer on PHP 7.2
+# Fixed: Updated woocommerce Related products design for responsive devices.
+# Fixed: Deprecated filter fatal error in WordPress 4.5 & below.
+
+v1.1.0
+# New: Added Woocommerce complete support.
+# New: Added option for Custom Menu Item to Display Outside Menu in primary header.
+# New: Organized customizer layout panels.
+# Fixed: Missing Structured Data microformat.
+
+v1.0.32
+# Fixed: Logo being croped in customizer preview.
+
+v1.0.31
+# New: Filter `astra_enable_page_builder_compatibility` added to disable default page builder compatibility meta settings.
+# Fixed: Some SVG logos being not displayed.
+# Fixed: Thumbnail image not visible on blog page.
+
+v1.0.30
+# Fixed: Regression in v1.0.29 which caused site logo to be full width.
+
+v1.0.29
+# New: Added filters `astra_post_read_more` and `astra_post_read_more_class` to change the custom text and custom class to the read more text for blog posts.
+# Fix: Site SVG logo only visible if site title is enabled in some cases.
+
 v1.0.28
 # Set correct page meta settings on themer layouts if they are empty.
 

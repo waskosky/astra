@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -741,7 +741,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 			} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
 
-				$title = woocommerce_page_title();
+				$title = woocommerce_page_title( false );
 
 			} elseif ( is_archive() ) {
 

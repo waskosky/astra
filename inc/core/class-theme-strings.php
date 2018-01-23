@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2017, Astra
+ * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -31,7 +31,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 				'string-header-skip-link'                => __( 'Skip to content', 'astra' ),
 
 				// 404 Page Strings.
-				'string-404-sub-title'                   => __( 'It looks like the link pointing here was faulty. May be try searching?', 'astra' ),
+				'string-404-sub-title'                   => __( 'It looks like the link pointing here was faulty. Maybe try searching?', 'astra' ),
 
 				// Search Page Strings.
 				'string-search-nothing-found'            => __( 'Nothing Found', 'astra' ),
@@ -78,6 +78,16 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 
 			)
 		);
+
+		if ( is_rtl() ) {
+			$defaults['string-blog-navigation-next']     = __( 'Next Page', 'astra' ) . ' <span class="ast-left-arrow">&larr;</span>';
+			$defaults['string-blog-navigation-previous'] = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous Page', 'astra' );
+
+			/* translators: 1: Post type label */
+			$defaults['string-single-navigation-next'] = __( 'Next %s', 'astra' ) . ' <span class="ast-left-arrow">&larr;</span>';
+			/* translators: 1: Post type label */
+			$defaults['string-single-navigation-previous'] = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous %s', 'astra' );
+		}
 
 		$output = isset( $defaults[ $key ] ) ? $defaults[ $key ] : '';
 
