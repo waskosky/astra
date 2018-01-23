@@ -90,46 +90,48 @@ function astra_responsive_font_size( control, selector ) {
 /**
  * Responsive Spacing CSS
  */
-function astra_responsive_spacing_padding( control, selector, side ) {
+function astra_responsive_spacing( control, selector, type, side ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
 
 			var sidesString = "";
+			var spacingType = "padding";
 			if ( value.desktop.top || value.desktop.right || value.desktop.bottom || value.desktop.left || value.tablet.top || value.tablet.right || value.tablet.bottom || value.tablet.left || value.mobile.top || value.mobile.right || value.mobile.bottom || value.mobile.left ) {
 				if ( typeof side != undefined ) {
 					sidesString = side + "";
 					sidesString = sidesString.replace( ',', '-' );
+				}
+				if ( typeof type != undefined ) {
+					spacingType = type + "";
 				}
 				// Remove <style> first!
 				control = control.replace( '[', '-' );
 				control = control.replace( ']', '' );
 				jQuery( 'style#' + control + '-' + sidesString ).remove();
 
-				var padding = '',
+				var desktopPadding = '',
 					tabletPadding = '',
 					mobilePadding = '',
 					paddingUnit = 'px';
 
 				var paddingSide = ( typeof side != undefined ) ? side : [ 'top','bottom','right','left' ];
 
-				var desktopPadding = '',
-				tabletPadding = '';
 				jQuery.each(paddingSide, function( index, sideValue ){
 					if ( '' != value['desktop'][sideValue] ) {
-						desktopPadding += 'padding-'+ sideValue +': ' + value['desktop'][sideValue] + paddingUnit +';';
+						desktopPadding += spacingType + '-' + sideValue +': ' + value['desktop'][sideValue] + paddingUnit +';';
 					}
 				});
 
 				jQuery.each(paddingSide, function( index, sideValue ){
 					if ( '' != value['tablet'][sideValue] ) {
-						tabletPadding += 'padding-'+ sideValue +': ' + value['tablet'][sideValue] + paddingUnit +';';
+						tabletPadding += spacingType + '-' + sideValue +': ' + value['tablet'][sideValue] + paddingUnit +';';
 					}
 				});
 
 				jQuery.each(paddingSide, function( index, sideValue ){
 					if ( '' != value['mobile'][sideValue] ) {
-						mobilePadding += 'padding-'+ sideValue +': ' + value['mobile'][sideValue] + paddingUnit +';';
+						mobilePadding += spacingType + '-' + sideValue +': ' + value['mobile'][sideValue] + paddingUnit +';';
 					}
 				});
 
@@ -143,7 +145,7 @@ function astra_responsive_spacing_padding( control, selector, side ) {
 				);
 
 			} else {
-
+				wp.customize.preview.send( 'refresh' );
 				jQuery( 'style#' + control + '-' + sidesString ).remove();
 			}
 
