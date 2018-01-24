@@ -584,7 +584,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			?>
 
 			<?php
-			if ( apply_filters( 'astra_primary_maga_menu_support', false ) ) {
+			if ( apply_filters( 'astra_primary_maga_menu_support', true ) ) {
 
 				// Primary Menu.
 				$primary_menu_args = array(
@@ -593,6 +593,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 					'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
 					'container'       => 'div',
 					'container_class' => 'main-header-bar-navigation main-navigation ast-flex-grow-1',
+					'items_wrap'	  => '<div class="main-header-bar-navigation"><nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label=""><ul id="%1$s" class="%2$s nikhil">%3$s</ul></nav></div>'
 				);
 
 				if ( has_nav_menu( 'primary' ) ) {
