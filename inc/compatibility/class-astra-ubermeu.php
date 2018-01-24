@@ -57,8 +57,8 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 		 * Disable the Mobile Menu toggles from Astra if Uber Menu is used.
 		 *
 		 * @since  1.1.7
-		 * @param  [type] $status [description]
-		 * @return [type]         [description]
+		 * @param  bool $status Status if the mobile menu toggels are enaled or disaled.
+		 * @return bool         False If ubermenui s configured on this location. Unchanged if it is not configured.
 		 */
 		public function disable_primary_menu_toggle( $status ) {
 
