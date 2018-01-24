@@ -76,6 +76,7 @@
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item {
   padding: 0;
+  border-bottom: none;
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author,
