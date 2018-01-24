@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				),
 			);
 
-			if ( is_array( $val ) ) {
+			if ( isset( $val['desktop'] ) ) {
 				$spacing['desktop'] = array_map(
 					function ( $value ) {
 							return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
