@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 		 *
 		 * @since  1.1.7
 		 * @param  bool $status Status if the mobile menu toggels are enaled or disaled.
-		 * @return bool         False If ubermenui s configured on this location. Unchanged if it is not configured.
+		 * @return bool         False If ubermenu is configured on this location. Unchanged if it is not configured.
 		 */
 		public function disable_primary_menu_toggle( $status ) {
 
