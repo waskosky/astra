@@ -21,17 +21,22 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	 * Progress Widget
 	 */
 	.progress__indicator {
-		line-height: 30px;
+		line-height: 1.4;
+		height: 1.4em;
 	}
 
 	.llms-progress {
+		height: 1.4em;
+		margin: 0 auto;
+
 		.llms-progress-bar {
-			border-radius: 20px;
-	    	height: 20px;
+			border-radius: .7em;
+	    	height: 1.4em;
+	    	top: 0;
 		}
 
 		.progress-bar-complete {
-			border-radius: 20px;
+			border-radius: .7em;
 		}
 	}
 
@@ -131,6 +136,23 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 			&:hover {
 				background: #fafafa;
+			}
+		}
+	}
+
+	.ast-article-single .llms-lesson-button-wrapper {
+		font-variant: small-caps;
+		font-weight: 600;
+
+		.llms-complete-lesson-form,
+		.llms-incomplete-lesson-form {
+			font-variant: initial;
+		}
+		
+		.llms-complete-lesson-form {
+			.llms-field-button:before {
+				content: "\2714";
+				margin-right: 5px;
 			}
 		}
 	}
@@ -271,11 +293,24 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 		.llms-course-progress {
 			max-width: 100%;
+			margin: 0 auto;
+
+			.llms-course-continue-button {
+				display: inline-block;
+			}
+
+			.llms-course-complete-text {
+				margin-bottom: 0;
+				font-variant: small-caps;
+				font-size: 1.1em;
+				font-weight: 600;
+				opacity: .75;
+			}
 		}
 		.llms-progress {
 			
 			height: auto;
-			margin: 0 auto 15px;
+			margin: 0 auto 10px;
 
 			.llms-progress-bar {
 				height: 2em;
@@ -293,7 +328,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 				&:after {
 					display: inline-block;
 					line-height: 2;
-					padding: 0 5px;
+					padding: 0 10px;
 				}
 			}
 		}
@@ -318,6 +353,11 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 				.llms-lesson-link {
 					background-color: #f0f0f0;
 					padding: 5px 15px;
+					min-height: auto;
+
+					&:hover {
+						background: #e6e6e6;
+					}
 				}
 
 				.llms-lesson-title {
@@ -792,6 +832,19 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			border-color: #b81c23;
 		}
 	}
+
+	a.llms-button-primary,
+	.llms-button-secondary,
+	.llms-button-action,
+	.llms-field-button {
+		font-size: inherit;
+		line-height: 1;
+	}
+
+	.llms-tooltip {
+		font-size: .9em;
+		line-height: 1.4;
+	}
 }
 
 .llms-notification {
@@ -837,5 +890,4 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	.llms-question-wrapper {
 	    margin-bottom: 1.5em;
 	}
-
 }

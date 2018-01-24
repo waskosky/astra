@@ -274,9 +274,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
+			$theme_forground_color = astra_get_foreground_color( $theme_color );
 			$btn_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
-				$btn_color = astra_get_foreground_color( $theme_color );
+				$btn_color = $theme_forground_color;
 			}
 
 			$btn_h_color = astra_get_option( 'button-h-color' );
@@ -296,7 +297,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'border-color'     => $btn_bg_color,
 					'background-color' => $btn_bg_color,
 				),
-				'a.llms-button-primary, .llms-button-secondary, .llms-button-action' => array(
+				'a.llms-button-primary, .llms-button-secondary, .llms-button-action, .llms-field-button' => array(
 					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
@@ -322,9 +323,20 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'stroke' => $theme_color,
 				),
 				'h4.llms-access-plan-title, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded' => array(
-					'color' => $btn_color,
+					'color' => $theme_forground_color,
 				),
 			);
+
+			$course_id = get_the_ID();
+			if ( !! $course_id && is_course() ) {
+
+				$course = new LLMS_Course( $course_id );
+				$course_progress = $course->get_percent_complete();
+				$css_output['.entry-content .progress-bar-complete:after'] = array(
+					'content' => "'" . round( $course_progress, 2 ) . "%'",
+					'color' => $theme_forground_color,
+				);
+			}
 
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
