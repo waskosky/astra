@@ -121,6 +121,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_1_0_beta_4();
 			}
 
+			// Update astra meta settings for Footer Widget Spacing.
+			if ( version_compare( $saved_version, '1.1.6.1', '<' ) ) {
+				self::v_1_1_6_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -466,6 +471,59 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			foreach ( $options as $key => $value ) {
 				if ( ! isset( $astra_options[ $key ] ) ) {
 					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+
+		/**
+		 * Update options of older version than 1.1.0-beta.3.
+		 *
+		 * Footer Widget Spacing
+		 *
+		 * @since 1.1.6.1.
+		 */
+		static public function v_1_1_6_1() {
+
+			$options = array(
+				'footer-adv-area-padding' => array(
+					'top'    => 70,
+					'right'  => '',
+					'bottom' => 70,
+					'left'   => '',
+				),
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( 0 < count( $astra_options ) ) {
+				foreach ( $options as $key ) {
+
+					if ( array_key_exists( $key, $astra_options ) ) {
+
+						$astra_options[ $key ] = array(
+							'desktop' => array(
+								'top'    => $astra_options[ $key ]['top'],
+								'right'  => $astra_options[ $key ]['right'],
+								'bottom' => $astra_options[ $key ]['bottom'],
+								'left'   => $astra_options[ $key ]['left'],
+							),
+							'tablet'  => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'mobile'  => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+						);
+					}
 				}
 			}
 
