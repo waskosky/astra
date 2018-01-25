@@ -573,6 +573,12 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 			);
 
+			$items_wrap          = '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+				$items_wrap     .= '<div class="main-navigation">';
+					$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
+				$items_wrap     .= '</div>';
+			$items_wrap         .= '</nav>';
+
 			// Primary Menu.
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
@@ -580,17 +586,18 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
-				'items_wrap'      => '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">
-										<div class="main-navigation">
-											<ul id="%1$s" class="%2$s">%3$s</ul>
-										</div>	
-									</nav>',
+				'items_wrap'      => $items_wrap,
 			);
 
 			if ( has_nav_menu( 'primary' ) ) {
 				wp_nav_menu( $primary_menu_args );
 			} else {
-				wp_page_menu( $fallback_menu_args );
+
+				echo '<div class="main-header-bar-navigation">';
+					echo '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+						wp_page_menu( $fallback_menu_args );
+					echo  '</nav>';
+				echo  '</div>';
 			}
 		}// End if().
 
