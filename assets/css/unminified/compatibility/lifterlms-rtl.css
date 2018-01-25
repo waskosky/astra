@@ -74,6 +74,7 @@
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item,
+.ast-container ul.llms-loop-list li.llms-loop-item,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item {
   padding: 0;
   border-bottom: none;
@@ -82,6 +83,9 @@
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author,
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-title,
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-author,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-loop-title,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-meta,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
@@ -89,6 +93,7 @@
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-title,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-loop-title,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title {
   font-weight: 600;
   margin-top: 10px;
@@ -96,23 +101,28 @@
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author,
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-author,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-meta,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
   margin-bottom: 0;
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-author,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author {
   font-size: inherit;
   margin-bottom: 10px;
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-author .llms-author-info,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-author .llms-author-info,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-author .llms-author-info {
   vertical-align: middle;
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-meta,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta {
   font-size: .9em;
   font-weight: 600;
@@ -120,6 +130,8 @@
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta .length,
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-meta .difficulty,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-meta .length,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-meta .difficulty,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta .length,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-meta .difficulty {
   font-weight: 400;
@@ -127,16 +139,19 @@
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-title:hover,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-loop-title:hover,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-title:hover {
   color: inherit;
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-item-footer,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-footer,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-footer {
   margin-top: 10px;
 }
 
 .llms-student-dashboard ul.llms-loop-list li.llms-loop-item .llms-loop-item-content,
+.ast-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-content,
 .ast-lifterlms-container ul.llms-loop-list li.llms-loop-item .llms-loop-item-content {
   padding-bottom: 15px;
 }
