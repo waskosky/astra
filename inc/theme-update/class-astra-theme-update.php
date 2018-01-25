@@ -52,7 +52,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @since 1.0.0
 		 */
 		static public function init() {
-
 			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
@@ -499,7 +498,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			if ( 0 < count( $astra_options ) ) {
-				foreach ( $options as $key ) {
+				foreach ( $options as $key => $value ) {
 
 					if ( array_key_exists( $key, $astra_options ) ) {
 
