@@ -61,6 +61,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 			add_action( 'lifterlms_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'lifterlms_after_main_content', array( $this, 'before_main_content_end' ) );
+
+			// Grid.
+			add_filter( 'lifterlms_loop_columns', array( $this, 'course_grid' ) );
+			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ) );
 		}
 
 		/**
@@ -133,10 +137,16 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		function customize_register( $wp_customize ) {
 
 			/**
+			 * Register Sections & Panels
+			 */
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/register-panels-and-sections.php';
+
+			/**
 			 * Sections
 			 */
 			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-container.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-sidebar.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/section-general.php';
 		}
 
 		/**
@@ -146,6 +156,13 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return array
 		 */
 		function theme_defaults( $defaults ) {
+
+			// General
+			$defaults['llms-course-grid'] = array(
+				'desktop' => 3,
+				'tablet'  => 2,
+				'mobile'  => 1,
+			);
 
 			// Container.
 			$defaults['lifterlms-content-layout'] = 'plain-container';
@@ -259,6 +276,25 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					<?php
 				}
 			}// End if().
+		}
+
+		function course_grid( $course_grid ) {
+
+			$course_grid = astra_get_option( 'llms-course-grid' );
+			return $course_grid['desktop'];
+		}
+
+		function course_responsive_grid( $classes ) {
+
+			$course_grid = astra_get_option( 'llms-course-grid' );
+			if( ! empty( $course_grid['tablet'] ) ) {
+				$classes[] = 'llms-tablet-cols-' . $course_grid['tablet'];
+			}
+			if( ! empty( $course_grid['mobile'] ) ) {
+				$classes[] = 'llms-mobile-cols-' . $course_grid['mobile'];
+			}
+
+			return $classes;
 		}
 
 		/**
