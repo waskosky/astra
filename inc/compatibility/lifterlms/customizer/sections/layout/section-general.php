@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[llms-course-grid]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-lifterlms',
-				'label'       => __( 'Course Columns', 'astra' ),
+				'label'       => __( 'Course / Membership Columns', 'astra' ),
 				'priority'    => 0,
 				'input_attrs' => array(
 					'step' => 1,
