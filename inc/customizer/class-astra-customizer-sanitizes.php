@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					'bottom' => '',
 					'left'   => '',
 				),
-				'unit'	=> 'px'
+				'unit'    => 'px',
 			);
 
 			if ( isset( $val['desktop'] ) ) {
