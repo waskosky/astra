@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-01-29 15:13:39+00:00\n"
+"POT-Creation-Date: 2018-01-29 15:35:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,6 +131,154 @@ msgstr ""
 msgid "Loop End"
 msgstr ""
 
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:197
+msgid "What Others Have Said"
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:226
+#. translators: 1 Author Name.
+msgid "By: %s"
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:263
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:282
+msgid "Thank you for your review!"
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:269
+msgid "Write a Review"
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:271
+msgid "Review Title"
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:272
+msgid "Review Title is required."
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:273
+msgid "Review Text"
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:274
+msgid "Review Text is required."
+msgstr ""
+
+#: inc/compatibility/lifterlms/class-astra-lifterlms.php:278
+msgid "Leave Review"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/register-panels-and-sections.php:20
+#: inc/compatibility/lifterlms/customizer/sections/section-container.php:45
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:45
+msgid "LifterLMS"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/layout/section-general.php:35
+msgid "Course / Membership Columns"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-container.php:47
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:47
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:72
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:47
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:47
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:72
+#: inc/customizer/sections/layout/blog-single.php:100
+#: inc/customizer/sections/layout/blog.php:123
+#: inc/customizer/sections/layout/container.php:68
+#: inc/customizer/sections/layout/container.php:93
+#: inc/customizer/sections/layout/container.php:118
+#: inc/customizer/sections/layout/sidebar.php:72
+#: inc/customizer/sections/layout/sidebar.php:97
+#: inc/customizer/sections/layout/sidebar.php:122
+#: inc/customizer/sections/typography/body.php:46
+#: inc/customizer/sections/typography/body.php:69
+#: inc/customizer/sections/typography/body.php:96
+msgid "Default"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-container.php:48
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:48
+#: inc/customizer/sections/layout/container.php:31
+#: inc/customizer/sections/layout/container.php:69
+#: inc/customizer/sections/layout/container.php:94
+#: inc/customizer/sections/layout/container.php:119
+#: inc/metabox/class-astra-meta-boxes.php:232
+msgid "Boxed"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-container.php:49
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:49
+#: inc/customizer/sections/layout/container.php:32
+#: inc/customizer/sections/layout/container.php:70
+#: inc/customizer/sections/layout/container.php:95
+#: inc/customizer/sections/layout/container.php:120
+#: inc/metabox/class-astra-meta-boxes.php:233
+msgid "Content Boxed"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-container.php:50
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:50
+#: inc/customizer/sections/layout/container.php:33
+#: inc/customizer/sections/layout/container.php:71
+#: inc/customizer/sections/layout/container.php:96
+#: inc/customizer/sections/layout/container.php:121
+#: inc/metabox/class-astra-meta-boxes.php:234
+msgid "Full Width / Contained"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-container.php:51
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:51
+#: inc/customizer/sections/layout/container.php:34
+#: inc/customizer/sections/layout/container.php:72
+#: inc/customizer/sections/layout/container.php:97
+#: inc/customizer/sections/layout/container.php:122
+#: inc/metabox/class-astra-meta-boxes.php:235
+msgid "Full Width / Stretched"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:48
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:73
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:48
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:73
+#: inc/customizer/sections/layout/sidebar.php:34
+#: inc/customizer/sections/layout/sidebar.php:73
+#: inc/customizer/sections/layout/sidebar.php:98
+#: inc/customizer/sections/layout/sidebar.php:123
+#: inc/metabox/class-astra-meta-boxes.php:218
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:49
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:74
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:49
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:74
+#: inc/customizer/sections/layout/sidebar.php:35
+#: inc/customizer/sections/layout/sidebar.php:74
+#: inc/customizer/sections/layout/sidebar.php:99
+#: inc/customizer/sections/layout/sidebar.php:124
+#: inc/metabox/class-astra-meta-boxes.php:216
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:50
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:75
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:50
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:75
+#: inc/customizer/sections/layout/sidebar.php:36
+#: inc/customizer/sections/layout/sidebar.php:75
+#: inc/customizer/sections/layout/sidebar.php:100
+#: inc/customizer/sections/layout/sidebar.php:125
+#: inc/metabox/class-astra-meta-boxes.php:217
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/compatibility/lifterlms/customizer/sections/section-sidebar.php:70
+msgid "LifterLMS Course/Lesson"
+msgstr ""
+
 #: inc/compatibility/woocommerce/class-astra-woocommerce.php:346
 msgid "WooCommerce Sidebar"
 msgstr ""
@@ -242,89 +390,6 @@ msgstr ""
 #: inc/customizer/sections/layout/blog-single.php:60
 #: inc/customizer/sections/layout/blog.php:83
 msgid "Category"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:47
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:47
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:72
-#: inc/customizer/sections/layout/blog-single.php:100
-#: inc/customizer/sections/layout/blog.php:123
-#: inc/customizer/sections/layout/container.php:68
-#: inc/customizer/sections/layout/container.php:93
-#: inc/customizer/sections/layout/container.php:118
-#: inc/customizer/sections/layout/sidebar.php:72
-#: inc/customizer/sections/layout/sidebar.php:97
-#: inc/customizer/sections/layout/sidebar.php:122
-#: inc/customizer/sections/typography/body.php:46
-#: inc/customizer/sections/typography/body.php:69
-#: inc/customizer/sections/typography/body.php:96
-msgid "Default"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:48
-#: inc/customizer/sections/layout/container.php:31
-#: inc/customizer/sections/layout/container.php:69
-#: inc/customizer/sections/layout/container.php:94
-#: inc/customizer/sections/layout/container.php:119
-#: inc/metabox/class-astra-meta-boxes.php:232
-msgid "Boxed"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:49
-#: inc/customizer/sections/layout/container.php:32
-#: inc/customizer/sections/layout/container.php:70
-#: inc/customizer/sections/layout/container.php:95
-#: inc/customizer/sections/layout/container.php:120
-#: inc/metabox/class-astra-meta-boxes.php:233
-msgid "Content Boxed"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:50
-#: inc/customizer/sections/layout/container.php:33
-#: inc/customizer/sections/layout/container.php:71
-#: inc/customizer/sections/layout/container.php:96
-#: inc/customizer/sections/layout/container.php:121
-#: inc/metabox/class-astra-meta-boxes.php:234
-msgid "Full Width / Contained"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:51
-#: inc/customizer/sections/layout/container.php:34
-#: inc/customizer/sections/layout/container.php:72
-#: inc/customizer/sections/layout/container.php:97
-#: inc/customizer/sections/layout/container.php:122
-#: inc/metabox/class-astra-meta-boxes.php:235
-msgid "Full Width / Stretched"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:48
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:73
-#: inc/customizer/sections/layout/sidebar.php:34
-#: inc/customizer/sections/layout/sidebar.php:73
-#: inc/customizer/sections/layout/sidebar.php:98
-#: inc/customizer/sections/layout/sidebar.php:123
-#: inc/metabox/class-astra-meta-boxes.php:218
-msgid "No Sidebar"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:49
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:74
-#: inc/customizer/sections/layout/sidebar.php:35
-#: inc/customizer/sections/layout/sidebar.php:74
-#: inc/customizer/sections/layout/sidebar.php:99
-#: inc/customizer/sections/layout/sidebar.php:124
-#: inc/metabox/class-astra-meta-boxes.php:216
-msgid "Left Sidebar"
-msgstr ""
-
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:50
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:75
-#: inc/customizer/sections/layout/sidebar.php:36
-#: inc/customizer/sections/layout/sidebar.php:75
-#: inc/customizer/sections/layout/sidebar.php:100
-#: inc/customizer/sections/layout/sidebar.php:125
-#: inc/metabox/class-astra-meta-boxes.php:217
-msgid "Right Sidebar"
 msgstr ""
 
 #: inc/compatibility/woocommerce/woocommerce-common-functions.php:79
@@ -1145,7 +1210,7 @@ msgstr ""
 msgid "Disable Footer Bar"
 msgstr ""
 
-#: inc/template-parts.php:169
+#: inc/template-parts.php:170
 msgid "Main Menu"
 msgstr ""
 
