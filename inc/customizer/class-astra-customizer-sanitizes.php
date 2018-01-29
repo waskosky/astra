@@ -113,13 +113,58 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 * @return number        Return number.
 		 * @since  1.0.6
 		 */
-		static public function sanitize_spacing( $val ) {
+		static public function sanitize_responsive_spacing( $val ) {
 
-			foreach ( $val as $key => $value ) {
-				$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
+			$spacing = array(
+				'desktop' => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'tablet'  => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'  => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'unit'    => 'px',
+			);
+
+			if ( isset( $val['desktop'] ) ) {
+				$spacing['desktop'] = array_map(
+					function ( $value ) {
+							return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
+					}, $val['desktop']
+				);
+
+				$spacing['tablet'] = array_map(
+					function ( $value ) {
+							return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
+					}, $val['tablet']
+				);
+
+				$spacing['mobile'] = array_map(
+					function ( $value ) {
+							return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
+					}, $val['mobile']
+				);
+
+				return $spacing;
+
+			} else {
+				foreach ( $val as $key => $value ) {
+					$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
+				}
+				return $val;
 			}
 
-			return $val;
 		}
 
 		/**
