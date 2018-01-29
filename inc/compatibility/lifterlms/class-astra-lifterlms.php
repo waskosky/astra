@@ -220,11 +220,11 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					echo $styles['custom-css'];
 
 					?>
-					<div class="llms_review" style="background-color:<?php echo $styles['background-color']; ?>;">
-						<h5 style="color:<?php echo $styles['title-color']; ?>;"><strong><?php echo get_the_title( $post->ID ); ?></strong></h5>
+					<div class="llms_review" style="background-color:<?php echo esc_attr( $styles['background-color'] ); ?>;">
+						<h5 style="color:<?php echo esc_attr( $styles['title-color'] ); ?>;"><strong><?php echo esc_html( get_the_title( $post->ID ) ); ?></strong></h5>
 						<?php /* translators: 1 Author Name. */ ?>
-						<h6 style="color:<?php echo $styles['text-color']; ?>;"><?php echo sprintf( __( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h5>
-						<p style="color:<?php echo $styles['text-color']; ?>;"><?php echo get_post_field( 'post_content', $post->ID ); ?></p>
+						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo sprintf( esc_html__( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h5>
+						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo get_post_field( 'post_content', $post->ID ); ?></p>
 					</div>
 					<?php
 				}
