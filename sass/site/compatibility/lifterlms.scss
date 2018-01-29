@@ -687,6 +687,41 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			.llms-sep {
 				display: none;
 			}
+
+			> a:before {
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: inherit;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				display: inline-block;
+				margin-right: .5em;
+			}
+
+			&.dashboard > a:before {
+				content: "\f0e4";
+			}
+			&.view-courses > a:before {
+				content: "\f02d";
+			}
+			&.view-achievements > a:before {
+				content: "\f0a3";
+			}
+			&.notifications > a:before {
+				content: "\f06a";
+			}
+			&.edit-account > a:before {
+				content: "\f007";
+			}
+			&.redeem-voucher > a:before {
+				content: "\f005";
+			}
+			&.orders > a:before {
+				content: "\f022";
+			}
+			&.signout > a:before {
+				content: "\f08b";
+			}
 		}
 	}
 

@@ -685,6 +685,48 @@
   display: none;
 }
 
+.llms-student-dashboard .llms-sd-header .llms-sd-item > a:before {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  margin-right: .5em;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.dashboard > a:before {
+  content: "\f0e4";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-courses > a:before {
+  content: "\f02d";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-achievements > a:before {
+  content: "\f0a3";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.notifications > a:before {
+  content: "\f06a";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.edit-account > a:before {
+  content: "\f007";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.redeem-voucher > a:before {
+  content: "\f005";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.orders > a:before {
+  content: "\f022";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.signout > a:before {
+  content: "\f08b";
+}
+
 .llms-student-dashboard .llms-my-orders .orders-table {
   font-size: 0.85em;
 }
