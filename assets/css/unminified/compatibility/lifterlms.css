@@ -350,10 +350,7 @@
 
 .single-course article .llms-course-progress .llms-course-complete-text {
   margin-bottom: 0;
-  font-variant: small-caps;
-  font-size: 1.1em;
-  font-weight: 600;
-  opacity: .75;
+  opacity: .6;
 }
 
 .single-course article .llms-progress {

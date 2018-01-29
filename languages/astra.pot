@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.1.6\n"
+"Project-Id-Version: Astra 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-01-29 14:33:56+00:00\n"
+"POT-Creation-Date: 2018-01-29 15:35:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -584,7 +584,7 @@ msgstr ""
 msgid "Need More Options? Get Astra Pro!"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-sanitizes.php:199
+#: inc/customizer/class-astra-customizer-sanitizes.php:244
 msgid "Enter valid email address!"
 msgstr ""
 
@@ -1161,19 +1161,15 @@ msgstr ""
 msgid "Y"
 msgstr ""
 
-#: inc/extras.php:437
+#: inc/extras.php:436
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:588
-msgid "Site Navigation"
-msgstr ""
-
-#: inc/extras.php:1001
+#: inc/extras.php:999
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1084
+#: inc/extras.php:1082
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
@@ -1214,7 +1210,7 @@ msgstr ""
 msgid "Disable Footer Bar"
 msgstr ""
 
-#: inc/template-parts.php:169
+#: inc/template-parts.php:170
 msgid "Main Menu"
 msgstr ""
 
