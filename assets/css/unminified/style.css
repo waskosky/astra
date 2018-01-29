@@ -3442,6 +3442,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   /* Main Header */
 }
 
+.ast-header-break-point.ast-header-custom-item-outside .ast-primary-menu-disabled .ast-mobile-menu-buttons {
+  display: none;
+}
+
 .ast-header-break-point .site-branding {
   -js-display: flex;
   display: -webkit-box;

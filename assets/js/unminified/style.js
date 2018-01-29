@@ -882,7 +882,6 @@ var toggleClass = function ( el, className ) {
 		    }, false);
 			
 			if ( 'undefined' !== typeof __main_header_all[i] ) {
-				
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
 				AstraNavigationMenu( parentList );
 			 	

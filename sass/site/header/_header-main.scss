@@ -173,7 +173,7 @@ li.ast-masthead-custom-menu-items {
 		.ast-masthead-custom-menu-items {
 			text-align: left;
 		}
-	}
+	}	
 }
 
 .ast-masthead-custom-menu-items{
@@ -184,6 +184,14 @@ li.ast-masthead-custom-menu-items {
 }
 
 .ast-header-break-point {
+
+	&.ast-header-custom-item-outside {
+		.ast-primary-menu-disabled{
+			.ast-mobile-menu-buttons {
+				display: none;
+			}
+		}
+	}
 	.site-branding{
 		display: flex;
 		flex: 1;
