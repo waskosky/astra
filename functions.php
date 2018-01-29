@@ -108,7 +108,6 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-visual-composer.ph
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-site-origin.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gravity-forms.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bne-flyout.php';
-require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-lifter-lms.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-ubermeu.php';
 
 // Check PHP_VERSION for namespace.
