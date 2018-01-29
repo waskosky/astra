@@ -1,3 +1,7 @@
+v1.2.0
+# Full Support for LifterLMS.
+# Better support for navigation menu plugins, Allowing plugins to override complete menu markup easily.
+
 v1.1.6
 # Fixed: Astra Settings options on shop page are not working.
 # Fixed: Reduce unnecessary escaping when rendering tags and categories.

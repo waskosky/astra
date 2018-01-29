@@ -52,8 +52,9 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
+			$menu_item_classes = apply_filters( 'astra_masthead_custom_menu_item', array( 'ast-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="ast-masthead-custom-menu-items <?php echo esc_attr( $section ); ?>-custom-menu-item">
+			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
@@ -160,8 +161,9 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
+		$display_outside_menu       = astra_get_option( 'header-display-outside-menu' );
 
-		if ( ! $disable_primary_navigation || 'none' != $custom_header_section ) {
+		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && ! $display_outside_menu ) ) {
 			$menu_title          = trim( apply_filters( 'astra_main_menu_toggle_label', astra_get_option( 'header-main-menu-label' ) ) );
 			$menu_icon           = apply_filters( 'astra_main_menu_toggle_icon', 'menu-toggle-icon' );
 			$menu_label_class    = '';
