@@ -3,6 +3,7 @@
  * Lifter LMS Compatibility File.
  *
  * @package Astra
+ * @since 1.2.0
  */
 
 // If plugin - 'Lifter LMS' not exist then return.
@@ -18,7 +19,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 	/**
 	 * Astra Lifter LMS Compatibility
 	 *
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
 	class Astra_LifterLMS {
 
@@ -69,6 +70,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 		/**
 		 * Remove LifterLMS Default actions
+		 *
+		 * @since 1.2.0
 		 */
 		function lifterlms_init() {
 
@@ -98,7 +101,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				$membership_title    = get_post_meta( $membership_page_id, 'site-post-title', true );
 				$main_header_display = get_post_meta( $membership_page_id, 'ast-main-header-display', true );
 				$footer_layout       = get_post_meta( $membership_page_id, 'footer-sml-layout', true );
-				
+
 				if ( 'disabled' === $membership_title ) {
 					add_filter( 'lifterlms_show_page_title', '__return_false' );
 				}
@@ -116,7 +119,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
 			remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
 
-			if( is_lesson() ) {
+			if ( is_lesson() ) {
 				remove_action( 'lifterlms_single_lesson_after_summary', 'lifterlms_template_lesson_navigation', 20 );
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
@@ -131,7 +134,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * Register Customizer sections and panel for lifterlms
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		function customize_register( $wp_customize ) {
@@ -152,12 +155,13 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * Theme Defaults.
 		 *
+		 * @since 1.2.0
 		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
 		function theme_defaults( $defaults ) {
 
-			// General
+			// General.
 			$defaults['llms-course-grid'] = array(
 				'desktop' => 3,
 				'tablet'  => 2,
@@ -168,7 +172,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$defaults['lifterlms-content-layout'] = 'plain-container';
 
 			// Sidebar.
-			$defaults['lifterlms-sidebar-layout']    = 'no-sidebar';
+			$defaults['lifterlms-sidebar-layout']               = 'no-sidebar';
 			$defaults['lifterlms-course-lesson-sidebar-layout'] = 'default';
 
 			return $defaults;
@@ -179,31 +183,33 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * If the option is enabled, the review form will be output,
 		 * if not, nothing will happen. This function also checks to
 		 * see if a user is allowed to review more than once.
+		 *
+		 * @since 1.2.0
 		 */
 		public function single_reviews() {
 
 			/**
 			 * Check to see if we are supposed to output the code at all
 			 */
-			if ( get_post_meta( get_the_ID(),'_llms_display_reviews',true ) ) {
+			if ( get_post_meta( get_the_ID(), '_llms_display_reviews', true ) ) {
 			?>
 				<div id="old_reviews">
 				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ); ?></h3>
 				<?php
-				$args = array(
-					'posts_per_page'   => get_post_meta( get_the_ID(),'_llms_num_reviews',true ),
+				$args        = array(
+					'posts_per_page'   => get_post_meta( get_the_ID(), '_llms_num_reviews', true ),
 					'post_type'        => 'llms_review',
 					'post_status'      => 'publish',
-					'post_parent'	   => get_the_ID(),
+					'post_parent'      => get_the_ID(),
 					'suppress_filters' => true,
 				);
 				$posts_array = get_posts( $args );
 
 				$styles = array(
 					'background-color' => '#EFEFEF',
-					'title-color' => 'inherit',
-					'text-color' => 'inherit',
-					'custom-css' => '',
+					'title-color'      => 'inherit',
+					'text-color'       => 'inherit',
+					'custom-css'       => '',
 				);
 
 				if ( has_filter( 'llms_review_custom_styles' ) ) {
@@ -215,9 +221,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 					?>
 					<div class="llms_review" style="background-color:<?php echo $styles['background-color']; ?>;">
-						<h5 style="color:<?php echo $styles['title-color']; ?>;"><strong><?php echo get_the_title( $post->ID );?></strong></h5>
+						<h5 style="color:<?php echo $styles['title-color']; ?>;"><strong><?php echo get_the_title( $post->ID ); ?></strong></h5>
+						<?php /* translators: 1 Author Name. */ ?>
 						<h6 style="color:<?php echo $styles['text-color']; ?>;"><?php echo sprintf( __( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h5>
-						<p style="color:<?php echo $styles['text-color']; ?>;"><?php echo get_post_field( 'post_content', $post->ID );?></p>
+						<p style="color:<?php echo $styles['text-color']; ?>;"><?php echo get_post_field( 'post_content', $post->ID ); ?></p>
 					</div>
 					<?php
 				}
@@ -230,17 +237,18 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * Check to see if reviews are open
 			 */
-			if ( get_post_meta( get_the_ID(),'_llms_reviews_enabled',true ) && is_user_logged_in() ) {
+			if ( get_post_meta( get_the_ID(), '_llms_reviews_enabled', true ) && is_user_logged_in() ) {
 				/**
 				 * Look for previous reviews that we have written on this course.
+				 *
 				 * @var array
 				 */
-				$args = array(
+				$args        = array(
 					'posts_per_page'   => 1,
 					'post_type'        => 'llms_review',
 					'post_status'      => 'publish',
-					'post_parent'	   => get_the_ID(),
-					'author'		   => get_current_user_id(),
+					'post_parent'      => get_the_ID(),
+					'author'           => get_current_user_id(),
 					'suppress_filters' => true,
 				);
 				$posts_array = get_posts( $args );
@@ -249,10 +257,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				 * Check to see if we are allowed to write more than one review.
 				 * If we are not, check to see if we have written a review already.
 				 */
-				if ( get_post_meta( get_the_ID(),'_llms_multiple_reviews_disabled',true ) && $posts_array ) {
+				if ( get_post_meta( get_the_ID(), '_llms_multiple_reviews_disabled', true ) && $posts_array ) {
 				?>
 					<div id="thank_you_box">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!','lifterlms' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'lifterlms' ) ); ?></h2>
 					</div>
 					<?php
 				} else {
@@ -264,33 +272,47 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 						<h5 style="color:red; display:none" id="review_title_error"><?php _e( 'Review Title is required.', 'astra' ); ?></h5>
 						<textarea name="review_text" placeholder="<?php _e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
 						<h5 style="color:red; display:none" id="review_text_error"><?php _e( 'Review Text is required.', 'astra' ); ?></h5>
-						<?php wp_nonce_field( 'submit_review','submit_review_nonce_code' ); ?>
+						<?php wp_nonce_field( 'submit_review', 'submit_review_nonce_code' ); ?>
 						<input name="action" value="submit_review" type="hidden">
-						<input name="post_ID" value="<?php echo get_the_ID() ?>" type="hidden" id="post_ID">
+						<input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
 						<input type="submit" class="button" value="<?php _e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
 					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!','lifterlms' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'lifterlms' ) ); ?></h2>
 					</div>
 					<?php
 				}
 			}// End if().
 		}
 
+		/**
+		 * LLMS Grid.
+		 *
+		 * @since 1.2.0
+		 * @param  number $course_grid Number of grid for course.
+		 * @return number
+		 */
 		function course_grid( $course_grid ) {
 
 			$course_grid = astra_get_option( 'llms-course-grid' );
 			return $course_grid['desktop'];
 		}
 
+		/**
+		 * LLMS Resposive grid class.
+		 *
+		 * @since 1.2.0
+		 * @param  array $classes Classes.
+		 * @return array
+		 */
 		function course_responsive_grid( $classes ) {
 
 			$course_grid = astra_get_option( 'llms-course-grid' );
-			if( ! empty( $course_grid['tablet'] ) ) {
+			if ( ! empty( $course_grid['tablet'] ) ) {
 				$classes[] = 'llms-tablet-cols-' . $course_grid['tablet'];
 			}
-			if( ! empty( $course_grid['mobile'] ) ) {
+			if ( ! empty( $course_grid['mobile'] ) ) {
 				$classes[] = 'llms-mobile-cols-' . $course_grid['mobile'];
 			}
 
@@ -300,6 +322,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * Enqueue styles
 		 *
+		 * @since 1.2.0
+		 * @return void
 		 */
 		function add_dynamic_styles() {
 
@@ -311,7 +335,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$link_h_color = astra_get_option( 'link-h-color' );
 
 			$theme_forground_color = astra_get_foreground_color( $theme_color );
-			$btn_color = astra_get_option( 'button-color' );
+			$btn_color             = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
 				$btn_color = $theme_forground_color;
 			}
@@ -364,13 +388,13 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			);
 
 			$course_id = get_the_ID();
-			if ( !! $course_id && is_course() ) {
+			if ( ! ! $course_id && is_course() ) {
 
-				$course = new LLMS_Course( $course_id );
+				$course          = new LLMS_Course( $course_id );
 				$course_progress = $course->get_percent_complete();
 				$css_output['.entry-content .progress-bar-complete:after'] = array(
 					'content' => "'" . round( $course_progress, 2 ) . "%'",
-					'color' => $theme_forground_color,
+					'color'   => $theme_forground_color,
 				);
 			}
 
@@ -383,6 +407,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 		/**
 		 * Add start of wrapper
+		 *
+		 * @since 1.2.0
+		 * @return void 
 		 */
 		function before_main_content_start() {
 			$site_sidebar = astra_page_layout();
@@ -401,6 +428,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 		/**
 		 * Add end of wrapper
+		 *
+		 * @since 1.2.0
+		 * @return void
 		 */
 		function before_main_content_end() {
 			?>
@@ -422,6 +452,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * on courses and lessons in place of the sidebar returned by
 		 * this function
 		 *
+		 * @since 1.2.0
 		 * @param    string $id    default sidebar id (an empty string).
 		 * @return   string
 		 */
@@ -433,6 +464,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * Declare explicit theme support for LifterLMS course and lesson sidebars
 		 *
+		 * @since 1.2.0
 		 * @return   void
 		 */
 		function add_theme_support() {
@@ -442,9 +474,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * Add assets in theme
 		 *
+		 * @since 1.2.0
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
-		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
 			$assets['css']['astra-lifterlms'] = 'compatibility/lifterlms';
@@ -454,6 +486,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * LifterLMS Sidebar
 		 *
+		 * @since 1.2.0
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
@@ -462,7 +495,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( ( is_lifterlms() ) || is_llms_account_page() || is_llms_checkout() ) {
 
 				$llms_sidebar = astra_get_option( 'lifterlms-sidebar-layout' );
-				if( is_lesson() || is_course() ) {				
+				if ( is_lesson() || is_course() ) {
 					$llms_sidebar = astra_get_option( 'lifterlms-course-lesson-sidebar-layout' );
 				}
 
@@ -476,7 +509,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					$shop_sidebar = get_post_meta( $shop_page_id, 'site-sidebar-layout', true );
 				} elseif ( is_memberships() ) {
 					$membership_page_id = get_option( 'lifterlms_memberships_page_id' );
-					$shop_sidebar = get_post_meta( $membership_page_id, 'site-sidebar-layout', true );
+					$shop_sidebar       = get_post_meta( $membership_page_id, 'site-sidebar-layout', true );
 				} elseif ( is_course_taxonomy() ) {
 					$shop_sidebar = 'default';
 				} else {
@@ -494,6 +527,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * LifterLMS Container
 		 *
+		 * @since 1.2.0
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
@@ -513,7 +547,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					$shop_layout  = get_post_meta( $shop_page_id, 'site-content-layout', true );
 				} elseif ( is_memberships() ) {
 					$membership_page_id = get_option( 'lifterlms_memberships_page_id' );
-					$shop_layout = get_post_meta( $membership_page_id, 'site-content-layout', true );
+					$shop_layout        = get_post_meta( $membership_page_id, 'site-content-layout', true );
 				} elseif ( is_course_taxonomy() ) {
 					$shop_layout = 'default';
 				} else {
