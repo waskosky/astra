@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 		 * @since  1.1.7
 		 */
 		public function __construct() {
-			add_filter( 'astra_enable_mobile_menu_buttons', array( $this, 'disable_primary_menu_toggle' ) );
+			add_filter( 'astra_enable_mobile_menu_buttons', array( $this, 'disable_primary_menu_toggle' ), 30 );
 		}
 
 		/**
