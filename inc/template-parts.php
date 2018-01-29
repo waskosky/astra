@@ -54,7 +54,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 			ob_start();
 			$menu_item_classes = apply_filters( 'astra_masthead_custom_menu_item', array( 'ast-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( $menu_item_classes, ' ' ) ); ?>">
+			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
