@@ -876,15 +876,14 @@ var toggleClass = function ( el, className ) {
 				}
 		    }, false);
 			
-			var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
-			AstraNavigationMenu( parentList );
-		 	
-		 	var astra_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
-			AstraToggleMenu( astra_menu_toggle );
-
-
+			if( 'undefined' != typeof __main_header_all[i] ) {
+				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
+				AstraNavigationMenu( parentList );
+			 	
+			 	var astra_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
+				AstraToggleMenu( astra_menu_toggle );
+			}
 		};
-
 	}
 	
 	document.body.addEventListener("astra-header-responsive-enabled", function() {

@@ -313,6 +313,10 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 				margin-right: 2px;
 				padding: 0 1em;
 				line-height: 2em;
+
+				&:after {
+					content: "\27A4";
+				}
 			}
 
 			.llms-course-complete-text {
