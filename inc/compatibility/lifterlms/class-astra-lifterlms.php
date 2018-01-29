@@ -409,7 +409,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * Add start of wrapper
 		 *
 		 * @since 1.2.0
-		 * @return void 
+		 * @return void
 		 */
 		function before_main_content_start() {
 			$site_sidebar = astra_page_layout();
