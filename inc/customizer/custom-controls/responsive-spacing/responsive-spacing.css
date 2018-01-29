@@ -33,43 +33,43 @@
   font-size: 15px;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
   display: none;
   position: relative;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper li {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li {
   text-align: center;
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li input.ast-spacing-input {
   text-align: center;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper.active {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper.active {
   display: flex;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
   font-size: 12px;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .ast-spacing-connected {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .ast-spacing-connected {
   display: none;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link.disconnected .ast-spacing-disconnected {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link.disconnected .ast-spacing-disconnected {
   display: none;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link.disconnected .ast-spacing-connected {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link.disconnected .ast-spacing-connected {
   display: block;
 }
 
-.customize-control-ast-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
   width: 45px;
   height: 26px;
   line-height: 26px;

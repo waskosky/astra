@@ -34,7 +34,7 @@
 	}
 }
 
-.customize-control-ast-spacing .input-wrapper {
+.customize-control-ast-responsive-spacing .input-wrapper {
 	.ast-spacing-wrapper {
 		display: none;
 		position: relative;
@@ -46,7 +46,7 @@
 			input.ast-spacing-input{
 				text-align: center;
 			}
-		 }
+		}
 
 		&.active {
 			display: flex;
@@ -54,7 +54,6 @@
 
 		span.ast-spacing-title{
 			font-size:12px;
-
 		}
 		.ast-spacing-input-item-link{
 			.ast-spacing-connected {

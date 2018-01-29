@@ -47,7 +47,6 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 
 		wp_enqueue_script( 'astra-responsive-spacing', $js_uri . 'responsive-spacing.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		wp_enqueue_style( 'astra-responsive-spacing', $css_uri . 'responsive-spacing.css', null, ASTRA_THEME_VERSION );
-
 	}
 
 	/**
@@ -116,7 +115,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class='ast-spacing' for="" >
+		<label class='ast-spacing-responsive' for="" >
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}} (px)</span>
 				<ul class="ast-spacing-responsive-btns">
