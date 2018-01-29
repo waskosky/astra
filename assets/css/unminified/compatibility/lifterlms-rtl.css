@@ -237,6 +237,19 @@
   text-align: left;
 }
 
+@media (max-width: 544px) {
+  .single-lesson .llms-course-navigation {
+    padding-top: 1.5em;
+  }
+  .single-lesson .llms-course-navigation .llms-course-nav {
+    width: 100%;
+    margin: 0;
+  }
+  .single-lesson .llms-course-navigation .llms-course-nav:first-child {
+    margin-bottom: 1.5em;
+  }
+}
+
 .course .llms-featured-image {
   margin-bottom: 0;
 }
@@ -323,6 +336,7 @@
   background: #f1f2f1;
 }
 
+.single-course article .llms-course-progress .llms-course-complete-text,
 .single-course article .llms-course-progress .llms-course-continue-button {
   display: inline-block;
   margin-left: 2px;

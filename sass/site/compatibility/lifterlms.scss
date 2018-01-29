@@ -212,6 +212,20 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 				text-align: right;
 			}
 		}
+
+
+		@media( max-width: $mx-col-sm ) {
+			padding-top: 1.5em;
+
+			.llms-course-nav {
+				width: 100%;
+				margin: 0;
+
+				&:first-child {
+					margin-bottom: 1.5em;
+				}
+			}
+		}
 	}
 }
 
@@ -308,12 +322,15 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			flex-direction: row-reverse;
 			background: #f1f2f1;
 
+			.llms-course-complete-text,
 			.llms-course-continue-button {
 				display: inline-block;
 				margin-right: 2px;
 				padding: 0 1em;
 				line-height: 2em;
+			}
 
+			.llms-course-continue-button {
 				&:after {
 					content: "\27A4";
 				}
@@ -321,10 +338,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 			.llms-course-complete-text {
 				margin-bottom: 0;
-				font-variant: small-caps;
-				font-size: 1.1em;
-				font-weight: 600;
-				opacity: .75;
+				opacity: .6;
 			}
 		}
 		.llms-progress {
