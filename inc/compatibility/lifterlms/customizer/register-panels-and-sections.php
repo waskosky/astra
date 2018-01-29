@@ -17,7 +17,7 @@
 			$wp_customize, 'section-lifterlms',
 			array(
 				'priority' => 65,
-				'title'    => __( 'LifterLMS', 'astra-addon' ),
+				'title'    => __( 'LifterLMS', 'astra' ),
 				'panel'    => 'panel-layout',
 			)
 		)

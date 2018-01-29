@@ -260,7 +260,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				if ( get_post_meta( get_the_ID(), '_llms_multiple_reviews_disabled', true ) && $posts_array ) {
 				?>
 					<div id="thank_you_box">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'lifterlms' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); ?></h2>
 					</div>
 					<?php
 				} else {
@@ -279,7 +279,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'lifterlms' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); ?></h2>
 					</div>
 					<?php
 				}
