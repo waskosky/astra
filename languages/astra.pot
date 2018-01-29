@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.1.5\n"
+"Project-Id-Version: Astra 1.1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-01-18 15:09:20+00:00\n"
+"POT-Creation-Date: 2018-01-25 10:07:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:242 inc/blog/blog-config.php:274
+#: inc/blog/blog-config.php:242 inc/blog/blog-config.php:271
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
@@ -131,25 +131,25 @@ msgstr ""
 msgid "Loop End"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:350
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:346
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:352
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:348
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:361
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:357
 msgid "Product Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:363
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:359
 msgid "This sidebar will be used on Single Product page."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:870
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:884
 msgid "View your shopping cart"
 msgstr ""
 
@@ -458,20 +458,20 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: inc/core/class-theme-strings.php:66
+#: inc/core/class-theme-strings.php:66 inc/core/class-theme-strings.php:83
 msgid "Next Page"
 msgstr ""
 
-#: inc/core/class-theme-strings.php:67
+#: inc/core/class-theme-strings.php:67 inc/core/class-theme-strings.php:84
 msgid "Previous Page"
 msgstr ""
 
-#: inc/core/class-theme-strings.php:72
+#: inc/core/class-theme-strings.php:72 inc/core/class-theme-strings.php:87
 #. translators: 1: Post type label
 msgid "Next %s"
 msgstr ""
 
-#: inc/core/class-theme-strings.php:74
+#: inc/core/class-theme-strings.php:74 inc/core/class-theme-strings.php:89
 #. translators: 1: Post type label
 msgid "Previous %s"
 msgstr ""
@@ -955,6 +955,10 @@ msgstr ""
 msgid "Sidebar Width"
 msgstr ""
 
+#: inc/customizer/sections/layout/sidebar.php:179
+msgid "Sidebar width will apply only when one of the above sidebar is set."
+msgstr ""
+
 #: inc/customizer/sections/layout/site-layout.php:32
 msgid "Container Width"
 msgstr ""
@@ -1229,7 +1233,7 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:172
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:173
 #. translators: 1: number of products
 msgctxt "product categories"
 msgid "<mark class=\"count\">%1$s Product</mark>"
