@@ -40,8 +40,9 @@
 			var control = this,
 				newValue = {
 					'desktop' : {},
-					'tablet' : {},
-					'mobile' : {}
+					'tablet'  : {},
+					'mobile'  : {},
+					'unit'	  : 'px',
 				};
 
 			this.container.find( 'input.ast-spacing-desktop' ).each( function() {

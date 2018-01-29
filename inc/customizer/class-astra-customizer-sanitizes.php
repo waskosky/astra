@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 * @return number        Return number.
 		 * @since  1.0.6
 		 */
-		static public function sanitize_spacing( $val ) {
+		static public function sanitize_responsive_spacing( $val ) {
 
 			$spacing = array(
 				'desktop' => array(
@@ -134,6 +134,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					'bottom' => '',
 					'left'   => '',
 				),
+				'unit'	=> 'px'
 			);
 
 			if ( isset( $val['desktop'] ) ) {

@@ -85,7 +85,12 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 					'bottom' => $val,
 					'left'   => '',
 				),
+				'unit'	  => 'px'
 			);
+		}
+
+		if ( ! isset( $val['unit'] ) ) {
+			$val['unit'] = 'px';
 		}
 
 		$this->json['value']          = $val;
