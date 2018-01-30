@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
 
-			add_action( 'customize_controls_enqueue_scripts', __CLASS__ '::customizer_scripts' );
+			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
