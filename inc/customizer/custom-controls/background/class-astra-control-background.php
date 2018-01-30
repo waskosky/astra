@@ -102,12 +102,6 @@ class Astra_Control_Background extends WP_Customize_Control {
 		</label>
 		<div class="background-wrapper">
 
-			<!-- background-color -->
-			<div class="background-color">
-				<h4><?php esc_attr_e( 'Background Color', 'astra' ); ?></h4>
-				<input type="text" data-default-color="{{ data.default['background-color'] }}" data-alpha="true" value="{{ data.value['background-color'] }}" class="ast-color-control"/>
-			</div>
-
 			<!-- background-image -->
 			<div class="background-image">
 				<h4><?php esc_attr_e( 'Background Image', 'astra' ); ?></h4>

@@ -152,7 +152,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-t]', array(
 			'default'     => array(
-				'background-color'      => 'rgba(20,20,20,.8)',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
 				'background-position'   => 'center center',
