@@ -53,11 +53,13 @@
   width: 16px;
   text-align: center;
   user-select: none;
+  opacity: 0.7;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units li.single-unit.active {
   font-weight: bold;
   text-decoration: underline;
+  opacity: 1;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
@@ -81,7 +83,11 @@
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
-  font-size: 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: normal;
+  opacity: 0.7;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .ast-spacing-connected {
