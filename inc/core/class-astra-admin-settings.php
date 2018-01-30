@@ -145,7 +145,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		/**
 		 * Load the scripts and styles in the customizer controls.
-		 * 
+		 *
 		 * @since 1.2.1
 		 */
 		static public function customizer_scripts() {
