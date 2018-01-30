@@ -585,4 +585,9 @@ function astra_add_dynamic_css( control, style ) {
 		} );
 	} );
 
+	wp.customize( 'astra-settings[site-layout-outside-bg-t]', function( value ) {
+		value.bind( function( bg_obj ) {
+			console.log( bg_obj );
+		} );
+	} );
 } )( jQuery );

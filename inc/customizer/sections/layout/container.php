@@ -159,7 +159,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'background-attachment' => 'scroll',
 			),
 			'type'              => 'option',
-			/*'transport'         => 'postMessage',*/
+			'transport'         => 'postMessage',
 			/*'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),*/
 		)
 	);

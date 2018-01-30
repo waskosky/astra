@@ -14,7 +14,8 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 	initAstBgControl: function() {
 
 		var control = this,
-			value   = control.setting._value;
+			value   = control.setting._value,
+			picker  = control.container.find( '.ast-color-control' );
 
 		// Hide unnecessary controls if the value doesn't have an image.
 		if ( _.isUndefined( value['background-image']) || '' === value['background-image']) {
@@ -23,6 +24,15 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			control.container.find( '.background-wrapper > .background-size' ).hide();
 			control.container.find( '.background-wrapper > .background-attachment' ).hide();
 		}
+
+		// Color.
+		picker.wpColorPicker({
+			change: function() {
+				setTimeout( function() {
+					control.saveValue( 'background-color', picker.val() );
+				}, 100 );
+			}
+		});
 
 		// Background-Repeat.
 		control.container.on( 'change', '.background-repeat select', function() {
