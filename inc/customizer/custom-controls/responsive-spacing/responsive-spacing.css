@@ -33,6 +33,33 @@
   font-size: 15px;
 }
 
+.customize-control-ast-responsive-spacing {
+  /* Unit Screen wrap */
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units,
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-btns {
+  width: 49%;
+  display: inline-block;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-btns {
+  text-align: right;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units li.single-unit {
+  display: inline-block;
+  margin-right: 6px;
+  width: 16px;
+  text-align: center;
+  user-select: none;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units li.single-unit.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
   display: none;
   position: relative;

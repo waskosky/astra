@@ -134,7 +134,9 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					'bottom' => '',
 					'left'   => '',
 				),
-				'unit'    => 'px',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
 			);
 
 			if ( isset( $val['desktop'] ) ) {
@@ -155,6 +157,18 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 							return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
 					}, $val['mobile']
 				);
+
+				if ( isset( $val['desktop-unit']  ) ) {
+					$spacing['desktop-unit'] = $val['desktop-unit'];
+				}
+
+				if ( isset( $val['tablet-unit']  ) ) {
+					$spacing['tablet-unit'] = $val['tablet-unit'];
+				}
+
+				if ( isset( $val['mobile-unit']  ) ) {
+					$spacing['mobile-unit'] = $val['mobile-unit'];
+				}
 
 				return $spacing;
 
