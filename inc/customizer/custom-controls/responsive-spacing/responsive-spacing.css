@@ -37,6 +37,12 @@
   /* Unit Screen wrap */
 }
 
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units,
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-btns {
   font-size: 11px;
