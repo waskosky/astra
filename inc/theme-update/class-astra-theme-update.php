@@ -487,15 +487,27 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options['site-layout-outside-bg-color'] ) ) {
-				$astra_options['site-layout-outside-bg-obj'] = array(
-					'background-color'      => $astra_options['site-layout-outside-bg-color'],
-					'background-image'      => '',
-					'background-repeat'     => 'repeat',
-					'background-position'   => 'center center',
-					'background-size'       => 'auto',
-					'background-attachment' => 'scroll',
-				);
+			$bg_obj = array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+			);
+
+			$field_to_fix = array(
+				'site-layout-outside-bg-color' => 'site-layout-outside-bg-obj',
+				'footer-adv-bg-color' 	=> 'footer-adv-bg-obj',
+				'footer-bg-color'		=> 'footer-bg-obj',
+			);
+
+			foreach ( $field_to_fix as $old_field => $new_field ) {
+				if ( isset( $astra_options[ $old_field ] ) ) {
+					
+					$astra_options[ $new_field ] = $bg_obj;
+					$astra_options[ $new_field ]['background-color'] = $astra_options[ $old_field ];
+				}
 			}
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );

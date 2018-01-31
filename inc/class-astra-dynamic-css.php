@@ -98,13 +98,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$highlight_text_color   = astra_get_foreground_color( $link_color );
 
 			// Footer Bar Colors.
-			$footer_bg_color     = astra_get_option( 'footer-bg-color' );
+			$footer_bg_obj       = astra_get_option( 'footer-bg-obj' );
 			$footer_color        = astra_get_option( 'footer-color' );
 			$footer_link_color   = astra_get_option( 'footer-link-color' );
 			$footer_link_h_color = astra_get_option( 'footer-link-h-color' );
 
 			// Color.
-			$footer_adv_bg_color           = astra_get_option( 'footer-adv-bg-color' );
+			$footer_adv_bg_obj             = astra_get_option( 'footer-adv-bg-obj' );
 			$footer_adv_text_color         = astra_get_option( 'footer-adv-text-color' );
 			$footer_adv_widget_title_color = astra_get_option( 'footer-adv-wgt-title-color' );
 			$footer_adv_link_color         = astra_get_option( 'footer-adv-link-color' );
@@ -276,9 +276,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-small-footer'                       => array(
 					'color' => esc_attr( $footer_color ),
 				),
-				'.ast-small-footer > .ast-footer-overlay' => array(
-					'background-color' => esc_attr( $footer_bg_color ),
-				),
+				'.ast-small-footer > .ast-footer-overlay' => astra_get_background_obj( $footer_bg_obj ),
+
 				'.ast-small-footer a'                     => array(
 					'color' => esc_attr( $footer_link_color ),
 				),
@@ -312,9 +311,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $footer_adv_link_color ),
 				),
 
-				'.footer-adv-overlay'                     => array(
-					'background-color' => esc_attr( $footer_adv_bg_color ),
-				),
+				'.footer-adv-overlay' => astra_get_background_obj( $footer_adv_bg_obj ),
 
 				// Single Post Meta.
 				'.ast-comment-meta'                       => array(

@@ -100,12 +100,26 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'link-h-color'                    => '#3a3a3a',
 
 					// Footer Colors.
-					'footer-bg-color'                 => '',
+					'footer-bg-obj'                   => array(
+															'background-color'      => '',
+															'background-image'      => '',
+															'background-repeat'     => 'repeat',
+															'background-position'   => 'center center',
+															'background-size'       => 'auto',
+															'background-attachment' => 'scroll',
+														),
 					'footer-color'                    => '',
 					'footer-link-color'               => '',
 					'footer-link-h-color'             => '',
 					// Footer Widgets.
-					'footer-adv-bg-color'             => '',
+					'footer-adv-bg-obj'               => array(
+															'background-color'      => '',
+															'background-image'      => '',
+															'background-repeat'     => 'repeat',
+															'background-position'   => 'center center',
+															'background-size'       => 'auto',
+															'background-attachment' => 'scroll',
+														),
 					'footer-adv-text-color'           => '',
 					'footer-adv-link-color'           => '',
 					'footer-adv-link-h-color'         => '',

@@ -583,17 +583,12 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
 	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
 
-	wp.customize( 'astra-settings[footer-bg-color]', function( value ) {
-		value.bind( function( bgcolor ) {
-			if ( bgcolor == '' ) {
-				wp.customize.preview.send( 'refresh' );
-			}
+	wp.customize( 'astra-settings[footer-bg-obj]', function( value ) {
+		value.bind( function( bg_obj ) {
 
-			if ( bgcolor ) {
-				var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { background-color: ' + bgcolor + '; } ';
-				astra_add_dynamic_css( 'footer-bg-color', dynamicStyle );
-			}
-
+			var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { {{css}} }';
+			
+			astra_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
 		} );
 	} );
 
@@ -601,17 +596,12 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	astra_css( 'astra-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
 	astra_css( 'astra-settings[footer-adv-text-color]', 'color', '.footer-adv' );
 
-	wp.customize( 'astra-settings[footer-adv-bg-color]', function( value ) {
-		value.bind( function( bgcolor ) {
-			if ( bgcolor == '' ) {
-				wp.customize.preview.send( 'refresh' );
-			}
-
-			if ( bgcolor ) {
-				var dynamicStyle = ' .footer-adv-overlay { background-color: ' + bgcolor + '; } ';
-				astra_add_dynamic_css( 'footer-adv-bg-color', dynamicStyle );
-			}
-
+	wp.customize( 'astra-settings[footer-adv-bg-obj]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = ' .footer-adv-overlay { {{css}} }';
+			
+			astra_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
 		} );
 	} );
 } )( jQuery );

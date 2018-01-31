@@ -87,22 +87,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-	 * Option: Background Color
+	 * Option: Footer Background
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-bg-color]', array(
-			'default'           => '',
+		ASTRA_THEME_SETTINGS . '[footer-bg-obj]', array(
+			'default'     		=>  array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+			),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Color(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bg-color]', array(
-				'type'    => 'ast-color',
-				'label'   => __( 'Background Color', 'astra' ),
-				'section' => 'section-colors-footer',
+		new Astra_Control_Background(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bg-obj]', array(
+				'type'     => 'ast-background',
+				'section'  => 'section-colors-footer',
+				'label'    => __( 'Background', 'astra' ),
 			)
 		)
 	);
