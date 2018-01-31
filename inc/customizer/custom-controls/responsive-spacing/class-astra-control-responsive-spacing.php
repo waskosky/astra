@@ -36,10 +36,10 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	public $linked_choices = '';
 
 	/**
-	 * The control unit choice.
+	 * The unit type.
 	 *
 	 * @access public
-	 * @var string
+	 * @var array
 	 */
 	public $unit_choices = array( 'px' => 'px' );
 
@@ -142,7 +142,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 		<label class='ast-spacing-responsive' for="" >
 
 			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}} (px)</span>
+				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
