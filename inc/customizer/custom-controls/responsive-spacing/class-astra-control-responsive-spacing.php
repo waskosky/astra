@@ -35,6 +35,12 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 */
 	public $linked_choices = '';
 
+	/**
+	 * The unit type.
+	 *
+	 * @access public
+	 * @var array
+	 */
 	public $unit_choices = array( 'px' => 'px' );
 
 	/**
@@ -157,7 +163,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 			if ( data.value['mobile-unit'] ) { 
 				mobile_unit_val = data.value['mobile-unit'];
 			} #>
-			
+
 			<div class="ast-spacing-responsive-units-screen-wrap">
 				<div class="unit-input-wrapper ast-spacing-unit-wrapper">
 					<input type='hidden' class='ast-spacing-unit-input ast-spacing-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
