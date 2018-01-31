@@ -1,24 +1,29 @@
-.ast-spacing-responsive-btns,
-.customize-control-title {
+.customize-control-ast-responsive-spacing {
+  /* Unit Screen wrap */
+}
+
+.customize-control-ast-responsive-spacing .customize-control-title {
   display: inline-block;
 }
 
-.ast-spacing-responsive-btns {
-  float: right;
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+  display: block;
+  text-align: right;
+  /*float:right;*/
   line-height: 1;
   margin-top: 5px;
 }
 
-.ast-spacing-responsive-btns > li {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   margin-bottom: 0;
   display: none;
 }
 
-.ast-spacing-responsive-btns > li.active {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
 }
 
-.ast-spacing-responsive-btns button[type="button"] {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {
   padding: 0;
   cursor: pointer;
   background: none;
@@ -27,27 +32,18 @@
   outline: none;
 }
 
-.ast-spacing-responsive-btns button[type="button"] > i {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
   width: 15px;
   height: 15px;
   font-size: 15px;
 }
 
-.customize-control-ast-responsive-spacing {
-  /* Unit Screen wrap */
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units {
+  position: absolute;
+  transform: translateY(-100%);
 }
 
-.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units,
-.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-btns {
-  width: 49%;
-  display: inline-block;
-}
-
-.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-btns {
-  text-align: right;
-}
-
-.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units li.single-unit {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit {
   display: inline-block;
   margin-right: 6px;
   width: 16px;
@@ -55,7 +51,7 @@
   user-select: none;
 }
 
-.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units li.single-unit.active {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit.active {
   font-weight: bold;
   text-decoration: underline;
 }

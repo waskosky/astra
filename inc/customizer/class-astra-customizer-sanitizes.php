@@ -116,19 +116,19 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		static public function sanitize_responsive_spacing( $val ) {
 
 			$spacing = array(
-				'desktop' => array(
+				'desktop'      => array(
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
 				),
-				'tablet'  => array(
+				'tablet'       => array(
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
 				),
-				'mobile'  => array(
+				'mobile'       => array(
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
@@ -158,15 +158,15 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					}, $val['mobile']
 				);
 
-				if ( isset( $val['desktop-unit']  ) ) {
+				if ( isset( $val['desktop-unit'] ) ) {
 					$spacing['desktop-unit'] = $val['desktop-unit'];
 				}
 
-				if ( isset( $val['tablet-unit']  ) ) {
+				if ( isset( $val['tablet-unit'] ) ) {
 					$spacing['tablet-unit'] = $val['tablet-unit'];
 				}
 
-				if ( isset( $val['mobile-unit']  ) ) {
+				if ( isset( $val['mobile-unit'] ) ) {
 					$spacing['mobile-unit'] = $val['mobile-unit'];
 				}
 
