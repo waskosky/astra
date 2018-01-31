@@ -15,6 +15,13 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 @import "../variables-site/structure";
 @import "../variables-site/colors";
 
+#secondary {
+	.llms-widget-syllabus {
+		.llms-section {
+			margin-bottom: 0.5em;
+		}
+	}
+}
 .widget {
 	
 	/**
@@ -41,8 +48,44 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	}
 
 	.llms-widget-syllabus {
+		
+		.llms-collapse-caret,
+		.section-title,
+		.lesson-title,
+		.llms-lesson-complete {
+			display: inline-block;
+		}
+		.llms-section {
+			border-bottom: 1px solid #e5e5e5;
+			margin-bottom: 0.5em;
+			padding-bottom: 0.5em;
+
+			&:last-child {
+				border-bottom: none;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+		}
 		.llms-collapse-caret {
-			margin-right: 0.5em;
+			margin-right: 0.25em;
+			vertical-align: top;
+		}
+
+		.llms-lesson-complete {
+			vertical-align: top;
+		}
+
+		.section-title {
+			width: calc(100% - 1.5em);
+		}
+
+		.lesson-title {
+			width: calc(100% - 1.8em);
+		}
+
+		.llms-lesson,
+		.section-header {
+			line-height: 1.75;
 		}
 	}
 }
