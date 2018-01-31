@@ -362,12 +362,14 @@ body .llms-lesson-link-locked:hover {
   box-shadow: none;
 }
 
+body .llms-person-form-wrapper .llms-form-fields,
 body .llms-new-person-form-wrapper .llms-form-fields,
 body .llms-person-login-form-wrapper .llms-form-fields {
   margin-right: -10px;
   margin-left: -10px;
 }
 
+body .llms-person-form-wrapper .llms-form-fields .llms-form-field.align-right,
 body .llms-new-person-form-wrapper .llms-form-fields .llms-form-field.align-right,
 body .llms-person-login-form-wrapper .llms-form-fields .llms-form-field.align-right {
   float: left;
