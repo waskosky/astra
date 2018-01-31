@@ -39,8 +39,10 @@
 	.ast-spacing-responsive-units-screen-wrap {
 		.ast-spacing-responsive-units,
 		.ast-spacing-responsive-btns {
-		    width: 49%;
+    		font-size: 11px;
+		    text-transform: uppercase;
 		    display: inline-block;
+		    width: 49%;
 		}
 
 		.ast-spacing-responsive-btns {
