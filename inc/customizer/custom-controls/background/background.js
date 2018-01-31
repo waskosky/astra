@@ -31,7 +31,22 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 				setTimeout( function() {
 					control.saveValue( 'background-color', picker.val() );
 				}, 100 );
-			}
+			},
+
+			/**
+		     * @param {Event} event - standard jQuery event, produced by "Clear"
+		     * button.
+		     */
+		    clear: function (event) {
+
+				var element = jQuery(event.target).siblings('label').first().find('.wp-color-picker');
+			
+				if ( element.length > 0 ) {
+				    setTimeout( function() {
+						control.saveValue( 'background-color', '' );
+					}, 100 );
+				}
+		    }
 		});
 
 		// Background-Repeat.

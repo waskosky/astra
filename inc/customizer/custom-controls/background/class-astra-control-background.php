@@ -72,7 +72,6 @@ class Astra_Control_Background extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<# console.log( data ); #>
 		<label>
 			<span class="customize-control-title">{{{ data.label }}}</span>
 			<# if ( data.description ) { #><span class="description customize-control-description">{{{ data.description }}}</span><# } #>
