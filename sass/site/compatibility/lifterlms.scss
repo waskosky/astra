@@ -901,14 +901,21 @@ body {
 		border-width: 0;
 		border-top-width: 3px;
 		border-color: #b81c23;
+		border-style: solid;
 		padding: 1em 2em;
 		position: relative;
 		background-color: #f7f6f7;
 		color: #515151;
 
 		&.llms-error {
-			background-color: #f7f6f7;
+			border-width: 0;
+			border-top-width: 3px;
 			border-color: #b81c23;
+			border-style: solid;
+			padding: 1em 2em;
+			position: relative;
+			background-color: #f7f6f7;
+			color: #515151;
 		}
 	}
 
