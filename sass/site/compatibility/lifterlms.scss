@@ -40,12 +40,9 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		}
 	}
 
-	/**
-	 * Course Widget
-	 */
-	.llms-course-outline {
-		ul {
-			margin-left: 1.5em;
+	.llms-widget-syllabus {
+		.llms-collapse-caret {
+			margin-right: 0.5em;
 		}
 	}
 }

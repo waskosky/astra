@@ -14,9 +14,6 @@
   /**
 	 * Progress Widget
 	 */
-  /**
-	 * Course Widget
-	 */
 }
 
 .widget .progress__indicator {
@@ -41,8 +38,8 @@
   border-radius: .7em;
 }
 
-.widget .llms-course-outline ul {
-  margin-right: 1.5em;
+.widget .llms-widget-syllabus .llms-collapse-caret {
+  margin-left: 0.5em;
 }
 
 .ast-separate-container .ast-lifterlms-container {
