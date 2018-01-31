@@ -120,6 +120,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_1_0_beta_4();
 			}
 
+			// Update astra background image data.
+			if ( version_compare( $saved_version, '1.2.1', '<' ) ) {
+				self::v_1_2_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -471,6 +476,28 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
+		/**
+		 * Update options of older version than 1.2.1.
+		 *
+		 * Background options
+		 *
+		 * @since 1.2.1
+		 */
+		static public function v_1_2_1() {
+			
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( isset( $astra_options['site-layout-outside-bg-color'] ) ) {
+				$astra_options['site-layout-outside-bg-obj'] = array(
+					'background-color'      => $astra_options['site-layout-outside-bg-color'],
+					'background-image'      => '',
+					'background-repeat'     => 'repeat',
+					'background-position'   => 'center center',
+					'background-size'       => 'auto',
+					'background-attachment' => 'scroll',
+				);
+			}
+		}
 	}
 
 }// End if().
