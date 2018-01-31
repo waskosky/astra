@@ -263,6 +263,34 @@ function astra_add_dynamic_css( control, style ) {
 	);
 }
 
+/**
+ * Generate background_obj CSS
+ */
+function astra_background_obj_css( bg_obj ) {
+
+	var gen_bg_css 	= '';
+	var bg_img		= bg_obj['background-image'];
+	var bg_color	= bg_obj['background-color'];
+
+
+	if ( '' !== bg_img && '' !== bg_color) {
+		gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+	}else if ( '' !== bg_img ) {
+		gen_bg_css = 'background-image: url(' + bg_img + ');';
+	}else if ( '' !== bg_color ) {
+		gen_bg_css = 'background-color: ' + bg_color + ';';
+	}
+	
+	if ( '' !== bg_img ) {
+
+		gen_bg_css += 'background-repeat: ' + bg_obj['background-repeat'] + ';';
+		gen_bg_css += 'background-position: ' + bg_obj['background-position'] + ';';
+		gen_bg_css += 'background-size: ' + bg_obj['background-size'] + ';';
+		gen_bg_css += 'background-attachment: ' + bg_obj['background-attachment'] + ';';
+	}
+
+	return gen_bg_css;
+}
 
 ( function( $ ) {
 
@@ -324,18 +352,15 @@ function astra_add_dynamic_css( control, style ) {
 	} );
 
 	/*
-	 * Layout Body Background Color
+	 * Layout Body Background
 	 */
-	wp.customize( 'astra-settings[site-layout-outside-bg-color]', function( setting ) {
-		setting.bind( function( bg_color ) {
-				if (bg_color != '') {
-					var dynamicStyle = 'body,.ast-separate-container {background-color: ' + bg_color + '}';
-					astra_add_dynamic_css( 'site-outside-bg-color', dynamicStyle );
-				}
-				else{
-					wp.customize.preview.send( 'refresh' );
-				}
-
+	wp.customize( 'astra-settings[site-layout-outside-bg-obj]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var bg_obj_css = astra_background_obj_css( bg_obj );
+			
+			var dynamicStyle = 'body,.ast-separate-container {' + bg_obj_css + '}';
+			astra_add_dynamic_css( 'site-outside-bg-obj', dynamicStyle );
 		} );
 	} );
 
@@ -582,12 +607,6 @@ function astra_add_dynamic_css( control, style ) {
 				astra_add_dynamic_css( 'footer-adv-bg-color', dynamicStyle );
 			}
 
-		} );
-	} );
-
-	wp.customize( 'astra-settings[site-layout-outside-bg-t]', function( value ) {
-		value.bind( function( bg_obj ) {
-			console.log( bg_obj );
 		} );
 	} );
 } )( jQuery );

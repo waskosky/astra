@@ -24,29 +24,6 @@ class Astra_Control_Background extends WP_Customize_Control {
 	 */
 	public $type = 'ast-background';
 
-
-	/**
-	 * Sanitizes typography controls
-	 *
-	 * @since 2.2.0
-	 * @param array $value The value.
-	 * @return array
-	 */
-	public function sanitize( $value ) {
-
-		if ( ! is_array( $value ) ) {
-			return array();
-		}
-		return array(
-			'background-color'      => ( isset( $value['background-color'] ) ) ? esc_attr( $value['background-color'] ) : '',
-			'background-image'      => ( isset( $value['background-image'] ) ) ? esc_url_raw( $value['background-image'] ) : '',
-			'background-repeat'     => ( isset( $value['background-repeat'] ) ) ? esc_attr( $value['background-repeat'] ) : '',
-			'background-position'   => ( isset( $value['background-position'] ) ) ? esc_attr( $value['background-position'] ) : '',
-			'background-size'       => ( isset( $value['background-size'] ) ) ? esc_attr( $value['background-size'] ) : '',
-			'background-attachment' => ( isset( $value['background-attachment'] ) ) ? esc_attr( $value['background-attachment'] ) : '',
-		);
-	}
-
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *

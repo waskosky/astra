@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_logo_width  = astra_get_option( 'ast-header-logo-width' );
 
 			// Site Background Color.
-			$box_bg_color = astra_get_option( 'site-layout-outside-bg-color' );
+			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj' );
 
 			// Color Options.
 			$text_color       = astra_get_option( 'text-color' );
@@ -440,9 +440,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 
 			$separate_container_css = array(
-				'body, .ast-separate-container' => array(
-					'background-color' => esc_attr( $box_bg_color ),
-				),
+				'body, .ast-separate-container' => astra_get_background_obj( $box_bg_obj ),
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
