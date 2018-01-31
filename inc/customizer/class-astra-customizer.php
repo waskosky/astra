@@ -111,6 +111,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Astra_Control_Responsive_Slider' );
 			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
 			$wp_customize->register_control_type( 'Astra_Control_Spacing' );
+			$wp_customize->register_control_type( 'Astra_Control_Responsive_Spacing' );
 			$wp_customize->register_control_type( 'Astra_Control_Divider' );
 			$wp_customize->register_control_type( 'Astra_Control_Color' );
 			$wp_customize->register_control_type( 'Astra_Control_Description' );

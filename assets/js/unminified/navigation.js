@@ -196,6 +196,11 @@ var toggleClass = function ( el, className ) {
 
 		    	var event_index = this.getAttribute( 'data-index' );
 
+		    	if ( 'undefined' === typeof __main_header_all[event_index] ) {
+
+		    		return false;
+		    	}
+
 		    	var menuHasChildren = __main_header_all[event_index].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 				for ( var i = 0; i < menuHasChildren.length; i++ ) {
 					menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
@@ -220,7 +225,7 @@ var toggleClass = function ( el, className ) {
 				}
 		    }, false);
 			
-			if( 'undefined' != typeof __main_header_all[i] ) {
+			if ( 'undefined' !== typeof __main_header_all[i] ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
 				AstraNavigationMenu( parentList );
 			 	
