@@ -1,24 +1,29 @@
-.ast-spacing-responsive-btns,
-.customize-control-title {
+.customize-control-ast-responsive-spacing {
+  /* Unit Screen wrap */
+}
+
+.customize-control-ast-responsive-spacing .customize-control-title {
   display: inline-block;
 }
 
-.ast-spacing-responsive-btns {
-  float: right;
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+  display: block;
+  text-align: right;
+  /*float:right;*/
   line-height: 1;
   margin-top: 5px;
 }
 
-.ast-spacing-responsive-btns > li {
-  margin-bottom: 0;
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
+  margin-bottom: 6px;
   display: none;
 }
 
-.ast-spacing-responsive-btns > li.active {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
 }
 
-.ast-spacing-responsive-btns button[type="button"] {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {
   padding: 0;
   cursor: pointer;
   background: none;
@@ -27,10 +32,32 @@
   outline: none;
 }
 
-.ast-spacing-responsive-btns button[type="button"] > i {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
   width: 15px;
   height: 15px;
   font-size: 15px;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units {
+  position: absolute;
+  transform: translateY(-100%);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit {
+  display: inline-block;
+  margin-right: 6px;
+  width: 16px;
+  text-align: center;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit.active {
+  font-weight: bold;
+  text-decoration: underline;
+  opacity: 1;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
@@ -70,9 +97,9 @@
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
-  width: 45px;
+  width: 35px;
   height: 26px;
   line-height: 26px;
-  font-size: 16px;
+  font-size: 14px;
   border: 1px solid #ddd;
 }

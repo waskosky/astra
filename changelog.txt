@@ -1,3 +1,8 @@
+v1.2.1
+# Improvement: Allow better styling for the LifterLMS shortcodes as per the settings in the customizer.
+# Improvement: Syllabus widget style updated.
+# Improvement: Improved the Spacing param to allow selecting unit from px, em, %.
+
 v1.2.0
 # Full Support for LifterLMS.
 # Better support for navigation menu plugins, Allowing plugins to override complete menu markup easily.
