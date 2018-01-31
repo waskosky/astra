@@ -34,7 +34,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $linked_choices = '';
-	
+
 	public $unit_choices = array( 'px' => 'px' );
 
 	/**
@@ -69,19 +69,19 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 		if ( ! is_array( $val ) || is_numeric( $val ) ) {
 
 			$val = array(
-				'desktop' => array(
+				'desktop'      => array(
 					'top'    => $val,
 					'right'  => '',
 					'bottom' => $val,
 					'left'   => '',
 				),
-				'tablet'  => array(
+				'tablet'       => array(
 					'top'    => $val,
 					'right'  => '',
 					'bottom' => $val,
 					'left'   => '',
 				),
-				'mobile'  => array(
+				'mobile'       => array(
 					'top'    => $val,
 					'right'  => '',
 					'bottom' => $val,
@@ -97,7 +97,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 		$units = array(
 			'desktop-unit' => 'px',
 			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px'
+			'mobile-unit'  => 'px',
 		);
 
 		foreach ( $units as $unit_key => $unit_value ) {
@@ -106,7 +106,6 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 			}
 		}
 
-
 		$this->json['value']          = $val;
 		$this->json['choices']        = $this->choices;
 		$this->json['link']           = $this->get_link();
@@ -114,7 +113,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 		$this->json['label']          = esc_html( $this->label );
 		$this->json['linked_choices'] = $this->linked_choices;
 		$this->json['unit_choices']   = $this->unit_choices;
-		$this->json['inputAttrs'] = '';
+		$this->json['inputAttrs']     = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 		}
