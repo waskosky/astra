@@ -416,7 +416,9 @@ body .llms-lost-password-form {
 }
 
 .single-course article .llms-course-progress .llms-course-continue-button:after {
-  content: "\27A4";
+  content: "\BB";
+  font-size: 1.2em;
+  line-height: 1;
 }
 
 .single-course article .llms-course-progress .llms-course-complete-text {
