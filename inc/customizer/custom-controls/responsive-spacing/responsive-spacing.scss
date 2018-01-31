@@ -7,7 +7,7 @@
 .ast-spacing-responsive-btns {
 	float:right;
 	line-height: 1;
-	margin-top: 5px;
+	margin-top: 3px;
 
 	> li {
 		margin-bottom: 0;
@@ -57,6 +57,7 @@
     			text-align: center;
     			user-select: none;
     			opacity: 0.7;
+    			margin-bottom: 3px;
 				&.active {
 					font-weight: bold;
 					text-decoration: underline;
