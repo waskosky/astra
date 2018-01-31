@@ -6,7 +6,7 @@
 .ast-spacing-responsive-btns {
   float: right;
   line-height: 1;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .ast-spacing-responsive-btns > li {
@@ -33,6 +33,44 @@
   font-size: 15px;
 }
 
+.customize-control-ast-responsive-spacing {
+  /* Unit Screen wrap */
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units,
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-btns {
+  font-size: 11px;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 49%;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-btns {
+  text-align: right;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units li.single-unit {
+  display: inline-block;
+  margin-right: 6px;
+  width: 16px;
+  text-align: center;
+  user-select: none;
+  opacity: 0.7;
+  margin-bottom: 3px;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap .ast-spacing-responsive-units li.single-unit.active {
+  font-weight: bold;
+  text-decoration: underline;
+  opacity: 1;
+}
+
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
   display: none;
   position: relative;
@@ -54,7 +92,11 @@
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
-  font-size: 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: normal;
+  opacity: 0.7;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .ast-spacing-connected {
@@ -70,9 +112,9 @@
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
-  width: 45px;
+  width: 35px;
   height: 26px;
   line-height: 26px;
-  font-size: 16px;
+  font-size: 14px;
   border: 1px solid #ddd;
 }
