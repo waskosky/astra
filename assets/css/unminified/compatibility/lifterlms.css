@@ -71,11 +71,13 @@
 }
 
 .widget .llms-widget-syllabus .section-title {
+  width: 94%;
   width: -webkit-calc(100% - 1.5em);
   width: calc(100% - 1.5em);
 }
 
 .widget .llms-widget-syllabus .lesson-title {
+  width: 90%;
   width: -webkit-calc(100% - 1.8em);
   width: calc(100% - 1.8em);
 }

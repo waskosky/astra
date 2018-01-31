@@ -76,10 +76,12 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		}
 
 		.section-title {
+			width: 94%;
 			width: calc(100% - 1.5em);
 		}
 
 		.lesson-title {
+			width: 90%;
 			width: calc(100% - 1.8em);
 		}
 
