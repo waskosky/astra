@@ -255,9 +255,50 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			}
 		}
 	}
-	
+}
+
+body {
 	.llms-syllabus-wrapper {
 		margin: 0 auto 1.5em;
+
+		.llms-section-title {
+			margin-top: 15px;
+			text-align: left;
+			font-size: 1.1em;
+			padding: 5px 15px;
+			background: #e8e8e8;
+			font-weight: 600;
+			line-height: 1.75;
+		}
+
+		.llms-lesson-preview {
+			margin-top: 1px;
+			display: block;
+			width: auto;
+
+			.llms-lesson-link {
+				background-color: #f0f0f0;
+				padding: 5px 15px;
+				min-height: auto;
+
+				&:hover {
+					background: #e6e6e6;
+				}
+			}
+
+			.llms-lesson-title {
+				font-size: 1em;
+				line-height: 1.75;
+				font-weight: 600;
+				margin-bottom: 0;
+			}
+
+			.llms-lesson-counter {
+				line-height: 1.75;
+				margin-bottom: 0;
+				font-size: inherit;
+			}
+		}
 	}
 
 	#review_box,
@@ -306,6 +347,36 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			background: #fff;
 			border-radius: 0;
 		}
+	}
+
+	#thank_you_box {
+		margin-top: 1em;
+	}
+
+	.llms-lesson-link-locked,
+	.llms-lesson-link-locked:hover {
+		box-shadow: none;
+	}
+
+	.llms-new-person-form-wrapper,
+	.llms-person-login-form-wrapper {
+
+		.llms-form-fields {
+			margin-left: -10px;
+			margin-right: -10px;
+
+			.llms-form-field.align-right {
+				float: right;
+			}
+		}
+	}
+	.llms-form-heading {
+		padding: 0;
+	}
+
+	.llms-lost-password-form {
+		margin-left: -10px;
+		margin-right: -10px;
 	}
 }
 
@@ -369,48 +440,6 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			}
 		}
 
-		.llms-syllabus-wrapper {
-			
-			.llms-section-title {
-				margin-top: 15px;
-				text-align: left;
-				font-size: 1.1em;
-				padding: 5px 15px;
-				background: #e8e8e8;
-				font-weight: 600;
-				line-height: 1.75;
-			}
-
-			.llms-lesson-preview {
-				margin-top: 1px;
-				display: block;
-				width: auto;
-
-				.llms-lesson-link {
-					background-color: #f0f0f0;
-					padding: 5px 15px;
-					min-height: auto;
-
-					&:hover {
-						background: #e6e6e6;
-					}
-				}
-
-				.llms-lesson-title {
-					font-size: 1em;
-					line-height: 1.75;
-					font-weight: 600;
-					margin-bottom: 0;
-				}
-
-				.llms-lesson-counter {
-					line-height: 1.75;
-					margin-bottom: 0;
-					font-size: inherit;
-				}
-			}
-		}
-
 		&.is-enrolled {
 
 			.llms-syllabus-wrapper {
@@ -436,11 +465,6 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 					}
 				}
 			}
-		}
-
-		.llms-lesson-link-locked,
-		.llms-lesson-link-locked:hover {
-			box-shadow: none;
 		}
 	}
 }
@@ -630,9 +654,6 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		background: none;
 		color: inherit;
 		margin-bottom: 1em;
-	}
-	
-	.llms-form-heading {
 		padding: 0;
 	}
 
@@ -651,18 +672,6 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			line-height: 1.5;
 			opacity: .75;
 			display: inline-block;
-		}
-	}
-	
-	.llms-person-login-form-wrapper {
-
-		.llms-form-fields {
-			margin-left: -10px;
-			margin-right: -10px;
-
-			.llms-form-field.align-right {
-				float: right;
-			}
 		}
 	}
 
@@ -798,7 +807,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 	}
 	
 	.llms-person-login-form-wrapper {
-		margin: 0 -10px;
+
 		.llms-form-field {
 			> label {
 				display: inline-block;
