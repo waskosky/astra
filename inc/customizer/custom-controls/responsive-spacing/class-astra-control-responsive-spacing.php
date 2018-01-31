@@ -170,17 +170,6 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 					<input type='hidden' class='ast-spacing-unit-input ast-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
 					<input type='hidden' class='ast-spacing-unit-input ast-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
-				<ul class="ast-spacing-responsive-units">
-					<#_.each( data.unit_choices, function( unit_key ) { 
-						unit_class = '';
-						if ( desktop_unit_val === unit_key ) { 
-							unit_class = 'active';
-						}
-					#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
-						<span class="unit-text">{{{ unit_key }}}</span>
-					</li><# 
-					});#>
-				</ul>
 				<ul class="ast-spacing-responsive-btns">
 					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
@@ -232,6 +221,17 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 							<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 						</li><#
 					} #>
+					<ul class="ast-spacing-responsive-units ast-spacing-desktop-responsive-units">
+						<#_.each( data.unit_choices, function( unit_key ) { 
+							unit_class = '';
+							if ( desktop_unit_val === unit_key ) { 
+								unit_class = 'active';
+							}
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+							<span class="unit-text">{{{ unit_key }}}</span>
+						</li><# 
+						});#>
+					</ul>
 				</ul>
 
 				<ul class="ast-spacing-wrapper tablet"><# 
@@ -243,11 +243,22 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 					});
 					if ( data.linked_choices ) { #>
 					<li class="ast-spacing-input-item-link">
-							<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-							<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						</li><#
-						} #>
+						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					</li><#
+					} #>
+					<ul class="ast-spacing-responsive-units ast-spacing-tablet-responsive-units">
+						<#_.each( data.unit_choices, function( unit_key ) { 
+							unit_class = '';
+							if ( tablet_unit_val === unit_key ) { 
+								unit_class = 'active';
+							}
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+							<span class="unit-text">{{{ unit_key }}}</span>
+						</li><# 
+						});#>
 					</ul>
+				</ul>
 
 				<ul class="ast-spacing-wrapper mobile"><# 
 					_.each( data.choices, function( choiceLabel, choiceID ) { 
@@ -262,6 +273,17 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 					</li><#
 					} #>
+					<ul class="ast-spacing-responsive-units ast-spacing-mobile-responsive-units">
+						<#_.each( data.unit_choices, function( unit_key ) { 
+							unit_class = '';
+							if ( mobile_unit_val === unit_key ) { 
+								unit_class = 'active';
+							}
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+							<span class="unit-text">{{{ unit_key }}}</span>
+						</li><# 
+						});#>
+					</ul>
 				</ul>
 			</div>
 		</label>

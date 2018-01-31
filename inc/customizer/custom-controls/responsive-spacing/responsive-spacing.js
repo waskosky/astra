@@ -103,12 +103,6 @@
 					device = 'desktop';
 				}
 
-				var device_unit_val = control.container.find('.ast-spacing-unit-wrapper .ast-spacing-' + device + '-unit').val();
-				var device_unit_sel = control.container.find('.ast-spacing-responsive-units .single-unit[data-unit="'+device_unit_val+'"]');
-
-				device_unit_sel.siblings().removeClass('active');
-				device_unit_sel.addClass('active');
-
 				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
 			});
 

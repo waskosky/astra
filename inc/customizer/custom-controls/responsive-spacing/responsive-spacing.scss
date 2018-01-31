@@ -1,73 +1,60 @@
-
-.ast-spacing-responsive-btns,
-.customize-control-title {
-	display:inline-block;
-}
-
-.ast-spacing-responsive-btns {
-	float:right;
-	line-height: 1;
-	margin-top: 3px;
-
-	> li {
-		margin-bottom: 0;
-		display: none;
-
-		&.active {
-			display: inline-block;
-		}
-	}
-
-	button[type="button"] {
-		padding: 0;
-		cursor: pointer;
-		background: none;
-		border: none;
-		opacity: .75;
-		outline: none;
-
-		> i {
-			width: 15px;
-			height: 15px;
-			font-size: 15px;
-		}
-	}
-}
-
 .customize-control-ast-responsive-spacing {
 	/* Unit Screen wrap */
-	.ast-spacing-responsive-units-screen-wrap {
-		&:after{
-			content: "";
-			display: table;
-			clear: both;
+	
+	.customize-control-title {
+		display:inline-block;
+	}
+
+	.ast-spacing-responsive-btns {
+	    display: block;
+	    text-align: right;
+		/*float:right;*/
+		line-height: 1;
+		margin-top: 5px;
+
+		> li {
+			margin-bottom: 6px;
+			display: none;
+
+			&.active {
+				display: inline-block;
+			}
 		}
-		.ast-spacing-responsive-units,
-		.ast-spacing-responsive-btns {
-    		font-size: 11px;
-		    text-transform: uppercase;
+
+		button[type="button"] {
+			padding: 0;
+			cursor: pointer;
+			background: none;
+			border: none;
+			opacity: .75;
+			outline: none;
+
+			> i {
+				width: 15px;
+				height: 15px;
+				font-size: 15px;
+			}
+		}
+	}
+	
+	.ast-spacing-responsive-units {
+		position: absolute;
+		transform: translateY(-100%);
+		font-size: 11px;
+ 		text-transform: uppercase;
+
+		li.single-unit {
 		    display: inline-block;
-		    width: 49%;
-		}
+		    margin-right: 6px;
+		    width: 16px;
+			text-align: center;
+			user-select: none;
+			opacity: 0.7;
 
-		.ast-spacing-responsive-btns {
-		    text-align: right;
-		}
-
-		.ast-spacing-responsive-units {
-			li.single-unit {
-			    display: inline-block;
-			    margin-right: 6px;
-			    width: 16px;
-    			text-align: center;
-    			user-select: none;
-    			opacity: 0.7;
-    			margin-bottom: 3px;
-				&.active {
-					font-weight: bold;
-					text-decoration: underline;
-					opacity: 1;
-				}
+			&.active {
+				font-weight: bold;
+				text-decoration: underline;
+				opacity: 1;
 			}
 		}
 	}
@@ -91,11 +78,7 @@
 			}
 
 			span.ast-spacing-title{
-				font-size: 10px;
-				text-transform: uppercase;
-				font-weight: bold;
-				font-style: normal;
-				opacity: 0.7;
+				font-size:12px;
 			}
 			.ast-spacing-input-item-link{
 				.ast-spacing-connected {
