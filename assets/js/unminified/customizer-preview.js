@@ -99,7 +99,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 			if ( value.desktop.top || value.desktop.right || value.desktop.bottom || value.desktop.left || value.tablet.top || value.tablet.right || value.tablet.bottom || value.tablet.left || value.mobile.top || value.mobile.right || value.mobile.bottom || value.mobile.left ) {
 				if ( typeof side != undefined ) {
 					sidesString = side + "";
-					sidesString = sidesString.replace( ',', '-' );
+					sidesString = sidesString.replace(/,/g , "-");
 				}
 				if ( typeof type != undefined ) {
 					spacingType = type + "";
