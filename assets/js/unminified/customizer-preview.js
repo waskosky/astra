@@ -345,7 +345,7 @@ function astra_add_dynamic_css( control, style ) {
 
 			var dynamicStyle = '@media all and ( min-width: 921px ) {';
 
-			dynamicStyle += '.blog .site-content > .ast-container,.archive .site-content > .ast-container{ max-width: ' + (  parseInt( width ) ) + 'px } ';
+			dynamicStyle += '.blog .site-content > .ast-container,.ast-post-archive .site-content > .ast-container{ max-width: ' + (  parseInt( width ) ) + 'px } ';
 
 			if (  jQuery( 'body' ).hasClass( 'ast-fluid-width-layout' ) ) {
 				dynamicStyle += '.blog .site-content > .ast-container,.archive .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
