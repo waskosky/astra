@@ -1320,6 +1320,12 @@ p.demo_store a,
   clear: both;
 }
 
+.woocommerce .products ul::before, .woocommerce .products ul::after,
+.woocommerce ul.products::before,
+.woocommerce ul.products::after {
+  width: 0;
+}
+
 .woocommerce .products ul li,
 .woocommerce ul.products li {
   list-style: none outside;

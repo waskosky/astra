@@ -1174,6 +1174,11 @@ p.demo_store,
 		clear: both;
 		@include clearfix();
 
+		&::before,
+		&::after {
+			width: 0;
+		}
+
 		li {
 			list-style: none outside;
 		}

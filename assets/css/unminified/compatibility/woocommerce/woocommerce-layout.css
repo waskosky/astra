@@ -335,7 +335,7 @@
 
 .woocommerce.columns-2 ul.products li.product, .woocommerce-page.columns-2 ul.products li.product {
   width: 48.4%;
-  width: calc(50% - 11px);
+  width: calc(50% - 10px);
 }
 
 .woocommerce.columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.columns-2 ul.products li.product:nth-child(2n) {
@@ -391,7 +391,7 @@
 
 .woocommerce.columns-6 ul.products li.product, .woocommerce-page.columns-6 ul.products li.product {
   width: 14%;
-  width: calc( 16.66% - 17px);
+  width: calc( 16.66% - 16.66px);
 }
 
 .woocommerce.columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.columns-6 ul.products li.product:nth-child(6n) {
@@ -425,7 +425,7 @@
   }
   .woocommerce.tablet-columns-2 ul.products li.product, .woocommerce-page.tablet-columns-2 ul.products li.product {
     width: 47.6%;
-    width: calc(50% - 11px);
+    width: calc(50% - 10px);
   }
   .woocommerce.tablet-columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.tablet-columns-2 ul.products li.product:nth-child(2n) {
     margin-right: 0;
@@ -469,7 +469,7 @@
   }
   .woocommerce.tablet-columns-6 ul.products li.product, .woocommerce-page.tablet-columns-6 ul.products li.product {
     width: 12.7%;
-    width: calc(16.66% - 17px);
+    width: calc(16.66% - 16.66px);
   }
   .woocommerce.tablet-columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.tablet-columns-6 ul.products li.product:nth-child(6n) {
     margin-right: 0;
@@ -483,7 +483,7 @@
 @media (max-width: 544px) {
   .woocommerce[class*='columns-'].columns-3 > ul.products li.product, .woocommerce[class*='columns-'].columns-4 > ul.products li.product, .woocommerce[class*='columns-'].columns-5 > ul.products li.product, .woocommerce[class*='columns-'].columns-6 > ul.products li.product, .woocommerce-page[class*='columns-'].columns-3 > ul.products li.product, .woocommerce-page[class*='columns-'].columns-4 > ul.products li.product, .woocommerce-page[class*='columns-'].columns-5 > ul.products li.product, .woocommerce-page[class*='columns-'].columns-6 > ul.products li.product {
     width: 46.1%;
-    width: calc(50% - 11px);
+    width: calc(50% - 10px);
     margin-right: 20px;
   }
   .woocommerce[class*='columns-'].columns-3 > ul.products li.product:nth-child(2n), .woocommerce[class*='columns-'].columns-4 > ul.products li.product:nth-child(2n), .woocommerce[class*='columns-'].columns-5 > ul.products li.product:nth-child(2n), .woocommerce[class*='columns-'].columns-6 > ul.products li.product:nth-child(2n), .woocommerce-page[class*='columns-'].columns-3 > ul.products li.product:nth-child(2n), .woocommerce-page[class*='columns-'].columns-4 > ul.products li.product:nth-child(2n), .woocommerce-page[class*='columns-'].columns-5 > ul.products li.product:nth-child(2n), .woocommerce-page[class*='columns-'].columns-6 > ul.products li.product:nth-child(2n) {
@@ -505,7 +505,7 @@
   }
   .woocommerce.mobile-columns-2 ul.products li.product, .woocommerce-page.mobile-columns-2 ul.products li.product {
     width: 46.1%;
-    width: calc(50% - 11px);
+    width: calc(50% - 10px);
   }
   .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.mobile-columns-2 ul.products li.product:nth-child(2n) {
     margin-right: 0;
@@ -549,7 +549,7 @@
   }
   .woocommerce.mobile-columns-6 ul.products li.product, .woocommerce-page.mobile-columns-6 ul.products li.product {
     width: 10.2%;
-    width: calc(16.66% - 17px);
+    width: calc(16.66% - 16.66px);
   }
   .woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n) {
     margin-right: 0;
