@@ -76,6 +76,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'loop_shop_per_page', array( $this, 'shop_no_of_products' ) );
 			add_filter( 'body_class', array( $this, 'shop_page_products_item_class' ) );
 			add_filter( 'post_class', array( $this, 'single_product_class' ) );
+			add_filter( 'woocommerce_product_get_rating_html', array( $this, 'rating_markup' ), 10 , 3 );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
 			// Add Cart icon in Menu.
@@ -97,6 +98,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 
 			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
+		}
+
+		/**
+		 * Rating Markup
+		 *
+		 * @since 1.2.2
+		 * @param  string $html  Rating Markup.
+		 * @param  float $rating Rating being shown.
+		 * @param  int   $count  Total number of ratings.
+		 * @return string
+		 */
+		function rating_markup( $html, $rating, $count ) {
+
+			if ( 0 == $rating ) {
+				$html  = '<div class="star-rating">';
+				$html .= wc_get_star_rating_html( $rating, $count );
+				$html .= '</div>';
+			}
+			return $html;
 		}
 
 		/**
