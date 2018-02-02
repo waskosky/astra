@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
 
 			// Add Cart option in dropdown.
-			add_filter( 'astra_primary_header_main_rt_section', array( $this, 'header_main_rt_option' ) );
+			add_filter( 'astra_header_section_elements', array( $this, 'header_section_elements' ) );
 
 			// Cart fragment.
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
@@ -742,6 +742,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
 				),
+				'.ast-above-header-section .ast-site-header-cart-data .button.wc-forward, .ast-above-header-section .ast-site-header-cart-data .button.wc-forward:hover, .below-header-user-select .ast-site-header-cart-data .button.wc-forward, .below-header-user-select .ast-site-header-cart-data .button.wc-forward:hover' => array(
+					'color'            => $btn_color,
+				),
+				'.below-header-user-select .ast-site-header-cart .widget, .ast-above-header-section .ast-site-header-cart .widget a, .below-header-user-select .ast-site-header-cart .widget_shopping_cart a' => array(
+					'color'            => $text_color,
+				),
+				'.below-header-user-select .ast-site-header-cart .widget_shopping_cart a:hover, .ast-above-header-section .ast-site-header-cart .widget_shopping_cart a:hover' => array(
+					'color'            => esc_attr( $theme_color ),
+				),
 			);
 
 			/* Parse CSS from array() */
@@ -850,7 +859,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function astra_header_cart( $output, $section, $section_type ) {
 
-			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type && apply_filters( 'astra_woo_header_cart_icon', true ) ) {
+			if ( 'woocommerce' === $section_type && apply_filters( 'astra_woo_header_cart_icon', true ) ) {
 
 				$output = $this->woo_mini_cart_markup();
 			}
@@ -896,7 +905,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return Array header options array.
 		 * @since 1.0.0
 		 */
-		function header_main_rt_option( $options ) {
+		function header_section_elements( $options ) {
 
 			$options['woocommerce'] = 'WooCommerce';
 
