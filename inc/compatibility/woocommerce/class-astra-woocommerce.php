@@ -714,17 +714,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color' => esc_attr( $theme_color ),
 				),
 
-				'.ast-woocommerce-cart-menu .ast-cart-menu-wrap .count, .ast-woocommerce-cart-menu .ast-cart-menu-wrap .count:after' => array(
+				'.ast-cart-menu-wrap .count, .ast-cart-menu-wrap .count:after' => array(
 					'border-color' => esc_attr( $theme_color ),
 					'color'        => esc_attr( $theme_color ),
 				),
 
-				'.ast-woocommerce-cart-menu .ast-cart-menu-wrap:hover .count' => array(
+				'.ast-cart-menu-wrap:hover .count' => array(
 					'color'            => esc_attr( $cart_h_color ),
 					'background-color' => esc_attr( $theme_color ),
 				),
 
-				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
+				'.ast-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
 					'color' => esc_attr( $theme_color ),
 				),
 
@@ -737,7 +737,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/**
 				 * Checkout button color for widget
 				 */
-				'.ast-woocommerce-cart-menu .ast-site-header-cart .widget_shopping_cart .buttons .button.checkout, .woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons .checkout.wc-forward' => array(
+				'.ast-site-header-cart .widget_shopping_cart .buttons .button.checkout, .woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons .checkout.wc-forward' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
@@ -852,29 +852,40 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( 'header-main-rt-section' === $section && 'woocommerce' === $section_type && apply_filters( 'astra_woo_header_cart_icon', true ) ) {
 
-				if ( is_cart() ) {
-					$class = 'current-menu-item';
-				} else {
-					$class = '';
-				}
-
-				$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
-
-				ob_start();
-				?>
-				<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
-					<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
-						<?php $this->astra_get_cart_link(); ?>
-					</div>
-					<div class="ast-site-header-cart-data">
-						<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
-					</div>
-				</div>
-				<?php
-				$output = ob_get_clean();
+				$output = $this->woo_mini_cart_markup();
 			}
 
 			return $output;
+		}
+
+		/**
+		 * woo_mini_cart_markup markup
+		 *
+		 * @since 1.2.2
+		 * @return html
+		 */
+		function woo_mini_cart_markup() {
+
+			if ( is_cart() ) {
+				$class = 'current-menu-item';
+			} else {
+				$class = '';
+			}
+
+			$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+
+			ob_start();
+			?>
+			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
+				<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
+					<?php $this->astra_get_cart_link(); ?>
+				</div>
+				<div class="ast-site-header-cart-data">
+					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+				</div>
+			</div>
+			<?php
+			return ob_get_clean();
 		}
 
 		/**
