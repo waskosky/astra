@@ -55,7 +55,8 @@ add_filter( 'astra_header_section_elements', 'deprecated_astra_primary_header_ma
  * Astra Header elements.
  *
  * @since 1.2.2
- * @param array $elements List of elements.
+ * @param array  $elements List of elements.
+ * @param string $header Header section type.
  * @return array
  */
 function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {

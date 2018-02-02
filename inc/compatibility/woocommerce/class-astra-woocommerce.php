@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'loop_shop_per_page', array( $this, 'shop_no_of_products' ) );
 			add_filter( 'body_class', array( $this, 'shop_page_products_item_class' ) );
 			add_filter( 'post_class', array( $this, 'single_product_class' ) );
-			add_filter( 'woocommerce_product_get_rating_html', array( $this, 'rating_markup' ), 10 , 3 );
+			add_filter( 'woocommerce_product_get_rating_html', array( $this, 'rating_markup' ), 10, 3 );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
 			// Add Cart icon in Menu.
@@ -105,8 +105,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since 1.2.2
 		 * @param  string $html  Rating Markup.
-		 * @param  float $rating Rating being shown.
-		 * @param  int   $count  Total number of ratings.
+		 * @param  float  $rating Rating being shown.
+		 * @param  int    $count  Total number of ratings.
 		 * @return string
 		 */
 		function rating_markup( $html, $rating, $count ) {
@@ -719,7 +719,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color'        => esc_attr( $theme_color ),
 				),
 
-				'.ast-cart-menu-wrap:hover .count' => array(
+				'.ast-cart-menu-wrap:hover .count'        => array(
 					'color'            => esc_attr( $cart_h_color ),
 					'background-color' => esc_attr( $theme_color ),
 				),
@@ -743,13 +743,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-color' => $btn_bg_h_color,
 				),
 				'.ast-above-header-section .ast-site-header-cart-data .button.wc-forward, .ast-above-header-section .ast-site-header-cart-data .button.wc-forward:hover, .below-header-user-select .ast-site-header-cart-data .button.wc-forward, .below-header-user-select .ast-site-header-cart-data .button.wc-forward:hover' => array(
-					'color'            => $btn_color,
+					'color' => $btn_color,
 				),
 				'.below-header-user-select .ast-site-header-cart .widget, .ast-above-header-section .ast-site-header-cart .widget a, .below-header-user-select .ast-site-header-cart .widget_shopping_cart a' => array(
-					'color'            => $text_color,
+					'color' => $text_color,
 				),
 				'.below-header-user-select .ast-site-header-cart .widget_shopping_cart a:hover, .ast-above-header-section .ast-site-header-cart .widget_shopping_cart a:hover' => array(
-					'color'            => esc_attr( $theme_color ),
+					'color' => esc_attr( $theme_color ),
 				),
 			);
 
@@ -868,7 +868,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * woo_mini_cart_markup markup
+		 * Woocommerce mini cart markup markup
 		 *
 		 * @since 1.2.2
 		 * @return html
