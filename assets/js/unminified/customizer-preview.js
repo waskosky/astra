@@ -107,7 +107,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 				// Remove <style> first!
 				control = control.replace( '[', '-' );
 				control = control.replace( ']', '' );
-				jQuery( 'style#' + control + '-' + sidesString ).remove();
+				jQuery( 'style#' + control + '-' + spacingType + '-' + sidesString ).remove();
 
 				var desktopPadding = '',
 					tabletPadding = '',
@@ -135,7 +135,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '-' + sidesString + '">'
+					'<style id="' + control + '-' + spacingType + '-' + sidesString + '">'
 					+ selector + '	{ ' + desktopPadding +' }'
 					+ '@media (max-width: 768px) {' + selector + '	{ ' + tabletPadding + ' } }'
 					+ '@media (max-width: 544px) {' + selector + '	{ ' + mobilePadding + ' } }'
@@ -144,7 +144,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 
 			} else {
 				wp.customize.preview.send( 'refresh' );
-				jQuery( 'style#' + control + '-' + sidesString ).remove();
+				jQuery( 'style#' + control + '-' + spacingType + '-' + sidesString ).remove();
 			}
 
 		} );
