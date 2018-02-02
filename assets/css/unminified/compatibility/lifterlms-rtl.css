@@ -427,11 +427,28 @@ body .llms-lost-password-form {
   margin-left: -10px;
 }
 
-.single-course article.course {
-  margin-bottom: 2em;
+body .is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete {
+  margin-bottom: 0;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 1.4em;
+  height: 1.2em;
+  line-height: 1.2;
+  width: 1em;
 }
 
-.single-course article .llms-course-progress {
+body .is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-main {
+  margin-right: 2em;
+  margin-right: -webkit-calc(1.2em + 15px);
+  margin-right: calc(1.2em + 15px);
+  width: 83%;
+  width: -webkit-calc(85% - 1.2em - 15px);
+  width: calc(85% - 1.2em - 15px);
+}
+
+body .course .llms-course-progress,
+body .llms-course-progress {
   max-width: 100%;
   margin: 0 auto;
   -js-display: flex;
@@ -450,26 +467,30 @@ body .llms-lost-password-form {
   background: #f1f2f1;
 }
 
-.single-course article .llms-course-progress .llms-course-complete-text,
-.single-course article .llms-course-progress .llms-course-continue-button {
+body .course .llms-course-progress .llms-course-complete-text,
+body .course .llms-course-progress a.llms-course-continue-button,
+body .llms-course-progress .llms-course-complete-text,
+body .llms-course-progress a.llms-course-continue-button {
   display: inline-block;
   margin-left: 2px;
   padding: 0 1em;
   line-height: 2em;
 }
 
-.single-course article .llms-course-progress .llms-course-continue-button:after {
+body .course .llms-course-progress a.llms-course-continue-button:after,
+body .llms-course-progress a.llms-course-continue-button:after {
   content: "\BB";
   font-size: 1.2em;
   line-height: 1;
 }
 
-.single-course article .llms-course-progress .llms-course-complete-text {
+body .course .llms-course-progress .llms-course-complete-text,
+body .llms-course-progress .llms-course-complete-text {
   margin-bottom: 0;
   opacity: .6;
 }
 
-.single-course article .llms-progress {
+body .llms-progress {
   height: auto;
   margin: 0 auto;
   -webkit-box-flex: 1;
@@ -479,7 +500,7 @@ body .llms-lost-password-form {
   flex: 1;
 }
 
-.single-course article .llms-progress .llms-progress-bar {
+body .llms-progress .llms-progress-bar {
   height: inherit;
   top: 0;
   -webkit-border-radius: 1em;
@@ -490,39 +511,23 @@ body .llms-lost-password-form {
   border-top-right-radius: 0;
 }
 
-.single-course article .llms-progress .progress__indicator {
+body .llms-progress .progress__indicator {
   display: none;
 }
 
-.single-course article .llms-progress .progress-bar-complete {
+body .llms-progress .progress-bar-complete {
   -webkit-border-radius: inherit;
   border-radius: inherit;
 }
 
-.single-course article .llms-progress .progress-bar-complete:after {
+body .llms-progress .progress-bar-complete:after {
   display: inline-block;
   line-height: 2;
   padding: 0 10px;
 }
 
-.single-course article.is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete {
-  margin-bottom: 0;
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  font-size: 1.4em;
-  height: 1.2em;
-  line-height: 1.2;
-  width: 1em;
-}
-
-.single-course article.is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-main {
-  margin-right: 2em;
-  margin-right: -webkit-calc(1.2em + 15px);
-  margin-right: calc(1.2em + 15px);
-  width: 83%;
-  width: -webkit-calc(85% - 1.2em - 15px);
-  width: calc(85% - 1.2em - 15px);
+.single-course article.course {
+  margin-bottom: 2em;
 }
 
 .llms_membership .llms-featured-image {

@@ -392,7 +392,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 				$course          = new LLMS_Course( $course_id );
 				$course_progress = $course->get_percent_complete();
-				$css_output['.entry-content .progress-bar-complete:after'] = array(
+				$css_output['body .progress-bar-complete:after'] = array(
 					'content' => "'" . round( $course_progress, 2 ) . "%'",
 					'color'   => $theme_forground_color,
 				);
