@@ -678,7 +678,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color' => $text_color,
 				),
 				// Form Fields, Pagination border Color.
-				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li,.woocommerce form .form-row.woocommerce-validated .select2-container, .woocommerce form .form-row.woocommerce-validated input.input-text, .woocommerce form .form-row.woocommerce-validated select' => array(
+				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
 					'border-color' => $theme_color,
 				),
 				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(
