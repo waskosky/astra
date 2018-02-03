@@ -3024,6 +3024,8 @@ p.demo_store a,
 .ast-separate-container.single-product .ast-article-single {
   margin: 0;
   padding: 0;
+  display: inline-block;
+  width: 100%;
 }
 
 /**
