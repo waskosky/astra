@@ -742,7 +742,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
 				),
-				'.ast-above-header-section .ast-site-header-cart-data .button.wc-forward, .ast-above-header-section .ast-site-header-cart-data .button.wc-forward:hover, .below-header-user-select .ast-site-header-cart-data .button.wc-forward, .below-header-user-select .ast-site-header-cart-data .button.wc-forward:hover' => array(
+				'.site-header .ast-site-header-cart-data .button.wc-forward, .site-header .ast-site-header-cart-data .button.wc-forward:hover' => array(
 					'color' => $btn_color,
 				),
 				'.below-header-user-select .ast-site-header-cart .widget, .ast-above-header-section .ast-site-header-cart .widget a, .below-header-user-select .ast-site-header-cart .widget_shopping_cart a' => array(

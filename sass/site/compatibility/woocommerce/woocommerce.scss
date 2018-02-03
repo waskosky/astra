@@ -69,6 +69,7 @@ p.demo_store,
 /**
  * Header Cart Icon with shopping cart.
  */
+.woocommerce .ast-site-header-cart,
 .ast-site-header-cart {
 	/* Cart wrapper in header. */
 	position: relative;
@@ -228,6 +229,9 @@ p.demo_store,
 	}
 }
 
+.woocommerce .header-main-layout-3 .main-header-bar-wrap,
+.woocommerce .ast-above-header-section-1,
+.woocommerce .below-header-section-1,
 .header-main-layout-3 .main-header-bar-wrap,
 .ast-above-header-section-1,
 .below-header-section-1 {
