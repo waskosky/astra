@@ -2447,6 +2447,11 @@ p.demo_store,
 			text-align: left;
 			margin-bottom: 2.5em;
 
+			&.product-category > a {
+				display: inline-block;
+				position: relative;
+			}
+
 			a{
 				img{
 					margin-bottom:.8em;
