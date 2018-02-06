@@ -85,3 +85,4 @@ if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 		}
 	}
 }
+
