@@ -295,10 +295,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$logo_width = astra_get_option( 'ast-header-logo-width' );
 
-			if ( is_array( $sizes ) && '' != $logo_width ) {
+			if ( is_array( $sizes ) && '' != $logo_width['desktop'] ) {
 
 				$sizes['ast-logo-size'] = array(
-					'width'  => (int) $logo_width,
+					'width'  => (int) $logo_width['desktop'],
 					'height' => 0,
 					'crop'   => false,
 				);

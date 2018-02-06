@@ -186,10 +186,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'desktop' ),
 				),
 				'#masthead .site-logo-img .custom-logo-link img' => array(
-					'max-width' => astra_get_css_value( $header_logo_width, 'px' ),
+					'max-width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
 				'.astra-logo-svg'                         => array(
-					'width' => astra_get_css_value( $header_logo_width, 'px' ),
+					'width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
 					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
@@ -518,6 +518,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-single-post .entry-title, .page-title' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
 				),
+				'#masthead .site-logo-img .custom-logo-link img' => array(
+					'max-width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
+				),
+				'.astra-logo-svg'                         => array(
+					'width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
+				),
 			);
 
 			/* Parse CSS from array()*/
@@ -586,6 +592,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.ast-single-post .entry-title, .page-title' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
+				),
+				'.ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img' => array(
+					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
+				),
+				'.astra-logo-svg'                         => array(
+					'width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
 			);
 
