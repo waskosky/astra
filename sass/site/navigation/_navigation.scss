@@ -107,9 +107,10 @@
 	}
 	.ast-main-header-bar-alignment {
 		display: block;
-		flex: auto;
-		width: calc(100% + 40px);
-		margin: 0 -20px;
+	    width: -webkit-calc( 100% + 40px);
+	    width: calc( 100% + 40px);
+	    flex: auto;
+	    order: 4;
 	}
 }
 

@@ -2756,14 +2756,19 @@ body {
 
 .ast-header-break-point .ast-main-header-bar-alignment {
   display: block;
+  width: -webkit-calc( 100% + 40px);
+  width: calc( 100% + 40px);
+  margin: 0 -20px;
   -webkit-box-flex: 1;
   -webkit-flex: auto;
   -moz-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
-  width: -webkit-calc(100% + 40px);
-  width: calc(100% + 40px);
-  margin: 0 -20px;
+  -webkit-box-ordinal-group: 5;
+  -webkit-order: 4;
+  -moz-box-ordinal-group: 5;
+  -ms-flex-order: 4;
+  order: 4;
 }
 
 /**
