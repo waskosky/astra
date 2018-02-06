@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'section'  => 'section-blog',
 			'label'    => __( 'Blog Post Content', 'astra' ),
 			'type'     => 'select',
-			'priority' => 3,
+			'priority' => 50,
 			'choices'  => array(
 				'full-content' => __( 'Full Content', 'astra' ),
 				'excerpt'      => __( 'Excerpt', 'astra' ),
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-post-structure]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog',
-				'priority' => 5,
+				'priority' => 100,
 				'label'    => __( 'Blog Post Structure', 'astra' ),
 				'choices'  => array(
 					'image'      => __( 'Featured Image', 'astra' ),
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-meta]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog',
-				'priority' => 5,
+				'priority' => 105,
 				'label'    => __( 'Blog Meta', 'astra' ),
 				'choices'  => array(
 					'comments' => __( 'Comments', 'astra' ),
@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-blog',
-				'priority' => 10,
+				'priority' => 110,
 				'settings' => array(),
 			)
 		)
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[blog-width]', array(
 			'type'     => 'select',
 			'section'  => 'section-blog',
-			'priority' => 15,
+			'priority' => 115,
 			'label'    => __( 'Blog Content Width', 'astra' ),
 			'choices'  => array(
 				'default' => __( 'Default', 'astra' ),
@@ -142,7 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-blog',
-				'priority'    => 20,
+				'priority'    => 120,
 				'label'       => __( 'Enter Width', 'astra' ),
 				'suffix'      => '',
 				'input_attrs' => array(
