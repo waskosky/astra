@@ -87,6 +87,10 @@
 	flex: 1;
 }
 
+.ast-main-header-bar-alignment {
+	flex: 1;
+}
+
 /* Responsive Screen */
 .ast-header-break-point {
 
@@ -100,6 +104,12 @@
 
 	.main-header-bar-navigation {
 		flex: auto;
+	}
+	.ast-main-header-bar-alignment {
+		display: block;
+	    width: 100%;
+	    flex: auto;
+	    order: 4;
 	}
 }
 
