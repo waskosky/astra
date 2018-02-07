@@ -487,14 +487,14 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options[ 'ast-header-logo-width' ] ) && ! is_array( $astra_options[ 'ast-header-logo-width' ] ) ) {
-				$astra_options[ 'ast-header-logo-width' ] = array(
-					'desktop' => $astra_options[ 'ast-header-logo-width' ],
+			if ( isset( $astra_options['ast-header-logo-width'] ) && ! is_array( $astra_options['ast-header-logo-width'] ) ) {
+				$astra_options['ast-header-logo-width'] = array(
+					'desktop' => $astra_options['ast-header-logo-width'],
 					'tablet'  => '',
 					'mobile'  => '',
 				);
 			}
-			
+
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 

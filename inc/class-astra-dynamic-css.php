@@ -521,7 +521,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'#masthead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
-				'.astra-logo-svg'                         => array(
+				'.astra-logo-svg'                       => array(
 					'width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
 			);
@@ -596,7 +596,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
-				'.astra-logo-svg'                         => array(
+				'.astra-logo-svg'                       => array(
 					'width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
 			);
