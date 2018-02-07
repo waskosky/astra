@@ -113,6 +113,22 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 * @return number        Return number.
 		 * @since  1.0.6
 		 */
+		static public function sanitize_spacing( $val ) {
+
+			foreach ( $val as $key => $value ) {
+				$val[ $key ] = ( is_numeric( $val[ $key ] ) && $val[ $key ] >= 0 ) ? $val[ $key ] : '';
+			}
+
+			return $val;
+		}
+
+		/**
+		 * Sanitize responsive  Spacing
+		 *
+		 * @param  number $val Customizer setting input number.
+		 * @return number        Return number.
+		 * @since  1.2.1
+		 */
 		static public function sanitize_responsive_spacing( $val ) {
 
 			$spacing = array(
