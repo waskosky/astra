@@ -107,8 +107,7 @@
 	}
 	.ast-main-header-bar-alignment {
 		display: block;
-	    width: -webkit-calc( 100% + 40px);
-	    width: calc( 100% + 40px);
+	    width: 100%;
 	    flex: auto;
 	    order: 4;
 	}

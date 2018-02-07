@@ -2756,8 +2756,7 @@ body {
 
 .ast-header-break-point .ast-main-header-bar-alignment {
   display: block;
-  width: -webkit-calc( 100% + 40px);
-  width: calc( 100% + 40px);
+  width: 100%;
   -webkit-box-flex: 1;
   -webkit-flex: auto;
   -moz-box-flex: 1;
