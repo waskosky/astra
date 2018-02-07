@@ -2758,7 +2758,6 @@ body {
   display: block;
   width: -webkit-calc( 100% + 40px);
   width: calc( 100% + 40px);
-  margin: 0 -20px;
   -webkit-box-flex: 1;
   -webkit-flex: auto;
   -moz-box-flex: 1;
