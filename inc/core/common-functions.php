@@ -931,9 +931,9 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 			if ( 1 < abs( $opacity ) ) {
 				$opacity = 1.0;
 			}
-			$output = 'rgba(' . implode( ',',$rgb ) . ',' . $opacity . ')';
+			$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
 		} else {
-			$output = 'rgb(' . implode( ',',$rgb ) . ')';
+			$output = 'rgb(' . implode( ',', $rgb ) . ')';
 		}
 
 		// Return RGB(a) color string.
