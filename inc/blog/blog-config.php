@@ -131,7 +131,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" itemprop="url"> <span class="author-name" itemprop="name">' . esc_html( get_the_author() ) . '</span> </a>'
 		);
 
-		$output .= '<span class="posted-by vcard author" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
+		$output .= '<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
 
 		return apply_filters( 'astra_post_author', $output, $output_filter );
 	}
@@ -205,8 +205,8 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				?>
 
 				<!-- Comment Schema Meta -->
-				<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
-					<meta itemprop="interactionType" content="http://schema.org/CommentAction" />
+				<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
+					<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
 					<meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
 				</span>
 			</span>

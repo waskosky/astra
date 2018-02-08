@@ -48,6 +48,24 @@ function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 	return $post_nav;
 }
 
+// Deprecating astra_primary_header_main_rt_section filter.
+add_filter( 'astra_header_section_elements', 'deprecated_astra_primary_header_main_rt_section', 10, 2 );
+
+/**
+ * Astra Header elements.
+ *
+ * @since 1.2.2
+ * @param array  $elements List of elements.
+ * @param string $header Header section type.
+ * @return array
+ */
+function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {
+
+	$elements = astra_apply_filters_deprecated( 'astra_primary_header_main_rt_section', array( $elements, $header ), '1.2.2', 'astra_header_section_elements', '' );
+
+	return $elements;
+}
+
 if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 	/**
 	 * Astra Filter Deprecated
@@ -67,3 +85,4 @@ if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 		}
 	}
 }
+
