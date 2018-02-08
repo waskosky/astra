@@ -1,6 +1,6 @@
 v1.2.2
 - Improvement: Now you can add responsive width for the Site Logo.
-- Improvement: WooCommerce Star rating will be displayed even if a product has 0 rating for consistency in alignmnets in the product grid.
+- Improvement: WooCommerce Star rating will be displayed even if a product has 0 rating for consistency in alignments in the product grid.
 - Improvement: Added blockquote border color as theme/link color with 0.05 opacity
 - Fixed: Blog width being applied to the WooCommerce archive pages.
 - Fixed: Allow WooCommerce mini cart to be extended from the Astra Pro.
