@@ -162,8 +162,13 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 * @return string       Updated embed markup.
 		 */
 		function responsive_oembed_wrapper( $html, $url, $attr ) {
-			if ( false !== strpos( $url, 'vimeo.com' ) || false !== strpos( $url, 'youtube.com' ) || false !== strpos( $url, 'youtu.be' ) || apply_filters( 'astra_responsive_oembed_wrapper_enable', false ) ) {
-				return '' !== $html ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
+
+			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
+
+			if ( false !== strpos( $url, 'vimeo.com' ) || false !== strpos( $url, 'youtube.com' ) || false !== strpos( $url, 'youtu.be' ) ) {
+				if ( $add_astra_oembed_wrapper ) {
+					$html = ( '' !== $html ) ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
+				}
 			}
 			return $html;
 		}
