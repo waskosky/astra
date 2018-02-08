@@ -163,7 +163,6 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		function responsive_oembed_wrapper( $html, $url, $attr ) {
 			if ( false !== strpos( $url, 'vimeo.com' ) || false !== strpos( $url, 'youtube.com' ) || false !== strpos( $url, 'youtu.be' ) || apply_filters( 'astra_responsive_oembed_wrapper_enable', false ) ) {
-				vl( $url );
 				return '' !== $html ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
 			}
 			return $html;
