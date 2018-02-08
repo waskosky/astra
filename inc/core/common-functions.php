@@ -906,7 +906,7 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 
 		// Return default if no color provided.
 		if ( empty( $color ) ) {
-			  return $default;
+			return $default;
 		}
 
 		// Sanitize $color if "#" is provided.
