@@ -4,13 +4,18 @@
 	.customize-control-title {
 		display:inline-block;
 	}
+	.ast-spacing-responsive-outer-wrapper {
+		display: flex;
+		position: relative;
+	}
 
 	.ast-spacing-responsive-btns {
 	    display: block;
-	    text-align: right;
-		/*float:right;*/
-		line-height: 1;
-		margin-top: 5px;
+	    text-align: center;
+		line-height: 2;
+		width: 35px;
+		height: 26px;
+    	border: 1px solid #ddd;
 
 		> li {
 			margin-bottom: 6px;
@@ -42,10 +47,12 @@
 		transform: translateY(-100%);
 		font-size: 11px;
  		text-transform: uppercase;
+ 		top: 0;
+ 		right: 0;
 
 		li.single-unit {
 		    display: inline-block;
-		    margin-right: 6px;
+		    margin-left: 6px;
 		    width: 16px;
 			text-align: center;
 			user-select: none;
@@ -62,7 +69,6 @@
 	.input-wrapper {
 		.ast-spacing-wrapper {
 			display: none;
-			position: relative;
 			li{
 				text-align: center;
 				-webkit-box-flex: 1;

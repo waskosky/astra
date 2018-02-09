@@ -6,12 +6,18 @@
   display: inline-block;
 }
 
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-outer-wrapper {
+  display: flex;
+  position: relative;
+}
+
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
   display: block;
-  text-align: right;
-  /*float:right;*/
-  line-height: 1;
-  margin-top: 5px;
+  text-align: center;
+  line-height: 2;
+  width: 35px;
+  height: 26px;
+  border: 1px solid #ddd;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
@@ -43,11 +49,13 @@
   transform: translateY(-100%);
   font-size: 11px;
   text-transform: uppercase;
+  top: 0;
+  right: 0;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit {
   display: inline-block;
-  margin-right: 6px;
+  margin-left: 6px;
   width: 16px;
   text-align: center;
   user-select: none;
@@ -62,7 +70,6 @@
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
   display: none;
-  position: relative;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li {
