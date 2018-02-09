@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Logo Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[ast-header-logo-width]', array(
+		ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
 			'default'           => array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-logo-width]', array(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'title_tagline',
 				'priority'    => 5,

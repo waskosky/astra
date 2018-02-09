@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			$site_content_width = astra_get_option( 'site-content-width', 1200 );
-			$header_logo_width  = astra_get_option( 'ast-header-logo-width' );
+			$header_logo_width  = astra_get_option( 'ast-header-responsive-logo-width' );
 
 			// Site Background Color.
 			$box_bg_color = astra_get_option( 'site-layout-outside-bg-color' );
