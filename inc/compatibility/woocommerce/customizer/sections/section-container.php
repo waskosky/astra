@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[single-page-content-divider]', array(
 				'section'  => 'section-container-layout',
 				'type'     => 'ast-divider',
-				'priority' => 20,
+				'priority' => 80,
 				'settings' => array(),
 			)
 		)
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
-			'priority' => 20,
+			'priority' => 85,
 			'label'    => __( 'WooCommerce', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
