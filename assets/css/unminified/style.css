@@ -2106,7 +2106,15 @@ textarea {
   height: auto;
 }
 
-.ast-oembed-container *, .ast-oembed-container iframe, .ast-oembed-container object, .ast-oembed-container embed {
+.ast-oembed-container iframe, .ast-oembed-container object, .ast-oembed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body .ast-oembed-container * {
   position: absolute;
   top: 0;
   left: 0;
