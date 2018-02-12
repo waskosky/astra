@@ -225,9 +225,9 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 			}
 
 			foreach ( $responsive as $key => $value ) {
-				$value              = isset( $input_attrs['min'] ) && $input_attrs['min'] > $value ? $input_attrs['min'] : $value;
-				$value              = isset( $input_attrs['max'] ) && $input_attrs['max'] < $value ? $input_attrs['max'] : $value;
-				$responsive[ $key ] = $value;
+					$value              = isset( $input_attrs['min'] ) && ( ! empty( $value ) ) && ( $input_attrs['min'] > $value ) ? $input_attrs['min'] : $value;
+					$value              = isset( $input_attrs['max'] ) && ( ! empty( $value ) ) && ( $input_attrs['max'] < $value ) ? $input_attrs['max'] : $value;
+					$responsive[ $key ] = $value;
 			}
 
 			return $responsive;
