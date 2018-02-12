@@ -13,19 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[single-page-content-divider]', array(
-				'section'  => 'section-container-layout',
-				'type'     => 'ast-divider',
-				'priority' => 80,
-				'settings' => array(),
-			)
-		)
-	);
 
 	/**
 	 * Option: Shop Page

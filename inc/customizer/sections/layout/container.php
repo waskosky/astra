@@ -41,27 +41,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 50,
-			'label'    => __( 'Default Layout', 'astra' ),
+			'label'    => __( 'Default Container Layout', 'astra' ),
 			'choices'  => array(
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			),
-		)
-	);
-
-	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[single-page-content-layout-divider]', array(
-				'type'     => 'ast-divider',
-				'priority' => 51,
-				'section'  => 'section-container-layout',
-				'settings' => array(),
-			)
 		)
 	);
 
