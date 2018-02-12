@@ -57,9 +57,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		function elementor_default_setting() {
 
-			$page_builder_compatibility = apply_filters( 'astra_enable_page_builder_compatibility', true );
-
-			if ( false == $page_builder_compatibility ) {
+			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 

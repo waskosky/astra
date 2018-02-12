@@ -941,3 +941,21 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 	}
 
 endif; // End if().
+
+
+if ( ! function_exists( 'astra_enable_page_builder_compatibility' ) ) :
+
+	/**
+	 * Allow filter to enable/disable page builder compatibility.
+	 *
+	 * @see  https://wpastra.com/docs/recommended-settings-beaver-builder-astra/
+	 * @see  https://wpastra.com/docs/recommended-settings-for-elementor/
+	 *
+	 * @since  1.2.2
+	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
+	 */
+	function astra_enable_page_builder_compatibility() {
+		return apply_filters( 'astra_enable_page_builder_compatibility', true );
+	}
+
+endif; // End if().
