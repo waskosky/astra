@@ -385,18 +385,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				'h4.llms-access-plan-title, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded, body .llms-syllabus-wrapper .llms-section-title' => array(
 					'color' => $theme_forground_color,
 				),
-			);
-
-			$course_id = get_the_ID();
-			if ( ! ! $course_id && is_course() ) {
-
-				$course          = new LLMS_Course( $course_id );
-				$course_progress = $course->get_percent_complete();
-				$css_output['body .progress-bar-complete:after'] = array(
-					'content' => "'" . round( $course_progress, 2 ) . "%'",
+				'body .progress-bar-complete:after' => array(
 					'color'   => $theme_forground_color,
-				);
-			}
+				),
+			);
 
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );

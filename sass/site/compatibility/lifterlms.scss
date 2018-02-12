@@ -22,31 +22,8 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		}
 	}
 }
+
 .widget {
-	
-	/**
-	 * Progress Widget
-	 */
-	.progress__indicator {
-		line-height: 1.4;
-		height: 1.4em;
-	}
-
-	.llms-progress {
-		height: 1.4em;
-		margin: 0 auto;
-
-		.llms-progress-bar {
-			border-radius: .7em;
-	    	height: 1.4em;
-	    	top: 0;
-		}
-
-		.progress-bar-complete {
-			border-radius: .7em;
-		}
-	}
-
 	.llms-widget-syllabus {
 		
 		.llms-collapse-caret,
@@ -457,6 +434,8 @@ body {
 		display: flex;
 		flex-direction: row-reverse;
 		background: #f1f2f1;
+		border-top-right-radius: 1em;
+    	border-bottom-right-radius: 1em;
 
 		.llms-course-complete-text,
 		a.llms-course-continue-button {
@@ -478,32 +457,59 @@ body {
 			margin-bottom: 0;
 			opacity: .6;
 		}
+
+		.llms-progress {
+			height: auto;
+			margin: 0 auto;
+			flex: 1;
+			text-align: center;
+
+			.llms-progress-bar {
+				height: inherit;
+				top: 0;
+				border-radius: 1em;
+				border-bottom-left-radius: 0;
+				border-top-left-radius: 0;
+			}
+
+			.progress__indicator {
+				display: none;
+			}
+
+			.progress-bar-complete {
+				border-radius: inherit;
+				
+				&:after {
+					display: inline-block;
+					line-height: 2;
+					padding: 0 10px;
+					content: attr(data-progress);
+					word-break: normal;
+				}
+			}
+		}
 	}
+	.widget_course_progress .llms-progress,
 	.llms-progress {
-		height: auto;
+		
+		/**
+		 * Progress Widget
+		 */
+		.progress__indicator {
+			line-height: 1.4;
+			height: 1.4em;
+		}
+		height: 1.4em;
 		margin: 0 auto;
-		flex: 1;
 
 		.llms-progress-bar {
-			height: inherit;
+			border-radius: .7em;
+			height: 1.4em;
 			top: 0;
-			border-radius: 1em;
-			border-bottom-left-radius: 0;
-			border-top-left-radius: 0;
-		}
-
-		.progress__indicator {
-			display: none;
 		}
 
 		.progress-bar-complete {
-			border-radius: inherit;
-			
-			&:after {
-				display: inline-block;
-				line-height: 2;
-				padding: 0 10px;
-			}
+			border-radius: .7em;
 		}
 	}
 }
