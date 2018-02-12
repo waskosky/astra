@@ -1,24 +1,35 @@
-.ast-spacing-responsive-btns,
-.customize-control-title {
+.customize-control-ast-responsive-spacing {
+  /* Unit Screen wrap */
+}
+
+.customize-control-ast-responsive-spacing .customize-control-title {
   display: inline-block;
 }
 
-.ast-spacing-responsive-btns {
-  float: right;
-  line-height: 1;
-  margin-top: 5px;
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-outer-wrapper {
+  display: flex;
+  position: relative;
 }
 
-.ast-spacing-responsive-btns > li {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+  display: block;
+  text-align: center;
+  line-height: 2;
+  border: 1px solid #ddd;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   margin-bottom: 0;
   display: none;
+  width: 35px;
+  height: 26px;
 }
 
-.ast-spacing-responsive-btns > li.active {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
 }
 
-.ast-spacing-responsive-btns button[type="button"] {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {
   padding: 0;
   cursor: pointer;
   background: none;
@@ -27,15 +38,39 @@
   outline: none;
 }
 
-.ast-spacing-responsive-btns button[type="button"] > i {
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
   width: 15px;
   height: 15px;
   font-size: 15px;
+  margin-top: 1px;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units {
+  position: absolute;
+  transform: translateY(-100%);
+  font-size: 11px;
+  text-transform: uppercase;
+  top: 0;
+  right: 0;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit {
+  display: inline-block;
+  margin-left: 6px;
+  width: 16px;
+  text-align: center;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit.active {
+  font-weight: bold;
+  text-decoration: underline;
+  opacity: 1;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
   display: none;
-  position: relative;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li {
@@ -54,7 +89,10 @@
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
-  font-size: 12px;
+  text-transform: uppercase;
+  font-size: 10px;
+  opacity: .75;
+  font-weight: bold;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .ast-spacing-connected {
@@ -70,9 +108,9 @@
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
-  width: 45px;
+  width: 35px;
   height: 26px;
   line-height: 26px;
-  font-size: 16px;
+  font-size: 14px;
   border: 1px solid #ddd;
 }

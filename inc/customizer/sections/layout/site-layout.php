@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Slider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[site-content-width]', array(
 				'type'        => 'ast-slider',
-				'section'     => 'section-site-layout',
+				'section'     => 'section-container-layout',
 				'priority'    => 10,
 				'label'       => __( 'Container Width', 'astra' ),
 				'suffix'      => '',

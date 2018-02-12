@@ -101,6 +101,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
 
+			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
+
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
 			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
@@ -142,6 +144,16 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
+		 * Load the scripts and styles in the customizer controls.
+		 *
+		 * @since 1.2.1
+		 */
+		static public function customizer_scripts() {
+			$color_palettes = json_encode( astra_color_palette() );
+			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
+		}
+
+		/**
 		 * Enqueues the needed CSS/JS for Backend.
 		 *
 		 * @since 1.0
@@ -150,9 +162,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Styles.
 			wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), ASTRA_THEME_VERSION );
-
-			$color_palettes = json_encode( astra_color_palette() );
-			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
