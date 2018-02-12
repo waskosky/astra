@@ -293,7 +293,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		static public function logo_image_sizes( $sizes, $metadata ) {
 
-			$logo_width = astra_get_option( 'ast-header-logo-width' );
+			$logo_width = astra_get_option( 'ast-header-responsive-logo-width' );
 
 			if ( is_array( $sizes ) && ( '' != $logo_width['desktop'] || '' != $logo_width['tablet'] | '' != $logo_width['mobile'] ) ) {
 				$max_value              = max( $logo_width );

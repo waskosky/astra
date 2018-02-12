@@ -488,7 +488,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			if ( isset( $astra_options['ast-header-logo-width'] ) && ! is_array( $astra_options['ast-header-logo-width'] ) ) {
-				$astra_options['ast-header-logo-width'] = array(
+				$astra_options['ast-header-responsive-logo-width'] = array(
 					'desktop' => $astra_options['ast-header-logo-width'],
 					'tablet'  => '',
 					'mobile'  => '',
