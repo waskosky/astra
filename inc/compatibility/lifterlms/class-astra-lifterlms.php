@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 			// Grid.
 			add_filter( 'lifterlms_loop_columns', array( $this, 'course_grid' ) );
-			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ) );
+			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
 		}
 
 		/**
@@ -163,6 +163,11 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 			// General.
 			$defaults['llms-course-grid'] = array(
+				'desktop' => 3,
+				'tablet'  => 2,
+				'mobile'  => 1,
+			);
+			$defaults['llms-membership-grid'] = array(
 				'desktop' => 3,
 				'tablet'  => 2,
 				'mobile'  => 1,
@@ -290,13 +295,16 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * LLMS Grid.
 		 *
 		 * @since 1.2.0
-		 * @param  number $course_grid Number of grid for course.
+		 * @param  number $grid Number of grid for course.
 		 * @return number
 		 */
-		function course_grid( $course_grid ) {
+		function course_grid( $grid ) {
 
 			$course_grid = astra_get_option( 'llms-course-grid' );
-			return $course_grid['desktop'];
+			if( ! empty( $course_grid['desktop'] ) ) {
+				return $course_grid['desktop'];
+			}
+			return $grid;
 		}
 
 		/**
@@ -308,12 +316,27 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 */
 		function course_responsive_grid( $classes ) {
 
-			$course_grid = astra_get_option( 'llms-course-grid' );
-			if ( ! empty( $course_grid['tablet'] ) ) {
-				$classes[] = 'llms-tablet-cols-' . $course_grid['tablet'];
+			$llms_grid = astra_get_option( 'llms-course-grid' );
+			if( in_array( 'llms-membership-list' , $classes ) ) {
+				$llms_grid = astra_get_option( 'llms-membership-grid' );
+				
+				if ( ! empty( $llms_grid['desktop'] ) ) {
+					$default_class = array( 'cols-1', 'cols-2', 'cols-3', 'cols-4', 'cols-5', 'cols-6' );
+					foreach ( $default_class as $class ) {
+						$index = array_search( $class, $classes );
+						if( $index >= 0 ) {
+							unset( $classes[$index] );
+						}
+					}
+					$classes[] = 'cols-' . $llms_grid['desktop'];
+				}
 			}
-			if ( ! empty( $course_grid['mobile'] ) ) {
-				$classes[] = 'llms-mobile-cols-' . $course_grid['mobile'];
+
+			if ( ! empty( $llms_grid['tablet'] ) ) {
+				$classes[] = 'llms-tablet-cols-' . $llms_grid['tablet'];
+			}
+			if ( ! empty( $llms_grid['mobile'] ) ) {
+				$classes[] = 'llms-mobile-cols-' . $llms_grid['mobile'];
 			}
 
 			return $classes;
