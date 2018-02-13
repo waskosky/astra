@@ -635,7 +635,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
 				$blog_css          = '@media (min-width:769px) {';
-					$blog_css     .= '.blog .site-content > .ast-container, .ast-post-archive .site-content > .ast-container, .search .site-content > .ast-container{';
+					$blog_css     .= '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container{';
 						$blog_css .= 'max-width:' . esc_attr( $blog_max_width ) . 'px;';
 					$blog_css     .= '}';
 				$blog_css         .= '}';
