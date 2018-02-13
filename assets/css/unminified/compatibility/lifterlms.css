@@ -539,6 +539,15 @@ body .llms-progress .progress-bar-complete {
   border-radius: .7em;
 }
 
+body .llms-loop-item-content .llms-progress-bar {
+  height: inherit;
+}
+
+body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
 .single-course article.course {
   margin-bottom: 2em;
 }

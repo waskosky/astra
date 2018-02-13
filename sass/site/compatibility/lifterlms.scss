@@ -512,6 +512,16 @@ body {
 			border-radius: .7em;
 		}
 	}
+
+	.llms-loop-item-content {
+		.llms-progress-bar {
+			height: inherit;
+
+			.progress-bar-complete {
+				border-radius: 0;
+			}
+		}
+	}
 }
 
 .single-course {
