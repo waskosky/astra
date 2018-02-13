@@ -495,6 +495,14 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				);
 			}
 
+			if ( isset( $astra_options['blog-width'] ) ) {
+				$astra_options['shop-archive-width'] = $astra_options['blog-width'];
+			}
+
+			if ( isset( $astra_options['blog-max-width'] ) ) {
+				$astra_options['shop-archive-max-width'] = $astra_options['blog-max-width'];
+			}
+
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
