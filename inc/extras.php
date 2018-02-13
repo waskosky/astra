@@ -97,10 +97,6 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-header-custom-item-inside';
 		}
 
-		if ( is_archive() && 'post' == get_post_type() ) {
-			$classes[] = 'ast-post-archive';
-		}
-
 		return $classes;
 	}
 }// End if().
