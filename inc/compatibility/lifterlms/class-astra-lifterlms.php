@@ -162,7 +162,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// General.
-			$defaults['llms-course-grid'] = array(
+			$defaults['llms-course-grid']     = array(
 				'desktop' => 3,
 				'tablet'  => 2,
 				'mobile'  => 1,
@@ -301,7 +301,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		function course_grid( $grid ) {
 
 			$course_grid = astra_get_option( 'llms-course-grid' );
-			if( ! empty( $course_grid['desktop'] ) ) {
+			if ( ! empty( $course_grid['desktop'] ) ) {
 				return $course_grid['desktop'];
 			}
 			return $grid;
@@ -317,15 +317,15 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		function course_responsive_grid( $classes ) {
 
 			$llms_grid = astra_get_option( 'llms-course-grid' );
-			if( in_array( 'llms-membership-list' , $classes ) ) {
+			if ( in_array( 'llms-membership-list', $classes ) ) {
 				$llms_grid = astra_get_option( 'llms-membership-grid' );
-				
+
 				if ( ! empty( $llms_grid['desktop'] ) ) {
 					$default_class = array( 'cols-1', 'cols-2', 'cols-3', 'cols-4', 'cols-5', 'cols-6' );
 					foreach ( $default_class as $class ) {
 						$index = array_search( $class, $classes );
-						if( $index >= 0 ) {
-							unset( $classes[$index] );
+						if ( $index >= 0 ) {
+							unset( $classes[ $index ] );
 						}
 					}
 					$classes[] = 'cols-' . $llms_grid['desktop'];
@@ -402,7 +402,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				'.llms-lesson-preview.is-complete .llms-lesson-complete, .llms-lesson-preview.is-free .llms-lesson-complete, .llms-widget-syllabus .lesson-complete-placeholder.done, .llms-widget-syllabus .llms-lesson-complete.done, .single-llms_quiz .llms-quiz-results .llms-donut.passing, .llms-quiz-timer' => array(
 					'color' => $theme_color,
 				),
-				'.llms-quiz-timer' => array(
+				'.llms-quiz-timer'                  => array(
 					'border-color' => $theme_color,
 				),
 				'.single-llms_quiz .llms-quiz-results .llms-donut.passing svg path' => array(
@@ -412,7 +412,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'color' => $theme_forground_color,
 				),
 				'body .progress-bar-complete:after' => array(
-					'color'   => $theme_forground_color,
+					'color' => $theme_forground_color,
 				),
 			);
 
