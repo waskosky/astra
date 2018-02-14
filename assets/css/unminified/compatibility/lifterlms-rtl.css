@@ -1052,6 +1052,50 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   line-height: 1.75em;
 }
 
+.llms-quiz-buttons .llms-start-quiz-button {
+  line-height: 1.4;
+}
+
+.llms-quiz-buttons .llms-start-quiz-button:after {
+  content: "\BB";
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.llms-quiz-buttons .llms-next-lesson:after {
+  content: "\2192";
+  margin-right: 5px;
+}
+
+.llms-quiz-ui .llms-quiz-nav .llms-button-action {
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-complete-quiz:before {
+  content: "\2714";
+  margin-left: .5em;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-next-question:after {
+  content: "\2192";
+  margin-right: 5px;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-prev-question {
+  line-height: 1.4;
+  float: right;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-prev-question:before {
+  content: "\2190";
+  margin-left: 5px;
+}
+
+.llms-quiz-ui .llms-quiz-nav .llms-quiz-counter {
+  font-size: inherit;
+}
+
 @media (max-width: 768px) {
   .llms-loop .llms-loop-list.llms-tablet-cols-1 .llms-loop-item {
     width: 100%;

@@ -1059,6 +1059,59 @@ body {
 	}
 }
 
+.llms-quiz-buttons {
+	.llms-start-quiz-button {
+		line-height: 1.4;
+
+		&:after {
+			content: "\BB";
+			font-size: 1.2em;
+			line-height: 1;
+		}
+	}
+
+	.llms-next-lesson:after {
+		content: "\2192";
+		margin-left: 5px;
+	}
+}
+
+.llms-quiz-ui {
+	.llms-quiz-nav {
+
+		.llms-button-action {
+			font-size: inherit;
+			line-height: 1.4;
+		}
+
+		#llms-complete-quiz:before {
+			content: "\2714";
+			margin-right: .5em;
+		}
+
+		#llms-next-question:after {
+			content: "\2192";
+			margin-left: 5px;
+		}
+
+		#llms-prev-question {
+
+			line-height: 1.4;
+			float: left;
+			&:before {
+				content: "\2190";
+				margin-right: 5px;
+			}
+		}
+
+		.llms-quiz-counter {
+			font-size: inherit;	
+		}
+	}
+
+}
+
+
 // Grid.
 .llms-loop {
 	.llms-loop-list {
