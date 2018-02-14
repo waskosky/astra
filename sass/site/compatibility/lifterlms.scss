@@ -22,31 +22,8 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		}
 	}
 }
+
 .widget {
-	
-	/**
-	 * Progress Widget
-	 */
-	.progress__indicator {
-		line-height: 1.4;
-		height: 1.4em;
-	}
-
-	.llms-progress {
-		height: 1.4em;
-		margin: 0 auto;
-
-		.llms-progress-bar {
-			border-radius: .7em;
-	    	height: 1.4em;
-	    	top: 0;
-		}
-
-		.progress-bar-complete {
-			border-radius: .7em;
-		}
-	}
-
 	.llms-widget-syllabus {
 		
 		.llms-collapse-caret,
@@ -422,46 +399,70 @@ body {
 		margin-left: -10px;
 		margin-right: -10px;
 	}
-}
 
-.single-course {
-	article {
-		&.course {
-			margin-bottom: 2em;
-		}
+	.is-enrolled {
 
-		.llms-course-progress {
-			max-width: 100%;
-			margin: 0 auto;
-			display: flex;
-			flex-direction: row-reverse;
-			background: #f1f2f1;
+		.llms-syllabus-wrapper {
+			
+			.llms-lesson-preview {
+				
+				.llms-lesson-complete {
+					margin-bottom: 0;
+					position: absolute;
+					top: 5px;
+					left: 15px;
+					font-size: 1.4em;
+					height: 1.2em;
+					line-height: 1.2;
+					width: 1em;
+				}
 
-			.llms-course-complete-text,
-			.llms-course-continue-button {
-				display: inline-block;
-				margin-right: 2px;
-				padding: 0 1em;
-				line-height: 2em;
-			}
-
-			.llms-course-continue-button {
-				&:after {
-					content: "\BB";
-					font-size: 1.2em;
-					line-height: 1;
+				.llms-main {
+					margin-left: 2em;
+					margin-left: calc(1.2em + 15px);
+					width: 83%;
+					width: calc(85% - 1.2em - 15px);
 				}
 			}
+		}
+	}
 
-			.llms-course-complete-text {
-				margin-bottom: 0;
-				opacity: .6;
+	.course .llms-course-progress,
+	.llms-course-progress {
+		max-width: 100%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row-reverse;
+		background: #f1f2f1;
+		border-top-right-radius: 1em;
+    	border-bottom-right-radius: 1em;
+
+		.llms-course-complete-text,
+		a.llms-course-continue-button {
+			display: inline-block;
+			margin-right: 2px;
+			padding: 0 1em;
+			line-height: 2em;
+		}
+
+		a.llms-course-continue-button {
+			&:after {
+				content: "\BB";
+				font-size: 1.2em;
+				line-height: 1;
 			}
 		}
+
+		.llms-course-complete-text {
+			margin-bottom: 0;
+			opacity: .6;
+		}
+
 		.llms-progress {
 			height: auto;
 			margin: 0 auto;
 			flex: 1;
+			text-align: center;
 
 			.llms-progress-bar {
 				height: inherit;
@@ -482,35 +483,51 @@ body {
 					display: inline-block;
 					line-height: 2;
 					padding: 0 10px;
+					content: attr(data-progress);
+					word-break: normal;
 				}
 			}
 		}
+	}
+	.widget_course_progress .llms-progress,
+	.llms-progress {
+		
+		/**
+		 * Progress Widget
+		 */
+		.progress__indicator {
+			line-height: 1.4;
+			height: 1.4em;
+		}
+		height: 1.4em;
+		margin: 0 auto;
 
-		&.is-enrolled {
+		.llms-progress-bar {
+			border-radius: .7em;
+			height: 1.4em;
+			top: 0;
+		}
 
-			.llms-syllabus-wrapper {
-				
-				.llms-lesson-preview {
-					
-					.llms-lesson-complete {
-						margin-bottom: 0;
-						position: absolute;
-						top: 5px;
-						left: 15px;
-						font-size: 1.4em;
-						height: 1.2em;
-						line-height: 1.2;
-						width: 1em;
-					}
+		.progress-bar-complete {
+			border-radius: .7em;
+		}
+	}
 
-					.llms-main {
-						margin-left: 2em;
-						margin-left: calc(1.2em + 15px);
-						width: 83%;
-						width: calc(85% - 1.2em - 15px);
-					}
-				}
+	.llms-loop-item-content {
+		.llms-progress-bar {
+			height: inherit;
+
+			.progress-bar-complete {
+				border-radius: 0;
 			}
+		}
+	}
+}
+
+.single-course {
+	article {
+		&.course {
+			margin-bottom: 2em;
 		}
 	}
 }
@@ -1019,9 +1036,81 @@ body {
 	}
 
 	.llms-question-wrapper {
-	    margin-bottom: 1.5em;
+		margin-bottom: 1.5em;
+
+	    .llms-question-text {
+			font-size: 2em;
+		}
+
+		ol.llms-question-choices li.llms-choice {
+			label {
+				display: block;
+			}
+			.llms-choice-text {
+				font-size: 1em;
+			}
+			.llms-marker {
+				font-size: 1em;
+				width: 1.75em;
+				height: 1.75em;
+				line-height: 1.75em;
+			}
+		}
 	}
 }
+
+.llms-quiz-buttons {
+	.llms-start-quiz-button {
+		line-height: 1.4;
+
+		&:after {
+			content: "\BB";
+			font-size: 1.2em;
+			line-height: 1;
+		}
+	}
+
+	.llms-next-lesson:after {
+		content: "\2192";
+		margin-left: 5px;
+	}
+}
+
+.llms-quiz-ui {
+	.llms-quiz-nav {
+
+		.llms-button-action {
+			font-size: inherit;
+			line-height: 1.4;
+		}
+
+		#llms-complete-quiz:before {
+			content: "\2714";
+			margin-right: .5em;
+		}
+
+		#llms-next-question:after {
+			content: "\2192";
+			margin-left: 5px;
+		}
+
+		#llms-prev-question {
+
+			line-height: 1.4;
+			float: left;
+			&:before {
+				content: "\2190";
+				margin-right: 5px;
+			}
+		}
+
+		.llms-quiz-counter {
+			font-size: inherit;	
+		}
+	}
+
+}
+
 
 // Grid.
 .llms-loop {
