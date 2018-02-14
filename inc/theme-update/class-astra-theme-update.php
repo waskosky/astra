@@ -120,6 +120,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_1_0_beta_4();
 			}
 
+			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			if ( version_compare( $saved_version, '1.2.2', '<' ) ) {
+				self::v_1_2_2();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -466,6 +471,36 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				if ( ! isset( $astra_options[ $key ] ) ) {
 					$astra_options[ $key ] = $value;
 				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update options of older version than 1.2.2.
+		 *
+		 * Logo Width
+		 *
+		 * @since 1.2.2
+		 */
+		static public function v_1_2_2() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( isset( $astra_options['ast-header-logo-width'] ) && ! is_array( $astra_options['ast-header-logo-width'] ) ) {
+				$astra_options['ast-header-responsive-logo-width'] = array(
+					'desktop' => $astra_options['ast-header-logo-width'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+
+			if ( isset( $astra_options['blog-width'] ) ) {
+				$astra_options['shop-archive-width'] = $astra_options['blog-width'];
+			}
+
+			if ( isset( $astra_options['blog-max-width'] ) ) {
+				$astra_options['shop-archive-max-width'] = $astra_options['blog-max-width'];
 			}
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );

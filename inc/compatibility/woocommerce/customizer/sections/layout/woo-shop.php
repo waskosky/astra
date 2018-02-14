@@ -122,3 +122,68 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+
+	/**
+	 * Option: Woocommerce Shop Archive Content Divider
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-archive-width-divider]', array(
+				'section'  => 'section-woo-shop',
+				'type'     => 'ast-divider',
+				'priority' => 220,
+				'settings' => array(),
+			)
+		)
+	);
+
+	/**
+	 * Option: Shop Archive Content Width
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[shop-archive-width]', array(
+			'default'           => astra_get_option( 'shop-archive-width' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[shop-archive-width]', array(
+			'type'     => 'select',
+			'section'  => 'section-woo-shop',
+			'priority' => 220,
+			'label'    => __( 'Shop Archive Content Width', 'astra' ),
+			'choices'  => array(
+				'default' => __( 'Default', 'astra' ),
+				'custom'  => __( 'Custom', 'astra' ),
+			),
+		)
+	);
+
+	/**
+	 * Option: Enter Width
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[shop-archive-max-width]', array(
+			'default'           => 1200,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Slider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[shop-archive-max-width]', array(
+				'type'        => 'ast-slider',
+				'section'     => 'section-woo-shop',
+				'priority'    => 225,
+				'label'       => __( 'Enter Width', 'astra' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'  => 768,
+					'step' => 1,
+					'max'  => 1920,
+				),
+			)
+		)
+	);

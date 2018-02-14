@@ -113,6 +113,22 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 * @return number        Return number.
 		 * @since  1.0.6
 		 */
+		static public function sanitize_spacing( $val ) {
+
+			foreach ( $val as $key => $value ) {
+				$val[ $key ] = ( is_numeric( $val[ $key ] ) && $val[ $key ] >= 0 ) ? $val[ $key ] : '';
+			}
+
+			return $val;
+		}
+
+		/**
+		 * Sanitize responsive  Spacing
+		 *
+		 * @param  number $val Customizer setting input number.
+		 * @return number        Return number.
+		 * @since  1.2.1
+		 */
 		static public function sanitize_responsive_spacing( $val ) {
 
 			$spacing = array(
@@ -209,9 +225,9 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 			}
 
 			foreach ( $responsive as $key => $value ) {
-				$value              = isset( $input_attrs['min'] ) && $input_attrs['min'] > $value ? $input_attrs['min'] : $value;
-				$value              = isset( $input_attrs['max'] ) && $input_attrs['max'] < $value ? $input_attrs['max'] : $value;
-				$responsive[ $key ] = $value;
+					$value              = isset( $input_attrs['min'] ) && ( ! empty( $value ) ) && ( $input_attrs['min'] > $value ) ? $input_attrs['min'] : $value;
+					$value              = isset( $input_attrs['max'] ) && ( ! empty( $value ) ) && ( $input_attrs['max'] < $value ) ? $input_attrs['max'] : $value;
+					$responsive[ $key ] = $value;
 			}
 
 			return $responsive;

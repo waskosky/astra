@@ -888,3 +888,74 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 	}
 }// End if().
 
+/**
+ * Convert colors from HEX to RGBA
+ */
+if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
+
+	/**
+	 * Convert colors from HEX to RGBA
+	 *
+	 * @param  string  $color   Color code in HEX.
+	 * @param  boolean $opacity Color code opacity.
+	 * @return string           Color code in RGB or RGBA.
+	 */
+	function astra_hex_to_rgba( $color, $opacity = false ) {
+
+		$default = 'rgb(0,0,0)';
+
+		// Return default if no color provided.
+		if ( empty( $color ) ) {
+			return $default;
+		}
+
+		// Sanitize $color if "#" is provided.
+		if ( '#' == $color[0] ) {
+			$color = substr( $color, 1 );
+		}
+
+		// Check if color has 6 or 3 characters and get values.
+		if ( 6 == strlen( $color ) ) {
+			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+		} elseif ( 3 == strlen( $color ) ) {
+			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+		} else {
+			return $default;
+		}
+
+		// Convert HEX to RGB.
+		$rgb = array_map( 'hexdec', $hex );
+
+		// Check if opacity is set(RGBA or RGB).
+		if ( $opacity ) {
+			if ( 1 < abs( $opacity ) ) {
+				$opacity = 1.0;
+			}
+			$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
+		} else {
+			$output = 'rgb(' . implode( ',', $rgb ) . ')';
+		}
+
+		// Return RGB(a) color string.
+		return $output;
+	}
+
+endif; // End if().
+
+
+if ( ! function_exists( 'astra_enable_page_builder_compatibility' ) ) :
+
+	/**
+	 * Allow filter to enable/disable page builder compatibility.
+	 *
+	 * @see  https://wpastra.com/docs/recommended-settings-beaver-builder-astra/
+	 * @see  https://wpastra.com/docs/recommended-settings-for-elementor/
+	 *
+	 * @since  1.2.2
+	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
+	 */
+	function astra_enable_page_builder_compatibility() {
+		return apply_filters( 'astra_enable_page_builder_compatibility', true );
+	}
+
+endif; // End if().

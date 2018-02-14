@@ -110,13 +110,14 @@ $header_rt_sections = array(
 			'priority' => 5,
 			'label'    => __( 'Custom Menu Item', 'astra' ),
 			'choices'  => apply_filters(
-				'astra_primary_header_main_rt_section',
+				'astra_header_section_elements',
 				array(
 					'none'      => __( 'None', 'astra' ),
 					'search'    => __( 'Search', 'astra' ),
 					'text-html' => __( 'Text / HTML', 'astra' ),
 					'widget'    => __( 'Widget', 'astra' ),
-				)
+				),
+				'primary-header'
 			),
 		)
 	);

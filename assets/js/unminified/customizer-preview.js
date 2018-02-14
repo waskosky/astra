@@ -99,7 +99,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 			if ( value.desktop.top || value.desktop.right || value.desktop.bottom || value.desktop.left || value.tablet.top || value.tablet.right || value.tablet.bottom || value.tablet.left || value.mobile.top || value.mobile.right || value.mobile.bottom || value.mobile.left ) {
 				if ( typeof side != undefined ) {
 					sidesString = side + "";
-					sidesString = sidesString.replace( ',', '-' );
+					sidesString = sidesString.replace(/,/g , "-");
 				}
 				if ( typeof type != undefined ) {
 					spacingType = type + "";
@@ -107,7 +107,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 				// Remove <style> first!
 				control = control.replace( '[', '-' );
 				control = control.replace( ']', '' );
-				jQuery( 'style#' + control + '-' + sidesString ).remove();
+				jQuery( 'style#' + control + '-' + spacingType + '-' + sidesString ).remove();
 
 				var desktopPadding = '',
 					tabletPadding = '',
@@ -135,7 +135,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '-' + sidesString + '">'
+					'<style id="' + control + '-' + spacingType + '-' + sidesString + '">'
 					+ selector + '	{ ' + desktopPadding +' }'
 					+ '@media (max-width: 768px) {' + selector + '	{ ' + tabletPadding + ' } }'
 					+ '@media (max-width: 544px) {' + selector + '	{ ' + mobilePadding + ' } }'
@@ -144,7 +144,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 
 			} else {
 				wp.customize.preview.send( 'refresh' );
-				jQuery( 'style#' + control + '-' + sidesString ).remove();
+				jQuery( 'style#' + control + '-' + spacingType + '-' + sidesString ).remove();
 			}
 
 		} );
@@ -267,11 +267,11 @@ function astra_add_dynamic_css( control, style ) {
 	/*
 	 * Site Identity Logo Width
 	 */
-	wp.customize( 'astra-settings[ast-header-logo-width]', function( setting ) {
+	wp.customize( 'astra-settings[ast-header-responsive-logo-width]', function( setting ) {
 		setting.bind( function( logo_width ) {
-			if ( logo_width != '' ) {
-				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img {max-width: ' + logo_width + 'px;} .astra-logo-svg{width: ' + logo_width + 'px;} ';
-				astra_add_dynamic_css( 'ast-header-logo-width', dynamicStyle );
+			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
+				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;} .astra-logo-svg{width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;} .astra-logo-svg{width: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} .astra-logo-svg{width: ' + logo_width['mobile'] + 'px; } }';
+				astra_add_dynamic_css( 'ast-header-responsive-logo-width', dynamicStyle );
 			}
 			else{
 				wp.customize.preview.send( 'refresh' );
@@ -345,7 +345,9 @@ function astra_add_dynamic_css( control, style ) {
 
 			var dynamicStyle = '@media all and ( min-width: 921px ) {';
 
+			if ( ! jQuery( 'body' ).hasClass( 'ast-woo-shop-archive' ) ) {
 			dynamicStyle += '.blog .site-content > .ast-container,.archive .site-content > .ast-container{ max-width: ' + (  parseInt( width ) ) + 'px } ';
+			}
 
 			if (  jQuery( 'body' ).hasClass( 'ast-fluid-width-layout' ) ) {
 				dynamicStyle += '.blog .site-content > .ast-container,.archive .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
@@ -579,6 +581,25 @@ function astra_add_dynamic_css( control, style ) {
 				var dynamicStyle = ' .footer-adv-overlay { background-color: ' + bgcolor + '; } ';
 				astra_add_dynamic_css( 'footer-adv-bg-color', dynamicStyle );
 			}
+
+		} );
+	} );
+
+	/*
+	 * Woocommerce Shop Archive Custom Width
+	 */
+	wp.customize( 'astra-settings[shop-archive-max-width]', function( setting ) {
+		setting.bind( function( width ) {
+
+			var dynamicStyle = '@media all and ( min-width: 921px ) {';
+
+			dynamicStyle += '.ast-woo-shop-archive .site-content > .ast-container{ max-width: ' + (  parseInt( width ) ) + 'px } ';
+
+			if (  jQuery( 'body' ).hasClass( 'ast-fluid-width-layout' ) ) {
+				dynamicStyle += '.ast-woo-shop-archive .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
+			}
+				dynamicStyle += '}';
+				astra_add_dynamic_css( 'shop-archive-max-width', dynamicStyle );
 
 		} );
 	} );
