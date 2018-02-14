@@ -1033,6 +1033,25 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   margin-bottom: 1.5em;
 }
 
+.llms-quiz-question-wrapper .llms-question-wrapper .llms-question-text {
+  font-size: 2em;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper ol.llms-question-choices li.llms-choice label {
+  display: block;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper ol.llms-question-choices li.llms-choice .llms-choice-text {
+  font-size: 1em;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper ol.llms-question-choices li.llms-choice .llms-marker {
+  font-size: 1em;
+  width: 1.75em;
+  height: 1.75em;
+  line-height: 1.75em;
+}
+
 @media (max-width: 768px) {
   .llms-loop .llms-loop-list.llms-tablet-cols-1 .llms-loop-item {
     width: 100%;

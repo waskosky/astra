@@ -1036,7 +1036,26 @@ body {
 	}
 
 	.llms-question-wrapper {
-	    margin-bottom: 1.5em;
+		margin-bottom: 1.5em;
+
+	    .llms-question-text {
+			font-size: 2em;
+		}
+
+		ol.llms-question-choices li.llms-choice {
+			label {
+				display: block;
+			}
+			.llms-choice-text {
+				font-size: 1em;
+			}
+			.llms-marker {
+				font-size: 1em;
+				width: 1.75em;
+				height: 1.75em;
+				line-height: 1.75em;
+			}
+		}
 	}
 }
 
