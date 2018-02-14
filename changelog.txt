@@ -6,6 +6,7 @@ v1.2.2
 - Improvement: Added blockquote border color as theme/link color with 0.05 opacity
 - Improvement: Updated LifterLMS Quiz Styles.
 - Improvement: Disabled automatic page builder compatibility for blog posts.
+- Fixed: WooCommerce shop grid incorrect alignment when changing the mobile device orientation on iOS Safari.
 - Fixed: Footer widget spacings were not being saved in the customizer.
 - Fixed: Incorrect alignment of the menu when using menu plugins.
 - Fixed: Blog width being applied to the WooCommerce archive pages.
