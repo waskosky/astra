@@ -1,0 +1,221 @@
+/**
+ * LearnDash Compatibility
+ */
+
+/**
+ * Astra Theme compatibility with LearnDash
+ */
+@import "../mixins/mixins-master";
+@import "../../grid/variables";
+@import "../variables-site/structure";
+@import "../variables-site/colors";
+
+body {
+	// Course List.
+	#ld_course_list {
+		
+		#ld_topic_categorydropdown,
+		#ld_lesson_categorydropdown,
+		#ld_course_categorydropdown {
+			margin-bottom: 1em;
+		}
+
+		.ld_course_grid {
+			.caption {
+				padding: 15px;
+				position: relative;
+
+				*:last-child {
+					margin-bottom: 0;
+				}
+
+				.entry-title {
+					margin-bottom: 5px;
+				}
+			}
+		}
+	}
+
+	dd.course_progress {
+		width: 100%;
+	}
+
+	// Lessons.
+	#learndash_lessons {
+
+
+	}
+
+	.learndash_topic_dots {
+		ul .topic-notcompleted span {
+			margin: 5px 0;
+		}
+	}
+
+	.widget_course_return,
+	#course_navigation .widget_course_return a,
+	#learndash_lessons,
+	#learndash_quizzes,
+	.expand_collapse,
+	.notavailable_message,
+	#learndash_lesson_topics_list div > strong,
+	#learndash_lesson_topics_list div ul > li .sn,
+	.learndash_profile_heading,
+	#learndash_profile a,
+	#learndash_profile div,
+	#learndash_lessons a,
+	#learndash_quizzes a,
+	.expand_collapse a,
+	.learndash_topic_dots a,
+	.learndash_topic_dots a > span,
+	#learndash_lesson_topics_list span a {
+		font-size: 1rem;
+		font-weight: inherit;
+	}
+
+	#lessons_list,
+	#course_list,
+	#quiz_list {
+		> div h4 > a {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	}
+
+	.expand_collapse,
+	#learndash_profile .expand_collapse {
+		top: -1em;
+		a {
+			font-size: .8em;
+		}
+	}
+
+	.learndash,
+	#learndash_profile {
+		.completed,
+		.notcompleted {
+			line-height: 1.7;
+			background-size: 1.5em;
+			background-position: 97% center;
+		}
+	}
+
+	#course_navigation {
+		.learndash_navigation_lesson_topics_list {
+			.list_lessons {
+				margin-bottom: 5px;
+			}
+			.lesson {
+				margin: 0 0 0 5px;
+			}
+
+			.list_arrow {
+				&.collapse {
+					background-position: 50% .5em;			
+				}
+				&.expand {
+				    background-position: 50% .75em;
+				}
+			}
+		}
+	}
+
+	.widget_sfwd-lessons-widget {
+		ul {
+			padding: 0;
+			li a {
+				font-size: 1rem;
+				line-height: 1.75;
+			}
+		}
+	}
+
+	// Profile.
+	#learndash_profile {
+		.course_overview_heading,
+		.no_radius {
+			border-radius: 0;
+		}
+
+		.learndash-course-certificate,
+		.learndash-course-link,
+		.learndash-course-status {
+			a {
+				line-height: inherit;
+			}
+		}
+
+		.list_arrow {
+			&.collapse {
+				background-position: 50% 1em;
+			}
+			&.expand {
+				background-position: 50% 1.25em;
+			}
+		}
+
+		.learndash_profile_details > div {
+			margin-top: 0;
+		}
+
+		.profile_edit_profile a {
+			font-size: .75em;
+		}
+	}
+
+	#learndash_course_content_title {
+		margin-bottom: 10px;
+		font-weight: 600;
+	}
+
+	#learndash_lessons,
+	#learndash_quizzes {
+		h4 > a:hover {
+			background-color: #f6f6f6;
+		}
+	}
+	#learndash_lesson_topics_list {
+		ul > li > span.topic_item:hover {
+			background-color: #f6f6f6;
+		}
+	}
+
+	// Widgets.
+	.widget_sfwd-transactions-widget,
+	.widget_sfwd-courses-widget {
+		h4 {
+			font-size: 1em;
+			line-height: inherit;
+		}
+	}
+	.widget_ldcourseinfo {
+		#course_progress_details {
+			margin-top: 1em;
+		}
+		h4 {
+			font-size: 1.2em;
+			margin-bottom: 5px;
+		}
+
+		.ld-course-info-my-courses {
+			vertical-align: top;
+			margin-bottom: 5px;
+			line-height: 1.5;
+			display: inline-block;
+
+			img {
+				vertical-align: top;
+				margin-right: .5em;
+				display: inline-block;
+				float: left;
+			}
+			
+			h2.ld-entry-title {
+				font-size: 1em;
+				width: calc(70% - .5em);
+				display: inline-block;
+			}
+		}
+	}
+
+}
