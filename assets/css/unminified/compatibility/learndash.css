@@ -150,6 +150,7 @@ body #learndash_lesson_topics_list ul > li > span.topic_item:hover {
   background-color: #f6f6f6;
 }
 
+body .widget_sfwd-certificates-widget h4,
 body .widget_sfwd-transactions-widget h4,
 body .widget_sfwd-courses-widget h4 {
   font-size: 1em;
