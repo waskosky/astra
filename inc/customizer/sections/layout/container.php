@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 50,
-			'label'    => __( 'Default Container Layout', 'astra' ),
+			'label'    => __( 'Default Container', 'astra' ),
 			'choices'  => array(
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[single-page-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
-			'label'    => __( 'Pages', 'astra' ),
+			'label'    => __( 'Container for Pages', 'astra' ),
 			'priority' => 55,
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 60,
-			'label'    => __( 'Blog Posts', 'astra' ),
+			'label'    => __( 'Container for Blog Posts', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
@@ -118,7 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 65,
-			'label'    => __( 'Blog Post Archives', 'astra' ),
+			'label'    => __( 'Container for Blog Archives', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),

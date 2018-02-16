@@ -124,8 +124,10 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination(
 				array(
-					'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
-					'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
+					'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
+					'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
+					'taxonomy'     => 'category',
+					'in_same_term' => true,
 				)
 			);
 			echo '</div>';
@@ -783,12 +785,12 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		ob_start();
 		?>
 		.main-header-bar-wrap {
-			content: "<?php echo esc_html( $header_break_point ); ?>";
+			content: '<?php echo esc_html( $header_break_point ); ?>';
 		}
 
 		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
 			.main-header-bar-wrap {
-				content: "";
+				content: '';
 			}
 		}
 		<?php
