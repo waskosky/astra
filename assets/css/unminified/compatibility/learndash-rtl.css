@@ -48,6 +48,18 @@
   font-size: 1.75em;
 }
 
+.learndash_navigation_lesson_topics_list ul .topic-completed span:before,
+.learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before,
+.learndash_topic_dots ul .topic-completed span:before,
+.learndash_topic_dots ul .topic-notcompleted span:before {
+  content: "\26AB";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.1em;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
 body .learndash .completed,
 body .learndash .notcompleted,
 body #learndash_profile .completed,
@@ -97,18 +109,6 @@ body .learndash_topic_dots ul .topic-notcompleted span {
   padding-right: 0;
   background: none;
   margin: 5px 0;
-}
-
-body .learndash_navigation_lesson_topics_list ul .topic-completed span:before,
-body .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before,
-body .learndash_topic_dots ul .topic-completed span:before,
-body .learndash_topic_dots ul .topic-notcompleted span:before {
-  content: "\26AB";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1.1em;
-  font-weight: normal;
-  margin-left: 5px;
 }
 
 body .widget_course_return,
