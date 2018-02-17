@@ -46,13 +46,16 @@
 	.topic-notcompleted span {
 		background: none;
 		padding: 0;
+	}
+}
 
-		&:before {
-			content: "\26AB";
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			font-size: 1.75em;
-		}
+.topic-completed span,
+.topic-notcompleted span {
+	&:before {
+		content: "\26AB";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-size: 1.75em;
 	}
 }
 

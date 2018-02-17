@@ -40,8 +40,8 @@
   padding: 0;
 }
 
-.learndash .topic-completed span:before,
-.learndash .topic-notcompleted span:before {
+.topic-completed span:before,
+.topic-notcompleted span:before {
   content: "\26AB";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
