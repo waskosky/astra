@@ -97,9 +97,6 @@ body .learndash_navigation_lesson_topics_list ul .topic-completed span:before,
 body .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before,
 body .learndash_topic_dots ul .topic-completed span:before,
 body .learndash_topic_dots ul .topic-notcompleted span:before {
-  content: "\26AB";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-size: 1.1em;
   font-weight: normal;
   margin-right: 5px;
