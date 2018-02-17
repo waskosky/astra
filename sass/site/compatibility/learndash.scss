@@ -46,16 +46,13 @@
 	.topic-notcompleted span {
 		background: none;
 		padding: 0;
-	}
-}
 
-.topic-completed span,
-.topic-notcompleted span {
-	&:before {
-		content: "\26AB";
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		font-size: 1.75em;
+		&:before {
+			content: "\26AB";
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			font-size: 1.75em;
+		}
 	}
 }
 
@@ -66,6 +63,14 @@ body {
 		.notcompleted {
 			line-height: 1.7;
 			background: none;
+		}
+	}
+	
+	.learndash {
+		.topic-completed span,
+		.topic-notcompleted span {
+			background: none;
+			padding: 0;
 		}
 	}
 
@@ -112,6 +117,9 @@ body {
 				margin: 5px 0;
 
 				&:before {
+					content: "\26AB";
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
 					font-size: 1.1em;
 					font-weight: normal;
 					margin-right: 5px;

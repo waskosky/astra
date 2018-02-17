@@ -40,8 +40,8 @@
   padding: 0;
 }
 
-.topic-completed span:before,
-.topic-notcompleted span:before {
+.learndash .topic-completed span:before,
+.learndash .topic-notcompleted span:before {
   content: "\26AB";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,6 +54,12 @@ body #learndash_profile .completed,
 body #learndash_profile .notcompleted {
   line-height: 1.7;
   background: none;
+}
+
+body .learndash .topic-completed span,
+body .learndash .topic-notcompleted span {
+  background: none;
+  padding: 0;
 }
 
 body #ld_course_list #ld_topic_categorydropdown,
@@ -97,6 +103,9 @@ body .learndash_navigation_lesson_topics_list ul .topic-completed span:before,
 body .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before,
 body .learndash_topic_dots ul .topic-completed span:before,
 body .learndash_topic_dots ul .topic-notcompleted span:before {
+  content: "\26AB";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-size: 1.1em;
   font-weight: normal;
   margin-right: 5px;
