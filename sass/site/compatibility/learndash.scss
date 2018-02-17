@@ -67,8 +67,8 @@ body {
 
 	.learndash {
 
-		.completed:after,
-		.notcompleted:after {
+		.completed:before,
+		.notcompleted:before {
 			width: 1.25em;
 			position: absolute;
 			top: 5px;
@@ -165,7 +165,7 @@ body {
 			line-height: 1.7;
 			background: none;
 
-			&:after {
+			&:before {
 				content: "\e901";
 				display: inline-block;
 				font-family: 'Astra';

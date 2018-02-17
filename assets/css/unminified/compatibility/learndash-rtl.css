@@ -57,8 +57,8 @@ body .learndash_topic_dots ul .topic-notcompleted span:before {
   margin-left: 5px;
 }
 
-body .learndash .completed:after,
-body .learndash .notcompleted:after {
+body .learndash .completed:before,
+body .learndash .notcompleted:before {
   width: 1.25em;
   position: absolute;
   top: 5px;
@@ -159,10 +159,10 @@ body #learndash_profile .notcompleted {
   background: none;
 }
 
-body .learndash .completed:after,
-body .learndash .notcompleted:after,
-body #learndash_profile .completed:after,
-body #learndash_profile .notcompleted:after {
+body .learndash .completed:before,
+body .learndash .notcompleted:before,
+body #learndash_profile .completed:before,
+body #learndash_profile .notcompleted:before {
   content: "\e901";
   display: inline-block;
   font-family: 'Astra';
