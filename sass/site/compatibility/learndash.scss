@@ -56,24 +56,6 @@
 	}
 }
 
-.learndash_navigation_lesson_topics_list,
-.learndash_topic_dots {
-	ul {
-		
-		.topic-completed span,
-		.topic-notcompleted span {
-			&:before {
-				content: "\26AB";
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-				font-size: 1.1em;
-				font-weight: normal;
-				margin-right: 5px;
-			}
-		}
-	}
-}
-
 body {
 	.learndash,
 	#learndash_profile {
@@ -133,6 +115,15 @@ body {
 				padding-left: 0;
 				background: none;
 				margin: 5px 0;
+
+				&:before {
+					content: "\26AB";
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					font-size: 1.1em;
+					font-weight: normal;
+					margin-right: 5px;
+				}
 			}
 		}
 	}
