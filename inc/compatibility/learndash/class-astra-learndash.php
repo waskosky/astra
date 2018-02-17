@@ -98,8 +98,11 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				'body dd.course_progress div.course_progress_blue' => array(
 					'background-color' => $theme_color,
 				),
-				'body #learndash_lessons a, body #learndash_quizzes a, body .expand_collapse a, body .learndash_topic_dots a, body .learndash_topic_dots a > span, body #learndash_lesson_topics_list span a, body #learndash_profile a, body #learndash_profile a span' => array(
+				'body #learndash_lessons a, body #learndash_quizzes a, body .expand_collapse a, body .learndash_topic_dots a, body .learndash_topic_dots a > span, body #learndash_lesson_topics_list span a, body #learndash_profile a, body #learndash_profile a span, #lessons_list .list-count, #quiz_list .list-count' => array(
 					'color' => $theme_color,
+				),
+				'body .learndash .notcompleted:after, body #learndash_profile .notcompleted:after, .learndash_topic_dots ul .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before, .learndash .topic-notcompleted span:before' => array(
+					'color' => astra_hex_to_rgba( $text_color, .75 ),
 				),
 				'body .thumbnail.course .ld_course_grid_price, body .thumbnail.course .ld_course_grid_price.ribbon-enrolled, body #learndash_lessons #lesson_heading, body #learndash_profile .learndash_profile_heading, body #learndash_quizzes #quiz_heading, body #learndash_lesson_topics_list div > strong' => array(
 					'background-color' => $theme_color,
