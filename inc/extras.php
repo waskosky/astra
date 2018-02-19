@@ -400,7 +400,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
 		}
 
-		return $output;
+		return do_shortcode( $output );
 	}
 }// End if().
 
