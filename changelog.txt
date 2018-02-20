@@ -1,7 +1,7 @@
 v1.2.3
 - Fixed: Added shortcode support for Footer bar custom text section.
 - Improvement: Updated Container layout strings for Default, Pages, Blog Posts, Blog Archives & WooCommerce.
-- Improvement: Updated strings for Body & Content Font Family & Font Wieght.
+- Improvement: Updated strings for Body & Content Font Family & Font Weight.
 
 v1.2.2
 - Added: Grid option for LifterLMS membership.
