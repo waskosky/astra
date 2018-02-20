@@ -4,15 +4,22 @@ v1.2.3
 - Improvement: Updated strings for Body & Content Font Family & Font Weight.
 
 v1.2.2
-- Added: Grid option for LifterLMS membership.
-- Improvement: Now you can add responsive width for the Site Logo.
+- New: Now you can add responsive width for the Site Logo.
+- New: Option to set the Content width to shop page.
+- New: Grid option for LifterLMS membership.
 - Improvement: WooCommerce Star rating will be displayed even if a product has 0 rating for consistency in alignments in the product grid.
 - Improvement: Added blockquote border color as theme/link color with 0.05 opacity
-- Improvement: LifterLMS quiz styles updated.
+- Improvement: Updated LifterLMS Quiz Styles.
+- Improvement: Disabled automatic page builder compatibility for blog posts.
+- Fixed: WooCommerce shop grid incorrect alignment when changing the mobile device orientation on iOS Safari.
+- Fixed: Footer widget spacings were not being saved in the customizer.
+- Fixed: Incorrect alignment of the menu when using menu plugins.
 - Fixed: Blog width being applied to the WooCommerce archive pages.
 - Fixed: Allow WooCommerce mini cart to be extended from the Astra Pro.
 - Fixed: Fixed the style of category list on the Shop Page.
 - Fixed: Update all the `schema.org` URLs to https scheme.
+- Fixed: Submenu not correctly aligned with the parent menu item.
+- Fixed: oEmbed's adding extra padding causing whitespace below them.
 
 v1.2.1
 # Improvement: Allow better styling for the LifterLMS shortcodes as per the settings in the customizer.
