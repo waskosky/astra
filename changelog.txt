@@ -1,3 +1,8 @@
+v1.2.3
+- Fixed: Added shortcode support for Footer bar custom text section.
+- Improvement: Updated Container layout strings for Default, Pages, Blog Posts, Blog Archives & WooCommerce.
+- Improvement: Updated strings for Body & Content Font Family & Font Weight.
+
 v1.2.2
 - New: Now you can add responsive width for the Site Logo.
 - New: Option to set the Content width to shop page.

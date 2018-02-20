@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Typography(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[body-font-family]', array(
 				'type'        => 'ast-font-family',
-				'ast_inherit' => __( 'Default', 'astra' ),
+				'ast_inherit' => __( 'Default System Font', 'astra' ),
 				'section'     => 'section-body-typo',
 				'priority'    => 5,
 				'label'       => __( 'Font Family', 'astra' ),

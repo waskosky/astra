@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-02-14 09:29:54+00:00\n"
+"POT-Creation-Date: 2018-02-20 13:47:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -198,7 +198,6 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:72
 #: inc/customizer/sections/layout/sidebar.php:97
 #: inc/customizer/sections/layout/sidebar.php:122
-#: inc/customizer/sections/typography/body.php:46
 #: inc/customizer/sections/typography/body.php:69
 #: inc/customizer/sections/typography/body.php:96
 msgid "Default"
@@ -307,7 +306,6 @@ msgid "View your shopping cart"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:19
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:32
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:45
 #: inc/customizer/register-panels-and-sections.php:73
 msgid "WooCommerce"
@@ -411,6 +409,10 @@ msgstr ""
 #: inc/customizer/sections/layout/blog-single.php:123
 #: inc/customizer/sections/layout/blog.php:146
 msgid "Enter Width"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:32
+msgid "Container for WooCommerce"
 msgstr ""
 
 #: inc/compatibility/woocommerce/woocommerce-common-functions.php:79
@@ -874,22 +876,19 @@ msgid "Blog Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:44
-msgid "Default Container Layout"
+msgid "Default Container"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:68
-#: inc/customizer/sections/layout/sidebar.php:70
-msgid "Pages"
+msgid "Container for Pages"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:95
-#: inc/customizer/sections/layout/sidebar.php:95
-msgid "Blog Posts"
+msgid "Container for Blog Posts"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:121
-#: inc/customizer/sections/layout/sidebar.php:120
-msgid "Blog Post Archives"
+msgid "Container for Blog Archives"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:32
@@ -959,7 +958,7 @@ msgid "Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:18
-#: inc/customizer/sections/layout/header.php:116 inc/extras.php:268
+#: inc/customizer/sections/layout/header.php:116 inc/extras.php:270
 #. translators: 1: Site Title Markup, 2: Site Tagline Markup
 msgid "Search"
 msgstr ""
@@ -1030,6 +1029,18 @@ msgstr ""
 msgid "Default Layout"
 msgstr ""
 
+#: inc/customizer/sections/layout/sidebar.php:70
+msgid "Pages"
+msgstr ""
+
+#: inc/customizer/sections/layout/sidebar.php:95
+msgid "Blog Posts"
+msgstr ""
+
+#: inc/customizer/sections/layout/sidebar.php:120
+msgid "Blog Post Archives"
+msgstr ""
+
 #: inc/customizer/sections/layout/sidebar.php:161
 msgid "Sidebar Width"
 msgstr ""
@@ -1087,6 +1098,10 @@ msgstr ""
 
 #: inc/customizer/sections/typography/body.php:25
 msgid "Body & Content"
+msgstr ""
+
+#: inc/customizer/sections/typography/body.php:46
+msgid "Default System Font"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:49
@@ -1167,23 +1182,23 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:297
+#: inc/extras.php:299
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:390
+#: inc/extras.php:392
 msgid "Y"
 msgstr ""
 
-#: inc/extras.php:436
+#: inc/extras.php:438
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:1003
+#: inc/extras.php:1005
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1086
+#: inc/extras.php:1088
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
