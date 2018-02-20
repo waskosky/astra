@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 85,
-			'label'    => __( 'WooCommerce', 'astra' ),
+			'label'    => __( 'Container for WooCommerce', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),

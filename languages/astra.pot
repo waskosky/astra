@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-02-20 13:26:59+00:00\n"
+"POT-Creation-Date: 2018-02-20 13:34:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -306,7 +306,6 @@ msgid "View your shopping cart"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:19
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:32
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:45
 #: inc/customizer/register-panels-and-sections.php:73
 msgid "WooCommerce"
@@ -410,6 +409,10 @@ msgstr ""
 #: inc/customizer/sections/layout/blog-single.php:123
 #: inc/customizer/sections/layout/blog.php:146
 msgid "Enter Width"
+msgstr ""
+
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:32
+msgid "Container for WooCommerce"
 msgstr ""
 
 #: inc/compatibility/woocommerce/woocommerce-common-functions.php:79
