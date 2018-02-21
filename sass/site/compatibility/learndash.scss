@@ -475,6 +475,148 @@ body {
 			padding: 1em;
 			background: #fbfbfb;
 			border-color: #e2e2e2;
+
+			&[data-type="single"],
+			&[data-type="multiple"] {
+				.wpProQuiz_answerIncorrect,
+				.wpProQuiz_answerIncorrect:last-child {
+					color: #ff0000;
+				}
+
+				.wpProQuiz_questionListItem,
+				.wpProQuiz_questionListItem:last-child {
+					padding: 0 10px;
+					input {
+						margin-right: 5px;
+						background: #fff;
+					}
+				}
+
+				.wpProQuiz_answerIncorrect,
+				.wpProQuiz_answerCorrect {
+
+					&,
+					&:last-child {
+						padding: 5px 10px;
+						background: none;
+					}
+				}
+
+				.wpProQuiz_answerCorrect,
+				.wpProQuiz_answerCorrect:last-child {
+					background-color: #6db46d;
+					color: #fff;
+				}
+			}
+			&[data-type="free_answer"] {
+				.wpProQuiz_questionListItem {
+					padding: 0;
+				}
+
+				.wpProQuiz_answerIncorrect .wpProQuiz_questionInput {
+					border-color: #ff0000;
+				}
+
+				.wpProQuiz_answerCorrect .wpProQuiz_questionInput {
+					border-color: #6db46d;
+				}
+
+				.wpProQuiz_questionListItem {
+					background: none;
+				}
+			}
+			&[data-type="sort_answer"] {
+				background: #fff;
+
+				.wpProQuiz_questionListItem,
+				.wpProQuiz_questionListItem:last-child {
+					padding: 0;
+				}
+				.wpProQuiz_sortable {
+					padding: 5px 10px;
+					background: #fbfbfb;
+					box-shadow: none;
+					border-color: #e2e2e2;
+					font-weight: normal;
+
+					&:before {
+						content: "\e5d2";
+						font-family: Astra;
+						font-size: 1.25em;
+						line-height: 1;
+						vertical-align: middle;
+						position: relative;
+						top: -2px;
+						margin-right: 5px;
+					}
+				}
+
+				.wpProQuiz_answerIncorrect .wpProQuiz_sortable {
+					color: #ff0000;
+				}
+
+				.wpProQuiz_answerCorrect .wpProQuiz_sortable {
+					background-color: #6db46d;
+					color: #fff;
+				}
+			}
+		}
+
+		.wpProQuiz_listItem,
+		.wpProQuiz_questionList {
+		
+			&[data-type="matrix_sort_answer"] {
+				
+				.wpProQuiz_questionListItem,
+				.wpProQuiz_questionListItem:last-child {
+					padding: 0;
+
+				}
+				.wpProQuiz_matrixSortString {
+					background: #fff;
+					border-color: #e2e2e2;
+					padding: 5px 15px 15px;
+				}
+				.wpProQuiz_header {
+					font-weight: 600;
+					margin-bottom: 10px;
+				}
+
+				ul.wpProQuiz_sortStringList {
+					padding: 0;
+					margin: 0 -5px;
+					display: inline-block;
+
+					.wpProQuiz_sortStringItem {
+
+					}
+				}
+
+				.wpProQuiz_sortStringItem {
+					padding: 5px 10px;
+					background: #fbfbfb;
+
+					&:before {
+						content: "\e5d2";
+						font-family: Astra;
+						font-size: 1.25em;
+						line-height: 1;
+						vertical-align: middle;
+						position: relative;
+						top: -2px;
+						margin-right: 5px;
+					}
+				}
+
+				.wpProQuiz_answerIncorrect .wpProQuiz_sortable {
+					color: #ff0000;
+				}
+
+				.wpProQuiz_answerCorrect .wpProQuiz_sortable {
+					background-color: #6db46d;
+					color: #fff;
+				}
+			}
 		}
 
 		.wpProQuiz_tipp {
@@ -559,31 +701,9 @@ body {
 
 		.wpProQuiz_questionListItem,
 		.wpProQuiz_questionListItem:last-child {
-			padding: 0 10px;
 			input {
-				margin-right: 5px;
+				background: #fff;
 			}
-		}
-
-		.wpProQuiz_answerIncorrect,
-		.wpProQuiz_answerCorrect {
-
-			&,
-			&:last-child {
-				padding: 5px 10px;
-				background: none;
-			}
-		}
-
-		.wpProQuiz_answerIncorrect,
-		.wpProQuiz_answerIncorrect:last-child {
-			color: #ff0000;
-		}
-
-		.wpProQuiz_answerCorrect,
-		.wpProQuiz_answerCorrect:last-child {
-			background-color: #6db46d;
-			color: #fff;
 		}
 
 		.wpProQuiz_lock,
@@ -625,6 +745,30 @@ body {
 		.wpProQuiz_button2 {
 			padding: 5px 15px;
 			border: none;
+		}
+
+		.wpProQuiz_time_limit {
+			position: relative;
+			padding-bottom: 10px;
+
+			&:before {
+				content: '';
+				width: 100%;
+				height: 8px;
+				Background: #fbfbfb;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				border-radius: 4px;
+			}
+
+			.wpProQuiz_progress {
+				position: absolute;
+				bottom: 0;
+				border-radius: 4px;
+				height: 8px;
+				margin-bottom: 0;
+			}
 		}
 	}
 
