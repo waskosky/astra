@@ -353,16 +353,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function general_page() {
 			$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
-			$top_links = apply_filters( 'astra_page_top_links', array(
-				array(
-					'title' => 'One',
-					'href'  => 'https://google.com/',
-				),
-				array(
-					'title' => 'Two',
-					'href'  => 'https://google.com/',
-				),
-			) );
+			$top_links        = apply_filters(
+				'astra_page_top_links', array(
+					array(
+						'title' => 'Visit Website',
+						'href'  => esc_url( 'https://wpastra.com/' ),
+					),
+				)
+			);
 
 			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
 		}
@@ -372,14 +370,15 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_right_sidebar_content(){
+		static public function astra_welcome_page_right_sidebar_content() {
 			$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
 			?>
 			<div class="postbox">
 				<h2 class="hndle">
 					<span>
-					<?php 
-					printf( '%1$s %2$s',
+					<?php
+					printf(
+						'%1$s %2$s',
 						esc_html_e( 'Welcome To', 'astra-addon' ),
 						esc_html( $astra_theme_name )
 					);
@@ -427,7 +426,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			</div>
 
 			<a class="submit ast-customizer-btn button-primary button button-hero" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Go To Customizer', 'astra-addon' ); ?></a>
-		<?php }
+		<?php
+		}
 
 
 		/**
@@ -435,45 +435,68 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_content(){
-
+		static public function astra_welcome_page_content() {
+			$quick_settings = apply_filters(
+				'astra_quick_settings', array(
+					array(
+						'title' => 'Upload Logo & Favicon',
+						'href'  => esc_url( admin_url( 'customize.php?autofocus[control]=custom_logo' ) ),
+					),
+					array(
+						'title' => 'Set Colors',
+						'href'  => esc_url( admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ) ),
+					),
+					array(
+						'title' => 'Choose Typography',
+						'href'  => esc_url( admin_url( 'customize.php?autofocus[panel]=panel-typography' ) ),
+					),
+					array(
+						'title' => 'Check Layout Options',
+						'href'  => esc_url( admin_url( 'customize.php?autofocus[panel]=panel-layout' ) ),
+					),
+					array(
+						'title' => 'Header Options',
+						'href'  => esc_url( admin_url( 'customize.php?autofocus[section]=section-header-group' ) ),
+					),
+					array(
+						'title' => 'BLog Layouts',
+						'href'  => esc_url( admin_url( 'customize.php?autofocus[section]=section-blog-group' ) ),
+					),
+					array(
+						'title' => 'Footer Settings',
+						'href'  => esc_url( admin_url( 'customize.php?autofocus[section]=section-footer-group' ) ),
+					),
+				)
+			);
 			?>
 			<div class="postbox">
 				<h2 class="hndle"><span><?php esc_html_e( 'Quick Settings', 'astra-addon' ); ?></span></h2>
-				<div class="inside">
-					<div class="ast-quick-section"></div>
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</div>
+					<div class="ast-quick-setting-section">
+						<?php
+						if ( ! empty( $quick_settings ) ) :
+							?>
+							<div class="ast-quick-links">
+								<ul>
+									<?php
+									foreach ( (array) $quick_settings as $key => $link ) {
+										echo '<li class="ast-flex"><span class="ast-quick-setting-title">' . esc_html( $link['title'] ) . '</span><a class="ast-quick-setting-link" href="' . esc_url( $link['href'] ) . '" target="_blank" rel="noopener">' . esc_html__( 'Visit Option', 'astra-addon' ) . '</a></li>';
+									}
+									?>
+								</ul>
+							</div>
+						<?php endif; ?>
+					</div>
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Astra Starter Sites', 'astra-addon' ); ?></span></h2>
-				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</div>
-			</div>
-
-			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'User Community', 'astra-addon' ); ?></span></h2>
-				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</div>
-			</div>
-
-			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Five Star Support', 'astra-addon' ); ?></span></h2>
+				<h2 class="hndle"><span><?php esc_html_e( 'Astra Pro Addon', 'astra-addon' ); ?></span></h2>
 				<div class="inside">
 					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				</div>
 			</div>
 
-			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Recommended Resources', 'astra-addon' ); ?></span></h2>
-				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</div>
-			</div>
-		<?php }
+		<?php
+		}
 
 	}
 

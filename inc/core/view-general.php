@@ -8,6 +8,7 @@
  * @link        http://wpastra.com/
  * @since       Astra 1.0
  */
+
 ?>
 
 <div class="wrap ast-clear">
@@ -20,12 +21,13 @@
 			</div>
 
 	<?php
-	if( ! empty( $top_links ) ) :
+	if ( ! empty( $top_links ) ) :
 		?>
 		<div class="ast-top-links">
 			<ul>
-				<?php foreach ( (array) $top_links as $key => $link) {
-					echo '<li><a href="'.esc_url( $link['href'] ).'">'.esc_html( $link['title'] ).'</a></li>';
+				<?php
+				foreach ( (array) $top_links as $key => $link ) {
+					echo '<li><a href="' . esc_url( $link['href'] ) . '" target="_blank" rel="noopener" >' . esc_html( $link['title'] ) . '</a></li>';
 				}
 				?>
 			</ul>

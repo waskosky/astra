@@ -179,22 +179,30 @@
     margin-left: 0;
 }
 
+/**
+ * CSS code for all Astra Extensions admin screens
+ *
+ * @package Astra
+ * @since 1.2.4
+ */
 
 /**
  * Astra Welcome Page
  */
- .appearance_page_astra #wpcontent{
+.appearance_page_astra #wpcontent{
  	padding: 0;
  }
 .ast-menu-page-wrapper .wrap{
 	margin: 0;
 }
+.ast-menu-page-wrapper .wrap a{
+	text-decoration: none;
+}
 .ast-theme-page-header {
     background-color: #fff;
     text-align: center;
-    box-shadow: 0 1px 0 rgba(200,215,225,0.5), 0 1px 2px #DDD;
-    margin-bottom: 40px;
     padding: 20px;
+    margin-bottom: 20px;
 }
 .ast-container {
     max-width: 1200px;
@@ -229,14 +237,16 @@
     align-content: flex-start;
     text-align: left;
 }
+.ast-theme-title span{
+	font-size: 1.5rem;
+    color: #333333;
+    font-weight: 500;
+}
 .ast-top-links {
     flex: auto;
     text-align: right;
 }
 
-.ast-wp-container {
-    display: flex;
-}
 .ast-top-links ul{
 	margin: 0;
 }
@@ -246,4 +256,24 @@
 
 .ast-top-links a {
     padding: 8px 15px;
+}
+
+/**
+ * Astra Quick Settings
+ */
+ .ast-quick-setting-section ul{
+ 	margin: 0;
+ }
+.ast-quick-setting-section li{
+	padding: 15px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 0;
+}
+.ast-quick-setting-section li:last-child{
+	border-bottom: 0;
+}
+.ast-quick-setting-section span.ast-quick-setting-title{
+	flex: auto;
+	color: #333333;
+    font-weight: 500;
 }
