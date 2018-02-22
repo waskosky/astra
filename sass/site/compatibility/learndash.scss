@@ -11,6 +11,15 @@
 @import "../variables-site/colors";
 
 
+.ld-course-list-content {
+	.ld-entry-content {
+		margin-bottom: 1.5em;
+		img {
+			margin: 0 auto 1.5em;
+		}
+	}
+}
+
 .learndash,
 #learndash_profile {
 	.completed,
@@ -120,6 +129,36 @@ body {
 			background: none;
 		}
 	}
+
+	#ld_topic_categorydropdown,
+	#ld_lesson_categorydropdown,
+	#ld_course_categorydropdown {
+		margin-bottom: 1em;
+
+		label {
+			display: inline-block;
+			width: 100%;
+			font-weight: 600;
+		}
+	}
+
+	.learndash-pager {
+		span {
+			a {
+				font-size: 1.5em;
+				width: 1.5em;
+				height: 1.5em;
+				line-height: 1.25;
+				text-align: center;
+				display: inline-block;
+			}
+
+			.pagedisplay {
+				text-transform: capitalize;
+				line-height: 2.2;
+			}
+		}
+	}
 	
 	.learndash {
 		.topic-completed span,
@@ -132,12 +171,6 @@ body {
 	// Course List.
 	#ld_course_list {
 		
-		#ld_topic_categorydropdown,
-		#ld_lesson_categorydropdown,
-		#ld_course_categorydropdown {
-			margin-bottom: 1em;
-		}
-
 		.ld_course_grid {
 			.caption {
 				padding: 15px;

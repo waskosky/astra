@@ -8,6 +8,14 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.ld-course-list-content .ld-entry-content {
+  margin-bottom: 1.5em;
+}
+
+.ld-course-list-content .ld-entry-content img {
+  margin: 0 auto 1.5em;
+}
+
 .learndash .completed:before,
 .learndash .notcompleted:before,
 #learndash_profile .completed:before,
@@ -97,16 +105,40 @@ body #learndash_profile .notcompleted {
   background: none;
 }
 
+body #ld_topic_categorydropdown,
+body #ld_lesson_categorydropdown,
+body #ld_course_categorydropdown {
+  margin-bottom: 1em;
+}
+
+body #ld_topic_categorydropdown label,
+body #ld_lesson_categorydropdown label,
+body #ld_course_categorydropdown label {
+  display: inline-block;
+  width: 100%;
+  font-weight: 600;
+}
+
+body .learndash-pager span a {
+  font-size: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.25;
+  text-align: center;
+  display: inline-block;
+  background: #ff0000;
+  color: #fff;
+}
+
+body .learndash-pager span .pagedisplay {
+  text-transform: capitalize;
+  line-height: 2.2;
+}
+
 body .learndash .topic-completed span,
 body .learndash .topic-notcompleted span {
   background: none;
   padding: 0;
-}
-
-body #ld_course_list #ld_topic_categorydropdown,
-body #ld_course_list #ld_lesson_categorydropdown,
-body #ld_course_list #ld_course_categorydropdown {
-  margin-bottom: 1em;
 }
 
 body #ld_course_list .ld_course_grid .caption {
