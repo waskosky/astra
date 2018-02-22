@@ -108,6 +108,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
 
 			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
+
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_right_sidebar_content' );
+
+			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 		}
 
 		/**
@@ -337,7 +341,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			?>
 			<div class="ast-menu-page-wrapper">
-				<?php self::init_nav_menu( $active_tab ); ?>
 				<?php do_action( 'astra_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
 			</div>
 			<?php
@@ -349,8 +352,129 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function general_page() {
+			$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
+			$top_links = apply_filters( 'astra_page_top_links', array(
+				array(
+					'title' => 'One',
+					'href'  => 'https://google.com/',
+				),
+				array(
+					'title' => 'Two',
+					'href'  => 'https://google.com/',
+				),
+			) );
+
 			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
 		}
+
+		/**
+		 * Include Welcome page right sidebar content
+		 *
+		 * @since 1.2.4
+		 */
+		static public function astra_welcome_page_right_sidebar_content(){
+			$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
+			?>
+			<div class="postbox">
+				<h2 class="hndle">
+					<span>
+					<?php 
+					printf( '%1$s %2$s',
+						esc_html_e( 'Welcome To', 'astra-addon' ),
+						esc_html( $astra_theme_name )
+					);
+					?>
+					</span>
+				</h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Getting Started', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Astra Starter Sites', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'User Community', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Five Star Support', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Recommended Resources', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<a class="submit ast-customizer-btn button-primary button button-hero" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Go To Customizer', 'astra-addon' ); ?></a>
+		<?php }
+
+
+		/**
+		 * Include Welcome page content
+		 *
+		 * @since 1.2.4
+		 */
+		static public function astra_welcome_page_content(){
+
+			?>
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Quick Settings', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					<div class="ast-quick-section"></div>
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Astra Starter Sites', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'User Community', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Five Star Support', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle"><span><?php esc_html_e( 'Recommended Resources', 'astra-addon' ); ?></span></h2>
+				<div class="inside">
+					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+			</div>
+		<?php }
+
 	}
 
 	new Astra_Admin_Settings;
