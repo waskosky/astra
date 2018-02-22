@@ -400,6 +400,15 @@ body {
 
 		.profile_info {
 			margin-bottom: 1em;
+			position: relative;
+		}
+
+		.profile_edit_profile {
+			@media(min-width: $col-sm) {
+				position: absolute;
+				top: 15px;
+				right: 15px;
+			}
 		}
 
 		.course_progress,
@@ -464,7 +473,8 @@ body {
 		}
 
 		.profile_edit_profile a {
-			font-size: .75em;
+			font-size: .8em;
+			line-height: 1.75;
 		}
 
 		.list_arrow {

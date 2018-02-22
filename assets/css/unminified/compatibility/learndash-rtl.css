@@ -388,6 +388,15 @@ body #learndash_profile #course_list .certificate_icon_large:before {
 
 body #learndash_profile .profile_info {
   margin-bottom: 1em;
+  position: relative;
+}
+
+@media (min-width: 545px) {
+  body #learndash_profile .profile_edit_profile {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
 }
 
 body #learndash_profile .course_progress,
@@ -454,7 +463,8 @@ body #learndash_profile .learndash_profile_details > div {
 }
 
 body #learndash_profile .profile_edit_profile a {
-  font-size: .75em;
+  font-size: .8em;
+  line-height: 1.75;
 }
 
 body #learndash_profile .list_arrow {
