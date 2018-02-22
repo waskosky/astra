@@ -229,8 +229,8 @@ body {
 
 	.widget_course_return,
 	.course_navigation .widget_course_return a,
-	.learndash_lessons,
-	.learndash_quizzes,
+	#learndash_lessons,
+	#learndash_quizzes,
 	.expand_collapse,
 	.notavailable_message,
 	#learndash_lesson_topics_list div > strong,
@@ -238,8 +238,8 @@ body {
 	.learndash_profile_heading,
 	#learndash_profile a,
 	#learndash_profile div,
-	.learndash_lessons a,
-	.learndash_quizzes a,
+	#learndash_lessons a,
+	#learndash_quizzes a,
 	.expand_collapse a,
 	.learndash_topic_dots a,
 	.learndash_topic_dots a > span,
@@ -289,15 +289,15 @@ body {
 		}
 	}
 
-	.learndash_lessons #lesson_heading,
+	#learndash_lessons #lesson_heading,
 	#learndash_profile .learndash_profile_heading,
-	.learndash_quizzes #quiz_heading,
+	#learndash_quizzes #quiz_heading,
 	#learndash_lesson_topics_list div > strong {
 		padding: 10px .75em;
 	}
 
-	.learndash_lessons .right,
-	.learndash_quizzes .right {
+	#learndash_lessons .right,
+	#learndash_quizzes .right {
 		width: auto;
 	}
 
@@ -546,8 +546,8 @@ body {
 		font-weight: 600;
 	}
 
-	.learndash_lessons,
-	.learndash_quizzes {
+	#learndash_lessons,
+	#learndash_quizzes {
 		h4 > a:hover {
 			background: none;
 		}
