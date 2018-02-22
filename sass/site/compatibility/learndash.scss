@@ -193,6 +193,7 @@ body {
 
 	.learndash_navigation_lesson_topics_list,
 	.learndash_topic_dots {
+		&,
 		ul {
 			.topic-notcompleted span {
 				margin: 5px 0;
@@ -227,9 +228,9 @@ body {
 	}
 
 	.widget_course_return,
-	#course_navigation .widget_course_return a,
-	#learndash_lessons,
-	#learndash_quizzes,
+	.course_navigation .widget_course_return a,
+	.learndash_lessons,
+	.learndash_quizzes,
 	.expand_collapse,
 	.notavailable_message,
 	#learndash_lesson_topics_list div > strong,
@@ -237,8 +238,8 @@ body {
 	.learndash_profile_heading,
 	#learndash_profile a,
 	#learndash_profile div,
-	#learndash_lessons a,
-	#learndash_quizzes a,
+	.learndash_lessons a,
+	.learndash_quizzes a,
 	.expand_collapse a,
 	.learndash_topic_dots a,
 	.learndash_topic_dots a > span,
@@ -288,15 +289,15 @@ body {
 		}
 	}
 
-	#learndash_lessons #lesson_heading,
+	.learndash_lessons #lesson_heading,
 	#learndash_profile .learndash_profile_heading,
-	#learndash_quizzes #quiz_heading,
+	.learndash_quizzes #quiz_heading,
 	#learndash_lesson_topics_list div > strong {
 		padding: 10px .75em;
 	}
 
-	#learndash_lessons .right,
-	#learndash_quizzes .right {
+	.learndash_lessons .right,
+	.learndash_quizzes .right {
 		width: auto;
 	}
 
@@ -312,10 +313,15 @@ body {
 
 		&.collapse, 
 		&.expand {
-			background: none;
-			padding: 10px;
-			line-height: 1.5;
-			vertical-align: top;
+			
+			&,
+			&.lesson_incomplete,
+			&.lesson_completed {
+				background: none;
+				padding: 10px;
+				line-height: 1.5;
+				vertical-align: top;
+			}
 		}
 
 		&:before {
@@ -337,7 +343,7 @@ body {
 		}
 	}
 
-	#course_navigation {
+	.course_navigation {
 		.learndash_navigation_lesson_topics_list {
 			.list_lessons {
 				margin-bottom: 5px;
@@ -540,8 +546,8 @@ body {
 		font-weight: 600;
 	}
 
-	#learndash_lessons,
-	#learndash_quizzes {
+	.learndash_lessons,
+	.learndash_quizzes {
 		h4 > a:hover {
 			background: none;
 		}

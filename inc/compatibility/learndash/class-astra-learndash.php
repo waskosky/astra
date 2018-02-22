@@ -3,7 +3,7 @@
  * LearnDash Compatibility File.
  *
  * @package Astra
- * @since 1.2.0
+ * @since 1.2.3
  */
 
 // If plugin - 'LearnDash' not exist then return.
@@ -19,7 +19,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 	/**
 	 * Astra LearnDash Compatibility
 	 *
-	 * @since 1.2.0
+	 * @since 1.2.3
 	 */
 	class Astra_LearnDash {
 
@@ -47,12 +47,20 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_dynamic_styles' ) );
+
+			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
+			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
+
+			// Sidebar Layout.
+			add_filter( 'astra_page_layout', array( $this, 'sidebar_layout' ) );
+			// Content Layout.
+			add_filter( 'astra_get_content_layout', array( $this, 'content_layout' ) );
 		}
 
 		/**
 		 * Enqueue styles
 		 *
-		 * @since 1.2.0
+		 * @since 1.2.3
 		 * @return void
 		 */
 		function add_dynamic_styles() {
@@ -101,7 +109,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				'body #learndash_lessons a, body #learndash_quizzes a, body .expand_collapse a, body .learndash_topic_dots a, body .learndash_topic_dots a > span, body #learndash_lesson_topics_list span a, body #learndash_profile a, body #learndash_profile a span, #lessons_list .list-count, #quiz_list .list-count' => array(
 					'color' => $theme_color,
 				),
-				'.learndash .notcompleted:before, #learndash_profile .notcompleted:before, .learndash_topic_dots ul .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before, .learndash .topic-notcompleted span:before' => array(
+				'.learndash .notcompleted:before, #learndash_profile .notcompleted:before, .learndash_topic_dots ul .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before, .learndash .topic-notcompleted span:before' => array(
 					'color' => astra_hex_to_rgba( $text_color, .5 ),
 				),
 				'body .thumbnail.course .ld_course_grid_price, body .thumbnail.course .ld_course_grid_price.ribbon-enrolled, body #learndash_lessons #lesson_heading, body #learndash_profile .learndash_profile_heading, body #learndash_quizzes #quiz_heading, body #learndash_lesson_topics_list div > strong, body .learndash-pager span a' => array(
@@ -145,15 +153,114 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		}
 
 		/**
+		 * Register Customizer sections and panel for learndash.
+		 *
+		 * @since 1.2.3
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		function customize_register( $wp_customize ) {
+
+			/**
+			 * Register Sections & Panels
+			 */
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/register-panels-and-sections.php';
+
+			/**
+			 * Sections
+			 */
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-container.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-sidebar.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/section-general.php';
+		}
+
+		/**
+		 * Theme Defaults.
+		 *
+		 * @since 1.2.3
+		 * @param array $defaults Array of options value.
+		 * @return array
+		 */
+		function theme_defaults( $defaults ) {
+
+			// General.
+			$defaults['learndash-course-grid']     = array(
+				'desktop' => 3,
+				'tablet'  => 2,
+				'mobile'  => 1,
+			);
+
+			// Container.
+			$defaults['learndash-content-layout'] = 'plain-container';
+
+			// Sidebar.
+			$defaults['learndash-sidebar-layout'] = 'default';
+
+			return $defaults;
+		}
+
+		/**
 		 * Add assets in theme
 		 *
-		 * @since 1.2.0
+		 * @since 1.2.3
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
 		 */
 		function add_styles( $assets ) {
 			$assets['css']['astra-learndash'] = 'compatibility/learndash';
 			return $assets;
+		}
+
+		/**
+		 * LeanDash Sidebar
+		 *
+		 * @since 1.2.3
+		 * @param string $layout Layout type.
+		 * @return string $layout Layout type.
+		 */
+		function sidebar_layout( $layout ) {
+
+			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) ||  is_singular( 'sfwd-quiz' ) ||  is_singular( 'sfwd-certificates' ) ||  is_singular( 'sfwd-assignment' ) ) {
+
+				$learndash_sidebar = astra_get_option( 'learndash-sidebar-layout' );
+				if ( 'default' !== $learndash_sidebar ) {
+					$layout = $learndash_sidebar;
+				}
+
+				$shop_sidebar = astra_get_option_meta( 'site-sidebar-layout', '', true );
+
+				if ( 'default' !== $shop_sidebar && ! empty( $shop_sidebar ) ) {
+					$layout = $shop_sidebar;
+				}
+			}
+
+			return $layout;
+		}
+
+		/**
+		 * LeanDash Container
+		 *
+		 * @since 1.2.3
+		 * @param string $layout Layout type.
+		 * @return string $layout Layout type.
+		 */
+		function content_layout( $layout ) {
+
+			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) ||  is_singular( 'sfwd-quiz' ) ||  is_singular( 'sfwd-certificates' ) ||  is_singular( 'sfwd-assignment' ) ) {
+
+				$learndash_layout = astra_get_option( 'learndash-content-layout' );
+
+				if ( 'default' !== $learndash_layout ) {
+					$layout = $learndash_layout;
+				}
+
+				$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
+
+				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
+					$layout = $shop_layout;
+				}
+			}
+
+			return $layout;
 		}
 	}
 
