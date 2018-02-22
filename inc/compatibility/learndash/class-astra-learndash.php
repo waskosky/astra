@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'color' => $theme_color,
 				),
 				'.learndash .notcompleted:before, #learndash_profile .notcompleted:before, .learndash_topic_dots ul .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before, .learndash .topic-notcompleted span:before' => array(
-					'color' => astra_hex_to_rgba( $text_color, .4 ),
+					'color' => astra_hex_to_rgba( $text_color, .5 ),
 				),
 				'body .thumbnail.course .ld_course_grid_price, body .thumbnail.course .ld_course_grid_price.ribbon-enrolled, body #learndash_lessons #lesson_heading, body #learndash_profile .learndash_profile_heading, body #learndash_quizzes #quiz_heading, body #learndash_lesson_topics_list div > strong' => array(
 					'background-color' => $theme_color,
