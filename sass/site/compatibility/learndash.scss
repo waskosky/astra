@@ -161,6 +161,16 @@ body {
 
 	}
 
+	.user_has_no_access {
+		#course_list,
+		#lessons_list,
+		#quiz_list {
+			.list-count {
+				color: gray;
+			}
+		}
+	}
+
 	#course_list,
 	#lessons_list,
 	#quiz_list {
@@ -170,11 +180,6 @@ body {
 			min-width: 2.5em;
 		}
 
-		.is_not_sample {
-			.list-count {
-				color: gray;
-			}
-		}
 
 		> div {
 			border: none;
@@ -531,13 +536,17 @@ body {
 				.wpProQuiz_questionListItem,
 				.wpProQuiz_questionListItem:last-child {
 					padding: 0;
+					font-weight: 600;
 				}
+
 				.wpProQuiz_sortable {
 					padding: 5px 10px;
 					background: #fbfbfb;
 					box-shadow: none;
 					border-color: #e2e2e2;
-					font-weight: normal;
+					display: inline-block;
+					width: 100%;
+					position: relative;
 
 					&:before {
 						content: "\e5d2";
@@ -576,16 +585,19 @@ body {
 					background: #fff;
 					border-color: #e2e2e2;
 					padding: 5px 15px 15px;
+
+					.wpProQuiz_header {
+						margin-bottom: 10px;
+					}
 				}
-				.wpProQuiz_header {
-					font-weight: 600;
-					margin-bottom: 10px;
-				}
+				
 
 				ul.wpProQuiz_sortStringList {
 					padding: 0;
 					margin: 0 -5px;
-					display: inline-block;
+					min-height: 2em;
+					width: 100%;
+					float: left;
 
 					.wpProQuiz_sortStringItem {
 
@@ -608,13 +620,21 @@ body {
 					}
 				}
 
-				.wpProQuiz_answerIncorrect .wpProQuiz_sortable {
-					color: #ff0000;
+				.wpProQuiz_answerIncorrect {
+					background: none;
+					font-weight: 600;
+					.wpProQuiz_sortStringItem {
+						color: #ff0000;
+					}
 				}
 
-				.wpProQuiz_answerCorrect .wpProQuiz_sortable {
-					background-color: #6db46d;
-					color: #fff;
+				.wpProQuiz_answerCorrect {
+					background: none;
+					font-weight: 600;
+					.wpProQuiz_sortStringItem {
+						background-color: #6db46d;
+						color: #fff;
+					}
 				}
 			}
 		}

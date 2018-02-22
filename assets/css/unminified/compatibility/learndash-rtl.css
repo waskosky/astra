@@ -139,18 +139,18 @@ body #course_list > div h4 > a {
   padding: 5px .75em;
 }
 
+body .user_has_no_access #course_list .list-count,
+body .user_has_no_access #lessons_list .list-count,
+body .user_has_no_access #quiz_list .list-count {
+  color: gray;
+}
+
 body #course_list .list-count,
 body #lessons_list .list-count,
 body #quiz_list .list-count {
   border-left: none;
   pointer-events: none;
   min-width: 2.5em;
-}
-
-body #course_list .is_not_sample .list-count,
-body #lessons_list .is_not_sample .list-count,
-body #quiz_list .is_not_sample .list-count {
-  color: gray;
 }
 
 body #course_list > div,
@@ -527,6 +527,7 @@ body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] {
 body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] .wpProQuiz_questionListItem,
 body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] .wpProQuiz_questionListItem:last-child {
   padding: 0;
+  font-weight: 600;
 }
 
 body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] .wpProQuiz_sortable {
@@ -535,7 +536,9 @@ body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] .wpProQ
   -webkit-box-shadow: none;
   box-shadow: none;
   border-color: #e2e2e2;
-  font-weight: normal;
+  display: inline-block;
+  width: 100%;
+  position: relative;
 }
 
 body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] .wpProQuiz_sortable:before {
@@ -572,9 +575,8 @@ body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] 
   padding: 5px 15px 15px;
 }
 
-body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_header,
-body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_header {
-  font-weight: 600;
+body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_matrixSortString .wpProQuiz_header,
+body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_matrixSortString .wpProQuiz_header {
   margin-bottom: 10px;
 }
 
@@ -582,7 +584,9 @@ body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] ul.w
 body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] ul.wpProQuiz_sortStringList {
   padding: 0;
   margin: 0 -5px;
-  display: inline-block;
+  min-height: 2em;
+  width: 100%;
+  float: right;
 }
 
 body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_sortStringItem,
@@ -603,13 +607,25 @@ body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] 
   margin-left: 5px;
 }
 
-body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_answerIncorrect .wpProQuiz_sortable,
-body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_answerIncorrect .wpProQuiz_sortable {
+body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_answerIncorrect,
+body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_answerIncorrect {
+  background: none;
+  font-weight: 600;
+}
+
+body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_answerIncorrect .wpProQuiz_sortStringItem,
+body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_answerIncorrect .wpProQuiz_sortStringItem {
   color: #ff0000;
 }
 
-body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_answerCorrect .wpProQuiz_sortable,
-body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_answerCorrect .wpProQuiz_sortable {
+body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_answerCorrect,
+body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_answerCorrect {
+  background: none;
+  font-weight: 600;
+}
+
+body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_answerCorrect .wpProQuiz_sortStringItem,
+body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_answerCorrect .wpProQuiz_sortStringItem {
   background-color: #6db46d;
   color: #fff;
 }
