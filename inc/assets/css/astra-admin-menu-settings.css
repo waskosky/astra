@@ -185,7 +185,6 @@
  * @package Astra
  * @since 1.2.4
  */
-
 /**
  * Astra Welcome Page
  */
@@ -210,7 +209,14 @@
     padding: 0 20px;
     box-sizing: border-box;
 }
-.ast-container .notice{
+.ast-container span.dashicons {
+    margin-right: 10px;
+    padding: 5px;
+    background: #f1f1f1;
+}
+.ast-container div.notice,
+.ast-container div.updated,
+.ast-container div.error{
 	margin-top: 0;
 }
 .ast-flex{
@@ -261,18 +267,22 @@
 /**
  * Astra Quick Settings
  */
- .ast-quick-setting-section ul{
+ .ast-quick-setting-section ul,
+ .ast-addon-list-section ul{
  	margin: 0;
  }
-.ast-quick-setting-section li{
-	padding: 15px;
+.ast-quick-setting-section li,
+.ast-addon-list-section li{
+	padding: 10px 15px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 0;
 }
-.ast-quick-setting-section li:last-child{
+.ast-quick-setting-section li:last-child,
+.ast-addon-list-section li:last-child{
 	border-bottom: 0;
 }
-.ast-quick-setting-section span.ast-quick-setting-title{
+.ast-quick-setting-section span.ast-quick-setting-title,
+.ast-addon-list-section span.ast-addon-title{
 	flex: auto;
 	color: #333333;
     font-weight: 500;

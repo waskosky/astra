@@ -11,32 +11,7 @@
 
 ?>
 
-<div class="wrap ast-clear">
-	<div class="ast-theme-page-header">
-		<div class="ast-container ast-flex">
-			<div class="ast-theme-title">
-				<span>
-					<?php echo esc_html( $astra_theme_name ); ?>
-				</span>
-			</div>
-
-	<?php
-	if ( ! empty( $top_links ) ) :
-		?>
-		<div class="ast-top-links">
-			<ul>
-				<?php
-				foreach ( (array) $top_links as $key => $link ) {
-					echo '<li><a href="' . esc_url( $link['href'] ) . '" target="_blank" rel="noopener" >' . esc_html( $link['title'] ) . '</a></li>';
-				}
-				?>
-			</ul>
-		</div>
-	<?php endif; ?>
-		</div>
-	</div>
-
-	<div class="ast-container">
+<div class="ast-container">
 		<div id="poststuff">
 			<div id="post-body" class="columns-2">
 				<div id="post-body-content">
