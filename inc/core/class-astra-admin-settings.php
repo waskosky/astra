@@ -342,9 +342,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
 			$top_links        = apply_filters(
 				'astra_page_top_links', array(
-					'astra-theme-link'        => array(
-						'title'           => __( 'Visit Website', 'astra' ),
-						'theme_url'       => 'https://wpastra.com',
+					'astra-theme-link' => array(
+						'title'     => __( 'Visit Website', 'astra' ),
+						'theme_url' => 'https://wpastra.com',
 					),
 				)
 			);
@@ -466,39 +466,39 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$quick_settings = apply_filters(
 				'astra_quick_settings', array(
 					array(
-						'title' => __( 'Upload Logo & Favicon', 'astra'),
-						'dashicon'  => 'dashicons-format-image',
-						'href'  => admin_url( 'customize.php?autofocus[control]=custom_logo' ),
+						'title'    => __( 'Upload Logo & Favicon', 'astra' ),
+						'dashicon' => 'dashicons-format-image',
+						'href'     => admin_url( 'customize.php?autofocus[control]=custom_logo' ),
 					),
 					array(
-						'title' => __( 'Set Colors', 'astra'),
-						'dashicon'  => 'dashicons-admin-customizer',
-						'href'  => admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ),
+						'title'    => __( 'Set Colors', 'astra' ),
+						'dashicon' => 'dashicons-admin-customizer',
+						'href'     => admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ),
 					),
 					array(
-						'title' => __( 'Choose Typography', 'astra'),
-						'dashicon'  => 'dashicons-editor-textcolor',
-						'href'  => admin_url( 'customize.php?autofocus[panel]=panel-typography' ),
+						'title'    => __( 'Choose Typography', 'astra' ),
+						'dashicon' => 'dashicons-editor-textcolor',
+						'href'     => admin_url( 'customize.php?autofocus[panel]=panel-typography' ),
 					),
 					array(
-						'title' => __( 'Check Layout Options', 'astra'),
-						'dashicon'  => 'dashicons-layout',
-						'href'  => admin_url( 'customize.php?autofocus[panel]=panel-layout' ),
+						'title'    => __( 'Check Layout Options', 'astra' ),
+						'dashicon' => 'dashicons-layout',
+						'href'     => admin_url( 'customize.php?autofocus[panel]=panel-layout' ),
 					),
 					array(
-						'title' => __( 'Header Options', 'astra'),
-						'dashicon'  => 'dashicons-align-center',
-						'href'  => admin_url( 'customize.php?autofocus[section]=section-header-group' ),
+						'title'    => __( 'Header Options', 'astra' ),
+						'dashicon' => 'dashicons-align-center',
+						'href'     => admin_url( 'customize.php?autofocus[section]=section-header-group' ),
 					),
 					array(
-						'title' => __( 'Blog Layouts', 'astra'),
-						'dashicon'  => 'dashicons-welcome-write-blog',
-						'href'  => admin_url( 'customize.php?autofocus[section]=section-blog-group' ),
+						'title'    => __( 'Blog Layouts', 'astra' ),
+						'dashicon' => 'dashicons-welcome-write-blog',
+						'href'     => admin_url( 'customize.php?autofocus[section]=section-blog-group' ),
 					),
 					array(
-						'title' => __( 'Footer Settings', 'astra'),
-						'dashicon'  => 'dashicons-admin-generic',
-						'href'  => admin_url( 'customize.php?autofocus[section]=section-footer-group' ),
+						'title'    => __( 'Footer Settings', 'astra' ),
+						'dashicon' => 'dashicons-admin-generic',
+						'href'     => admin_url( 'customize.php?autofocus[section]=section-footer-group' ),
 					),
 				)
 			);
@@ -510,107 +510,178 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						// 'icon'            => ASTRA_EXT_URI . 'assets/img/astra-advanced-hooks.png',
 						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'astra' ),
 						'manage_settings' => true,
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'           => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'blog-pro'              => array(
 						'title'       => __( 'Blog Pro', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/blog-pro.png',
 						'description' => 'This module adds more options in the customizer for the blog layouts.',
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'colors-and-background' => array(
 						'title'       => __( 'Colors & Background', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/colors-and-backgrounds.png',
 						'description' => __( 'Customize colors in all areas on your website or add background images.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'advanced-footer'       => array(
 						'title'       => __( 'Footer Widgets', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/advanced-footer.png',
 						'description' => __( 'Add customizable widget areas above the main footer.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'header-sections'       => array(
 						'title'       => __( 'Header Sections', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/astra-header-sections.png',
 						'description' => __( 'This module introduces two more header sections in the website header.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'lifterlms'             => array(
 						'title'       => __( 'LifterLMS', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/lifterlms.png',
 						'description' => __( 'Supercharge your LifterLMS website with amazing design features.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'advanced-headers'      => array(
 						'title'           => __( 'Page Headers', 'astra' ),
 						// 'icon'            => ASTRA_EXT_URI . 'assets/img/advanced-headers.png',
 						'description'     => __( 'Make your header layouts look more appealing and sexy!', 'astra' ),
 						'manage_settings' => true,
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'           => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'site-layouts'          => array(
 						'title'       => __( 'Site Layouts', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/sites-layout-addon.png',
 						'description' => 'Adds Box, Fluid, Padded layouts to add more design possibilities to your websites.',
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'spacing'               => array(
 						'title'       => __( 'Spacing', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/spacing.png',
 						'description' => 'Controls spacing for every element you use with Astra',
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'sticky-header'         => array(
 						'title'       => __( 'Sticky Header', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/sticky-header.png',
 						'description' => __( 'Let your header stick throughout the site or just on few particular pages.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'scroll-to-top'         => array(
 						'title'       => __( 'Scroll To Top', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/scroll-to-top.png',
 						'description' => __( 'Provides functionality to add a scroll to top link on your long pages.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'transparent-header'    => array(
 						'title'       => __( 'Transparent Header', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/transparent-header.png',
 						'description' => __( 'Create beautiful transparent headers with with just a few clicks.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'typography'            => array(
 						'title'       => __( 'Typography', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/typography.png',
 						'description' => __( 'Get full freedom to manage typography of all areas on your website.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'woocommerce'           => array(
 						'title'       => __( 'WooCommerce', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/woocommerce.png',
 						'description' => __( 'Powerful design features for your WooCommerce store.', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 					'white-label'           => array(
 						'title'       => __( 'White Label', 'astra' ),
 						// 'icon'        => ASTRA_EXT_URI . 'assets/img/woocommerce.png',
 						'description' => __( 'White Label', 'astra' ),
-						'link_url'       => 'https://wpastra.com',
-						'link_text'       => __( 'Learn more', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
+					),
+					'upcomming'             => array(
+						'title'       => __( 'Upcomming', 'astra' ),
+						// 'icon'        => ASTRA_EXT_URI . 'assets/img/woocommerce.png',
+						'description' => __( 'Upcomming', 'astra' ),
+						'links'       => array(
+							array(
+								'link_url'  => 'https://wpastra.com',
+								'link_text' => __( 'Learn more', 'astra' ),
+							),
+						),
 					),
 				)
 			);
@@ -644,7 +715,16 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								<ul>
 									<?php
 									foreach ( (array) $extensions as $addon => $info ) {
-										echo '<li class="ast-flex"><span class="ast-addon-title">' . esc_html( $info['title'] ) . '</span><a class="ast-addon-link" href="' . esc_url( $info['link_url'] ) . '" target="_blank" rel="noopener">' . esc_html( $info['link_text'] ) . '</a></li>';
+										echo '<li class="ast-flex"><span class="ast-addon-title">' . esc_html( $info['title'] ) . '</span>';
+
+										foreach ( $info['links'] as $key => $link ) {
+											printf(
+												'<a class="ast-addon-link" href="%1$s" target="_blank" rel="noopener"> %2$s </a>',
+												esc_url( $link['link_url'] ),
+												esc_html( $link['link_text'] )
+											);
+										}
+										echo '</li>';
 									}
 									?>
 								</ul>
@@ -661,30 +741,3 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 	new Astra_Admin_Settings;
 
 }// End if().
-
-
-
-add_filter( 'astra_addon_list', function( $addons = array() ) {
-
-	// $extensions = array( 'advanced-hooks', 'white-label' );
-	// Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_enabled_extensions', $extensions );
-
-	if( Astra_Ext_Extension::is_active( 'white-label' ) ) {
-		var_dump( 'yer' );
-	}
-
-	// if( is_active( 'white-label' ) ) {
-	// 	$link_text = __( 'Deactivate', 'astra' );
-	// } else {
-	// 	$link_text = __( 'Activate', 'astra' );
-	// // }
-	// $addons['white-label'] = array(
-	// 	'title'       => __( 'White Label', 'astra' ),
-	// 	// 'icon'     => ASTRA_EXT_URI . 'assets/img/woocommerce.png',
-	// 	'description' => __( 'White Label', 'astra' ),
-	// 	'link_url'    => 'https://wpastra.com',
-	// 	'link_text'   => $link_text,
-	// );
-
-	return $addons;
-});

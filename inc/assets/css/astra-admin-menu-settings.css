@@ -287,3 +287,7 @@
 	color: #333333;
     font-weight: 500;
 }
+
+.ast-addon-list-section .ast-addon-link{
+	padding: 5px;
+}
