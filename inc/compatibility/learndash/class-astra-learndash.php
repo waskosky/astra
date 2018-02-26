@@ -129,6 +129,21 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				),
 			);
 
+			if( ! astra_get_option( 'learndash-lesson-serial-number' ) ) {
+				$css_output['body #course_list .list-count, body #lessons_list .list-count, body #quiz_list .list-count'] = array(
+					'display' => 'none'
+				);
+				$css_output['body #course_list > div h4 > a, body #lessons_list > div h4 > a, body #quiz_list > div h4 > a'] = array(
+					'padding-left' => '.75em',
+    				'margin-left' => 'auto',
+				);
+			}
+			if( ! astra_get_option( 'learndash-differentiate-rows' ) ) {
+				$css_output['body #course_list > div:nth-of-type(odd), body #lessons_list > div:nth-of-type(odd), body #quiz_list > div:nth-of-type(odd), body #learndash_lesson_topics_list .learndash_topic_dots ul > li.nth-of-type-odd'] = array(
+					'background' => 'none'
+				);
+			}
+
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
@@ -183,11 +198,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// General.
-			$defaults['learndash-course-grid']     = array(
-				'desktop' => 3,
-				'tablet'  => 2,
-				'mobile'  => 1,
-			);
+			$defaults['learndash-lesson-serial-number'] = false;
+			$defaults['learndash-differentiate-rows']   = true;
 
 			// Container.
 			$defaults['learndash-content-layout'] = 'plain-container';
@@ -266,7 +278,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 
 endif;
 
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Astra_LearnDash::get_instance();
+if ( apply_filters( 'astra_enable_learndash_integration', true ) ) {
+
+	/**
+	 * Kicking this off by calling 'get_instance()' method
+	 */
+	Astra_LearnDash::get_instance();
+}

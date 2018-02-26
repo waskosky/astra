@@ -14,31 +14,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Course Columns
+	 * Option: Display Serial Number
 	 */
-	// $wp_customize->add_setting(
-	// 	ASTRA_THEME_SETTINGS . '[learndash-course-grid]', array(
-	// 		'default'           => array(
-	// 			'desktop' => 3,
-	// 			'tablet'  => 2,
-	// 			'mobile'  => 1,
-	// 		),
-	// 		'type'              => 'option',
-	// 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-	// 	)
-	// );
-	// $wp_customize->add_control(
-	// 	new Astra_Control_Responsive_Slider(
-	// 		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-course-grid]', array(
-	// 			'type'        => 'ast-responsive-slider',
-	// 			'section'     => 'section-learndash',
-	// 			'label'       => __( 'Course Columns', 'astra' ),
-	// 			'priority'    => 0,
-	// 			'input_attrs' => array(
-	// 				'step' => 1,
-	// 				'min'  => 1,
-	// 				'max'  => 6,
-	// 			),
-	// 		)
-	// 	)
-	// );
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
+			'default'           => astra_get_option( 'learndash-lesson-serial-number' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
+			'section'  => 'section-learndash',
+			'label'    => __( 'Display Serial Number', 'astra-addon' ),
+			'priority' => 5,
+			'type'     => 'checkbox',
+		)
+	);
+
+	/**
+	 * Option: Differentiate Rows
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
+			'default'           => astra_get_option( 'learndash-differentiate-rows' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
+			'section'  => 'section-learndash',
+			'label'    => __( 'Differentiate Rows', 'astra-addon' ),
+			'priority' => 5,
+			'type'     => 'checkbox',
+		)
+	);
