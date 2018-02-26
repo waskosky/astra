@@ -570,6 +570,8 @@ body #learndash_course_content_title {
 body #learndash_lessons,
 body #learndash_quizzes {
   border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 body #learndash_lessons h4 > a:hover,
@@ -591,6 +593,8 @@ body #learndash_lesson_topics_list ul > li > span.topic_item:hover {
 
 body #learndash_lesson_topics_list .learndash_topic_dots {
   border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 body #learndash_lesson_topics_list .learndash_topic_dots ul {

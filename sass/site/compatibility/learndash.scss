@@ -589,7 +589,7 @@ body {
 			background: none;
 		}
 		border: none;
-
+		box-shadow: none;
 
 		#quiz_list, // class issue “quiz_list”, one this got release replace id with class.
 		.lessons_list {
@@ -604,6 +604,7 @@ body {
 
 		.learndash_topic_dots {
 			border: none;
+			box-shadow: none;
 
 			ul {
 				border: 1px solid #e2e2e2;
