@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
 			'section'  => 'section-learndash',
 			'label'    => __( 'Differentiate Rows', 'astra-addon' ),
-			'priority' => 5,
+			'priority' => 10,
 			'type'     => 'checkbox',
 		)
 	);

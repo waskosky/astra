@@ -414,6 +414,7 @@ body #learndash_profile #course_list {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   border: 1px solid #e2e2e2;
   border-top: none;
+  overflow: hidden;
 }
 
 body #learndash_profile .profile_info .flip > div:nth-child(2),
@@ -585,6 +586,7 @@ body #learndash_quizzes #quiz_list,
 body #learndash_quizzes .lessons_list {
   border: 1px solid #e2e2e2;
   border-top: none;
+  overflow: hidden;
 }
 
 body #learndash_lesson_topics_list ul > li > span.topic_item:hover {
@@ -600,6 +602,7 @@ body #learndash_lesson_topics_list .learndash_topic_dots {
 body #learndash_lesson_topics_list .learndash_topic_dots ul {
   border: 1px solid #e2e2e2;
   border-top: none;
+  overflow: hidden;
 }
 
 body #learndash_lesson_topics_list .learndash_topic_dots ul > li:last-child a {
