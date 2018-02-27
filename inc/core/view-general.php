@@ -23,7 +23,7 @@
 
 						<?php do_action( 'astra_welcome_page_content_after' ); ?>
 				</div>
-				<div class="postbox-container" id="postbox-container-1">
+				<div class="postbox-container ast-sidebar" id="postbox-container-1">
 					<div id="side-sortables">
 						<?php do_action( 'astra_welcome_page_right_sidebar_before' ); ?>
 

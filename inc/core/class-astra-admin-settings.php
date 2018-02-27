@@ -185,19 +185,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Styles.
 			wp_enqueue_style( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
-		}
-
-		/**
-		 * Init Nav Menu
-		 *
-		 * @param mixed $action Action name.
-		 * @since 1.0
-		 */
-		static public function init_nav_menu( $action = '' ) {
-
-			if ( '' !== $action ) {
-				self::render_tab_menu( $action );
-			}
+			// Script.
+			wp_enqueue_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
 		}
 
 		/**
@@ -227,61 +216,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			return $admin_title;
 		}
 
-		/**
-		 * Render tab menu
-		 *
-		 * @param mixed $action Action name.
-		 * @since 1.0
-		 */
-		static public function render_tab_menu( $action = '' ) {
-			?>
-			<div id="ast-menu-page">
-				<?php self::render( $action ); ?>
-			</div>
-			<?php
-		}
-
-		/**
-		 * Prints HTML content for tabs
-		 *
-		 * @param mixed $action Action name.
-		 * @since 1.0
-		 */
-		static public function render( $action ) {
-
-			?>
-			<div class="nav-tab-wrapper">
-				<h1 class='ast-title'> <?php echo esc_html( self::$menu_page_title ); ?> </h1>
-				<?php
-				$view_actions = self::get_view_actions();
-
-				foreach ( $view_actions as $slug => $data ) {
-
-					if ( ! $data['show'] ) {
-						continue;
-					}
-
-					$url = self::get_page_url( $slug );
-
-					if ( $slug == self::$parent_page_slug ) {
-						update_option( 'astra_parent_page_url', $url );
-					}
-
-					$active = ( $slug == $action ) ? 'nav-tab-active' : '';
-					?>
-						<a class='nav-tab <?php echo esc_attr( $active ); ?>' href='<?php echo esc_url( $url ); ?>'> <?php echo esc_html( $data['label'] ); ?> </a>
-				<?php } ?>
-			</div><!-- .nav-tab-wrapper -->
-
-			<?php
-			// Settings update message.
-			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
-				?>
-					<span id="message" class="notice notice-success is-dismissive astra-notice"><p> <?php esc_html_e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
-				<?php
-			}
-
-		}
 
 		/**
 		 * Get and return page URL
@@ -338,8 +272,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
-
-			$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
 			$top_links        = apply_filters(
 				'astra_page_top_links', array(
 					'astra-theme-link' => array(
@@ -350,30 +282,31 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 
 			?>
-			<div class="ast-menu-page-wrapper">
-				<div class="wrap ast-clear">
-						<div class="ast-theme-page-header">
-							<div class="ast-container ast-flex">
-								<div class="ast-theme-title">
-									<span>
-										<?php echo esc_html( $astra_theme_name ); ?>
-									</span>
-								</div>
+			<div class="ast-menu-page-wrapper wrap ast-clear">
+					<div class="ast-theme-page-header">
+						<div class="ast-container ast-flex">
+							<div class="ast-theme-title">
+								<span>
+									<?php echo esc_html( self::$menu_page_title ); ?>
+								</span>
+								<span class="ast-theme-version">
+									<?php echo esc_html( ASTRA_THEME_VERSION ); ?>
+								</span>
+							</div>
 
-						<?php
-						if ( ! empty( $top_links ) ) :
-							?>
-							<div class="ast-top-links">
-								<ul>
-									<?php
-									foreach ( (array) $top_links as $key => $info ) {
-										echo '<li><a href="' . esc_url( $info['theme_url'] ) . '" target="_blank" rel="noopener" >' . esc_html( $info['title'] ) . '</a></li>';
-									}
-									?>
-								</ul>
-							</div>
-						<?php endif; ?>
-							</div>
+					<?php
+					if ( ! empty( $top_links ) ) :
+						?>
+						<div class="ast-top-links">
+							<ul>
+								<?php
+								foreach ( (array) $top_links as $key => $info ) {
+									echo '<li><a href="' . esc_url( $info['theme_url'] ) . '" target="_blank" rel="noopener" >' . esc_html( $info['title'] ) . '</a></li>';
+								}
+								?>
+							</ul>
+						</div>
+					<?php endif; ?>
 						</div>
 					</div>
 
@@ -397,61 +330,85 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		static public function astra_welcome_page_right_sidebar_content() {
-			$astra_theme_name = apply_filters( 'astra_theme_name', __( 'Astra', 'astra' ) );
+
+			do_action( 'astra_welcome_page_right_sidebar_content_before' );
 			?>
 			<div class="postbox">
 				<h2 class="hndle">
+					<span class="dashicons dashicons-star-filled"></span>
 					<span>
 					<?php
 					printf(
 						'%1$s %2$s',
 						esc_html_e( 'Welcome To', 'astra' ),
-						esc_html( $astra_theme_name )
+						esc_html( self::$menu_page_title )
 					);
 					?>
 					</span>
 				</h2>
 				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<a href="<?php echo esc_url( 'https://wpastra.com' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'See Theme Features', 'astra' );?></a>
 				</div>
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Getting Started', 'astra' ); ?></span></h2>
+				<h2 class="hndle">
+					<span class="dashicons dashicons-book"></span>
+					<span><?php esc_html_e( 'Getting Started', 'astra' ); ?></span>
+				</h2>
 				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<a href="<?php echo esc_url( 'https://wpastra.com/docs' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Visit Documentation', 'astra' );?></a>
 				</div>
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Astra Starter Sites', 'astra' ); ?></span></h2>
+				<h2 class="hndle">
+					<span class="dashicons dashicons-admin-customizer"></span>
+					<span><?php esc_html_e( 'Astra Starter Sites', 'astra' ); ?></span>
+				</h2>
 				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<button class="button install-astra-sites" data-slug="astra-sites" data-name="Astra Starter Sites"><?php echo esc_html_e( 'Install Astra Starter Sites Plugin', 'astra' ) ?> </button>
 				</div>
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'User Community', 'astra' ); ?></span></h2>
+				<h2 class="hndle">
+					<span class="dashicons dashicons-groups"></span>
+					<span><?php esc_html_e( 'User Community', 'astra' ); ?></span>
+				</h2>
 				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<a href="<?php echo esc_url( 'https://www.facebook.com/groups/wpastra' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Join Community', 'astra' );?></a>
 				</div>
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span></h2>
+				<h2 class="hndle">
+					<span class="dashicons dashicons-smiley"></span>
+					<span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span>
+				</h2>
 				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<a href="<?php echo esc_url( 'https://wpastra.com/support' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Submit a Ticket', 'astra' );?></a>
 				</div>
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Recommended Resources', 'astra' ); ?></span></h2>
+				<h2 class="hndle">
+					<span class="dashicons dashicons-smiley"></span>
+					<span><?php esc_html_e( 'Recommended Resources', 'astra' ); ?></span>
+				</h2>
 				<div class="inside">
-					Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					<p>These are some of our favorite tools and resources that play great with Astra.</p>
+					<a href="<?php echo esc_url( 'https://wpastra.com/resources' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'See all Recommended Resources', 'astra' );?></a>
 				</div>
 			</div>
 
-			<a class="submit ast-customizer-btn button-primary button button-hero" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Go To Customizer', 'astra' ); ?></a>
+			<?php do_action( 'astra_welcome_page_right_sidebar_content_after' ); ?>
+
 		<?php
 		}
 
@@ -731,7 +688,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								<ul>
 									<?php
 									foreach ( (array) $quick_settings as $key => $link ) {
-										echo '<li class="ast-flex"><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><span class="ast-quick-setting-title">' . esc_html( $link['title'] ) . '</span><a class="ast-quick-setting-link" href="' . esc_url( $link['href'] ) . '" target="_blank" rel="noopener">' . esc_html__( 'Visit Option', 'astra' ) . '</a></li>';
+										echo '<li class="ast-flex"><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><a class="ast-quick-setting-title">' . esc_html( $link['title'] ) . '</a><a class="ast-quick-setting-link" href="' . esc_url( $link['href'] ) . '" target="_blank" rel="noopener">' . esc_html__( 'Visit Option', 'astra' ) . '</a></li>';
 									}
 									?>
 								</ul>
@@ -752,17 +709,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								<ul class="ast-addon-list">
 									<?php
 									foreach ( (array) $extensions as $addon => $info ) {
-										echo '<li  id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><span class="ast-addon-title">' . esc_html( $info['title'] ) . '</span>';
+										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title">' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">';
 
 										foreach ( $info['links'] as $key => $link ) {
 											printf(
-												'<a class="%1$s button button-medium" %2$s> %3$s </a>',
+												'<a class="%1$s" %2$s> %3$s </a>',
 												esc_attr( $link['link_class'] ),
 												isset( $link['link_url'] ) ? 'href="' . esc_url( $link['link_url'] ) . '"' : '',
 												esc_html( $link['link_text'] )
 											);
 										}
-										echo '</li>';
+										echo '</div></li>';
 									}
 									?>
 								</ul>
