@@ -384,10 +384,6 @@ body #learndash_profile .quiz_title {
   vertical-align: middle;
 }
 
-body #learndash_profile .learndash_profile_quiz_heading {
-  background-color: #e2e2e2;
-}
-
 body #learndash_profile .learndash_profile_quiz_heading .quiz_title {
   padding-left: 10px;
 }
