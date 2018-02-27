@@ -253,7 +253,7 @@ body .expand_collapse a,
 body .learndash_topic_dots a,
 body .learndash_topic_dots a > span,
 body #learndash_lesson_topics_list span a {
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: inherit;
 }
 
@@ -295,6 +295,13 @@ body #quiz_list > div h4 > a {
   margin-right: -webkit-calc( -2.5em - 1px);
   margin-right: calc( -2.5em - 1px);
   position: relative;
+}
+
+body #lessons_list > div h4,
+body #course_list > div h4,
+body #quiz_list > div h4,
+body #learndash_lesson_topics_list ul > li > span.topic_item {
+  font-size: 1em;
 }
 
 body #learndash_lessons #lesson_heading,
@@ -488,6 +495,10 @@ body #learndash_profile .learndash_profile_heading.course_overview_heading {
   background: none;
   color: inherit;
   font-weight: bold;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  text-transform: capitalize;
 }
 
 body #learndash_profile .learndash_profile_heading .ld_profile_certificate {
@@ -556,7 +567,7 @@ body #learndash_course_content .learndash_topic_dots ul > li, body #learndash_co
 }
 
 body #learndash_course_content .learndash_topic_dots ul > li a {
-  padding: 0 .75em;
+  padding: 0 0 0 .75em;
 }
 
 body #learndash_course_content_title {

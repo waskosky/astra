@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				$css_output['body #course_list .list-count, body #lessons_list .list-count, body #quiz_list .list-count'] = array(
 					'display' => 'none'
 				);
-				$css_output['body #course_list > div h4 > a, body #lessons_list > div h4 > a, body #quiz_list > div h4 > a'] = array(
+				$css_output['body #course_list > div h4 > a, body #lessons_list > div h4 > a, body #quiz_list > div h4 > a, body #learndash_course_content .learndash_topic_dots ul > li a'] = array(
 					'padding-left' => '.75em',
     				'margin-left' => 'auto',
 				);
