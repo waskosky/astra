@@ -43,6 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'section'  => 'section-container-layout',
 			'priority' => 65,
 			'label'    => __( 'LearnDash', 'astra' ),
+			'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
