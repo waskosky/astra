@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2015, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       1.2.3
+ * @since       1.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
