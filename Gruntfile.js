@@ -4,6 +4,8 @@ module.exports = function (grunt) {
     var autoprefixer    = require('autoprefixer');
     var flexibility     = require('postcss-flexibility');
 
+    var pkgInfo = grunt.file.readJSON('package.json');
+
     grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
 
@@ -307,7 +309,7 @@ module.exports = function (grunt) {
             compress: {
                 main: {
                     options: {
-                        archive: 'astra.zip',
+                        archive: 'astra-' + pkgInfo.version + '.zip',
                         mode: 'zip'
                     },
                     files: [
@@ -321,7 +323,7 @@ module.exports = function (grunt) {
                 },
                 org: {
                     options: {
-                        archive: 'astra.zip',
+                        archive: '*.zip',
                         mode: 'zip'
                     },
                     files: [
@@ -386,6 +388,39 @@ module.exports = function (grunt) {
                     ],
                     dest: 'assets/js/unminified/style.js',
                 }
+            },
+
+            bumpup: {
+                options: {
+                    updateProps: {
+                        pkg: 'package.json'
+                    }
+                },
+                file: 'package.json'
+            },
+
+            replace: {
+                theme_main: {
+                    src: ['style.css'],
+                    overwrite: true,
+                    replacements: [
+                        {
+                            from: /Version: \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?(?:\+[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?\b/g,
+                            to: 'Version: <%= pkg.version %>'
+                        }
+                    ]
+                },
+
+                theme_const: {
+                    src: ['functions.php'],
+                    overwrite: true,
+                    replacements: [
+                        {
+                            from: /ASTRA_THEME_VERSION', '.*?'/g,
+                            to: 'ASTRA_THEME_VERSION\', \'<%= pkg.version %>\''
+                        }
+                    ]
+                }
             }
 
         }
@@ -402,6 +437,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-wp-i18n');
+    grunt.loadNpmTasks('grunt-bumpup');
+    grunt.loadNpmTasks('grunt-text-replace');
 
     // rtlcss, you will still need to install ruby and sass on your system manually to run this
     grunt.registerTask('rtl', ['rtlcss']);
@@ -445,6 +482,19 @@ module.exports = function (grunt) {
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
     grunt.registerTask('org-release', ['clean:zip', 'copy:org', 'compress:org', 'clean:main']);
+
+    // Bump Version - `grunt bump-version --ver=<version-number>`
+    grunt.registerTask('version-bump', function (ver) {
+
+        var newVersion = grunt.option('ver');
+
+        if (newVersion) {
+            newVersion = newVersion ? newVersion : 'patch';
+
+            grunt.task.run('bumpup:' + newVersion);
+            grunt.task.run('replace');
+        }
+    });
 
     // i18n
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);
