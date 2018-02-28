@@ -39,12 +39,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[learndash-content-layout]', array(
-			'type'     => 'select',
-			'section'  => 'section-container-layout',
-			'priority' => 65,
-			'label'    => __( 'LearnDash', 'astra' ),
+			'type'        => 'select',
+			'section'     => 'section-container-layout',
+			'priority'    => 65,
+			'label'       => __( 'LearnDash', 'astra' ),
 			'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'astra' ),
-			'choices'  => array(
+			'choices'     => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),

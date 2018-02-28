@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
 			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 
-			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
+			$archive_post_title_font_size = astra_get_option( 'font-size-page-title' );
 
 			$css_output = array(
 				'body #ld_course_list .btn, body a.btn-blue, body a.btn-blue:visited, body a#quiz_continue_link, body .btn-join, body .learndash_checkout_buttons input.btn-join[type="button"], body #btn-join, body .learndash_checkout_buttons input.btn-join[type="submit"], body .wpProQuiz_content .wpProQuiz_button2' => array(
@@ -114,33 +114,33 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				),
 				'body .thumbnail.course .ld_course_grid_price, body .thumbnail.course .ld_course_grid_price.ribbon-enrolled, body #learndash_lessons #lesson_heading, body #learndash_profile .learndash_profile_heading, body #learndash_quizzes #quiz_heading, body #learndash_lesson_topics_list div > strong, body .learndash-pager span a, body #learndash_profile .learndash_profile_quiz_heading' => array(
 					'background-color' => $theme_color,
-					'color' => $theme_forground_color,
+					'color'            => $theme_forground_color,
 				),
 				'body .thumbnail.course .ld_course_grid_price:before' => array(
-					'border-top-color' => astra_hex_to_rgba( $theme_color, .75 ),
-    				'border-right-color' => astra_hex_to_rgba( $theme_color, .75 ),
+					'border-top-color'   => astra_hex_to_rgba( $theme_color, .75 ),
+					'border-right-color' => astra_hex_to_rgba( $theme_color, .75 ),
 				),
 				'body .wpProQuiz_loadQuiz, body .wpProQuiz_lock' => array(
-					'border-color' => astra_hex_to_rgba( $theme_color, .5 ),
-    				'background-color' => astra_hex_to_rgba( $theme_color, .1 ),
+					'border-color'     => astra_hex_to_rgba( $theme_color, .5 ),
+					'background-color' => astra_hex_to_rgba( $theme_color, .1 ),
 				),
 				'#ld_course_list .entry-title' => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'desktop' ),
 				),
 			);
 
-			if( ! astra_get_option( 'learndash-lesson-serial-number' ) ) {
+			if ( ! astra_get_option( 'learndash-lesson-serial-number' ) ) {
 				$css_output['body #course_list .list-count, body #lessons_list .list-count, body #quiz_list .list-count'] = array(
-					'display' => 'none'
+					'display' => 'none',
 				);
 				$css_output['body #course_list > div h4 > a, body #lessons_list > div h4 > a, body #quiz_list > div h4 > a, body #learndash_course_content .learndash_topic_dots ul > li a'] = array(
 					'padding-left' => '.75em',
-    				'margin-left' => 'auto',
+					'margin-left'  => 'auto',
 				);
 			}
-			if( ! astra_get_option( 'learndash-differentiate-rows' ) ) {
+			if ( ! astra_get_option( 'learndash-differentiate-rows' ) ) {
 				$css_output['body #course_list > div:nth-of-type(odd), body #lessons_list > div:nth-of-type(odd), body #quiz_list > div:nth-of-type(odd), body #learndash_lesson_topics_list .learndash_topic_dots ul > li.nth-of-type-odd'] = array(
-					'background' => 'none'
+					'background' => 'none',
 				);
 			}
 
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		function sidebar_layout( $layout ) {
 
-			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) ||  is_singular( 'sfwd-quiz' ) ||  is_singular( 'sfwd-certificates' ) ||  is_singular( 'sfwd-assignment' ) ) {
+			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) {
 
 				$learndash_sidebar = astra_get_option( 'learndash-sidebar-layout' );
 				if ( 'default' !== $learndash_sidebar ) {
@@ -257,7 +257,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		function content_layout( $layout ) {
 
-			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) ||  is_singular( 'sfwd-quiz' ) ||  is_singular( 'sfwd-certificates' ) ||  is_singular( 'sfwd-assignment' ) ) {
+			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) {
 
 				$learndash_layout = astra_get_option( 'learndash-content-layout' );
 
