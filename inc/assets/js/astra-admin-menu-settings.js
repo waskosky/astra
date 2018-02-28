@@ -1,50 +1,19 @@
 /**
  * Install Astra Starter Sites
  *
- * - add()
- * - remove()
- * - run()
- * - stop()
  *
- * @since 1.0.0
+ * @since 1.2.4
  */
 
 (function($){
 
 	AstraThemeAdmin = {
 
-		log_file        : '',
-		customizer_data : '',
-		wxr_url         : '',
-		options_data    : '',
-		widgets_data    : '',
-
 		init: function()
 		{
 			this._bind();
 		},
 
-		/**
-		 * Debugging.
-		 * 
-		 * @param  {mixed} data Mixed data.
-		 */
-		_log: function( data ) {
-			
-			if( AstraThemeAdmin.debug ) {
-
-				var date = new Date();
-				var time = date.toLocaleTimeString();
-
-				if (typeof data == 'object') { 
-					console.log('%c ' + JSON.stringify( data ) + ' ' + time, 'background: #ededed; color: #444');
-				} else {
-					console.log('%c ' + data + ' ' + time, 'background: #ededed; color: #444');
-				}
-
-
-			}
-		},
 
 		/**
 		 * Binds events for the Astra Theme.
@@ -55,63 +24,73 @@
 		 */
 		_bind: function()
 		{
-			$( document ).on('click' , '.install-astra-sites', AstraThemeAdmin._installNow);
-			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._installSuccess);
+			$( document ).on('click' , '.ast-sites-notinstalled', AstraThemeAdmin._installNow );
+			$( document ).on('click' , '.ast-sites-inactive', AstraThemeAdmin._activatePlugin);
+			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
+			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
+			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
 		},
 
 		/**
-		 * Install Success
+		 * Plugin Installation Error.
 		 */
-		_installSuccess: function( event, response ) {
+		_installError: function( event, response ) {
+
+			var $card = jQuery( '.ast-sites-notinstalled' );
+
+			$card
+				.removeClass( 'button-primary' )
+				.addClass( 'disabled' )
+				.html( wp.updates.l10n.installFailedShort );
+		},
+
+		/**
+		 * Installing Plugin
+		 */
+		_pluginInstalling: function(event, args) {
+			event.preventDefault();
+
+			var $card = jQuery( '.ast-sites-notinstalled' );
+
+			$card.addClass('updating-message');
+
+		},
+		/**
+		 * Activate Success
+		 */
+		_activatePlugin: function( event, response ) {
 
 			event.preventDefault();
 
-			if( 'astra-sites' !== response.slug ) {
-				return;
+			var $message = $( '.ast-sites-notinstalled' );
+			if ( 0 === $message.length ) {
+				$message = $( '.ast-sites-inactive' );
 			}
-
-			var $message = $( '.install-astra-sites' );
 
 			// Transform the 'Install' button into an 'Activate' button.
 			var $init = $message.data('init');
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
-				.html( AstraThemeAdmin.strings.btnActivating );
-
-			// Reset not installed plugins list.
-			var pluginsList = AstraThemeAdmin.requiredPlugins.notinstalled;
-			AstraThemeAdmin.requiredPlugins.notinstalled = AstraThemeAdmin._removePluginFromQueue( response.slug, pluginsList );
+				.html( astra.btnActivating );
 
 			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
 			setTimeout( function() {
 
 				$.ajax({
-					url: AstraThemeAdmin.ajaxurl,
+					url: astra.ajaxUrl,
 					type: 'POST',
 					data: {
-						'action'            : 'astra-required-plugin-activate',
+						'action'            : 'astra-sites-plugin-activate',
 						'init'              : $init,
-						'options'           : $siteOptions,
-						'enabledExtensions' : $enabledExtensions,
 					},
 				})
 				.done(function (result) {
 
 					if( result.success ) {
-
-						var pluginsList = AstraThemeAdmin.requiredPlugins.inactive;
-
-						// Reset not installed plugins list.
-						AstraThemeAdmin.requiredPlugins.inactive = AstraThemeAdmin._removePluginFromQueue( response.slug, pluginsList );
-
-						$message.removeClass( 'button-primary install-now activate-now updating-message' )
-							.attr('disabled', 'disabled')
-							.addClass('disabled')
-							.text( AstraThemeAdmin.strings.btnActive );
-
-						// Enable Demo Import Button
-						AstraThemeAdmin._enable_demo_import_button();
+						var output = '<a href="'+ astra.astraSitesLink +'" aria-label="'+ astra.astraSitesLinkTitle +'">' + astra.astraSitesLinkTitle +' </a>'
+						$message.removeClass( 'ast-sites-inactive ast-sites-notinstalled button button-primary install-now activate-now updating-message' )
+							.html( output );
 
 					} else {
 
@@ -143,17 +122,16 @@
 				wp.updates.requestFilesystemCredentials( event );
 
 				$document.on( 'credential-modal-cancel', function() {
-					var $message = $( '.install-now.updating-message' );
+					var $message = $( '.ast-sites-notinstalled.updating-message' );
 
 					$message
-						.removeClass( 'updating-message' )
+						.addClass('ast-sites-inactive')
+						.removeClass( 'updating-message ast-sites-notinstalled' )
 						.text( wp.updates.l10n.installNow );
 
 					wp.a11y.speak( wp.updates.l10n.updateCancel, 'polite' );
 				} );
 			}
-
-			// AstraThemeAdmin._log( AstraThemeAdmin.log.installingPlugin + ' ' + $button.data( 'slug' ) );
 
 			wp.updates.installPlugin( {
 				slug:    $button.data( 'slug' )
