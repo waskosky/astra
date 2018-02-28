@@ -486,6 +486,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'dashicon'  => 'dashicons-admin-generic',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-footer-group' ),
 					),
+					'sidebars'     => array(
+						'title'     => __( 'Sidebar Options', 'astra' ),
+						'dashicon'  => 'dashicons-align-left',
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-sidebars' ),
+					),
 				)
 			);
 
