@@ -238,10 +238,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					$layout = $learndash_sidebar;
 				}
 
-				$shop_sidebar = astra_get_option_meta( 'site-sidebar-layout', '', true );
+				$sidebar = astra_get_option_meta( 'site-sidebar-layout', '', true );
 
-				if ( 'default' !== $shop_sidebar && ! empty( $shop_sidebar ) ) {
-					$layout = $shop_sidebar;
+				if ( 'default' !== $sidebar && ! empty( $sidebar ) ) {
+					$layout = $sidebar;
 				}
 			}
 
@@ -265,10 +265,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					$layout = $learndash_layout;
 				}
 
-				$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
+				$learndash_layout = astra_get_option_meta( 'site-content-layout', '', true );
 
-				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
-					$layout = $shop_layout;
+				if ( 'default' !== $learndash_layout && ! empty( $learndash_layout ) ) {
+					$layout = $learndash_layout;
 				}
 			}
 
