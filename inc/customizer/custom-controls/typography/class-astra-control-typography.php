@@ -158,7 +158,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->render_connect_attribute();
 		echo '>';
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
-		echo '<optgroup label="System">';
+		echo '<optgroup label="Other System Fonts">';
 
 		foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
