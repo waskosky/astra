@@ -271,38 +271,6 @@ module.exports = function (grunt) {
                         '!phpcs.xml.dist',
                     ],
                     dest: 'astra/'
-                },
-                org: {
-                    options: {
-                        mode: true
-                    },
-                    src: [
-                        '**',
-                        // Admin directory only consists of graupi so this is being ignored.
-                        '!admin/**',
-                        '!class-brainstorm-update-astra-theme.php',
-                        '!node_modules/**',
-                        '!build/**',
-                        '!css/sourcemap/**',
-                        '!.git/**',
-                        '!bin/**',
-                        '!.gitlab-ci.yml',
-                        '!bin/**',
-                        '!tests/**',
-                        '!phpunit.xml.dist',
-                        '!phpcs.ruleset.xml',
-                        '!*.sh',
-                        '!*.map',
-                        '!Gruntfile.js',
-                        '!package.json',
-                        '!.gitignore',
-                        '!phpunit.xml',
-                        '!wpml-config.xml',
-                        '!README.md',
-                        '!sass/**',
-                        '!codesniffer.ruleset.xml',
-                    ],
-                    dest: 'astra/'
                 }
             },
 
@@ -320,26 +288,12 @@ module.exports = function (grunt) {
 
                         }
                     ]
-                },
-                org: {
-                    options: {
-                        archive: '*.zip',
-                        mode: 'zip'
-                    },
-                    files: [
-                        {
-                            src: [
-                                './astra/**'
-                            ]
-
-                        }
-                    ]
                 }
             },
 
             clean: {
                 main: ["astra"],
-                zip: ["astra.zip"]
+                zip: ["*.zip"]
 
             },
 
@@ -481,7 +435,6 @@ module.exports = function (grunt) {
 
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
-    grunt.registerTask('org-release', ['clean:zip', 'copy:org', 'compress:org', 'clean:main']);
 
     // Bump Version - `grunt bump-version --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
