@@ -153,3 +153,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+
+
+	if ( ! defined( 'ASTRA_EXT_VER' ) ){
+
+		/**
+		 * Option: Divider
+		 */
+		$wp_customize->add_control(
+			new Astra_Control_Divider(
+				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-divider]', array(
+					'type'     => 'ast-divider',
+					'section'  => 'section-blog',
+					'priority' => 125,
+					'settings' => array(),
+				)
+			)
+		);
+		$wp_customize->add_control(
+			new Astra_Control_Description(
+				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-description]', array(
+					'type'     => 'ast-description',
+					'section'  => 'section-blog',
+					'priority' => 125,
+					'label'    => '',
+					'help'     => __( 'Get more options from our Pro vesion', 'astra') . '<a href="https://wpastra.com/pricing/" class="get-more-button button button-primary">'. __( 'Learn More', 'astra').'</a>',
+					'settings' => array(),
+				)
+			)
+		);
+	}
