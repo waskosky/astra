@@ -389,7 +389,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 						<?php
 						// Astra Sites - Installed but Inactive.
-						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) ) {
+						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-inactive';
 							$button_text = __( 'Activate', 'astra' );
@@ -397,7 +397,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_init   = '/astra-sites/astra-sites.php';
 
 							// Astra Sites - Not Installed.
-						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) ) {
+						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-notinstalled';
 							$button_text = __( 'Install', 'astra' );
@@ -405,6 +405,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_init   = '/astra-sites/astra-sites.php';
 
 							// Astra Sites - Active.
+						} elseif ( is_plugin_active( 'astra-pro-sites\astra-pro-sites.php' ) ) {
+							$class       = 'active';
+							$button_text = __( 'See Library »', 'astra' );
+							$link        = admin_url( 'themes.php?page=astra-sites' );
 						} else {
 							$class       = 'active';
 							$button_text = __( 'See Library »', 'astra' );
@@ -445,7 +449,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php esc_html_e( "Got a question? Get in touch with Astra developers. We're happy to help!", 'astra' ); ?>
 					</p>
-					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/support/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' );?>" target="_blank" rel="noopener"><?php esc_html_e( 'Submit a Ticket »', 'astra' ); ?></a>
+					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/support/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Submit a Ticket »', 'astra' ); ?></a>
 				</div>
 			</div>
 
@@ -461,7 +465,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php esc_html_e( 'Astra proudly recommends CloudWays to anyone looking for speedy hosting.', 'astra' ); ?>
 					</p>
-					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com'); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Check CloudWays Hosting »', 'astra' ); ?></a>
+					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Check CloudWays Hosting »', 'astra' ); ?></a>
 				</div>
 			</div>
 
