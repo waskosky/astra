@@ -52,7 +52,8 @@
     padding: 0 20px;
     box-sizing: border-box;
 }
-.ast-container.ast-welcome {
+.ast-container.ast-welcome,
+.ast-general .ast-container {
 	max-width: 930px;
 }
 .ast-quick-setting-section span.dashicons {
@@ -90,6 +91,7 @@
     align-content: flex-start;
     text-align: left;
 }
+.ast-theme-title a,
 .ast-theme-title span{
 	font-size: 1.5rem;
     color: #333333;
@@ -112,10 +114,6 @@
     display: inline-block;
 }
 
-.ast-top-links a {
-    padding: 8px 15px;
-}
-
 /**
  * Astra Quick Settings
  */
@@ -129,19 +127,20 @@
 	margin-bottom: 0;
 }
 .ast-quick-setting-section li{
-	padding: 10px 0;
-	width: 50%;
+    padding: 10px 0;
+}
+.ast-quick-setting-section li:nth-child(odd){
+    width: 74%;
+}
+.ast-quick-setting-section li:nth-child(even){
+    width: 26%;
 }
 .ast-quick-setting-section li a{
-	padding: 5px;
+	margin: 5px;
 	display: inline-block;
 }
 .ast-addon-list-section li{
 	padding: 10px 15px;
-}
-.ast-quick-setting-section li:last-child,
-.ast-addon-list-section li:last-child{
-	border-bottom: 0;
 }
 .ast-quick-setting-section a.ast-quick-setting-title{
 	flex: auto;
@@ -192,8 +191,10 @@
     flex: auto;
 }
 .ast-addon-link-wrapper a{
-	line-height: 1.6;
-	padding: 0 10px;
+    line-height: 1.6;
+}
+.ast-addon-link-wrapper a:nth-child(even){
+    margin: 0 10px;
 }
 
 /**
