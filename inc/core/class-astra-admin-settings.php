@@ -301,9 +301,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 				)
 			);
+			$ast_wrapper_class = apply_filters( 'astra_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
-			<div class="ast-menu-page-wrapper wrap ast-clear ast-<?php echo esc_attr( $current_slug ); ?>">
+			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $ast_wrapper_class ) ); ?>">
 					<div class="ast-theme-page-header">
 						<div class="ast-container ast-flex">
 							<div class="ast-theme-title">
@@ -374,7 +375,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle">
 					<span class="dashicons dashicons-admin-customizer"></span>
-					<span><?php esc_html_e( 'Import Starter Site', 'astra' ); ?></span>
+					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Site', 'astra' ) ) );?></span>
 				</h2>
 				<div class="inside">
 					<p>
@@ -467,7 +468,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php esc_html_e( 'Astra proudly recommends CloudWays to anyone looking for speedy hosting.', 'astra' ); ?>
 					</p>
-					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Check CloudWays Hosting »', 'astra' ); ?></a>
+					<a href="<?php echo esc_url( 'https://www.cloudways.com/en/wordpress-cloud-hosting.php?id=169153&utm_source=astra&utm_medium=dashboard-link&utm_campaign=astra-dashboard' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Check CloudWays Hosting »', 'astra' ); ?></a>
 				</div>
 			</div>
 

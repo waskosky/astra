@@ -53,7 +53,7 @@
     box-sizing: border-box;
 }
 .ast-container.ast-welcome,
-.ast-general .ast-container {
+.general .ast-container {
 	max-width: 930px;
 }
 .ast-quick-setting-section span.dashicons {
