@@ -389,6 +389,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 						<?php
 						// Astra Sites - Installed but Inactive.
+						// Astra Premium Sites - Inactive.
 						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-inactive';
@@ -397,6 +398,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_init   = '/astra-sites/astra-sites.php';
 
 							// Astra Sites - Not Installed.
+							// Astra Premium Sites - Inactive.
 						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-notinstalled';
@@ -404,8 +406,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_slug   = 'astra-sites';
 							$data_init   = '/astra-sites/astra-sites.php';
 
-							// Astra Sites - Active.
-						} elseif ( is_plugin_active( 'astra-pro-sites\astra-pro-sites.php' ) ) {
+							// Astra Premium Sites - Active.
+						} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 							$class       = 'active';
 							$button_text = __( 'See Library »', 'astra' );
 							$link        = admin_url( 'themes.php?page=astra-sites' );
