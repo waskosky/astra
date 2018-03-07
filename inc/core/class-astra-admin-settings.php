@@ -299,7 +299,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$top_links          = apply_filters(
 				'astra_page_top_links', array(
 					'astra-theme-info' => array(
-						'title' => __( 'Stylish, Lightning Fast & Easily Customizable', 'astra' ),
+						'title' => __( 'Stylish, Lightning Fast & Easily Customizable!', 'astra' ),
 					),
 				)
 			);
