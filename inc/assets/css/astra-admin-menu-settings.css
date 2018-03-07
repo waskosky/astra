@@ -214,3 +214,25 @@ a.ast-sites-info-link {
 		width: 100%;
 	}
 }
+
+/**
+ * Astra Custom Notice for static position
+ */
+.ast-notice{
+    margin-bottom: 20px;
+}
+.ast-notice.ast-notice-error{
+    border-left-color: #dc3232;
+}
+
+.ast-notice{
+    background: #fff;
+    border-left: 4px solid #fff;
+    box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
+    padding: 1px 12px;
+}
+
+.ast-notice p{
+    margin: 0.5em 0;
+    padding: 2px;
+}

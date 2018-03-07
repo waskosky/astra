@@ -123,8 +123,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// AJAX.
 			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
-
-			add_action( 'admin_notices', __CLASS__ . '::min_addon_version_message' );
 		}
 
 		/**
@@ -780,6 +778,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 			</div>
 
+			<!-- Notice for Older version of Astra Addon -->
+			<?php self::min_addon_version_message(); ?>
+ 
+
 			<div class="postbox">
 				<h2 class="hndle ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					<?php do_action( 'astra_addon_bulk_action' ); ?>
@@ -874,7 +876,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						$astra_addon_name = astra_get_addon_name();
 					}
 
-					$class   = 'notice notice-error';
+					$class   = 'ast-notice ast-notice-error';
 					$message = sprintf(
 						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra Addon */
 						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ), $astra_addon_name
