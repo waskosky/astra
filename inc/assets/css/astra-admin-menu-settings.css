@@ -98,9 +98,14 @@
     font-weight: 500;
 }
 
+a.ast-sites-info-link {
+    margin: 10px 0 0;
+    display: inline-block;
+}
+
 .ast-theme-icon{
-	width: 25px;
-	vertical-align: bottom;
+	width: 100px;
+    vertical-align: bottom;
 }
 .ast-top-links {
     flex: auto;

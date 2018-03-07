@@ -310,9 +310,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							<div class="ast-theme-title">
 								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $ast_icon ) { ?>
-									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra-icon.png' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
 								<?php } ?>
-								<span><?php echo esc_html( self::$page_title ); ?></span>
+								<?php do_action( 'astra_welcome_page_header_title' ); ?>
 								</a>
 							</div>
 
@@ -394,7 +394,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-inactive';
-							$button_text = __( 'Activate', 'astra' );
+							$button_text = __( 'Activate Importer Plugin', 'astra' );
 							$data_slug   = 'astra-sites';
 							$data_init   = '/astra-sites/astra-sites.php';
 
@@ -403,7 +403,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-notinstalled';
-							$button_text = __( 'Install', 'astra' );
+							$button_text = __( 'Install Importer Plugin', 'astra' );
 							$data_slug   = 'astra-sites';
 							$data_init   = '/astra-sites/astra-sites.php';
 
@@ -427,6 +427,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							esc_html( $button_text )
 						);
 						?>
+					<div>
+							
+						<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/docs/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ); ?>" target="_blank" rel="noopener" class="ast-sites-info-link" >
+								<?php esc_html_e( 'How It Works?', 'astra' ); ?>
+						</a>
+					</div>
 				</div>
 			</div>
 
@@ -466,9 +472,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						<?php esc_html_e( 'A fast theme gets faster with a great host!', 'astra' ); ?>
 					</p>
 					<p>
-						<?php esc_html_e( 'Astra proudly recommends CloudWays to anyone looking for speedy hosting.', 'astra' ); ?>
+						<?php esc_html_e( 'Astra proudly recommends Cloudways to anyone looking for speedy hosting.', 'astra' ); ?>
 					</p>
-					<a href="<?php echo esc_url( 'https://www.cloudways.com/en/wordpress-cloud-hosting.php?id=169153&utm_source=astra&utm_medium=dashboard-link&utm_campaign=astra-dashboard' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Check CloudWays Hosting »', 'astra' ); ?></a>
+					<a href="<?php echo esc_url( 'https://www.cloudways.com/en/wordpress-cloud-hosting.php?id=169153&utm_source=astra&utm_medium=dashboard-link&utm_campaign=astra-dashboard' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Check Cloudways Hosting »', 'astra' ); ?></a>
 				</div>
 			</div>
 
