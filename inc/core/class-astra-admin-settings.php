@@ -485,7 +485,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function astra_welcome_page_content() {
 
-			$astra_addon_name = apply_filters( 'astra_addon_name', __( 'Astra Pro', 'astra' ) );
+			$astra_addon_name = apply_filters( 'astra_addon_name', __( 'More Options Available with Astra Pro!', 'astra' ) );
 
 			// Quick settings.
 			$quick_settings = apply_filters(
@@ -544,7 +544,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/colors-background-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -557,7 +557,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -570,7 +570,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/spacing-addon-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -583,7 +583,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -596,7 +596,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -609,7 +609,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/transparent-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -622,7 +622,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/sticky-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -637,7 +637,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/pro', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -652,7 +652,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/custom-layouts-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -665,7 +665,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -678,7 +678,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -691,7 +691,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -704,7 +704,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -717,7 +717,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -730,7 +730,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/introducing-white-label/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'  => __( 'Learn more', 'astra' ),
+								'link_text'  => __( 'Learn More »', 'astra' ),
 							),
 						),
 					),
@@ -739,7 +739,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 			?>
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Quick Settings', 'astra' ); ?></span></h2>
+				<h2 class="hndle"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
 					<div class="ast-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
@@ -769,14 +769,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								<ul class="ast-addon-list">
 									<?php
 									foreach ( (array) $extensions as $addon => $info ) {
-										$title_url = isset( $info['title_url'] ) ? esc_url( $info['title_url'] ) : '';
-										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title" href="' . esc_url( $title_url ) . '" target="_blank" rel="noopener">' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">';
+										$title_url     = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? 'href="' . esc_url( $info['title_url'] ) . '"' : '';
+										$anchor_target = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? "target='_blank' rel='noopener'" : '';
+
+										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title"' . $title_url . $anchor_target . ' >' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">';
 
 										foreach ( $info['links'] as $key => $link ) {
 											printf(
-												'<a class="%1$s" %2$s> %3$s </a>',
+												'<a class="%1$s" %2$s %3$s> %4$s </a>',
 												esc_attr( $link['link_class'] ),
 												isset( $link['link_url'] ) ? 'href="' . esc_url( $link['link_url'] ) . '"' : '',
+												isset( $link['link_url'] ) ? 'target="_blank" rel="noopener"' : '',
 												esc_html( $link['link_text'] )
 											);
 										}
