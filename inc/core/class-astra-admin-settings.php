@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		static public function init_admin_settings() {
-			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Theme', 'astra' ) );
+			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$localize = array(
 				'ajaxUrl'             => admin_url( 'admin-ajax.php' ),
-				'btnActivating'       => __( 'Activating', 'astra' ) . '&hellip;',
+				'btnActivating'       => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
 				'astraSitesLink'      => admin_url( 'themes.php?page=astra-sites' ),
 				'astraSitesLinkTitle' => __( 'See Library »', 'astra' ),
 			);
@@ -551,6 +551,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/colors-background-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -564,6 +565,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -577,6 +579,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/spacing-addon-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -590,6 +593,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -603,6 +607,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -616,6 +621,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/transparent-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -629,6 +635,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/sticky-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -644,6 +651,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/pro', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -659,6 +667,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/custom-layouts-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -672,6 +681,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -685,6 +695,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -698,6 +709,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -711,6 +723,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -724,6 +737,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -737,6 +751,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								'link_class' => 'ast-learn-more',
 								'link_url'   => astra_get_pro_url( 'https://wpastra.com/introducing-white-label/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'  => __( 'Learn More »', 'astra' ),
+								'target_blank'=> true,
 							),
 						),
 					),
@@ -785,7 +800,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 												'<a class="%1$s" %2$s %3$s> %4$s </a>',
 												esc_attr( $link['link_class'] ),
 												isset( $link['link_url'] ) ? 'href="' . esc_url( $link['link_url'] ) . '"' : '',
-												isset( $link['link_url'] ) ? 'target="_blank" rel="noopener"' : '',
+												( isset( $link['target_blank'] ) && $link['target_blank'] ) ? 'target="_blank" rel="noopener"' : '',
 												esc_html( $link['link_text'] )
 											);
 										}
