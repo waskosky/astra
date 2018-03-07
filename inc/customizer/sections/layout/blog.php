@@ -154,8 +154,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-
-	if ( ! defined( 'ASTRA_EXT_VER' ) ){
+	// Learn More link if Astra Pro is not activated.
+	if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 		/**
 		 * Option: Divider
@@ -170,6 +170,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				)
 			)
 		);
+		/**
+		 * Option: Learn More about Blog Pro
+		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
 				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-description]', array(
@@ -177,7 +180,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'section'  => 'section-blog',
 					'priority' => 125,
 					'label'    => '',
-					'help'     => __( 'Get more options from our Pro vesion', 'astra') . '<a href="https://wpastra.com/pricing/" class="get-more-button button button-primary">'. __( 'Learn More', 'astra').'</a>',
+					'help'     => __( 'More Options Available for Blog in Astra Pro!', 'astra' ) . '<a href="' . astra_get_pro_url( 'https://wpastra.com/docs/blog-archive-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 					'settings' => array(),
 				)
 			)

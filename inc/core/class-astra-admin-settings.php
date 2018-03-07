@@ -301,7 +301,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 				)
 			);
-			$ast_wrapper_class = apply_filters( 'astra_welcome_wrapper_class', array( $current_slug ) );
+			$ast_wrapper_class  = apply_filters( 'astra_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
 			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $ast_wrapper_class ) ); ?>">
@@ -375,7 +375,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle">
 					<span class="dashicons dashicons-admin-customizer"></span>
-					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Site', 'astra' ) ) );?></span>
+					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Site', 'astra' ) ) ); ?></span>
 				</h2>
 				<div class="inside">
 					<p>
