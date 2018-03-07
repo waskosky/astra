@@ -877,7 +877,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$class   = 'notice notice-error';
 					$message = sprintf(
 						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra Addon */
-						__( 'Want to Activate / Deactivate the following modules? They can now be found in version %2$1s of the %1$2s.', 'astra' ), $astra_addon_name, '1.2.1'
+						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ), $astra_addon_name
 					);
 
 					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
