@@ -666,7 +666,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_output = array(
 				'.woocommerce span.onsale'                => array(
-					'background-color' => $link_color,
+					'background-color' => $theme_color,
+					'color'            => astra_get_foreground_color( $theme_color ),
 				),
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled' => array(
 					'color'            => $btn_color,
