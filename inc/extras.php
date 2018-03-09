@@ -99,7 +99,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 		return $classes;
 	}
-}// End if().
+}
 
 add_filter( 'body_class', 'astra_body_classes' );
 
@@ -135,7 +135,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
 		}
 	}
-}// End if().
+}
 
 add_action( 'astra_pagination', 'astra_number_pagination' );
 
@@ -210,7 +210,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			return $html;
 		}
 	}
-}// End if().
+}
 
 /**
  * Return the selected sections
@@ -369,7 +369,7 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 
 		return $output;
 	}
-}// End if().
+}
 
 /**
  * Function to get Small Footer Custom Text
@@ -404,7 +404,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 
 		return do_shortcode( $output );
 	}
-}// End if().
+}
 
 /**
  * Function to get Footer Menu
@@ -442,7 +442,7 @@ if ( ! function_exists( 'astra_get_small_footer_menu' ) ) {
 
 		return ob_get_clean();
 	}
-}// End if().
+}
 
 /**
  * Function to get site Header
@@ -528,7 +528,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 		<?php
 		}
 	}
-}// End if().
+}
 
 add_action( 'astra_masthead_content', 'astra_toggle_buttons_markup', 9 );
 
@@ -601,10 +601,10 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 					echo  '</nav>';
 				echo  '</div>';
 			}
-		}// End if().
+		}
 
 	}
-}// End if().
+}
 
 add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
@@ -818,7 +818,7 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
-}// End if().
+}
 add_action( 'wp_enqueue_scripts', 'astra_header_breakpoint_style' );
 
 /**
@@ -959,7 +959,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 		return apply_filters( 'astra_get_content_layout', $content_layout );
 	}
-}// End if().
+}
 
 /**
  * Display Blog Post Excerpt
@@ -1054,7 +1054,7 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 		}
 		return $fonts;
 	}
-}// End if().
+}
 add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
 
 /**
@@ -1092,7 +1092,7 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 			<?php
 		}
 	}
-}// End if().
+}
 
 /**
  * Astra entry header class.
@@ -1134,7 +1134,7 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 
 		echo esc_attr( join( ' ', $classes ) );
 	}
-}// End if().
+}
 
 /**
  * Astra get post thumbnail image.
@@ -1203,7 +1203,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 			return $before . $output . $after;
 		}
 	}
-}// End if().
+}
 
 /**
  * Function to check if it is Internet Explorer
@@ -1226,7 +1226,7 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 
 		return $is_ie;
 	}
-endif; // End if().
+endif;
 
 
 /**
@@ -1259,7 +1259,7 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 
 		return $image;
 	}
-endif; // End if().
+endif;
 
 /**
  * Function to check if it is Internet Explorer
@@ -1316,7 +1316,7 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 
 		return $attr;
 	}
-endif; // End if().
+endif;
 
 add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 
@@ -1345,7 +1345,7 @@ if ( ! function_exists( 'astra_color_palette' ) ) :
 
 		return apply_filters( 'astra_color_palettes', $color_palette );
 	}
-endif; // End if().
+endif;
 
 if ( ! function_exists( 'astra_get_theme_name' ) ) :
 
@@ -1360,7 +1360,7 @@ if ( ! function_exists( 'astra_get_theme_name' ) ) :
 
 		return apply_filters( 'astra_theme_name', $theme_name );
 	}
-endif; // End if().
+endif;
 
 if ( ! function_exists( 'astra_get_addon_name' ) ) :
 
@@ -1381,4 +1381,4 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 
 		return apply_filters( 'astra_addon_name', $pro_name );
 	}
-endif; // End if().
+endif;

@@ -891,4 +891,5 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 	new Astra_Admin_Settings;
 
-}// End if().
+
+}
