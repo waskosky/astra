@@ -42,8 +42,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'select',
 			'section'     => 'section-container-layout',
 			'priority'    => 65,
-			'label'       => __( 'LearnDash', 'astra' ),
-			'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'astra' ),
+			'label'       => __( 'Container for LearnDash', 'astra' ),
+			'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
 			'choices'     => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
