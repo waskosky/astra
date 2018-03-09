@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		static public function init_admin_settings() {
-			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
+			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Theme Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
