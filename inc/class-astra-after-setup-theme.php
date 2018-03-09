@@ -173,7 +173,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			return $html;
 		}
 	}
-}// End if().
+}
 
 /**
  * Kicking this off by calling 'get_instance()' method
