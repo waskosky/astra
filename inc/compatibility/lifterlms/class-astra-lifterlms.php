@@ -237,7 +237,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				<hr>
 				</div>
 				<?php
-			}// End if().
+			}
 
 			/**
 			 * Check to see if reviews are open
@@ -288,7 +288,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					</div>
 					<?php
 				}
-			}// End if().
+			}
 		}
 
 		/**

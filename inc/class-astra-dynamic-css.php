@@ -739,4 +739,4 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			wp_add_inline_style( 'astra-theme-css', $meta_style );
 		}
 	}
-}// End if().
+}

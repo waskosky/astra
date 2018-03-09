@@ -212,7 +212,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				if ( $attachment_ids ) {
 
-					// @see woocommerce_get_product_thumbnail()
 					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'shop_catalog' );
 
 					echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) );
