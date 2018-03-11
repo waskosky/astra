@@ -177,6 +177,7 @@ a.ast-sites-info-link {
 }
 
 .ast-addon-list-section .ast-addon-list li:nth-child(even){
+    border-top: 1px solid #eeeeee;
     background-color: #fbfbfb;
 }
 
