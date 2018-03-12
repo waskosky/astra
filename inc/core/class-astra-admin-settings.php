@@ -294,6 +294,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
 			$ast_visit_site_url = apply_filters( 'astra_site_url', 'https://wpastra.com' );
+			$top_links          = apply_filters(
+				'astra_header_top_links', array(
+					'astra-theme-info' => array(
+						'title' => __( 'Stylish, Lightning Fast & Easily Customizable!', 'astra-addon' ),
+					),
+				)
+			);
 			$ast_wrapper_class  = apply_filters( 'astra_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
@@ -309,7 +316,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								</a>
 							</div>
 
-							<?php do_action('astra_header_top_right_content') ?>
+							<?php
+							if ( ! empty( $top_links ) ) {
+								?>
+								<div class="ast-top-links">
+									<ul>
+										<?php
+										foreach ( (array) $top_links as $key => $info ) {
+											printf(
+												'<li><%1$s %2$s %3$s > %4$s </%1$s>',
+												isset( $info['url'] ) ? 'a' : 'span',
+												isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '',
+												isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '',
+												esc_html( $info['title'] )
+											);
+										}
+										?>
+										</ul>
+									</div>
+								<?php
+							}
+?>
 						</div>
 					</div>
 
