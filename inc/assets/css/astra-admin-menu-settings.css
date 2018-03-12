@@ -61,7 +61,7 @@
 	max-width: 930px;
 }
 .ast-quick-setting-section span.dashicons {
-    margin: 0 10px;
+    margin: 1px 3px 0 10px;
 }
 .ast-container div.notice,
 .ast-container div.updated,
@@ -111,17 +111,6 @@ a.ast-sites-info-link {
 	width: 125px;
     vertical-align: bottom;
 }
-.ast-top-links {
-    flex: auto;
-    text-align: right;
-}
-
-.ast-top-links ul{
-	margin: 0;
-}
-.ast-top-links ul li {
-    display: inline-block;
-}
 
 /**
  * Astra Quick Settings
@@ -130,10 +119,15 @@ a.ast-sites-info-link {
  .ast-addon-list-section ul{
  	margin: 0;
  }
-.ast-quick-setting-section li,
-.ast-addon-list-section li{
+.ast-quick-setting-section li{
 	border-bottom: 1px solid #eee;
 	margin-bottom: 0;
+}
+.ast-addon-list-section li{
+    -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
+    margin-bottom: 0;
 }
 .ast-quick-setting-section li{
     padding: 10px 0;
@@ -177,7 +171,6 @@ a.ast-sites-info-link {
 }
 
 .ast-addon-list-section .ast-addon-list li:nth-child(even){
-    border-top: 1px solid #eeeeee;
     background-color: #fbfbfb;
 }
 
