@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			add_filter( 'lifterlms_loop_columns', array( $this, 'course_grid' ) );
 			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
 
-			// Course builder custom fields
+			// Course builder custom fields.
 			add_filter( 'llms_get_quiz_theme_settings', array( $this, 'quiz_layout_fields' ) );
 
 		}
@@ -589,22 +589,22 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * Add layout settings for LifterLMS quizzes
 		 *
 		 * @since [version]
-		 * @param array $settings layout settings
-		 * @return array $settings layout settings
+		 * @param array $settings layout settings.
+		 * @return array $settings layout settings.
 		 */
 		function quiz_layout_fields( $settings ) {
 
 			$settings['layout'] = array(
-				'id' => 'site-content-layout',
-				'name' => __( 'Content Layout', 'astra' ),
+				'id'      => 'site-content-layout',
+				'name'    => __( 'Content Layout', 'astra' ),
 				'options' => array(
-					'default' => esc_html__( 'Customizer Setting', 'astra' ),
-					'boxed-container' => esc_html__( 'Boxed', 'astra' ),
+					'default'                 => esc_html__( 'Customizer Setting', 'astra' ),
+					'boxed-container'         => esc_html__( 'Boxed', 'astra' ),
 					'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
-					'plain-container' => esc_html__( 'Full Width / Contained', 'astra' ),
-					'page-builder' => esc_html__( 'Full Width / Stretched', 'astra' ),
+					'plain-container'         => esc_html__( 'Full Width / Contained', 'astra' ),
+					'page-builder'            => esc_html__( 'Full Width / Stretched', 'astra' ),
 				),
-				'type' => 'select',
+				'type'    => 'select',
 			);
 
 			return $settings;
