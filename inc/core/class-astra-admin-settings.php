@@ -362,18 +362,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		static public function astra_welcome_page_right_sidebar_content() {
 			do_action( 'astra_welcome_page_right_sidebar_content_before' );
 			?>
-			<div class="postbox">
-				<h2 class="hndle">
-					<span class="dashicons dashicons-book"></span>
-					<span><?php esc_html_e( 'Knowledge Base', 'astra' ); ?></span>
-				</h2>
-				<div class="inside">
-					<p>
-						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'astra' ); ?>
-					</p>
-					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/docs/', 'astra-dashboard', 'visit-documentation', 'welcome-page' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Visit Knowledge Base »', 'astra' ); ?></a>
-				</div>
-			</div>
 
 			<div class="postbox">
 				<h2 class="hndle">
@@ -383,7 +371,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				<div class="inside">
 					<p>
 						<?php
-							esc_html_e( 'Did you know Astra offers a free library of starter site templates?', 'astra' );
+							/* translators: %1$s: Starter site link. */
+							printf( esc_html__( 'Did you know Astra offers a free library of %1$s ', 'astra' ),
+								'<a href=' . esc_url( astra_get_pro_url( 'https://wpastra.com/ready-websites/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) ) . ' target="_blank" rel="noopener">' . __( 'Starter Site Templates?', 'astra' ) . '</a>'
+							);
 						?>
 					</p>
 					<p>
@@ -441,6 +432,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			<div class="postbox">
 				<h2 class="hndle">
+					<span class="dashicons dashicons-book"></span>
+					<span><?php esc_html_e( 'Knowledge Base', 'astra' ); ?></span>
+				</h2>
+				<div class="inside">
+					<p>
+						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'astra' ); ?>
+					</p>
+					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/docs/', 'astra-dashboard', 'visit-documentation', 'welcome-page' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Visit Knowledge Base »', 'astra' ); ?></a>
+				</div>
+			</div>
+
+			<div class="postbox">
+				<h2 class="hndle">
 					<span class="dashicons dashicons-groups"></span>
 					<span><?php esc_html_e( 'Astra Community', 'astra' ); ?></span>
 				</h2>
@@ -484,7 +488,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$quick_settings = apply_filters(
 				'astra_quick_settings', array(
 					'logo-favicon' => array(
-						'title'     => __( 'Upload Logo & Favicon', 'astra' ),
+						'title'     => __( 'Upload Logo', 'astra' ),
 						'dashicon'  => 'dashicons-format-image',
 						'quick_url' => admin_url( 'customize.php?autofocus[control]=custom_logo' ),
 					),
@@ -494,7 +498,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ),
 					),
 					'typography'   => array(
-						'title'     => __( 'Choose Typography', 'astra' ),
+						'title'     => __( 'Customize Fonts', 'astra' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
 						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-typography' ),
 					),
