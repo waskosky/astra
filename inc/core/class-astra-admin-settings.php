@@ -454,30 +454,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			<div class="postbox">
 				<h2 class="hndle">
-					<span class="dashicons dashicons-smiley"></span>
+					<span class="dashicons dashicons-sos"></span>
 					<span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span>
 				</h2>
 				<div class="inside">
 					<p>
 						<?php esc_html_e( "Got a question? Get in touch with Astra developers. We're happy to help!", 'astra' ); ?>
 					</p>
-					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/support/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Submit a Ticket »', 'astra' ); ?></a>
-				</div>
-			</div>
-
-			<div class="postbox">
-				<h2 class="hndle">
-					<span class="dashicons dashicons-heart"></span>
-					<span><?php esc_html_e( 'Recommended Hosting', 'astra' ); ?></span>
-				</h2>
-				<div class="inside">
-					<p>
-						<?php esc_html_e( 'A fast theme gets faster with a great host!', 'astra' ); ?>
-					</p>
-					<p>
-						<?php esc_html_e( 'Astra proudly recommends Cloudways to anyone looking for speedy hosting.', 'astra' ); ?>
-					</p>
-					<a href="<?php echo esc_url( 'https://www.cloudways.com/en/wordpress-cloud-hosting.php?id=169153&utm_source=astra&utm_medium=dashboard-link&utm_campaign=astra-dashboard' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Check Cloudways Hosting »', 'astra' ); ?></a>
+					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/contact/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Submit a Ticket »', 'astra' ); ?></a>
 				</div>
 			</div>
 
