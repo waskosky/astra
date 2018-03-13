@@ -147,6 +147,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			if ( apply_filters( 'astra_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
+				add_filter( 'oembed_result', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 			}
 
 			// WooCommerce.
@@ -170,6 +171,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					$html = ( '' !== $html ) ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
 				}
 			}
+
 			return $html;
 		}
 	}
