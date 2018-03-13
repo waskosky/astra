@@ -431,7 +431,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						);
 						?>
 					<div>
-							
+
 						<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/docs/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ); ?>" target="_blank" rel="noopener" class="ast-sites-info-link" >
 								<?php esc_html_e( 'How It Works?', 'astra' ); ?>
 						</a>
@@ -783,7 +783,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			<!-- Notice for Older version of Astra Addon -->
 			<?php self::min_addon_version_message(); ?>
- 
 
 			<div class="postbox">
 				<h2 class="hndle ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
