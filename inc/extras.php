@@ -1368,7 +1368,7 @@ if ( ! function_exists( 'astra_strposa' ) ) :
 	/**
 	 * Strpos over an array.
 	 *
-	 * @since  1.2.1
+	 * @since  1.2.4
 	 * @param  String  $haystack The string to search in.
 	 * @param  Array   $needles  Array of needles to be passed to strpos().
 	 * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.
