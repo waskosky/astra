@@ -66,6 +66,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			// Grid.
 			add_filter( 'lifterlms_loop_columns', array( $this, 'course_grid' ) );
 			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
+
+			// Course builder custom fields.
+			add_filter( 'llms_get_quiz_theme_settings', array( $this, 'quiz_layout_fields' ) );
+
 		}
 
 		/**
@@ -123,6 +127,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				remove_action( 'lifterlms_single_lesson_after_summary', 'lifterlms_template_lesson_navigation', 20 );
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
+			}
+
+			if ( is_quiz() ) {
+				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 
 			remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_reviews', 100 );
@@ -487,6 +495,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return   void
 		 */
 		function add_theme_support() {
+			add_theme_support( 'lifterlms-quizzes' );
 			add_theme_support( 'lifterlms-sidebars' );
 		}
 
@@ -579,6 +588,32 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			}
 
 			return $layout;
+		}
+
+		/**
+		 * Add layout settings for LifterLMS quizzes
+		 *
+		 * @since [version]
+		 * @param array $settings layout settings.
+		 * @return array $settings layout settings.
+		 */
+		function quiz_layout_fields( $settings ) {
+
+			$settings['layout'] = array(
+				'id'      => 'site-content-layout',
+				'name'    => __( 'Content Layout', 'astra' ),
+				'options' => array(
+					'default'                 => esc_html__( 'Customizer Setting', 'astra' ),
+					'boxed-container'         => esc_html__( 'Boxed', 'astra' ),
+					'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
+					'plain-container'         => esc_html__( 'Full Width / Contained', 'astra' ),
+					'page-builder'            => esc_html__( 'Full Width / Stretched', 'astra' ),
+				),
+				'type'    => 'select',
+			);
+
+			return $settings;
+
 		}
 
 	}
