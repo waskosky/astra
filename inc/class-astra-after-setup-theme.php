@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
 
 			$allowed_providers = apply_filters(
-				'astra_allowed_fullwidth_providers', array(
+				'astra_allowed_fullwidth_oembed_providers', array(
 					'vimeo.com',
 					'youtube.com',
 					'youtu.be',
