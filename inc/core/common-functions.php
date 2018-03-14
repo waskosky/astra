@@ -959,3 +959,37 @@ if ( ! function_exists( 'astra_enable_page_builder_compatibility' ) ) :
 	}
 
 endif;
+
+
+if ( ! function_exists( 'astra_get_pro_url' ) ) :
+	/**
+	 * Returns an URL with utm tags
+	 * the admin settings page.
+	 *
+	 * @param string $url    URL fo the site.
+	 * @param string $source utm source.
+	 * @param string $medium utm medium.
+	 * @param string $campaign utm campaign.
+	 * @return mixed
+	 */
+	function astra_get_pro_url( $url, $source = '', $medium = '', $campaign = '' ) {
+
+		$url = trailingslashit( $url );
+
+		// Set up our URL if we have a source.
+		if ( isset( $source ) ) {
+			$url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
+		}
+		// Set up our URL if we have a medium.
+		if ( isset( $medium ) ) {
+			$url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
+		}
+		// Set up our URL if we have a campaign.
+		if ( isset( $campaign ) ) {
+			$url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
+		}
+
+		return esc_url( $url );
+	}
+
+endif;

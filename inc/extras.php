@@ -1399,3 +1399,24 @@ if ( ! function_exists( 'astra_strposa' ) ) :
 	}
 
 endif;
+
+if ( ! function_exists( 'astra_get_addon_name' ) ) :
+
+	/**
+	 * Get Addon name.
+	 *
+	 * @return string Addon Name.
+	 */
+	function astra_get_addon_name() {
+
+		$pro_name = __( 'Astra Pro', 'astra' );
+		if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
+			$plugin_data = Astra_Ext_White_Label_Markup::$branding;
+			if ( '' != $plugin_data['astra-pro']['name'] ) {
+				$pro_name = $plugin_data['astra-pro']['name'];
+			}
+		}
+
+		return apply_filters( 'astra_addon_name', $pro_name );
+	}
+endif;
