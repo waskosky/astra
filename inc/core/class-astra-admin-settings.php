@@ -340,7 +340,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle">
+				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-admin-customizer"></span>
 					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Site', 'astra' ) ) ); ?></span>
 				</h2>
@@ -348,7 +348,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php
 							/* translators: %1$s: Starter site link. */
-							printf( esc_html__( 'Did you know Astra offers a free library of %1$s ', 'astra' ),
+							printf(
+								esc_html__( 'Did you know Astra offers a free library of %1$s ', 'astra' ),
 								'<a href=' . esc_url( astra_get_pro_url( 'https://wpastra.com/ready-websites/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) ) . ' target="_blank" rel="noopener">' . __( 'Starter Site Templates?', 'astra' ) . '</a>'
 							);
 						?>
@@ -403,7 +404,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle">
+				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-book"></span>
 					<span><?php esc_html_e( 'Knowledge Base', 'astra' ); ?></span>
 				</h2>
@@ -416,7 +417,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle">
+				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-groups"></span>
 					<span><?php esc_html_e( 'Astra Community', 'astra' ); ?></span>
 				</h2>
@@ -429,7 +430,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle">
+				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-sos"></span>
 					<span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span>
 				</h2>
@@ -723,7 +724,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 			?>
 			<div class="postbox">
-				<h2 class="hndle"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
+				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
 					<div class="ast-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
@@ -745,7 +746,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<?php self::min_addon_version_message(); ?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					<?php do_action( 'astra_addon_bulk_action' ); ?>
 				</h2>
 					<div class="ast-addon-list-section">
@@ -841,10 +842,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$class   = 'ast-notice ast-notice-error';
 					$message = sprintf(
 						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra Addon */
-						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ), $astra_addon_name
+						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ), '<a href=' . esc_url( astra_get_pro_url( 'https://wpastra.com/changelog/astra-pro-addon/', 'astra-dashboard', 'update-to-astra-pro', 'welcome-page' ) ) . ' target="_blank" rel="noopener">' . $astra_addon_name . '</a>'
 					);
 
-					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message );
 				}
 			}
 		}
@@ -871,7 +872,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						<?php
 						foreach ( (array) $top_links as $key => $info ) {
 							/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
-							printf( '<li><%1$s %2$s %3$s > %4$s </%1$s>',
+							printf(
+								'<li><%1$s %2$s %3$s > %4$s </%1$s>',
 								isset( $info['url'] ) ? 'a' : 'span',
 								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '',
 								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '',
