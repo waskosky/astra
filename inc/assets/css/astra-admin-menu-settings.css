@@ -42,7 +42,7 @@
 .ast-theme-page-header {
     background-color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     margin-bottom: 20px;
     box-shadow: 0 2px 0 #efefef, 0 2px 2px #ececec;
 }
