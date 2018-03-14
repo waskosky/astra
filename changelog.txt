@@ -1,3 +1,11 @@
+v1.2.4
+- Improvement: Separated the Theme Color & Link Color options.
+- Improvement: Added filter `astra_comment_form_title`  for comments title.
+- Improvement: Load the full size of the post thumbnail by default, Pass the value through a new filter `astra_post_thumbnail_default_size`.
+- Improvement: Introduces filter `astra_allowed_fullwidth_oembed_providers` of providers to be made full width.
+- Improvement: Added support for Content Layout option on LifterLMS quizzes via the builder.
+- Fixed: Fatal error while editing the Elementor with Astra shortcode for the mini cart is used on a page.
+
 v1.2.3
 - Fixed: Added shortcode support for Footer bar custom text section.
 - Improvement: Updated Container layout strings for Default, Pages, Blog Posts, Blog Archives & WooCommerce.
