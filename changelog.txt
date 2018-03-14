@@ -4,14 +4,14 @@ v1.2.4
 - Improvement: Added filter `astra_comment_form_title`  for comments title.
 - Improvement: Load the full size of the post thumbnail by default, Pass the value through a new filter `astra_post_thumbnail_default_size`.
 - Improvement: Introduces filter `astra_allowed_fullwidth_oembed_providers` of providers to be made full width.
-- Improvement: Don't display post navigation on the LifterLMS Quizzes. (Props [thomasplevy](https://github.com/thomasplevy))
-- Improvement: Add support for Course Builder for LifterLMS. Now Astra layout settings will be available for Quizzes in Course builder. (Props [thomasplevy](https://github.com/thomasplevy))
+- Improvement: Don't display post navigation on the LifterLMS Quizzes. (Props [thomasplevy](https://github.com/thomasplevy)).
+- Improvement: Add support for Course Builder for LifterLMS. Now Astra layout settings will be available for Quizzes in Course builder. (Props [thomasplevy](https://github.com/thomasplevy)).
 - Improvement: Added support for Content Layout option on LifterLMS quizzes via the builder.
 - Improvement: Load WooCommerce compatibility on WordPress action `wp` instead of `init` to improve compatibility with some third party plugins.
 - Fixed: Make the LifterLMS course videos full width.
 - Fixed: Black bars appearing when the video is made full width in the LearnDash course/lesson.
 - Fixed: Fatal error while editing the Elementor with Astra shortcode for the mini cart is used on a page.
-- Fixed: Fatal error if using PHP 5.2
+- Fixed: Fatal error if using PHP 5.2.
 
 v1.2.3
 - Fixed: Added shortcode support for Footer bar custom text section.
