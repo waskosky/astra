@@ -824,7 +824,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Check compatible theme version.
 		 *
-		 * @since x.x.x
+		 * @since 1.2.4
 		 */
 		static public function min_addon_version_message() {
 
@@ -853,7 +853,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Astra Header Right Section Links
 		 *
-		 * @since x.x.x
+		 * @since 1.2.4
 		 */
 		static public function top_header_right_section() {
 
