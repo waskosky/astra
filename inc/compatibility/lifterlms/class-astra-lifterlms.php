@@ -129,6 +129,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
 			}
 
+			if ( is_quiz() ) {
+				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+			}
+
 			remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_reviews', 100 );
 			add_action( 'lifterlms_single_course_after_summary', array( $this, 'single_reviews' ), 100 );
 
