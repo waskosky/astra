@@ -3719,6 +3719,24 @@ button.pswp__button--zoom:hover {
 		}
 	}
 
+	/* Product Tag Cloud */
+	&.widget_product_tag_cloud {
+		.tagcloud {
+			margin-top: 10px;
+			display: inline-block;
+			a {
+				border: 1px solid $color-border-dotted-widget;
+				padding: 0.5em 0.9em;
+				display: inline-block;
+				margin-bottom: 4px;
+				font-size: 14px;
+				margin-right: 4px;
+				line-height: 1.5;
+				@include ast-transition();    
+			}
+		}
+	}
+
 	.widget_shopping_cart .total,
 	&.widget_shopping_cart .total {
 		padding: 5px 0;

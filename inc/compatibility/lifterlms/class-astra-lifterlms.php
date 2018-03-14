@@ -245,7 +245,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				<hr>
 				</div>
 				<?php
-			}// End if().
+			}
 
 			/**
 			 * Check to see if reviews are open
@@ -296,7 +296,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					</div>
 					<?php
 				}
-			}// End if().
+			}
 		}
 
 		/**
@@ -361,11 +361,12 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * - Variable Declaration
 			 */
-			$theme_color  = astra_get_option( 'link-color' );
+			$theme_color  = astra_get_option( 'theme-color' );
+			$link_color   = astra_get_option( 'link-color', $theme_color );
 			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
-			$theme_forground_color = astra_get_foreground_color( $theme_color );
+			$theme_forground_color = astra_get_foreground_color( $link_color );
 			$btn_color             = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
 				$btn_color = $theme_forground_color;
@@ -375,7 +376,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( empty( $btn_h_color ) ) {
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
 			}
-			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
+			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $link_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
 			$btn_border_radius      = astra_get_option( 'button-radius' );
@@ -398,23 +399,23 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'background-color' => $btn_bg_h_color,
 				),
 				'nav.llms-pagination ul li a:focus, nav.llms-pagination ul li a:hover, nav.llms-pagination ul li span.current' => array(
-					'background' => $theme_color,
+					'background' => $link_color,
 					'color'      => $btn_color,
 				),
 				'nav.llms-pagination ul, nav.llms-pagination ul li, .llms-instructor-info .llms-instructors .llms-author, .llms-instructor-info .llms-instructors .llms-author .avatar' => array(
-					'border-color' => $theme_color,
+					'border-color' => $link_color,
 				),
 				'.llms-progress .progress-bar-complete, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded, .color-full, body .llms-syllabus-wrapper .llms-section-title' => array(
-					'background' => $theme_color,
+					'background' => $link_color,
 				),
 				'.llms-lesson-preview.is-complete .llms-lesson-complete, .llms-lesson-preview.is-free .llms-lesson-complete, .llms-widget-syllabus .lesson-complete-placeholder.done, .llms-widget-syllabus .llms-lesson-complete.done, .single-llms_quiz .llms-quiz-results .llms-donut.passing, .llms-quiz-timer' => array(
-					'color' => $theme_color,
+					'color' => $link_color,
 				),
 				'.llms-quiz-timer'                  => array(
-					'border-color' => $theme_color,
+					'border-color' => $link_color,
 				),
 				'.single-llms_quiz .llms-quiz-results .llms-donut.passing svg path' => array(
-					'stroke' => $theme_color,
+					'stroke' => $link_color,
 				),
 				'h4.llms-access-plan-title, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded, body .llms-syllabus-wrapper .llms-section-title' => array(
 					'color' => $theme_forground_color,
