@@ -1,4 +1,4 @@
-v1.2.3
+v1.2.4
 - Improvement: Separated the Theme Color & Link Color options.
 - Improvement: Added filter `astra_comment_form_title`  for comments title.
 - Improvement: Load the full size of the post thumbnail by default, Pass the value through a new filter `astra_post_thumbnail_default_size`.
