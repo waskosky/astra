@@ -347,8 +347,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				<div class="inside">
 					<p>
 						<?php
-							/* translators: %1$s: Starter site link. */
 							printf(
+								/* translators: %1$s: Starter site link. */
 								esc_html__( 'Did you know Astra offers a free library of %1$s ', 'astra' ),
 								'<a href=' . esc_url( astra_get_pro_url( 'https://wpastra.com/ready-websites/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) ) . ' target="_blank" rel="noopener">' . __( 'Starter Site Templates?', 'astra' ) . '</a>'
 							);
