@@ -507,7 +507,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'astra_addon_list', array(
 					'colors-and-background' => array(
 						'title'       => __( 'Colors & Background', 'astra' ),
-						'description' => __( 'Customize colors in all areas on your website or add background images.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/colors-background-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -521,7 +520,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'typography'            => array(
 						'title'       => __( 'Typography', 'astra' ),
-						'description' => __( 'Get full freedom to manage typography of all areas on your website.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -535,7 +533,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'spacing'               => array(
 						'title'       => __( 'Spacing', 'astra' ),
-						'description' => 'Controls spacing for every element you use with Astra',
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/spacing-addon-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -549,7 +546,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'blog-pro'              => array(
 						'title'       => __( 'Blog Pro', 'astra' ),
-						'description' => 'This module adds more options in the customizer for the blog layouts.',
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -563,7 +559,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'header-sections'       => array(
 						'title'       => __( 'Header Sections', 'astra' ),
-						'description' => __( 'This module introduces two more header sections in the website header.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -577,7 +572,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'transparent-header'    => array(
 						'title'       => __( 'Transparent Header', 'astra' ),
-						'description' => __( 'Create beautiful transparent headers with with just a few clicks.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/transparent-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -591,7 +585,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'sticky-header'         => array(
 						'title'       => __( 'Sticky Header', 'astra' ),
-						'description' => __( 'Let your header stick throughout the site or just on few particular pages.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/sticky-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -637,7 +630,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'site-layouts'          => array(
 						'title'       => __( 'Site Layouts', 'astra' ),
-						'description' => 'Adds Box, Fluid, Padded layouts to add more design possibilities to your websites.',
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -651,7 +643,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'advanced-footer'       => array(
 						'title'       => __( 'Footer Widgets', 'astra' ),
-						'description' => __( 'Add customizable widget areas above the main footer.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -665,7 +656,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'scroll-to-top'         => array(
 						'title'       => __( 'Scroll To Top', 'astra' ),
-						'description' => __( 'Provides functionality to add a scroll to top link on your long pages.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -679,7 +669,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'woocommerce'           => array(
 						'title'       => __( 'WooCommerce', 'astra' ),
-						'description' => __( 'Powerful design features for your WooCommerce store.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -693,7 +682,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'lifterlms'             => array(
 						'title'       => __( 'LifterLMS', 'astra' ),
-						'description' => __( 'Supercharge your LifterLMS website with amazing design features.', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
@@ -707,7 +695,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'white-label'           => array(
 						'title'       => __( 'White Label', 'astra' ),
-						'description' => __( 'White Label', 'astra' ),
 						'class'       => 'ast-addon',
 						'title_url'   => astra_get_pro_url( 'https://wpastra.com/introducing-white-label/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
