@@ -1410,6 +1410,7 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 	function astra_get_addon_name() {
 
 		$pro_name = __( 'Astra Pro', 'astra' );
+		// If addon is not updated & White Label added for Addon then show the updated addon name.
 		if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 			$plugin_data = Astra_Ext_White_Label_Markup::$branding;
 			if ( '' != $plugin_data['astra-pro']['name'] ) {
