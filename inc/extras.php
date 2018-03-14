@@ -1360,4 +1360,36 @@ if ( ! function_exists( 'astra_get_theme_name' ) ) :
 
 		return apply_filters( 'astra_theme_name', $theme_name );
 	}
+
+endif;
+
+if ( ! function_exists( 'astra_strposa' ) ) :
+
+	/**
+	 * Strpos over an array.
+	 *
+	 * @since  1.2.4
+	 * @param  String  $haystack The string to search in.
+	 * @param  Array   $needles  Array of needles to be passed to strpos().
+	 * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.
+	 *
+	 * @return bool            True if haystack if part of any of the $needles.
+	 */
+	function astra_strposa( $haystack, $needles, $offset = 0 ) {
+
+		if ( ! is_array( $needles ) ) {
+			$needles = array( $needles );
+		}
+
+		foreach ( $needles as $query ) {
+
+			if ( strpos( $haystack, $query, $offset ) !== false ) {
+				// stop on first true result.
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 endif;
