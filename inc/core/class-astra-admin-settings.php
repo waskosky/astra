@@ -115,6 +115,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
 
+			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
+
 			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
 
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_right_sidebar_content' );
@@ -294,13 +296,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
 			$ast_visit_site_url = apply_filters( 'astra_site_url', 'https://wpastra.com' );
-			$top_links          = apply_filters(
-				'astra_header_top_links', array(
-					'astra-theme-info' => array(
-						'title' => __( 'Stylish, Lightning Fast & Easily Customizable Theme!', 'astra' ),
-					),
-				)
-			);
 			$ast_wrapper_class  = apply_filters( 'astra_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
@@ -316,27 +311,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								</a>
 							</div>
 
-							<?php
-							if ( ! empty( $top_links ) ) {
-								?>
-								<div class="ast-top-links">
-									<ul>
-										<?php
-										foreach ( (array) $top_links as $key => $info ) {
-											printf(
-												'<li><%1$s %2$s %3$s > %4$s </%1$s>',
-												isset( $info['url'] ) ? 'a' : 'span',
-												isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '',
-												isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '',
-												esc_html( $info['title'] )
-											);
-										}
-										?>
-										</ul>
-									</div>
-								<?php
-							}
-?>
+							<?php do_action( 'astra_header_right_section' ); ?>
+
 						</div>
 					</div>
 
@@ -847,7 +823,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Check compatible theme version.
 		 *
-		 * @since 1.2.0
+		 * @since x.x.x
 		 */
 		static public function min_addon_version_message() {
 
@@ -873,9 +849,42 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 		}
 
+		/**
+		 * Astra Header Right Section Links
+		 *
+		 * @since x.x.x
+		 */
+		static public function top_header_right_section() {
+
+			$top_links = apply_filters(
+				'astra_header_top_links', array(
+					'astra-theme-info' => array(
+						'title' => __( 'Stylish, Lightning Fast & Easily Customizable Theme!', 'astra' ),
+					),
+				)
+			);
+
+			if ( ! empty( $top_links ) ) {
+				?>
+				<div class="ast-top-links">
+					<ul>
+						<?php
+						foreach ( (array) $top_links as $key => $info ) {
+							/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
+							printf( '<li><%1$s %2$s %3$s > %4$s </%1$s>',
+								isset( $info['url'] ) ? 'a' : 'span',
+								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '',
+								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '',
+								esc_html( $info['title'] )
+							);
+						}
+						?>
+						</ul>
+					</div>
+				<?php
+			}
+		}
 	}
 
 	new Astra_Admin_Settings;
-
-
 }
