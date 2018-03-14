@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
 			'section'  => 'section-learndash',
-			'label'    => __( 'Display Serial Number', 'astra-addon' ),
+			'label'    => __( 'Display Serial Number', 'astra' ),
 			'priority' => 5,
 			'type'     => 'checkbox',
 		)
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
 			'section'  => 'section-learndash',
-			'label'    => __( 'Differentiate Rows', 'astra-addon' ),
+			'label'    => __( 'Differentiate Rows', 'astra' ),
 			'priority' => 10,
 			'type'     => 'checkbox',
 		)
