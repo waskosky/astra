@@ -1,3 +1,6 @@
+v1.2.5
+- Improvement: Whitelabel from Astra Pro now updates the strings and urls on Astra's welcome page as well.
+
 v1.2.4
 - New: Redesigned the welcome page.
 - Improvement: Separated the Theme Color & Link Color options.
