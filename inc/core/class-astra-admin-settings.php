@@ -119,7 +119,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
 
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_right_sidebar_content' );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_knowledge_base_scetion', 11 );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_community_scetion', 12 );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_five_star_scetion', 13 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 
@@ -331,12 +334,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Include Welcome page right sidebar content
+		 * Include Welcome page right starter sites content
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_right_sidebar_content() {
-			do_action( 'astra_welcome_page_right_sidebar_content_before' );
+		static public function astra_welcome_page_starter_sites_section() {
 			?>
 
 			<div class="postbox">
@@ -347,10 +349,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				<div class="inside">
 					<p>
 						<?php
+							$astra_starter_sites_doc_link      = apply_filters( 'astra_starter_sites_documentation_link', astra_get_pro_url( 'https://wpastra.com/ready-websites/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) );
+							$astra_starter_sites_doc_link_text = apply_filters( 'astra_starter_sites_doc_link_text', __( 'Starter Site Templates?', 'astra' ) );
 							printf(
 								/* translators: %1$s: Starter site link. */
-								esc_html__( 'Did you know Astra offers a free library of %1$s ', 'astra' ),
-								'<a href=' . esc_url( astra_get_pro_url( 'https://wpastra.com/ready-websites/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) ) . ' target="_blank" rel="noopener">' . __( 'Starter Site Templates?', 'astra' ) . '</a>'
+								esc_html__( 'Did you know %1$s offers a free library of %2$s ', 'astra' ),
+								self::$page_title,
+								! empty( $astra_starter_sites_doc_link ) ? '<a href=' . esc_url( $astra_starter_sites_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_starter_sites_doc_link_text ) . '</a>' :
+								esc_html( $astra_starter_sites_doc_link_text )
 							);
 						?>
 					</p>
@@ -403,6 +409,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				</div>
 			</div>
 
+		<?php
+		}
+
+		/**
+		 * Include Welcome page right side knowledge base content
+		 *
+		 * @since 1.2.4
+		 */
+		static public function astra_welcome_page_knowledge_base_scetion() {
+			?>
+
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-book"></span>
@@ -412,22 +429,75 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'astra' ); ?>
 					</p>
-					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/docs/', 'astra-dashboard', 'visit-documentation', 'welcome-page' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Visit Knowledge Base »', 'astra' ); ?></a>
+					<?php
+					$astra_knowledge_base_doc_link      = apply_filters( 'astra_knowledge_base_documentation_link', astra_get_pro_url( 'https://wpastra.com/docs/', 'astra-dashboard', 'visit-documentation', 'welcome-page' ) );
+					$astra_knowledge_base_doc_link_text = apply_filters( 'astra_knowledge_base_documentation_link_text', __( 'Visit Knowledge Base »', 'astra' ) );
+
+					printf(
+						/* translators: %1$s: Astra Knowledge doc link. */
+						'%1$s',
+						! empty( $astra_knowledge_base_doc_link ) ? '<a href=' . esc_url( $astra_knowledge_base_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_knowledge_base_doc_link_text ) . '</a>' :
+						esc_html( $astra_knowledge_base_doc_link_text )
+					);
+					?>
 				</div>
 			</div>
+		<?php
+		}
+
+		/**
+		 * Include Welcome page right side Astra community content
+		 *
+		 * @since 1.2.4
+		 */
+		static public function astra_welcome_page_community_scetion() {
+			?>
 
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-groups"></span>
-					<span><?php esc_html_e( 'Astra Community', 'astra' ); ?></span>
+					<span>
+						<?php
+						printf(
+							/* translators: %1$s: Astra Theme name. */
+							esc_html__( '%1$s Community', 'astra' ),
+							self::$page_title
+						);
+						?>
 				</h2>
 				<div class="inside">
 					<p>
-						<?php esc_html_e( 'Join the community of super helpful Astra users. Say hello, ask questions, give feedback and help each other!', 'astra' ); ?>
+						<?php
+						printf(
+							/* translators: %1$s: Astra Theme name. */
+							esc_html__( 'Join the community of super helpful %1$s users. Say hello, ask questions, give feedback and help each other!', 'astra' ),
+							self::$page_title
+						);
+						?>
 					</p>
-					<a href="<?php echo esc_url( 'https://www.facebook.com/groups/wpastra' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Join Our Facebook Group »', 'astra' ); ?></a>
+					<?php
+					$astra_community_group_link      = apply_filters( 'astra_community_group_link', 'https://www.facebook.com/groups/wpastra' );
+					$astra_community_group_link_text = apply_filters( 'astra_community_group_link_text', __( 'Join Our Facebook Group »', 'astra' ) );
+
+					printf(
+						/* translators: %1$s: Astra Knowledge doc link. */
+						'%1$s',
+						! empty( $astra_community_group_link ) ? '<a href=' . esc_url( $astra_community_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_community_group_link_text ) . '</a>' :
+						esc_html( $astra_community_group_link_text )
+					);
+					?>
 				</div>
 			</div>
+		<?php
+		}
+
+		/**
+		 * Include Welcome page right side Five Star Support
+		 *
+		 * @since 1.2.4
+		 */
+		static public function astra_welcome_page_five_star_scetion() {
+			?>
 
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
@@ -436,14 +506,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				</h2>
 				<div class="inside">
 					<p>
-						<?php esc_html_e( "Got a question? Get in touch with Astra developers. We're happy to help!", 'astra' ); ?>
+						<?php
+						printf(
+							/* translators: %1$s: Astra Theme name. */
+							esc_html__( 'Got a question? Get in touch with %1$s developers. We\'re happy to help!', 'astra' ),
+							self::$page_title
+						);
+						?>
 					</p>
-					<a href="<?php echo astra_get_pro_url( 'https://wpastra.com/contact/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Submit a Ticket »', 'astra' ); ?></a>
+					<?php
+						$astra_support_link      = apply_filters( 'astra_support_link', astra_get_pro_url( 'https://wpastra.com/contact/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' ) );
+						$astra_support_link_text = apply_filters( 'astra_support_link_text', __( 'Submit a Ticket »', 'astra' ) );
+
+						printf(
+							/* translators: %1$s: Astra Knowledge doc link. */
+							'%1$s',
+							! empty( $astra_support_link ) ? '<a href=' . esc_url( $astra_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_support_link_text ) . '</a>' :
+							esc_html( $astra_support_link_text )
+						);
+					?>
 				</div>
 			</div>
-
-			<?php do_action( 'astra_welcome_page_right_sidebar_content_after' ); ?>
-
 		<?php
 		}
 
@@ -817,7 +900,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$astra_global_options = get_option( 'astra-settings' );
 
-			if ( isset( $astra_global_options['astra-addon-auto-version'] ) ) {
+			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
 
 				if ( version_compare( $astra_global_options['astra-addon-auto-version'], '1.2.1' ) < 0 ) {
 
