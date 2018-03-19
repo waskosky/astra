@@ -600,7 +600,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/*
 			 *  Responsive Font Size for Tablet & Mobile to the root HTML element
 			 */
-			/* Tablet Font Size for HTML tag */
+			// Tablet Font Size for HTML tag.
 			if ( '' == $body_font_size['tablet'] ) {
 				$html_tablet_typography = array(
 					'html' => array(
@@ -609,7 +609,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 				$parse_css             .= astra_parse_css( $html_tablet_typography, '', '768' );
 			}
-			/* Mobile Font Size for HTML tag */
+			// Mobile Font Size for HTML tag.
 			if ( '' == $body_font_size['mobile'] ) {
 				$html_mobile_typography = array(
 					'html' => array(
