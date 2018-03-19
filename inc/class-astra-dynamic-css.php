@@ -600,6 +600,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/*
 			 *  Responsive Font Size for Tablet & Mobile to the root HTML element
 			 */
+
 			// Tablet Font Size for HTML tag.
 			if ( '' == $body_font_size['tablet'] ) {
 				$html_tablet_typography = array(
