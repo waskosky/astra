@@ -8,6 +8,10 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.single .sfwd-courses .entry-header {
+  margin-bottom: 1em;
+}
+
 .ld-course-list-content .ld-entry-content {
   margin-bottom: 1.5em;
 }
