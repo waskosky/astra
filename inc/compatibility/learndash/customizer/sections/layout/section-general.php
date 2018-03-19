@@ -12,7 +12,20 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-lesson-content]', array(
+				'label'    => __( 'Course Content Table', 'astra-addon' ),
+				'section'  => 'section-learndash',
+				'type'     => 'ast-divider',
+				'priority' => 5,
+				'settings' => array(),
+			)
+		)
+	);
 	/**
 	 * Option: Display Serial Number
 	 */
