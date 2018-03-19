@@ -72,6 +72,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
+			$body_font_family = astra_body_font_family();
+
 			$theme_forground_color = astra_get_foreground_color( $theme_color );
 			$btn_color             = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
@@ -92,6 +94,9 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			$archive_post_title_font_size = astra_get_option( 'font-size-page-title' );
 
 			$css_output = array(
+				'body #learndash_lessons a, body #learndash_quizzes a, body .expand_collapse a, body .learndash_topic_dots a, body .learndash_topic_dots a > span, body #learndash_lesson_topics_list span a, body #learndash_profile a, body #learndash_profile a span' => array(
+					'font-family'    => astra_get_font_family( $body_font_family ),
+				),
 				'body #ld_course_list .btn, body a.btn-blue, body a.btn-blue:visited, body a#quiz_continue_link, body .btn-join, body .learndash_checkout_buttons input.btn-join[type="button"], body #btn-join, body .learndash_checkout_buttons input.btn-join[type="submit"], body .wpProQuiz_content .wpProQuiz_button2' => array(
 					'color'            => $btn_color,
 					'border-color'     => $btn_bg_color,
