@@ -82,9 +82,10 @@
   display: inline-block;
 }
 
-.widget_ldcoursenavigation .topic-completed span:before,
-.widget_ldcoursenavigation .topic-notcompleted span:before {
+.widget_ldcoursenavigation .learndash_topic_widget_list .topic-completed span:before,
+.widget_ldcoursenavigation .learndash_topic_widget_list .topic-notcompleted span:before {
   margin-right: 1px;
+  margin-left: 9px;
 }
 
 .wpProQuiz_modal_window #wpProQuiz_overlay_close {
@@ -233,7 +234,7 @@ body .learndash_topic_dots ul .topic-notcompleted span:before {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1em;
   font-weight: normal;
-  margin-left: 9px;
+  margin-left: 10px;
 }
 
 body .learndash_navigation_lesson_topics_list .topic-completed span:before,

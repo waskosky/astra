@@ -103,10 +103,13 @@
 }
 
 .widget_ldcoursenavigation {
-	.topic-completed span,
-	.topic-notcompleted span {
-		&:before {
-			margin-left: 1px;
+	.learndash_topic_widget_list{
+		.topic-completed span,
+		.topic-notcompleted span {
+			&:before {
+				margin-left: 1px;
+				margin-right: 9px;
+			}
 		}
 	}
 }
@@ -261,7 +264,7 @@ body {
 					-moz-osx-font-smoothing: grayscale;
 					font-size: 1em;
 					font-weight: normal;
-					margin-right: 9px;
+					margin-right: 10px;
 				}
 			}
 
