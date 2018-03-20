@@ -148,8 +148,8 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 					$name = key( $font );
 					foreach ( $font[ $name ] as $font_key => $single_font ) {
 
-						$variant  = astra_rgar( $single_font, 'variants' );
-						$category = astra_rgar( $single_font, 'category' );
+						$variant  = astar( $single_font, 'variants' );
+						$category = astar( $single_font, 'category' );
 
 						if ( stristr( $variant, 'italic' ) ) {
 							unset( $font[ $name ][ $font_key ] );

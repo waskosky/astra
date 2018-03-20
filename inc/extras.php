@@ -1422,7 +1422,7 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'astra_rgar' ) ) :
+if ( ! function_exists( 'astar' ) ) :
 	/**
 	 * Get a specific property of an array without needing to check if that property exists.
 	 *
@@ -1437,7 +1437,7 @@ if ( ! function_exists( 'astra_rgar' ) ) :
 	 *
 	 * @return null|string|mixed The value
 	 */
-	function astra_rgar( $array, $prop, $default = null ) {
+	function astar( $array, $prop, $default = null ) {
 
 		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
 			return $default;

@@ -170,8 +170,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<optgroup label="Google">';
 
 		foreach ( Astra_Font_Families::get_google_fonts() as $name => $single_font ) {
-			$variants = astra_rgar( $single_font, '0' );
-			$category = astra_rgar( $single_font, '1' );
+			$variants = astar( $single_font, '0' );
+			$category = astar( $single_font, '1' );
 			echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
