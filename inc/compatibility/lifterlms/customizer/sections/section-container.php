@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[lifterlms-content-divider]', array(
 				'section'  => 'section-container-layout',
 				'type'     => 'ast-divider',
-				'priority' => 25,
+				'priority' => 75,
 				'settings' => array(),
 			)
 		)
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
-			'priority' => 25,
+			'priority' => 75,
 			'label'    => __( 'LifterLMS', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
