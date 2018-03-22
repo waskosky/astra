@@ -275,20 +275,6 @@ if ( ! function_exists( 'astra_widget_product_tag_cloud_args' ) ) {
 
 }
 
-/**
- * Single Product Add To Cart button Wrapper
- */
-if ( ! function_exists( 'astra_single_product_add_to_cart_button_wrap' ) ) :
-
-	/**
-	 * Used to wrap the order review in an li
-	 *
-	 * @return void
-	 */
-	function astra_single_product_add_to_cart_button_wrap() {
-		echo '<div class="ast-woo-single-cart-button-wrap">';
-	}
-endif;
 
 /**
  * Single Product Add To Cart button Wrapper
@@ -296,7 +282,7 @@ endif;
 if ( ! function_exists( 'astra_single_product_add_to_cart_button_wrap' ) ) :
 
 	/**
-	 * Used to wrap the order review in an li
+	 * Single Product Add To Cart button Wrapper
 	 *
 	 * @return void
 	 */
@@ -313,7 +299,7 @@ if ( ! function_exists( 'astra_woocommerce_div_wrapper_close' ) ) :
 	/**
 	 * Woocommerce shop/product div close tag.
 	 *
-	 * @since 1.1.0
+	 * @return void
 	 */
 	function astra_woocommerce_div_wrapper_close() {
 
