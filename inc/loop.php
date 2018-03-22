@@ -56,14 +56,13 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.0.0
 		 */
 		function template_parts_none() {
-			if( is_archive() ) {
+			if( is_archive() || is_search() ) {
 				get_template_part( 'template-parts/content', 'none' );
 			}
 		}
 
 		function template_parts() {
 			if( is_single() || is_page() ) {
-				
 				if( is_single() ) {
 					get_template_part( 'template-parts/content', 'single' );					
 				} else if( is_page() ) {
@@ -75,6 +74,20 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 					comments_template();
 				endif;
 
+			} else if( is_search() ) {
+				astra_entry_before(); ?>
+
+				<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+					<?php astra_entry_top(); ?>
+
+					<?php astra_entry_content_blog(); ?>
+
+					<?php astra_entry_bottom(); ?>
+
+				</article><!-- #post-## -->
+
+				<?php astra_entry_after();
 			} else {
 
 				/*
