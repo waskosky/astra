@@ -941,11 +941,13 @@ p.demo_store,
 		}
 
 		form.cart {
-			display: flex;
-			align-items: center;
-			flex-wrap: wrap;
 			margin: 0 0 1.2em;
 
+			.ast-woo-single-cart-button-wrap{
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+			}
 			@include clearfix();
 
 			div.quantity {
