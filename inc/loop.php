@@ -75,19 +75,7 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 				endif;
 
 			} else if( is_search() ) {
-				astra_entry_before(); ?>
-
-				<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-					<?php astra_entry_top(); ?>
-
-					<?php astra_entry_content_blog(); ?>
-
-					<?php astra_entry_bottom(); ?>
-
-				</article><!-- #post-## -->
-
-				<?php astra_entry_after();
+				get_template_part( 'template-parts/content', 'blog' );
 			} else {
 
 				/*
