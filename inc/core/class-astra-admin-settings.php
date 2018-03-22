@@ -562,7 +562,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						$astra_cloudways_link_text = apply_filters( 'astra_astra_cloudways_link_text', __( 'Check Cloudways Hosting »', 'astra' ) );
 
 						printf(
-							/* translators: %1$s: Astra Knowledge doc link. */
+							/* translators: %1$s: Astra Cloudways Hosting link. */
 							'%1$s',
 							! empty( $astra_cloudways_link ) ? '<a href=' . esc_url( $astra_cloudways_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_cloudways_link_text ) . '</a>' :
 							esc_html( $astra_cloudways_link_text )
