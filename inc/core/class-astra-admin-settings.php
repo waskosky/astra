@@ -532,9 +532,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Include Welcome page right side Five Star Support
+		 * Include Welcome page right side Cloudways
 		 *
-		 * @since 1.2.4
+		 * @since 1.2.6
 		 */
 		static public function astra_welcome_page_cloudways_scetion() {
 			?>
