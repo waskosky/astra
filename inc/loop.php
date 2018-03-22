@@ -48,7 +48,22 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 		{
 			add_action('astra_content_loop', array( $this, 'loop_markup' ) );			
 			add_action('astra_template_parts_content', array( $this, 'template_parts' ) );			
-			add_action('astra_template_parts_content_none', array( $this, 'template_parts_none' ) );			
+			add_action('astra_template_parts_content_none', array( $this, 'template_parts_none' ) );
+
+			add_action('astra_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
+			add_action('astra_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
+		}
+
+		function template_parts_content_top() {
+			if( is_archive() ) {
+				astra_content_while_before();
+			}	
+		}
+
+		function template_parts_content_bottom() {
+			if( is_archive() ) {
+				astra_content_while_after();
+			}	
 		}
 
 		/**
@@ -95,7 +110,7 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 
 				<?php if ( have_posts() ) : ?>
 
-					<?php if( is_archive() ) : astra_content_while_before(); endif; ?>
+					<?php do_action( 'astra_template_parts_content_top' ); ?>
 
 					<div class="ast-row">
 					<?php
@@ -108,7 +123,7 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 					<?php endwhile; ?>
 					</div>
 
-					<?php if( is_archive() ) : astra_content_while_after(); endif; ?>
+					<?php do_action( 'astra_template_parts_content_bottom' ); ?>
 
 				<?php else : ?>
 
