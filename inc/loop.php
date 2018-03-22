@@ -62,8 +62,13 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 		}
 
 		function template_parts() {
-			if( is_single( ) ) {
-				get_template_part( 'template-parts/content', 'single' );
+			if( is_single() || is_page() ) {
+				
+				if( is_single() ) {
+					get_template_part( 'template-parts/content', 'single' );					
+				} else if( is_page() ) {
+					get_template_part( 'template-parts/content', 'page' );
+				}
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
