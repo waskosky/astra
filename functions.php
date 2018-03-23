@@ -63,6 +63,7 @@ require_once ASTRA_THEME_DIR . 'inc/blog/single-blog.php';
  * Markup Files
  */
 require_once ASTRA_THEME_DIR . 'inc/template-parts.php';
+require_once ASTRA_THEME_DIR . 'inc/loop.php';
 
 /**
  * Functions and definitions.
