@@ -648,8 +648,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		$break_point = apply_filters( 'astra_header_break_point', 921 );
-		return absint( $break_point );
+		return absint( apply_filters( 'astra_header_break_point', 921 ) );
 	}
 }
 
@@ -673,7 +672,7 @@ if ( ! function_exists( 'astra_body_font_family' ) ) {
 			$font_family = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif';
 		}
 
-		return $font_family;
+		return apply_filters( 'astra_body_font_family', $font_family );
 	}
 }
 
@@ -819,6 +818,7 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'astra_header_breakpoint_style' );
 
 /**
@@ -848,9 +848,12 @@ if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
 		$fields['url']    = '<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url">' .
 					'<label for="url" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
-		return $fields;
+
+		return apply_filters( 'astra_comment_form_default_fields_markup', $fields );
 	}
+
 }
+
 add_filter( 'comment_form_default_fields', 'astra_comment_form_default_fields_markup' );
 
 /**
@@ -872,9 +875,13 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
 		$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
 		$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
-		return $args;
+
+		return apply_filters( 'astra_comment_form_default_markup', $args );
+
 	}
+
 }
+
 add_filter( 'comment_form_defaults', 'astra_comment_form_default_markup' );
 
 
@@ -895,9 +902,11 @@ if ( ! function_exists( 'astra_404_page_layout' ) ) {
 		if ( is_404() ) {
 			$layout = 'no-sidebar';
 		}
-		return $layout;
+
+		return apply_filters( 'astra_404_page_layout', $layout );
 	}
 }
+
 add_filter( 'astra_page_layout', 'astra_404_page_layout', 10, 1 );
 
 /**
@@ -975,11 +984,15 @@ if ( ! function_exists( 'astra_the_excerpt' ) ) {
 
 		$excerpt_type = astra_get_option( 'blog-post-content' );
 
+		do_action( 'astra_the_excerpt_before', $excerpt_type );
+
 		if ( 'full-content' == $excerpt_type ) {
 			the_content();
 		} else {
 			the_excerpt();
 		}
+
+		do_action( 'astra_the_excerpt_after', $excerpt_type );
 	}
 }
 
