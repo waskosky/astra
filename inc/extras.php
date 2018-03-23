@@ -1015,6 +1015,7 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
  * Filter google fonts
  */
 if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
+
 	/**
 	 * Google Fonts
 	 *
@@ -1046,15 +1047,18 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 			}
 
 			if ( $is_true ) {
+
 				if ( in_array( 'normal', $font_weight ) ) {
 					$key                         = array_search( 'normal', $font_weight );
 					$fonts[ $font_name ][ $key ] = $new_font_weight;
 				}
 			}
 		}
+
 		return $fonts;
 	}
 }
+
 add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
 
 /**
@@ -1203,6 +1207,8 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 			$output = apply_filters( 'astra_blog_post_featured_image_after', $output );
 		}
 
+		$output = apply_filters( 'astra_get_post_thumbnail', $output, $before, $after );
+
 		if ( $echo ) {
 			echo $before . $output . $after; // WPCS: XSS OK.
 		} else {
@@ -1230,8 +1236,9 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 			$is_ie = true;
 		}
 
-		return $is_ie;
+		return apply_filters( 'astra_check_is_ie', $is_ie );
 	}
+
 endif;
 
 
@@ -1263,8 +1270,9 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 			}
 		}
 
-		return $image;
+		return apply_filters( 'astra_replace_header_logo', $image );
 	}
+
 endif;
 
 /**
@@ -1284,6 +1292,7 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	function astra_replace_header_attr( $attr, $attachment, $size ) {
 
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
+
 		if ( $custom_logo_id == $attachment->ID ) {
 
 			$attach_data = array();
@@ -1320,8 +1329,9 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 			}
 		}
 
-		return $attr;
+		return apply_filters( 'astra_replace_header_attr', $attr );
 	}
+
 endif;
 
 add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
@@ -1351,6 +1361,7 @@ if ( ! function_exists( 'astra_color_palette' ) ) :
 
 		return apply_filters( 'astra_color_palettes', $color_palette );
 	}
+
 endif;
 
 if ( ! function_exists( 'astra_get_theme_name' ) ) :
@@ -1412,7 +1423,9 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 		$pro_name = __( 'Astra Pro', 'astra' );
 		// If addon is not updated & White Label added for Addon then show the updated addon name.
 		if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
+
 			$plugin_data = Astra_Ext_White_Label_Markup::$branding;
+
 			if ( '' != $plugin_data['astra-pro']['name'] ) {
 				$pro_name = $plugin_data['astra-pro']['name'];
 			}
