@@ -1012,56 +1012,6 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 }
 
 /**
- * Filter google fonts
- */
-if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
-
-	/**
-	 * Google Fonts
-	 *
-	 * @since 1.0.12
-	 * @param array $fonts   List of fonts.
-	 * @return array
-	 */
-	function astra_google_fonts_callback( $fonts ) {
-
-		foreach ( $fonts as $font_name => $font_weight ) {
-
-			$is_true         = false;
-			$new_font_weight = '';
-
-			switch ( $font_name ) {
-				case 'Buda':
-				case 'Open Sans Condensed':
-						$is_true         = true;
-						$new_font_weight = 300;
-					break;
-				case 'Coda Caption':
-						$is_true         = true;
-						$new_font_weight = 800;
-					break;
-				case 'UnifrakturCook':
-						$is_true         = true;
-						$new_font_weight = 700;
-					break;
-			}
-
-			if ( $is_true ) {
-
-				if ( in_array( 'normal', $font_weight ) ) {
-					$key                         = array_search( 'normal', $font_weight );
-					$fonts[ $font_name ][ $key ] = $new_font_weight;
-				}
-			}
-		}
-
-		return $fonts;
-	}
-}
-
-add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
-
-/**
  * Get Footer widgets
  */
 if ( ! function_exists( 'astra_get_footer_widget' ) ) {
