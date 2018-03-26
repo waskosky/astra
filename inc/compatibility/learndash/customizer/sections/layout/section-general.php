@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'    => __( 'Course Content Table', 'astra' ),
 				'section'  => 'section-learndash',
 				'type'     => 'ast-divider',
-				'priority' => 5,
+				'priority' => 20,
 				'settings' => array(),
 			)
 		)
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
 			'section'  => 'section-learndash',
 			'label'    => __( 'Display Serial Number', 'astra' ),
-			'priority' => 5,
+			'priority' => 25,
 			'type'     => 'checkbox',
 		)
 	);
@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
 			'section'  => 'section-learndash',
 			'label'    => __( 'Differentiate Rows', 'astra' ),
-			'priority' => 10,
+			'priority' => 30,
 			'type'     => 'checkbox',
 		)
 	);
