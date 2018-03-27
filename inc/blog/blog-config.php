@@ -407,19 +407,20 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 if ( ! function_exists( 'astra_the_content_more_link' ) ) {
 
 	/**
-	 * Function to get the content Read More Link
+	 * Filters the Read More link text.
 	 *
-	 * @param  string $output_filter Filter string.
+	 * @param  string $more_link_element Read More link element.
+	 * @param  string $more_link_text Read More text.
 	 * @return html                Markup.
 	 */
-	function astra_the_content_more_link( $output_filter = '' ) {
+	function astra_the_content_more_link( $more_link_element = '', $more_link_text = '' ) {
 
 		$enabled = apply_filters( 'astra_the_content_more_link_enabled', '__return_true' );
 		if ( ( is_admin() && ! wp_doing_ajax() ) || ! $enabled ) {
-			return $output_filter;
+			return $more_link_element;
 		}
 
-		$read_more_text    = apply_filters( 'astra_the_content_more_string', __( 'Read More &raquo;', 'astra' ) );
+		$more_link_text    = apply_filters( 'astra_the_content_more_string', __( 'Read More &raquo;', 'astra' ) );
 		$read_more_classes = apply_filters( 'astra_the_content_more_link_class', array() );
 
 		$post_link = sprintf(
@@ -429,7 +430,7 @@ if ( ! function_exists( 'astra_the_content_more_link' ) ) {
 
 		$output = ' &hellip;<p class="ast-the-content-more-link"> ' . $post_link . '</p>';
 
-		return apply_filters( 'astra_the_content_more_link', $output, $output_filter );
+		return apply_filters( 'astra_the_content_more_link', $output, $more_link_element, $more_link_text );
 	}
 }
-add_filter( 'the_content_more_link', 'astra_the_content_more_link' );
+add_filter( 'the_content_more_link', 'astra_the_content_more_link', 10, 2 );
