@@ -941,11 +941,13 @@ p.demo_store,
 		}
 
 		form.cart {
-			display: flex;
-			align-items: center;
-			flex-wrap: wrap;
 			margin: 0 0 1.2em;
 
+			.ast-woo-single-cart-button-wrap{
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+			}
 			@include clearfix();
 
 			div.quantity {
@@ -2235,6 +2237,16 @@ p.demo_store,
 					color: $red;
 				}
 			}
+		}
+	}
+
+	/**
+	 * Product Saerch Widget
+	 */
+	.widget_product_search {
+		button{
+			flex: 0 0 auto;
+			padding: 10px 20px;
 		}
 	}
 
