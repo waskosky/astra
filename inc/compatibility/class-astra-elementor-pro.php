@@ -19,7 +19,7 @@ use ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager;
 use ElementorPro\Modules\ThemeBuilder\Module;
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 	/**
 	 * Astra Elementor Compatibility
 	 *
-	 * @since 1.0.0
+	 * @since 1.2.7
 	 */
 	class Astra_Elementor_Pro {
 
@@ -43,6 +43,9 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 		/**
 		 * Initiator
+		 *
+		 * @since 1.2.7
+		 * @return object Class object.
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
@@ -53,6 +56,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 		/**
 		 * Constructor
+		 *
+		 * @since 1.2.7
 		 */
 		public function __construct() {
 			// Add locations.
@@ -69,6 +74,23 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			add_action( 'wp', array( $this, 'override_meta' ), 0 );
 		}
 
+		/**
+		 * Register Locations
+		 *
+		 * @since 1.2.7
+		 * @param object $manager Location manager.
+		 * @return void
+		 */
+		public function register_locations( $manager ) {
+			$manager->register_all_core_location();
+		}
+
+		/**
+		 * Template Parts Support
+		 *
+		 * @since 1.2.7
+		 * @return void
+		 */
 		function do_template_parts() {
 			// Archive?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
@@ -94,6 +116,12 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 		}
 
+		/**
+		 * Override 404 page
+		 *
+		 * @since 1.2.7
+		 * @return void
+		 */
 		function do_template_part_404() {
 			if ( is_404() ) {
 
@@ -105,6 +133,12 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 		}
 
+		/**
+		 * Override sidebar, title etc with post meta
+		 *
+		 * @since 1.2.7
+		 * @return void
+		 */
 		function override_meta() {
 			// Override post meta for single pages.
 			$documents_single = Module::instance()->get_conditions_manager()->get_documents_for_location( 'single' );
@@ -123,9 +157,16 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 		}
 
-		function override_with_post_meta( $id ) {
+		/**
+		 * Override sidebar, title etc with post meta
+		 *
+		 * @since 1.2.7
+		 * @param  integer $post_id  Post ID.
+		 * @return void
+		 */
+		function override_with_post_meta( $post_id = 0 ) {
 			// Override! Page Title.
-			$title = get_post_meta( $id, 'site-post-title', true );
+			$title = get_post_meta( $post_id, 'site-post-title', true );
 			if ( 'disabled' === $title ) {
 
 				// Archive page.
@@ -137,7 +178,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 
 			// Override! Sidebar.
-			$sidebar = get_post_meta( $id, 'site-sidebar-layout', true );
+			$sidebar = get_post_meta( $post_id, 'site-sidebar-layout', true );
 			if ( 'default' !== $sidebar ) {
 				add_filter(
 					'astra_page_layout', function( $page_layout ) use ( $sidebar ) {
@@ -147,7 +188,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 
 			// Override! Content Layout.
-			$content_layout = get_post_meta( $id, 'site-content-layout', true );
+			$content_layout = get_post_meta( $post_id, 'site-content-layout', true );
 			if ( 'default' !== $content_layout ) {
 				add_filter(
 					'astra_get_content_layout', function( $layout ) use ( $content_layout ) {
@@ -157,7 +198,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 
 			// Override! Footer Bar.
-			$footer_layout = get_post_meta( $id, 'footer-sml-layout', true );
+			$footer_layout = get_post_meta( $post_id, 'footer-sml-layout', true );
 			if ( 'disabled' === $footer_layout ) {
 				add_filter(
 					'ast_footer_sml_layout', function( $is_footer ) {
@@ -167,7 +208,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 
 			// Override! Footer Widgets.
-			$footer_widgets = get_post_meta( $id, 'footer-adv-display', true );
+			$footer_widgets = get_post_meta( $post_id, 'footer-adv-display', true );
 			if ( 'disabled' === $footer_widgets ) {
 				add_filter(
 					'astra_advanced_footer_disable', function() {
@@ -176,8 +217,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				);
 			}
 
-			// Override! Header
-			$main_header_display = get_post_meta( $id, 'ast-main-header-display', true );
+			// Override! Header.
+			$main_header_display = get_post_meta( $post_id, 'ast-main-header-display', true );
 			if ( 'disabled' === $main_header_display ) {
 				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
 				add_filter(
@@ -186,21 +227,12 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 					}
 				);
 			}
-
-		}
-
-		/**
-		 * Register Locations
-		 *
-		 * @param Locations_Manager $manager
-		 */
-		public function register_locations( $manager ) {
-			$manager->register_all_core_location();
 		}
 
 		/**
 		 * Header Support
 		 *
+		 * @since 1.2.7
 		 * @return void
 		 */
 		public function do_header() {
@@ -212,6 +244,9 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 		/**
 		 * Footer Support
+		 *
+		 * @since 1.2.7
+		 * @return void
 		 */
 		public function do_footer() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'footer' );
