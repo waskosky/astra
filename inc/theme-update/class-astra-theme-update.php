@@ -130,6 +130,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_2_4();
 			}
 
+			// Update astra Google Fonts values with fallback font.
+			if ( version_compare( $saved_version, '1.2.6', '<' ) ) {
+				self::v_1_2_7();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -529,6 +534,30 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$astra_options['theme-color'] = $astra_options['link-color'];
 			}
 
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update Google Fonts value with font categories
+		 *
+		 * Google Font Update
+		 *
+		 * @since 1.2.7
+		 */
+		static public function v_1_2_7() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$google_fonts  = Astra_Font_Families::get_google_fonts();
+
+			foreach ( $astra_options as $key => $value ) {
+				if ( ! is_array( $value ) && ! empty( $value ) ) {
+					if ( array_key_exists( $value, $google_fonts ) ) {
+
+						$astra_options[ $key ] = "'" . $value . "', " . $google_fonts[ $value ][1];
+
+					}
+				}
+			}
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
