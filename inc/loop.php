@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-if( ! class_exists( 'Astra_Loop' ) ) :
+if ( ! class_exists( 'Astra_Loop' ) ) :
 
 	/**
 	 * Astra_Loop
@@ -32,7 +32,7 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 		 *
 		 * @return object initialized object of class.
 		 */
-		public static function get_instance(){
+		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
 				self::$instance = new self;
 			}
@@ -44,56 +44,54 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 		 *
 		 * @since 1.0.0
 		 */
-		public function __construct()
-		{
-			add_action('astra_content_loop', array( $this, 'loop_markup' ) );
+		public function __construct() {
+			add_action( 'astra_content_loop', array( $this, 'loop_markup' ) );
 
-			add_action('astra_template_parts_content', array( $this, 'template_parts_page' ) );
-			add_action('astra_template_parts_content', array( $this, 'template_parts_post' ) );
-			add_action('astra_template_parts_content', array( $this, 'template_parts_search' ) );
-			add_action('astra_template_parts_content', array( $this, 'template_parts_default' ) );
-			add_action('astra_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
+			add_action( 'astra_template_parts_content', array( $this, 'template_parts_page' ) );
+			add_action( 'astra_template_parts_content', array( $this, 'template_parts_post' ) );
+			add_action( 'astra_template_parts_content', array( $this, 'template_parts_search' ) );
+			add_action( 'astra_template_parts_content', array( $this, 'template_parts_default' ) );
+			add_action( 'astra_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
 
-			add_action('astra_template_parts_content_none', array( $this, 'template_parts_none' ) );
-			add_action('astra_template_parts_content_none', array( $this, 'template_parts_404' ) );
+			add_action( 'astra_template_parts_content_none', array( $this, 'template_parts_none' ) );
+			add_action( 'astra_template_parts_content_none', array( $this, 'template_parts_404' ) );
 
-			add_action('astra_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
-			add_action('astra_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
+			add_action( 'astra_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
+			add_action( 'astra_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 		}
 
 		function template_parts_none() {
-			if( is_archive() || is_search() ) {
+			if ( is_archive() || is_search() ) {
 				get_template_part( 'template-parts/content', 'none' );
-			} 
+			}
 		}
 
 		function template_parts_404() {
-			if( is_404() ) {
+			if ( is_404() ) {
 				get_template_part( 'template-parts/content', '404' );
 			}
 		}
 
-		function template_parts_page()
-		{
-			if( is_page() ) {
+		function template_parts_page() {
+			if ( is_page() ) {
 				get_template_part( 'template-parts/content', 'page' );
 			}
 		}
-			
+
 		function template_parts_post() {
-			if( is_single() ) {
+			if ( is_single() ) {
 				get_template_part( 'template-parts/content', 'single' );
 			}
 		}
 
 		function template_parts_search() {
-			if( is_search() ) {
+			if ( is_search() ) {
 				get_template_part( 'template-parts/content', 'blog' );
 			}
 		}
 
 		function template_parts_comments() {
-			if( is_single() || is_page() ) {
+			if ( is_single() || is_page() ) {
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();
@@ -102,7 +100,7 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 		}
 
 		function template_parts_default() {
-			if( ! is_page() && ! is_single() && ! is_search() ) {
+			if ( ! is_page() && ! is_single() && ! is_search() ) {
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
@@ -144,15 +142,15 @@ if( ! class_exists( 'Astra_Loop' ) ) :
 		}
 
 		function template_parts_content_top() {
-			if( is_archive() ) {
+			if ( is_archive() ) {
 				astra_content_while_before();
-			}	
+			}
 		}
 
 		function template_parts_content_bottom() {
-			if( is_archive() ) {
+			if ( is_archive() ) {
 				astra_content_while_after();
-			}	
+			}
 		}
 
 	}

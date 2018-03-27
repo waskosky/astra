@@ -54,29 +54,28 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		/**
 		 * Constructor
 		 */
-		public function __construct()
-		{
+		public function __construct() {
 			// Add locations.
 			add_action( 'elementor/theme/register_locations', array( $this, 'register_locations' ) );
 
 			// Override theme templates.
-			add_action( 'astra_header'                     , array( $this, 'do_header' ), 0 );
-			add_action( 'astra_footer'                     , array( $this, 'do_footer' ), 0 );
-			add_action( 'astra_template_parts_content_top' , array( $this, 'do_template_parts' ), 0 );
+			add_action( 'astra_header', array( $this, 'do_header' ), 0 );
+			add_action( 'astra_footer', array( $this, 'do_footer' ), 0 );
+			add_action( 'astra_template_parts_content_top', array( $this, 'do_template_parts' ), 0 );
+
+			add_action( 'astra_entry_content_404_page', array( $this, 'do_template_part_404' ), 0 );
 
 			// Override post meta.
 			add_action( 'wp', array( $this, 'override_meta' ), 0 );
 		}
 
-		function do_template_parts() 
-		{
+		function do_template_parts() {
 			// Archive?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
-			if ( $did_location )
-			{
+			if ( $did_location ) {
 				// Search and default.
-				remove_action('astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_search' ) );
-				remove_action('astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_default' ) );
+				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_search' ) );
+				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_default' ) );
 
 				// Remove pagination.
 				remove_action( 'astra_pagination', 'astra_number_pagination' );
@@ -88,19 +87,28 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			// Single?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
-			if ( $did_location )
-			{
-				remove_action('astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_page' ) );
-				remove_action('astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_post' ) );
-				remove_action('astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_comments' ), 15 );
+			if ( $did_location ) {
+				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_page' ) );
+				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_post' ) );
+				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_comments' ), 15 );
 			}
 		}
 
-		function override_meta()
-		{
+		function do_template_part_404() {
+			if ( is_404() ) {
+
+				// Single?
+				$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
+				if ( $did_location ) {
+					remove_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
+				}
+			}
+		}
+
+		function override_meta() {
 			// Override post meta for single pages.
 			$documents_single = Module::instance()->get_conditions_manager()->get_documents_for_location( 'single' );
-			if( $documents_single ) {
+			if ( $documents_single ) {
 				foreach ( $documents_single as $document ) {
 					$this->override_with_post_meta( $document->get_post()->ID );
 				}
@@ -108,15 +116,14 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			// Override post meta for archive pages.
 			$documents_archive = Module::instance()->get_conditions_manager()->get_documents_for_location( 'archive' );
-			if( $documents_archive ) {
+			if ( $documents_archive ) {
 				foreach ( $documents_archive as $document ) {
 					$this->override_with_post_meta( $document->get_post()->ID );
 				}
 			}
 		}
 
-		function override_with_post_meta( $id )
-		{
+		function override_with_post_meta( $id ) {
 			// Override! Page Title.
 			$title = get_post_meta( $id, 'site-post-title', true );
 			if ( 'disabled' === $title ) {
@@ -132,7 +139,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			// Override! Sidebar.
 			$sidebar = get_post_meta( $id, 'site-sidebar-layout', true );
 			if ( 'default' !== $sidebar ) {
-				add_filter( 'astra_page_layout', function( $page_layout ) use ( $sidebar ) {
+				add_filter(
+					'astra_page_layout', function( $page_layout ) use ( $sidebar ) {
 						return $sidebar;
 					}
 				);
@@ -141,7 +149,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			// Override! Content Layout.
 			$content_layout = get_post_meta( $id, 'site-content-layout', true );
 			if ( 'default' !== $content_layout ) {
-				add_filter( 'astra_get_content_layout', function( $layout ) use ( $content_layout ) {
+				add_filter(
+					'astra_get_content_layout', function( $layout ) use ( $content_layout ) {
 						return $content_layout;
 					}
 				);
@@ -191,11 +200,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 		/**
 		 * Header Support
-		 * 
+		 *
 		 * @return void
 		 */
-		public function do_header()
-		{
+		public function do_header() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'header' );
 			if ( $did_location ) {
 				remove_action( 'astra_header', 'astra_header_markup' );
@@ -205,8 +213,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		/**
 		 * Footer Support
 		 */
-		public function do_footer()
-		{
+		public function do_footer() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'footer' );
 			if ( $did_location ) {
 				remove_action( 'astra_footer', 'astra_footer_markup' );

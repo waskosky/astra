@@ -196,7 +196,6 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 							}
 						);
 					}
-
 				}
 			}
 		}
