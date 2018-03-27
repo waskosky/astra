@@ -1,11 +1,11 @@
 <?php
 /**
- * Template part for displaying a message that posts cannot be found.
+ * Template part for displaying a 404 page.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Astra
- * @since 1.0.0
+ * @since 1.2.7
  */
 
 ?>
