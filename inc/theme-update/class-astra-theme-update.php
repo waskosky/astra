@@ -131,7 +131,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			// Update astra Google Fonts values with fallback font.
-			if ( version_compare( $saved_version, '1.2.6', '<' ) ) {
+			if ( version_compare( $saved_version, '1.2.7', '<' ) ) {
 				self::v_1_2_7();
 			}
 
