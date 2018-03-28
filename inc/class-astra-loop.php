@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_none() {
+		public function template_parts_none() {
 			if ( is_archive() || is_search() ) {
 				get_template_part( 'template-parts/content', 'none' );
 			}
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_404() {
+		public function template_parts_404() {
 			if ( is_404() ) {
 				get_template_part( 'template-parts/content', '404' );
 			}
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_page() {
+		public function template_parts_page() {
 			if ( is_page() ) {
 				get_template_part( 'template-parts/content', 'page' );
 			}
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_post() {
+		public function template_parts_post() {
 			if ( is_single() ) {
 				get_template_part( 'template-parts/content', 'single' );
 			}
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_search() {
+		public function template_parts_search() {
 			if ( is_search() ) {
 				get_template_part( 'template-parts/content', 'blog' );
 			}
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_comments() {
+		public function template_parts_comments() {
 			if ( is_single() || is_page() ) {
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
@@ -149,7 +149,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_default() {
+		public function template_parts_default() {
 			if ( ! is_page() && ! is_single() && ! is_search() ) {
 				/*
 				 * Include the Post-Format-specific template for the content.
@@ -166,7 +166,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function loop_markup() {
+		public function loop_markup() {
 			?>
 			<main id="main" class="site-main" role="main">
 
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_content_top() {
+		public function template_parts_content_top() {
 			if ( is_archive() ) {
 				astra_content_while_before();
 			}
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		function template_parts_content_bottom() {
+		public function template_parts_content_bottom() {
 			if ( is_archive() ) {
 				astra_content_while_after();
 			}
