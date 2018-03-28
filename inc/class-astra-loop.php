@@ -62,6 +62,10 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			// Content top and bottom.
 			add_action( 'astra_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
 			add_action( 'astra_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
+
+			// Add closing and ending div 'ast-row'.
+			add_action( 'astra_template_parts_content_top', array( $this, 'astra_templat_part_wrap_open' ), 30 );
+			add_action( 'astra_template_parts_content_bottom', array( $this, 'astra_templat_part_wrap_close' ), 15 );
 		}
 
 		/**
@@ -170,7 +174,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 
 					<?php do_action( 'astra_template_parts_content_top' ); ?>
 
-					<div class="ast-row">
 					<?php
 					while ( have_posts() ) :
 						the_post();
@@ -179,7 +182,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 						?>
 
 					<?php endwhile; ?>
-					</div>
 
 					<?php do_action( 'astra_template_parts_content_bottom' ); ?>
 
@@ -214,6 +216,30 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		function template_parts_content_bottom() {
 			if ( is_archive() ) {
 				astra_content_while_after();
+			}
+		}
+
+		/**
+		 * Add wrapper div 'ast-row' for Astra template part.
+		 *
+		 * @since  1.2.7
+		 * @return void
+		 */
+		public function astra_templat_part_wrap_open() {
+			if ( is_archive() || is_search() || is_home() || is_front_page() ) {
+				echo '<div class="ast-row">';
+			}
+		}
+
+		/**
+		 * Add closing wrapper div for 'ast-row' after Astra template part.
+		 *
+		 * @since  1.2.7
+		 * @return void
+		 */
+		public function astra_templat_part_wrap_close() {
+			if ( is_archive() || is_search() || is_home() || is_front_page() ) {
+				echo '</div>';
 			}
 		}
 
