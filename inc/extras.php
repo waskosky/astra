@@ -1397,6 +1397,7 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 endif;
 
 if ( ! function_exists( 'astar' ) ) :
+
 	/**
 	 * Get a specific property of an array without needing to check if that property exists.
 	 *
@@ -1404,6 +1405,8 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * @since  1.2.7
 	 * @access public
+	 * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
+	 * @link  https://www.gravityforms.com/
 	 *
 	 * @param array  $array   Array from which the property's value should be retrieved.
 	 * @param string $prop    Name of the property to be retrieved.
@@ -1425,4 +1428,5 @@ if ( ! function_exists( 'astar' ) ) :
 
 		return empty( $value ) && null !== $default ? $default : $value;
 	}
+	
 endif;
