@@ -63,6 +63,7 @@ require_once ASTRA_THEME_DIR . 'inc/blog/single-blog.php';
  * Markup Files
  */
 require_once ASTRA_THEME_DIR . 'inc/template-parts.php';
+require_once ASTRA_THEME_DIR . 'inc/class-astra-loop.php';
 
 /**
  * Functions and definitions.
@@ -112,6 +113,7 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-ubermeu.php';
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
+	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor-pro.php';
 }
 
 // Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
