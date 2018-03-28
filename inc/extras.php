@@ -1428,7 +1428,7 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * Provide a default value if you want to return a specific value if the property is not set.
 	 *
-	 * @since  1.0.0
+	 * @since  1.2.7
 	 * @access public
 	 *
 	 * @param array  $array   Array from which the property's value should be retrieved.
