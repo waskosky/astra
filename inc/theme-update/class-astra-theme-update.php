@@ -550,14 +550,15 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$google_fonts  = Astra_Font_Families::get_google_fonts();
 
 			foreach ( $astra_options as $key => $value ) {
-				if ( ! is_array( $value ) && ! empty( $value ) ) {
+
+				if ( ! is_array( $value ) && ! empty( $value ) && ! is_bool( $value ) ) {
+
 					if ( array_key_exists( $value, $google_fonts ) ) {
-
 						$astra_options[ $key ] = "'" . $value . "', " . $google_fonts[ $value ][1];
-
 					}
 				}
 			}
+
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
