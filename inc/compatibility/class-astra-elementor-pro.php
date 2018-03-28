@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @return void
 		 */
 		function do_template_parts() {
-			// Archive?
+			// Is Archive?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
 			if ( $did_location ) {
 				// Search and default.
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				remove_action( 'astra_entry_content_single', 'astra_entry_content_single_template' );
 			}
 
-			// Single?
+			// IS Single?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 			if ( $did_location ) {
 				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_page' ) );
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		function do_template_part_404() {
 			if ( is_404() ) {
 
-				// Single?
+				// Is Single?
 				$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 				if ( $did_location ) {
 					remove_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
