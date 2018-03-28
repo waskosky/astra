@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
-			add_action( 'do_meta_boxes', array( $this, 'elementor_default_setting' ), 20 );
+			add_action( 'plugins_loaded', array( $this, 'elementor_default_setting' ), 0 );
 		}
 
 		/**
@@ -58,6 +58,11 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		function elementor_default_setting() {
 
 			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+				return;
+			}
+
+			// don't modify post meta settings if we are not on Elementor's edit page.
+			if ( ! $this->is_elementor_editor() ) {
 				return;
 			}
 
@@ -83,6 +88,25 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					if ( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
 						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 					}
+
+					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
+					add_filter( 
+						'astra_page_layout', function() {
+    						return 'no-sidebar';
+    					}
+    				);
+
+    				$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					if ( empty( $content_layout ) || 'default' == $content_layout ) {
+						add_filter(
+							'astra_get_content_layout', function () {
+								return 'page-builder';
+							}
+						);
+					}
+
+					add_filter( 'astra_the_post_title_enabled', '__return_false' );
+					add_filter( 'astra_featured_image_enabled', '__return_false' );
 				}
 			}
 		}
@@ -99,6 +123,21 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			} else {
 				return Plugin::$instance->db->is_built_with_elementor( $id );
 			}
+		}
+
+		/**
+		 * Check if Elementor Editor is open.
+		 * 
+		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
+		 */
+		private function is_elementor_editor() {
+			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) ||
+				isset( $_REQUEST['elementor-preview'] )
+			 ) {
+				return true;
+			}
+
+			return false;
 		}
 
 	}
