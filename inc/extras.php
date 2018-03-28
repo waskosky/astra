@@ -389,7 +389,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 
 		if ( '' != $option ) {
 			$output = astra_get_option( $option );
-			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
+			$output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
 			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters(
