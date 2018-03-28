@@ -419,7 +419,10 @@ module.exports = function (grunt) {
 
                 var fonts = JSON.parse(body).items.map(function (font) {
                     return {
-                        [font.family]: font.variants
+                        [font.family] : {
+                            'variants' : font.variants,
+                            'category' : font.category
+                        }
                     };
                 })
 
