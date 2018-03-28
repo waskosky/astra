@@ -64,8 +64,8 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			add_action( 'astra_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 
 			// Add closing and ending div 'ast-row'.
-			add_action( 'astra_template_parts_content_top', array( $this, 'astra_templat_part_wrap_open' ), 30 );
-			add_action( 'astra_template_parts_content_bottom', array( $this, 'astra_templat_part_wrap_close' ), 15 );
+			add_action( 'astra_template_parts_content_top', array( $this, 'astra_templat_part_wrap_open' ), 25 );
+			add_action( 'astra_template_parts_content_bottom', array( $this, 'astra_templat_part_wrap_close' ), 5 );
 		}
 
 		/**
