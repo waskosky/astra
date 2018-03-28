@@ -851,7 +851,6 @@ if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
 
 		return apply_filters( 'astra_comment_form_default_fields_markup', $fields );
 	}
-
 }
 
 add_filter( 'comment_form_default_fields', 'astra_comment_form_default_fields_markup' );
@@ -879,7 +878,6 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		return apply_filters( 'astra_comment_form_default_markup', $args );
 
 	}
-
 }
 
 add_filter( 'comment_form_defaults', 'astra_comment_form_default_markup' );
