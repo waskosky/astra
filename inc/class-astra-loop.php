@@ -226,7 +226,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function astra_templat_part_wrap_open() {
-			if ( is_archive() || is_search() || is_home() || is_front_page() ) {
+			if ( is_archive() || is_search() || is_home() ) {
 				echo '<div class="ast-row">';
 			}
 		}
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function astra_templat_part_wrap_close() {
-			if ( is_archive() || is_search() || is_home() || is_front_page() ) {
+			if ( is_archive() || is_search() || is_home() ) {
 				echo '</div>';
 			}
 		}
