@@ -167,24 +167,28 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 
 					// Blog Post Featured Image.
 					case 'image':
+						do_action( 'astra_blog_archive_featured_image_before' );
 						astra_get_blog_post_thumbnail( 'archive' );
 						do_action( 'astra_blog_archive_featured_image_after' );
 						break;
 
 					// Blog Post Title and Blog Post Meta.
 					case 'title-meta':
+						do_action( 'astra_blog_archive_title_meta_before' );
 						astra_get_blog_post_title_meta();
 						do_action( 'astra_blog_archive_title_meta_after' );
 						break;
 
 					// Single Post Featured Image.
 					case 'single-image':
+						do_action( 'astra_blog_single_featured_image_before' );
 						astra_get_blog_post_thumbnail( 'single' );
 						do_action( 'astra_blog_single_featured_image_after' );
 						break;
 
 						// Single Post Title and Single Post Meta.
 					case 'single-title-meta':
+						do_action( 'astra_blog_single_title_meta_before' );
 						astra_get_single_post_title_meta();
 						do_action( 'astra_blog_single_title_meta_after' );
 						break;
