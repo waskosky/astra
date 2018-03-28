@@ -1421,3 +1421,5 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 		return apply_filters( 'astra_addon_name', $pro_name );
 	}
 endif;
+
+
