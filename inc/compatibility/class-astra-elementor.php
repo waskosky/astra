@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Check if Elementor Editor is open.
 		 *
 		 * @since  1.2.7
-		 * 
+		 *
 		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
 		 */
 		private function is_elementor_editor() {
