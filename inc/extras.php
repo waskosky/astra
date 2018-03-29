@@ -1428,5 +1428,5 @@ if ( ! function_exists( 'astar' ) ) :
 
 		return empty( $value ) && null !== $default ? $default : $value;
 	}
-	
+
 endif;
