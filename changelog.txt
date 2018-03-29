@@ -1,3 +1,6 @@
+v1.2.7.2
+- Fix: Fatal error if older version of Elementor Pro is installed on the site.
+
 v1.2.7
 - New: Introduced new actions and filters for Blog Archive/ Single Post template.
 - Improvement: Added Elementor pro 2.0 Support.
