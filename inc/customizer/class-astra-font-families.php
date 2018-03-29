@@ -146,7 +146,10 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 				foreach ( $google_fonts_json as $key => $font ) {
 					$name = key( $font );
-					foreach ( $font[ $name ] as $font_key => $variant ) {
+					foreach ( $font[ $name ] as $font_key => $single_font ) {
+
+						$variant  = astar( $single_font, 'variants' );
+						$category = astar( $single_font, 'category' );
 
 						if ( stristr( $variant, 'italic' ) ) {
 							unset( $font[ $name ][ $font_key ] );
