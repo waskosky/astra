@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		private function is_elementor_editor() {
 			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) ||
 				isset( $_REQUEST['elementor-preview'] )
-			 ) {
+			) {
 				return true;
 			}
 
