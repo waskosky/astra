@@ -8,7 +8,7 @@
 namespace Elementor;
 
 // If plugin - 'Elementor' not exist then return.
-if ( ! class_exists( '\Elementor\Plugin' ) ) {
+if ( ! class_exists( '\Elementor\Plugin' ) || ! class_exists( 'ElementorPro\Modules\ThemeBuilder\Module' ) ) {
 	return;
 }
 
