@@ -88,23 +88,23 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					if ( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
 						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 					}
+
+					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
+					add_filter(
+						'astra_page_layout', function() {
+							return 'no-sidebar';
+						}
+					);
+
+					add_filter(
+						'astra_get_content_layout', function () {
+							return 'page-builder';
+						}
+					);
+
+					add_filter( 'astra_the_post_title_enabled', '__return_false' );
+					add_filter( 'astra_featured_image_enabled', '__return_false' );
 				}
-			} else {
-				// In the preview mode, Apply the layouts using filters for Elementor Template Library.
-				add_filter(
-					'astra_page_layout', function() {
-						return 'no-sidebar';
-					}
-				);
-
-				add_filter(
-					'astra_get_content_layout', function () {
-						return 'page-builder';
-					}
-				);
-
-				add_filter( 'astra_the_post_title_enabled', '__return_false' );
-				add_filter( 'astra_featured_image_enabled', '__return_false' );
 			}
 		}
 
