@@ -78,6 +78,10 @@
   font-weight: bold;
 }
 
+.learndash .learndash_join_button {
+  margin-bottom: 1em;
+}
+
 #learndash_course_certificate .btn-blue {
   display: inline-block;
 }
