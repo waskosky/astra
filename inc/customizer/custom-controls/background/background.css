@@ -29,6 +29,6 @@
 
 .customize-control-ast-background .background-attachment .buttonset .switch-input:checked + .switch-label,
 .customize-control-ast-background .background-size .buttonset .switch-input:checked + .switch-label {
-  background-color: #3498DB;
+  background-color: #3498d9;
   color: #fff;
 }
