@@ -294,12 +294,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		static public function logo_image_sizes( $sizes, $metadata ) {
 
-			$logo_width = astra_get_option( 'ast-header-logo-width' );
+			$logo_width = astra_get_option( 'ast-header-responsive-logo-width' );
 
-			if ( is_array( $sizes ) && '' != $logo_width ) {
-
+			if ( is_array( $sizes ) && ( '' != $logo_width['desktop'] || '' != $logo_width['tablet'] | '' != $logo_width['mobile'] ) ) {
+				$max_value              = max( $logo_width );
 				$sizes['ast-logo-size'] = array(
-					'width'  => (int) $logo_width,
+					'width'  => (int) $max_value,
 					'height' => 0,
 					'crop'   => false,
 				);
@@ -334,7 +334,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 		}
 	}
-}// End if().
+}
 
 /**
  *  Kicking this off by calling 'get_instance()' method

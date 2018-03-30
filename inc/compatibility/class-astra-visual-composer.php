@@ -57,6 +57,10 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 */
 		function vc_update_meta_setting( $id ) {
 
+			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+				return;
+			}
+
 			update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 			update_post_meta( $id, 'site-post-title', 'disabled' );
 			update_post_meta( $id, 'ast-title-bar-display', 'disabled' );

@@ -120,9 +120,24 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_1_0_beta_4();
 			}
 
+			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			if ( version_compare( $saved_version, '1.2.2', '<' ) ) {
+				self::v_1_2_2();
+			}
+
+			// Update astra Theme colors values same as Link color.
+			if ( version_compare( $saved_version, '1.2.4', '<' ) ) {
+				self::v_1_2_4();
+			}
+
+			// Update astra Google Fonts values with fallback font.
+			if ( version_compare( $saved_version, '1.2.7', '<' ) ) {
+				self::v_1_2_7();
+			}
+
 			// Update astra background image data.
-			if ( version_compare( $saved_version, '1.2.1', '<' ) ) {
-				self::v_1_2_1();
+			if ( version_compare( $saved_version, '1.2.8', '<' ) ) {
+				self::v_1_2_8();
 			}
 
 			// Not have stored?
@@ -153,6 +168,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Update auto saved version number.
 			update_option( ASTRA_THEME_SETTINGS, $theme_options );
+
+			// Update variables.
+			Astra_Theme_Options::refresh();
 
 			do_action( 'astra_update_after' );
 
@@ -477,14 +495,87 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
+		 * Update options of older version than 1.2.2.
+		 *
+		 * Logo Width
+		 *
+		 * @since 1.2.2
+		 */
+		static public function v_1_2_2() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( isset( $astra_options['ast-header-logo-width'] ) && ! is_array( $astra_options['ast-header-logo-width'] ) ) {
+				$astra_options['ast-header-responsive-logo-width'] = array(
+					'desktop' => $astra_options['ast-header-logo-width'],
+					'tablet'  => '',
+					'mobile'  => '',
+				);
+			}
+
+			if ( isset( $astra_options['blog-width'] ) ) {
+				$astra_options['shop-archive-width'] = $astra_options['blog-width'];
+			}
+
+			if ( isset( $astra_options['blog-max-width'] ) ) {
+				$astra_options['shop-archive-max-width'] = $astra_options['blog-max-width'];
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update Theme Color value same as Link Color for older version than 1.2.4.
+		 *
+		 * Theme Color update
+		 *
+		 * @since 1.2.4
+		 */
+		static public function v_1_2_4() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			if ( isset( $astra_options['link-color'] ) ) {
+				$astra_options['theme-color'] = $astra_options['link-color'];
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update Google Fonts value with font categories
+		 *
+		 * Google Font Update
+		 *
+		 * @since 1.2.7
+		 */
+		static public function v_1_2_7() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$google_fonts  = Astra_Font_Families::get_google_fonts();
+
+			foreach ( $astra_options as $key => $value ) {
+
+				if ( ! is_array( $value ) && ! empty( $value ) && ! is_bool( $value ) ) {
+
+					if ( array_key_exists( $value, $google_fonts ) ) {
+						$astra_options[ $key ] = "'" . $value . "', " . $google_fonts[ $value ][1];
+					}
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+		
+		/**
 		 * Update options of older version than 1.2.1.
 		 *
 		 * Background options
 		 *
-		 * @since 1.2.1
+		 * @since 1.2.8
 		 */
-		static public function v_1_2_1() {
-			
+		static public function v_1_2_8()
+		{			
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			$bg_obj = array(
@@ -514,7 +605,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 	}
 
-}// End if().
+}
 
 /**
  * Kicking this off by calling 'get_instance()' method

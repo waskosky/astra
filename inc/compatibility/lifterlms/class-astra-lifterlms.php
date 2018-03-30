@@ -65,7 +65,11 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 			// Grid.
 			add_filter( 'lifterlms_loop_columns', array( $this, 'course_grid' ) );
-			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ) );
+			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
+
+			// Course builder custom fields.
+			add_filter( 'llms_get_quiz_theme_settings', array( $this, 'quiz_layout_fields' ) );
+
 		}
 
 		/**
@@ -125,6 +129,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
 			}
 
+			if ( is_quiz() ) {
+				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+			}
+
 			remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_reviews', 100 );
 			add_action( 'lifterlms_single_course_after_summary', array( $this, 'single_reviews' ), 100 );
 
@@ -162,7 +170,12 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		function theme_defaults( $defaults ) {
 
 			// General.
-			$defaults['llms-course-grid'] = array(
+			$defaults['llms-course-grid']     = array(
+				'desktop' => 3,
+				'tablet'  => 2,
+				'mobile'  => 1,
+			);
+			$defaults['llms-membership-grid'] = array(
 				'desktop' => 3,
 				'tablet'  => 2,
 				'mobile'  => 1,
@@ -232,7 +245,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				<hr>
 				</div>
 				<?php
-			}// End if().
+			}
 
 			/**
 			 * Check to see if reviews are open
@@ -283,20 +296,23 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					</div>
 					<?php
 				}
-			}// End if().
+			}
 		}
 
 		/**
 		 * LLMS Grid.
 		 *
 		 * @since 1.2.0
-		 * @param  number $course_grid Number of grid for course.
+		 * @param  number $grid Number of grid for course.
 		 * @return number
 		 */
-		function course_grid( $course_grid ) {
+		function course_grid( $grid ) {
 
 			$course_grid = astra_get_option( 'llms-course-grid' );
-			return $course_grid['desktop'];
+			if ( ! empty( $course_grid['desktop'] ) ) {
+				return $course_grid['desktop'];
+			}
+			return $grid;
 		}
 
 		/**
@@ -308,12 +324,27 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 */
 		function course_responsive_grid( $classes ) {
 
-			$course_grid = astra_get_option( 'llms-course-grid' );
-			if ( ! empty( $course_grid['tablet'] ) ) {
-				$classes[] = 'llms-tablet-cols-' . $course_grid['tablet'];
+			$llms_grid = astra_get_option( 'llms-course-grid' );
+			if ( in_array( 'llms-membership-list', $classes ) ) {
+				$llms_grid = astra_get_option( 'llms-membership-grid' );
+
+				if ( ! empty( $llms_grid['desktop'] ) ) {
+					$default_class = array( 'cols-1', 'cols-2', 'cols-3', 'cols-4', 'cols-5', 'cols-6' );
+					foreach ( $default_class as $class ) {
+						$index = array_search( $class, $classes );
+						if ( $index >= 0 ) {
+							unset( $classes[ $index ] );
+						}
+					}
+					$classes[] = 'cols-' . $llms_grid['desktop'];
+				}
 			}
-			if ( ! empty( $course_grid['mobile'] ) ) {
-				$classes[] = 'llms-mobile-cols-' . $course_grid['mobile'];
+
+			if ( ! empty( $llms_grid['tablet'] ) ) {
+				$classes[] = 'llms-tablet-cols-' . $llms_grid['tablet'];
+			}
+			if ( ! empty( $llms_grid['mobile'] ) ) {
+				$classes[] = 'llms-mobile-cols-' . $llms_grid['mobile'];
 			}
 
 			return $classes;
@@ -330,11 +361,12 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * - Variable Declaration
 			 */
-			$theme_color  = astra_get_option( 'link-color' );
+			$theme_color  = astra_get_option( 'theme-color' );
+			$link_color   = astra_get_option( 'link-color', $theme_color );
 			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
-			$theme_forground_color = astra_get_foreground_color( $theme_color );
+			$theme_forground_color = astra_get_foreground_color( $link_color );
 			$btn_color             = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
 				$btn_color = $theme_forground_color;
@@ -344,7 +376,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( empty( $btn_h_color ) ) {
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
 			}
-			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
+			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $link_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
 			$btn_border_radius      = astra_get_option( 'button-radius' );
@@ -357,7 +389,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'border-color'     => $btn_bg_color,
 					'background-color' => $btn_bg_color,
 				),
-				'a.llms-button-primary, .llms-button-secondary, .llms-button-action, .llms-field-button' => array(
+				'a.llms-button-primary, .llms-button-secondary, .llms-button-action, .llms-field-button, .llms-button-action.large' => array(
 					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
@@ -367,36 +399,31 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'background-color' => $btn_bg_h_color,
 				),
 				'nav.llms-pagination ul li a:focus, nav.llms-pagination ul li a:hover, nav.llms-pagination ul li span.current' => array(
-					'background' => $theme_color,
+					'background' => $link_color,
 					'color'      => $btn_color,
 				),
 				'nav.llms-pagination ul, nav.llms-pagination ul li, .llms-instructor-info .llms-instructors .llms-author, .llms-instructor-info .llms-instructors .llms-author .avatar' => array(
-					'border-color' => $theme_color,
+					'border-color' => $link_color,
 				),
-				'.llms-progress .progress-bar-complete, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded, .color-full' => array(
-					'background' => $theme_color,
+				'.llms-progress .progress-bar-complete, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded, .color-full, body .llms-syllabus-wrapper .llms-section-title' => array(
+					'background' => $link_color,
 				),
-				'.llms-lesson-preview.is-complete .llms-lesson-complete, .llms-lesson-preview.is-free .llms-lesson-complete, .llms-widget-syllabus .lesson-complete-placeholder.done, .llms-widget-syllabus .llms-lesson-complete.done, .single-llms_quiz .llms-quiz-results .llms-donut.passing' => array(
-					'color' => $theme_color,
+				'.llms-lesson-preview.is-complete .llms-lesson-complete, .llms-lesson-preview.is-free .llms-lesson-complete, .llms-widget-syllabus .lesson-complete-placeholder.done, .llms-widget-syllabus .llms-lesson-complete.done, .single-llms_quiz .llms-quiz-results .llms-donut.passing, .llms-quiz-timer' => array(
+					'color' => $link_color,
+				),
+				'.llms-quiz-timer'                  => array(
+					'border-color' => $link_color,
 				),
 				'.single-llms_quiz .llms-quiz-results .llms-donut.passing svg path' => array(
-					'stroke' => $theme_color,
+					'stroke' => $link_color,
 				),
-				'h4.llms-access-plan-title, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded' => array(
+				'h4.llms-access-plan-title, .llms-instructor-info .llms-instructors .llms-author .avatar, h4.llms-access-plan-title, .llms-lesson-preview .llms-icon-free, .llms-access-plan .stamp, .llms-student-dashboard .llms-status.llms-active, .llms-student-dashboard .llms-status.llms-completed, .llms-student-dashboard .llms-status.llms-txn-succeeded, body .llms-syllabus-wrapper .llms-section-title' => array(
+					'color' => $theme_forground_color,
+				),
+				'body .progress-bar-complete:after' => array(
 					'color' => $theme_forground_color,
 				),
 			);
-
-			$course_id = get_the_ID();
-			if ( ! ! $course_id && is_course() ) {
-
-				$course          = new LLMS_Course( $course_id );
-				$course_progress = $course->get_percent_complete();
-				$css_output['.entry-content .progress-bar-complete:after'] = array(
-					'content' => "'" . round( $course_progress, 2 ) . "%'",
-					'color'   => $theme_forground_color,
-				);
-			}
 
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
@@ -468,6 +495,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return   void
 		 */
 		function add_theme_support() {
+			add_theme_support( 'lifterlms-quizzes' );
 			add_theme_support( 'lifterlms-sidebars' );
 		}
 
@@ -560,6 +588,32 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			}
 
 			return $layout;
+		}
+
+		/**
+		 * Add layout settings for LifterLMS quizzes
+		 *
+		 * @since [version]
+		 * @param array $settings layout settings.
+		 * @return array $settings layout settings.
+		 */
+		function quiz_layout_fields( $settings ) {
+
+			$settings['layout'] = array(
+				'id'      => 'site-content-layout',
+				'name'    => __( 'Content Layout', 'astra' ),
+				'options' => array(
+					'default'                 => esc_html__( 'Customizer Setting', 'astra' ),
+					'boxed-container'         => esc_html__( 'Boxed', 'astra' ),
+					'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
+					'plain-container'         => esc_html__( 'Full Width / Contained', 'astra' ),
+					'page-builder'            => esc_html__( 'Full Width / Stretched', 'astra' ),
+				),
+				'type'    => 'select',
+			);
+
+			return $settings;
+
 		}
 
 	}

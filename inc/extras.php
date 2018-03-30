@@ -49,7 +49,7 @@ if ( ! function_exists( 'astra_schema_body' ) ) :
 		$result = apply_filters( 'astra_schema_body_itemtype', $itemtype );
 
 		// Return our HTML.
-		echo apply_filters( 'astra_schema_body', "itemtype='http://schema.org/" . esc_html( $result ) . "' itemscope='itemscope'" );
+		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_html( $result ) . "' itemscope='itemscope'" );
 	}
 endif;
 
@@ -99,7 +99,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 		return $classes;
 	}
-}// End if().
+}
 
 add_filter( 'body_class', 'astra_body_classes' );
 
@@ -124,8 +124,10 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination(
 				array(
-					'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
-					'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
+					'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
+					'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
+					'taxonomy'     => 'category',
+					'in_same_term' => true,
 				)
 			);
 			echo '</div>';
@@ -133,7 +135,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
 		}
 	}
-}// End if().
+}
 
 add_action( 'astra_pagination', 'astra_number_pagination' );
 
@@ -208,7 +210,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			return $html;
 		}
 	}
-}// End if().
+}
 
 /**
  * Return the selected sections
@@ -367,7 +369,7 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 
 		return $output;
 	}
-}// End if().
+}
 
 /**
  * Function to get Small Footer Custom Text
@@ -387,7 +389,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 
 		if ( '' != $option ) {
 			$output = astra_get_option( $option );
-			$output = str_replace( '[current_year]', date_i18n( __( 'Y', 'astra' ) ), $output );
+			$output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
 			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters(
@@ -400,9 +402,9 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
 		}
 
-		return $output;
+		return do_shortcode( $output );
 	}
-}// End if().
+}
 
 /**
  * Function to get Footer Menu
@@ -440,7 +442,7 @@ if ( ! function_exists( 'astra_get_small_footer_menu' ) ) {
 
 		return ob_get_clean();
 	}
-}// End if().
+}
 
 /**
  * Function to get site Header
@@ -455,7 +457,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	function astra_header_markup() {
 		?>
 
-		<header itemtype="http://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
+		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
 
 			<?php astra_masthead_top(); ?>
 
@@ -484,7 +486,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div class="ast-site-identity" itemscope="itemscope" itemtype="http://schema.org/Organization">
+			<div class="ast-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
 				<?php astra_logo(); ?>
 			</div>
 		</div>
@@ -526,7 +528,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 		<?php
 		}
 	}
-}// End if().
+}
 
 add_action( 'astra_masthead_content', 'astra_toggle_buttons_markup', 9 );
 
@@ -569,7 +571,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 			);
 
-			$items_wrap  = '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -586,19 +588,23 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			);
 
 			if ( has_nav_menu( 'primary' ) ) {
-				wp_nav_menu( $primary_menu_args );
+				// To add default alignment for navigation which can be added through any third party plugin.
+				// Do not add any CSS from theme except header alignment.
+				echo '<div class="ast-main-header-bar-alignment">';
+					wp_nav_menu( $primary_menu_args );
+				echo  '</div>';
 			} else {
 
 				echo '<div class="main-header-bar-navigation">';
-					echo '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 						wp_page_menu( $fallback_menu_args );
 					echo  '</nav>';
 				echo  '</div>';
 			}
-		}// End if().
+		}
 
 	}
-}// End if().
+}
 
 add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
@@ -615,7 +621,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer itemtype="http://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
+		<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
 
 			<?php astra_footer_content_top(); ?>
 
@@ -642,8 +648,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		$break_point = apply_filters( 'astra_header_break_point', 921 );
-		return absint( $break_point );
+		return absint( apply_filters( 'astra_header_break_point', 921 ) );
 	}
 }
 
@@ -667,7 +672,7 @@ if ( ! function_exists( 'astra_body_font_family' ) ) {
 			$font_family = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif';
 		}
 
-		return $font_family;
+		return apply_filters( 'astra_body_font_family', $font_family );
 	}
 }
 
@@ -779,12 +784,12 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		ob_start();
 		?>
 		.main-header-bar-wrap {
-			content: "<?php echo esc_html( $header_break_point ); ?>";
+			content: '<?php echo esc_html( $header_break_point ); ?>';
 		}
 
 		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
 			.main-header-bar-wrap {
-				content: "";
+				content: '';
 			}
 		}
 		<?php
@@ -812,7 +817,8 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
-}// End if().
+}
+
 add_action( 'wp_enqueue_scripts', 'astra_header_breakpoint_style' );
 
 /**
@@ -842,9 +848,11 @@ if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
 		$fields['url']    = '<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url">' .
 					'<label for="url" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
-		return $fields;
+
+		return apply_filters( 'astra_comment_form_default_fields_markup', $fields );
 	}
 }
+
 add_filter( 'comment_form_default_fields', 'astra_comment_form_default_fields_markup' );
 
 /**
@@ -866,9 +874,12 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
 		$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
 		$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
-		return $args;
+
+		return apply_filters( 'astra_comment_form_default_markup', $args );
+
 	}
 }
+
 add_filter( 'comment_form_defaults', 'astra_comment_form_default_markup' );
 
 
@@ -889,9 +900,11 @@ if ( ! function_exists( 'astra_404_page_layout' ) ) {
 		if ( is_404() ) {
 			$layout = 'no-sidebar';
 		}
-		return $layout;
+
+		return apply_filters( 'astra_404_page_layout', $layout );
 	}
 }
+
 add_filter( 'astra_page_layout', 'astra_404_page_layout', 10, 1 );
 
 /**
@@ -953,7 +966,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 		return apply_filters( 'astra_get_content_layout', $content_layout );
 	}
-}// End if().
+}
 
 /**
  * Display Blog Post Excerpt
@@ -969,11 +982,15 @@ if ( ! function_exists( 'astra_the_excerpt' ) ) {
 
 		$excerpt_type = astra_get_option( 'blog-post-content' );
 
+		do_action( 'astra_the_excerpt_before', $excerpt_type );
+
 		if ( 'full-content' == $excerpt_type ) {
 			the_content();
 		} else {
 			the_excerpt();
 		}
+
+		do_action( 'astra_the_excerpt_after', $excerpt_type );
 	}
 }
 
@@ -1004,52 +1021,6 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 		}
 	}
 }
-
-/**
- * Filter google fonts
- */
-if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
-	/**
-	 * Google Fonts
-	 *
-	 * @since 1.0.12
-	 * @param array $fonts   List of fonts.
-	 * @return array
-	 */
-	function astra_google_fonts_callback( $fonts ) {
-
-		foreach ( $fonts as $font_name => $font_weight ) {
-
-			$is_true         = false;
-			$new_font_weight = '';
-
-			switch ( $font_name ) {
-				case 'Buda':
-				case 'Open Sans Condensed':
-						$is_true         = true;
-						$new_font_weight = 300;
-					break;
-				case 'Coda Caption':
-						$is_true         = true;
-						$new_font_weight = 800;
-					break;
-				case 'UnifrakturCook':
-						$is_true         = true;
-						$new_font_weight = 700;
-					break;
-			}
-
-			if ( $is_true ) {
-				if ( in_array( 'normal', $font_weight ) ) {
-					$key                         = array_search( 'normal', $font_weight );
-					$fonts[ $font_name ][ $key ] = $new_font_weight;
-				}
-			}
-		}
-		return $fonts;
-	}
-}// End if().
-add_filter( 'astra_google_fonts', 'astra_google_fonts_callback' );
 
 /**
  * Get Footer widgets
@@ -1086,7 +1057,7 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 			<?php
 		}
 	}
-}// End if().
+}
 
 /**
  * Astra entry header class.
@@ -1128,7 +1099,7 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 
 		echo esc_attr( join( ' ', $classes ) );
 	}
-}// End if().
+}
 
 /**
  * Astra get post thumbnail image.
@@ -1171,7 +1142,13 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
-				$post_thumb = get_the_post_thumbnail();
+				$post_thumb = get_the_post_thumbnail(
+					get_the_ID(),
+					apply_filters( 'astra_post_thumbnail_default_size', 'full' ),
+					array(
+						'itemprop' => 'image',
+					)
+				);
 
 				if ( '' != $post_thumb ) {
 					$output .= '<div class="post-thumb-img-content post-thumb">';
@@ -1191,13 +1168,15 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 			$output = apply_filters( 'astra_blog_post_featured_image_after', $output );
 		}
 
+		$output = apply_filters( 'astra_get_post_thumbnail', $output, $before, $after );
+
 		if ( $echo ) {
 			echo $before . $output . $after; // WPCS: XSS OK.
 		} else {
 			return $before . $output . $after;
 		}
 	}
-}// End if().
+}
 
 /**
  * Function to check if it is Internet Explorer
@@ -1218,9 +1197,10 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 			$is_ie = true;
 		}
 
-		return $is_ie;
+		return apply_filters( 'astra_check_is_ie', $is_ie );
 	}
-endif; // End if().
+
+endif;
 
 
 /**
@@ -1251,9 +1231,10 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 			}
 		}
 
-		return $image;
+		return apply_filters( 'astra_replace_header_logo', $image );
 	}
-endif; // End if().
+
+endif;
 
 /**
  * Function to check if it is Internet Explorer
@@ -1272,6 +1253,7 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	function astra_replace_header_attr( $attr, $attachment, $size ) {
 
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
+
 		if ( $custom_logo_id == $attachment->ID ) {
 
 			$attach_data = array();
@@ -1308,9 +1290,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 			}
 		}
 
-		return $attr;
+		return apply_filters( 'astra_replace_header_attr', $attr );
 	}
-endif; // End if().
+
+endif;
 
 add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 
@@ -1339,7 +1322,8 @@ if ( ! function_exists( 'astra_color_palette' ) ) :
 
 		return apply_filters( 'astra_color_palettes', $color_palette );
 	}
-endif; // End if().
+
+endif;
 
 if ( ! function_exists( 'astra_get_theme_name' ) ) :
 
@@ -1354,4 +1338,95 @@ if ( ! function_exists( 'astra_get_theme_name' ) ) :
 
 		return apply_filters( 'astra_theme_name', $theme_name );
 	}
-endif; // End if().
+
+endif;
+
+if ( ! function_exists( 'astra_strposa' ) ) :
+
+	/**
+	 * Strpos over an array.
+	 *
+	 * @since  1.2.4
+	 * @param  String  $haystack The string to search in.
+	 * @param  Array   $needles  Array of needles to be passed to strpos().
+	 * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.
+	 *
+	 * @return bool            True if haystack if part of any of the $needles.
+	 */
+	function astra_strposa( $haystack, $needles, $offset = 0 ) {
+
+		if ( ! is_array( $needles ) ) {
+			$needles = array( $needles );
+		}
+
+		foreach ( $needles as $query ) {
+
+			if ( strpos( $haystack, $query, $offset ) !== false ) {
+				// stop on first true result.
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+endif;
+
+if ( ! function_exists( 'astra_get_addon_name' ) ) :
+
+	/**
+	 * Get Addon name.
+	 *
+	 * @return string Addon Name.
+	 */
+	function astra_get_addon_name() {
+
+		$pro_name = __( 'Astra Pro', 'astra' );
+		// If addon is not updated & White Label added for Addon then show the updated addon name.
+		if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
+
+			$plugin_data = Astra_Ext_White_Label_Markup::$branding;
+
+			if ( '' != $plugin_data['astra-pro']['name'] ) {
+				$pro_name = $plugin_data['astra-pro']['name'];
+			}
+		}
+
+		return apply_filters( 'astra_addon_name', $pro_name );
+	}
+endif;
+
+if ( ! function_exists( 'astar' ) ) :
+
+	/**
+	 * Get a specific property of an array without needing to check if that property exists.
+	 *
+	 * Provide a default value if you want to return a specific value if the property is not set.
+	 *
+	 * @since  1.2.7
+	 * @access public
+	 * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
+	 * @link  https://www.gravityforms.com/
+	 *
+	 * @param array  $array   Array from which the property's value should be retrieved.
+	 * @param string $prop    Name of the property to be retrieved.
+	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
+	 *
+	 * @return null|string|mixed The value
+	 */
+	function astar( $array, $prop, $default = null ) {
+
+		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
+			return $default;
+		}
+
+		if ( isset( $array[ $prop ] ) ) {
+			$value = $array[ $prop ];
+		} else {
+			$value = '';
+		}
+
+		return empty( $value ) && null !== $default ? $default : $value;
+	}
+
+endif;

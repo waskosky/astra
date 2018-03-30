@@ -114,7 +114,7 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 
 		return $font_size;
 	}
-}// End if().
+}
 
 /**
  * Get Font Size value
@@ -173,7 +173,7 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 
 		return $css_val;
 	}
-}// End if().
+}
 
 /**
  * Get Font family
@@ -242,11 +242,10 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 			case 'font':
 				if ( 'inherit' != $value ) {
 					$value   = astra_get_font_family( $value );
-					$css_val = esc_attr( $value );
+					$css_val = $value;
 				} elseif ( '' != $default ) {
-					$css_val = esc_attr( $default );
+					$css_val = $default;
 				}
-
 				break;
 
 			case 'px':
@@ -283,11 +282,11 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				if ( '' != $value ) {
 					$css_val = esc_attr( $value ) . $unit;
 				}
-		}// End switch().
+		}
 
 		return $css_val;
 	}
-}// End if().
+}
 
 /**
  * Adjust the background obj.
@@ -404,11 +403,11 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 				return $media_css;
 			}
-		}// End if().
+		}
 
 		return $parse_css;
 	}
-}// End if().
+}
 
 /**
  * Return Theme options.
@@ -497,7 +496,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 		 */
 		return apply_filters( "astra_get_option_meta_{$option_id}", $value, $default, $default );
 	}
-}// End if().
+}
 
 /**
  * Helper function to get the current post id.
@@ -592,7 +591,7 @@ if ( ! function_exists( 'astra_get_primary_class' ) ) {
 
 		return array_unique( $classes );
 	}
-}// End if().
+}
 
 /**
  * Display classes for secondary div
@@ -652,7 +651,7 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) {
 
 		return array_unique( $classes );
 	}
-}// End if().
+}
 
 /**
  * Get post format
@@ -809,7 +808,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 			return $title;
 		}
 	}
-}// End if().
+}
 
 /**
  * Archive Page Title
@@ -886,12 +885,12 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				</section>
 
 		<?php
-			}// End if().
-		}// End if().
+			}
+		}
 	}
 
 	add_action( 'astra_archive_header', 'astra_archive_page_info' );
-}// End if().
+}
 
 
 /**
@@ -938,4 +937,111 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 
 		return '#' . $r_hex . $g_hex . $b_hex;
 	}
+
 }// End if().
+
+/**
+ * Convert colors from HEX to RGBA
+ */
+if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
+
+	/**
+	 * Convert colors from HEX to RGBA
+	 *
+	 * @param  string  $color   Color code in HEX.
+	 * @param  boolean $opacity Color code opacity.
+	 * @return string           Color code in RGB or RGBA.
+	 */
+	function astra_hex_to_rgba( $color, $opacity = false ) {
+
+		$default = 'rgb(0,0,0)';
+
+		// Return default if no color provided.
+		if ( empty( $color ) ) {
+			return $default;
+		}
+
+		// Sanitize $color if "#" is provided.
+		if ( '#' == $color[0] ) {
+			$color = substr( $color, 1 );
+		}
+
+		// Check if color has 6 or 3 characters and get values.
+		if ( 6 == strlen( $color ) ) {
+			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+		} elseif ( 3 == strlen( $color ) ) {
+			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+		} else {
+			return $default;
+		}
+
+		// Convert HEX to RGB.
+		$rgb = array_map( 'hexdec', $hex );
+
+		// Check if opacity is set(RGBA or RGB).
+		if ( $opacity ) {
+			if ( 1 < abs( $opacity ) ) {
+				$opacity = 1.0;
+			}
+			$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
+		} else {
+			$output = 'rgb(' . implode( ',', $rgb ) . ')';
+		}
+
+		// Return RGB(a) color string.
+		return $output;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'astra_enable_page_builder_compatibility' ) ) :
+
+	/**
+	 * Allow filter to enable/disable page builder compatibility.
+	 *
+	 * @see  https://wpastra.com/docs/recommended-settings-beaver-builder-astra/
+	 * @see  https://wpastra.com/docs/recommended-settings-for-elementor/
+	 *
+	 * @since  1.2.2
+	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
+	 */
+	function astra_enable_page_builder_compatibility() {
+		return apply_filters( 'astra_enable_page_builder_compatibility', true );
+	}
+
+endif;
+
+
+if ( ! function_exists( 'astra_get_pro_url' ) ) :
+	/**
+	 * Returns an URL with utm tags
+	 * the admin settings page.
+	 *
+	 * @param string $url    URL fo the site.
+	 * @param string $source utm source.
+	 * @param string $medium utm medium.
+	 * @param string $campaign utm campaign.
+	 * @return mixed
+	 */
+	function astra_get_pro_url( $url, $source = '', $medium = '', $campaign = '' ) {
+
+		$url = trailingslashit( $url );
+
+		// Set up our URL if we have a source.
+		if ( isset( $source ) ) {
+			$url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
+		}
+		// Set up our URL if we have a medium.
+		if ( isset( $medium ) ) {
+			$url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
+		}
+		// Set up our URL if we have a campaign.
+		if ( isset( $campaign ) ) {
+			$url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
+		}
+
+		return esc_url( $url );
+	}
+
+endif;

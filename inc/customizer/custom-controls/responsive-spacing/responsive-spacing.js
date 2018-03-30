@@ -14,6 +14,7 @@
 
 			var control = this,
 		    value;
+		    
 		    control.astResponsiveInit();
 
 			// Set the spacing container.
@@ -27,7 +28,6 @@
 				// Update value on change.
 				control.updateValue();
 			});
-
 		},
 
 		/**
@@ -39,13 +39,15 @@
 
 			var control = this,
 				newValue = {
-					'desktop' : {},
-					'tablet'  : {},
-					'mobile'  : {},
-					'unit'	  : 'px',
+					'desktop' 		: {},
+					'tablet'  		: {},
+					'mobile'  		: {},
+					'desktop-unit'	: 'px',
+					'tablet-unit'	: 'px',
+					'mobile-unit'	: 'px',
 				};
 
-			this.container.find( 'input.ast-spacing-desktop' ).each( function() {
+			control.container.find( 'input.ast-spacing-desktop' ).each( function() {
 				var spacing_input = jQuery( this ),
 				item = spacing_input.data( 'id' ),
 				item_value = spacing_input.val();
@@ -53,7 +55,7 @@
 				newValue['desktop'][item] = item_value;
 			});
 
-			this.container.find( 'input.ast-spacing-tablet' ).each( function() {
+			control.container.find( 'input.ast-spacing-tablet' ).each( function() {
 				var spacing_input = jQuery( this ),
 				item = spacing_input.data( 'id' ),
 				item_value = spacing_input.val();
@@ -61,12 +63,21 @@
 				newValue['tablet'][item] = item_value;
 			});
 
-			this.container.find( 'input.ast-spacing-mobile' ).each( function() {
+			control.container.find( 'input.ast-spacing-mobile' ).each( function() {
 				var spacing_input = jQuery( this ),
 				item = spacing_input.data( 'id' ),
 				item_value = spacing_input.val();
 
 				newValue['mobile'][item] = item_value;
+			});
+
+			control.container.find('.ast-spacing-unit-wrapper .ast-spacing-unit-input').each( function() {
+				var spacing_unit 	= jQuery( this ),
+					device 			= spacing_unit.attr('data-device'),
+					device_val 		= spacing_unit.val(),
+					name 			= device + '-unit';
+					
+				newValue[ name ] = device_val;
 			});
 
 			control.setting.set( newValue );
@@ -78,7 +89,10 @@
 		astResponsiveInit : function() {
 			
 			'use strict';
-			this.container.find( '.ast-spacing-responsive-btns button' ).on( 'click', function( event ) {
+
+			var control = this;
+			
+			control.container.find( '.ast-spacing-responsive-btns button' ).on( 'click', function( event ) {
 
 				var device = jQuery(this).attr('data-device');
 				if( 'desktop' == device ) {
@@ -90,6 +104,27 @@
 				}
 
 				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
+			});
+
+			// Unit click
+			control.container.on( 'click', '.ast-spacing-responsive-units .single-unit', function() {
+				
+				var $this 		= jQuery(this);
+
+				if ( $this.hasClass('active') ) {
+					return false;
+				}
+
+				var	unit_value 	= $this.attr('data-unit'),
+					device 		= jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
+				
+				$this.siblings().removeClass('active');
+				$this.addClass('active');
+
+				control.container.find('.ast-spacing-unit-wrapper .ast-spacing-' + device + '-unit').val( unit_value );
+
+				// Update value on change.
+				control.updateValue();
 			});
 		},
 	});
@@ -134,7 +169,7 @@
 		} );
 	});
 
-	jQuery(' .wp-full-overlay-footer .devices button ').on('click', function() {
+	jQuery('.wp-full-overlay-footer .devices button ').on('click', function() {
 
 		var device = jQuery(this).attr('data-device');
 		jQuery( '.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper, .customize-control .ast-spacing-responsive-btns > li' ).removeClass( 'active' );
