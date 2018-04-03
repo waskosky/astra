@@ -49,3 +49,9 @@ Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LI
 Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
 IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (http://creativecommons.org/licenses/by/4.0/ or http://www.gnu.org/licenses/gpl.html)
 Source: http://keyamoon.com/
+
+### Sponsors
+
+Thank you for [BrowserStack](https://www.browserstack.com/) for helping us test Astra on all the browsers imaginable.
+
+[![BrowserStack](https://raw.githubusercontent.com/brainstormforce/astra/master/.github/assets/browserstack-logo.png "BrowserStack")](https://www.browserstack.com/)
