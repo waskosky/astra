@@ -139,6 +139,14 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 				removeButton.hide();
 			}
 		});
+
+		control.container.on( 'click', '.more-settings', function( e ) {
+			// Hide unnecessary controls.
+			control.container.find( '.background-wrapper > .background-repeat' ).toggle();
+			control.container.find( '.background-wrapper > .background-position' ).toggle();
+			control.container.find( '.background-wrapper > .background-size' ).toggle();
+			control.container.find( '.background-wrapper > .background-attachment' ).toggle();			
+		});
 	},
 
 	/**

@@ -32,3 +32,14 @@
   background-color: #298cbe;
   color: #fff;
 }
+
+.customize-control-ast-background .more-settings {
+  margin: 12px 0px 0 10px;
+  display: inline-block;
+  padding: 5px 0 5px 0;
+  float: right;
+}
+
+.customize-control-ast-background .arrow-icon {
+  margin-left: 5px;
+}
