@@ -8,7 +8,11 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
-.single .sfwd-courses .entry-header {
+.single .sfwd-courses .entry-header,
+.single .sfwd-lessons .entry-header,
+.single .sfwd-topic .entry-header,
+.single .sfwd-quiz .entry-header,
+.single .sfwd-certificates .entry-header {
   margin-bottom: .5em;
 }
 

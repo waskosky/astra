@@ -12,7 +12,11 @@
 
 
 .single{
-	.sfwd-courses{
+	.sfwd-courses,
+	.sfwd-lessons,
+	.sfwd-topic,
+	.sfwd-quiz,
+	.sfwd-certificates{
 		.entry-header{
 			margin-bottom: .5em;
 		}
