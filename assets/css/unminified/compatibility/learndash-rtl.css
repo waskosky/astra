@@ -1007,3 +1007,22 @@ body .wpProQuiz_content .wpProQuiz_time_limit .wpProQuiz_progress {
   height: 8px;
   margin-bottom: 0;
 }
+
+/**
+ * LearnDash Shortcode
+ */
+#ld_course_info_mycourses_list .ld-course-info-my-courses {
+  padding: 10px 0;
+}
+
+@media (max-width: 544px) {
+  #ld_course_info_mycourses_list .ld-course-info-my-courses img {
+    display: block;
+    margin-left: initial;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  #ld_course_info_mycourses_list .ld-course-info-my-courses .ld-entry-title {
+    margin: 0 0 20px;
+  }
+}

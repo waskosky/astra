@@ -1034,3 +1034,24 @@ body {
 	}
 
 }
+
+// 
+/**
+ * LearnDash Shortcode
+ */
+ #ld_course_info_mycourses_list{
+	.ld-course-info-my-courses {
+	    padding: 10px 0;
+		@media(max-width: $mx-col-sm) {
+			img{
+				display: block;
+			    margin-right: initial;
+			    max-width: 100%;
+			    margin: 10px 0;
+			}
+			.ld-entry-title{
+				margin: 0 0 20px;
+			}
+		}
+	}
+ }
