@@ -250,6 +250,25 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				}
 			}
 
+			// When Learhdash shortoce is used on the Page.
+			// Leardash edit the post type if shortcode added to the page.
+			// Applied only to the pages which have the learndash shortcode.
+			global $learndash_shortcode_used;
+			$post_type = get_post_type();
+			if ( $learndash_shortcode_used && ( 'sfwd-lessons' === $post_type || 'sfwd-courses' === $post_type || 'sfwd-lessons' === $post_type || 'sfwd-topic' === $post_type || 'sfwd-quiz' === $post_type || 'sfwd-certificates' === $post_type || 'sfwd-assignment' === $post_type ) ) {
+				// Page Meta Sidebar.
+				$layout = astra_get_option_meta( 'site-sidebar-layout', '', true );
+				if ( empty( $layout ) ) {
+					// Page Sidebar.
+					$layout = astra_get_option( 'single-page-sidebar-layout' );
+					// Default Site Sidebar.
+					if ( 'default' == $layout || empty( $layout ) ) {
+						// Get the global sidebar value.
+						// NOTE: Here not used `true` in the below function call.
+						$layout = astra_get_option( 'site-sidebar-layout' );
+					}
+				}
+			}
 			return $layout;
 		}
 
