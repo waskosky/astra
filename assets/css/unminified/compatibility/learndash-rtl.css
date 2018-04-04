@@ -8,6 +8,19 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.ast-page-builder-template .sfwd-courses .entry-header,
+.ast-page-builder-template .sfwd-lessons .entry-header,
+.ast-page-builder-template .sfwd-topic .entry-header,
+.ast-page-builder-template .sfwd-quiz .entry-header,
+.ast-page-builder-template .sfwd-certificates .entry-header,
+.ast-page-builder-template.single .sfwd-courses .entry-header,
+.ast-page-builder-template.single .sfwd-lessons .entry-header,
+.ast-page-builder-template.single .sfwd-topic .entry-header,
+.ast-page-builder-template.single .sfwd-quiz .entry-header,
+.ast-page-builder-template.single .sfwd-certificates .entry-header {
+  margin-bottom: 0;
+}
+
 .single .sfwd-courses .entry-header,
 .single .sfwd-lessons .entry-header,
 .single .sfwd-topic .entry-header,
