@@ -310,7 +310,8 @@ if ( ! function_exists( 'astra_get_background_obj' ) ) {
 
 		if ( '' !== $bg_img && '' !== $bg_color) {
 			$gen_bg_css = array(
-				'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_url( $bg_img ) . ')'
+				'background-color' => 'unset',
+				'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_url( $bg_img ) . ')',
 			);
 		}elseif ( '' !== $bg_img ) {
 			$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );

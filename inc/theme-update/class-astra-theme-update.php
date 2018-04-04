@@ -575,7 +575,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @since 1.2.8
 		 */
 		static public function v_1_2_8()
-		{			
+		{
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			$astra_options['site-layout-outside-bg-obj'] = array(
