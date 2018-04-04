@@ -578,6 +578,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		{
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
+			$astra_options['content-bg-obj'] = array(
+				'background-color' => isset( $astra_options['content-bg-color'] ) ? $astra_options['content-bg-color'] : '',
+			);
+
 			$astra_options['site-layout-outside-bg-obj'] = array(
 				'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
 			);
@@ -601,6 +605,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			
 		}
 	}
 
