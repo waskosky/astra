@@ -133,7 +133,7 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			control.container.find( '.background-wrapper > .background-attachment' ).hide();
 
 			if ( preview.length ) {
-				preview.removeClass().addClass( 'placeholder' ).html( 'No file selected' );
+				preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
 			}
 			if ( removeButton.length ) {
 				removeButton.hide();
@@ -145,7 +145,18 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			control.container.find( '.background-wrapper > .background-repeat' ).toggle();
 			control.container.find( '.background-wrapper > .background-position' ).toggle();
 			control.container.find( '.background-wrapper > .background-size' ).toggle();
-			control.container.find( '.background-wrapper > .background-attachment' ).toggle();			
+			control.container.find( '.background-wrapper > .background-attachment' ).toggle();
+
+			if( 'down' === $(this).attr( 'data-direction' ) )
+			{
+				$(this).attr('data-direction', 'up');
+				$(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+				$(this).find('.icon').html( '↑' );
+			} else {
+				$(this).attr('data-direction', 'down');
+				$(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+				$(this).find('.icon').html( '↓' );
+			}
 		});
 	},
 

@@ -58,8 +58,13 @@ if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_
 			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/background/';
 			$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/background/';
 
-			wp_enqueue_script( 'astra-background', $js_uri . 'background.js', array(), ASTRA_THEME_VERSION, true );
 			wp_enqueue_style( 'astra-background', $css_uri . 'background.css', null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-background', $js_uri . 'background.js', array(), ASTRA_THEME_VERSION, true );
+			wp_localize_script( 'astra-background', 'astraCustomizerControlBackground', array(
+				'placeholder'  => __( 'No file selected', 'astra' ),
+				'lessSettings' => __( 'Less Settings', 'astra' ),
+				'moreSettings' => __( 'More Settings', 'astra' ),
+			) );
 		}
 
 		/**
@@ -98,7 +103,7 @@ if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_
 						<div class="actions">
 							<button class="button background-image-upload-remove-button<# if ( ! data.value['background-image'] ) { #> hidden <# } #>"><?php esc_attr_e( 'Remove', 'astra' ); ?></button>
 							<button type="button" class="button background-image-upload-button"><?php esc_attr_e( 'Select File', 'astra' ); ?></button>
-							<a href="#" class="more-settings"><?php _e( 'Image Settings', 'astra' ); ?></a>
+							<a href="#" class="more-settings" data-direction="down"><span class="message"><?php _e( 'More Settings', 'astra' ); ?></span> <i class="icon">↓</i></a>
 						</div>
 					</div>
 				</div>
