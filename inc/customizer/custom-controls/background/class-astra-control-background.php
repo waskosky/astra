@@ -105,7 +105,6 @@ if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_
 
 				<!-- background-repeat -->
 				<div class="background-repeat">
-					<h4><?php esc_attr_e( 'Background Repeat', 'astra' ); ?></h4>
 					<select {{{ data.inputAttrs }}}>
 						<option value="no-repeat"<# if ( 'no-repeat' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_attr_e( 'No Repeat', 'astra' ); ?></option>
 						<option value="repeat"<# if ( 'repeat' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_attr_e( 'Repeat All', 'astra' ); ?></option>
@@ -116,7 +115,6 @@ if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_
 
 				<!-- background-position -->
 				<div class="background-position">
-					<h4><?php esc_attr_e( 'Background Position', 'astra' ); ?></h4>
 					<select {{{ data.inputAttrs }}}>
 						<option value="left top"<# if ( 'left top' === data.value['background-position'] ) { #> selected <# } #>><?php esc_attr_e( 'Left Top', 'astra' ); ?></option>
 						<option value="left center"<# if ( 'left center' === data.value['background-position'] ) { #> selected <# } #>><?php esc_attr_e( 'Left Center', 'astra' ); ?></option>
@@ -150,6 +148,9 @@ if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_
 				<div class="background-attachment">
 					<h4><?php esc_attr_e( 'Background Attachment', 'astra' ); ?></h4>
 					<div class="buttonset">
+						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}inherit" <# if ( 'inherit' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
+							<label class="switch-label switch-label-<# if ( 'inherit' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}inherit"><?php esc_attr_e( 'Inherit', 'astra' ); ?></label>
+						</input>
 						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}scroll" <# if ( 'scroll' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
 							<label class="switch-label switch-label-<# if ( 'scroll' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}scroll"><?php esc_attr_e( 'Scroll', 'astra' ); ?></label>
 						</input>

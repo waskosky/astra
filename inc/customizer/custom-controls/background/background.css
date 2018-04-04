@@ -10,6 +10,10 @@
   margin-bottom: 5px;
 }
 
+.customize-control-ast-background .background-repeat {
+  margin: 15px 0 8px 0;
+}
+
 .customize-control-ast-background .background-attachment .buttonset,
 .customize-control-ast-background .background-size .buttonset {
   display: flex;
