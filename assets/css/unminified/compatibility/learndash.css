@@ -99,6 +99,11 @@
   margin-bottom: 1em;
 }
 
+.learndash.user_has_no_access .btn-join {
+  margin-bottom: .5em;
+  display: inline-block;
+}
+
 #learndash_course_certificate .btn-blue {
   display: inline-block;
 }
