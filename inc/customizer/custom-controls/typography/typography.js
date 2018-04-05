@@ -72,6 +72,16 @@
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
 		},
 
+		_cleanGoogleFonts: function(fontValue)
+		{
+			if ( ! fontValue.includes(',') ) return fontValue;
+
+			var splitFont = fontValue.split(',');
+			var pattern = new RegExp("'", 'gi');
+
+			return splitFont[0].replace(pattern, '');
+		},
+
 		/**
 		 * Sets the options for a font weight control when a
 		 * font family control changes.
@@ -100,12 +110,14 @@
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
 
+			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
+
 			if ( fontValue == 'inherit' ) {
 				weightObject = [ '400','500','600','700' ];
 			} else if ( 'undefined' != typeof AstFontFamilies.system[ fontValue ] ) {
 				weightObject = AstFontFamilies.system[ fontValue ].weights;
 			} else if ( 'undefined' != typeof AstFontFamilies.google[ fontValue ] ) {
-				weightObject = AstFontFamilies.google[ fontValue ];
+				weightObject = AstFontFamilies.google[ fontValue ][0];
 			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue.split(',')[0] ] ) {
 				weightObject = AstFontFamilies.custom[ fontValue.split(',')[0] ].weights;
 			}
