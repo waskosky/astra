@@ -566,7 +566,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
-		
+
 		/**
 		 * Update options of older version than 1.2.8.
 		 *
@@ -574,8 +574,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.2.8
 		 */
-		static public function v_1_2_8()
-		{
+		static public function v_1_2_8() {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			$astra_options['content-bg-obj'] = array(
@@ -605,7 +604,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
-			
+
 		}
 	}
 

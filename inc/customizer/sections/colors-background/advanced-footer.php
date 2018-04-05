@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[footer-adv-bg-obj]', array(
-			'default'     		=>  array(
+			'default'           => array(
 				'background-color'      => '',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
@@ -126,9 +126,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Background(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv-bg-obj]', array(
-				'type'     => 'ast-background',
-				'section'  => 'section-footer-adv-color-bg',
-				'label'    => __( 'Background', 'astra' ),
+				'type'    => 'ast-background',
+				'section' => 'section-footer-adv-color-bg',
+				'label'   => __( 'Background', 'astra' ),
 			)
 		)
 	);

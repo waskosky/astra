@@ -501,15 +501,15 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 			);
 
 			if ( is_array( $bg_obj ) ) {
-				
+
 				foreach ( $out_bg_obj as $key => $value ) {
-					
+
 					if ( isset( $bg_obj[ $key ] ) ) {
 
 						if ( 'background-image' === $key ) {
-					 		$out_bg_obj[ $key ] = esc_url_raw( $bg_obj[ $key ] );
-						}else{
-					 		$out_bg_obj[ $key ] = esc_attr( $bg_obj[ $key ] );
+							$out_bg_obj[ $key ] = esc_url_raw( $bg_obj[ $key ] );
+						} else {
+							$out_bg_obj[ $key ] = esc_attr( $bg_obj[ $key ] );
 						}
 					}
 				}

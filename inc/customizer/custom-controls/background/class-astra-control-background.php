@@ -14,8 +14,11 @@
 /**
  * Field overrides.
  */
-if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_Control' ) ) :
+if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_Control' ) ) :
 
+	/**
+	 * Background Control
+	 */
 	class Astra_Control_Background extends WP_Customize_Control {
 
 		/**
@@ -38,10 +41,10 @@ if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_
 			if ( isset( $this->default ) ) {
 				$this->json['default'] = $this->default;
 			}
-			$this->json['value']  = $this->value();
-			$this->json['link']   = $this->get_link();
-			$this->json['id']     = $this->id;
-			$this->json['label']  = esc_html( $this->label );
+			$this->json['value'] = $this->value();
+			$this->json['link']  = $this->get_link();
+			$this->json['id']    = $this->id;
+			$this->json['label'] = esc_html( $this->label );
 
 			$this->json['inputAttrs'] = '';
 			foreach ( $this->input_attrs as $attr => $value ) {
@@ -60,11 +63,13 @@ if( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_
 
 			wp_enqueue_style( 'astra-background', $css_uri . 'background.css', null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-background', $js_uri . 'background.js', array(), ASTRA_THEME_VERSION, true );
-			wp_localize_script( 'astra-background', 'astraCustomizerControlBackground', array(
-				'placeholder'  => __( 'No file selected', 'astra' ),
-				'lessSettings' => __( 'Less Settings', 'astra' ),
-				'moreSettings' => __( 'More Settings', 'astra' ),
-			) );
+			wp_localize_script(
+				'astra-background', 'astraCustomizerControlBackground', array(
+					'placeholder'  => __( 'No file selected', 'astra' ),
+					'lessSettings' => __( 'Less Settings', 'astra' ),
+					'moreSettings' => __( 'More Settings', 'astra' ),
+				)
+			);
 		}
 
 		/**

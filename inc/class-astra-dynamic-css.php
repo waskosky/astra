@@ -316,7 +316,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $footer_adv_link_color ),
 				),
 
-				'.footer-adv-overlay' => astra_get_background_obj( $footer_adv_bg_obj ),
+				'.footer-adv-overlay'                     => astra_get_background_obj( $footer_adv_bg_obj ),
 
 				// Single Post Meta.
 				'.ast-comment-meta'                       => array(

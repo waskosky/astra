@@ -167,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
-			'default'     		=>  array(
+			'default'           => array(
 				'background-color'      => '',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
