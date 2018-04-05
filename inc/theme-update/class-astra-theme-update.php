@@ -135,6 +135,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_2_7();
 			}
 
+			// Update astra background image data.
+			if ( version_compare( $saved_version, '1.3.0', '<' ) ) {
+				self::v_1_3_0();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -562,6 +567,49 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
+		/**
+		 * Update options of older version than 1.3.0.
+		 *
+		 * Background options
+		 *
+		 * @since 1.3.0
+		 */
+		static public function v_1_3_0() {
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			$astra_options['header-bg-obj'] = array(
+				'background-color' => isset( $astra_options['header-bg-color'] ) ? $astra_options['header-bg-color'] : '',
+			);
+
+			$astra_options['content-bg-obj'] = array(
+				'background-color' => isset( $astra_options['content-bg-color'] ) ? $astra_options['content-bg-color'] : '',
+			);
+
+			$astra_options['site-layout-outside-bg-obj'] = array(
+				'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
+			);
+
+			$astra_options['footer-adv-bg-obj'] = array(
+				'background-color'      => isset( $astra_options['footer-adv-bg-color'] ) ? $astra_options['footer-adv-bg-color'] : '',
+				'background-image'      => isset( $astra_options['footer-adv-bg-img'] ) ? $astra_options['footer-adv-bg-img'] : '',
+				'background-repeat'     => isset( $astra_options['footer-adv-bg-repeat'] ) ? $astra_options['footer-adv-bg-repeat'] : 'no-repeat',
+				'background-position'   => isset( $astra_options['footer-adv-bg-pos'] ) ? $astra_options['footer-adv-bg-pos'] : 'center center',
+				'background-size'       => isset( $astra_options['footer-adv-bg-size'] ) ? $astra_options['footer-adv-bg-size'] : 'cover',
+				'background-attachment' => isset( $astra_options['footer-adv-bg-attac'] ) ? $astra_options['footer-adv-bg-attac'] : 'scroll',
+			);
+
+			$astra_options['footer-bg-obj'] = array(
+				'background-color'      => isset( $astra_options['footer-bg-color'] ) ? $astra_options['footer-bg-color'] : '',
+				'background-image'      => isset( $astra_options['footer-bg-img'] ) ? $astra_options['footer-bg-img'] : '',
+				'background-repeat'     => isset( $astra_options['footer-bg-rep'] ) ? $astra_options['footer-bg-rep'] : 'repeat',
+				'background-position'   => isset( $astra_options['footer-bg-pos'] ) ? $astra_options['footer-bg-pos'] : 'center center',
+				'background-size'       => isset( $astra_options['footer-bg-size'] ) ? $astra_options['footer-bg-size'] : 'auto',
+				'background-attachment' => isset( $astra_options['footer-bg-atch'] ) ? $astra_options['footer-bg-atch'] : 'scroll',
+			);
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+
+		}
 	}
 
 }
