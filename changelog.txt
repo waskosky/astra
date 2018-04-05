@@ -1,5 +1,7 @@
 v1.2.8
-- New: Added background image customizer control with background color.
+- Improvement: Merge the footer widget background options into the background image param.
+- Improvement: Merge the small footer background options into the background image param.
+- New: Introduced customizer background param.
 
 v1.2.7.2
 - Fix: Fatal error if older version of Elementor Pro is installed on the site.
