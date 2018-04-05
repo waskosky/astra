@@ -21,7 +21,7 @@ $wp_customize->add_control(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-content-divider]', array(
 			'section'  => 'section-container-layout',
 			'type'     => 'ast-divider',
-			'priority' => 65,
+			'priority' => 68,
 			'settings' => array(),
 		)
 	)
@@ -41,7 +41,7 @@ $wp_customize->add_control(
 	ASTRA_THEME_SETTINGS . '[learndash-content-layout]', array(
 		'type'        => 'select',
 		'section'     => 'section-container-layout',
-		'priority'    => 65,
+		'priority'    => 68,
 		'label'       => __( 'Container for LearnDash', 'astra' ),
 		'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
 		'choices'     => array(
