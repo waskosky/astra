@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.2.7\n"
+"Project-Id-Version: Astra 1.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-03-29 09:55:46+00:00\n"
+"POT-Creation-Date: 2018-04-05 13:44:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -688,12 +688,12 @@ msgstr ""
 msgid "Stylish, Lightning Fast & Easily Customizable Theme!"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:125
-#: inc/core/class-astra-theme-options.php:127
+#: inc/core/class-astra-theme-options.php:140
+#: inc/core/class-astra-theme-options.php:142
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-astra-theme-options.php:148
+#: inc/core/class-astra-theme-options.php:163
 msgid "Contact Us"
 msgstr ""
 
@@ -823,15 +823,15 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:727
+#: inc/core/common-functions.php:779
 msgid "Home"
 msgstr ""
 
-#: inc/core/common-functions.php:733
+#: inc/core/common-functions.php:785
 msgid "This page doesn't seem to exist."
 msgstr ""
 
-#: inc/core/common-functions.php:739 inc/core/common-functions.php:819
+#: inc/core/common-functions.php:791 inc/core/common-functions.php:871
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -844,10 +844,125 @@ msgstr ""
 msgid "Enter valid email address!"
 msgstr ""
 
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:68
+msgid "No file selected"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:69
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:112
+msgid "Less Settings"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:70
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:114
+msgid "More Settings"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:95
+msgid "Background Color"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:101
+msgid "Background Image"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:106
+msgid "No File Selected"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:109
+msgid "Remove"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:110
+msgid "Select File"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:123
+msgid "No Repeat"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:124
+msgid "Repeat All"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:125
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:126
+msgid "Repeat Vertically"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:133
+msgid "Left Top"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:134
+msgid "Left Center"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:135
+msgid "Left Bottom"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:136
+msgid "Right Top"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:137
+msgid "Right Center"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:138
+msgid "Right Bottom"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:139
+msgid "Center Top"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:140
+msgid "Center Center"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:141
+msgid "Center Bottom"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:147
+msgid "Background Size"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:150
+msgid "Cover"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:153
+msgid "Contain"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:156
+msgid "Auto"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:163
+msgid "Background Attachment"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:166
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:63
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:100
 #: inc/customizer/sections/typography/body.php:265
 msgid "Inherit"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:169
+msgid "Scroll"
+msgstr ""
+
+#: inc/customizer/custom-controls/background/class-astra-control-background.php:172
+msgid "Fixed"
 msgstr ""
 
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:101
@@ -1008,10 +1123,10 @@ msgstr ""
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/advanced-footer.php:120
-#: inc/customizer/sections/colors-background/footer.php:104
-#: inc/customizer/sections/layout/container.php:182
-msgid "Background Color"
+#: inc/customizer/sections/colors-background/advanced-footer.php:131
+#: inc/customizer/sections/colors-background/footer.php:112
+#: inc/customizer/sections/layout/container.php:189
+msgid "Background"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:30
