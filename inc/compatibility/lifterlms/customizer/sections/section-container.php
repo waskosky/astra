@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 66,
-			'label'    => __( 'LifterLMS', 'astra' ),
+			'label'    => __( 'Container for LifterLMS', 'astra' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'astra' ),
 				'boxed-container'         => __( 'Boxed', 'astra' ),
