@@ -937,7 +937,7 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 
 		return '#' . $r_hex . $g_hex . $b_hex;
 	}
-}// End if().
+} // End if().
 
 /**
  * Convert colors from HEX to RGBA

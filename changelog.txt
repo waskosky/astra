@@ -1,4 +1,4 @@
-v1.2.8
+v1.3.0
 - Improvement: Merge the footer widget background options into the background image param.
 - Improvement: Merge the small footer background options into the background image param.
 - New: Introduced customizer background param.
