@@ -135,6 +135,10 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			control.container.find( '.background-wrapper > .background-position' ).hide();
 			control.container.find( '.background-wrapper > .background-size' ).hide();
 			control.container.find( '.background-wrapper > .background-attachment' ).hide();
+			
+			control.container.find( '.more-settings' ).attr('data-direction', 'down');
+			control.container.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+			control.container.find( '.more-settings' ).find('.icon').html( '↓' );
 
 			if ( preview.length ) {
 				preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );

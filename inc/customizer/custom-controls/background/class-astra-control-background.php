@@ -108,7 +108,11 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 						<div class="actions">
 							<button class="button background-image-upload-remove-button<# if ( ! data.value['background-image'] ) { #> hidden <# } #>"><?php esc_attr_e( 'Remove', 'astra' ); ?></button>
 							<button type="button" class="button background-image-upload-button"><?php esc_attr_e( 'Select File', 'astra' ); ?></button>
-							<a href="#" class="more-settings" data-direction="down"><span class="message"><?php _e( 'More Settings', 'astra' ); ?></span> <i class="icon">↓</i></a>
+							<# if ( data.value['background-image'] ) { #>
+								<a href="#" class="more-settings" data-direction="up"><span class="message"><?php _e( 'Less Settings', 'astra' ); ?></span> <i class="icon">↑</i></a>
+							<# } else { #>
+								<a href="#" class="more-settings" data-direction="down"><span class="message"><?php _e( 'More Settings', 'astra' ); ?></span> <i class="icon">↓</i></a>
+							<# } #>
 						</div>
 					</div>
 				</div>
