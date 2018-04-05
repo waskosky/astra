@@ -1,7 +1,8 @@
 v1.3.0
-- Improvement: Merge the footer widget background options into the background image param.
-- Improvement: Merge the small footer background options into the background image param.
-- New: Introduced customizer background param.
+- New: Added LearnDash LMS complete support.
+- New: Introduce option to set the background image.
+- Improvement: Merge the footer widget background options into the background image.
+- Improvement: Merge the small footer background options into the background image.
 
 v1.2.7.2
 - Fix: Fatal error if older version of Elementor Pro is installed on the site.
