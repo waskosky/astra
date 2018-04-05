@@ -419,7 +419,10 @@ module.exports = function (grunt) {
 
                 var fonts = JSON.parse(body).items.map(function (font) {
                     return {
-                        [font.family]: font.variants
+                        [font.family] : {
+                            'variants' : font.variants,
+                            'category' : font.category
+                        }
                     };
                 })
 
@@ -437,7 +440,7 @@ module.exports = function (grunt) {
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
 
-    // Bump Version - `grunt bump-version --ver=<version-number>`
+    // Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {
 
         var newVersion = grunt.option('ver');
