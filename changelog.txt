@@ -1,6 +1,6 @@
 v1.3.0
 - New: Added LearnDash LMS complete support.
-- New: Introduce option to set the background image.
+- New: Introduced option to set the background image to the body.
 - Improvement: Merge the footer widget background options into the background image.
 - Improvement: Merge the small footer background options into the background image.
 
