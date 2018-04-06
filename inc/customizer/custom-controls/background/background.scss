@@ -1,5 +1,9 @@
 .customize-control-ast-background {
     position: relative;
+
+    .screen-reader-text {
+        top: initial;
+    }
     
     .background-attachment,
     .background-color,
@@ -40,7 +44,7 @@
     }
 
     .more-settings {
-        margin: 12px 0px 0 10px;
+        margin-top: 12px;
         display: inline-block;
         padding: 5px 0 5px 0;
         float: right;

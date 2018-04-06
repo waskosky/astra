@@ -585,10 +585,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'background-color' => isset( $astra_options['content-bg-color'] ) ? $astra_options['content-bg-color'] : '',
 			);
 
-			$astra_options['site-layout-outside-bg-obj'] = array(
-				'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
-			);
-
 			$astra_options['footer-adv-bg-obj'] = array(
 				'background-color'      => isset( $astra_options['footer-adv-bg-color'] ) ? $astra_options['footer-adv-bg-color'] : '',
 				'background-image'      => isset( $astra_options['footer-adv-bg-img'] ) ? $astra_options['footer-adv-bg-img'] : '',
@@ -607,8 +603,45 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'background-attachment' => isset( $astra_options['footer-bg-atch'] ) ? $astra_options['footer-bg-atch'] : 'scroll',
 			);
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			// Site layout background image and color.
+			if ( isset( $astra_options['site-layout'] ) ) {
+				switch ( $astra_options['site-layout'] ) {
+					case 'ast-box-layout':
+							$astra_options['site-layout-outside-bg-obj'] = array(
+								'background-color'      => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
+								'background-image'      => isset( $astra_options['site-layout-box-bg-img'] ) ? $astra_options['site-layout-box-bg-img'] : '',
+								'background-repeat'     => isset( $astra_options['site-layout-box-bg-rep'] ) ? $astra_options['site-layout-box-bg-rep'] : 'no-repeat',
+								'background-position'   => isset( $astra_options['site-layout-box-bg-pos'] ) ? $astra_options['site-layout-box-bg-pos'] : 'center center',
+								'background-size'       => isset( $astra_options['site-layout-box-bg-size'] ) ? $astra_options['site-layout-box-bg-size'] : 'cover',
+								'background-attachment' => isset( $astra_options['site-layout-box-bg-atch'] ) ? $astra_options['site-layout-box-bg-atch'] : 'scroll',
+							);
+						break;
 
+					case 'ast-padded-layout':
+							$bg_color = isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '';
+							$bg_image = isset( $astra_options['site-layout-padded-bg-img'] ) ? $astra_options['site-layout-padded-bg-img'] : '';
+
+							$astra_options['site-layout-outside-bg-obj'] = array(
+								'background-color'      => empty( $bg_image ) ? $bg_color : '',
+								'background-image'      => $bg_image,
+								'background-repeat'     => isset( $astra_options['site-layout-padded-bg-rep'] ) ? $astra_options['site-layout-padded-bg-rep'] : 'no-repeat',
+								'background-position'   => isset( $astra_options['site-layout-padded-bg-pos'] ) ? $astra_options['site-layout-padded-bg-pos'] : 'center center',
+								'background-size'       => isset( $astra_options['site-layout-padded-bg-size'] ) ? $astra_options['site-layout-padded-bg-size'] : 'cover',
+								'background-attachment' => '',
+							);
+						break;
+
+					case 'ast-full-width-layout':
+					case 'ast-fluid-width-layout':
+					default:
+									$astra_options['site-layout-outside-bg-obj'] = array(
+										'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
+									);
+						break;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 	}
 

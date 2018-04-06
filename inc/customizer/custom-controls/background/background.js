@@ -50,26 +50,22 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 		});
 
 		// Background-Repeat.
-		control.container.on( 'change', '.background-repeat select', function( event ) {
-			event.preventDefault();
+		control.container.on( 'change', '.background-repeat select', function() {
 			control.saveValue( 'background-repeat', jQuery( this ).val() );
 		});
 
 		// Background-Size.
-		control.container.on( 'change click', '.background-size input', function( event ) {
-			event.preventDefault();
+		control.container.on( 'change click', '.background-size input', function() {
 			control.saveValue( 'background-size', jQuery( this ).val() );
 		});
 
 		// Background-Position.
-		control.container.on( 'change', '.background-position select', function( event ) {
-			event.preventDefault();
+		control.container.on( 'change', '.background-position select', function() {
 			control.saveValue( 'background-position', jQuery( this ).val() );
 		});
 
 		// Background-Attachment.
-		control.container.on( 'change click', '.background-attachment input', function( event ) {
-			event.preventDefault();
+		control.container.on( 'change click', '.background-attachment input', function() {
 			control.saveValue( 'background-attachment', jQuery( this ).val() );
 		});
 
