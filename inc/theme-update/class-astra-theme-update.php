@@ -604,7 +604,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			// Site layout background image and color.
-			if( isset( $astra_options['site-layout'] ) ) {
+			if ( isset( $astra_options['site-layout'] ) ) {
 				switch ( $astra_options['site-layout'] ) {
 					case 'ast-box-layout':
 							$astra_options['site-layout-outside-bg-obj'] = array(
