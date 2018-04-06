@@ -1,8 +1,8 @@
 v1.3.0
 - New: Added LearnDash LMS complete support.
-- New: Introduced option to set the background image to the body.
-- Improvement: Merge the footer widget background options into the background image.
-- Improvement: Merge the small footer background options into the background image.
+- New: Introduced option to set the background image to the body. More background image options added from Astra Pro.
+- Improvement: Merge the footer widget background options into the new background image settings.
+- Improvement: Merge the small footer background options into the new background image settings.
 
 v1.2.7.2
 - Fix: Fatal error if older version of Elementor Pro is installed on the site.
