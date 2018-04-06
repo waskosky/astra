@@ -1,5 +1,10 @@
 .customize-control-ast-background {
     position: relative;
+
+    .screen-reader-text {
+        position: relative;
+        top: initial;
+    }
     
     .background-attachment,
     .background-color,

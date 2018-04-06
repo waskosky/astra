@@ -2,6 +2,11 @@
   position: relative;
 }
 
+.customize-control-ast-background .screen-reader-text {
+  position: relative;
+  top: initial;
+}
+
 .customize-control-ast-background .background-attachment h4,
 .customize-control-ast-background .background-color h4,
 .customize-control-ast-background .background-position h4,
