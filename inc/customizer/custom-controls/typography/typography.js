@@ -85,8 +85,8 @@
 		{
 			if ( ! fontValue.includes(',') ) return fontValue;
 
-			var splitFont = fontValue.split(',');
-			var pattern = new RegExp("'", 'gi');
+			var splitFont 	= fontValue.split(',');
+			var pattern 	= new RegExp("'", 'gi');
 
 			return splitFont[0].replace(pattern, '');
 		},
