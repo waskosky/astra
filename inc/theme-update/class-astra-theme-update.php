@@ -643,7 +643,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
-
 		}
 	}
 
