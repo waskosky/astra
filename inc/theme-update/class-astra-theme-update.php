@@ -574,8 +574,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.3.0
 		 */
-		static public function v_1_3_0()
-		{
+		static public function v_1_3_0() {
 			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			$astra_options['header-bg-obj'] = array(
@@ -605,8 +604,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			// Site layout background image and color.
-			switch ( $astra_options['site-layout'] )
-			{
+			switch ( $astra_options['site-layout'] ) {
 				case 'ast-box-layout':
 						$astra_options['site-layout-outside-bg-obj'] = array(
 							'background-color'      => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
@@ -619,7 +617,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					break;
 
 				case 'ast-padded-layout':
-
 						$bg_color = isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '';
 						$bg_image = isset( $astra_options['site-layout-padded-bg-img'] ) ? $astra_options['site-layout-padded-bg-img'] : '';
 
