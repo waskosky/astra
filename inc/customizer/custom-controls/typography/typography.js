@@ -72,6 +72,15 @@
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
 		},
 
+		/**
+		 * Clean font name.
+		 *
+		 * @since  1.3.0
+		 * Removes commas and singel inverted commas from the font name. This is required for Google Fonts.
+		 * @param  {String} fontValue Name of the font.
+		 * 
+		 * @return {String}           Font name where commas and inverted commas are removed.
+		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
 			if ( ! fontValue.includes(',') ) return fontValue;
@@ -118,6 +127,9 @@
 				weightObject = AstFontFamilies.system[ fontValue ].weights;
 			} else if ( 'undefined' != typeof AstFontFamilies.google[ fontValue ] ) {
 				weightObject = AstFontFamilies.google[ fontValue ][0];
+				weightObject = Object.keys(weightObject).map(function(k) {
+				  return weightObject[k];
+				});
 			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue.split(',')[0] ] ) {
 				weightObject = AstFontFamilies.custom[ fontValue.split(',')[0] ].weights;
 			}
