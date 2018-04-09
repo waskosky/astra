@@ -75,22 +75,26 @@
 		/**
 		 * Clean font name.
 		 *
+		 * Google Fonts are saved as {'Font Name', Category}. This function cleanes this up to retreive only the {Font Name}.
+		 *
 		 * @since  1.3.0
-		 * Removes commas and singel inverted commas from the font name. This is required for Google Fonts.
 		 * @param  {String} fontValue Name of the font.
 		 * 
-		 * @return {String}           Font name where commas and inverted commas are removed.
+		 * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.
 		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
+			// Bail if fontVAlue does not contain a comma.
 			if ( ! fontValue.includes(',') ) return fontValue;
+
 			var splitFont 	= fontValue.split(',');
 			var pattern 	= new RegExp("'", 'gi');
 
+			// Check if the cleaned font exists in the Google fonts array. Return if it exists.
 			var googleFontValue = splitFont[0].replace(pattern, '');
-			if ( 'undefined' != typeof AstFontFamilies.google[ googleFontValue ] ) {
-				fontValue = googleFontValue;
-			}
+			if ( 'undefined' != typeof AstFontFamilies.google[ googleFontValue ] ) return googleFontValue;
+
+			// By default return unchanged fontValue if the value does not exist in Google Fonts array.
 			return fontValue;
 		},
 
