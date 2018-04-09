@@ -49,7 +49,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			add_action( 'astra_content_loop', array( $this, 'loop_markup' ) );
 
 			// Template Parts.
-			add_action( 'astra_template_parts_content', array( $this, 'template_parts_page' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_post' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_search' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_default' ) );
@@ -89,18 +88,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		public function template_parts_404() {
 			if ( is_404() ) {
 				get_template_part( 'template-parts/content', '404' );
-			}
-		}
-
-		/**
-		 * Template part page
-		 *
-		 * @since 1.2.7
-		 * @return void
-		 */
-		public function template_parts_page() {
-			if ( is_page() ) {
-				get_template_part( 'template-parts/content', 'page' );
 			}
 		}
 
@@ -151,7 +138,11 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 */
 		public function template_parts_default() {
 
-			if ( 'page.php' === basename( get_page_template() ) ) {
+			if ( 'page.php' === basename( get_page_template() ) || is_page() ) {
+
+				/**
+				 * 
+				 */
 				get_template_part( 'template-parts/content', 'page' );
 			} elseif ( ! is_page() && ! is_single() && ! is_search() ) {
 				/*
