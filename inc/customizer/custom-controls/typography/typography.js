@@ -84,11 +84,14 @@
 		_cleanGoogleFonts: function(fontValue)
 		{
 			if ( ! fontValue.includes(',') ) return fontValue;
-
 			var splitFont 	= fontValue.split(',');
 			var pattern 	= new RegExp("'", 'gi');
 
-			return splitFont[0].replace(pattern, '');
+			var googleFontValue = splitFont[0].replace(pattern, '');
+			if ( 'undefined' != typeof AstFontFamilies.google[ googleFontValue ] ) {
+				fontValue = googleFontValue;
+			}
+			return fontValue;
 		},
 
 		/**
