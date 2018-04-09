@@ -90,11 +90,12 @@
 			var splitFont 	= fontValue.split(',');
 			var pattern 	= new RegExp("'", 'gi');
 
-			// Check if the cleaned font exists in the Google fonts array. Return if it exists.
+			// Check if the cleaned font exists in the Google fonts array.
 			var googleFontValue = splitFont[0].replace(pattern, '');
-			if ( 'undefined' != typeof AstFontFamilies.google[ googleFontValue ] ) return googleFontValue;
+			if ( 'undefined' != typeof AstFontFamilies.google[ googleFontValue ] ) {
+				fontValue = googleFontValue;
+			}
 
-			// By default return unchanged fontValue if the value does not exist in Google Fonts array.
 			return fontValue;
 		},
 
