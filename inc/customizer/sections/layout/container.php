@@ -167,14 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
-			'default'           => array(
-				'background-color'      => '',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'auto',
-				'background-attachment' => 'scroll',
-			),
+			'default'           => astra_get_option( 'site-layout-outside-bg-obj' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
