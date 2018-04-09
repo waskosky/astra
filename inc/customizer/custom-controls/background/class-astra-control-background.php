@@ -176,5 +176,12 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 				<input class="background-hidden-value" type="hidden" {{{ data.link }}}>
 			<?php
 		}
+
+		/**
+		 * Render the control's content.
+		 *
+		 * @see WP_Customize_Control::render_content()
+		 */
+		protected function render_content() {}
 	}
 endif;
