@@ -248,10 +248,10 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 *
 		 * Some plugins filter the template hierarchy to load page.php for post type archives. This catched that filtered template to be used for loading correct template-parts.
 		 *
+		 * @param  string $expected_template Expected current template.
 		 * @return boolean Return true if current template match with expected template.
 		 */
-		private function is_template( $expected_template = 'index.php' )
-		{
+		private function is_template( $expected_template = 'index.php' ) {
 			/**
 			 * Filters the path of the current template before including it.
 			 *
@@ -259,7 +259,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			 */
 			$template = apply_filters( 'template_include', false );
 
-			if ( $expected_template === basename( $template ) ) {
+			if ( basename( $template ) === $expected_template ) {
 				return true;
 			}
 
@@ -271,8 +271,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 *
 		 * @return boolean Return true if current template is page.php.
 		 */
-		private function is_page_template()
-		{
+		private function is_page_template() {
 			return $this->is_template( 'page.php' );
 		}
 	}
