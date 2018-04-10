@@ -20,8 +20,7 @@ $wp_customize->add_setting(
 	ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
 		'default'           => astra_get_option( 'mobile-header-breakpoint' ),
 		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 	)
 );
 $wp_customize->add_control(

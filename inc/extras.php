@@ -644,11 +644,13 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	/**
 	 * Function to get Header Breakpoint
 	 *
+	 * @since x.x.x Added Mobile Header Breakpoint option from customizer.
 	 * @since 1.0.0
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		return absint( apply_filters( 'astra_header_break_point', 921 ) );
+		$mobile_header_brakpoint = astra_get_option( 'mobile-header-breakpoint', 921 );
+		return absint( apply_filters( 'astra_header_break_point', $mobile_header_brakpoint ) );
 	}
 }
 
