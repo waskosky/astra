@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_404() {
-			if ( is_404() && ! $this->is_page_template() ) {
+			if ( is_404() && ! $this->is_current_template_include( 'page.php' ) ) {
 				get_template_part( 'template-parts/content', '404' );
 			}
 		}
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_page() {
-			if ( is_page() || $this->is_page_template() ) {
+			if ( is_page() || $this->is_current_template_include( 'page.php' ) ) {
 				get_template_part( 'template-parts/content', 'page' );
 			}
 		}
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_post() {
-			if ( is_single() && ! $this->is_page_template() ) {
+			if ( is_single() && ! $this->is_current_template_include( 'page.php' ) ) {
 				get_template_part( 'template-parts/content', 'single' );
 			}
 		}
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_search() {
-			if ( is_search() && ! $this->is_page_template() ) {
+			if ( is_search() && ! $this->is_current_template_include( 'page.php' ) ) {
 				get_template_part( 'template-parts/content', 'blog' );
 			}
 		}
@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_default() {
-			if ( ! is_page() && ! is_single() && ! is_search() && ! $this->is_page_template() ) {
+			if ( ! is_page() && ! is_single() && ! is_search() && ! $this->is_current_template_include( 'page.php' ) ) {
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
@@ -248,10 +248,11 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 *
 		 * Some plugins filter the template hierarchy to load page.php for post type archives. This catched that filtered template to be used for loading correct template-parts.
 		 *
+		 * @since 1.3.1
 		 * @param  string $expected_template Expected current template.
 		 * @return boolean Return true if current template match with expected template.
 		 */
-		private function is_template( $expected_template = 'index.php' ) {
+		private function is_current_template_include( $expected_template = 'index.php' ) {
 			/**
 			 * Filters the path of the current template before including it.
 			 *
@@ -264,15 +265,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			}
 
 			return false;
-		}
-
-		/**
-		 * Check current template is page.php.
-		 *
-		 * @return boolean Return true if current template is page.php.
-		 */
-		private function is_page_template() {
-			return $this->is_template( 'page.php' );
 		}
 	}
 
