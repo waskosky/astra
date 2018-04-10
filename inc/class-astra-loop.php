@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_404() {
-			if ( is_404() ) {
+			if ( is_404() && 'page.php' !== basename( $this->get_current_template_include() ) ) {
 				get_template_part( 'template-parts/content', '404' );
 			}
 		}
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_post() {
-			if ( is_single() ) {
+			if ( is_single() && 'page.php' !== basename( $this->get_current_template_include() ) ) {
 				get_template_part( 'template-parts/content', 'single' );
 			}
 		}
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_search() {
-			if ( is_search() ) {
+			if ( is_search() && 'page.php' !== basename( $this->get_current_template_include() ) ) {
 				get_template_part( 'template-parts/content', 'blog' );
 			}
 		}
