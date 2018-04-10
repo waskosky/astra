@@ -149,7 +149,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @since 1.2.7
 		 * @return void
 		 */
-		public function template_parts_default() {			
+		public function template_parts_default() {
 			if ( ! is_page() && ! is_single() && ! is_search() && 'page.php' !== basename( $this->get_current_template_include() ) ) {
 				/*
 				 * Include the Post-Format-specific template for the content.
@@ -245,15 +245,16 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 
 		/**
 		 * Get currently included template.
-		 * 
+		 *
 		 * Some plugins filter the template hierarchy to load page.php for post type archives. This catched that filtered template to be used for loading correct template-parts.
-		 * 
+		 *
 		 * @return String template path of the currently included template.
 		 */
 		private function get_current_template_include() {
 
 			/**
 			 * Filters the path of the current template before including it.
+			 *
 			 * @see  wp-includes/template-loader.php for documentation.
 			 */
 			return apply_filters( 'template_include', false );
