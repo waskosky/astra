@@ -762,15 +762,17 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		}
 
 		// Add class for Mobile Header Site Title.
-		$classes[] = 'ast-has-not-mobile-site-title';
 		if ( $mobile_site_title ) {
 			$classes[] = 'ast-has-mobile-site-title';
+		} else{
+			$classes[] = 'ast-has-not-mobile-site-title';
 		}
 
 		// Add class for Mobile Header Site Tagline.
-		$classes[] = 'ast-has-not-mobile-site-tagline';
 		if ( $mobile_site_tagline ) {
 			$classes[] = 'ast-has-mobile-site-tagline';
+		} else{
+			$classes[] = 'ast-has-not-mobile-site-tagline';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
