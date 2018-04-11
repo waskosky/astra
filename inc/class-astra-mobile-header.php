@@ -46,9 +46,17 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		public function __construct() {
 
-			add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
+			add_action( 'astra_header', array( $this, 'mobile_header_markup' ), 5 );
 		}
 
+		function mobile_header_markup() {
+			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
+
+			if ( '' !== $mobile_header_logo ) {
+				add_filter( 'astra_has_custom_logo', '__return_true' );
+				add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
+			}
+		}
 		/**
 		 * Replace logo with Mobile Header logo.
 		 *
@@ -61,30 +69,25 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 
-			if ( '' !== $mobile_header_logo ) {
+			$custom_logo_id = attachment_url_to_postid( $mobile_header_logo );
 
-				$custom_logo_id = attachment_url_to_postid( $mobile_header_logo );
+			$size = 'ast-mobile-header-logo-size';
 
-				$size = 'ast-mobile-header-logo-size';
-
-				if ( is_customize_preview() ) {
-					$size = 'full';
-				}
-
-				$logo = sprintf(
-					'<a href="%1$s" class="custom-mobile-logo-link" rel="home" itemprop="url">%2$s</a>',
-					esc_url( home_url( '/' ) ),
-					wp_get_attachment_image(
-						$custom_logo_id, $size, false, array(
-							'class' => 'ast-mobile-header-logo',
-						)
-					)
-				);
-
-				$html = $html . $logo;
+			if ( is_customize_preview() ) {
+				$size = 'full';
 			}
 
-			return $html;
+			$logo = sprintf(
+				'<a href="%1$s" class="custom-mobile-logo-link" rel="home" itemprop="url">%2$s</a>',
+				esc_url( home_url( '/' ) ),
+				wp_get_attachment_image(
+					$custom_logo_id, $size, false, array(
+						'class' => 'ast-mobile-header-logo',
+					)
+				)
+			);
+
+			return $html . $logo;
 
 		}
 

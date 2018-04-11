@@ -764,14 +764,14 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		// Add class for Mobile Header Site Title.
 		if ( $mobile_site_title ) {
 			$classes[] = 'ast-has-mobile-site-title';
-		} else{
+		} else {
 			$classes[] = 'ast-has-not-mobile-site-title';
 		}
 
 		// Add class for Mobile Header Site Tagline.
 		if ( $mobile_site_tagline ) {
 			$classes[] = 'ast-has-mobile-site-tagline';
-		} else{
+		} else {
 			$classes[] = 'ast-has-not-mobile-site-tagline';
 		}
 
