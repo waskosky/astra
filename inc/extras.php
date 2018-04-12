@@ -182,7 +182,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			if ( is_home() || is_front_page() ) {
 				$tag = 'h1';
 			}
-			$tag = apply_filters( 'astra_site_title_tag', $tag );
+			$tag               = apply_filters( 'astra_site_title_tag', $tag );
 			$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 
 			// Site Description.
