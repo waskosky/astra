@@ -1,3 +1,6 @@
+v1.3.1
+- Fix: Background param color value not save the empty value.
+
 v1.3.0
 - New: Added LearnDash LMS complete support.
 - New: Introduced option to set the background image to the body. More background image options added from Astra Pro.
