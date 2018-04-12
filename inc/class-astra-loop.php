@@ -47,9 +47,10 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		public function __construct() {
 			// Loop.
 			add_action( 'astra_content_loop', array( $this, 'loop_markup' ) );
+			add_action( 'astra_content_page_loop', array( $this, 'loop_markup_page' ) );
 
 			// Template Parts.
-			add_action( 'astra_template_parts_content', array( $this, 'template_parts_page' ) );
+			add_action( 'astra_page_template_parts_content', array( $this, 'template_parts_page' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_post' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_search' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_default' ) );
@@ -87,7 +88,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_404() {
-			if ( is_404() && ! $this->is_current_template_include( 'page.php' ) ) {
+			if ( is_404() ) {
 				get_template_part( 'template-parts/content', '404' );
 			}
 		}
@@ -99,7 +100,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_page() {
-			if ( is_page() || $this->is_current_template_include( 'page.php' ) ) {
+			if ( is_page() ) {
 				get_template_part( 'template-parts/content', 'page' );
 			}
 		}
@@ -111,7 +112,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_post() {
-			if ( is_single() && ! $this->is_current_template_include( 'page.php' ) ) {
+			if ( is_single() ) {
 				get_template_part( 'template-parts/content', 'single' );
 			}
 		}
@@ -123,7 +124,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_search() {
-			if ( is_search() && ! $this->is_current_template_include( 'page.php' ) ) {
+			if ( is_search() ) {
 				get_template_part( 'template-parts/content', 'blog' );
 			}
 		}
@@ -150,7 +151,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_default() {
-			if ( ! is_page() && ! is_single() && ! is_search() && ! $this->is_current_template_include( 'page.php' ) ) {
+			if ( ! is_page() && ! is_single() && ! is_search() ) {
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
@@ -161,12 +162,24 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		}
 
 		/**
+		 * Loop Markup for content page
+		 *
+		 * @since 1.3.1
+		 */
+		public function loop_markup_page() {
+			$this->loop_markup( true );
+		}
+
+		/**
 		 * Template part loop
 		 *
+		 * @param  boolean $is_page Loop outputs different content action for content page and default content.
+		 *         if is_page is set to true - do_action( 'astra_page_template_parts_content' ); is added
+		 *         if is_page is false - do_action( 'astra_template_parts_content' ); is added.
 		 * @since 1.2.7
 		 * @return void
 		 */
-		public function loop_markup() {
+		public function loop_markup( $is_page = false ) {
 			?>
 			<main id="main" class="site-main" role="main">
 
@@ -178,7 +191,12 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 					while ( have_posts() ) :
 						the_post();
 
-						do_action( 'astra_template_parts_content' );
+						if ( true == $is_page ) {
+							do_action( 'astra_page_template_parts_content' );
+						} else {
+							do_action( 'astra_template_parts_content' );
+						}
+
 						?>
 
 					<?php endwhile; ?>
@@ -243,29 +261,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			}
 		}
 
-		/**
-		 * Get currently included template.
-		 *
-		 * Some plugins filter the template hierarchy to load page.php for post type archives. This catched that filtered template to be used for loading correct template-parts.
-		 *
-		 * @since 1.3.1
-		 * @param  string $expected_template Expected current template.
-		 * @return boolean Return true if current template match with expected template.
-		 */
-		private function is_current_template_include( $expected_template = 'index.php' ) {
-			/**
-			 * Filters the path of the current template before including it.
-			 *
-			 * @see  wp-includes/template-loader.php for documentation.
-			 */
-			$template = apply_filters( 'template_include', false );
-
-			if ( basename( $template ) === $expected_template ) {
-				return true;
-			}
-
-			return false;
-		}
 	}
 
 	/**
