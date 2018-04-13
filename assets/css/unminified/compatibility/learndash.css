@@ -355,14 +355,20 @@ body #learndash_quizzes .right {
   width: auto;
 }
 
-body .expand_collapse,
+body .expand_collapse .expand_collapse,
 body #learndash_profile .expand_collapse {
   top: -1em;
 }
 
-body .expand_collapse a,
+body .expand_collapse .expand_collapse a,
 body #learndash_profile .expand_collapse a {
   font-size: .8em;
+}
+
+body .expand_collapse .list_arrow.collapse, body .expand_collapse .list_arrow.expand,
+body #learndash_profile .list_arrow.collapse,
+body #learndash_profile .list_arrow.expand {
+  vertical-align: top;
 }
 
 body .list_arrow.collapse, body .list_arrow.collapse.lesson_incomplete, body .list_arrow.collapse.lesson_completed, body .list_arrow.expand, body .list_arrow.expand.lesson_incomplete, body .list_arrow.expand.lesson_completed {

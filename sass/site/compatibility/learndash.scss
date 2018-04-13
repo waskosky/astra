@@ -390,11 +390,20 @@ body {
 	}
 
 	.expand_collapse,
-	#learndash_profile .expand_collapse {
-		top: -1em;
-		a {
-			font-size: .8em;
+	#learndash_profile {
+		.expand_collapse {
+			top: -1em;
+			a {
+				font-size: .8em;
+			}
 		}
+		.list_arrow {
+			&.collapse,
+			&.expand {
+				vertical-align: top;
+			}
+		}
+
 	}
 
 	.list_arrow {
