@@ -64,6 +64,34 @@ $wp_customize->add_control(
 );
 
 /**
+ * Option: Logo Width
+ */
+$wp_customize->add_setting(
+	ASTRA_THEME_SETTINGS . '[mobile-header-logo-width]', array(
+		'default'           => astra_get_option( 'mobile-header-logo-width' ),
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+	)
+);
+$wp_customize->add_control(
+	new Astra_Control_Slider(
+		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-logo-width]', array(
+			'type'        => 'ast-slider',
+			'section'     => 'section-mobile-header',
+			'priority'    => 20,
+			'label'       => __( 'Logo Width', 'astra' ),
+			'suffix'      => '',
+			'input_attrs' => array(
+				'min'  => 50,
+				'step' => 1,
+				'max'  => 600,
+			),
+		)
+	)
+);
+
+/**
  * Option: Display Title for mobile
  */
 $wp_customize->add_setting(

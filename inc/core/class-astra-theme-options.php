@@ -171,6 +171,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Mobile Header.
 					'mobile-header-breakpoint'         => '',
 					'mobile-header-logo'               => '',
+					'mobile-header-logo-width'         => '',
 					// Site Layout.
 					'site-layout'                      => 'ast-full-width-layout',
 					'site-content-width'               => 1200,
