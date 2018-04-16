@@ -245,6 +245,9 @@ li.ast-masthead-custom-menu-items {
 			line-height: 3;
 			display: none;
 
+			transition: none;
+			overflow: hidden;
+
 			.children,
 			.sub-menu {
 				line-height: 3;
