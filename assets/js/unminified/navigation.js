@@ -107,6 +107,9 @@ var toggleClass = function ( el, className ) {
 
     //to hide the content of the element
     a.style.overflow = "hidden";
+	
+	setInterval
+
 
     //decreasing the height
     interval = setInterval(function () {
@@ -121,6 +124,11 @@ var toggleClass = function ( el, className ) {
         clearInterval(interval);
       }
     }, duration);
+
+    // setInterval(function () {
+    //    a.style.height = '';
+    //     b.disabled = '';
+    //   }, 500);
 
   }
 
