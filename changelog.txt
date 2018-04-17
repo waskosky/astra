@@ -3,7 +3,7 @@ v1.3.1
 - Improvement: Improve RTL support for customizer controls.
 - Fix: Correct template part not being loaded for plugins that change the default WordPress template hierarchy. This fixes compatibility with plugins bbPress, LearnPress, PeepSo Core etc.
 - Fix: Background param color does not save then value when it is empty.
-- Fix: Added the same icon of the course status to the Course Navigation widget.
+- Fix: Added the same icon of the LearnDash course status to the Course Navigation widget.
 - Fix: Applied LearnDash all table's heading, icons, progress bar colors to theme color instead of link color.
 
 v1.3.0
