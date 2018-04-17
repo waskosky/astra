@@ -405,6 +405,16 @@ body {
 			&.collapse,
 			&.expand {
 				vertical-align: top;
+				&:before{
+					content: "\e900";
+					transform: rotate(270deg);
+					font-weight: bold;
+				}
+			}
+			&.expand {
+				&:before{
+					transform: rotate(0deg);
+				}
 			}
 		}
 

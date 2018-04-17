@@ -380,6 +380,23 @@ body #learndash_profile .list_arrow.expand {
   vertical-align: top;
 }
 
+body .expand_collapse .list_arrow.collapse:before, body .expand_collapse .list_arrow.expand:before,
+body #learndash_profile .list_arrow.collapse:before,
+body #learndash_profile .list_arrow.expand:before {
+  content: "\e900";
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+  font-weight: bold;
+}
+
+body .expand_collapse .list_arrow.expand:before,
+body #learndash_profile .list_arrow.expand:before {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
 body .list_arrow.collapse, body .list_arrow.collapse.lesson_incomplete, body .list_arrow.collapse.lesson_completed, body .list_arrow.expand, body .list_arrow.expand.lesson_incomplete, body .list_arrow.expand.lesson_completed {
   background: none;
   padding: 10px;
