@@ -407,6 +407,7 @@ body .list_arrow:before {
   font-weight: normal;
   margin-left: 10px;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 body .course_navigation .learndash_navigation_lesson_topics_list .list_lessons {
