@@ -119,13 +119,15 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				'.learndash .notcompleted:before, #learndash_profile .notcompleted:before, .learndash_topic_dots ul .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before, .learndash .topic-notcompleted span:before' => array(
 					'color' => astra_hex_to_rgba( $text_color, .5 ),
 				),
-				'body .thumbnail.course .ld_course_grid_price, body .thumbnail.course .ld_course_grid_price.ribbon-enrolled' => array(
+				'body .thumbnail.course .ld_course_grid_price, body .thumbnail.course .ld_course_grid_price.ribbon-enrolled, body #learndash_lessons #lesson_heading, body #learndash_profile .learndash_profile_heading, body #learndash_quizzes #quiz_heading, body #learndash_lesson_topics_list div > strong, body .learndash-pager span a, body #learndash_profile .learndash_profile_quiz_heading' => array(
 					'background-color' => $theme_color,
 					'color'            => $theme_forground_color,
 				),
-				'body #learndash_lessons #lesson_heading, body #learndash_profile .learndash_profile_heading, body #learndash_quizzes #quiz_heading, body #learndash_lesson_topics_list div > strong, body .learndash-pager span a, body #learndash_profile .learndash_profile_quiz_heading' => array(
-					'background-color' => $link_color,
-					'color'            => $link_forground_color,
+				'.learndash .completed:before, #learndash_profile .completed:before, .learndash_topic_dots ul .topic-completed span:before, .learndash_navigation_lesson_topics_list .topic-completed span:before, .learndash_navigation_lesson_topics_list ul .topic-completed span:before, .learndash .topic-completed span:before' => array(
+					'color'            => $theme_color,
+				),
+				'body .list_arrow.lesson_completed:before' => array(
+					'border-left-color'            => $theme_color,
 				),
 				'body .thumbnail.course .ld_course_grid_price:before' => array(
 					'border-top-color'   => astra_hex_to_rgba( $theme_color, .75 ),

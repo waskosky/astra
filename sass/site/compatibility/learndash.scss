@@ -31,6 +31,10 @@
 	.sfwd-certificates{
 		.entry-header{
 			margin-bottom: .5em;
+			.ast-single-post-order + .post-thumb img {
+				margin-top: 1em;
+				margin-bottom: 1em;	
+			}
 		}
 	}
 	.sfwd-lessons{
@@ -421,20 +425,23 @@ body {
 		}
 
 		&:before {
-			content: "\e900";
+			content: "";
 			display: inline-block;
-			font-family: 'Astra';
-			font-weight: bold;
+			border-width: 8px 0 8px 8px;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+			border-left-color: #8e8e8e;
+			border-style: solid;
 			text-rendering: auto;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			font-size: .8em;
+			vertical-align: middle;
 		}
 
-		&.collapse {
-			background-position: 50% .5em;
+		&.expand {
 			&:before {
-				transform: rotate(270deg);
+				transform: rotate(90deg);
 			}		
 		}
 	}
