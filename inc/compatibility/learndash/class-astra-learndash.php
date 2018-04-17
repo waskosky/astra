@@ -124,10 +124,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'color'            => $theme_forground_color,
 				),
 				'.learndash .completed:before, #learndash_profile .completed:before, .learndash_topic_dots ul .topic-completed span:before, .learndash_navigation_lesson_topics_list .topic-completed span:before, .learndash_navigation_lesson_topics_list ul .topic-completed span:before, .learndash .topic-completed span:before' => array(
-					'color'            => $theme_color,
+					'color' => $theme_color,
 				),
 				'body .list_arrow.lesson_completed:before' => array(
-					'border-left-color'            => $theme_color,
+					'border-left-color' => $theme_color,
 				),
 				'body .thumbnail.course .ld_course_grid_price:before' => array(
 					'border-top-color'   => astra_hex_to_rgba( $theme_color, .75 ),
@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'border-color'     => astra_hex_to_rgba( $link_color, .5 ),
 					'background-color' => astra_hex_to_rgba( $link_color, .1 ),
 				),
-				'#ld_course_list .entry-title' => array(
+				'#ld_course_list .entry-title'             => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'desktop' ),
 				),
 			);
