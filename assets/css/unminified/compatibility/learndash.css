@@ -405,7 +405,7 @@ body .list_arrow:before {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1em;
   font-weight: normal;
-  margin-right: 10px;
+  margin-right: 5px;
   cursor: pointer;
   vertical-align: middle;
 }
