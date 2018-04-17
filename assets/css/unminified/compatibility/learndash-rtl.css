@@ -386,25 +386,27 @@ body .list_arrow.collapse, body .list_arrow.collapse.lesson_incomplete, body .li
   line-height: 1.5;
 }
 
+body .list_arrow.lesson_completed:before {
+  content: "\e901";
+  font-weight: bold;
+}
+
+body .list_arrow.lesson_incomplete:before {
+  color: rgba(0, 0, 0, 0.5);
+  content: "\e903";
+  font-weight: normal;
+}
+
 body .list_arrow:before {
-  content: "";
   display: inline-block;
-  border-width: 8px 8px 8px 0;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-right-color: #8e8e8e;
-  border-style: solid;
+  font-family: 'Astra';
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: .8em;
-  vertical-align: middle;
-}
-
-body .list_arrow.expand:before {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  font-size: 1em;
+  font-weight: normal;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 body .course_navigation .learndash_navigation_lesson_topics_list .list_lessons {

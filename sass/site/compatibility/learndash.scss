@@ -423,26 +423,29 @@ body {
 				line-height: 1.5;
 			}
 		}
-
-		&:before {
-			content: "";
-			display: inline-block;
-			border-width: 8px 0 8px 8px;
-			border-top-color: transparent;
-			border-bottom-color: transparent;
-			border-left-color: #8e8e8e;
-			border-style: solid;
-			text-rendering: auto;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			font-size: .8em;
-			vertical-align: middle;
-		}
-
-		&.expand {
+		&.lesson_completed {
 			&:before {
-				transform: rotate(90deg);
-			}		
+				content: "\e901";
+				font-weight: bold;
+			}	
+		}
+		&.lesson_incomplete{
+			&:before {
+				color: rgba(0,0,0,0.5);
+				content: "\e903";
+				font-weight: normal;
+			}	
+		}
+		&:before {
+		    display: inline-block;
+		    font-family: 'Astra';
+		    text-rendering: auto;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		    font-size: 1em;
+		    font-weight: normal;
+		    margin-right: 10px;
+		    cursor: pointer;
 		}
 	}
 

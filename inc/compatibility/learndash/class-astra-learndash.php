@@ -123,11 +123,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'background-color' => $theme_color,
 					'color'            => $theme_forground_color,
 				),
-				'.learndash .completed:before, #learndash_profile .completed:before, .learndash_topic_dots ul .topic-completed span:before, .learndash_navigation_lesson_topics_list .topic-completed span:before, .learndash_navigation_lesson_topics_list ul .topic-completed span:before, .learndash .topic-completed span:before' => array(
+				'.learndash .completed:before, #learndash_profile .completed:before, .learndash_topic_dots ul .topic-completed span:before, .learndash_navigation_lesson_topics_list .topic-completed span:before, .learndash_navigation_lesson_topics_list ul .topic-completed span:before, .learndash .topic-completed span:before, body .list_arrow.lesson_completed:before' => array(
 					'color' => $theme_color,
-				),
-				'body .list_arrow.lesson_completed:before' => array(
-					'border-left-color' => $theme_color,
 				),
 				'body .thumbnail.course .ld_course_grid_price:before' => array(
 					'border-top-color'   => astra_hex_to_rgba( $theme_color, .75 ),
