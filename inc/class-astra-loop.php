@@ -100,9 +100,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_page() {
-			if ( is_page() ) {
-				get_template_part( 'template-parts/content', 'page' );
-			}
+			get_template_part( 'template-parts/content', 'page' );
 		}
 
 		/**
