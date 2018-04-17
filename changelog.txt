@@ -1,6 +1,7 @@
 v1.3.1 - Unreleased
 - Fix: Loading page template part if current loaded template is page.php.
 - Fix: Background param color does not save then value when it is empty.
+- Fix: Correct template part not being loaded for plugins that change the default WordPress template hierarchy. This fixes compatibility with plugins bbPress, LearnPress, PeepSo Core etc.
 
 v1.3.0
 - New: Added LearnDash LMS complete support.
