@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'border-color'     => astra_hex_to_rgba( $link_color, .5 ),
 					'background-color' => astra_hex_to_rgba( $link_color, .1 ),
 				),
-				'#ld_course_list .entry-title'             => array(
+				'#ld_course_list .entry-title' => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'desktop' ),
 				),
 			);
