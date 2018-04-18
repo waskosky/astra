@@ -2585,6 +2585,7 @@ body {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
+  border-bottom: 1px solid #dadada;
 }
 
 .ast-header-break-point .main-navigation ul.children li a,
