@@ -156,8 +156,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$display_site_tagline = astra_get_option( 'display-site-tagline' );
 		$display_site_title   = astra_get_option( 'display-site-title' );
 
-		$display_mobile_site_tagline = astra_get_option( 'display-mobile-site-tagline' );
-		$display_mobile_site_title   = astra_get_option( 'display-mobile-site-title' );
+		$display_mobile_site_tagline = astra_get_option( 'display-mobile-site-tagline', $display_site_tagline );
+		$display_mobile_site_title   = astra_get_option( 'display-mobile-site-title', $display_site_title );
 
 		$html = '';
 
@@ -728,8 +728,8 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 
 		$site_title          = astra_get_option( 'display-site-title' );
 		$site_tagline        = astra_get_option( 'display-site-tagline' );
-		$mobile_site_title   = astra_get_option( 'display-mobile-site-title' );
-		$mobile_site_tagline = astra_get_option( 'display-mobile-site-tagline' );
+		$mobile_site_title   = astra_get_option( 'display-mobile-site-title', $site_title );
+		$mobile_site_tagline = astra_get_option( 'display-mobile-site-tagline', $site_tagline );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
