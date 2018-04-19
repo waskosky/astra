@@ -27,8 +27,5 @@ astra
 # Ignore brainstorm updater.
 admin/
 
-# Ignore NPM log/lock files
-package-lock.json
-
 # Ignore Composer's directories
 vendor/
