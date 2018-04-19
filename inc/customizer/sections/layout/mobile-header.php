@@ -159,7 +159,7 @@ $wp_customize->add_control(
 	ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
 		'section'  => 'section-mobile-header',
 		'priority' => 40,
-		'label'    => __( 'Menu Label on Small Devices', 'astra' ),
+		'label'    => __( 'Menu Label', 'astra' ),
 		'type'     => 'text',
 	)
 );
