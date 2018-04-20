@@ -187,17 +187,6 @@ li.ast-masthead-custom-menu-items {
 	display: none;
 }
 
-/* Hide Site Title & Site Tagline . */
-.ast-has-not-site-title{
-	.site-title{
-		display: none;
-	} 
-}
-.ast-has-not-site-tagline{
-	.site-description{
-		display: none;
-	}
-}
 .ast-header-break-point {
 
 	&.ast-header-custom-item-outside {
@@ -374,17 +363,6 @@ li.ast-masthead-custom-menu-items {
 		}
 		.ast-mobile-header-logo{
 			display: inline-block;
-		}
-	}
-
-	.ast-has-not-mobile-site-title{
-		.site-title{
-			display: none;
-		} 
-	}
-	.ast-has-not-mobile-site-tagline{
-		.site-description{
-			display: none;
 		}
 	}
 	

@@ -154,8 +154,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'display-site-title'               => 1,
 					'display-site-tagline'             => 0,
-					'display-mobile-site-title'        => '',
-					'display-mobile-site-tagline'      => '',
 					'logo-title-inline'                => 0,
 					// Header - Primary.
 					'disable-primary-nav'              => false,
