@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 
 		/**
 		 * Mobile Header Markup
-		 * 
+		 *
 		 * @return void
 		 */
 		function mobile_header_markup() {
