@@ -1353,8 +1353,7 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
-b,
-strong {
+b, strong {
   font-weight: bold;
 }
 
@@ -3679,7 +3678,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
-  display: block;
+  display: inline-block;
 }
 
 .ast-header-break-point .ast-has-not-mobile-site-title .site-title {
