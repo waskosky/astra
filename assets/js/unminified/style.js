@@ -853,7 +853,6 @@ var toggleClass = function ( el, className ) {
 		    	var event_index = this.getAttribute( 'data-index' );
 
 		    	if ( 'undefined' === typeof __main_header_all[event_index] ) {
-
 		    		return false;
 		    	}
 
@@ -1046,17 +1045,36 @@ var toggleClass = function ( el, className ) {
 	links    = menu.getElementsByTagName( 'a' );
 	subMenus = menu.getElementsByTagName( 'ul' );
 
+    // Set menu items with submenus to aria-haspopup="true".
+    for ( i = 0, len = subMenus.length; i < len; i++ ) {
+        subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
+    }
 
-	// Set menu items with submenus to aria-haspopup="true".
-	for ( i = 0, len = subMenus.length; i < len; i++ ) {
-		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
-	}
+    // Each time a menu link is focused or blurred, toggle focus.
+    for ( i = 0, len = links.length; i < len; i++ ) {
+        links[i].addEventListener( 'focus', toggleFocus, true );
+        links[i].addEventListener( 'blur', toggleFocus, true );
+        links[i].addEventListener( 'click', toggleClose, true );
+    }
 
-	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
-	}
+    function toggleClose( ) {
+        var self = this || '',
+            hash   = "#";
+
+        if( self ) {
+            self = new String( self );
+            if( self.indexOf( hash ) !== -1 ) {
+
+                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
+                main_header_menu_toggle.classList.remove( 'toggled' );
+
+                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
+
+                main_header_bar_navigation.classList.remove( 'toggle-on' );
+                main_header_bar_navigation.style.display = 'none';
+            }
+        }        
+    }
 
 	/**
 	 * Sets or removes .focus class on an element.
