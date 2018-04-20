@@ -4468,16 +4468,6 @@ input[type="color"]::-webkit-color-swatch {
   position: relative;
 }
 
-#content {
-  content: "768";
-}
-
-@media all and (max-width: 768px) {
-  #content {
-    content: "";
-  }
-}
-
 .blog .posted-on {
   z-index: 1;
 }
