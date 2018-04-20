@@ -1,3 +1,6 @@
+Unreleased
+- Fix: Menu does not close on mobile if we click on the link. It keeps open the menu. Now, We close the menu click on hash (#) link.
+
 v1.3.1
 - New: New filter `astra_site_title_tag` to change the HTML tag of the site title.
 - Improvement: Improve RTL support for customizer controls.

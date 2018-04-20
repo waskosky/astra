@@ -49,6 +49,11 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			add_action( 'astra_header', array( $this, 'mobile_header_markup' ), 5 );
 		}
 
+		/**
+		 * Mobile Header Markup
+		 *
+		 * @return void
+		 */
 		function mobile_header_markup() {
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
 
