@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * - Mobile Header Log Width
 			 */
-			$mobile_header_logo_width  = astra_get_option( 'mobile-header-logo-width' );
+			$mobile_header_logo_width = astra_get_option( 'mobile-header-logo-width' );
 
 			// Site Background Color.
 			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj' );
