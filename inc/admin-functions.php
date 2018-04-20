@@ -41,10 +41,9 @@ if ( ! function_exists( 'astra_theme_customizer_mobile_header_section' ) ) :
 	 * which can be moved to the other section if needed.
 	 *
 	 * @since x.x.x
-	 * @return mixed
+	 * @return string
 	 */
 	function astra_theme_customizer_mobile_header_section() {
-
 		return apply_filters( 'astra_customizer_mobile_primary_header_layout', 'section-mobile-header' );
 	}
 
