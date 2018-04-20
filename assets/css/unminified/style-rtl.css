@@ -1353,7 +1353,8 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
-b, strong {
+b,
+strong {
   font-weight: bold;
 }
 
@@ -2584,7 +2585,6 @@ body {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
-  border-bottom: 1px solid #dadada;
 }
 
 .ast-header-break-point .main-navigation ul.children li a,
@@ -3471,6 +3471,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   line-height: 1;
 }
 
+/* Hide Mobile logo. */
+.ast-mobile-header-logo {
+  display: none;
+}
+
 .ast-header-break-point {
   /* Styling Nav */
   /* Main Header */
@@ -3658,6 +3663,14 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-masthead-custom-menu-items {
   text-align: center;
+}
+
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo {
+  display: none;
+}
+
+.ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
+  display: inline-block;
 }
 
 /* 7 - Header Toggle Buttons */

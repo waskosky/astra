@@ -182,6 +182,10 @@ li.ast-masthead-custom-menu-items {
 		line-height: 1;
 	}
 }
+/* Hide Mobile logo. */
+.ast-mobile-header-logo{
+	display: none;
+}
 
 .ast-header-break-point {
 
@@ -352,4 +356,14 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 	}
+
+	.ast-has-mobile-header-logo{
+		.custom-logo{
+			display: none;
+		}
+		.ast-mobile-header-logo{
+			display: inline-block;
+		}
+	}
+	
 }

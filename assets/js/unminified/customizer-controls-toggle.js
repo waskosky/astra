@@ -506,5 +506,20 @@
 				}
 			}
 		],
+		'astra-settings[mobile-header-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[mobile-header-logo-width]'
+				],
+				callback: function( mobile_logo ) {
+
+					if ( mobile_logo ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 	};
 } )( jQuery );
