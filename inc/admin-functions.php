@@ -43,7 +43,7 @@ if ( ! function_exists( 'astra_theme_customizer_mobile_header_section' ) ) :
 	 * @since x.x.x
 	 * @return mixed
 	 */
-	function astra_theme_customizer_mobile_header_section( ) {
+	function astra_theme_customizer_mobile_header_section() {
 
 		return apply_filters( 'astra_customizer_mobile_primary_header_layout', 'section-mobile-header' );
 	}
