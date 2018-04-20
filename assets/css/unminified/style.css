@@ -3145,6 +3145,13 @@ body {
   float: right;
 }
 
+.main-header-bar-wrap::before {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .main-header-bar {
   background-color: #fff;
   border-bottom-color: #eaeaea;
