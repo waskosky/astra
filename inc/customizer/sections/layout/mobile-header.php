@@ -27,7 +27,7 @@ $wp_customize->add_control(
 	new Astra_Control_Slider(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
 			'type'        => 'ast-slider',
-			'section'     => 'section-mobile-header',
+			'section'     => astra_theme_customizer_mobile_header_section(),
 			'priority'    => 10,
 			'label'       => __( 'Enter Breakpoint', 'astra' ),
 			'suffix'      => '',
@@ -55,7 +55,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	new WP_Customize_Image_Control(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-logo]', array(
-			'section'        => 'section-mobile-header',
+			'section'        => astra_theme_customizer_mobile_header_section(),
 			'priority'       => 20,
 			'label'          => __( 'Logo (optional)', 'astra-addon' ),
 			'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
@@ -78,7 +78,7 @@ $wp_customize->add_control(
 	new Astra_Control_Slider(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-logo-width]', array(
 			'type'        => 'ast-slider',
-			'section'     => 'section-mobile-header',
+			'section'     => astra_theme_customizer_mobile_header_section(),
 			'priority'    => 20,
 			'label'       => __( 'Logo Width', 'astra' ),
 			'suffix'      => '',
@@ -98,7 +98,7 @@ $wp_customize->add_control(
 	new Astra_Control_Divider(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
 			'type'     => 'ast-divider',
-			'section'  => 'section-mobile-header',
+			'section'  => astra_theme_customizer_mobile_header_section(),
 			'priority' => 35,
 			'settings' => array(),
 		)
@@ -118,7 +118,7 @@ $wp_customize->add_setting(
 );
 $wp_customize->add_control(
 	ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
-		'section'  => 'section-mobile-header',
+		'section'  => astra_theme_customizer_mobile_header_section(),
 		'priority' => 40,
 		'label'    => __( 'Menu Label', 'astra' ),
 		'type'     => 'text',
@@ -138,7 +138,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
 		'type'        => 'select',
-		'section'     => 'section-mobile-header',
+		'section'     => astra_theme_customizer_mobile_header_section(),
 		'priority'    => 45,
 		'label'       => __( 'Mobile Header Alignment', 'astra' ),
 		'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
