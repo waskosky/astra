@@ -3665,7 +3665,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: center;
 }
 
-.ast-header-break-point .ast-has-mobile-header-logo .custom-logo {
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point .ast-has-mobile-header-logo .astra-logo-svg {
   display: none;
 }
 
