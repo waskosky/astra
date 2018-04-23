@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $wp_customize->add_setting(
 	ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
-		'default'           => astra_get_option( 'mobile-header-breakpoint' ),
+		'default'           => '',
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 	)
