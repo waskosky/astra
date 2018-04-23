@@ -274,7 +274,6 @@ var toggleClass = function ( el, className ) {
 
 				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
 
-					// var header_content_bp = window.getComputedStyle( headerWrap[i] ).content;
 					var header_content_bp = window.getComputedStyle( headerWrap[i], '::before' ).getPropertyValue('content');
 
 					// Edge/Explorer header break point.
