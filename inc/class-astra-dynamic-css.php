@@ -112,6 +112,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$footer_adv_link_color         = astra_get_option( 'footer-adv-link-color' );
 			$footer_adv_link_h_color       = astra_get_option( 'footer-adv-link-h-color' );
 
+			// Header Break Point.
+			$header_break_point = astra_header_break_point();
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -646,6 +649,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$astra_fonts         .= '}';
 				$parse_css           .= $astra_fonts;
 			}
+
+			/**
+			 * Hide the default naviagtion markup for responsive devices.
+			 * Once class .ast-header-break-point is added to the body below CSS will be override by the
+			 * .ast-header-break-point class
+			 */
+			$astra_navigation      = '@media (max-width:'.$header_break_point.'px) {';
+			$astra_navigation     .= '.main-header-bar .main-header-bar-navigation{';
+			$astra_navigation     .= 'display:none;';
+			$astra_navigation     .= '}';
+			$astra_navigation     .= '}';
+			$parse_css            .= $astra_navigation;
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
