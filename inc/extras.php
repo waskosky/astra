@@ -745,6 +745,11 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			}
 		}
 
+		// Add class if Mobile Header Logo is set.
+		if ( '' !== $mobile_header_logo ) {
+			$classes[] = 'ast-has-mobile-header-logo';
+		}
+
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
