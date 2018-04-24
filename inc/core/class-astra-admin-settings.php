@@ -683,7 +683,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							),
 						),
 					),
-					'mobile-header'       => array(
+					'mobile-header'         => array(
 						'title'     => __( 'Mobile Header', 'astra' ),
 						'class'     => 'ast-addon',
 						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs-category/astra-pro-modules/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
