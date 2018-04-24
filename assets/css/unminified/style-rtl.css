@@ -3145,6 +3145,13 @@ body {
   float: left;
 }
 
+.main-header-bar-wrap::before {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .main-header-bar {
   background-color: #fff;
   border-bottom-color: #eaeaea;
@@ -4473,16 +4480,6 @@ input[type="color"]::-webkit-color-swatch {
   padding-right: 0;
   padding-left: 0;
   position: relative;
-}
-
-#content {
-  content: "768";
-}
-
-@media all and (max-width: 768px) {
-  #content {
-    content: "";
-  }
 }
 
 .blog .posted-on {

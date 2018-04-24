@@ -85,13 +85,13 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 			);
 		}
 
-		$this->json['value']   = $val;
-		$this->json['choices'] = $this->choices;
-		$this->json['link']    = $this->get_link();
-		$this->json['id']      = $this->id;
-		$this->json['label']   = esc_html( $this->label );
-		$this->json['units']   = $this->units;
-		$this->json['responsive']   = $this->responsive;
+		$this->json['value']      = $val;
+		$this->json['choices']    = $this->choices;
+		$this->json['link']       = $this->get_link();
+		$this->json['id']         = $this->id;
+		$this->json['label']      = esc_html( $this->label );
+		$this->json['units']      = $this->units;
+		$this->json['responsive'] = $this->responsive;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -190,9 +190,6 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 					<# }); #>
 					</select>
 				<# } #>
-
-				
-
 			</div>
 		</label>
 		<?php
