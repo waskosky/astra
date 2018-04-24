@@ -750,6 +750,11 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			$classes[] = 'ast-has-mobile-header-logo';
 		}
 
+		// Add class if Inline Logo & Site Title.
+		if ( $logo_title_inline ) {
+			$classes[] = 'ast-logo-title-inline';
+		}
+
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
