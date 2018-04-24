@@ -663,12 +663,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Once class .ast-header-break-point is added to the body below CSS will be override by the
 			 * .ast-header-break-point class
 			 */
-			$astra_navigation      = '@media (max-width:'.$header_break_point.'px) {';
-			$astra_navigation     .= '.main-header-bar .main-header-bar-navigation{';
-			$astra_navigation     .= 'display:none;';
-			$astra_navigation     .= '}';
-			$astra_navigation     .= '}';
-			$parse_css            .= $astra_navigation;
+			$astra_navigation  = '@media (max-width:' . $header_break_point . 'px) {';
+			$astra_navigation .= '.main-header-bar .main-header-bar-navigation{';
+			$astra_navigation .= 'display:none;';
+			$astra_navigation .= '}';
+			$astra_navigation .= '}';
+			$parse_css        .= $astra_navigation;
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
