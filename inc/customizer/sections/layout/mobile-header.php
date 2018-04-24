@@ -57,7 +57,7 @@ $wp_customize->add_control(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-logo]', array(
 			'section'        => 'section-mobile-header',
 			'priority'       => 20,
-			'label'          => __( 'Logo (optional)', 'astra-addon' ),
+			'label'          => __( 'Logo (optional)', 'astra' ),
 			'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 		)
 	)
