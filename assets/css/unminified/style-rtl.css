@@ -3479,6 +3479,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   line-height: 1;
 }
 
+/* Hide Mobile logo. */
+.ast-mobile-header-logo {
+  display: none;
+}
+
 .ast-header-break-point {
   /* Styling Nav */
   /* Main Header */
@@ -3666,6 +3671,15 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-masthead-custom-menu-items {
   text-align: center;
+}
+
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point .ast-has-mobile-header-logo .astra-logo-svg {
+  display: none;
+}
+
+.ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
+  display: inline-block;
 }
 
 /* 7 - Header Toggle Buttons */

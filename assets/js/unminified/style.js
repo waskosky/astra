@@ -1056,7 +1056,33 @@ var toggleClass = function ( el, className ) {
 	for ( i = 0, len = links.length; i < len; i++ ) {
 		links[i].addEventListener( 'focus', toggleFocus, true );
 		links[i].addEventListener( 'blur', toggleFocus, true );
+		links[i].addEventListener( 'click', toggleClose, true );
 	}
+
+	/**
+     * Close the Toggle Menu on Click on hash (#) link.
+     *
+     * @since 1.3.2
+     * @return void
+     */
+    function toggleClose( )
+    {
+        var self = this || '',
+            hash = '#';
+
+        if( self ) {
+            self = new String( self );
+            if( self.indexOf( hash ) !== -1 ) {
+
+                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
+                main_header_menu_toggle.classList.remove( 'toggled' );
+
+                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
+                main_header_bar_navigation.classList.remove( 'toggle-on' );
+                main_header_bar_navigation.style.display = 'none';
+            }
+        }        
+    }
 
 	/**
 	 * Sets or removes .focus class on an element.
@@ -1079,37 +1105,6 @@ var toggleClass = function ( el, className ) {
 			self = self.parentElement;
 		}
 	}
-
-	/**
-	 * Toggles `focus` class to allow submenu access on tablets.
-	 */
-	( function( container ) {
-		var touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
-
-		if ( 'ontouchstart' in window ) {
-			touchStartFn = function( e ) {
-				var menuItem = this.parentNode, i;
-
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
-					e.preventDefault();
-					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
-						if ( menuItem === menuItem.parentNode.children[i] ) {
-							continue;
-						}
-						menuItem.parentNode.children[i].classList.remove( 'focus' );
-					}
-					menuItem.classList.add( 'focus' );
-				} else {
-					menuItem.classList.remove( 'focus' );
-				}
-			};
-
-			for ( i = 0; i < parentLink.length; ++i ) {
-				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
-			}
-		}
-	}( container ) );
 
 } )();
 

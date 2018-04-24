@@ -316,6 +316,21 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	} );
 
 	/*
+	 * Mobile Header Logo Width
+	 */
+	wp.customize( 'astra-settings[mobile-header-logo-width]', function( setting ) {
+		setting.bind( function( mobile_logo_width ) {
+			if ( mobile_logo_width != '' ) {
+				var dynamicStyle = '.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + mobile_logo_width + 'px; } ';
+				astra_add_dynamic_css( 'mobile-header-logo-width', dynamicStyle );
+			}
+			else{
+				wp.customize.preview.send( 'refresh' );
+			}
+		} );
+	} );
+
+	/*
 	 * Full width layout
 	 */
 	wp.customize( 'astra-settings[site-content-width]', function( setting ) {

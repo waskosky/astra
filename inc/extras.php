@@ -155,7 +155,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 		$display_site_tagline = astra_get_option( 'display-site-tagline' );
 		$display_site_title   = astra_get_option( 'display-site-title' );
-		$html                 = '';
+
+		$html = '';
 
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
 
@@ -653,11 +654,13 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	/**
 	 * Function to get Header Breakpoint
 	 *
+	 * @since x.x.x Added Mobile Header Breakpoint option from customizer.
 	 * @since 1.0.0
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		return absint( apply_filters( 'astra_header_break_point', 921 ) );
+		$mobile_header_brakpoint = astra_get_option( 'mobile-header-breakpoint', 921 );
+		return absint( apply_filters( 'astra_header_break_point', $mobile_header_brakpoint ) );
 	}
 }
 
@@ -727,6 +730,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
+		$mobile_header_logo       = astra_get_option( 'mobile-header-logo' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -740,9 +744,10 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 				$classes[] = 'ast-no-menu-items';
 			}
 		}
-		// Add class if Inline Logo & Site Title.
-		if ( $logo_title_inline ) {
-			$classes[] = 'ast-logo-title-inline';
+
+		// Add class if Mobile Header Logo is set.
+		if ( '' !== $mobile_header_logo ) {
+			$classes[] = 'ast-has-mobile-header-logo';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
