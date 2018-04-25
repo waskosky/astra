@@ -2585,6 +2585,7 @@ body {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
+  border-bottom: 1px solid #dadada;
 }
 
 .ast-header-break-point .main-navigation ul.children li a,
@@ -3144,6 +3145,13 @@ body {
   float: right;
 }
 
+.main-header-bar-wrap::before {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .main-header-bar {
   background-color: #fff;
   border-bottom-color: #eaeaea;
@@ -3665,12 +3673,13 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: center;
 }
 
-.ast-header-break-point .ast-has-mobile-header-logo .custom-logo {
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point .ast-has-mobile-header-logo .astra-logo-svg {
   display: none;
 }
 
 .ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
-  display: block;
+  display: inline-block;
 }
 
 /* 7 - Header Toggle Buttons */
@@ -4471,16 +4480,6 @@ input[type="color"]::-webkit-color-swatch {
   padding-left: 0;
   padding-right: 0;
   position: relative;
-}
-
-#content {
-  content: "768";
-}
-
-@media all and (max-width: 768px) {
-  #content {
-    content: "";
-  }
 }
 
 .blog .posted-on {

@@ -745,6 +745,16 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			}
 		}
 
+		// Add class if Mobile Header Logo is set.
+		if ( '' !== $mobile_header_logo ) {
+			$classes[] = 'ast-has-mobile-header-logo';
+		}
+
+		// Add class if Inline Logo & Site Title.
+		if ( $logo_title_inline ) {
+			$classes[] = 'ast-logo-title-inline';
+		}
+
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
@@ -792,12 +802,12 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 		ob_start();
 		?>
-		.main-header-bar-wrap {
+		.main-header-bar-wrap::before {
 			content: '<?php echo esc_html( $header_break_point ); ?>';
 		}
 
 		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
-			.main-header-bar-wrap {
+			.main-header-bar-wrap::before {
 				content: '';
 			}
 		}
