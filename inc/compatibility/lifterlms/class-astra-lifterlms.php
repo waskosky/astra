@@ -495,6 +495,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return   void
 		 */
 		function add_theme_support() {
+			add_theme_support( 'lifterlms' );
 			add_theme_support( 'lifterlms-quizzes' );
 			add_theme_support( 'lifterlms-sidebars' );
 		}
