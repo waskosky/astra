@@ -1195,12 +1195,6 @@ p.demo_store a,
   text-transform: uppercase;
 }
 
-.woocommerce div.product form.cart .variations_button {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .woocommerce div.product form.cart .wc-no-matching-variations {
   display: none;
 }
