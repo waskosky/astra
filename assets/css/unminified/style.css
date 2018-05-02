@@ -3126,7 +3126,7 @@ body {
  * 1 - Common
  */
 .site-header {
-  z-index: 10;
+  z-index: 99;
   position: relative;
 }
 
