@@ -523,6 +523,7 @@ p.demo_store a,
 
 .ast-header-break-point .ast-masthead-custom-menu-items.woocommerce-custom-menu-item .ast-site-header-cart a {
   border: none;
+  display: inline-block;
 }
 
 /**
