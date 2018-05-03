@@ -34,7 +34,7 @@ $wp_customize->add_control(
 			'input_attrs' => array(
 				'min'  => 100,
 				'step' => 1,
-				'max'  => 1920,
+				'max'  => 1921,
 			),
 		)
 	)
