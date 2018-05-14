@@ -206,6 +206,16 @@ p.demo_store a,
   text-align: right;
 }
 
+.woocommerce .ast-site-header-cart .ast-site-header-cart-data .woocommerce ul.cart_list li dl dd,
+.ast-site-header-cart .ast-site-header-cart-data .woocommerce ul.cart_list li dl dd {
+  margin: 0;
+}
+
+.woocommerce .ast-site-header-cart .ast-site-header-cart-data .woocommerce ul.product_list_widget li dl dd,
+.ast-site-header-cart .ast-site-header-cart-data .woocommerce ul.product_list_widget li dl dd {
+  margin: 0;
+}
+
 .woocommerce .ast-site-header-cart .widget_shopping_cart,
 .ast-site-header-cart .widget_shopping_cart {
   background-color: #fff;
