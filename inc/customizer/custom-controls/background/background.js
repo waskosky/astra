@@ -15,7 +15,7 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		var control = this,
 			value   = control.setting._value,
-			picker  = control.container.find( '.ast-color-control' );
+			picker  = control.container.find( '.ast-color-control-background' );
 
 		// Hide unnecessary controls if the value doesn't have an image.
 		if ( _.isUndefined( value['background-image']) || '' === value['background-image']) {
@@ -27,6 +27,8 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		// Color.
 		picker.wpColorPicker({
+			_hasAlpha: true,
+
 			change: function() {
 				setTimeout( function() {
 					control.saveValue( 'background-color', picker.val() );
