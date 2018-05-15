@@ -828,6 +828,10 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   content: "\f08b";
 }
 
+.llms-student-dashboard .llms-sd-header .llms-sd-item.sl_profile > a:before {
+  content: "\f2be";
+}
+
 .llms-student-dashboard .llms-my-orders .orders-table {
   font-size: 0.85em;
 }

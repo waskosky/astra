@@ -812,6 +812,9 @@ body {
 			&.signout > a:before {
 				content: "\f08b";
 			}
+			&.sl_profile > a:before {
+				content: "\f2be";
+			}
 		}
 	}
 
