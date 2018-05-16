@@ -274,7 +274,7 @@ var toggleClass = function ( el, className ) {
 
 				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
 
-					var header_content_bp = window.getComputedStyle( headerWrap[i] ).content;
+					var header_content_bp = window.getComputedStyle( headerWrap[i], '::before' ).getPropertyValue('content');
 
 					// Edge/Explorer header break point.
 					if( isEdge || isIE || header_content_bp === 'normal' ) {
@@ -317,8 +317,9 @@ var toggleClass = function ( el, className ) {
 	var SearchIcons = document.getElementsByClassName( 'astra-search-icon' );
 	for (var i = 0; i < SearchIcons.length; i++) {
 
-		SearchIcons[i].onclick = function() {
+		SearchIcons[i].onclick = function(event) {
 			if ( this.classList.contains( 'slide-search' ) ) {
+				event.preventDefault();
 				var sibling = this.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
 				if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
 					sibling.classList.add( 'ast-dropdown-active' );

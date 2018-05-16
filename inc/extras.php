@@ -182,6 +182,15 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			if ( is_home() || is_front_page() ) {
 				$tag = 'h1';
 			}
+
+			/**
+			 * Filters the tags for site title.
+			 *
+			 * @since 1.3.1
+			 *
+			 * @param string $tags string containing the HTML tags for Site Title.
+			 */
+			$tag               = apply_filters( 'astra_site_title_tag', $tag );
 			$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 
 			// Site Description.
@@ -783,12 +792,12 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 		ob_start();
 		?>
-		.main-header-bar-wrap {
+		.main-header-bar-wrap::before {
 			content: '<?php echo esc_html( $header_break_point ); ?>';
 		}
 
 		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
-			.main-header-bar-wrap {
+			.main-header-bar-wrap::before {
 				content: '';
 			}
 		}
