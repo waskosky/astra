@@ -642,36 +642,38 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$fields['astra_theme_settings'] = array(
 				'title'      => __( 'Astra Settings', 'my-text-domain' ),
 				'toggleable' => true,
-				'fields'     => array(
+				'fields'     => apply_filters( 'astra_theme_lifter_array', 
 					array(
 						array(
-							'attribute' => 'site-sidebar-layout',
-							'id'        => 'site-sidebar-layout',
-							'label'     => esc_html__( 'Sidebar', 'astra' ),
-							'type'      => 'select',
-							'options'   => array(
-								'default'       => esc_html__( 'Customizer Setting', 'astra' ),
-								'left-sidebar'  => esc_html__( 'Left Sidebar', 'astra' ),
-								'right-sidebar' => esc_html__( 'Right Sidebar', 'astra' ),
-								'no-sidebar'    => esc_html__( 'No Sidebar', 'astra' ),
+							array(
+								'attribute' => 'site-sidebar-layout',
+								'id'        => 'site-sidebar-layout',
+								'label'     => esc_html__( 'Sidebar', 'astra' ),
+								'type'      => 'select',
+								'options'   => array(
+									'default'       => esc_html__( 'Customizer Setting', 'astra' ),
+									'left-sidebar'  => esc_html__( 'Left Sidebar', 'astra' ),
+									'right-sidebar' => esc_html__( 'Right Sidebar', 'astra' ),
+									'no-sidebar'    => esc_html__( 'No Sidebar', 'astra' ),
+								),
+							),
+							array(
+								'attribute' => 'site-content-layout',
+								'id'        => 'site-content-layout',
+								'label'     => esc_html__( 'Content Layout', 'astra' ),
+								'type'      => 'select',
+								'options'   => array(
+									'default'                 => esc_html__( 'Customizer Setting', 'astra' ),
+									'boxed-container'         => esc_html__( 'Boxed', 'astra' ),
+									'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
+									'plain-container'         => esc_html__( 'Full Width / Contained', 'astra' ),
+									'page-builder'            => esc_html__( 'Full Width / Stretched', 'astra' ),
+								),
 							),
 						),
-						array(
-							'attribute' => 'site-content-layout',
-							'id'        => 'site-content-layout',
-							'label'     => esc_html__( 'Content Layout', 'astra' ),
-							'type'      => 'select',
-							'options'   => array(
-								'default'                 => esc_html__( 'Customizer Setting', 'astra' ),
-								'boxed-container'         => esc_html__( 'Boxed', 'astra' ),
-								'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
-								'plain-container'         => esc_html__( 'Full Width / Contained', 'astra' ),
-								'page-builder'            => esc_html__( 'Full Width / Stretched', 'astra' ),
-							),
-						),
-					),
-					$disable_fields,
-				),
+						$disable_fields,
+					)
+				)
 			);
 			$default_fields['assignment'] = $fields;
 			$default_fields['lesson']     = $fields;
