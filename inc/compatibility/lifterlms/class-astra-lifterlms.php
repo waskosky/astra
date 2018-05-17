@@ -640,7 +640,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				);
 			}
 			$fields['astra_theme_settings'] = array(
-				'title'      => __( 'Astra Settings', 'my-text-domain' ),
+				'title'      => __( 'Astra Settings', 'astra' ),
 				'toggleable' => true,
 				'fields'     => apply_filters(
 					'astra_theme_lifterlms_settings',
