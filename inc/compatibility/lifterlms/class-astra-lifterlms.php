@@ -603,8 +603,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return string $default_fields Updated custom field definitions.
 		 */
 		function register_builder_fields( $default_fields ) {
-			$disable_fields  = array();
-			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$disable_fields   = array();
+			$show_meta_field  = ! Astra_Meta_Boxes::is_bb_themer_layout();
 			$disable_fields[] = array(
 				'attribute' => 'ast-main-header-display',
 				'id'        => 'ast-main-header-display',
@@ -642,7 +642,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$fields['astra_theme_settings'] = array(
 				'title'      => __( 'Astra Settings', 'my-text-domain' ),
 				'toggleable' => true,
-				'fields'     => apply_filters( 'astra_theme_lifter_array', 
+				'fields'     => apply_filters(
+					'astra_theme_lifterlms_settings',
 					array(
 						array(
 							array(
@@ -663,21 +664,21 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 								'label'     => esc_html__( 'Content Layout', 'astra' ),
 								'type'      => 'select',
 								'options'   => array(
-									'default'                 => esc_html__( 'Customizer Setting', 'astra' ),
-									'boxed-container'         => esc_html__( 'Boxed', 'astra' ),
+									'default'         => esc_html__( 'Customizer Setting', 'astra' ),
+									'boxed-container' => esc_html__( 'Boxed', 'astra' ),
 									'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
-									'plain-container'         => esc_html__( 'Full Width / Contained', 'astra' ),
-									'page-builder'            => esc_html__( 'Full Width / Stretched', 'astra' ),
+									'plain-container' => esc_html__( 'Full Width / Contained', 'astra' ),
+									'page-builder'    => esc_html__( 'Full Width / Stretched', 'astra' ),
 								),
 							),
 						),
 						$disable_fields,
 					)
-				)
+				),
 			);
-			$default_fields['assignment'] = $fields;
-			$default_fields['lesson']     = $fields;
-			$default_fields['quiz']       = $fields;
+			$default_fields['assignment']   = $fields;
+			$default_fields['lesson']       = $fields;
+			$default_fields['quiz']         = $fields;
 			return $default_fields;
 		}
 	}
