@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 				<!-- background-color -->
 				<div class="background-color">
 					<h4><?php esc_attr_e( 'Background Color', 'astra' ); ?></h4>
-					<input type="text" data-default-color="{{ data.default['background-color'] }}" value="{{ data.value['background-color'] }}" class="ast-color-control-background"/>
+					<input type="text" data-default-color="{{ data.default['background-color'] }}" data-alpha="true" value="{{ data.value['background-color'] }}" class="ast-color-control"/>
 				</div>
 
 				<!-- background-image -->

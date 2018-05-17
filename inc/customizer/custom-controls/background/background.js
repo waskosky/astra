@@ -1,3 +1,7 @@
+jQuery(window).load(function() {
+	jQuery('html').addClass('background-colorpicker-ready');
+});
+
 wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend({
 
 	// When we're finished loading continue processing
@@ -15,7 +19,7 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		var control = this,
 			value   = control.setting._value,
-			picker  = control.container.find( '.ast-color-control-background' );
+			picker  = control.container.find( '.ast-color-control' );
 
 		// Hide unnecessary controls if the value doesn't have an image.
 		if ( _.isUndefined( value['background-image']) || '' === value['background-image']) {
@@ -27,8 +31,6 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		// Color.
 		picker.wpColorPicker({
-			_hasAlpha: true,
-
 			change: function() {
 				setTimeout( function() {
 					control.saveValue( 'background-color', picker.val() );
@@ -176,6 +178,8 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 		val[ property ] = value;
 
 		jQuery( input ).attr( 'value', JSON.stringify( val ) ).trigger( 'change' );
-		control.setting.set( val );
+		if ( jQuery('html').hasClass('background-colorpicker-ready') ) {
+			control.setting.set( val );
+		}
 	}
 });
