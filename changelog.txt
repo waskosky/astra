@@ -1,3 +1,7 @@
+v1.3.3 (unreleased)
+- Improvement: Add icon for the LifterLMS My certificates link in My account page. Switch certificate icon with achievements icon.
+- Improvement: Add icon for the LifterLMS Social Learner link.
+
 v1.3.2
 - Fix: Duplicate content area when using Elementor Pro's single page template.
 - Fix: Search icon in primary menu causing page tu jump when clicked.

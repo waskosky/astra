@@ -805,6 +805,10 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
 }
 
 .llms-student-dashboard .llms-sd-header .llms-sd-item.view-achievements > a:before {
+  content: "\f091";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-certificates > a:before {
   content: "\f0a3";
 }
 
