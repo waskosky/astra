@@ -32,9 +32,11 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 		// Color.
 		picker.wpColorPicker({
 			change: function() {
-				setTimeout( function() {
-					control.saveValue( 'background-color', picker.val() );
-				}, 100 );
+				if ( jQuery('html').hasClass('background-colorpicker-ready') ) {
+					setTimeout( function() {
+						control.saveValue( 'background-color', picker.val() );
+					}, 100 );
+				}
 			},
 
 			/**
@@ -178,8 +180,6 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 		val[ property ] = value;
 
 		jQuery( input ).attr( 'value', JSON.stringify( val ) ).trigger( 'change' );
-		if ( jQuery('html').hasClass('background-colorpicker-ready') ) {
-			control.setting.set( val );
-		}
+		control.setting.set( val );
 	}
 });
