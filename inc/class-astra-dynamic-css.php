@@ -656,7 +656,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'max-width' => astra_get_css_value( $blog_max_width, 'px' ),
 					),
 				);
-
 				$parse_css .= astra_parse_css( $blog_css, '769' );
 			endif;
 
@@ -669,13 +668,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'max-width' => astra_get_css_value( $single_post_max_width, 'px' ),
 					),
 				);
-
 				$parse_css .= astra_parse_css( $single_blog_css, '769' );
 			endif;
 
 			/* Small Footer CSS */
 			if ( 'disabled' != $small_footer_layout ) :
-
 				$sml_footer_css = array(
 					'.ast-small-footer' => array(
 						'border-top-style' => 'solid',
@@ -683,15 +680,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-top-color' => esc_attr( $small_footer_divider_color ),	
 					),
 				);
-				if ( 'footer-sml-layout-2' != $small_footer_layout ) {
+				$parse_css .= astra_parse_css( $sml_footer_css );
 
+				if ( 'footer-sml-layout-2' != $small_footer_layout ) {
 					$sml_footer_css = array(
 						'.ast-small-footer-wrap' => array(
 							'text-align' => 'center',
 						),
 					);
+					$parse_css .= astra_parse_css( $sml_footer_css );
 				}
-				$parse_css .= astra_parse_css( $sml_footer_css );
 			endif;
 
 			/* 404 Page */
