@@ -691,7 +691,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 					);
 				}
-				$parse_css .= $sml_footer_css;
+				$parse_css .= astra_parse_css( $sml_footer_css );
 			endif;
 
 			/* 404 Page */
@@ -744,7 +744,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= $meta_style;
+			$parse_css = astra_parse_css( $meta_style );
 
 			$meta_style = array(
 				'.main-header-bar' => array(
