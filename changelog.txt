@@ -1,3 +1,6 @@
+Unreleased
+-Fix: CSS properties visible on frontend even when there are no values assigned to them.
+
 v1.3.2
 - Fix: Duplicate content area when using Elementor Pro's single page template.
 - Fix: Search icon in primary menu causing page tu jump when clicked.
