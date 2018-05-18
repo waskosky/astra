@@ -770,11 +770,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			endif;
 
+			$dynamic_css = $parse_css;
 			if ( false != $return_css ) {
-				return $meta_style;
+				return $dynamic_css;
 			}
 
-			wp_add_inline_style( 'astra-theme-css', $meta_style );
+			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 		}
 	}
 }
