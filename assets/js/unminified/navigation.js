@@ -312,6 +312,31 @@ var toggleClass = function ( el, className ) {
 	});
 
 	updateHeaderBreakPoint();
+
+	var get_browser = function () {
+	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+	    if(/trident/i.test(M[1])){
+	        tem = /\brv[ :]+(\d+)/g.exec(ua) || []; 
+	        return;
+	        }   
+	    if( 'Chrome'  === M[1] ){
+	        tem = ua.match(/\bOPR|Edge\/(\d+)/)
+	        if(tem != null)   { 
+	        	return;;
+	        	}
+	        }   
+	    M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+	    if((tem = ua.match(/version\/(\d+)/i)) != null) {
+	    	M.splice(1,1,tem[1]);
+	    }
+
+	    console.log( 'Safari' === M[0] && M[1] <= 11 );
+	    if( 'Safari' === M[0] && 11 <= M[1] ) {
+		   document.body.classList.add( "safari-flex" );
+	    }
+	}
+
+	get_browser();
 	
 	/* Search Script */
 	var SearchIcons = document.getElementsByClassName( 'astra-search-icon' );
