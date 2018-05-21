@@ -598,7 +598,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		/**
 		 * Register theme postmeta fields with the LifterLMS Builder
 		 *
-		 * @since [version]
+		 * @since 1.3.3
 		 * @param string $default_fields Default custom field definitions.
 		 * @return string $default_fields Updated custom field definitions.
 		 */

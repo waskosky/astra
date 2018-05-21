@@ -60,6 +60,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 			// Template None.
 			add_action( 'astra_template_parts_content_none', array( $this, 'template_parts_none' ) );
 			add_action( 'astra_template_parts_content_none', array( $this, 'template_parts_404' ) );
+			add_action( 'astra_404_content_template', array( $this, 'template_parts_404' ) );
 
 			// Content top and bottom.
 			add_action( 'astra_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
