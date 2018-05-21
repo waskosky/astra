@@ -4883,6 +4883,7 @@ input[type="color"]::-webkit-color-swatch {
   /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
   /*  4 - Comment List Styles  */
+  /* Comment Cookie concent field aignment */
 }
 
 @media (max-width: 768px) {
@@ -4924,6 +4925,10 @@ input[type="color"]::-webkit-color-swatch {
 
 .comments-area p.logged-in-as {
   margin-bottom: 1em;
+}
+
+.comments-area #wp-comment-cookies-consent {
+  margin-left: 10px;
 }
 
 .ast-separate-container .comments-count-wrapper {
