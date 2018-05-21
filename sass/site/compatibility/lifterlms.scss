@@ -1081,10 +1081,12 @@ body {
 		margin-left: 5px;
 	}
 
-	.llms-start-quiz-button,
-	.llms-button-secondary {
-		margin: 5px;
-		display: block;
+	@media( max-width: $mx-col-md ) {
+		.llms-start-quiz-button,
+		.llms-button-secondary {
+			margin: 5px;
+			display: block;
+		}
 	}
 }
 
