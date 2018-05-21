@@ -795,6 +795,9 @@ body {
 				content: "\f02d";
 			}
 			&.view-achievements > a:before {
+				content: "\f091";
+			}
+			&.view-certificates > a:before {
 				content: "\f0a3";
 			}
 			&.notifications > a:before {
@@ -811,6 +814,9 @@ body {
 			}
 			&.signout > a:before {
 				content: "\f08b";
+			}
+			&.sl_profile > a:before {
+				content: "\f2be";
 			}
 		}
 	}
@@ -1106,6 +1112,12 @@ body {
 
 		.llms-quiz-counter {
 			font-size: inherit;	
+		}
+
+		
+		.llms-button-action,
+		.llms-button-secondary {
+			margin: 5px;
 		}
 	}
 
