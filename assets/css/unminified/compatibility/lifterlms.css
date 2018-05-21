@@ -1104,6 +1104,11 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   font-size: inherit;
 }
 
+.llms-quiz-ui .llms-quiz-nav .llms-button-action,
+.llms-quiz-ui .llms-quiz-nav .llms-button-secondary {
+  margin: 5px;
+}
+
 @media (max-width: 768px) {
   .llms-loop .llms-loop-list.llms-tablet-cols-1 .llms-loop-item {
     width: 100%;
