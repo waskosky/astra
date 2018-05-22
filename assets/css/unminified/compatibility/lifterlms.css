@@ -1075,6 +1075,14 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   margin-left: 5px;
 }
 
+@media (max-width: 768px) {
+  .llms-quiz-buttons .llms-start-quiz-button,
+  .llms-quiz-buttons .llms-button-secondary {
+    margin: 5px;
+    display: block;
+  }
+}
+
 .llms-quiz-ui .llms-quiz-nav .llms-button-action {
   font-size: inherit;
   line-height: 1.4;
