@@ -1,3 +1,6 @@
+v1.3.3 Unreleased
+- Fix: Menu is misaligned on safari 9 and 10 when WooCommerce cart is used in header layout 2.
+
 v1.3.2
 - Fix: Duplicate content area when using Elementor Pro's single page template.
 - Fix: Search icon in primary menu causing page tu jump when clicked.
