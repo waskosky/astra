@@ -3955,3 +3955,39 @@ button.pswp__button--zoom:hover {
 	margin: 0.5em 0 0;
 	display: block;
 }
+
+.ast-safari-browser {
+
+	&.ast-woocommerce-cart-menu {
+		.header-main-layout-2{
+			.main-header-container {
+	  			display: block
+	  		}
+	  	}
+
+	  	&.ast-header-custom-item-outside {
+	  		.header-main-layout-2 { 
+	  			.main-header-container {
+			  		text-align: center;
+			  	}
+			}
+			.ast-main-header-bar-alignment {
+				display: inline-block;
+			}
+			.ast-masthead-custom-menu-items {
+				display: inline-block;
+				float: right;
+			}
+		}
+	}
+
+	&.ast-woocommerce-cart-menu {
+		&.ast-header-break-point {
+			.header-main-layout-2{
+				.main-header-container {
+		  			display: flex;
+		  		}
+		  	}
+		}
+	}
+}

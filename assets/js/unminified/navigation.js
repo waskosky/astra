@@ -315,14 +315,14 @@ var toggleClass = function ( el, className ) {
 
 	var get_browser = function () {
 	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
-	    if(/trident/i.test(M[1])){
+	    if(/trident/i.test(M[1])) {
 	        tem = /\brv[ :]+(\d+)/g.exec(ua) || []; 
 	        return;
-	        }   
-	    if( 'Chrome'  === M[1] ){
+	    }   
+	    if( 'Chrome'  === M[1] ) {
 	        tem = ua.match(/\bOPR|Edge\/(\d+)/)
 	        if(tem != null)   { 
-	        	return;;
+	        	return;
 	        	}
 	        }   
 	    M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
@@ -330,9 +330,9 @@ var toggleClass = function ( el, className ) {
 	    	M.splice(1,1,tem[1]);
 	    }
 
-	    console.log( 'Safari' === M[0] && M[1] <= 11 );
-	    if( 'Safari' === M[0] && 11 <= M[1] ) {
-		   document.body.classList.add( "safari-flex" );
+	    bodyElement = document.body;
+	    if( 'Safari' === M[0] && M[1] < 11 ) {
+		   bodyElement.classList.add( "ast-safari-browser" );
 	    }
 	}
 
