@@ -1080,6 +1080,14 @@ body {
 		content: "\2192";
 		margin-left: 5px;
 	}
+
+	@media( max-width: $mx-col-md ) {
+		.llms-start-quiz-button,
+		.llms-button-secondary {
+			margin: 5px;
+			display: block;
+		}
+	}
 }
 
 .llms-quiz-ui {
