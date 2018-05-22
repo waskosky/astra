@@ -3,6 +3,7 @@ v1.3.3 Unreleased
 - Improvement: Add icon for the LifterLMS My certificates link in My account page. Switch certificate icon with achievements icon.
 - Improvement: Add icon for the LifterLMS Social Learner link.
 - Fix: CSS properties visible on frontend even when there are no values assigned to them.
+- Fix: Menu is misaligned on safari 9 and 10 when WooCommerce cart is used in header layout 2.
 
 v1.3.2
 - Fix: Duplicate content area when using Elementor Pro's single page template.
