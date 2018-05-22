@@ -332,7 +332,7 @@ var toggleClass = function ( el, className ) {
 
 	    bodyElement = document.body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "ast-safari-browser" );
+		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
 	    }
 	}
 
