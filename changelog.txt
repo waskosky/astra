@@ -18,6 +18,7 @@ Fix: 404-page displaying content twice if theme builder is used.
 Fix: CSS errors in Opera Mini browser.
 Fix: W3 Validator errors for some Customisations.
 Fix: Header Layout 2 misalignment on Versions Safari 10 and below when custom menu element is selected.
+Fix: LifterLMS: Align Take Quiz and Next lesson buttons.
 
 v1.3.2
 - Fix: Duplicate content area when using Elementor Pro's single page template.
