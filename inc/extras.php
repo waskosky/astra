@@ -562,9 +562,32 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$display_outside = astra_get_option( 'header-display-outside-menu' );
 
 			if ( 'none' != $custom_header_section && ! $display_outside ) {
+
 				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+				/**
+				 * Fires before the Primary Header Menu navigation.
+				 * Disable Primary Menu is checked
+				 * Custom menu item is not 'none'.
+				 * Take custom menu item outside is unchecked.
+				 *
+				 * @since x.x.x
+				 */
+				do_action( 'astra_main_header_custom_menu_item_before' );
+				
 				echo astra_masthead_get_menu_items();
+				
+				/**
+				 * Fires after the Primary Header Menu navigation.
+				 * Disable Primary Menu is checked
+				 * Custom menu item is not 'none'.
+				 * Take custom menu item outside is unchecked.
+				 *
+				 * @since x.x.x
+				 */
+				do_action( 'astra_main_header_custom_menu_item_after' );
+
 				echo '</div>';
+
 			}
 		} else {
 
@@ -743,6 +766,8 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			if ( 'none' == $primary_menu_custom_item ) {
 				$classes[] = 'ast-no-menu-items';
 			}
+		} else{
+			$classes[] = 'ast-primary-menu-enabled';
 		}
 
 		// Add class if Mobile Header Logo is set.
