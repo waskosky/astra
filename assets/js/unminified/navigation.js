@@ -312,13 +312,39 @@ var toggleClass = function ( el, className ) {
 	});
 
 	updateHeaderBreakPoint();
+
+	var get_browser = function () {
+	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+	    if(/trident/i.test(M[1])) {
+	        tem = /\brv[ :]+(\d+)/g.exec(ua) || []; 
+	        return;
+	    }   
+	    if( 'Chrome'  === M[1] ) {
+	        tem = ua.match(/\bOPR|Edge\/(\d+)/)
+	        if(tem != null)   { 
+	        	return;
+	        	}
+	        }   
+	    M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+	    if((tem = ua.match(/version\/(\d+)/i)) != null) {
+	    	M.splice(1,1,tem[1]);
+	    }
+
+	    bodyElement = document.body;
+	    if( 'Safari' === M[0] && M[1] < 11 ) {
+		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
+	    }
+	}
+
+	get_browser();
 	
 	/* Search Script */
 	var SearchIcons = document.getElementsByClassName( 'astra-search-icon' );
 	for (var i = 0; i < SearchIcons.length; i++) {
 
-		SearchIcons[i].onclick = function() {
+		SearchIcons[i].onclick = function(event) {
 			if ( this.classList.contains( 'slide-search' ) ) {
+				event.preventDefault();
 				var sibling = this.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
 				if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
 					sibling.classList.add( 'ast-dropdown-active' );
