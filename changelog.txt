@@ -1,4 +1,7 @@
-1.4.0-beta.1
+v1.4.0-beta.2
+- Fix: On search icon click menu desappears.
+
+v1.4.0-beta.1
 - New: Introduced options for Mobile Header.
 - Fix: Menu does not close on mobile if click on the menu navigation link for a single page site.
 - Fix: Added support for Opera mini browser.
