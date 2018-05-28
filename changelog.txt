@@ -1,5 +1,8 @@
 v1.4.0-beta.2
+- Improvement: Collapse menu when clicking on menu item with #links.
+- Improvement: Hide the desktop menu markup which appeared for fraction of seconds when loading the site on mobile.
 - Fix: On Header's search icon click menu desappears for desktop devices.
+- Update the beta branch with the latest stable release.
 
 v1.4.0-beta.1
 - New: Introduced options for Mobile Header.
