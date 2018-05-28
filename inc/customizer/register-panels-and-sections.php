@@ -292,19 +292,39 @@
 		)
 	);
 
+
 	$wp_customize->add_section(
-		'section-archive-typo', array(
-			'title'    => __( 'Blog / Archive', 'astra' ),
-			'panel'    => 'panel-typography',
-			'priority' => 40,
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-blog-typo-group',
+			array(
+				'priority' => 40,
+				'title'    => __( 'Blog', 'astra' ),
+				'panel'    => 'panel-typography',
+			)
 		)
 	);
 
 	$wp_customize->add_section(
-		'section-single-typo', array(
-			'title'    => __( 'Single Page / Post', 'astra' ),
-			'panel'    => 'panel-typography',
-			'priority' => 45,
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-archive-typo',
+			array(
+				'priority' => 5,
+				'title'    => __( 'Blog / Archive', 'astra' ),
+				'panel'    => 'panel-typography',
+				'section'  => 'section-blog-typo-group',
+			)
+		)
+	);
+
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-single-typo',
+			array(
+				'priority' => 10,
+				'title'    => __( 'Single Post', 'astra' ),
+				'panel'    => 'panel-typography',
+				'section'  => 'section-blog-typo-group',
+			)
 		)
 	);
 

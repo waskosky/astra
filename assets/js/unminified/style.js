@@ -1070,16 +1070,19 @@ var toggleClass = function ( el, className ) {
         var self = this || '',
             hash = '#';
 
-        if( self ) {
-            self = new String( self );
-            if( self.indexOf( hash ) !== -1 ) {
+        if( self && ! self.classList.contains('astra-search-icon') ) {
+            var link = new String( self );
+            if( link.indexOf( hash ) !== -1 ) {
 
-                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
-                main_header_menu_toggle.classList.remove( 'toggled' );
+                if ( document.body.classList.contains('ast-header-break-point') ) {
+	                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
+	                main_header_menu_toggle.classList.remove( 'toggled' );
 
-                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
-                main_header_bar_navigation.classList.remove( 'toggle-on' );
-                main_header_bar_navigation.style.display = 'none';
+	                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
+	                main_header_bar_navigation.classList.remove( 'toggle-on' );
+
+                	main_header_bar_navigation.style.display = 'none';
+                }
             }
         }        
     }
@@ -1089,7 +1092,6 @@ var toggleClass = function ( el, className ) {
 	 */
 	function toggleFocus() {
 		var self = this;
-
 		// Move up through the ancestors of the current link until we hit .nav-menu.
 		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
 
