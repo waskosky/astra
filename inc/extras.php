@@ -573,9 +573,9 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				 * @since x.x.x
 				 */
 				do_action( 'astra_main_header_custom_menu_item_before' );
-				
+
 				echo astra_masthead_get_menu_items();
-				
+
 				/**
 				 * Fires after the Primary Header Menu navigation.
 				 * Disable Primary Menu is checked
@@ -766,7 +766,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			if ( 'none' == $primary_menu_custom_item ) {
 				$classes[] = 'ast-no-menu-items';
 			}
-		} else{
+		} else {
 			$classes[] = 'ast-primary-menu-enabled';
 		}
 
