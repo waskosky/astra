@@ -217,9 +217,11 @@ var toggleClass = function ( el, className ) {
 							toggleClass( __main_header_all[event_index], 'toggle-on' );
 							toggleClass( menu_toggle_all[event_index], 'toggled' );
 							if ( __main_header_all[event_index].classList.contains( 'toggle-on' ) ) {		
-								__main_header_all[event_index].style.display = 'block';		
+								__main_header_all[event_index].style.display = 'block';	
+								document.body.classList.add( "ast-main-header-nav-open" );	
 							} else {		
-								__main_header_all[event_index].style.display = '';		
+								__main_header_all[event_index].style.display = '';
+								document.body.classList.remove( "ast-main-header-nav-open" );
 							}
 						break;
 				}
