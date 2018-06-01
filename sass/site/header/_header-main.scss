@@ -276,7 +276,9 @@ li.ast-masthead-custom-menu-items {
 			}
 
 			.main-header-menu {
-				border-top: 1px solid #eaeaea;
+				border-top-width: 1px;
+				border-style: solid;
+				border-color: #eaeaea;
 			}
 		}
 	}

@@ -2581,7 +2581,9 @@ body {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
-  border-bottom: 1px solid #dadada;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
 }
 
 .ast-header-break-point .main-navigation ul.children li a,
@@ -3582,7 +3584,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu {
-  border-top: 1px solid #eaeaea;
+  border-top-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
 }
 
 .ast-header-break-point .ast-search-menu-icon {
