@@ -132,7 +132,9 @@
 				padding: 0 20px;
 				display: inline-block;
 				width: 100%;
-				border-bottom: 1px solid #dadada;
+				border-bottom-width: 1px;
+				border-style: solid;
+				border-color: #eaeaea;
 			}
 			&.children li a,
 			&.sub-menu li a {
