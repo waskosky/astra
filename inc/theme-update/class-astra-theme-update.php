@@ -656,8 +656,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		static public function v_1_4_0_beta_3() {
 
-			self::update_header_layout_opts();
-
 			$theme_options = get_option( 'astra-settings' );
 
 			$mobile_logo = ( isset( $theme_options['mobile-header-logo'] ) && '' !== $theme_options['mobile-header-logo'] ) ? $theme_options['mobile-header-logo'] : false;
