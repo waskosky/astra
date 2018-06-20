@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		function mobile_header_markup() {
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
-			$inherit_logo 		= astra_get_option( 'inherit-mobile-logo' );
+			$inherit_logo       = astra_get_option( 'inherit-mobile-logo' );
 
 			if ( '' !== $mobile_header_logo && '1' !== $inherit_logo ) {
 				add_filter( 'astra_has_custom_logo', '__return_true' );

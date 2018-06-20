@@ -145,7 +145,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_4_0_beta_3();
 			}
 
-
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
