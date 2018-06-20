@@ -524,7 +524,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 			$menu_bottons = false;
 		}
 		if ( apply_filters( 'astra_enable_mobile_menu_buttons', $menu_bottons ) ) {
-		?>
+			?>
 		<div class="ast-mobile-menu-buttons">
 
 			<?php astra_masthead_toggle_buttons_before(); ?>
@@ -534,7 +534,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 			<?php astra_masthead_toggle_buttons_after(); ?>
 
 		</div>
-		<?php
+			<?php
 		}
 	}
 }
@@ -1018,7 +1018,7 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 		if ( is_active_sidebar( $sidebar_id ) ) {
 			dynamic_sidebar( $sidebar_id );
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-		?>
+			?>
 			<div class="widget ast-no-widget-row">
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
