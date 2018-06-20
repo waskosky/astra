@@ -361,7 +361,7 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 			foreach ( $css_output as $selector => $properties ) {
 
 				if ( ! count( $properties ) ) {
-					continue; 
+					continue;
 				}
 
 				$temp_parse_css   = $selector . '{';
