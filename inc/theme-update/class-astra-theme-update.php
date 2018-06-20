@@ -140,6 +140,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_3_0();
 			}
 
+			// Update astra setting for inherit site logo compatibility.
+			if ( version_compare( $saved_version, '1.4.0-beta.3', '<' ) ) {
+				self::v_1_4_0_beta_3();
+			}
+
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -642,6 +648,28 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
+
+		/**
+		 * Mobile Header - Border new param introduced for Top, Right, Bottom and left border.
+		 * Update options of older version than 1.4.0-beta.3.
+		 *
+		 * @since 1.4.0-beta.3
+		 */
+		static public function v_1_4_0_beta_3() {
+
+			self::update_header_layout_opts();
+
+			$theme_options = get_option( 'astra-settings' );
+
+			$mobile_logo = ( isset( $theme_options['mobile-header-logo'] ) && '' !== $theme_options['mobile-header-logo'] ) ? $theme_options['mobile-header-logo'] : false;
+
+			if ( '' != $mobile_logo ) {
+				$theme_options['inherit-sticky-logo'] = false;
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
 	}
 
 }

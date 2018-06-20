@@ -40,6 +40,24 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Option: Inherit Desktop logo
+ */
+$wp_customize->add_setting(
+	ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
+		'default'           => astra_get_option( 'inherit-mobile-logo' ),
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+	)
+);
+$wp_customize->add_control(
+	ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
+		'section'  => astra_theme_customizer_mobile_header_section(),
+		'label'    => __( 'Inherit Desktop Logo', 'astra-addon' ),
+		'priority' => 20,
+		'type'     => 'checkbox',
+	)
+);
 
 /**
  * Option: Mobile header logo

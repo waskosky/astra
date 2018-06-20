@@ -47,6 +47,8 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		public function __construct() {
 
 			add_action( 'astra_header', array( $this, 'mobile_header_markup' ), 5 );
+			add_action( 'body_class', array( $this, 'add_body_class' ) );
+
 		}
 
 		/**
@@ -56,8 +58,9 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		function mobile_header_markup() {
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
+			$inherit_logo 		= astra_get_option( 'inherit-mobile-logo' );
 
-			if ( '' !== $mobile_header_logo ) {
+			if ( '' !== $mobile_header_logo && '1' !== $inherit_logo ) {
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
 			}
@@ -94,6 +97,26 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 
 			return $html . $logo;
 
+		}
+
+		/**
+		 * Add Body Classes
+		 *
+		 * @param array $classes Body Class Array.
+		 * @return array
+		 */
+		function add_body_class( $classes ) {
+
+			/**
+			 * Add class for header width
+			 */
+			$header_content_layout = astra_get_option( 'inherit-mobile-logo' );
+
+			if ( '1' === $header_content_layout ) {
+				$classes[] = 'ast-inherit-site-logo';
+			}
+
+			return $classes;
 		}
 
 	}
