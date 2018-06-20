@@ -600,7 +600,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( '' == $body_font_size['tablet'] ) {
 				$html_tablet_typography = array(
 					'html' => array(
-						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 5.7, '%' ),
+						'font-size' => astra_get_font_css_value( 57, '%' ),
 					),
 				);
 				$parse_css             .= astra_parse_css( $html_tablet_typography, '', '768' );
@@ -609,13 +609,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( '' == $body_font_size['mobile'] ) {
 				$html_mobile_typography = array(
 					'html' => array(
-						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 5.7, '%' ),
+						'font-size' => astra_get_font_css_value( 57, '%' ),
 					),
 				);
 			} else {
 				$html_mobile_typography = array(
 					'html' => array(
-						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
+						'font-size' => astra_get_font_css_value( 62.5, '%' ),
 					),
 				);
 			}
