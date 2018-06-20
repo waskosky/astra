@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// HTML.
 				'html'                                    => array(
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
+					'font-size' => astra_get_font_css_value( 62.5, '%' ),
 				),
 				'a, .page-title'                          => array(
 					'color' => esc_attr( $link_color ),

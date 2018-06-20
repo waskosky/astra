@@ -2705,7 +2705,7 @@ body {
 
 .ast-button-wrap .menu-toggle.main-header-menu-toggle .mobile-menu {
   font-size: 15px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -3350,7 +3350,7 @@ body {
   display: inline-block;
   font-family: 'Astra';
   font-size: 9px;
-  font-size: .6rem;
+  font-size: .9rem;
   font-weight: bold;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -3939,6 +3939,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .widget_calendar thead a {
   color: #0274be;
   font-size: 1rem;
+  /* @TODO - Test the value of rem here */
   vertical-align: middle;
 }
 
@@ -4510,14 +4511,14 @@ input[type="color"]::-webkit-color-swatch {
 .ast-archive-description .ast-archive-title {
   margin-bottom: 4px;
   font-size: 40px;
-  font-size: 2.85714rem;
+  font-size: 4.0rem;
   font-weight: 300;
 }
 
 .ast-archive-description p {
   margin-bottom: 0;
   font-size: 20px;
-  font-size: 1.42857rem;
+  font-size: 2.0rem;
   line-height: 1.65;
   font-weight: 300;
 }
@@ -4788,7 +4789,7 @@ input[type="color"]::-webkit-color-swatch {
 .ast-comment-list #cancel-comment-reply-link {
   white-space: nowrap;
   font-size: 15px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-left: 1em;
 }
 
@@ -5107,7 +5108,7 @@ input[type="color"]::-webkit-color-swatch {
 .post-navigation a {
   background: transparent;
   font-size: 16px;
-  font-size: 1.06666rem;
+  font-size: 1.6rem;
 }
 
 .ast-pagination {
@@ -5134,7 +5135,7 @@ input[type="color"]::-webkit-color-swatch {
   width: 2.33333em;
   height: 2.33333em;
   font-size: 16px;
-  font-size: 1.06666rem;
+  font-size: 1.6rem;
   line-height: -webkit-calc(2.33333em - 3px);
   line-height: calc(2.33333em - 3px);
   text-align: center;
