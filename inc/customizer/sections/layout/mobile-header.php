@@ -52,9 +52,9 @@ $wp_customize->add_setting(
 );
 $wp_customize->add_control(
 	ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
-		'section'  => astra_theme_customizer_mobile_header_section(),
-		'label'    => __( 'Inherit Desktop Logo', 'astra-addon' ),
-		'priority' => 20,
+		'section'     => 'title_tagline',
+		'label'    => __( 'Inherit Site Logo on mobile devices', 'astra-addon' ),
+		'priority' => 5,
 		'type'     => 'checkbox',
 	)
 );
@@ -73,9 +73,9 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	new WP_Customize_Image_Control(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-logo]', array(
-			'section'        => astra_theme_customizer_mobile_header_section(),
-			'priority'       => 20,
-			'label'          => __( 'Logo (optional)', 'astra' ),
+			'section'     => 'title_tagline',
+			'priority'       => 5,
+			'label'          => __( 'Mobile Logo (optional)', 'astra' ),
 			'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 		)
 	)
@@ -96,9 +96,9 @@ $wp_customize->add_control(
 	new Astra_Control_Slider(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-logo-width]', array(
 			'type'        => 'ast-slider',
-			'section'     => astra_theme_customizer_mobile_header_section(),
-			'priority'    => 20,
-			'label'       => __( 'Logo Width', 'astra' ),
+			'section'     => 'title_tagline',
+			'priority'    => 5,
+			'label'       => __( 'Mobile Logo Width', 'astra' ),
 			'suffix'      => '',
 			'input_attrs' => array(
 				'min'  => 50,
