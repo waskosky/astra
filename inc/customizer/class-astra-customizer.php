@@ -272,7 +272,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'headerBreakpoint' => astra_header_break_point(),
 			);
 
-			wp_localize_script( 'astra-customizer-preview-js', 'astra', $localize_array );
+			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
 			wp_enqueue_script( 'astra-customizer-preview-js' );
 		}
 
