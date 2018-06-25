@@ -657,6 +657,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		static public function v_1_4_0_beta_3() {
 
 			$theme_options = get_option( 'astra-settings' );
+			$mobile_logo_width = astra_get_option( 'mobile-header-logo-width' );
+
+			if( '' != $mobile_logo_width ) {
+				$theme_options['ast-header-responsive-logo-width']['tablet'] = $mobile_logo_width;
+			}
 
 			$mobile_logo = ( isset( $theme_options['mobile-header-logo'] ) && '' !== $theme_options['mobile-header-logo'] ) ? $theme_options['mobile-header-logo'] : false;
 
