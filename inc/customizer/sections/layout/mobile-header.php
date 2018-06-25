@@ -27,7 +27,7 @@ $wp_customize->add_control(
 	new Astra_Control_Slider(
 		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
 			'type'        => 'ast-slider',
-			'section'     => astra_theme_customizer_mobile_header_section(),
+			'section'     => 'section-mobile-header',
 			'priority'    => 10,
 			'label'       => __( 'Header Breakpoint', 'astra' ),
 			'suffix'      => '',
