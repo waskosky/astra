@@ -31,20 +31,3 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 }
 
 add_action( 'init', 'astra_register_menu_locations' );
-
-
-if ( ! function_exists( 'astra_theme_customizer_mobile_header_section' ) ) :
-	/**
-	 * Returns the mobile header section.
-	 *
-	 * Customizer Setting which added inside the Mobile Header Section
-	 * which can be moved to the other section if needed.
-	 *
-	 * @since x.x.x
-	 * @return string
-	 */
-	function astra_theme_customizer_mobile_header_section() {
-		return apply_filters( 'astra_customizer_mobile_primary_header_layout', 'section-mobile-header' );
-	}
-
-endif;
