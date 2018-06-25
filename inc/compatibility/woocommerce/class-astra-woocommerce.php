@@ -974,7 +974,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						do_action( 'astra_woo_header_cart_icons_before' );
 
 						if ( apply_filters( 'astra_woo_default_header_cart_icon', true ) ) {
-						?>
+							?>
 							<div class="ast-cart-menu-wrap">
 								<span class="count"> 
 									<?php
@@ -984,14 +984,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 									?>
 								</span>
 							</div>
-						<?php
+							<?php
 						}
 
 						do_action( 'astra_woo_header_cart_icons_after' );
 
 						?>
 			</a>
-		<?php
+			<?php
 		}
 
 		/**
