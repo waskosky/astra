@@ -241,13 +241,6 @@ $header_rt_sections = array(
 		)
 	);
 
-
-
-
-/**
- * Mobile Header
- */
-
 	/**
 	 * Option: Mobile Menu Label Divider
 	 */
