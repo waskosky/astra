@@ -410,7 +410,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				</div>
 			</div>
 
-		<?php
+			<?php
 		}
 
 		/**
@@ -443,7 +443,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 		/**
@@ -489,7 +489,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 		/**
@@ -528,7 +528,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 		/**
@@ -570,7 +570,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 
@@ -920,7 +920,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 			</div>
 
-		<?php
+			<?php
 		}
 
 		/**
