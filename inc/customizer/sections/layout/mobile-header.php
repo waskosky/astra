@@ -41,40 +41,6 @@ $wp_customize->add_control(
 );
 
 /**
- * Option: Mobile Menu Label Divider
- */
-$wp_customize->add_control(
-	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
-			'type'     => 'ast-divider',
-			'section'  => astra_theme_customizer_mobile_header_section(),
-			'priority' => 35,
-			'settings' => array(),
-		)
-	)
-);
-
-/**
- * Option: Mobile Menu Label
- */
-$wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
-		'default'           => astra_get_option( 'header-main-menu-label' ),
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'sanitize_text_field',
-	)
-);
-$wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
-		'section'  => astra_theme_customizer_mobile_header_section(),
-		'priority' => 40,
-		'label'    => __( 'Menu Label', 'astra' ),
-		'type'     => 'text',
-	)
-);
-
-/**
  * Option: Mobile Menu Alignment
  */
 $wp_customize->add_setting(
