@@ -1,3 +1,6 @@
+Unreleased
+- Fix: PHP error when using plugin 'customizer-export-import' and import images is selected.
+
 v1.3.4
 - Improvement: Updated the theme screenshot.
 - Fix: WooCommerce categories with `,` in the category name not displayed correctly in product grid.
