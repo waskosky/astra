@@ -87,7 +87,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
 		'type'        => 'select',
-		'section'     => astra_theme_customizer_mobile_header_section(),
+		'section'     => 'section-mobile-header',
 		'priority'    => 45,
 		'label'       => __( 'Mobile Header Alignment', 'astra' ),
 		'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),

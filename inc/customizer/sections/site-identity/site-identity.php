@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
-			'section'     => 'title_tagline',
+			'section'  => 'title_tagline',
 			'label'    => __( 'Inherit Site Logo on mobile devices', 'astra-addon' ),
 			'priority' => 5,
 			'type'     => 'checkbox',
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-logo]', array(
-				'section'     => 'title_tagline',
+				'section'        => 'title_tagline',
 				'priority'       => 5,
 				'label'          => __( 'Mobile Logo (optional)', 'astra' ),
 				'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
