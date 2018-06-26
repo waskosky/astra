@@ -81,7 +81,7 @@
 			$wp_customize, 'section-mobile-header',
 			array(
 				'priority' => 40,
-				'title'    => __( 'Mobile Header', 'astra' ),
+				'title'    => __( 'Mobile Header Breakpoint', 'astra' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-header-group',
 			)
