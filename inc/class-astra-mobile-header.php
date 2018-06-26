@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			$header_content_layout = astra_get_option( 'inherit-mobile-logo' );
 
 			if ( '1' === $header_content_layout ) {
-				$classes[] = 'ast-inherit-site-logo';
+				$classes[] = 'ast-mobile-inherit-site-logo';
 			}
 
 			return $classes;
