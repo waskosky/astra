@@ -3682,6 +3682,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: inline-block;
 }
 
+.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg {
+  display: block;
+}
+
 /* 7 - Header Toggle Buttons */
 .ast-header-break-point .ast-mobile-menu-buttons {
   text-align: right;

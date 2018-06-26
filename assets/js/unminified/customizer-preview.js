@@ -308,21 +308,8 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
 				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;} .astra-logo-svg{width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;} .astra-logo-svg{width: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} .astra-logo-svg{width: ' + logo_width['mobile'] + 'px; } }';
 				astra_add_dynamic_css( 'ast-header-responsive-logo-width', dynamicStyle );
-			}
-			else{
-				wp.customize.preview.send( 'refresh' );
-			}
-		} );
-	} );
-
-	/*
-	 * Mobile Header Logo Width
-	 */
-	wp.customize( 'astra-settings[mobile-header-logo-width]', function( setting ) {
-		setting.bind( function( mobile_logo_width ) {
-			if ( mobile_logo_width != '' ) {
-				var dynamicStyle = '.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + mobile_logo_width + 'px; } ';
-				astra_add_dynamic_css( 'mobile-header-logo-width', dynamicStyle );
+				var mobileLogoStyle = '.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; } @media( max-width: 768px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; }  @media( max-width: 544px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['mobile'] + 'px; }';
+				astra_add_dynamic_css( 'mobile-header-logo-width', mobileLogoStyle );
 			}
 			else{
 				wp.customize.preview.send( 'refresh' );
@@ -335,8 +322,6 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize( 'astra-settings[site-content-width]', function( setting ) {
 		setting.bind( function( width ) {
-
-
 				var dynamicStyle = '@media (min-width: 554px) {';
 				dynamicStyle += '.ast-container, .fl-builder #content .entry-header { max-width: ' + ( 40 + parseInt( width ) ) + 'px } ';
 				dynamicStyle += '}';

@@ -521,5 +521,21 @@
 				}
 			}
 		],
+		'astra-settings[inherit-mobile-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[mobile-header-logo]',
+					'astra-settings[mobile-header-logo-width]'
+				],
+				callback: function( inherit_mobile_logo ) {
+
+					if ( inherit_mobile_logo ) {
+						return false;
+					}
+					return true;
+				}
+			}
+		],
 	};
 } )( jQuery );
