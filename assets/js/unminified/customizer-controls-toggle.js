@@ -525,8 +525,7 @@
 		[
 			{
 				controls: [
-					'astra-settings[mobile-header-logo]',
-					'astra-settings[mobile-header-logo-width]'
+					'astra-settings[mobile-header-logo]'
 				],
 				callback: function( inherit_mobile_logo ) {
 
