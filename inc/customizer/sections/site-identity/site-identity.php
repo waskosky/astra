@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
-			'default'           => astra_get_option( 'inherit-mobile-logo' ),
+			'default'           => true,
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
