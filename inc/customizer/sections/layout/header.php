@@ -270,7 +270,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
 			'section'  => 'section-header',
-			'priority' => 40,
+			'priority' => 81,
 			'label'    => __( 'Menu Label', 'astra' ),
 			'type'     => 'text',
 		)
