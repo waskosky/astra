@@ -1,5 +1,7 @@
-v1.4.0-beta.3
+v1.4.0-beta.4
+- New: Optiton to inherit mobile logo from desktop logo.
 
+v1.4.0-beta.3
 - Fixed: Sticky header not working in customizer.
 
 v1.4.0-beta.2
