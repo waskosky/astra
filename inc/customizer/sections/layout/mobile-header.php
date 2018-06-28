@@ -29,7 +29,7 @@ $wp_customize->add_control(
 			'type'        => 'ast-slider',
 			'section'     => 'section-mobile-header',
 			'priority'    => 10,
-			'label'       => __( 'Header Breakpoint', 'astra' ),
+			'label'       => __( 'Menu Breakpoint', 'astra' ),
 			'suffix'      => '',
 			'input_attrs' => array(
 				'min'  => 100,
