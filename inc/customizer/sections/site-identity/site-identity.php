@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
 			'section'  => 'title_tagline',
-			'label'    => __( 'Inherit Site Logo on mobile devices', 'astra-addon' ),
+			'label'    => __( 'Inherit Site Logo on mobile devices', 'astra' ),
 			'priority' => 5,
 			'type'     => 'checkbox',
 		)
