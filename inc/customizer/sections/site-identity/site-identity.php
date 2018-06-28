@@ -39,16 +39,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Inherit Desktop logo
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
-			'default'           => true,
+		ASTRA_THEME_SETTINGS . '[different-mobile-logo]', array(
+			'default'           => false,
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[inherit-mobile-logo]', array(
+		ASTRA_THEME_SETTINGS . '[different-mobile-logo]', array(
 			'section'  => 'title_tagline',
-			'label'    => __( 'Inherit Site Logo on mobile devices', 'astra-addon' ),
+			'label'    => __( 'Different Logo for mobile devices?', 'astra-addon' ),
 			'priority' => 5,
 			'type'     => 'checkbox',
 		)

@@ -58,9 +58,9 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		function mobile_header_markup() {
 			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
-			$inherit_logo       = astra_get_option( 'inherit-mobile-logo' );
+			$different_logo     = astra_get_option( 'different-mobile-logo' );
 
-			if ( '' !== $mobile_header_logo && '1' !== $inherit_logo ) {
+			if ( '' !== $mobile_header_logo && '1' == $different_logo ) {
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
 			}
@@ -110,9 +110,9 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			/**
 			 * Add class for header width
 			 */
-			$header_content_layout = astra_get_option( 'inherit-mobile-logo' );
+			$header_content_layout = astra_get_option( 'different-mobile-logo' );
 
-			if ( '1' === $header_content_layout ) {
+			if ( '0' == $header_content_layout ) {
 				$classes[] = 'ast-mobile-inherit-site-logo';
 			}
 
