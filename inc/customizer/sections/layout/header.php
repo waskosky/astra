@@ -257,6 +257,33 @@ $header_rt_sections = array(
 	);
 
 	/**
+	 * Option: Mobile Header Breakpoint
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Slider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
+				'type'        => 'ast-slider',
+				'section'     => 'section-header',
+				'priority'    => 40,
+				'label'       => __( 'Header Breakpoint', 'astra' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'  => 100,
+					'step' => 1,
+					'max'  => 1921,
+				),
+			)
+		)
+	);
+
+	/**
 	 * Option: Mobile Menu Label
 	 */
 	$wp_customize->add_setting(
@@ -270,7 +297,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
 			'section'  => 'section-header',
-			'priority' => 81,
+			'priority' => 45,
 			'label'    => __( 'Menu Label', 'astra' ),
 			'type'     => 'text',
 		)
@@ -290,7 +317,7 @@ $header_rt_sections = array(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
 			'type'        => 'select',
 			'section'     => 'section-header',
-			'priority'    => 45,
+			'priority'    => 55,
 			'label'       => __( 'Mobile Header Alignment', 'astra' ),
 			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
 			'choices'     => array(
@@ -310,7 +337,7 @@ $header_rt_sections = array(
 			new Astra_Control_Divider(
 				$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-more-feature-divider]', array(
 					'type'     => 'ast-divider',
-					'section'  => 'section-mobile-header',
+					'section'  => 'section-header',
 					'priority' => 999,
 					'settings' => array(),
 				)
@@ -323,7 +350,7 @@ $header_rt_sections = array(
 			new Astra_Control_Description(
 				$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-more-feature-description]', array(
 					'type'     => 'ast-description',
-					'section'  => 'section-mobile-header',
+					'section'  => 'section-header',
 					'priority' => 999,
 					'label'    => '',
 					'help'     => '<p>' . __( 'More Options Available for Mobile Header in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/mobile-header-with-astra/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
