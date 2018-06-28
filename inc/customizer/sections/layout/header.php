@@ -298,7 +298,7 @@ $header_rt_sections = array(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
 			'section'  => 'section-header',
 			'priority' => 45,
-			'label'    => __( 'Menu Label', 'astra' ),
+			'label'    => __( 'Menu Label on Small Devices', 'astra' ),
 			'type'     => 'text',
 		)
 	);
@@ -317,7 +317,7 @@ $header_rt_sections = array(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
 			'type'        => 'select',
 			'section'     => 'section-header',
-			'priority'    => 55,
+			'priority'    => 50,
 			'label'       => __( 'Mobile Header Alignment', 'astra' ),
 			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
 			'choices'     => array(
