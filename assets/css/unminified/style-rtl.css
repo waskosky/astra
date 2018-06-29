@@ -3452,13 +3452,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   line-height: 1;
 }
 
+.ast-primary-menu-disabled.ast-mobile-header-inline .ast-masthead-custom-menu-items {
+  text-align: left;
+}
+
 .ast-primary-menu-disabled .ast-masthead-custom-menu-items {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -moz-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  text-align: left;
 }
 
 .ast-primary-menu-disabled.header-main-layout-2 .ast-masthead-custom-menu-items {
