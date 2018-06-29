@@ -293,11 +293,11 @@ $header_rt_sections = array(
 				'choices'     => array(
 					'inline' => array(
 						'label' => __( 'Inline', 'astra' ),
-						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+						'path'  => ASTRA_THEME_URI . '/assets/images/inline-layout-60x60.png',
 					),
 					'stack'  => array(
 						'label' => __( 'Stack', 'astra' ),
-						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+						'path'  => ASTRA_THEME_URI . '/assets/images/stack-layout-60x60.png',
 					),
 				),
 				'section'     => 'section-header',
