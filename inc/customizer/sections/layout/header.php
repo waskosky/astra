@@ -245,9 +245,9 @@ $header_rt_sections = array(
 	 * Option: Mobile Menu Label Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Astra_Control_Heading(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'ast-heading',
 				'section'  => 'section-header',
 				'priority' => 35,
 				'label'    => __( 'Mobile Header', 'astra' ),
