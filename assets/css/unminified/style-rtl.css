@@ -2668,6 +2668,10 @@ body {
 /**
  * Contents
  */
+.ast-mobile-menu-buttons {
+  display: none;
+}
+
 /* Toggle Button */
 .ast-button-wrap {
   display: inline-block;
@@ -2725,10 +2729,6 @@ body {
 
 .ast-button-wrap .menu-toggle .mobile-menu-wrap {
   display: inline-block;
-}
-
-.ast-mobile-menu-buttons {
-  display: none;
 }
 
 .main-header-bar-navigation {

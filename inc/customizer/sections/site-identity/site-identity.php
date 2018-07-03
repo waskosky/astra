@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[different-mobile-logo]', array(
 			'section'  => 'title_tagline',
-			'label'    => __( 'Different Logo for mobile devices?', 'astra-addon' ),
+			'label'    => __( 'Different Logo for mobile devices?', 'astra' ),
 			'priority' => 5,
 			'type'     => 'checkbox',
 		)
