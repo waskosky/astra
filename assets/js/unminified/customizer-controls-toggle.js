@@ -521,18 +521,18 @@
 				}
 			}
 		],
-		'astra-settings[inherit-mobile-logo]' :
+		'astra-settings[different-mobile-logo]' :
 		[
 			{
 				controls: [
 					'astra-settings[mobile-header-logo]'
 				],
-				callback: function( inherit_mobile_logo ) {
+				callback: function( different_mobile_logo ) {
 
-					if ( inherit_mobile_logo ) {
-						return false;
+					if ( different_mobile_logo ) {
+						return true;
 					}
-					return true;
+					return false;
 				}
 			}
 		],
