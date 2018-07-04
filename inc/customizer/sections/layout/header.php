@@ -314,16 +314,24 @@ $header_rt_sections = array(
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
-			'type'        => 'select',
-			'section'     => 'section-header',
-			'priority'    => 50,
-			'label'       => __( 'Mobile Header Alignment', 'astra' ),
-			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
-			'choices'     => array(
-				'inline' => __( 'Inline', 'astra' ),
-				'stack'  => __( 'Stack', 'astra' ),
-			),
+		new Astra_Control_Radio_Image(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
+				'type'        => 'ast-radio-image',
+				'choices'     => array(
+					'inline' => array(
+						'label' => __( 'Inline', 'astra' ),
+						'path'  => ASTRA_THEME_URI . '/assets/images/inline-layout-60x60.png',
+					),
+					'stack'  => array(
+						'label' => __( 'Stack', 'astra' ),
+						'path'  => ASTRA_THEME_URI . '/assets/images/stack-layout-60x60.png',
+					),
+				),
+				'section'     => 'section-header',
+				'priority'    => 50,
+				'label'       => __( 'Mobile Header Alignment', 'astra' ),
+				'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
+			)
 		)
 	);
 
