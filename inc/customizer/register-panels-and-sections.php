@@ -292,6 +292,19 @@
 		)
 	);
 
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-primary-header-typo',
+			apply_filters(
+				'astra_customizer_primary_header_typo',
+				array(
+					'title'    => __( 'Primary Header', 'astra' ),
+					'panel'    => 'panel-typography',
+					'priority' => 21,
+				)
+			)
+		)
+	);
 
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
