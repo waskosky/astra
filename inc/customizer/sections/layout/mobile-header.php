@@ -40,30 +40,6 @@ $wp_customize->add_control(
 	)
 );
 
-/**
- * Option: Mobile Menu Alignment
- */
-$wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
-		'default'           => astra_get_option( 'header-main-menu-align' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
-		'type'        => 'select',
-		'section'     => 'section-mobile-header',
-		'priority'    => 45,
-		'label'       => __( 'Mobile Header Alignment', 'astra' ),
-		'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
-		'choices'     => array(
-			'inline' => __( 'Inline', 'astra' ),
-			'stack'  => __( 'Stack', 'astra' ),
-		),
-	)
-);
-
 // Learn More link if Astra Pro is not activated.
 if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
