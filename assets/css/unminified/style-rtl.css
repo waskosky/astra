@@ -3480,6 +3480,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   line-height: 1;
 }
 
+.ast-mobile-header-stack .ast-masthead-custom-menu-items {
+  padding: 0.5em 1em 0 1em;
+  text-align: center;
+}
+
 /* Hide Mobile logo. */
 .ast-mobile-header-logo {
   display: none;
