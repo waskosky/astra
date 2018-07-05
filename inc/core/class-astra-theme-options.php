@@ -302,6 +302,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// Sidebar.
 					'footer-adv'                       => 'disabled',
+
+					'mobile-header-order'              => 'header-order-1'
 				)
 			);
 		}

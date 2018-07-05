@@ -304,6 +304,32 @@ $header_rt_sections = array(
 	);
 
 	/**
+	 * Option: Mobile header positioning
+	 */
+
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[mobile-header-order]', array(
+			'default'           => astra_get_option( 'mobile-header-order' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[mobile-header-order]', array(
+			'section'  => 'section-header',
+			'label'    => __( 'Mobile Header Order', 'astra-addon' ),
+			'type'     => 'select',
+			'priority' => 47,
+			'choices'  => array(
+				'header-order-1'    => __( 'Logo / Custom Menu Item / Menu', 'astra-addon' ),
+				'header-order-2'    => __( 'Custom Menu Item / Logo / Menu', 'astra-addon' ),
+				'header-order-3'    => __( 'Menu / Logo / Custom Menu Item', 'astra-addon' ),
+				'header-order-4'    => __( 'Menu / Custom Menu Item / Logo', 'astra-addon' ),
+			),
+		)
+	);
+
+	/**
 	 * Option: Mobile Menu Alignment
 	 */
 	$wp_customize->add_setting(

@@ -215,6 +215,14 @@ li.ast-masthead-custom-menu-items {
 		align-self: center;
 		padding-bottom: 1.5em;
 	}
+
+	.mobile-header-order-2,
+	.mobile-header-order-3{
+		.site-branding{
+			order: 2;
+		}
+	}
+
 	ul li.ast-masthead-custom-menu-items a {
 		padding: 0;
 		width: auto;
@@ -363,6 +371,24 @@ li.ast-masthead-custom-menu-items {
 		.ast-masthead-custom-menu-items {
 			padding-bottom: 1.5em;
 			order: 1;
+		}
+
+		.mobile-header-order-3{
+			.ast-mobile-menu-buttons{
+				order: 1;
+			}
+			.ast-masthead-custom-menu-items{
+				order: 2;
+			}
+		}
+
+		.mobile-header-order-4{
+			.ast-mobile-menu-buttons{
+				order: 1;
+			}
+			.site-branding{
+				order: 2;
+			}
 		}
 
 		.header-main-layout-2 {

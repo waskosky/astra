@@ -3080,9 +3080,6 @@ body {
   .ast-header-break-point .ast-mobile-header-stack .main-header-bar {
     padding: 1em 0 0;
   }
-  .ast-header-break-point .ast-mobile-header-stack .main-header-container {
-    display: block;
-  }
   .ast-header-break-point .ast-mobile-header-stack .site-title {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
@@ -3100,7 +3097,6 @@ body {
     justify-content: center;
     text-align: center;
     padding-bottom: 1em;
-    padding-right: 0;
   }
   .ast-header-break-point .ast-logo-title-inline .ast-site-identity {
     display: block;
@@ -3517,6 +3513,15 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding-bottom: 1.5em;
 }
 
+.ast-header-break-point .mobile-header-order-2 .site-branding,
+.ast-header-break-point .mobile-header-order-3 .site-branding {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -moz-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
   padding: 0;
   width: auto;
@@ -3675,6 +3680,38 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   -moz-box-ordinal-group: 2;
   -ms-flex-order: 1;
   order: 1;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-3 .ast-mobile-menu-buttons {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -moz-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-3 .ast-masthead-custom-menu-items {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -moz-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .ast-mobile-menu-buttons {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -moz-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .site-branding {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -moz-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-masthead-custom-menu-items {
