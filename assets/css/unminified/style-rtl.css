@@ -3481,6 +3481,22 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: center;
 }
 
+.ast-mobile-header-stack .ast-mobile-menu-buttons {
+  width: 100%;
+}
+
+.ast-mobile-header-stack.mobile-header-order-1 .ast-mobile-menu-buttons {
+  padding-top: 0.5em;
+}
+
+.ast-mobile-header-stack.mobile-header-order-3 .ast-mobile-menu-buttons {
+  padding-bottom: 0.5em;
+}
+
+.ast-mobile-header-stack.mobile-header-order-4 .site-branding, .ast-mobile-header-stack.mobile-header-order-2 .site-branding, .ast-mobile-header-stack.mobile-header-order-3 .site-branding {
+  padding-top: 0.5em;
+}
+
 /* Hide Mobile logo. */
 .ast-mobile-header-logo {
   display: none;
