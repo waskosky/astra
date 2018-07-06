@@ -3538,6 +3538,24 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   order: 2;
 }
 
+.ast-header-break-point .header-main-layout-3 .main-header-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.ast-header-break-point .header-main-layout-3.mobile-header-order-2.ast-mobile-header-inline .site-branding {
+  padding: 0 0 0 0.5em;
+}
+
+.ast-header-break-point .header-main-layout-1.mobile-header-order-3.ast-mobile-header-inline .site-branding {
+  padding: 0 1em 0 0;
+}
+
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
   padding: 0;
   width: auto;

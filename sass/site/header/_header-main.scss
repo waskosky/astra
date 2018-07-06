@@ -243,6 +243,29 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
+	.header-main-layout-3{
+		.main-header-container{
+			flex-direction: row;
+		}
+		&.mobile-header-order-2{
+			&.ast-mobile-header-inline{
+				.site-branding{
+					padding: 0 0.5em 0 0;
+				}
+			}
+		}
+	}
+
+	.header-main-layout-1{
+		&.mobile-header-order-3{
+			&.ast-mobile-header-inline{
+				.site-branding{
+					padding: 0 0 0 1em;
+				}
+			}
+		}
+	}
+
 	ul li.ast-masthead-custom-menu-items a {
 		padding: 0;
 		width: auto;
