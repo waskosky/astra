@@ -174,8 +174,13 @@
 		background-color: $color-background-nav-mobile;
 	}
 
+	&.ast-default-menu-enable{
+		.main-header-menu{
+			background-color: $color-background-nav-mobile;
+		}
+	}
+
 	.main-header-menu {
-		background-color: $color-background-nav-mobile;
 		ul {
 			background-color: $color-background-nav-mobile;
 			position: static;
