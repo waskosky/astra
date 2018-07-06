@@ -2865,10 +2865,6 @@ body {
 /**
  * 2 - Header Layout 2
 */
-.header-main-layout-2 .main-header-container {
-  display: block;
-}
-
 .header-main-layout-2 .site-branding {
   text-align: center;
   padding-bottom: 1em;
@@ -3104,6 +3100,13 @@ body {
   .ast-header-break-point .ast-logo-title-inline .site-logo-img {
     padding-right: 0;
   }
+  .ast-header-break-point .mobile-header-order-default.ast-mobile-header-stack .main-header-container {
+    display: block;
+  }
+}
+
+.mobile-header-order-default.header-main-layout-2 .main-header-container {
+  display: block;
 }
 
 /* 3 - Header Common  */
@@ -3736,25 +3739,26 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 @media (max-width: 544px) {
-  .ast-mobile-menu-buttons {
+  .ast-mobile-header-stack .ast-mobile-menu-buttons {
     width: 100%;
   }
-  .ast-header-custom-item-outside .ast-mobile-header-stack .site-branding,
-  .ast-header-custom-item-outside .ast-mobile-header-stack .ast-masthead-custom-menu-items {
+  .ast-header-custom-item-outside .ast-mobile-header-stack:not(.mobile-header-order-default) .site-branding,
+  .ast-header-custom-item-outside .ast-mobile-header-stack:not(.mobile-header-order-default) .ast-masthead-custom-menu-items {
     -webkit-box-flex: 1;
     -webkit-flex: 1 100%;
     -moz-box-flex: 1;
     -ms-flex: 1 100%;
     flex: 1 100%;
   }
-  .ast-header-custom-item-outside .ast-mobile-header-stack.mobile-header-order-2 .site-branding, .ast-header-custom-item-outside .ast-mobile-header-stack.mobile-header-order-3 .site-branding {
+  .ast-header-custom-item-outside .mobile-header-order-2 .site-branding,
+  .ast-header-custom-item-outside .mobile-header-order-3 .site-branding {
     -webkit-box-ordinal-group: 3;
     -webkit-order: 2;
     -moz-box-ordinal-group: 3;
     -ms-flex-order: 2;
     order: 2;
   }
-  .ast-header-custom-item-outside .header-main-layout-3 .main-header-container {
+  .ast-header-custom-item-outside .header-main-layout-3:not(.mobile-header-order-default) .main-header-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;

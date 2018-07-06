@@ -317,14 +317,15 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[mobile-header-order]', array(
 			'section'  => 'section-header',
-			'label'    => __( 'Mobile Header Order', 'astra-addon' ),
+			'label'    => __( 'Mobile Header Order', 'astra' ),
 			'type'     => 'select',
 			'priority' => 47,
 			'choices'  => array(
-				'header-order-1'    => __( 'Logo / Custom Menu Item / Menu', 'astra-addon' ),
-				'header-order-2'    => __( 'Custom Menu Item / Logo / Menu', 'astra-addon' ),
-				'header-order-3'    => __( 'Menu / Logo / Custom Menu Item', 'astra-addon' ),
-				'header-order-4'    => __( 'Menu / Custom Menu Item / Logo', 'astra-addon' ),
+				'header-order-default' => __( 'Default', 'astra' ),
+				'header-order-1'       => __( 'Logo / Custom Menu Item / Menu', 'astra' ),
+				'header-order-2'       => __( 'Custom Menu Item / Logo / Menu', 'astra' ),
+				'header-order-3'       => __( 'Menu / Logo / Custom Menu Item', 'astra' ),
+				'header-order-4'       => __( 'Menu / Custom Menu Item / Logo', 'astra' ),
 			),
 		)
 	);

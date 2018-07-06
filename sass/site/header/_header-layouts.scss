@@ -49,9 +49,6 @@
  * 2 - Header Layout 2
 */
 .header-main-layout-2 {
-	.main-header-container {
-		display: block;
-	}
 	.site-branding {
 		text-align: center;
 		padding-bottom: 1em;
@@ -111,7 +108,7 @@
 */
 .header-main-layout-3 {
 	.main-header-container	{
-		  flex-direction: row-reverse;
+		flex-direction: row-reverse;
 	}
 	.main-navigation {
 		padding-right: 15px;
@@ -225,6 +222,22 @@
 		    .site-logo-img{
 				padding-right: 0;
 			}
+		}
+
+		.mobile-header-order-default{
+			&.ast-mobile-header-stack{
+				.main-header-container {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.mobile-header-order-default{
+	&.header-main-layout-2 {
+		.main-header-container {
+			display: block;
 		}
 	}
 }
