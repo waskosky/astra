@@ -395,3 +395,49 @@ $header_rt_sections = array(
 			)
 		);
 	}
+
+	/**
+	 * Option: Toggle Button Style
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]', array(
+			'default'           => astra_get_option( 'mobile-header-toggle-btn-style' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]', array(
+			'section'  => 'section-header',
+			'label'    => __( 'Toggle Button Style', 'astra-addon' ),
+			'type'     => 'select',
+			'priority' => 42,
+			'choices'  => array(
+				'fill'    => __( 'Fill', 'astra-addon' ),
+				'outline' => __( 'Outline', 'astra-addon' ),
+				'minimal' => __( 'Minimal', 'astra-addon' ),
+			),
+		)
+	);
+
+	/**
+	 * Option: Toggle Button Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]', array(
+			'default'           => astra_get_option( 'mobile-header-toggle-btn-style-color' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Color(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]', array(
+				'type'     => 'ast-color',
+				'label'    => __( 'Toggle Button Color', 'astra-addon' ),
+				'section'  => 'section-header',
+				'priority' => 42,
+			)
+		)
+	);

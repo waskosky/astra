@@ -303,7 +303,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Sidebar.
 					'footer-adv'                       => 'disabled',
 
-					'mobile-header-order'              => 'header-order-default'
+					'mobile-header-order'              => 'header-order-default',
+
+					// toogle menu style.
+					'mobile-header-toggle-btn-style'   => 'minimal',
 				)
 			);
 		}

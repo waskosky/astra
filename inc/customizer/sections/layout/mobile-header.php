@@ -72,3 +72,4 @@ if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 		)
 	);
 }
+

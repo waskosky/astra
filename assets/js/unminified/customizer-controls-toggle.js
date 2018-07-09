@@ -556,24 +556,6 @@
 				}
 			}
 		);
-	} else {
-
-		ASTCustomizerToggles ['astra-settings[header-display-outside-menu]'] = [
-            {
-                controls: [
-					'astra-settings[mobile-header-order]'
-				],
-                callback: function( val ) {
-
-					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
-
-					if ( val && 'no-toggle' != menu_style ) {
-						return true;
-					}
-					return false;
-				}
-            },
-        ];
 	}
 
 	if ( typeof ASTCustomizerToggles['astra-settings[mobile-menu-style]'] != 'undefined' && ASTCustomizerToggles['astra-settings[mobile-menu-style]'].length > 0 ) {
