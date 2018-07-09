@@ -441,3 +441,31 @@ $header_rt_sections = array(
 			)
 		)
 	);
+
+		/**
+	 * Option: Border Radius
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-border-radius]', array(
+			'default'           => astra_get_option( 'mobile-header-toggle-btn-border-radius' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Slider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-border-radius]', array(
+				'type'        => 'ast-slider',
+				'section'     => 'section-header',
+				'label'       => __( 'Border Radius', 'astra-addon' ),
+				'priority'    => 42,
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
+			)
+		)
+	);
