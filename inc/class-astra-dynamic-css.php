@@ -144,10 +144,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_footer_width  = astra_get_option( 'footer-layout-width' );
 
 			// Blog Post Title Typography Options.
-			$single_post_max       = astra_get_option( 'blog-single-width' );
-			$single_post_max_width = astra_get_option( 'blog-single-max-width' );
-			$blog_width            = astra_get_option( 'blog-width' );
-			$blog_max_width        = astra_get_option( 'blog-max-width' );
+			$single_post_max                      = astra_get_option( 'blog-single-width' );
+			$single_post_max_width                = astra_get_option( 'blog-single-max-width' );
+			$blog_width                           = astra_get_option( 'blog-width' );
+			$blog_max_width                       = astra_get_option( 'blog-max-width' );
+			$mobile_header_toggle_btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
 
 			$css_output = array();
 			// Body Font Family.
@@ -403,6 +404,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
+
+				// toggle style
+				// Menu Toggle Minimal.
+				'.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle' => array(
+					'background' => 'transparent',
+					'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
+				),
+
 			);
 
 			/* Parse CSS from array() */

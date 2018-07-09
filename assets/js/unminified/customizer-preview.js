@@ -626,4 +626,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
+	//[1] Primary Menu Toggle Button Style.
+	wp.customize( 'astra-settings[mobile-header-toggle-btn-style]', function( setting ) {
+		setting.bind( function( icon_style ) {
+			var buttons = $(document).find('.ast-mobile-menu-buttons .menu-toggle');
+			buttons.removeClass('ast-mobile-menu-buttons-default ast-mobile-menu-buttons-fill ast-mobile-menu-buttons-outline');
+			buttons.removeClass('ast-mobile-menu-buttons-default ast-mobile-menu-buttons-fill ast-mobile-menu-buttons-minimal');
+			buttons.addClass( 'ast-mobile-menu-buttons-' + icon_style );
+		} );
+	} );
+
 } )( jQuery );

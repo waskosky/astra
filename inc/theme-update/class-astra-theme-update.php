@@ -149,6 +149,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_4_0_beta_4();
 			}
 
+			if ( version_compare( $saved_version, '1.4.0', '<' ) ) {
+				self::v_1_4_0();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -688,6 +692,22 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			if ( '' != $mobile_header_logo ) {
 				$theme_options['different-mobile-logo'] = true;
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Function to backward compatibility for version less than 1.4.0
+		 *
+		 * @since 1.4.0
+		 */
+		static public function v_1_4_0() {
+
+			$theme_options = get_option( 'astra-settings' );
+
+			if ( ! isset( $theme_options['mobile-header-toggle-btn-style'] ) ) {
+				$theme_options['mobile-header-toggle-btn-style'] = 'fill';
 			}
 
 			update_option( 'astra-settings', $theme_options );

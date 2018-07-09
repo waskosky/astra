@@ -48,7 +48,20 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 
 			add_action( 'astra_header', array( $this, 'mobile_header_markup' ), 5 );
 			add_action( 'body_class', array( $this, 'add_body_class' ) );
+			add_filter( 'astra_main_menu_toggle_classes', array( $this, 'menu_toggle_classes' ) );
 
+		}
+
+		/**
+		 * Header Cart Icon Class
+		 *
+		 * @param array $classes Default argument array.
+		 *
+		 * @since x.x.x
+		 * @return array;
+		 */
+		function menu_toggle_classes( $classes ) {
+			return ' ast-mobile-menu-buttons-' . astra_get_option( 'mobile-header-toggle-btn-style' ) . ' ';
 		}
 
 		/**
