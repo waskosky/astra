@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public function __construct() {
 
 			// Theme Updates.
-			add_action( 'init', __CLASS__ . '::init' );
+			add_action( 'wp', __CLASS__ . '::init', 5 );
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
-			if ( ! $saved_version ) {
+			if ( false === $saved_version ) {
 
 				// Get all customizer options.
 				$customizer_options = get_option( ASTRA_THEME_SETTINGS );
