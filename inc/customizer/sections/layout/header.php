@@ -323,10 +323,10 @@ $header_rt_sections = array(
 			'choices'  => array(
 				'header-order-default' => __( 'Default', 'astra' ),
 				'header-order-1'       => __( 'Logo / Custom Menu Item / Menu', 'astra' ),
+				'header-order-5'       => __( 'Logo / Menu / Custom Menu Item', 'astra' ),
 				'header-order-2'       => __( 'Custom Menu Item / Logo / Menu', 'astra' ),
 				'header-order-3'       => __( 'Menu / Logo / Custom Menu Item', 'astra' ),
 				'header-order-4'       => __( 'Menu / Custom Menu Item / Logo', 'astra' ),
-				'header-order-5'       => __( 'Logo / Menu / Custom Menu Item', 'astra' ),
 			),
 		)
 	);
