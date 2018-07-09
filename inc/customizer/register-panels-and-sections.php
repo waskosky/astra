@@ -55,6 +55,23 @@
 	);
 
 	/*
+	 * Update the Site Identity section inside Layout -> Header
+	 *
+	 * @since x.x.x
+	 */
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'title_tagline',
+			array(
+				'priority' => 5,
+				'title'    => __( 'Site Identity', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-header-group',
+			)
+		)
+	);
+
+	/*
 	 * Update the Primary Header section
 	 *
 	 * @since x.x.x
