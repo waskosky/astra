@@ -311,7 +311,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$logo_width = astra_get_option( 'ast-header-responsive-logo-width' );
 
-			if ( is_array( $sizes ) && ( '' != $logo_width['desktop'] || '' != $logo_width['tablet'] | '' != $logo_width['mobile'] ) ) {
+			if ( is_array( $sizes ) && '' != $logo_width['desktop'] ) {
 				$max_value              = max( $logo_width );
 				$sizes['ast-logo-size'] = array(
 					'width'  => (int) $max_value,
