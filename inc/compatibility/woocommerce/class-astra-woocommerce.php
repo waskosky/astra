@@ -544,6 +544,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function woocommerce_checkout() {
 
+			if ( is_admin() ) {
+				return;
+			}
+
 			if ( ! apply_filters( 'astra_woo_shop_product_structure_override', false ) ) {
 
 				/**
