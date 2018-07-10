@@ -316,11 +316,11 @@ $header_rt_sections = array(
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[mobile-header-order]', array(
-			'section'  => 'section-header',
-			'label'    => __( 'Mobile Header Order', 'astra' ),
-			'type'     => 'select',
-			'priority' => 47,
-			'choices'  => array(
+			'section'     => 'section-header',
+			'label'       => __( 'Mobile Header Order', 'astra' ),
+			'type'        => 'select',
+			'priority'    => 47,
+			'choices'     => array(
 				'header-order-default' => __( 'Default', 'astra' ),
 				'header-order-1'       => __( 'Logo / Custom Menu Item / Menu', 'astra' ),
 				'header-order-5'       => __( 'Logo / Menu / Custom Menu Item', 'astra' ),
@@ -328,6 +328,7 @@ $header_rt_sections = array(
 				'header-order-3'       => __( 'Menu / Logo / Custom Menu Item', 'astra' ),
 				'header-order-4'       => __( 'Menu / Custom Menu Item / Logo', 'astra' ),
 			),
+			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
 		)
 	);
 
