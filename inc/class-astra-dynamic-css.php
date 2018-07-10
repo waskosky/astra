@@ -152,13 +152,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$mobile_header_toggle_btn_border_radius = astra_get_option( 'mobile-header-toggle-btn-border-radius' );
 
 			$btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', false );
-			$btn_text_color  = astra_get_option( 'button-color' );
 
 			if ( false == $btn_style_color ) {
-				// button text color
-				$menu_btn_color = esc_attr( $btn_text_color );
+				// button text color.
+				$menu_btn_color = esc_attr( astra_get_option( 'button-color' ) );
 			} else {
-				// toggle button color
+				// toggle button color.
 				$menu_btn_color = astra_get_foreground_color( $btn_style_color );
 			}
 
