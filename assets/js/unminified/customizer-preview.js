@@ -636,4 +636,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
+	//[1] Toggle Button Border Radius.
+	wp.customize( 'astra-settings[mobile-header-toggle-btn-border-radius]', function( setting ) {
+		setting.bind( function( border ) {
+
+			var dynamicStyle = '.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			astra_add_dynamic_css( 'mobile-header-toggle-btn-border-radius', dynamicStyle );
+
+		} );
+	} );
+
 } )( jQuery );

@@ -144,11 +144,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_footer_width  = astra_get_option( 'footer-layout-width' );
 
 			// Blog Post Title Typography Options.
-			$single_post_max                      = astra_get_option( 'blog-single-width' );
-			$single_post_max_width                = astra_get_option( 'blog-single-max-width' );
-			$blog_width                           = astra_get_option( 'blog-width' );
-			$blog_max_width                       = astra_get_option( 'blog-max-width' );
-			$mobile_header_toggle_btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
+			$single_post_max                        = astra_get_option( 'blog-single-width' );
+			$single_post_max_width                  = astra_get_option( 'blog-single-max-width' );
+			$blog_width                             = astra_get_option( 'blog-width' );
+			$blog_max_width                         = astra_get_option( 'blog-max-width' );
+			$mobile_header_toggle_btn_style_color   = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
+			$mobile_header_toggle_btn_border_radius = astra_get_option( 'mobile-header-toggle-btn-border-radius' );
 
 			$css_output = array();
 			// Body Font Family.
@@ -410,6 +411,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle' => array(
 					'background' => 'transparent',
 					'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
+				),
+
+				// Menu Toggle Outline.
+				'.ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle' => array(
+					'background' => 'transparent',
+					'border'     => '1px solid ' . $mobile_header_toggle_btn_style_color,
+					'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
+				),
+
+				// Menu Toggle Fill.
+				'.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle' => array(
+					'border'     => '1px solid ' . $mobile_header_toggle_btn_style_color,
+					'background' => esc_attr( $mobile_header_toggle_btn_style_color ),
+					'color'      => astra_get_foreground_color( $mobile_header_toggle_btn_style_color ),
+				),
+
+				// Menu Toggle Border Radius.
+				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
+					'border-radius' => esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px',
 				),
 
 			);
