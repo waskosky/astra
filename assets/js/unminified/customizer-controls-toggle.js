@@ -506,5 +506,94 @@
 				}
 			}
 		],
+		'astra-settings[mobile-header-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[mobile-header-logo-width]'
+				],
+				callback: function( mobile_logo ) {
+
+					if ( mobile_logo ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
+		'astra-settings[different-mobile-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[mobile-header-logo]'
+				],
+				callback: function( different_mobile_logo ) {
+
+					if ( different_mobile_logo ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 	};
+
+	if ( typeof ASTCustomizerToggles['astra-settings[header-display-outside-menu]'] != 'undefined' && ASTCustomizerToggles['astra-settings[header-display-outside-menu]'].length > 0 ) {
+
+		ASTCustomizerToggles ['astra-settings[header-display-outside-menu]'].push(
+			{
+				controls: [
+					'astra-settings[mobile-header-order]',
+				],
+				callback: function( val ) {
+
+					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
+
+					if ( val && 'no-toggle' != menu_style ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		);
+	}
+
+	if ( typeof ASTCustomizerToggles['astra-settings[mobile-menu-style]'] != 'undefined' && ASTCustomizerToggles['astra-settings[mobile-menu-style]'].length > 0 ) {
+
+		ASTCustomizerToggles ['astra-settings[mobile-menu-style]'].push(
+			{
+				controls: [
+					'astra-settings[mobile-header-order]',
+				],
+				callback: function( val ) {
+
+					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
+
+					if ( 'no-toggle' != val && menu_outside ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		);
+	} else {
+
+		ASTCustomizerToggles['astra-settings[mobile-menu-style]'] = [
+			{
+				controls: [
+					'astra-settings[mobile-header-order]',
+				],
+				callback: function( val ) {
+
+					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
+
+					if ( 'no-toggle' != val && menu_outside ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		];
+	}
+
 } )( jQuery );

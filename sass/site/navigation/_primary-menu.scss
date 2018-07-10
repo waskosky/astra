@@ -41,7 +41,7 @@
 
 		&:hover > ul,
 		&.focus > ul {
-			left: 0;
+			display: block;
 			right: auto;
 		}
 
@@ -56,7 +56,7 @@
 	ul {
 		width: 240px;
 		background: $color-background-header-submenu;
-		left: -999em;
+		display: none;
 		position: absolute;
 		top: 100%;
 		z-index: 99999;
@@ -132,7 +132,9 @@
 				padding: 0 20px;
 				display: inline-block;
 				width: 100%;
-				border-bottom: 1px solid #dadada;
+				border-bottom-width: 1px;
+				border-style: solid;
+				border-color: #eaeaea;
 			}
 			&.children li a,
 			&.sub-menu li a {
@@ -172,8 +174,13 @@
 		background-color: $color-background-nav-mobile;
 	}
 
+	&.ast-default-menu-enable{
+		.main-header-menu{
+			background-color: $color-background-nav-mobile;
+		}
+	}
+
 	.main-header-menu {
-		background-color: $color-background-nav-mobile;
 		ul {
 			background-color: $color-background-nav-mobile;
 			position: static;

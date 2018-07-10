@@ -112,6 +112,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$footer_adv_link_color         = astra_get_option( 'footer-adv-link-color' );
 			$footer_adv_link_h_color       = astra_get_option( 'footer-adv-link-h-color' );
 
+			// Header Break Point.
+			$header_break_point = astra_header_break_point();
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -141,10 +144,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_footer_width  = astra_get_option( 'footer-layout-width' );
 
 			// Blog Post Title Typography Options.
-			$single_post_max       = astra_get_option( 'blog-single-width' );
-			$single_post_max_width = astra_get_option( 'blog-single-max-width' );
-			$blog_width            = astra_get_option( 'blog-width' );
-			$blog_max_width        = astra_get_option( 'blog-max-width' );
+			$single_post_max                        = astra_get_option( 'blog-single-width' );
+			$single_post_max_width                  = astra_get_option( 'blog-single-max-width' );
+			$blog_width                             = astra_get_option( 'blog-width' );
+			$blog_max_width                         = astra_get_option( 'blog-max-width' );
+			$mobile_header_toggle_btn_style_color   = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
+			$mobile_header_toggle_btn_border_radius = astra_get_option( 'mobile-header-toggle-btn-border-radius' );
 
 			$css_output = array();
 			// Body Font Family.
@@ -192,6 +197,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'#masthead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
+				),
+				'.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img' => array(
+					'max-width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
 				'.astra-logo-svg'                         => array(
 					'width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
@@ -397,6 +405,33 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
+
+				// toggle style
+				// Menu Toggle Minimal.
+				'.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle' => array(
+					'background' => 'transparent',
+					'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
+				),
+
+				// Menu Toggle Outline.
+				'.ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle' => array(
+					'background' => 'transparent',
+					'border'     => '1px solid ' . $mobile_header_toggle_btn_style_color,
+					'color'      => esc_attr( $mobile_header_toggle_btn_style_color ),
+				),
+
+				// Menu Toggle Fill.
+				'.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle' => array(
+					'border'     => '1px solid ' . $mobile_header_toggle_btn_style_color,
+					'background' => esc_attr( $mobile_header_toggle_btn_style_color ),
+					'color'      => astra_get_foreground_color( $mobile_header_toggle_btn_style_color ),
+				),
+
+				// Menu Toggle Border Radius.
+				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
+					'border-radius' => esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px',
+				),
+
 			);
 
 			/* Parse CSS from array() */
@@ -515,6 +550,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.astra-logo-svg'                       => array(
 					'width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
+				'.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img' => array(
+					'max-width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
+				),
 			);
 
 			/* Parse CSS from array()*/
@@ -587,6 +625,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.astra-logo-svg'                       => array(
 					'width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
+				'.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img' => array(
+					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
+				),
 			);
 
 			/* Parse CSS from array()*/
@@ -646,6 +687,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$astra_fonts         .= '}';
 				$parse_css           .= $astra_fonts;
 			}
+
+			/**
+			 * Hide the default naviagtion markup for responsive devices.
+			 * Once class .ast-header-break-point is added to the body below CSS will be override by the
+			 * .ast-header-break-point class
+			 */
+			$astra_navigation  = '@media (max-width:' . $header_break_point . 'px) {';
+			$astra_navigation .= '.main-header-bar .main-header-bar-navigation{';
+			$astra_navigation .= 'display:none;';
+			$astra_navigation .= '}';
+			$astra_navigation .= '}';
+			$parse_css        .= $astra_navigation;
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
