@@ -18,7 +18,7 @@ if ( ! class_exists( 'Astra_Divi_Builder' ) ) :
 	/**
 	 * Astra Divi Builder
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 */
 	class Astra_Divi_Builder {
 
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Divi_Builder' ) ) :
 		 *
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
-		 * @since x.x.x
+		 * @since 1.4.0
 		 */
 		function add_styles( $assets ) {
 			$assets['css']['astra-divi-builder'] = 'compatibility/divi-builder';
