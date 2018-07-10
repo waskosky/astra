@@ -451,9 +451,18 @@ li.ast-masthead-custom-menu-items {
 		.mobile-header-order-3{
 			.site-branding{
 				order: 2;
-				text-align: center;
 			}
 		}
+
+		header:not( .ast-hide-custom-menu-mobile ){
+			&.mobile-header-order-2,
+			&.mobile-header-order-3{
+				.site-branding{
+					text-align: center;
+				}
+			}
+		}
+
 		.header-main-layout-3{
 			&:not( .mobile-header-order-default ){
 				.main-header-container{
