@@ -111,6 +111,8 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-site-origin.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gravity-forms.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bne-flyout.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-ubermeu.php';
+require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-divi-builder.php';
+
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {

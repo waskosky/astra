@@ -172,6 +172,7 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 				$menu_label_class    = 'ast-menu-label';
 				$screen_reader_title = $menu_title;
 			}
+
 			$menu_label_class = apply_filters( 'astra_main_menu_toggle_classes', $menu_label_class );
 			?>
 		<div class="ast-button-wrap">

@@ -339,6 +339,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
 
+						if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) {
+							require_once ABSPATH . 'wp-admin/includes/image.php';
+						}
+
 						$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
 
 						if ( ! is_wp_error( $metadata ) && ! empty( $metadata ) ) {

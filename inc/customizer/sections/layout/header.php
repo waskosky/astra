@@ -431,13 +431,13 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]', array(
 			'section'  => 'section-header',
-			'label'    => __( 'Toggle Button Style', 'astra-addon' ),
+			'label'    => __( 'Toggle Button Style', 'astra' ),
 			'type'     => 'select',
 			'priority' => 42,
 			'choices'  => array(
-				'fill'    => __( 'Fill', 'astra-addon' ),
-				'outline' => __( 'Outline', 'astra-addon' ),
-				'minimal' => __( 'Minimal', 'astra-addon' ),
+				'fill'    => __( 'Fill', 'astra' ),
+				'outline' => __( 'Outline', 'astra' ),
+				'minimal' => __( 'Minimal', 'astra' ),
 			),
 		)
 	);
@@ -456,7 +456,7 @@ $header_rt_sections = array(
 		new Astra_Control_Color(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]', array(
 				'type'     => 'ast-color',
-				'label'    => __( 'Toggle Button Color', 'astra-addon' ),
+				'label'    => __( 'Toggle Button Color', 'astra' ),
 				'section'  => 'section-header',
 				'priority' => 42,
 			)
@@ -479,7 +479,7 @@ $header_rt_sections = array(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-border-radius]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-header',
-				'label'       => __( 'Border Radius', 'astra-addon' ),
+				'label'       => __( 'Border Radius', 'astra' ),
 				'priority'    => 42,
 				'suffix'      => '',
 				'input_attrs' => array(
