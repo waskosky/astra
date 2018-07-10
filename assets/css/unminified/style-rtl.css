@@ -2479,7 +2479,12 @@ body {
 }
 
 .main-navigation {
-  display: inline-block;
+  -js-display: inline-flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-weight: 600;
 }
 

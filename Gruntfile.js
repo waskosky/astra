@@ -235,6 +235,10 @@ module.exports = function (grunt) {
                             src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css',
                             dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css',
                         },
+                        {
+                            src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
+                            dest: 'assets/css/minified/compatibility/divi-builder.min-rtl.css',
+                        },
                     ]
                 }
             },
