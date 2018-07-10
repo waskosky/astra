@@ -3,7 +3,7 @@
  * Astra Loop
  *
  * @package Astra
- * @since x.x.x
+ * @since 1.4.0
  */
 
 if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
@@ -11,14 +11,14 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 	/**
 	 * Astra_Mobile_Header
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 */
 	class Astra_Mobile_Header {
 
 		/**
 		 * Instance
 		 *
-		 * @since x.x.x
+		 * @since 1.4.0
 		 *
 		 * @access private
 		 * @var object Class object.
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		/**
 		 * Initiator
 		 *
-		 * @since x.x.x
+		 * @since 1.4.0
 		 *
 		 * @return object initialized object of class.
 		 */
@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		/**
 		 * Constructor
 		 *
-		 * @since x.x.x
+		 * @since 1.4.0
 		 */
 		public function __construct() {
 
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 *
 		 * @param array $classes Default argument array.
 		 *
-		 * @since x.x.x
+		 * @since 1.4.0
 		 * @return array;
 		 */
 		function menu_toggle_classes( $classes ) {
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 *
 		 * @param sting $html Size name.
 		 * @param int   $blog_id Icon.
-		 * @since x.x.x
+		 * @since 1.4.0
 		 * @return string html markup of logo.
 		 */
 		function astra_mobile_header_custom_logo( $html, $blog_id ) {

@@ -41,7 +41,7 @@
 	/*
 	 * Header section
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 */
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
@@ -57,7 +57,7 @@
 	/*
 	 * Update the Site Identity section inside Layout -> Header
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 */
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
@@ -74,7 +74,7 @@
 	/*
 	 * Update the Primary Header section
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 */
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
@@ -91,7 +91,7 @@
 	/*
 	 * Mobile Header section
 	 *
-	 * @since x.x.x
+	 * @since 1.4.0
 	 */
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(

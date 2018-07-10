@@ -570,7 +570,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				 * Custom menu item is not 'none'.
 				 * Take custom menu item outside is unchecked.
 				 *
-				 * @since x.x.x
+				 * @since 1.4.0
 				 */
 				do_action( 'astra_main_header_custom_menu_item_before' );
 
@@ -582,7 +582,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				 * Custom menu item is not 'none'.
 				 * Take custom menu item outside is unchecked.
 				 *
-				 * @since x.x.x
+				 * @since 1.4.0
 				 */
 				do_action( 'astra_main_header_custom_menu_item_after' );
 
@@ -677,7 +677,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	/**
 	 * Function to get Header Breakpoint
 	 *
-	 * @since x.x.x Added Mobile Header Breakpoint option from customizer.
+	 * @since 1.4.0 Added Mobile Header Breakpoint option from customizer.
 	 * @since 1.0.0
 	 * @return number
 	 */
