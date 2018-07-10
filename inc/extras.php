@@ -754,9 +754,15 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
 		$mobile_header_logo       = astra_get_option( 'mobile-header-logo' );
+		$mobile_header_order      = astra_get_option( 'mobile-header-order' );
+		$hide_custom_menu_mobile  = astra_get_option( 'hide-custom-menu-mobile', false );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
+		}
+
+		if ( $mobile_header_order ) {
+			$classes[] = 'mobile-' . $mobile_header_order;
 		}
 
 		if ( $primary_menu_disable ) {
@@ -778,6 +784,10 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		// Add class if Inline Logo & Site Title.
 		if ( $logo_title_inline ) {
 			$classes[] = 'ast-logo-title-inline';
+		}
+
+		if ( '1' == $hide_custom_menu_mobile ) {
+			$classes[] = 'ast-hide-custom-menu-mobile';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;

@@ -74,14 +74,16 @@ class Astra_Control_Heading extends WP_Customize_Control {
 		<# if ( data.caption ) { #>
 			<span class="customize-control-caption">{{{ data.caption }}}</span>
 		<# } #>
-		<label class="customizer-text">
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-		</label>
+		<div class="ast-heading-wrapper wp-ui-highlight">
+			<label class="customizer-text">
+				<# if ( data.label ) { #>
+					<span class="customize-control-title wp-ui-text-highlight">{{{ data.label }}}</span>
+				<# } #>
+				<# if ( data.description ) { #>
+					<span class="description customize-control-description">{{{ data.description }}}</span>
+				<# } #>
+			</label>
+		</div>
 		<?php
 	}
 }

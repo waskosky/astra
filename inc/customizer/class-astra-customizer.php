@@ -62,8 +62,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		public function print_footer_scripts() {
-			$output      = '<script type="text/javascript">';
-				$output .= '
+			$output  = '<script type="text/javascript">';
+			$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
 	                	var desc = ctrl.container.find(".customize-control-description");
@@ -79,8 +79,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	            	});
 	        	});';
 
-				$output .= Astra_Fonts_Data::js();
-			$output     .= '</script>';
+			$output .= Astra_Fonts_Data::js();
+			$output .= '</script>';
 
 			echo $output;
 		}
@@ -160,7 +160,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/header.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/mobile-header.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';
@@ -312,7 +311,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$logo_width = astra_get_option( 'ast-header-responsive-logo-width' );
 
-			if ( is_array( $sizes ) && ( '' != $logo_width['desktop'] || '' != $logo_width['tablet'] | '' != $logo_width['mobile'] ) ) {
+			if ( is_array( $sizes ) && '' != $logo_width['desktop'] ) {
 				$max_value              = max( $logo_width );
 				$sizes['ast-logo-size'] = array(
 					'width'  => (int) $max_value,

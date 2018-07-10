@@ -55,6 +55,23 @@
 	);
 
 	/*
+	 * Update the Site Identity section inside Layout -> Header
+	 *
+	 * @since x.x.x
+	 */
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'title_tagline',
+			array(
+				'priority' => 5,
+				'title'    => __( 'Site Identity', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-header-group',
+			)
+		)
+	);
+
+	/*
 	 * Update the Primary Header section
 	 *
 	 * @since x.x.x
@@ -81,7 +98,7 @@
 			$wp_customize, 'section-mobile-header',
 			array(
 				'priority' => 40,
-				'title'    => __( 'Mobile Header Breakpoint', 'astra' ),
+				'title'    => __( 'Menu Breakpoint', 'astra' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-header-group',
 			)
@@ -292,6 +309,19 @@
 		)
 	);
 
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-primary-header-typo',
+			apply_filters(
+				'astra_customizer_primary_header_typo',
+				array(
+					'title'    => __( 'Primary Header', 'astra' ),
+					'panel'    => 'panel-typography',
+					'priority' => 21,
+				)
+			)
+		)
+	);
 
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
