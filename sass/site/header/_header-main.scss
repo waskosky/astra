@@ -411,6 +411,11 @@ li.ast-masthead-custom-menu-items {
 }
 
 @media (max-width: $mx-col-sm) {
+		
+	.ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items{
+		display: none;
+	}
+
 	.ast-mobile-header-stack{
 		.ast-mobile-menu-buttons{
 			width: 100%;

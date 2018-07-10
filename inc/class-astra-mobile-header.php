@@ -124,9 +124,14 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			 * Add class for header width
 			 */
 			$header_content_layout = astra_get_option( 'different-mobile-logo' );
+			$hide_custom_menu_mobile = astra_get_option( 'hide-custom-menu-mobile', false );
 
 			if ( '0' == $header_content_layout ) {
 				$classes[] = 'ast-mobile-inherit-site-logo';
+			}
+
+			if( '1' == $hide_custom_menu_mobile ) {
+				$classes[] = 'ast-hide-custom-menu-mobile';
 			}
 
 			return $classes;
