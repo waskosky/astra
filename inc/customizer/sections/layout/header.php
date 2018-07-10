@@ -304,6 +304,26 @@ $header_rt_sections = array(
 	);
 
 	/**
+	 * Option: Hide custom menu item on mobile device
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]', array(
+			'default'           => astra_get_option( 'hide-custom-menu-mobile' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]', array(
+			'type'        => 'checkbox',
+			'section'     => 'section-header',
+			'label'       => __( 'Hide custom menu item on mobile', 'astra' ),
+			'priority'    => 45,
+			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
+		)
+	);
+
+	/**
 	 * Option: Mobile header positioning
 	 */
 
