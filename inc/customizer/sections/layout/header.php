@@ -328,6 +328,7 @@ $header_rt_sections = array(
 				'header-order-3'       => __( 'Menu / Logo / Custom Menu Item', 'astra' ),
 				'header-order-4'       => __( 'Menu / Custom Menu Item / Logo', 'astra' ),
 			),
+			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
 		)
 	);
 
