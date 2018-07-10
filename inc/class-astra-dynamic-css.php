@@ -422,7 +422,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Menu Toggle Fill.
 				'.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle' => array(
-					'border'     => '1px solid ' . $mobile_header_toggle_btn_style_color,
 					'background' => esc_attr( $mobile_header_toggle_btn_style_color ),
 					'color'      => astra_get_foreground_color( $mobile_header_toggle_btn_style_color ),
 				),
