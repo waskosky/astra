@@ -42,7 +42,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public function __construct() {
 
 			// Theme Updates.
-			add_action( 'wp_loaded', __CLASS__ . '::init', 5 );
+			if ( is_admin() ) {
+				add_action( 'admin_init', __CLASS__ . '::init', 5 );
+			} else {
+				add_action( 'wp', __CLASS__ . '::init', 5 );
+			}
+			
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
