@@ -251,7 +251,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			$plugin_dir = wp_normalize_path( WP_PLUGIN_DIR );
 
 			if ( strpos( $path, $theme_dir ) !== false ) {
-				return get_template_directory_uri() . '/inc/notices/';
+				return get_template_directory_uri() . '/inc/lib/notices/';
 			} elseif ( strpos( $path, $plugin_dir ) !== false ) {
 				return plugin_dir_url( __FILE__ );
 			} elseif ( strpos( $path, dirname( plugin_basename( __FILE__ ) ) ) !== false ) {
