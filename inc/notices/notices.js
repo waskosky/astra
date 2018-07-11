@@ -42,9 +42,7 @@
 			event.preventDefault();
 
 			var show_notice_after = $( this ).parents('.astra-notice').data( 'show-notice-after' ) || '';
-			console.log( show_notice_after );
 			var notice_id = $( this ).parents('.astra-notice').attr( 'id' ) || '';
-			console.log( notice_id );
 
 			AstraNotices._ajax( notice_id, show_notice_after );
 		},

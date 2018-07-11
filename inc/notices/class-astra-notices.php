@@ -31,6 +31,15 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.4.0
 		 */
+		private static $version = '1.0.0';
+
+		/**
+		 * Notices
+		 *
+		 * @access private
+		 * @var array Notices.
+		 * @since 1.4.0
+		 */
 		private static $notices = array();
 
 		/**
@@ -61,6 +70,8 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 */
 		public function __construct() {
+
+			define( 'ASTRA_NOTICES_VERSION', '1.0.0' );
 			add_action( 'admin_notices', array( $this, 'show_notices' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_ajax_astra-notice-dismiss', array( $this, 'dismiss_notice' ) );
@@ -111,17 +122,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		function enqueue_scripts() {
-
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
-			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
-			}
-
-			wp_register_script( 'astra-notices', ASTRA_THEME_URI . 'assets/js/' . $dir . '/astra-notices' . $js_prefix, array( 'jquery' ), null, ASTRA_THEME_VERSION );
+			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), null, self::$version );
 		}
 
 		/**
@@ -239,6 +240,27 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			}
 
 			return false;
+		}
+
+		/**
+		 * Get URI
+		 *
+		 * @return mixed URL.
+		 */
+		public static function _get_uri() {
+			$path       = wp_normalize_path( dirname( __FILE__ ) );
+			$theme_dir  = wp_normalize_path( get_template_directory() );
+			$plugin_dir = wp_normalize_path( WP_PLUGIN_DIR );
+
+			if ( strpos( $path, $theme_dir ) !== false ) {
+				return get_template_directory_uri() . '/inc/notices/';
+			} elseif ( strpos( $path, $plugin_dir ) !== false ) {
+				return plugin_dir_url( __FILE__ );
+			} elseif ( strpos( $path, dirname( plugin_basename( __FILE__ ) ) ) !== false ) {
+				return plugin_dir_url( __FILE__ );
+			}
+
+			return;
 		}
 
 	}
