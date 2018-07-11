@@ -70,8 +70,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 */
 		public function __construct() {
-
-			define( 'ASTRA_NOTICES_VERSION', '1.0.0' );
 			add_action( 'admin_notices', array( $this, 'show_notices' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_ajax_astra-notice-dismiss', array( $this, 'dismiss_notice' ) );
