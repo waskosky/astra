@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			} else {
 				add_action( 'wp', __CLASS__ . '::init', 5 );
 			}
-			
+
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
