@@ -581,9 +581,7 @@
 
 					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
 					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-					console.log(val);
-					console.log(custom_menu_item);
-					console.log(menu_style);
+					
 					if ( ( val && 'none' != custom_menu_item ) && 'no-toggle' != menu_style ) {
 						return true;
 					}
