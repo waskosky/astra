@@ -182,7 +182,7 @@
 
 /* Mobile Header Alignment */
 @media (max-width: $mx-col-sm) {
-	.ast-header-break-point {
+	.ast-header-custom-item-outside {
 		.site-branding,
 		#masthead .site-logo-img .custom-logo-link{
 			img{
@@ -192,6 +192,9 @@
 		.ast-mobile-header-stack{
 			.site-branding{
 				padding-right: 0;
+			}
+			.main-header-container {
+				display: flex;
 			}
 		}
 		.ast-mobile-header-inline {
@@ -232,7 +235,8 @@
 		}
 
 		.mobile-header-order-default{
-			&.ast-mobile-header-stack{
+			&.ast-mobile-header-stack,
+			&.ast-mobile-header-inline{
 				.main-header-container {
 					display: block;
 				}
