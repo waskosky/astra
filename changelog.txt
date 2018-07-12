@@ -1,3 +1,10 @@
+v1.4.0
+- New: Introduced options for Mobile Header.
+- New: Toggle Button Style added for Primary Header.
+- New: Added option to Hide custom menu item on mobile for Primary Header.
+- New: Added option to Mobile Header Order on mobile when Custom menu item is selected as Take custom menu item outside.
+- Improvement: Move Site Identity section under the Layout -> Header section.
+
 v1.4.0-beta.4
 - New: Optiton to inherit mobile logo from desktop logo.
 - Improvement: Move the mobile logo option with the desktop logo option.
