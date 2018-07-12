@@ -197,7 +197,6 @@
 			{
 				controls: [
 					'astra-settings[header-main-menu-label]',
-					'astra-settings[header-main-menu-label-divider]',
 				],
 				callback: function( custom_menu ) {
 					var menu = api( 'astra-settings[disable-primary-nav]' ).get();
@@ -471,7 +470,6 @@
 			{
 				controls: [
 					'astra-settings[header-main-menu-label]',
-					'astra-settings[header-main-menu-label-divider]',
 				],
 				callback: function( menu ) {
 					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
