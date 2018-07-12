@@ -3066,6 +3066,14 @@ body {
   .ast-header-break-point .ast-mobile-header-stack .site-branding {
     padding-left: 0;
   }
+  .ast-header-break-point .ast-mobile-header-stack .main-header-container {
+    -js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .ast-header-break-point .ast-mobile-header-inline .main-header-container {
     -js-display: flex;
     display: -webkit-box;
@@ -3111,7 +3119,7 @@ body {
   .ast-header-break-point .ast-logo-title-inline .site-logo-img {
     padding-left: 0;
   }
-  .ast-header-break-point .mobile-header-order-default.ast-mobile-header-stack .main-header-container {
+  .ast-header-break-point .mobile-header-order-default.ast-mobile-header-stack .main-header-container, .ast-header-break-point .mobile-header-order-default.ast-mobile-header-inline .main-header-container {
     display: block;
   }
 }

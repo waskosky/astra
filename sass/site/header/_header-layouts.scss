@@ -193,6 +193,9 @@
 			.site-branding{
 				padding-right: 0;
 			}
+			.main-header-container {
+				display: flex;
+			}
 		}
 		.ast-mobile-header-inline {
 			.main-header-container {
@@ -232,7 +235,8 @@
 		}
 
 		.mobile-header-order-default{
-			&.ast-mobile-header-stack{
+			&.ast-mobile-header-stack,
+			&.ast-mobile-header-inline{
 				.main-header-container {
 					display: block;
 				}
