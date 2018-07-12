@@ -2870,6 +2870,10 @@ body {
 /**
  * 2 - Header Layout 2
 */
+.header-main-layout-2 .main-header-container {
+  display: block;
+}
+
 .header-main-layout-2 .site-branding {
   text-align: center;
   padding-bottom: 1em;
