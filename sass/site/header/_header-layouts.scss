@@ -49,6 +49,9 @@
  * 2 - Header Layout 2
 */
 .header-main-layout-2 {
+	.main-header-container{
+		display: block;
+	}
 	.site-branding {
 		text-align: center;
 		padding-bottom: 1em;
@@ -86,7 +89,6 @@
 			display: block;
 		}
 		.ast-mobile-menu-buttons{
-			text-align: center;
 			display: block;
 		}
 		.site-branding,
@@ -235,14 +237,6 @@
 					display: block;
 				}
 			}
-		}
-	}
-}
-
-.mobile-header-order-default{
-	&.header-main-layout-2 {
-		.main-header-container {
-			display: block;
 		}
 	}
 }
