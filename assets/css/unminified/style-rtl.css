@@ -2922,7 +2922,6 @@ body {
 }
 
 .ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
-  text-align: center;
   display: block;
 }
 
@@ -3111,10 +3110,6 @@ body {
   .ast-header-break-point .mobile-header-order-default.ast-mobile-header-stack .main-header-container {
     display: block;
   }
-}
-
-.mobile-header-order-default.header-main-layout-2 .main-header-container {
-  display: block;
 }
 
 /* 3 - Header Common  */
