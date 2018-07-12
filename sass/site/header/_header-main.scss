@@ -188,30 +188,6 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
-.ast-mobile-header-stack{
-	.ast-masthead-custom-menu-items{
-		padding: 0.5em 1em 0 1em;
-		text-align: center;
-	}
-	&.mobile-header-order-1{
-		.ast-mobile-menu-buttons{
-			padding-top: 0.5em;
-		}
-	}
-	&.mobile-header-order-3{
-		.ast-mobile-menu-buttons{
-			padding-bottom: 0.5em;
-		}
-	}
-	&.mobile-header-order-4,
-	&.mobile-header-order-2,
-	&.mobile-header-order-3{
-		.site-branding{
-			padding-top: 0.5em;
-		}
-	}
-}
-
 /* Hide Mobile logo. */
 .ast-mobile-header-logo{
 	display: none;
@@ -488,6 +464,30 @@ li.ast-masthead-custom-menu-items {
 		}
 		.ast-mobile-header-inline .ast-site-identity{
 			width: 100%;
+		}
+	}
+
+	.ast-mobile-header-stack{
+		.ast-masthead-custom-menu-items{
+			padding: 0.5em 1em 0 1em;
+			text-align: center;
+		}
+		&.mobile-header-order-1{
+			.ast-mobile-menu-buttons{
+				padding-top: 0.5em;
+			}
+		}
+		&.mobile-header-order-3{
+			.ast-mobile-menu-buttons{
+				padding-bottom: 0.5em;
+			}
+		}
+		&.mobile-header-order-4,
+		&.mobile-header-order-2,
+		&.mobile-header-order-3{
+			.site-branding{
+				padding-top: 0.5em;
+			}
 		}
 	}
 }
