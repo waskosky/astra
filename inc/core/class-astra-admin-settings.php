@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// AJAX.
 			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
 
-			add_action( 'admin_notices', __CLASS__ . '::ask_theme_rating', 1 );
+			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
 		}
 
 		/**
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.4.0
 		 */
-		public static function ask_theme_rating() {
+		public static function register_notices() {
 
 			if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				$data = Astra_Ext_White_Label_Markup::$branding;
