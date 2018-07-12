@@ -841,7 +841,7 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 			content: '<?php echo esc_html( $header_break_point ); ?>';
 		}
 
-		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
+		@media all and ( min-width: <?php echo esc_html( $header_break_point ) + 1; ?>px ) {
 			.main-header-bar-wrap::before {
 				content: '';
 			}
