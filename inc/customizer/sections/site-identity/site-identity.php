@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Inherit Desktop logo
+	 * Option: Different retina logo
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[different-retina-logo]', array(
