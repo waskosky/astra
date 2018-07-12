@@ -1190,3 +1190,27 @@ body {
 		}
 	}	
 }
+
+.header-main-layout-2 {
+	.main-header-container {
+		text-align: center;
+	}
+	.main-header-log-out {
+		display: inline-block;
+		float: right;
+	}
+	.ast-main-header-bar-alignment {
+		display: inline-block;
+	}
+}
+
+.ast-header-break-point {
+	.header-main-layout-2 {
+		.ast-mobile-menu-buttons {
+			display: inline-block;
+		}
+		.ast-main-header-bar-alignment {
+			display: none;
+		}
+	}
+}
