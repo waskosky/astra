@@ -13,33 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Option: Mobile Header Breakpoint
- */
-$wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
-		'default'           => '',
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-	)
-);
-$wp_customize->add_control(
-	new Astra_Control_Slider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]', array(
-			'type'        => 'ast-slider',
-			'section'     => 'section-mobile-header',
-			'priority'    => 10,
-			'label'       => __( 'Menu Breakpoint', 'astra' ),
-			'suffix'      => '',
-			'input_attrs' => array(
-				'min'  => 100,
-				'step' => 1,
-				'max'  => 1921,
-			),
-		)
-	)
-);
-
 // Learn More link if Astra Pro is not activated.
 if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
