@@ -551,6 +551,21 @@
 				}
 			}
 		],
+		'astra-settings[different-retina-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[ast-header-retina-logo]'
+				],
+				callback: function( different_mobile_logo ) {
+
+					if ( different_mobile_logo ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 	};
 
 	if ( typeof ASTCustomizerToggles['astra-settings[header-display-outside-menu]'] != 'undefined' && ASTCustomizerToggles['astra-settings[header-display-outside-menu]'].length > 0 ) {

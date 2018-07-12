@@ -14,6 +14,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Inherit Desktop logo
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[different-retina-logo]', array(
+			'default'           => false,
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[different-retina-logo]', array(
+			'section'  => 'title_tagline',
+			'label'    => __( 'Different Logo for retina displays?', 'astra' ),
+			'priority' => 5,
+			'type'     => 'checkbox',
+		)
+	);
+
+	/**
 	 * Option: Retina logo selector
 	 */
 	$wp_customize->add_setting(
