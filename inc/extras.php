@@ -859,9 +859,16 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 					'padding-right' => '35px',
 				),
 			);
+			$padding_below_breakpoint = array(
+				'#masthead .ast-container' => array(
+					'padding-left'  => '20px',
+					'padding-right' => '20px',
+				),
+			);
 
 			/* Parse CSS from array()*/
-			echo astra_parse_css( $genral_global_responsive, $header_break_point );
+			echo astra_parse_css( $genral_global_responsive );
+			echo astra_parse_css( $padding_below_breakpoint, '', $header_break_point );
 		}
 
 		$dynamic_css = ob_get_clean();
