@@ -89,7 +89,8 @@
 			display: block;
 		}
 		.ast-mobile-menu-buttons{
-			display: block;
+			display: flex;
+			justify-content: center;
 		}
 		.site-branding,
 		.ast-mobile-menu-buttons {
@@ -193,14 +194,8 @@
 			.site-branding{
 				padding-right: 0;
 			}
-			.main-header-container {
-				display: flex;
-			}
 		}
 		.ast-mobile-header-inline {
-			.main-header-container {
-				display: flex;
-			}
 			.site-branding {
 				text-align: left;
 			}
@@ -233,14 +228,12 @@
 				padding-right: 0;
 			}
 		}
+	}
 
-		.mobile-header-order-default{
-			&.ast-mobile-header-stack,
-			&.ast-mobile-header-inline{
-				.main-header-container {
-					display: block;
-				}
-			}
+	.ast-mobile-header-stack,
+	.ast-mobile-header-inline{
+		.main-header-container {
+			display: flex;
 		}
 	}
 }

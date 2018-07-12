@@ -409,6 +409,7 @@ li.ast-masthead-custom-menu-items {
 			.ast-masthead-custom-menu-items{
 				padding: 0.5em 1em 0 1em;
 				text-align: center;
+				width: 100%;
 			}
 			&.mobile-header-order-1{
 				.ast-mobile-menu-buttons{
@@ -486,6 +487,27 @@ li.ast-masthead-custom-menu-items {
 		}
 		.ast-mobile-header-inline .ast-site-identity{
 			width: 100%;
+		}
+	}
+
+	.ast-header-break-point{
+		.ast-mobile-header-inline{
+			.site-branding,
+			.ast-mobile-menu-buttons{
+				display:flex;
+			}
+		}
+
+		.ast-mobile-header-stack{
+			.site-branding,
+			.ast-mobile-menu-buttons{
+				justify-content: center;
+			}
+			&.mobile-header-order-default{
+				.ast-mobile-menu-buttons{
+					padding-top: 0.5em;
+				}
+			}
 		}
 	}
 }
