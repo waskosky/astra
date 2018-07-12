@@ -4,11 +4,11 @@
  *
  * Closing notice on click on `astra-notice-close` class.
  *
- * If notice has the data attribute `data-show-notice-after="%2$s"` then notice close for that SPECIFIC TIME.
- * If notice has NO data attribute `data-show-notice-after="%2$s"` then notice close for the CURRENT USER FOREVER.
+ * If notice has the data attribute `data-repeat-notice-after="%2$s"` then notice close for that SPECIFIC TIME.
+ * If notice has NO data attribute `data-repeat-notice-after="%2$s"` then notice close for the CURRENT USER FOREVER.
  *
  * > Create custom close notice link in the notice markup. E.g.
- * `<a href="#" data-show-notice-after="<?php echo MONTH_IN_SECONDS; ?>" class="astra-notice-close">`
+ * `<a href="#" data-repeat-notice-after="<?php echo MONTH_IN_SECONDS; ?>" class="astra-notice-close">`
  * It close the notice for 30 days.
  *
  * @package Astra Sites
@@ -95,14 +95,14 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		function dismiss_notice() {
-			$notice_id         = ( isset( $_POST['notice_id'] ) ) ? sanitize_key( $_POST['notice_id'] ) : '';
-			$show_notice_after = ( isset( $_POST['show_notice_after'] ) ) ? absint( $_POST['show_notice_after'] ) : '';
+			$notice_id           = ( isset( $_POST['notice_id'] ) ) ? sanitize_key( $_POST['notice_id'] ) : '';
+			$repeat_notice_after = ( isset( $_POST['repeat_notice_after'] ) ) ? absint( $_POST['repeat_notice_after'] ) : '';
 
 			// Valid inputs?
 			if ( ! empty( $notice_id ) ) {
 
-				if ( ! empty( $show_notice_after ) ) {
-					set_transient( $notice_id, true, $show_notice_after );
+				if ( ! empty( $repeat_notice_after ) ) {
+					set_transient( $notice_id, true, $repeat_notice_after );
 				} else {
 					update_user_meta( get_current_user_id(), $notice_id, true );
 				}
@@ -132,12 +132,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		function show_notices() {
 
 			$defaults = array(
-				'id'                => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
-				'type'              => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
-				'message'           => '',      // Optional, Message.
-				'show_if'           => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
-				'show-notice-after' => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
-				'class'             => '',      // Optional, Additional notice wrapper class.
+				'id'                  => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
+				'type'                => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
+				'message'             => '',      // Optional, Message.
+				'show_if'             => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
+				'repeat-notice-after' => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
+				'class'               => '',      // Optional, Additional notice wrapper class.
 			);
 
 			foreach ( self::$notices as $key => $notice ) {
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			wp_enqueue_script( 'astra-notices' );
 
 			?>
-			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-show-notice-after="<?php echo esc_attr( $notice['show-notice-after'] ); ?>">
+			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
 				<p>
 					<?php
 					echo wp_kses_post( $notice['message'] );

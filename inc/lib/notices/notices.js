@@ -41,16 +41,16 @@
 		_dismissNotice: function( event ) {
 			event.preventDefault();
 
-			var show_notice_after = $( this ).parents('.astra-notice').data( 'show-notice-after' ) || '';
+			var repeat_notice_after = $( this ).parents('.astra-notice').data( 'repeat-notice-after' ) || '';
 			var notice_id = $( this ).parents('.astra-notice').attr( 'id' ) || '';
 
-			AstraNotices._ajax( notice_id, show_notice_after );
+			AstraNotices._ajax( notice_id, repeat_notice_after );
 		},
 
 		_dismissNoticeNew: function( event ) {
 			event.preventDefault();
 
-			var show_notice_after = $( this ).attr( 'data-show-notice-after' ) || '';
+			var repeat_notice_after = $( this ).attr( 'data-repeat-notice-after' ) || '';
 			var notice_id = $( this ).parents('.astra-notice').attr( 'id' ) || '';
 
 			var $el = $( this ).parents('.astra-notice');
@@ -60,7 +60,7 @@
 				});
 			});
 
-			AstraNotices._ajax( notice_id, show_notice_after );
+			AstraNotices._ajax( notice_id, repeat_notice_after );
 
 			var link   = $( this ).attr( 'href' ) || '';
 			var target = $( this ).attr( 'target' ) || '';
@@ -69,7 +69,7 @@
 			}
 		},
 
-		_ajax: function( notice_id, show_notice_after ) {
+		_ajax: function( notice_id, repeat_notice_after ) {
 			
 			if( '' === notice_id ) {
 				return;
@@ -81,7 +81,7 @@
 				data: {
 					action            : 'astra-notice-dismiss',
 					notice_id         : notice_id,
-					show_notice_after : parseInt( show_notice_after ),
+					repeat_notice_after : parseInt( repeat_notice_after ),
 				},
 			});
 
