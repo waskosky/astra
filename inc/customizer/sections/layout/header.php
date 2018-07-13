@@ -37,7 +37,7 @@ $header_rt_sections = array(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[header-layouts]', array(
 				'section'  => 'section-header',
 				'priority' => 5,
-				'label'    => __( 'Header', 'astra' ),
+				'label'    => __( 'Header Layout', 'astra' ),
 				'type'     => 'ast-radio-image',
 				'choices'  => array(
 					'header-main-layout-1' => array(
