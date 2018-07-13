@@ -31,19 +31,6 @@
 		vertical-align: top;
 	}
 }
-.ast-header-break-point {
-	.header-main-layout-1 {
-		.site-branding{
-			padding-right: 1em;
-		}
-		.main-header-bar-navigation {
-			text-align: left;
-		}
-		.main-navigation {
-			padding-left: 0;
-		}
-	}
-}
 
 /**
  * 2 - Header Layout 2
@@ -83,25 +70,14 @@
 	}
 }
 
-.ast-header-break-point {
-	.header-main-layout-2 {
-		.site-branding{
-			display: block;
-		}
-		.ast-mobile-menu-buttons{
+.ast-header-custom-item-outside {
+	.header-main-layout-2{
+		.main-header-container{
 			display: flex;
-			justify-content: center;
+    		justify-content: center;
 		}
-		.site-branding,
-		.ast-mobile-menu-buttons {
-			padding-bottom: 1em;
-		}
-		.main-header-bar {
-	    	padding: 1em 0 0;
-	    }
-	    .main-header-bar-navigation,
-	    .widget {
-			text-align: left;
+		.site-branding{
+			flex: 0 0 100%
 		}
 	}
 }
@@ -145,6 +121,39 @@
 }
 
 .ast-header-break-point {
+	
+	.header-main-layout-1 {
+		.site-branding{
+			padding-right: 1em;
+		}
+		.main-header-bar-navigation {
+			text-align: left;
+		}
+		.main-navigation {
+			padding-left: 0;
+		}
+	}
+	.header-main-layout-2 {
+		.site-branding{
+			display: block;
+		}
+		.ast-mobile-menu-buttons{
+			display: flex;
+			justify-content: center;
+		}
+		.site-branding,
+		.ast-mobile-menu-buttons {
+			padding-bottom: 1em;
+		}
+		.main-header-bar {
+	    	padding: 1em 0 0;
+	    }
+	    .main-header-bar-navigation,
+	    .widget {
+			text-align: left;
+		}
+	}
+
 	.header-main-layout-3 {
 		.ast-mobile-menu-buttons {
 			justify-content: flex-start;
@@ -158,6 +167,16 @@
 		}
 		.main-navigation {
 			padding-right: 0;
+		}
+	}
+
+	&.ast-header-custom-item-outside{
+		.header-main-layout-2{
+			&.mobile-header-order-default{
+				.ast-mobile-menu-buttons{
+					padding-bottom: 1em;
+				}
+			}
 		}
 	}
 }
@@ -212,12 +231,6 @@
 				justify-content: center;
 				text-align: center;
 			}
-			.site-branding,
-			.ast-mobile-menu-buttons {
-				justify-content: center;
-				text-align: center;
-				padding-bottom: 1em;
-			}
 		}
 
 		.ast-logo-title-inline{
@@ -226,6 +239,25 @@
 		    }
 		    .site-logo-img{
 				padding-right: 0;
+			}
+		}
+
+		.header-main-layout-2{
+			&.mobile-header-order-default{
+				.ast-mobile-menu-buttons{
+					padding-bottom: 1em;
+				}
+			}
+		}
+	}	
+
+	.ast-header-break-point{
+		.ast-mobile-header-stack {
+			.site-branding,
+			.ast-mobile-menu-buttons {
+				justify-content: center;
+				text-align: center;
+				padding-bottom: 1em;
 			}
 		}
 	}
