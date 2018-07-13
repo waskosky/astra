@@ -3810,6 +3810,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding-bottom: 1.5em;
 }
 
+.ast-header-break-point .ast-mobile-menu-buttons .ast-button-wrap .ast-mobile-menu-buttons-minimal {
+  font-size: 1.7em;
+}
+
 /*----------  Primary  ----------*/
 .sticky {
   display: block;
