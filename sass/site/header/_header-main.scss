@@ -395,8 +395,14 @@ li.ast-masthead-custom-menu-items {
 	.ast-mobile-header-stack{
 		.ast-mobile-menu-buttons{
 			width: 100%;
+			padding-top: 0.8em;
 		}
-
+		&.header-main-layout-1,
+		&.header-main-layout-3{
+			.ast-mobile-menu-buttons{
+				padding-top: 0;
+			}
+		}
 		&.mobile-header-order-3{
 			.ast-mobile-menu-buttons{
 				padding-bottom: 0.5em;
@@ -422,6 +428,11 @@ li.ast-masthead-custom-menu-items {
 					padding: 0.8em 1em 0 1em;
 					text-align: center;
 					width: 100%;
+				}
+				&.mobile-header-order-2{
+					.ast-masthead-custom-menu-items{
+						padding-top: 0;
+					}
 				}
 				&.mobile-header-order-1{
 					.ast-mobile-menu-buttons{
@@ -470,6 +481,12 @@ li.ast-masthead-custom-menu-items {
 				&.mobile-header-order-3{
 					.site-branding{
 						padding-top: 0.8em;
+					}
+				}
+
+				&.mobile-header-order-4{
+					.ast-mobile-menu-buttons{
+						padding-top: 0;
 					}
 				}
 
