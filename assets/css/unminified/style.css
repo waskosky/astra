@@ -3020,8 +3020,7 @@ body {
   justify-content: center;
 }
 
-.ast-header-break-point .header-main-layout-2 .site-branding,
-.ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
+.ast-header-break-point .header-main-layout-2 .site-branding {
   padding-bottom: 1em;
 }
 
@@ -3545,7 +3544,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-  padding-bottom: 1.5em;
 }
 
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
@@ -3699,7 +3697,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-masthead-custom-menu-items {
-  padding-bottom: 1.5em;
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -moz-box-ordinal-group: 2;
@@ -3794,11 +3791,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-4 .ast-masthead-custom-menu-items {
     padding-top: 0;
   }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-3 .ast-mobile-menu-buttons {
-    padding-top: 0.8em;
-  }
+  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-3 .ast-mobile-menu-buttons,
   .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-3 .ast-masthead-custom-menu-items {
-    padding-top: 0;
+    padding-top: 0.8em;
   }
   .ast-header-custom-item-outside.ast-header-break-point .mobile-header-order-3 .ast-mobile-menu-buttons,
   .ast-header-custom-item-outside.ast-header-break-point .mobile-header-order-5 .ast-mobile-menu-buttons {
@@ -3917,7 +3912,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   -moz-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  padding-bottom: 1.5em;
 }
 
 .ast-header-break-point .ast-mobile-menu-buttons .ast-button-wrap .ast-mobile-menu-buttons-minimal {

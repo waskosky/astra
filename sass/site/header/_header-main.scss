@@ -206,7 +206,6 @@ li.ast-masthead-custom-menu-items {
 		display: flex;
 		flex: 1;
 		align-self: center;
-		padding-bottom: 1.5em;
 	}
 
 	ul li.ast-masthead-custom-menu-items a {
@@ -355,7 +354,6 @@ li.ast-masthead-custom-menu-items {
 		}
 
 		.ast-masthead-custom-menu-items {
-			padding-bottom: 1.5em;
 			order: 1;
 		}
 
@@ -496,11 +494,9 @@ li.ast-masthead-custom-menu-items {
 
 				&.mobile-header-order-default{
 					&.header-main-layout-3{
-						.ast-mobile-menu-buttons{
-							padding-top: 0.8em;
-						}
+						.ast-mobile-menu-buttons,
 						.ast-masthead-custom-menu-items{
-							padding-top: 0;
+							padding-top: 0.8em;
 						}
 					}
 				}
