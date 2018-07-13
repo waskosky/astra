@@ -9,6 +9,23 @@ module.exports = function (grunt) {
     grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
 
+            browserSync: {
+                dev: {
+                    bsFiles: {
+                        src : [
+                            '*.css'
+                        ]
+                    },
+                    options: {
+                        // watchTask: true,                        
+                        server: {
+                            baseDir: "./"
+                        },
+                        // proxy: "localhost:80" // makes a proxy for localhost
+                    }
+                }
+            },
+
             rtlcss: {
                 options: {
                     // rtlcss options
@@ -385,6 +402,7 @@ module.exports = function (grunt) {
     );
 
     // Load grunt tasks
+    grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-rtlcss');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-postcss');
@@ -458,6 +476,8 @@ module.exports = function (grunt) {
 
     // i18n
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);
+
+    grunt.registerTask('browser', ['browserSync']);
 
     grunt.util.linefeed = '\n';
 };

@@ -37,3 +37,7 @@ https://unsplash.com/photos/Zhv-RRD0KVg
 https://unsplash.com/photos/7WVdWF4Lb_Q
 
 /* Note: The CSS files are loaded from assets/css/ folder. */
+
+body {
+	background: red !important;
+}
