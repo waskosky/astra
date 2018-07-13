@@ -3863,6 +3863,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-inline .ast-site-identity {
     width: 100%;
   }
+  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-inline.mobile-header-order-2 .ast-masthead-custom-menu-items.woocommerce-custom-menu-item {
+    margin-right: 0;
+  }
   .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-inline.header-main-layout-2 .site-branding {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;

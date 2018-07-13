@@ -561,6 +561,13 @@ li.ast-masthead-custom-menu-items {
 				.ast-site-identity{
 					width: 100%;
 				}
+				&.mobile-header-order-2{
+					.ast-masthead-custom-menu-items{
+						&.woocommerce-custom-menu-item{
+							margin-left: 0;
+						}
+					}
+				}
 				&.header-main-layout-2{
 					.site-branding{
 						flex: 1 1 auto;
