@@ -145,9 +145,6 @@
 		.ast-mobile-menu-buttons {
 			padding-bottom: 1em;
 		}
-		.main-header-bar {
-	    	padding: 1em 0 0;
-	    }
 	    .main-header-bar-navigation,
 	    .widget {
 			text-align: left;
@@ -224,9 +221,6 @@
 			}
 		}
 		.ast-mobile-header-stack {
-			.main-header-bar{
-				padding: 1em 0 0;
-			}
 			.site-title {
 				justify-content: center;
 				text-align: center;
@@ -257,7 +251,7 @@
 			.ast-mobile-menu-buttons {
 				justify-content: center;
 				text-align: center;
-				padding-bottom: 0.8em;
+				padding-bottom: 0;
 			}
 		}
 	}

@@ -235,7 +235,6 @@ li.ast-masthead-custom-menu-items {
 
 	.main-header-bar {
 		display: block;
-		padding: 1.5em 0 0;
 		line-height: 3;
 
 		.main-header-bar-navigation {
@@ -404,10 +403,6 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 		&.mobile-header-order-3{
-			.ast-mobile-menu-buttons{
-				padding-bottom: 0.5em;
-			}
-
 			&.header-main-layout-3{
 				.ast-mobile-menu-buttons{
 					padding-top: 0.8em;
@@ -432,6 +427,11 @@ li.ast-masthead-custom-menu-items {
 				&.mobile-header-order-2{
 					.ast-masthead-custom-menu-items{
 						padding-top: 0;
+					}
+					&.header-main-layout-3{
+						.ast-mobile-menu-buttons{
+							padding-top: 0.8em;
+						}
 					}
 				}
 				&.mobile-header-order-1{
@@ -463,6 +463,9 @@ li.ast-masthead-custom-menu-items {
 						.ast-masthead-custom-menu-items{
 							padding-top: 0;
 						}
+						.site-branding{
+							padding-bottom: 0.8em;
+						}
 					}
 					&.header-main-layout-1{
 						.site-branding,
@@ -485,7 +488,8 @@ li.ast-masthead-custom-menu-items {
 				}
 
 				&.mobile-header-order-4{
-					.ast-mobile-menu-buttons{
+					.ast-mobile-menu-buttons,
+					.ast-masthead-custom-menu-items{
 						padding-top: 0;
 					}
 				}
