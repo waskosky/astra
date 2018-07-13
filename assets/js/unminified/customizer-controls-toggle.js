@@ -208,6 +208,7 @@
 			},
 			{
 				controls: [
+					'astra-settings[hide-custom-menu-mobile]',
 					'astra-settings[header-display-outside-menu]',
 				],
 				callback: function( custom_menu ) {
