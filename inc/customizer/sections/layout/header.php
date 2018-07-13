@@ -77,7 +77,7 @@ $header_rt_sections = array(
 	);
 
 	/**
-	 * Option: Custom Menu Item
+	 * Option: Last Item in Menu
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[header-main-rt-section]', array(
@@ -91,7 +91,7 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'section'  => 'section-header',
 			'priority' => 5,
-			'label'    => __( 'Custom Menu Item', 'astra' ),
+			'label'    => __( 'Last Item in Menu', 'astra' ),
 			'choices'  => $header_rt_sections,
 		)
 	);
@@ -108,7 +108,7 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'section'  => 'section-header',
 			'priority' => 5,
-			'label'    => __( 'Custom Menu Item', 'astra' ),
+			'label'    => __( 'Last Item in Menu', 'astra' ),
 			'choices'  => apply_filters(
 				'astra_header_section_elements',
 				array(
@@ -297,13 +297,13 @@ $header_rt_sections = array(
 		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
 			'type'     => 'checkbox',
 			'section'  => 'section-header',
-			'label'    => __( 'Take custom menu item outside menu', 'astra' ),
+			'label'    => __( 'Take Last item in Menu outside menu', 'astra' ),
 			'priority' => 45,
 		)
 	);
 
 	/**
-	 * Option: Hide custom menu item on mobile device
+	 * Option: Hide Last item in Menu on mobile device
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]', array(
@@ -316,7 +316,7 @@ $header_rt_sections = array(
 		ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]', array(
 			'type'        => 'checkbox',
 			'section'     => 'section-header',
-			'label'       => __( 'Hide custom menu item on mobile', 'astra' ),
+			'label'       => __( 'Hide Last item in Menu on mobile', 'astra' ),
 			'priority'    => 45,
 			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
 		)
@@ -341,11 +341,11 @@ $header_rt_sections = array(
 			'priority'    => 47,
 			'choices'     => array(
 				'header-order-default' => __( 'Default', 'astra' ),
-				'header-order-1'       => __( 'Logo / Custom Menu Item / Menu', 'astra' ),
-				'header-order-5'       => __( 'Logo / Menu / Custom Menu Item', 'astra' ),
-				'header-order-2'       => __( 'Custom Menu Item / Logo / Menu', 'astra' ),
-				'header-order-3'       => __( 'Menu / Logo / Custom Menu Item', 'astra' ),
-				'header-order-4'       => __( 'Menu / Custom Menu Item / Logo', 'astra' ),
+				'header-order-1'       => __( 'Logo / Last Item in Menu / Menu', 'astra' ),
+				'header-order-5'       => __( 'Logo / Menu / Last Item in Menu', 'astra' ),
+				'header-order-2'       => __( 'Last Item in Menu / Logo / Menu', 'astra' ),
+				'header-order-3'       => __( 'Menu / Logo / Last Item in Menu', 'astra' ),
+				'header-order-4'       => __( 'Menu / Last Item in Menu / Logo', 'astra' ),
 			),
 			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
 		)
