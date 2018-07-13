@@ -123,26 +123,6 @@ $header_rt_sections = array(
 	);
 
 	/**
-	 * Option: Display outside menu
-	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
-			'default'           => astra_get_option( 'header-display-outside-menu' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
-			'type'     => 'checkbox',
-			'section'  => 'section-header',
-			'label'    => __( 'Take custom menu item outside', 'astra' ),
-			'priority' => 5,
-		)
-	);
-
-
-	/**
 	 * Option: Right Section Text / HTML
 	 */
 	$wp_customize->add_setting(
@@ -300,6 +280,25 @@ $header_rt_sections = array(
 			'priority' => 45,
 			'label'    => __( 'Menu Label on Small Devices', 'astra' ),
 			'type'     => 'text',
+		)
+	);
+
+	/**
+	 * Option: Display outside menu
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
+			'default'           => astra_get_option( 'header-display-outside-menu' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[header-display-outside-menu]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-header',
+			'label'    => __( 'Take custom menu item outside menu', 'astra' ),
+			'priority' => 45,
 		)
 	);
 
