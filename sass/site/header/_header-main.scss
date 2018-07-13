@@ -442,7 +442,8 @@ li.ast-masthead-custom-menu-items {
 				}
 				&.mobile-header-order-2,
 				&.mobile-header-order-5{
-					&.header-main-layout-2{
+					&.header-main-layout-2,
+					&.header-main-layout-1{
 						.ast-mobile-menu-buttons{
 							padding-top: 0.8em;
 						}
@@ -560,6 +561,20 @@ li.ast-masthead-custom-menu-items {
 			.ast-mobile-header-inline{
 				.ast-site-identity{
 					width: 100%;
+				}
+				&.mobile-header-order-2{
+					&.header-main-layout-3{
+						.ast-masthead-custom-menu-items{
+							padding-left: 0;	
+						}
+					}
+				}
+				&.mobile-header-order-5{
+					&.header-main-layout-3{
+						.ast-masthead-custom-menu-items{
+							padding-right: 0;	
+						}
+					}
 				}
 				&.mobile-header-order-2{
 					.ast-masthead-custom-menu-items{

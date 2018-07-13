@@ -165,16 +165,6 @@
 			padding-right: 0;
 		}
 	}
-
-	&.ast-header-custom-item-outside{
-		.header-main-layout-2{
-			&.mobile-header-order-default{
-				.ast-mobile-menu-buttons{
-					padding-bottom: 1em;
-				}
-			}
-		}
-	}
 }
 
 /**
@@ -214,7 +204,6 @@
 			.site-branding {
 				text-align: left;
 			}
-
 			.site-title {
 				justify-content: left;
 			}
@@ -225,7 +214,6 @@
 				text-align: center;
 			}
 		}
-
 		.ast-logo-title-inline{
 			.ast-site-identity {
 		    	display: block;
@@ -234,7 +222,6 @@
 				padding-right: 0;
 			}
 		}
-
 		.header-main-layout-2{
 			&.mobile-header-order-default{
 				.ast-mobile-menu-buttons{
