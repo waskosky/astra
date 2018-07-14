@@ -715,6 +715,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['mobile-header-toggle-btn-style'] = 'fill';
 			}
 
+			$theme_options['hide-custom-menu-mobile'] = 0;
+
 			update_option( 'astra-settings', $theme_options );
 		}
 
