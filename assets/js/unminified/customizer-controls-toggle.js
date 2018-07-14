@@ -219,21 +219,6 @@
 					return false;
 				}
 			},
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var val = api( 'astra-settings[header-main-rt-section]' ).get();
-					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-
-					if ( menu_outside && 'none' != val ) {
-						return true;
-					}
-					return false;
-				}
-			},
 		],
 
 		/**
@@ -551,43 +536,5 @@
 			}
 		],
 	};
-
-	if ( typeof ASTCustomizerToggles['astra-settings[header-display-outside-menu]'] != 'undefined' && ASTCustomizerToggles['astra-settings[header-display-outside-menu]'].length > 0 ) {
-
-		ASTCustomizerToggles ['astra-settings[header-display-outside-menu]'].push(
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var val = api( 'astra-settings[header-main-rt-section]' ).get();
-					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-
-					if ( menu_outside && 'none' != val ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		)
-	} else {
-		ASTCustomizerToggles ['astra-settings[header-display-outside-menu]'] = [
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-
-					if ( val && 'none' != custom_menu_item ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		];
-	}
 
 } )( jQuery );

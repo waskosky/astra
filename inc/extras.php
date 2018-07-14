@@ -762,10 +762,6 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			$classes[] = $menu_logo_location;
 		}
 
-		if ( $mobile_header_order ) {
-			$classes[] = 'mobile-' . $mobile_header_order;
-		}
-
 		if ( $primary_menu_disable ) {
 
 			$classes[] = 'ast-primary-menu-disabled';
