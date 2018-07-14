@@ -747,16 +747,6 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 	 */
 	function astra_header_classes() {
 
-<<<<<<< HEAD
-		$classes                  = array( 'site-header' );
-		$menu_logo_location       = astra_get_option( 'header-layouts' );
-		$mobile_header_alignment  = astra_get_option( 'header-main-menu-align' );
-		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
-		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
-		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
-		$mobile_header_logo       = astra_get_option( 'mobile-header-logo' );
-		$hide_custom_menu_mobile  = astra_get_option( 'hide-custom-menu-mobile', false );
-=======
 		$classes                       = array( 'site-header' );
 		$menu_logo_location            = astra_get_option( 'header-layouts' );
 		$mobile_header_alignment       = astra_get_option( 'header-main-menu-align' );
@@ -767,7 +757,6 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$mobile_header_order           = astra_get_option( 'mobile-header-order' );
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
->>>>>>> 9c708208c6f036cb739ecf3d544548e2faf7ef0b
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
