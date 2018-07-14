@@ -221,6 +221,22 @@
 			},
 		],
 
+		'astra-settings[hide-custom-menu-mobile]' :
+		[
+			{
+				controls: [
+					'astra-settings[header-display-outside-menu]',
+				],
+				callback: function( display_outside_menu ) {
+					
+					if ( display_outside_menu ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
 		/**
 		 * Blog
 		 */
