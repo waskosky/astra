@@ -225,10 +225,10 @@
 				],
 				callback: function( val ) {
 
+					var val = api( 'astra-settings[header-main-rt-section]' ).get();
 					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
 
-					if ( 'no-toggle' != menu_style && ( menu_outside && 'none' != val ) ) {
+					if ( menu_outside && 'none' != val ) {
 						return true;
 					}
 					return false;
@@ -561,16 +561,17 @@
 				],
 				callback: function( val ) {
 
-					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-					if ( ( val && 'none' != custom_menu_item ) && 'no-toggle' != menu_style ) {
+					var val = api( 'astra-settings[header-main-rt-section]' ).get();
+					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
+
+					if ( menu_outside && 'none' != val ) {
 						return true;
 					}
 					return false;
 				}
 			}
-		);
-	} else{
+		)
+	} else {
 		ASTCustomizerToggles ['astra-settings[header-display-outside-menu]'] = [
 			{
 				controls: [
@@ -578,55 +579,14 @@
 				],
 				callback: function( val ) {
 
-					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
 					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-					
-					if ( ( val && 'none' != custom_menu_item ) && 'no-toggle' != menu_style ) {
+
+					if ( val && 'none' != custom_menu_item ) {
 						return true;
 					}
 					return false;
 				}
 			}
-		];
-	}
-
-	if ( typeof ASTCustomizerToggles['astra-settings[mobile-menu-style]'] != 'undefined' && ASTCustomizerToggles['astra-settings[mobile-menu-style]'].length > 0 ) {
-
-		ASTCustomizerToggles ['astra-settings[mobile-menu-style]'].push(
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-
-					if ( 'no-toggle' != val && ( menu_outside && 'none' != custom_menu_item ) ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		);
-	} else {
-
-		ASTCustomizerToggles['astra-settings[mobile-menu-style]'] = [
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-
-					if ( 'no-toggle' != val && ( menu_outside && 'none' != custom_menu_item ) ) {
-						return true;
-					}
-					return false;
-				}
-			},
 		];
 	}
 
