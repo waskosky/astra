@@ -3869,7 +3869,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   order: 2;
 }
 
-.ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-2 .site-branding, .ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-3 .site-branding {
+.ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-2 .site-branding,
+.ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-2 .site-title, .ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-3 .site-branding,
+.ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-3 .site-title {
   text-align: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
