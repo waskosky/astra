@@ -3275,8 +3275,6 @@ body {
 .main-header-bar {
   margin-right: auto;
   margin-left: auto;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
 }
 
 .site-logo-img img {
