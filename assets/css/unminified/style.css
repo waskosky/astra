@@ -3405,6 +3405,10 @@ body {
 /**
  * 4 - Search Form & Main Header
  */
+.ast-main-header-nav-open .main-header-bar {
+  padding-bottom: 0;
+}
+
 .main-header-bar {
   z-index: 4;
   position: relative;
@@ -3449,6 +3453,10 @@ body {
 
 .main-header-bar .main-header-bar-navigation .slide-search .search-field:focus {
   background-color: white;
+}
+
+.main-header-bar .main-header-bar-navigation.toggle-on {
+  padding-top: 1.5em;
 }
 
 .ast-search-menu-icon {
