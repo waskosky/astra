@@ -208,9 +208,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'header .site-logo-img .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
-				'.ast-header-break-point .site-logo-img .custom-mobile-logo-link img' => array(
-					'max-width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
-				),
 				'.astra-logo-svg'                         => array(
 					'width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
@@ -559,7 +556,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.astra-logo-svg'                       => array(
 					'width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
-				'.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img' => array(
+				'.ast-header-break-point .site-logo-img .custom-mobile-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
 			);
@@ -634,7 +631,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.astra-logo-svg'                       => array(
 					'width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
-				'.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img' => array(
+				'.ast-header-break-point .site-logo-img .custom-mobile-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
 			);
