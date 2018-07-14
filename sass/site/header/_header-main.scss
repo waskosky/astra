@@ -202,6 +202,19 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 	}
+
+	.ast-mobile-header-inline{
+		.site-branding{
+			text-align: left;
+			padding-bottom: 0;
+		}
+		&.header-main-layout-3{
+			.site-branding{
+				text-align: right;
+			}
+		}
+	}
+
 	.site-branding{
 		display: flex;
 		flex: 1;
@@ -364,40 +377,6 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 
-		.mobile-header-order-4,
-		.mobile-header-order-1,
-		.mobile-header-order-default{
-			.ast-masthead-custom-menu-items{
-				display: flex;
-			    align-self: center;
-			    flex: 1 1 auto;
-			    justify-content: center;
-			}
-			.site-branding,
-			.ast-mobile-menu-buttons{
-				flex: 0 0 auto;
-			}
-		}
-
-		.mobile-header-order-4{
-			.site-branding{
-				text-align: right;
-				padding-right: 0;
-				flex: 0 0 auto;
-			}
-		}
-
-		.mobile-header-order-5{
-			.ast-mobile-menu-buttons{
-				flex: 1 1 auto;
-			    align-items: center;
-			    justify-content: center;
-			}
-			.site-branding{
-				flex: 0 0 auto;
-			}
-		}
-
 		.ast-has-mobile-header-logo{
 			.custom-logo,
 			.astra-logo-svg{
@@ -429,99 +408,15 @@ li.ast-masthead-custom-menu-items {
 
 		&.ast-header-custom-item-outside{
 			.header-main-layout-2{
-				&.mobile-header-order-default{
-					.ast-mobile-menu-buttons{
-						padding-bottom: 0;
-					}
+				.ast-mobile-menu-buttons{
+					padding-bottom: 0;
 				}
 			}
 		}
 
-		.mobile-header-order-3,
-		.mobile-header-order-5{
-			.ast-mobile-menu-buttons{
-				order: 1;
-			}
-			.ast-masthead-custom-menu-items{
-				order: 2;
-				flex: 0 0 auto;
-			}
-		}
-		.mobile-header-order-4{
-			.ast-mobile-menu-buttons{
-				order: 1;
-			}
-			.site-branding{
-				order: 2;
-				flex: 0 0 auto;
-			}
-		}
-
-		.mobile-header-order-2,
-		.mobile-header-order-3{
-			.site-branding{
-				order: 2;
-			}
-		}
-
-		header:not( .ast-hide-custom-menu-mobile ){
-			&.mobile-header-order-2,
-			&.mobile-header-order-3{
-				.site-branding,
-				.site-title{
-					text-align: center;
-					justify-content: center;
-				}
-			}
-		}
-
-		.header-main-layout-3{
-			&:not( .mobile-header-order-default ){
-				.main-header-container{
-					flex-direction: row;
-				}
-			}
-			&.mobile-header-order-2{
-				&.ast-mobile-header-inline{
-					.site-branding{
-						padding: 0 0.5em 0 0;
-					}
-				}
-			}
-		}
-		.header-main-layout-1{
-			&.mobile-header-order-3{
-				&.ast-mobile-header-inline{
-					.site-branding{
-						padding: 0 0 0 1em;
-					}
-				}
-			}
-		}
 		.ast-mobile-header-inline{
 			.ast-site-identity{
 				width: 100%;
-			}
-			&.mobile-header-order-2{
-				&.header-main-layout-3{
-					.ast-masthead-custom-menu-items{
-						padding-left: 0;	
-					}
-				}
-			}
-			&.mobile-header-order-5{
-				&.header-main-layout-3{
-					.ast-masthead-custom-menu-items{
-						padding-right: 0;	
-					}
-				}
-			}
-			&.mobile-header-order-2{
-				.ast-masthead-custom-menu-items{
-					&.woocommerce-custom-menu-item{
-						margin-left: 0;
-					}
-				}
 			}
 			&.header-main-layout-2{
 				.site-branding{
@@ -538,55 +433,27 @@ li.ast-masthead-custom-menu-items {
 		.ast-mobile-header-stack{
 			.ast-mobile-menu-buttons{
 				width: 100%;
-				padding-top: 0.8em;
-			}
-			&.mobile-header-order-4{
-				.site-branding{
-					text-align: center;
-				}
-				.ast-site-identity{
-					width: auto;
-				}
-			}
-			&.header-main-layout-1,
-			&.header-main-layout-3{
-				.ast-mobile-menu-buttons{
-					padding-top: 0;
-				}
-			}
-			&.mobile-header-order-3{
-				&.header-main-layout-3{
-					.ast-mobile-menu-buttons{
-						padding-top: 0.8em;
-					}
-				}
 			}
 
 			.site-branding,
 			.ast-mobile-menu-buttons{
 				justify-content: center;
 			}
-			&.mobile-header-order-default{
-				.site-branding{
-					flex: 1 1 auto;
-				}
+			
+			.site-branding{
+				flex: 1 1 auto;
+			}
+			.ast-mobile-menu-buttons{
+				padding-top: 0.8em;
+			}
+			&.header-main-layout-2{
 				.ast-mobile-menu-buttons{
 					padding-top: 0.8em;
 				}
-				&.header-main-layout-2{
-					.ast-mobile-menu-buttons{
-						padding-top: 0.8em;
-					}
-				}
-				&.header-main-layout-3{
-					.ast-mobile-menu-buttons{
-						padding-top: 0;
-					}
-				}
-				&.header-main-layout-1{
-					.site-branding{
-						padding-bottom: 0;
-					}
+			}
+			&.header-main-layout-1{
+				.site-branding{
+					padding-bottom: 0;
 				}
 			}
 		}
@@ -595,94 +462,15 @@ li.ast-masthead-custom-menu-items {
 	.ast-header-custom-item-outside{
 		&.ast-header-break-point{
 			.ast-mobile-header-stack{
-				&:not( .mobile-header-order-default ){
-					.site-branding,
-					.ast-masthead-custom-menu-items{
-						flex: 1 100%;
-					}
-				}
 				.ast-masthead-custom-menu-items{
 					padding: 0.8em 1em 0 1em;
 					text-align: center;
 					width: 100%;
 				}
-				&.mobile-header-order-2{
-					.ast-masthead-custom-menu-items{
-						padding-top: 0;
-					}
-					&.header-main-layout-3{
-						.ast-mobile-menu-buttons{
-							padding-top: 0.8em;
-						}
-					}
-				}
-				&.mobile-header-order-1{
-					.ast-mobile-menu-buttons{
-						padding-top: 0.8em;
-					}
-					.site-branding{
-						padding-bottom: 0;
-					}
-				}
-				&.mobile-header-order-2,
-				&.mobile-header-order-5{
-					&.header-main-layout-2,
-					&.header-main-layout-1{
-						.ast-mobile-menu-buttons{
-							padding-top: 0.8em;
-						}
-					}
-				}
-				&.mobile-header-order-3{
-					.ast-mobile-menu-buttons{
-						padding-bottom: 0.8em;
-					}
-
-					&.header-main-layout-3{
-						.ast-mobile-menu-buttons{
-							padding-top: 0;
-						}
-						.site-branding,
-						.ast-masthead-custom-menu-items{
-							padding-top: 0;
-						}
-						.site-branding{
-							padding-bottom: 0.8em;
-						}
-					}
-					&.header-main-layout-1{
-						.site-branding,
-						.ast-mobile-menu-buttons{
-							padding-bottom: 0;
-						}
-					}
-					&.header-main-layout-2{
-						.ast-mobile-menu-buttons{
-							padding-bottom: 0;
-						}
-					}
-				}
-				&.mobile-header-order-4,
-				&.mobile-header-order-2,
-				&.mobile-header-order-3{
-					.site-branding{
-						padding-top: 0.8em;
-					}
-				}
-
-				&.mobile-header-order-4{
+				&.header-main-layout-3{
 					.ast-mobile-menu-buttons,
 					.ast-masthead-custom-menu-items{
-						padding-top: 0;
-					}
-				}
-
-				&.mobile-header-order-default{
-					&.header-main-layout-3{
-						.ast-mobile-menu-buttons,
-						.ast-masthead-custom-menu-items{
-							padding-top: 0.8em;
-						}
+						padding-top: 0.8em;
 					}
 				}
 			}	

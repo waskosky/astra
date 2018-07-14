@@ -3002,8 +3002,33 @@ body {
   padding-left: 0;
 }
 
-.ast-header-break-point .header-main-layout-2 .site-branding {
-  display: block;
+.ast-header-break-point .ast-mobile-header-stack .ast-masthead-custom-menu-items {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 100%;
+  -moz-box-flex: 1;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ast-header-break-point .ast-mobile-header-stack .site-branding {
+  padding-bottom: 1em;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 100%;
+  -moz-box-flex: 1;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
@@ -3020,16 +3045,36 @@ body {
   justify-content: center;
 }
 
-.ast-header-break-point .header-main-layout-2 .site-branding {
-  padding-bottom: 1em;
-}
-
 .ast-header-break-point .header-main-layout-2 .main-header-bar-navigation,
 .ast-header-break-point .header-main-layout-2 .widget {
   text-align: left;
 }
 
-.ast-header-break-point .header-main-layout-3 .ast-mobile-menu-buttons {
+.ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 100%;
+  -moz-box-flex: 1;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ast-header-break-point .ast-mobile-header-stack.header-main-layout-3 .main-header-container {
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+  -webkit-flex-direction: initial;
+  -moz-box-orient: initial;
+  -moz-box-direction: initial;
+  -ms-flex-direction: initial;
+  flex-direction: initial;
+}
+
+.ast-header-break-point .header-main-layout-3.ast-mobile-header-inline .ast-mobile-menu-buttons {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -moz-box-pack: start;
@@ -3133,7 +3178,7 @@ body {
   padding-right: 0;
 }
 
-.ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2.mobile-header-order-default .ast-mobile-menu-buttons {
+.ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-mobile-menu-buttons {
   padding-bottom: 1em;
 }
 
@@ -3531,6 +3576,15 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: none;
 }
 
+.ast-header-break-point .ast-mobile-header-inline .site-branding {
+  text-align: left;
+  padding-bottom: 0;
+}
+
+.ast-header-break-point .ast-mobile-header-inline.header-main-layout-3 .site-branding {
+  text-align: right;
+}
+
 .ast-header-break-point .site-branding {
   -js-display: flex;
   display: -webkit-box;
@@ -3711,79 +3765,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: center;
 }
 
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .ast-masthead-custom-menu-items,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-1 .ast-masthead-custom-menu-items,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-default .ast-masthead-custom-menu-items {
-  -js-display: flex;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -moz-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .site-branding,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .ast-mobile-menu-buttons,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-1 .site-branding,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-1 .ast-mobile-menu-buttons,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-default .site-branding,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-default .ast-mobile-menu-buttons {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -moz-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .site-branding {
-  text-align: right;
-  padding-right: 0;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -moz-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-5 .ast-mobile-menu-buttons {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -moz-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-5 .site-branding {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -moz-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
 .ast-header-break-point.ast-header-custom-item-outside .ast-has-mobile-header-logo .custom-logo,
 .ast-header-break-point.ast-header-custom-item-outside .ast-has-mobile-header-logo .astra-logo-svg {
   display: none;
@@ -3812,106 +3793,12 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: flex;
 }
 
-.ast-header-break-point.ast-header-custom-item-outside.ast-header-custom-item-outside .header-main-layout-2.mobile-header-order-default .ast-mobile-menu-buttons {
+.ast-header-break-point.ast-header-custom-item-outside.ast-header-custom-item-outside .header-main-layout-2 .ast-mobile-menu-buttons {
   padding-bottom: 0;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-3 .ast-mobile-menu-buttons,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-5 .ast-mobile-menu-buttons {
-  -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
-  -moz-box-ordinal-group: 2;
-  -ms-flex-order: 1;
-  order: 1;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-3 .ast-masthead-custom-menu-items,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-5 .ast-masthead-custom-menu-items {
-  -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
-  -moz-box-ordinal-group: 3;
-  -ms-flex-order: 2;
-  order: 2;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -moz-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .ast-mobile-menu-buttons {
-  -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
-  -moz-box-ordinal-group: 2;
-  -ms-flex-order: 1;
-  order: 1;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-4 .site-branding {
-  -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
-  -moz-box-ordinal-group: 3;
-  -ms-flex-order: 2;
-  order: 2;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -moz-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-2 .site-branding,
-.ast-header-break-point.ast-header-custom-item-outside .mobile-header-order-3 .site-branding {
-  -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
-  -moz-box-ordinal-group: 3;
-  -ms-flex-order: 2;
-  order: 2;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-2 .site-branding,
-.ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-2 .site-title, .ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-3 .site-branding,
-.ast-header-break-point.ast-header-custom-item-outside header:not(.ast-hide-custom-menu-mobile).mobile-header-order-3 .site-title {
-  text-align: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .header-main-layout-3:not(.mobile-header-order-default) .main-header-container {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -moz-box-orient: horizontal;
-  -moz-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .header-main-layout-3.mobile-header-order-2.ast-mobile-header-inline .site-branding {
-  padding: 0 0.5em 0 0;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .header-main-layout-1.mobile-header-order-3.ast-mobile-header-inline .site-branding {
-  padding: 0 0 0 1em;
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline .ast-site-identity {
   width: 100%;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline.mobile-header-order-2.header-main-layout-3 .ast-masthead-custom-menu-items {
-  padding-left: 0;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline.mobile-header-order-5.header-main-layout-3 .ast-masthead-custom-menu-items {
-  padding-right: 0;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline.mobile-header-order-2 .ast-masthead-custom-menu-items.woocommerce-custom-menu-item {
-  margin-left: 0;
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline.header-main-layout-2 .site-branding {
@@ -3925,19 +3812,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 @media (max-width: 544px) {
   .ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons {
     width: 100%;
-    padding-top: 0.8em;
-  }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-4 .site-branding {
-    text-align: center;
-  }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-4 .ast-site-identity {
-    width: auto;
-  }
-  .ast-header-break-point .ast-mobile-header-stack.header-main-layout-1 .ast-mobile-menu-buttons, .ast-header-break-point .ast-mobile-header-stack.header-main-layout-3 .ast-mobile-menu-buttons {
-    padding-top: 0;
-  }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-3 .ast-mobile-menu-buttons {
-    padding-top: 0.8em;
   }
   .ast-header-break-point .ast-mobile-header-stack .site-branding,
   .ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons {
@@ -3947,82 +3821,29 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
     -ms-flex-pack: center;
     justify-content: center;
   }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default .site-branding {
+  .ast-header-break-point .ast-mobile-header-stack .site-branding {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     -moz-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
   }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default .ast-mobile-menu-buttons {
+  .ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons {
     padding-top: 0.8em;
   }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-2 .ast-mobile-menu-buttons {
+  .ast-header-break-point .ast-mobile-header-stack.header-main-layout-2 .ast-mobile-menu-buttons {
     padding-top: 0.8em;
   }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-3 .ast-mobile-menu-buttons {
-    padding-top: 0;
-  }
-  .ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-1 .site-branding {
+  .ast-header-break-point .ast-mobile-header-stack.header-main-layout-1 .site-branding {
     padding-bottom: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack:not(.mobile-header-order-default) .site-branding,
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack:not(.mobile-header-order-default) .ast-masthead-custom-menu-items {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 100%;
-    -moz-box-flex: 1;
-    -ms-flex: 1 100%;
-    flex: 1 100%;
   }
   .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack .ast-masthead-custom-menu-items {
     padding: 0.8em 1em 0 1em;
     text-align: center;
     width: 100%;
   }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-2 .ast-masthead-custom-menu-items {
-    padding-top: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-2.header-main-layout-3 .ast-mobile-menu-buttons {
-    padding-top: 0.8em;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-1 .ast-mobile-menu-buttons {
-    padding-top: 0.8em;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-1 .site-branding {
-    padding-bottom: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-2.header-main-layout-2 .ast-mobile-menu-buttons, .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-2.header-main-layout-1 .ast-mobile-menu-buttons, .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-5.header-main-layout-2 .ast-mobile-menu-buttons, .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-5.header-main-layout-1 .ast-mobile-menu-buttons {
-    padding-top: 0.8em;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3 .ast-mobile-menu-buttons {
-    padding-bottom: 0.8em;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-3 .ast-mobile-menu-buttons {
-    padding-top: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-3 .site-branding,
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-3 .ast-masthead-custom-menu-items {
-    padding-top: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-3 .site-branding {
-    padding-bottom: 0.8em;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-1 .site-branding,
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-1 .ast-mobile-menu-buttons {
-    padding-bottom: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3.header-main-layout-2 .ast-mobile-menu-buttons {
-    padding-bottom: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-4 .site-branding, .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-2 .site-branding, .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-3 .site-branding {
-    padding-top: 0.8em;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-4 .ast-mobile-menu-buttons,
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-4 .ast-masthead-custom-menu-items {
-    padding-top: 0;
-  }
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-3 .ast-mobile-menu-buttons,
-  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.mobile-header-order-default.header-main-layout-3 .ast-masthead-custom-menu-items {
+  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.header-main-layout-3 .ast-mobile-menu-buttons,
+  .ast-header-custom-item-outside.ast-header-break-point .ast-mobile-header-stack.header-main-layout-3 .ast-masthead-custom-menu-items {
     padding-top: 0.8em;
   }
 }

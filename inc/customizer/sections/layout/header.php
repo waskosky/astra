@@ -323,35 +323,6 @@ $header_rt_sections = array(
 	);
 
 	/**
-	 * Option: Mobile header positioning
-	 */
-
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[mobile-header-order]', array(
-			'default'           => astra_get_option( 'mobile-header-order' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[mobile-header-order]', array(
-			'section'     => 'section-header',
-			'label'       => __( 'Mobile Header Order', 'astra' ),
-			'type'        => 'select',
-			'priority'    => 47,
-			'choices'     => array(
-				'header-order-default' => __( 'Default', 'astra' ),
-				'header-order-1'       => __( 'Logo / Last Item in Menu / Menu', 'astra' ),
-				'header-order-5'       => __( 'Logo / Menu / Last Item in Menu', 'astra' ),
-				'header-order-2'       => __( 'Last Item in Menu / Logo / Menu', 'astra' ),
-				'header-order-3'       => __( 'Menu / Logo / Last Item in Menu', 'astra' ),
-				'header-order-4'       => __( 'Menu / Last Item in Menu / Logo', 'astra' ),
-			),
-			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
-		)
-	);
-
-	/**
 	 * Option: Mobile Menu Alignment
 	 */
 	$wp_customize->add_setting(
