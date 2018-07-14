@@ -755,6 +755,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
 		$mobile_header_logo       = astra_get_option( 'mobile-header-logo' );
 		$mobile_header_order      = astra_get_option( 'mobile-header-order' );
+		$different_mobile_header_order      = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile  = astra_get_option( 'hide-custom-menu-mobile', false );
 
 		if ( $menu_logo_location ) {
@@ -777,7 +778,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		}
 
 		// Add class if Mobile Header Logo is set.
-		if ( '' !== $mobile_header_logo ) {
+		if ( '' !== $mobile_header_logo && '1' === $different_mobile_header_order ) {
 			$classes[] = 'ast-has-mobile-header-logo';
 		}
 
