@@ -3733,6 +3733,20 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   top: 0;
 }
 
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point .ast-has-mobile-header-logo .astra-logo-svg {
+  display: none;
+}
+
+.ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
+  display: inline-block;
+}
+
+.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg {
+  display: block;
+}
+
 .ast-header-break-point.ast-header-custom-item-outside .ast-search-icon {
   display: none;
 }
