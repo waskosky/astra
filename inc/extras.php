@@ -567,8 +567,8 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				/**
 				 * Fires before the Primary Header Menu navigation.
 				 * Disable Primary Menu is checked
-				 * Custom menu item is not 'none'.
-				 * Take custom menu item outside is unchecked.
+				 * Last Item in Menu is not 'none'.
+				 * Take Last Item in Menu outside is unchecked.
 				 *
 				 * @since 1.4.0
 				 */
@@ -579,8 +579,8 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				/**
 				 * Fires after the Primary Header Menu navigation.
 				 * Disable Primary Menu is checked
-				 * Custom menu item is not 'none'.
-				 * Take custom menu item outside is unchecked.
+				 * Last Item in Menu is not 'none'.
+				 * Take Last Item in Menu outside is unchecked.
 				 *
 				 * @since 1.4.0
 				 */
