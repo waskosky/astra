@@ -48,6 +48,12 @@
 /**
  * 4 - Search Form & Main Header
  */
+
+.ast-main-header-nav-open {
+	.main-header-bar {
+    	padding-bottom: 0;
+    }
+}
 .main-header-bar{
 	z-index: 4;
 	position: relative;
@@ -82,6 +88,10 @@
 			&:focus {
 				background-color: white;
 			}
+		}
+
+		&.toggle-on {
+			padding-top: 1.5em;
 		}
 	}
 }

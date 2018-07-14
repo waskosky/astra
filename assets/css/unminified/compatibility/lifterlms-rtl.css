@@ -1179,3 +1179,7 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
 .ast-header-break-point .header-main-layout-2 .ast-main-header-bar-alignment {
   display: none;
 }
+
+.ast-woocommerce-cart-menu .main-header-bar .main-header-log-out {
+  padding-right: 10px;
+}
