@@ -467,7 +467,8 @@ li.ast-masthead-custom-menu-items {
 		header:not( .ast-hide-custom-menu-mobile ){
 			&.mobile-header-order-2,
 			&.mobile-header-order-3{
-				.site-branding{
+				.site-branding,
+				.site-title{
 					text-align: center;
 					justify-content: center;
 				}
