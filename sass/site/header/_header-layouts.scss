@@ -86,7 +86,7 @@
  *  3 - Header Layout 3
 */
 .header-main-layout-3 {
-	
+
 	.ast-site-identity{
 		text-align: right;
 	}
@@ -150,7 +150,8 @@
 
 		.ast-masthead-custom-menu-items,
 		.site-branding,
-		.site-title{
+		.site-title,
+		.ast-site-identity{
 			justify-content: center;
 			text-align: center;
 		}
