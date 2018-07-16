@@ -229,7 +229,8 @@
 				],
 				callback: function( hide_custom_menu ) {
 					
-					if ( ! hide_custom_menu ) {
+					var last_item = api( 'astra-settings[header-main-rt-section]' ).get();
+					if ( ! hide_custom_menu && 'none' != last_item ) {
 						return true;
 					}
 					return false;
