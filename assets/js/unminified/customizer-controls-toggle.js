@@ -227,9 +227,9 @@
 				controls: [
 					'astra-settings[header-display-outside-menu]',
 				],
-				callback: function( display_outside_menu ) {
+				callback: function( hide_custom_menu ) {
 					
-					if ( display_outside_menu ) {
+					if ( ! hide_custom_menu ) {
 						return true;
 					}
 					return false;
