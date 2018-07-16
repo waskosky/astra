@@ -705,7 +705,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		/**
 		 * Function to backward compatibility for version less than 1.4.0
 		 *
-		 * @since 1.4.0
+		 * @since 1.4.0-beta.5
 		 */
 		static public function v_1_4_0_beta_5() {
 
