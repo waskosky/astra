@@ -48,6 +48,12 @@
 /**
  * 4 - Search Form & Main Header
  */
+
+.ast-main-header-nav-open {
+	.main-header-bar {
+    	padding-bottom: 0;
+    }
+}
 .main-header-bar{
 	z-index: 4;
 	position: relative;
@@ -82,6 +88,10 @@
 			&:focus {
 				background-color: white;
 			}
+		}
+
+		&.toggle-on {
+			padding-top: 1.5em;
 		}
 	}
 }
@@ -353,9 +363,9 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
-	.ast-has-mobile-header-logo{
+	.ast-has-mobile-header-logo {
 		.custom-logo,
-		.astra-logo-svg{
+		.astra-logo-svg {
 			display: none;
 		}
 		.ast-mobile-header-logo{
@@ -393,24 +403,6 @@ li.ast-masthead-custom-menu-items {
 		.header-main-layout-2 {
 			.ast-masthead-custom-menu-items {
 				text-align: center;
-			}
-		}
-
-		.ast-has-mobile-header-logo{
-			.custom-logo,
-			.astra-logo-svg{
-				display: none;
-			}
-			.ast-mobile-header-logo{
-				display: inline-block;
-			}
-		}
-		&.ast-mobile-inherit-site-logo{
-			.ast-has-mobile-header-logo{
-				.custom-logo,
-				.astra-logo-svg{
-					display: block;
-				}
 			}
 		}
 
