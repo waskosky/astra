@@ -29,6 +29,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static $instance;
 
+		private static $configuration; 
+
 		/**
 		 * Initiator
 		 */
@@ -48,11 +50,142 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Customizer
 			 */
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
+
+			if (is_admin() || is_customize_preview()) {
+				add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
+			}
+
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+		}
+
+		public function register_customizer_settings( $wp_customize ) {
+
+			$this->include_configurations();
+
+			foreach ( $this->get_customizer_configurations( $wp_customize ) as $key => $config ) {
+				$config = wp_parse_args( $config, $this->get_astra_customizer_configuration_defaults() );
+
+				switch ( $config['type'] ) {
+					case 'panel':
+						$this->register_panel( $config, $wp_customize );
+
+						break;
+
+					case 'section':
+						$this->register_section( $config, $wp_customize );
+
+						break;
+
+					case 'control':
+						$this->register_setting_control( $config, $wp_customize );
+
+						break;
+				}
+			}
+
+		}
+
+		private function get_customizer_configurations( $wp_customize ) {
+			if ( ! is_null( self::$configuration ) ) {
+				return self::$configuration;
+			}
+
+			return apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+		}
+
+		private function get_astra_customizer_configuration_defaults() {
+			return apply_filters( 
+				'astra_customizer_configuration_defaults',
+				array(
+					'priority'             => null,
+					'title'                => null,
+					'label'                => null,
+					'name'                 => null,
+					'type'                 => null,
+					'description'          => null,
+					'capability'           => null,
+					'datastore_type'       => 'option', // theme_mod or option. Default option.
+					'settings'             => null,
+					'active_callback'      => null, // For control
+					'sanitize_callback'    => null,
+					'sanitize_js_callback' => null,
+					'theme_supports'       => null,
+					'transport'            => null,
+					'default'              => null,
+					'selector'             => null, // for selective refresh
+					'custom_css_class'     => null, // Custom class for control
+                )
+			);
+		}
+
+		private function register_panel( $config, $wp_customize ) {
+            $wp_customize->add_panel( new Astra_WP_Customize_Panel( $wp_customize, astar( $config, 'name' ), $config ) );
+		}
+
+		private function register_section( $config, $wp_customize ) {
+            $wp_customize->add_section( new Astra_WP_Customize_Section( $wp_customize, astar( $config, 'name' ), $config ) );
+		}
+
+		private function register_setting_control( $config, $wp_customize ) {
+
+			/**
+			 * Option: Button Color
+			 */
+			$wp_customize->add_setting(
+				ASTRA_THEME_SETTINGS . '[button-color-nikhil]', array(
+					'default'           => '',
+					'type'              => 'option',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize, ASTRA_THEME_SETTINGS . '[button-color-nikhil]', array(
+						'section' => 'new-button',
+						'label'   => __( 'Button Text Color', 'astra' ),
+					)
+				)
+			);
+
+			/**
+			 * Option: Last Item in Menu
+			 */
+			$wp_customize->add_setting(
+				ASTRA_THEME_SETTINGS . '[header-main-rt-section-new]', array(
+					'default'           => astra_get_option( 'header-main-rt-section-new' ),
+					'type'              => 'option',
+					'transport'			=> 'postMessage',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				)
+			);
+			
+			$wp_customize->add_control(
+				ASTRA_THEME_SETTINGS . '[header-main-rt-section-new]', array(
+					'type'     => 'select',
+					'section'  => 'new-button',
+					'priority' => 5,
+					'label'    => __( 'Last Item in Menu', 'astra' ),
+					'choices'  => array(
+						'none'      => __( 'None', 'astra' ),
+						'search'    => __( 'Search', 'astra' ),
+						'text-html' => __( 'Text / HTML', 'astra' ),
+						'widget'    => __( 'Widget', 'astra' ),
+					),
+				)
+			);
+
+
+		}
+
+		private function include_configurations() {
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/class-astra-customizer-config-base.php';
+
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-asra-customizer-button-configs.php';
 		}
 
 		/**
