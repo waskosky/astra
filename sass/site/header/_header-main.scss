@@ -437,6 +437,11 @@ li.ast-masthead-custom-menu-items {
 			.ast-site-identity{
 				width: 100%;
 			}
+			&.header-main-layout-3{
+				.ast-site-identity{
+					width: auto;
+				}	
+			}
 			&.header-main-layout-2{
 				.site-branding{
 					flex: 1 1 auto;
