@@ -42,15 +42,15 @@ $header_rt_sections = array(
 				'choices'  => array(
 					'header-main-layout-1' => array(
 						'label' => __( 'Logo Left', 'astra' ),
-						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-1-76x48.png',
 					),
 					'header-main-layout-2' => array(
 						'label' => __( 'Logo Center', 'astra' ),
-						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-2-76x48.png',
 					),
 					'header-main-layout-3' => array(
 						'label' => __( 'Logo Right', 'astra' ),
-						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-3-76x48.png',
 					),
 				),
 			)
