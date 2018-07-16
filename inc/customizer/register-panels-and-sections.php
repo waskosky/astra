@@ -80,7 +80,7 @@
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-header',
 			array(
-				'priority' => 20,
+				'priority' => 15,
 				'title'    => __( 'Primary Header', 'astra' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-header-group',
