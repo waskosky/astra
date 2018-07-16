@@ -1896,12 +1896,6 @@ input[type="submit"]:focus {
 }
 
 .site-title {
-  -js-display: flex;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
   font-weight: normal;
 }
 
@@ -3025,7 +3019,8 @@ body {
 
 .ast-header-break-point .ast-mobile-header-stack .ast-masthead-custom-menu-items,
 .ast-header-break-point .ast-mobile-header-stack .site-branding,
-.ast-header-break-point .ast-mobile-header-stack .site-title {
+.ast-header-break-point .ast-mobile-header-stack .site-title,
+.ast-header-break-point .ast-mobile-header-stack .ast-site-identity {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -moz-box-pack: center;
@@ -3579,6 +3574,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .ast-header-break-point {
   /* Styling Nav */
   /* Main Header */
+}
+
+.ast-header-break-point .ast-mobile-header-stack .site-description {
+  text-align: center;
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-primary-menu-disabled .ast-mobile-menu-buttons {
