@@ -2934,6 +2934,10 @@ body {
 /**
  *  3 - Header Layout 3
 */
+.header-main-layout-3 .ast-site-identity {
+  text-align: left;
+}
+
 .header-main-layout-3 .main-header-container {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
@@ -3008,12 +3012,6 @@ body {
   -moz-box-flex: 1;
   -ms-flex: 1 1 100%;
   flex: 1 1 100%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
 }
 
 .ast-header-break-point .ast-mobile-header-stack .site-branding {
@@ -3023,31 +3021,17 @@ body {
   -moz-box-flex: 1;
   -ms-flex: 1 1 100%;
   flex: 1 1 100%;
+}
+
+.ast-header-break-point .ast-mobile-header-stack .ast-masthead-custom-menu-items,
+.ast-header-break-point .ast-mobile-header-stack .site-branding,
+.ast-header-break-point .ast-mobile-header-stack .site-title {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
-  -js-display: flex;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.ast-header-break-point .header-main-layout-2 .main-header-bar-navigation,
-.ast-header-break-point .header-main-layout-2 .widget {
-  text-align: right;
 }
 
 .ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons {
@@ -3072,6 +3056,25 @@ body {
   -moz-box-direction: initial;
   -ms-flex-direction: initial;
   flex-direction: initial;
+}
+
+.ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ast-header-break-point .header-main-layout-2 .main-header-bar-navigation,
+.ast-header-break-point .header-main-layout-2 .widget {
+  text-align: right;
 }
 
 .ast-header-break-point .header-main-layout-3.ast-mobile-header-inline .ast-mobile-menu-buttons {
@@ -3582,6 +3585,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: none;
 }
 
+.ast-header-break-point .ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items {
+  display: none;
+}
+
 .ast-header-break-point .ast-mobile-header-inline .site-branding {
   text-align: right;
   padding-bottom: 0;
@@ -3785,10 +3792,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: center;
 }
 
-.ast-header-break-point.ast-header-custom-item-outside .ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items {
-  display: none;
-}
-
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline .site-branding,
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline .ast-mobile-menu-buttons {
   -js-display: flex;
@@ -3805,6 +3808,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline .ast-site-identity {
   width: 100%;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline.header-main-layout-3 .ast-site-identity {
+  width: auto;
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline.header-main-layout-2 .site-branding {
