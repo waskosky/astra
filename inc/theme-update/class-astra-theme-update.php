@@ -154,8 +154,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_4_0_beta_4();
 			}
 
-			if ( version_compare( $saved_version, '1.4.0', '<' ) ) {
-				self::v_1_4_0();
+			if ( version_compare( $saved_version, '1.4.0-beta.5', '<' ) ) {
+				self::v_1_4_0_beta_5();
 			}
 
 			// Not have stored?
@@ -707,7 +707,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.4.0
 		 */
-		static public function v_1_4_0() {
+		static public function v_1_4_0_beta_5() {
 
 			$theme_options = get_option( 'astra-settings' );
 
