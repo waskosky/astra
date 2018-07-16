@@ -234,10 +234,14 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
-	.site-branding{
-		display: flex;
-		flex: 1;
-		align-self: center;
+	.site-header{
+		.main-header-bar-wrap{
+			.site-branding{
+				display: flex;
+				flex: 1;
+				align-self: center;
+			}
+		}
 	}
 
 	ul li.ast-masthead-custom-menu-items a {
