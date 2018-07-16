@@ -3584,6 +3584,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: none;
 }
 
+.ast-header-break-point .ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items {
+  display: none;
+}
+
 .ast-header-break-point .ast-mobile-header-inline .site-branding {
   text-align: right;
   padding-bottom: 0;
@@ -3785,10 +3789,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-masthead-custom-menu-items {
   text-align: center;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items {
-  display: none;
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline .site-branding,
