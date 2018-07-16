@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				}
 			</style>
 
-			<?php			
+			<?php
 		}
 
 		/**
