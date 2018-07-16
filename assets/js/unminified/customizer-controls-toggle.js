@@ -209,11 +209,24 @@
 			{
 				controls: [
 					'astra-settings[hide-custom-menu-mobile]',
-					'astra-settings[header-display-outside-menu]',
 				],
 				callback: function( custom_menu ) {
 					
 					if ( 'none' !=  custom_menu ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[header-display-outside-menu]',
+				],
+				callback: function( custom_menu ) {
+					
+					var hide_custom_menu = api( 'astra-settings[hide-custom-menu-mobile]' ).get();
+
+					if ( 'none' !=  custom_menu && ! hide_custom_menu ) {
 						return true;
 					}
 					return false;
@@ -229,7 +242,8 @@
 				],
 				callback: function( hide_custom_menu ) {
 					
-					if ( ! hide_custom_menu ) {
+					var last_item = api( 'astra-settings[header-main-rt-section]' ).get();
+					if ( ! hide_custom_menu && 'none' != last_item ) {
 						return true;
 					}
 					return false;
