@@ -1,9 +1,10 @@
-v1.4.0
-- New: Introduced options for Mobile Header.
-- New: Toggle Button Style added for Primary Header.
-- New: Added option to Hide custom menu item on mobile for Primary Header.
-- New: Added option to Mobile Header Order on mobile when Custom menu item is selected as Take custom menu item outside.
-- Improvement: Move Site Identity section under the Layout -> Header section.
+v1.4.0-beta.5
+- New: Minimal Toggle Button Style added for Primary Header.
+- Improvement: Move Site identity section to Layouts -> Headers
+- Fix: Lifter LMS - Header goes full width when content is set to full width and LifterLMS Distraction Free Learning is enabled.
+- Fix: Cannot edit first background row because of higher z-index of header inside elementor.
+- Fix: Incorrect logos displayed when mobile logo sticky logo is added.
+- Fix: Header layout alignment fixes in between desktop header layout and mobile header layout combinations.
 
 v1.4.0-beta.4
 - New: Optiton to inherit mobile logo from desktop logo.
