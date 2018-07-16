@@ -9,3 +9,11 @@
 		left: 0 !important;
 	}
 }
+
+.elementor-editor-active {
+	.elementor-element {
+		&>.elementor-element-overlay {
+			z-index: 100;
+		}
+	}
+}
