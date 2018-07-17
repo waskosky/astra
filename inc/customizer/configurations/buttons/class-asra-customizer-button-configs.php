@@ -57,13 +57,18 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 	            ),
 
 	            array(
-	                'name'        => ASTRA_THEME_SETTINGS . '[button-color-new]',
+	                'name'        => ASTRA_THEME_SETTINGS . '[test-select]',
 	                'type'        => 'control',
-	                'control'	  => 'color',
+	                'control'	  => 'select',
+					'choices' => array(
+					    'value1' => __( 'Value 1' ),
+					    'value2' => __( 'Value 2' ),
+					    'value3' => __( 'Value 3' ),
+					  ),
 	                'section'     => 'new-button',
-	                'title'       => __('Button Text Colo New', 'astra'),
-	                'default'     => '',
-	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+	                'title'       => __('Button Select', 'astra'),
+	                'default'     => 'value1',
+	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	            ),
 
 			);

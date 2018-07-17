@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		public static function get_control_instance( $control_type ) {
 
 			if ( 'color' === $control_type ) {
-				return 'WP_Customize_Color_Control';
+				return is_callable( 'WP_Customize_Color_Control' ) ? 'WP_Customize_Color_Control' : false;
 			}
 
 			return false;

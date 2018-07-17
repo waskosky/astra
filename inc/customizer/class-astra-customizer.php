@@ -139,11 +139,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				astar( $config, 'name' ), array(
 					'default'           => astar( $config, 'default' ),
 					'type'        		=> astar( $config, 'datastore_type' ),
-					'sanitize_callback' => astar( $config, 'sanitize_callback' ),
+					'sanitize_callback' => astar( $config, 'sanitize_callback', false ),
 				)
 			);
 
 			$instance = Astra_Customizer_Control_Base::get_control_instance( astar( $config, 'control' ) );
+
+			$config['label'] = astar( $config, 'title' );
+			$config['type']  = astar( $config, 'control' );
 
 			if ( false !== $instance ) {
 				$wp_customize->add_control(
@@ -152,7 +155,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			} else {
 				$wp_customize->add_control( astar( $config, 'name' ), $config );
 			}
-
 
 		}
 
