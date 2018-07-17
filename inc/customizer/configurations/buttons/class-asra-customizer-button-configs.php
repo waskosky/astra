@@ -37,12 +37,33 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 	            ),
 
 	            array(
-	                'name'        => 'site_layout',
+	                'name'        => ASTRA_THEME_SETTINGS . '[button-color-nikhil]',
 	                'type'        => 'control',
 	                'control'	  => 'color',
 	                'section'     => 'new-button',
 	                'title'       => __('Button Text Color', 'astra'),
-	                'default'     => ''
+	                'default'     => '',
+	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+	            ),
+
+	            array(
+	                'name'        => ASTRA_THEME_SETTINGS . '[button-color-new]',
+	                'type'        => 'control',
+	                'control'	  => 'color',
+	                'section'     => 'new-button',
+	                'title'       => __('Button Text Colo New', 'astra'),
+	                'default'     => '',
+	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+	            ),
+
+	            array(
+	                'name'        => ASTRA_THEME_SETTINGS . '[button-color-new]',
+	                'type'        => 'control',
+	                'control'	  => 'color',
+	                'section'     => 'new-button',
+	                'title'       => __('Button Text Colo New', 'astra'),
+	                'default'     => '',
+	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	            ),
 
 			);

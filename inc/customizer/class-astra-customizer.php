@@ -136,48 +136,22 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Option: Button Color
 			 */
 			$wp_customize->add_setting(
-				ASTRA_THEME_SETTINGS . '[button-color-nikhil]', array(
-					'default'           => '',
-					'type'              => 'option',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+				astar( $config, 'name' ), array(
+					'default'           => astar( $config, 'default' ),
+					'type'        		=> astar( $config, 'datastore_type' ),
+					'sanitize_callback' => astar( $config, 'sanitize_callback' ),
 				)
 			);
 
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize, ASTRA_THEME_SETTINGS . '[button-color-nikhil]', array(
-						'section' => 'new-button',
-						'label'   => __( 'Button Text Color', 'astra' ),
-					)
-				)
-			);
+			$instance = Astra_Customizer_Control_Base::get_control_instance( astar( $config, 'control' ) );
 
-			/**
-			 * Option: Last Item in Menu
-			 */
-			$wp_customize->add_setting(
-				ASTRA_THEME_SETTINGS . '[header-main-rt-section-new]', array(
-					'default'           => astra_get_option( 'header-main-rt-section-new' ),
-					'type'              => 'option',
-					'transport'			=> 'postMessage',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-				)
-			);
-			
-			$wp_customize->add_control(
-				ASTRA_THEME_SETTINGS . '[header-main-rt-section-new]', array(
-					'type'     => 'select',
-					'section'  => 'new-button',
-					'priority' => 5,
-					'label'    => __( 'Last Item in Menu', 'astra' ),
-					'choices'  => array(
-						'none'      => __( 'None', 'astra' ),
-						'search'    => __( 'Search', 'astra' ),
-						'text-html' => __( 'Text / HTML', 'astra' ),
-						'widget'    => __( 'Widget', 'astra' ),
-					),
-				)
-			);
+			if ( false !== $instance ) {
+				$wp_customize->add_control(
+					new $instance( $wp_customize, astar( $config, 'name' ), $config )
+				);
+			} else {
+				$wp_customize->add_control( astar( $config, 'name' ), $config );
+			}
 
 
 		}
