@@ -3454,7 +3454,7 @@ body {
 }
 
 .main-header-bar .main-header-bar-navigation.toggle-on {
-  padding-top: 1.5em;
+  padding-top: 1em;
 }
 
 .ast-search-menu-icon {
@@ -3597,7 +3597,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: left;
 }
 
-.ast-header-break-point .site-branding {
+.ast-header-break-point .site-header .main-header-bar-wrap .site-branding {
   -js-display: flex;
   display: -webkit-box;
   display: -webkit-flex;
