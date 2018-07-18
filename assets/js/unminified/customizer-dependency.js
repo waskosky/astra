@@ -15,9 +15,9 @@
 	 * Helper class for the main Customizer interface.
 	 *
 	 * @since x.x.x
-	 * @class Astra_Customizer_
+	 * @class Astra_Customizer
 	 */
-	var Astra_Customizer_ = {
+	var Astra_Customizer = {
 
 		controls	: {},
 
@@ -44,7 +44,7 @@
 			var allValues = api.get();
 			var $this = this;
 
-            _.each(allValues, function (value, id) {
+            _.each( allValues, function ( value, id ) {
                 var control = api.control(id);
 
                 if ( !_.isUndefined( control ) ) {
@@ -52,8 +52,10 @@
                 	if( 'undefined' != typeof astra.config[id] ) {
                         var check = false;
                         var required_param = astra.config[id];
+                        var conditions     = required_param.conditions;
+                        var operator       = 'undefined' !== typeof required_param.operator ? required_param.operator : 'AND';
 
-                        check = $this.multiple_compare( required_param, allValues, value );
+                        check = $this.checkDependency( conditions, allValues, operator );
 
                         if ( !check ) {
                             control.container.addClass('ast-hide');
@@ -62,75 +64,65 @@
                         }
                     }
                 }
-
             });
-
 		}, 
 
-		multiple_compare: function ( list, values ) {
-            
+		checkDependency: function ( conditions, values, compare_operator ) {
+
             var control = this;
             var check = false;
-            try {
-                var test = list[0];
+            var returnNow = false;
+      		var test = conditions[0];
 
-                if ( _.isString( test ) ) {
-                    check = false;
-                    var cond = list[1];
-                    var cond_val = list[2];
-                    var cond_device = false;
-                    if (!_.isUndefined(list[3])) { // can be desktop, tablet, mobile
-                        cond_device = list[3];
+            if ( _.isString( test ) ) {
+                check = false;
+                var cond = conditions[1];
+                var cond_val = conditions[2];
+                var value;
+
+                if ( !_.isUndefined( values[test] ) ) {
+                    value = values[test];
+                    check = control.compareValues( value, cond, cond_val );
+                }
+
+            } else if ( _.isArray( test ) ) {
+                check = true;
+                
+                _.every( conditions, function (req) {
+
+                    var cond_key = req[0];
+                    var cond_cond = req[1];
+                    var cond_val = req[2];            
+                    var t_val = values[cond_key];
+        
+                    if ( _.isUndefined( t_val ) ) {
+                        t_val = '';
                     }
-                    var value;
-                    if ( !_.isUndefined( values[test] ) ) {
-                        value = values[test];
-                        if (cond_device) {
-                            if (_.isObject(value) && !_.isUndefined(value[cond_device])) {
-                                value = value[cond_device];
-                            }
-                        }
 
-                        check = control.compare(value, cond, cond_val);
-                    }
-
-                } else if ( _.isArray( test ) ) {
-                    check = true;
-                    
-                    _.each(list, function (req) {
-
-                        var cond_key = req[0];
-                        var cond_cond = req[1];
-                        var cond_val = req[2];
-                        var cond_device = false;
-                        if (!_.isUndefined(req[3])) { // can be desktop, tablet, mobile
-                            cond_device = req[3];
-                        }
-                        var t_val = values[cond_key];
-                        if (_.isUndefined(t_val)) {
-                            t_val = '';
-                        }
-
-                        if (cond_device) {
-                            if (_.isObject(t_val) && !_.isUndefined(t_val[cond_device])) {
-                                t_val = t_val[cond_device];
-                            }
-                        }
-
-                        if (!control.compare(t_val, cond_cond, cond_val)) {
+                    if( 'AND' == compare_operator ) {
+                        if ( !control.compareValues( t_val, cond_cond, cond_val ) ) {
                             check = false;
                         }
-                    });
+                    } else {
+                    	if ( control.compareValues( t_val, cond_cond, cond_val ) ) {
+                            returnNow = true;
+                            check = true;
+                        } else {
+                    		check = false;
+                        }
+                    }
 
-                }
-            } catch (e) {
-                //console.log( 'Trying_test_error', e  );
+                    // Break loop in case of OR operator
+                    if( returnNow ) {
+                    	return false;
+                    }
+                });
             }
 
             return check;
         },
 
-        compare: function (value1, cond, value2) {
+        compareValues: function ( value1, cond, value2 ) {
             var equal = false;
             switch (cond) {
                 case '===':
@@ -186,7 +178,7 @@
         },
 	};
 
-	$( function() { Astra_Customizer_.init(); } );
+	$( function() { Astra_Customizer.init(); } );
 
 
 })( jQuery );

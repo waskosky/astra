@@ -30,49 +30,67 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 			$_configs = array(
 
-	            array(
-	                'name'           => 'new-button',
-	                'type'           => 'section',
-	                'title'          => __('New Button', 'astra'),
-	            ),
+				array(
+					'name'  => 'new-button',
+					'type'  => 'section',
+					'title' => __( 'New Button', 'astra' ),
+				),
 
-	            array(
-	                'name'        => ASTRA_THEME_SETTINGS . '[button-color-nikhil]',
-	                'type'        => 'control',
-	                'control'	  => 'color',
-	                'section'     => 'new-button',
-	                'title'       => __('Button Text Color', 'astra'),
-	                'default'     => '',
-	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
-	            ),
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[button-color-nikhil]',
+					'type'              => 'control',
+					'control'           => 'color',
+					'section'           => 'new-button',
+					'title'             => __( 'Button Text Color', 'astra' ),
+					'default'           => '',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+				),
 
-	            array(
-	                'name'        => ASTRA_THEME_SETTINGS . '[button-color-new]',
-	                'type'        => 'control',
-	                'control'	  => 'color',
-	                'section'     => 'new-button',
-	                'title'       => __('Button Text Colo New', 'astra'),
-	                'default'     => '',
-	                'required'	  => array( 
-	                		array( ASTRA_THEME_SETTINGS . '[test-select]', '==', [ 'value1', 'value2' ] )
-	                ),
-	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
-	            ),
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[button-color-new]',
+					'type'              => 'control',
+					'control'           => 'color',
+					'section'           => 'new-button',
+					'title'             => __( 'Button Text Colo New', 'astra' ),
+					'default'           => '',
+					'required'          => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[test-select]', '==', [ 'value1', 'value2' ] ),
+							array( ASTRA_THEME_SETTINGS . '[test-select-2]', '==', [ 'value1', 'value2' ] ),
+						),
+						'operator'   => 'OR',
+					),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+				),
 
-	            array(
-	                'name'        => ASTRA_THEME_SETTINGS . '[test-select]',
-	                'type'        => 'control',
-	                'control'	  => 'select',
-					'choices' => array(
-					    'value1' => __( 'Value 1' ),
-					    'value2' => __( 'Value 2' ),
-					    'value3' => __( 'Value 3' ),
-					  ),
-	                'section'     => 'new-button',
-	                'title'       => __('Button Select', 'astra'),
-	                'default'     => 'value1',
-	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-	            ),
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[test-select]',
+					'type'              => 'control',
+					'control'           => 'select',
+					'choices'           => array(
+						'value1' => __( 'Value 1' ),
+						'value2' => __( 'Value 2' ),
+						'value3' => __( 'Value 3' ),
+					),
+					'section'           => 'new-button',
+					'title'             => __( 'Button Select', 'astra' ),
+					'default'           => 'value1',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				),
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[test-select-2]',
+					'type'              => 'control',
+					'control'           => 'select',
+					'choices'           => array(
+						'value1' => __( 'Value 1' ),
+						'value2' => __( 'Value 2' ),
+						'value3' => __( 'Value 3' ),
+					),
+					'section'           => 'new-button',
+					'title'             => __( 'Button Select 2', 'astra' ),
+					'default'           => 'value1',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

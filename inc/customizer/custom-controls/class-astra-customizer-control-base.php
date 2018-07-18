@@ -36,9 +36,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		}
 
 		public function set_controls() {
-			self::$controls = array(
-
-			);
+			self::$controls = array();
 		}
 
 		public static function get_control_instance( $control_type ) {
