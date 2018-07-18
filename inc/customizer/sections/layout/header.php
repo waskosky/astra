@@ -189,7 +189,7 @@ $header_rt_sections = array(
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Astra_Control_Color(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[header-main-sep-color]', array(
 				'type'     => 'ast-color',
 				'section'  => 'section-header',
