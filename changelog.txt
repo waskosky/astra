@@ -1,3 +1,8 @@
+v1.4.0
+- Introduced Mobile Headers support from Astra Theme and Mobile Headers addon in Astra Pro. Check out changelogs of 1.4.0 beta versions for list of complete changes.
+- Improvement - Remove `-` and `--` from submenus and replace it with an icon `>`
+- Fix: LifterLMS RTL layout not working because of missing RTL variant of the stylesheet.
+
 v1.4.0-beta.5
 - New: Minimal Toggle Button Style added for Primary Header.
 - Improvement: Move Site identity section to Layouts -> Headers

@@ -2592,8 +2592,15 @@ body {
 
 .ast-header-break-point .main-navigation ul.children li a:before,
 .ast-header-break-point .main-navigation ul.sub-menu li a:before {
-  content: "-";
-  margin-right: 2px;
+  content: "\e900";
+  font-family: 'Astra';
+  font-size: .65em;
+  text-decoration: inherit;
+  display: inline-block;
+  -webkit-transform: translate(0, -2px) rotateZ(270deg);
+  -ms-transform: translate(0, -2px) rotate(270deg);
+  transform: translate(0, -2px) rotateZ(270deg);
+  margin-right: 5px;
 }
 
 .ast-header-break-point .main-navigation ul.children li li a,
@@ -2601,32 +2608,14 @@ body {
   padding-left: 40px;
 }
 
-.ast-header-break-point .main-navigation ul.children li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li a:before {
-  content: "--";
-  margin-right: 2px;
-}
-
 .ast-header-break-point .main-navigation ul.children li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li a {
   padding-left: 50px;
 }
 
-.ast-header-break-point .main-navigation ul.children li li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li li a:before {
-  content: "---";
-  margin-right: 2px;
-}
-
 .ast-header-break-point .main-navigation ul.children li li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li li a {
   padding-left: 60px;
-}
-
-.ast-header-break-point .main-navigation ul.children li li li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li li li a:before {
-  content: "----";
-  margin-right: 2px;
 }
 
 .ast-header-break-point .ast-header-custom-item {
@@ -3130,7 +3119,7 @@ body {
 /* Mobile Header Alignment */
 @media (max-width: 544px) {
   .site-branding img,
-  #masthead .site-logo-img .custom-logo-link img {
+  .site-header .site-logo-img .custom-logo-link img {
     max-width: 100%;
   }
   .ast-header-custom-item-outside .ast-mobile-header-stack .site-branding {
@@ -3454,7 +3443,7 @@ body {
 }
 
 .main-header-bar .main-header-bar-navigation.toggle-on {
-  padding-top: 1.5em;
+  padding-top: 1em;
 }
 
 .ast-search-menu-icon {
@@ -3597,7 +3586,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: right;
 }
 
-.ast-header-break-point .site-branding {
+.ast-header-break-point .site-header .main-header-bar-wrap .site-branding {
   -js-display: flex;
   display: -webkit-box;
   display: -webkit-flex;

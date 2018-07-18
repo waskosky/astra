@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.4.0\n"
+"Project-Id-Version: Astra 1.4.0-beta.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-07-13 07:00:56+00:00\n"
+"POT-Creation-Date: 2018-07-18 11:43:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -173,7 +173,6 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:71
 #: inc/customizer/sections/layout/container.php:97
 #: inc/customizer/sections/layout/container.php:123
-#: inc/customizer/sections/layout/header.php:343
 #: inc/customizer/sections/layout/sidebar.php:72
 #: inc/customizer/sections/layout/sidebar.php:97
 #: inc/customizer/sections/layout/sidebar.php:122
@@ -684,7 +683,7 @@ msgid "Blog Pro"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:643
-#: inc/customizer/sections/layout/header.php:233
+#: inc/customizer/sections/layout/header.php:234
 msgid "Mobile Header"
 msgstr ""
 
@@ -1086,8 +1085,7 @@ msgid "Container"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:51
-#: inc/customizer/register-panels-and-sections.php:304
-#: inc/customizer/sections/layout/header.php:40 inc/widgets.php:100
+#: inc/customizer/register-panels-and-sections.php:304 inc/widgets.php:100
 msgid "Header"
 msgstr ""
 
@@ -1101,7 +1099,7 @@ msgid "Primary Header"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:101
-#: inc/customizer/sections/layout/header.php:255
+#: inc/customizer/sections/layout/header.php:256
 msgid "Menu Breakpoint"
 msgstr ""
 
@@ -1229,7 +1227,7 @@ msgstr ""
 #: inc/customizer/sections/layout/blog-single.php:160
 #: inc/customizer/sections/layout/blog.php:183
 #: inc/customizer/sections/layout/container.php:180
-#: inc/customizer/sections/layout/header.php:412
+#: inc/customizer/sections/layout/header.php:384
 #: inc/customizer/sections/layout/mobile-header.php:42
 #: inc/customizer/sections/typography/archive.php:129
 #: inc/customizer/sections/typography/content.php:305
@@ -1389,12 +1387,12 @@ msgid "Footer Bar Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:256
-#: inc/customizer/sections/layout/header.php:218
+#: inc/customizer/sections/layout/header.php:219
 msgid "Full Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:257
-#: inc/customizer/sections/layout/header.php:219
+#: inc/customizer/sections/layout/header.php:220
 msgid "Content Width"
 msgstr ""
 
@@ -1407,6 +1405,10 @@ msgstr ""
 #: inc/customizer/sections/layout/header.php:19
 #: inc/customizer/sections/layout/header.php:117
 msgid "Text / HTML"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:40
+msgid "Header Layout"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:44
@@ -1427,7 +1429,7 @@ msgstr ""
 
 #: inc/customizer/sections/layout/header.php:94
 #: inc/customizer/sections/layout/header.php:111
-msgid "Custom Menu Item"
+msgid "Last Item in Menu"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:141
@@ -1438,94 +1440,69 @@ msgstr ""
 msgid "Bottom Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:196
+#: inc/customizer/sections/layout/header.php:197
 msgid "Bottom Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:216
+#: inc/customizer/sections/layout/header.php:217
 msgid "Header Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:281
+#: inc/customizer/sections/layout/header.php:282
 msgid "Menu Label on Small Devices"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:300
-msgid "Take custom menu item outside menu"
+#: inc/customizer/sections/layout/header.php:301
+msgid "Hide Last item in Menu on mobile"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:319
-msgid "Hide custom menu item on mobile"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:321
-#: inc/customizer/sections/layout/header.php:350
-#: inc/customizer/sections/layout/header.php:381
+#: inc/customizer/sections/layout/header.php:303
+#: inc/customizer/sections/layout/header.php:353
 msgid "This setting is only applied to the devices below 544px width "
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:339
-msgid "Mobile Header Order"
+#: inc/customizer/sections/layout/header.php:321
+msgid "Take Last item in Menu outside menu"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:344
-msgid "Logo / Custom Menu Item / Menu"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:345
-msgid "Logo / Menu / Custom Menu Item"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:346
-msgid "Custom Menu Item / Logo / Menu"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:347
-msgid "Menu / Logo / Custom Menu Item"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:348
-msgid "Menu / Custom Menu Item / Logo"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:370
+#: inc/customizer/sections/layout/header.php:342
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:374
+#: inc/customizer/sections/layout/header.php:346
 msgid "Stack"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:380
+#: inc/customizer/sections/layout/header.php:352
 msgid "Mobile Header Alignment"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:412
+#: inc/customizer/sections/layout/header.php:384
 #: inc/customizer/sections/layout/mobile-header.php:42
 msgid "More Options Available for Mobile Header in Astra Pro!"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:433
+#: inc/customizer/sections/layout/header.php:405
 msgid "Toggle Button Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:437
+#: inc/customizer/sections/layout/header.php:409
 msgid "Fill"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:438
+#: inc/customizer/sections/layout/header.php:410
 msgid "Outline"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:439
+#: inc/customizer/sections/layout/header.php:411
 msgid "Minimal"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:458
+#: inc/customizer/sections/layout/header.php:430
 msgid "Toggle Button Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:481
+#: inc/customizer/sections/layout/header.php:453
 msgid "Border Radius"
 msgstr ""
 
@@ -1709,15 +1686,15 @@ msgstr ""
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:1077
+#: inc/extras.php:1074
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1114
+#: inc/extras.php:1111
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
-#: inc/extras.php:1445
+#: inc/extras.php:1442
 msgid "Astra Pro"
 msgstr ""
 
