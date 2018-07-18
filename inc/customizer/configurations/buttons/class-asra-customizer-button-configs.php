@@ -53,6 +53,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 	                'section'     => 'new-button',
 	                'title'       => __('Button Text Colo New', 'astra'),
 	                'default'     => '',
+	                'required'	  => array( 
+	                	array( ASTRA_THEME_SETTINGS . '[test-select]', '==', 'value1' ),
+	                	array( ASTRA_THEME_SETTINGS . '[test-select]', '==', 'value2' ),
+	                ),
 	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	            ),
 

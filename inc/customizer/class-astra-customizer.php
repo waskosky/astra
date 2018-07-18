@@ -31,6 +31,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 		private static $configuration; 
 
+		private static $_dependency_arr = array();
+
 		/**
 		 * Initiator
 		 */
@@ -156,6 +158,18 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$wp_customize->add_control( astar( $config, 'name' ), $config );
 			}
 
+			if ( false !== astar( $config, 'required', false ) ) {
+				$this->update_dependency_arr( astar( $config, 'name' ), astar( $config, 'required' ) );
+			}			
+
+		}
+
+		private function update_dependency_arr( $key, $dependency ) {
+			self::$_dependency_arr[ $key ] = $dependency;
+		}
+
+		private function get_dependency_arr() {
+			return self::$_dependency_arr;
 		}
 
 		private function include_configurations() {
@@ -317,6 +331,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
+			wp_enqueue_script( 'customizer-dependency', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency.js', array( 'astra-customizer-controls-js' ), ASTRA_THEME_VERSION, true );			
+
 			// Customizer Controls.
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
@@ -349,6 +365,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
 						),
+						'config' 	=> $this->get_dependency_arr()
 					)
 				)
 			);
