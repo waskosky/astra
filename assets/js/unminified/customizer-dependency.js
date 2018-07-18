@@ -32,14 +32,15 @@
 		init: function()
 		{
 			var $this = this;
+			$this.handleDependency();
+
 			api.bind( 'change', function ( setting ) {
-
-				$this.handleDependency( setting.id, setting.get() );
-
+				$this.handleDependency();
 			} );
+
 		},
 
-		handleDependency: function( control, value ) {
+		handleDependency: function() {
 
 			var allValues = api.get();
 			var $this = this;
@@ -88,11 +89,11 @@
             } else if ( _.isArray( test ) ) {
                 check = true;
                 
-                _.every( conditions, function (req) {
+                $.each( conditions, function ( index, val ) {
 
-                    var cond_key = req[0];
-                    var cond_cond = req[1];
-                    var cond_val = req[2];            
+                    var cond_key = val[0];
+                    var cond_cond = val[1];
+                    var cond_val = val[2];            
                     var t_val = values[cond_key];
         
                     if ( _.isUndefined( t_val ) ) {
@@ -104,6 +105,7 @@
                             check = false;
                         }
                     } else {
+
                     	if ( control.compareValues( t_val, cond_cond, cond_val ) ) {
                             returnNow = true;
                             check = true;
@@ -112,10 +114,10 @@
                         }
                     }
 
-                    // Break loop in case of OR operator
-                    if( returnNow ) {
-                    	return false;
-                    }
+                	// Break loop in case of OR operator
+                    if( returnNow && 'OR' == compare_operator ) {
+	                	return false;
+	                }
                 });
             }
 
