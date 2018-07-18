@@ -54,8 +54,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 	                'title'       => __('Button Text Colo New', 'astra'),
 	                'default'     => '',
 	                'required'	  => array( 
-	                	array( ASTRA_THEME_SETTINGS . '[test-select]', '==', 'value1' ),
-	                	array( ASTRA_THEME_SETTINGS . '[test-select]', '==', 'value2' ),
+	                		array( ASTRA_THEME_SETTINGS . '[test-select]', '==', [ 'value1', 'value2' ] )
 	                ),
 	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 	            ),
@@ -74,7 +73,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 	                'default'     => 'value1',
 	                'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	            ),
-
 			);
 
 			return array_merge( $configurations, $_configs );
