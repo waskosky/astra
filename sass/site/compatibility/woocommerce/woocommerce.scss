@@ -304,7 +304,7 @@ p.demo_store,
 
 	/** 
 	 * Header layout 1
-	 * if no primary menu & no custom menu items
+	 * if no primary menu & no last items in menu
 	 */
 	 .header-main-layout-1 {
 	 	&.ast-no-menu-items {
@@ -322,7 +322,7 @@ p.demo_store,
 	 * Header layout 3
 	 */
 	 .header-main-layout-3 {
-		/* No primary menu & no custom menu items */
+		/* No primary menu & no last items in menu */
 		&.ast-no-menu-items {
     	 	.ast-site-header-cart {
     	 		flex: 1;
@@ -447,6 +447,7 @@ p.demo_store,
 
 			a {
 				border: none;
+				display: inline-block;
 			}
 		}
 	}
