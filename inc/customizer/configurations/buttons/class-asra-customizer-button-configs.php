@@ -47,6 +47,27 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[test-select-3]',
+					'type'              => 'control',
+					'control'           => 'select',
+					'choices'           => array(
+						'value1' => __( 'Value 1' ),
+						'value2' => __( 'Value 2' ),
+						'value3' => __( 'Value 3' ),
+					),
+					'required'          => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[test-select-2]', '==', [ 'value1' ] ),
+						),
+						'operator'   => 'OR',
+					),
+					'section'           => 'new-button',
+					'title'             => __( 'Button Select 3', 'astra' ),
+					'default'           => 'value1',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				),
+
+				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[button-color-new]',
 					'type'              => 'control',
 					'control'           => 'color',
@@ -62,7 +83,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 				),
-
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[test-select]',
 					'type'              => 'control',
@@ -89,8 +109,15 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'           => 'new-button',
 					'title'             => __( 'Button Select 2', 'astra' ),
 					'default'           => 'value1',
+					'required'          => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[test-select]', '==', [ 'value1' ] ),
+						),
+						'operator'   => 'OR',
+					),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				),
+				
 			);
 
 			return array_merge( $configurations, $_configs );

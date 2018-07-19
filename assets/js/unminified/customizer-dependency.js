@@ -20,7 +20,6 @@
 	var Astra_Customizer = {
 
 		controls	: {},
-
 		/**
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
@@ -42,30 +41,41 @@
 
 		handleDependency: function() {
 
-			var allValues = api.get();
 			var $this = this;
+			var values = api.get();
 
-            _.each( allValues, function ( value, id ) {
+            _.each( values, function ( value, id ) {
                 var control = api.control(id);
 
-                if ( !_.isUndefined( control ) ) {
+                $this.checkControlVisibility( control, id );
+                
+            });
+		}, 
 
-                	if( 'undefined' != typeof astra.config[id] ) {
-                        var check = false;
-                        var required_param = astra.config[id];
-                        var conditions     = required_param.conditions;
-                        var operator       = 'undefined' !== typeof required_param.operator ? required_param.operator : 'AND';
+		checkControlVisibility: function( control, id, values ) {
 
-                        check = $this.checkDependency( conditions, allValues, operator );
+			console.log( id );
 
-                        if ( !check ) {
-                            control.container.addClass('ast-hide');
-                        } else {
-                            control.container.removeClass('ast-hide');
-                        }
+			var $this = this;
+			var values = api.get();
+
+			if ( !_.isUndefined( control ) ) {
+
+            	if( 'undefined' != typeof astra.config[id] ) {
+                    var check = false;
+                    var required_param = astra.config[id];
+                    var conditions     = required_param.conditions;
+                    var operator       = 'undefined' !== typeof required_param.operator ? required_param.operator : 'AND';
+
+                    check = $this.checkDependency( conditions, values, operator );
+
+                    if ( !check ) {
+                        control.container.addClass('ast-hide');
+                    } else {
+                        control.container.removeClass('ast-hide');
                     }
                 }
-            });
+            }
 		}, 
 
 		checkDependency: function ( conditions, values, compare_operator ) {
@@ -95,6 +105,22 @@
                     var cond_cond = val[1];
                     var cond_val = val[2];            
                     var t_val = values[cond_key];
+                    var element = api.control(cond_key);
+
+                    if( 'undefined' !== typeof astra.config[cond_key] ) {
+	                    if( ! control.checkDependency( astra.config[cond_key]['conditions'], values, astra.config[cond_key]['operator'] ) ) {
+	                    	check = false;
+	                    	return;
+	                    } else {
+                			var control_obj = api.control(cond_key);
+                			control_obj.container.removeClass('ast-hide');
+	                    }
+                    }
+
+                    if( element.container.hasClass( 'ast-hide' ) ) {
+                    	check = false;
+                    	return;
+                    }
         
                     if ( _.isUndefined( t_val ) ) {
                         t_val = '';
