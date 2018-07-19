@@ -55,6 +55,14 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			return array();
 		}
 
+		public static function get_sanitize_call( $control ) {
+			
+			if ( isset( self::$controls[ $control ]['sanitize_callback'] ) ) {
+				return self::$controls[ $control ]['sanitize_callback'];
+			}
+			return false;
+		}
+
 	}
 }
 
