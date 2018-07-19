@@ -39,6 +39,13 @@
 
 		},
 
+		/**
+		 * Handles dependency for controls.
+		 *
+		 * @since x.x.x
+		 * @access private
+		 * @method handleDependency
+		 */
 		handleDependency: function() {
 
 			var $this = this;
@@ -52,6 +59,13 @@
             });
 		}, 
 
+		/**
+		 * Hide OR display controls according to dependency
+		 *
+		 * @since x.x.x
+		 * @access private
+		 * @method checkControlVisibility
+		 */
 		checkControlVisibility: function( control, id, values ) {
 
 			var $this = this;
@@ -59,6 +73,7 @@
 
 			if ( !_.isUndefined( control ) ) {
 
+				// If control has dependency defined
             	if( 'undefined' != typeof astra.config[id] ) {
                     var check = false;
                     var required_param = astra.config[id];
@@ -76,6 +91,13 @@
             }
 		}, 
 
+		/**
+		 * Checks dependency condtions for controls
+		 *
+		 * @since x.x.x
+		 * @access private
+		 * @method checkDependency
+		 */
 		checkDependency: function ( conditions, values, compare_operator ) {
 
             var control = this;
@@ -106,6 +128,8 @@
                     var element = api.control(cond_key);
 
                     if( 'undefined' !== typeof astra.config[cond_key] ) {
+
+                    	// Check visibility for dependent controls also
 	                    if( ! control.checkDependency( astra.config[cond_key]['conditions'], values, astra.config[cond_key]['operator'] ) ) {
 	                    	check = false;
 	                    	return;
@@ -143,6 +167,13 @@
             return check;
         },
 
+        /**
+		 * Compare values
+		 *
+		 * @since x.x.x
+		 * @access private
+		 * @method compareValues
+		 */
         compareValues: function ( value1, cond, value2 ) {
             var equal = false;
             switch (cond) {

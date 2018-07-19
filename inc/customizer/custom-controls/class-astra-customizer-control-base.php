@@ -38,6 +38,13 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			$wp_customize->register_control_type( $atts['callback'] );
 		}
 
+		/**
+		 * Returns control instance
+		 *
+		 * @param  string $control_type control type.
+		 * @since 1.4.1
+		 * @return string
+		 */
 		public static function get_control_instance( $control_type ) {
 			$control_class = self::get_control( $control_type );
 
@@ -47,6 +54,13 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			return false;
 		}
 
+		/**
+		 * Returns control and its attributes
+		 *
+		 * @param  string $control_type control type.
+		 * @since 1.4.1
+		 * @return array
+		 */
 		public static function get_control( $control_type ) {
 
 			if ( isset( self::$controls[ $control_type ] ) ) {
@@ -55,14 +69,20 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			return array();
 		}
 
+		/**
+		 * Returns Santize callback for control
+		 *
+		 * @param  string $control control.
+		 * @since 1.4.1
+		 * @return string
+		 */
 		public static function get_sanitize_call( $control ) {
-			
+
 			if ( isset( self::$controls[ $control ]['sanitize_callback'] ) ) {
 				return self::$controls[ $control ]['sanitize_callback'];
 			}
 			return false;
 		}
-
 	}
 }
 
