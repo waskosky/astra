@@ -60,6 +60,25 @@
   line-height: 1.75;
 }
 
+.widget .progress__indicator {
+  line-height: 30px;
+}
+
+.widget .llms-progress .llms-progress-bar {
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  height: 20px;
+}
+
+.widget .llms-progress .progress-bar-complete {
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.widget .llms-course-outline ul {
+  margin-right: 1.5em;
+}
+
 .ast-separate-container .ast-lifterlms-container {
   background-color: #fff;
 }
@@ -1157,4 +1176,29 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   .llms-loop .llms-loop-list.llms-mobile-cols-6 .llms-loop-item {
     width: 16.66667%;
   }
+}
+
+.header-main-layout-2 .main-header-container {
+  text-align: center;
+}
+
+.header-main-layout-2 .main-header-log-out {
+  display: inline-block;
+  float: left;
+}
+
+.header-main-layout-2 .ast-main-header-bar-alignment {
+  display: inline-block;
+}
+
+.ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
+  display: inline-block;
+}
+
+.ast-header-break-point .header-main-layout-2 .ast-main-header-bar-alignment {
+  display: none;
+}
+
+.ast-woocommerce-cart-menu .main-header-bar .main-header-log-out {
+  padding-right: 10px;
 }

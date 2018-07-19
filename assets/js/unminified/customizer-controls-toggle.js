@@ -197,7 +197,6 @@
 			{
 				controls: [
 					'astra-settings[header-main-menu-label]',
-					'astra-settings[header-main-menu-label-divider]',
 				],
 				callback: function( custom_menu ) {
 					var menu = api( 'astra-settings[disable-primary-nav]' ).get();
@@ -209,7 +208,7 @@
 			},
 			{
 				controls: [
-					'astra-settings[header-display-outside-menu]',
+					'astra-settings[hide-custom-menu-mobile]',
 				],
 				callback: function( custom_menu ) {
 					
@@ -221,14 +220,30 @@
 			},
 			{
 				controls: [
-					'astra-settings[mobile-header-order]',
+					'astra-settings[header-display-outside-menu]',
 				],
-				callback: function( val ) {
+				callback: function( custom_menu ) {
+					
+					var hide_custom_menu = api( 'astra-settings[hide-custom-menu-mobile]' ).get();
 
-					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
+					if ( 'none' !=  custom_menu && ! hide_custom_menu ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
 
-					if ( 'no-toggle' != menu_style && ( menu_outside && 'none' != val ) ) {
+		'astra-settings[hide-custom-menu-mobile]' :
+		[
+			{
+				controls: [
+					'astra-settings[header-display-outside-menu]',
+				],
+				callback: function( hide_custom_menu ) {
+					
+					var last_item = api( 'astra-settings[header-main-rt-section]' ).get();
+					if ( ! hide_custom_menu && 'none' != last_item ) {
 						return true;
 					}
 					return false;
@@ -471,7 +486,6 @@
 			{
 				controls: [
 					'astra-settings[header-main-menu-label]',
-					'astra-settings[header-main-menu-label-divider]',
 				],
 				callback: function( menu ) {
 					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
@@ -567,83 +581,5 @@
 			}
 		],
 	};
-
-	if ( typeof ASTCustomizerToggles['astra-settings[header-display-outside-menu]'] != 'undefined' && ASTCustomizerToggles['astra-settings[header-display-outside-menu]'].length > 0 ) {
-
-		ASTCustomizerToggles ['astra-settings[header-display-outside-menu]'].push(
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-					if ( ( val && 'none' != custom_menu_item ) && 'no-toggle' != menu_style ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		);
-	} else{
-		ASTCustomizerToggles ['astra-settings[header-display-outside-menu]'] = [
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var menu_style = api( 'astra-settings[mobile-menu-style]' ).get();
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-					
-					if ( ( val && 'none' != custom_menu_item ) && 'no-toggle' != menu_style ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		];
-	}
-
-	if ( typeof ASTCustomizerToggles['astra-settings[mobile-menu-style]'] != 'undefined' && ASTCustomizerToggles['astra-settings[mobile-menu-style]'].length > 0 ) {
-
-		ASTCustomizerToggles ['astra-settings[mobile-menu-style]'].push(
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-
-					if ( 'no-toggle' != val && ( menu_outside && 'none' != custom_menu_item ) ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		);
-	} else {
-
-		ASTCustomizerToggles['astra-settings[mobile-menu-style]'] = [
-			{
-				controls: [
-					'astra-settings[mobile-header-order]',
-				],
-				callback: function( val ) {
-
-					var menu_outside = api( 'astra-settings[header-display-outside-menu]' ).get();
-					var custom_menu_item = api( 'astra-settings[header-main-rt-section]' ).get();
-
-					if ( 'no-toggle' != val && ( menu_outside && 'none' != custom_menu_item ) ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		];
-	}
 
 } )( jQuery );
