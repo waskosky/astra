@@ -1,3 +1,20 @@
+v1.4.1
+- Fix: Widget contents inside custom menu item hidden in some cases.
+- Fix: Elementor editor controls hidden in the first row.
+
+v1.4.0
+- Introduced Mobile Headers support from Astra Theme and Mobile Headers addon in Astra Pro. Check out changelogs of 1.4.0 beta versions for list of complete changes.
+- Improvement - Remove `-` and `--` from submenus and replace it with an icon `>`
+- Fix: LifterLMS RTL layout not working because of missing RTL variant of the stylesheet.
+
+v1.4.0-beta.5
+- New: Minimal Toggle Button Style added for Primary Header.
+- Improvement: Move Site identity section to Layouts -> Headers
+- Fix: Lifter LMS - Header goes full width when content is set to full width and LifterLMS Distraction Free Learning is enabled.
+- Fix: Cannot edit first background row because of higher z-index of header inside elementor.
+- Fix: Incorrect logos displayed when mobile logo sticky logo is added.
+- Fix: Header layout alignment fixes in between desktop header layout and mobile header layout combinations.
+
 v1.4.0-beta.4
 - New: Optiton to inherit mobile logo from desktop logo.
 - Improvement: Move the mobile logo option with the desktop logo option.
