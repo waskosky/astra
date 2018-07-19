@@ -1330,22 +1330,28 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 				$attr['class'] = 'astra-logo-svg';
 			}
 
-			$retina_logo = astra_get_option( 'ast-header-retina-logo' );
+			$diff_retina_logo = astra_get_option( 'different-retina-logo' );
 
-			$attr['srcset'] = '';
+			if( $diff_retina_logo ) {
+				
+				$retina_logo = astra_get_option( 'ast-header-retina-logo' );
 
-			if ( apply_filters( 'astra_main_header_retina', true ) && '' !== $retina_logo ) {
-				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
-				$cutom_logo_url = $cutom_logo[0];
+				$attr['srcset'] = '';
 
-				if ( astra_check_is_ie() ) {
-					// Replace header logo url to retina logo url.
-					$attr['src'] = $retina_logo;
+				if ( apply_filters( 'astra_main_header_retina', true ) && '' !== $retina_logo ) {
+					$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+					$cutom_logo_url = $cutom_logo[0];
+
+					if ( astra_check_is_ie() ) {
+						// Replace header logo url to retina logo url.
+						$attr['src'] = $retina_logo;
+					}
+
+					$attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
+
 				}
-
-				$attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
-
 			}
+
 		}
 
 		return apply_filters( 'astra_replace_header_attr', $attr );
