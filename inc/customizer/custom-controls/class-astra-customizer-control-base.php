@@ -28,24 +28,31 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 
 		private static $controls;
 
-		/**
-		 * Constructor
-		 */
-		public function __construct() {
-			$this->set_controls();
-		}
+		public static function add_control( $name, $atts ) {
+			global $wp_customize;
+			self::$controls[ $name ] = $atts;
 
-		public function set_controls() {
-			self::$controls = array();
+			/**
+			 * Register controls
+			 */
+			$wp_customize->register_control_type( $atts['callback'] );
 		}
 
 		public static function get_control_instance( $control_type ) {
+			$control_class = self::get_control( $control_type );
 
-			if ( 'color' === $control_type ) {
-				return is_callable( 'WP_Customize_Color_Control' ) ? 'WP_Customize_Color_Control' : false;
+			if ( isset( $control_class['callback'] ) ) {
+				return class_exists( $control_class['callback'] ) ? $control_class['callback'] : false;
 			}
-
 			return false;
+		}
+
+		public static function get_control( $control_type ) {
+
+			if ( isset( self::$controls[ $control_type ] ) ) {
+				return self::$controls[ $control_type ];
+			}
+			return array();
 		}
 
 	}

@@ -26,3 +26,4 @@ require $control_dir . '/color/class-astra-control-color.php';
 require $control_dir . '/description/class-astra-control-description.php';
 require $control_dir . '/background/class-astra-control-background.php';
 
+

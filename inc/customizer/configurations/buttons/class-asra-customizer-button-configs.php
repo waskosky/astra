@@ -35,6 +35,26 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'type'  => 'section',
 					'title' => __( 'New Button', 'astra' ),
 				),
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[test-radio-1]',
+					'type'        => 'control',
+					'control'     => 'ast-radio-image',
+					'default'     => 'inline',
+					'choices'     => array(
+						'inline' => array(
+							'label' => __( 'Inline', 'astra' ),
+							'path'  => ASTRA_THEME_URI . '/assets/images/inline-layout-60x60.png',
+						),
+						'stack'  => array(
+							'label' => __( 'Stack', 'astra' ),
+							'path'  => ASTRA_THEME_URI . '/assets/images/stack-layout-60x60.png',
+						),
+					),
+					'section'     => 'new-button',
+					'priority'    => 50,
+					'label'       => __( 'Mobile Header Alignment', 'astra' ),
+					'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
+				),
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[button-color-nikhil]',
@@ -44,6 +64,12 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'             => __( 'Button Text Color', 'astra' ),
 					'default'           => '',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+					'required'          => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[test-radio-1]', '==', [ 'stack' ] ),
+						),
+						'operator'   => 'OR',
+					),
 				),
 
 				array(
@@ -65,23 +91,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'             => __( 'Button Select 3', 'astra' ),
 					'default'           => 'value1',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-				),
-
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[button-color-new]',
-					'type'              => 'control',
-					'control'           => 'color',
-					'section'           => 'new-button',
-					'title'             => __( 'Button Text Colo New', 'astra' ),
-					'default'           => '',
-					'required'          => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[test-select]', '==', [ 'value1', 'value2' ] ),
-							array( ASTRA_THEME_SETTINGS . '[test-select-2]', '==', [ 'value1', 'value2' ] ),
-						),
-						'operator'   => 'OR',
-					),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
 				),
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[test-select]',
@@ -111,13 +120,13 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default'           => 'value1',
 					'required'          => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[test-select]', '==', [ 'value1' ] ),
+							array( ASTRA_THEME_SETTINGS . '[test-select]', '==', [ 'stack' ] ),
 						),
 						'operator'   => 'OR',
 					),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				),
-				
+
 			);
 
 			return array_merge( $configurations, $_configs );

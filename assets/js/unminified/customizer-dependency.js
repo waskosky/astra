@@ -54,8 +54,6 @@
 
 		checkControlVisibility: function( control, id, values ) {
 
-			console.log( id );
-
 			var $this = this;
 			var values = api.get();
 
@@ -115,11 +113,6 @@
                 			var control_obj = api.control(cond_key);
                 			control_obj.container.removeClass('ast-hide');
 	                    }
-                    }
-
-                    if( element.container.hasClass( 'ast-hide' ) ) {
-                    	check = false;
-                    	return;
                     }
         
                     if ( _.isUndefined( t_val ) ) {
