@@ -1332,8 +1332,8 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 
 			$diff_retina_logo = astra_get_option( 'different-retina-logo' );
 
-			if( $diff_retina_logo ) {
-				
+			if ( $diff_retina_logo ) {
+
 				$retina_logo = astra_get_option( 'ast-header-retina-logo' );
 
 				$attr['srcset'] = '';
@@ -1351,7 +1351,6 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 
 				}
 			}
-
 		}
 
 		return apply_filters( 'astra_replace_header_attr', $attr );
