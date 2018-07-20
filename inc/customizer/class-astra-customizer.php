@@ -139,6 +139,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				astar( $config, 'name' ), array(
 					'default'           => astar( $config, 'default' ),
 					'type'              => astar( $config, 'datastore_type' ),
+					'transport'         => astar( $config, 'transport', 'refresh' ),
 					'sanitize_callback' => astar( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astar( $config, 'control' ) ) ),
 				)
 			);
@@ -154,6 +155,18 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				);
 			} else {
 				$wp_customize->add_control( astar( $config, 'name' ), $config );
+			}
+
+			if ( astar( $config, 'partial', false ) ) {
+
+				if ( isset( $wp_customize->selective_refresh ) ) {
+					$wp_customize->selective_refresh->add_partial( astar( $config, 'name' ), array(
+							'selector'            => astar( $config['partial'], 'selector' ),
+							'container_inclusive' => astar( $config['partial'], 'container_inclusive' ),
+							'render_callback'     => astar( $config['partial'], 'render_callback' ),
+						)
+					);
+				}
 			}
 
 			if ( false !== astar( $config, 'required', false ) ) {
@@ -180,6 +193,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-astra-button-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-footer-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-container-configs.php';
 		}
 
 		/**
@@ -233,6 +248,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Add Controls
 			 */
+
+			Astra_Customizer_Control_Base::add_control(
+				'color',
+				array(
+					'callback'         => 'WP_Customize_Color_Control',
+					'santize_callback' => 'sanitize_hex_color',
+				)
+			);
+
 			Astra_Customizer_Control_Base::add_control(
 				'ast-sortable',
 				array(
@@ -354,10 +378,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Sections
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/header.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
