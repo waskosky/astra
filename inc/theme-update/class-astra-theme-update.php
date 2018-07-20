@@ -726,6 +726,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 		/**
 		 * Function to backward compatibility for version less than 1.4.1
+		 * 1) Set the new option different-retina-logo to true for users who are already using a retina logo.
 		 *
 		 * @since 1.4.1
 		 */
