@@ -74,16 +74,25 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				switch ( $config['type'] ) {
 					case 'panel':
+						// Remove type from configuration.
+						unset( $config['type'] );
+
 						$this->register_panel( $config, $wp_customize );
 
 						break;
 
 					case 'section':
+						// Remove type from configuration.
+						unset( $config['type'] );
+						
 						$this->register_section( $config, $wp_customize );
 
 						break;
 
 					case 'control':
+						// Remove type from configuration.
+						unset( $config['type'] );
+
 						$this->register_setting_control( $config, $wp_customize );
 
 						break;
