@@ -41,8 +41,8 @@
 
 		&:hover > ul,
 		&.focus > ul {
-			display: block;
 			right: auto;
+			left: 0;
 		}
 
 		@media (min-width: $col-md) {
@@ -56,7 +56,7 @@
 	ul {
 		width: 240px;
 		background: $color-background-header-submenu;
-		display: none;
+		left: -999em;
 		position: absolute;
 		top: 100%;
 		z-index: 99999;
