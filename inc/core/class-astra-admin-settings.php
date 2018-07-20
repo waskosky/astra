@@ -347,6 +347,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<span class="dashicons dashicons-admin-customizer"></span>
 					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Site', 'astra' ) ) ); ?></span>
 				</h2>
+				<img class="ast-starter-sites-img" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' );?>">
 				<div class="inside">
 					<p>
 						<?php

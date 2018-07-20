@@ -89,6 +89,9 @@
 .ast-container #poststuff h2{
 	padding: 12px 12px;
 }
+.ast-container img.ast-starter-sites-img {
+    width: 100%;
+}
 .ast-flex{
 	-js-display: flex;
     display: -webkit-box;
