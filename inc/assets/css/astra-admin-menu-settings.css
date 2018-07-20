@@ -44,7 +44,7 @@
     text-align: center;
     padding: 20px 0;
     margin-bottom: 20px;
-    box-shadow: 0 2px 0 #efefef, 0 2px 2px #ececec;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
 .ast-container {
     max-width: 1200px;
