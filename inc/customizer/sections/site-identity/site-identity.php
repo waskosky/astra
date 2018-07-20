@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[different-retina-logo]', array(
 			'section'  => 'title_tagline',
-			'label'    => __( 'Different Logo for retina displays?', 'astra' ),
+			'label'    => __( 'Different Logo for retina devices?', 'astra' ),
 			'priority' => 5,
 			'type'     => 'checkbox',
 		)
