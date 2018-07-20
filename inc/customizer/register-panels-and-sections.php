@@ -9,371 +9,333 @@
  * @since       Astra 1.0.0
  */
 
-	/**
-	 * Layout Panel
-	 */
-	$wp_customize->add_panel(
-		new Astra_WP_Customize_Panel(
-			$wp_customize, 'panel-layout',
-			array(
-				'priority' => 10,
-				'title'    => __( 'Layout', 'astra' ),
-			)
-		)
-	);
 
-	$wp_customize->add_section(
-		'section-site-layout', array(
-			'priority' => 5,
-			'panel'    => 'panel-layout',
-			'title'    => __( 'Site Layout', 'astra' ),
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-container-layout', array(
-			'priority' => 10,
-			'panel'    => 'panel-layout',
-			'title'    => __( 'Container', 'astra' ),
-		)
-	);
-
-	/*
-	 * Header section
-	 *
-	 * @since 1.4.0
-	 */
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-header-group',
-			array(
-				'priority' => 20,
-				'title'    => __( 'Header', 'astra' ),
-				'panel'    => 'panel-layout',
-			)
-		)
-	);
-
-	/*
-	 * Update the Site Identity section inside Layout -> Header
-	 *
-	 * @since 1.4.0
-	 */
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'title_tagline',
-			array(
-				'priority' => 5,
-				'title'    => __( 'Site Identity', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-header-group',
-			)
-		)
-	);
-
-	/*
-	 * Update the Primary Header section
-	 *
-	 * @since 1.4.0
-	 */
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-header',
-			array(
-				'priority' => 15,
-				'title'    => __( 'Primary Header', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-header-group',
-			)
-		)
-	);
-
-	/*
-	 * Mobile Header section
-	 *
-	 * @since 1.4.0
-	 */
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-mobile-header',
-			array(
-				'priority' => 40,
-				'title'    => __( 'Menu Breakpoint', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-header-group',
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-footer-group',
-			array(
-				'title'    => __( 'Footer', 'astra' ),
-				'panel'    => 'panel-layout',
-				'priority' => 55,
-			)
-		)
-	);
+if ( ! class_exists( 'Astra_Customizer_Register_sections_panels' ) ) {
 
 	/**
-	 * WooCommerce
+	 * Customizer Sanitizes Initial setup
 	 */
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-woo-group',
-			array(
-				'title'    => __( 'WooCommerce', 'astra' ),
-				'panel'    => 'panel-layout',
-				'priority' => 60,
-			)
-		)
-	);
+	class Astra_Customizer_Register_sections_panels extends Astra_Customizer_Config_Base {
 
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-woo-general',
-			array(
-				'title'    => __( 'General', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-woo-group',
-				'priority' => 5,
-			)
-		)
-	);
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-woo-shop',
-			array(
-				'title'    => __( 'Shop', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-woo-group',
-				'priority' => 10,
-			)
-		)
-	);
+		public function register_configuration( $configurations, $wp_customize ) {
 
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-woo-shop-single',
-			array(
-				'title'    => __( 'Single Product', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-woo-group',
-				'priority' => 15,
-			)
-		)
-	);
+			$configs = array(
 
-	/**
-	 * Footer Widgets Section
-	 */
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-footer-adv',
-			array(
-				'title'    => __( 'Footer Widgets', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-footer-group',
-				'priority' => 5,
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-footer-small',
-			array(
-				'title'    => __( 'Footer Bar', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-footer-group',
-				'priority' => 10,
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-blog-group',
-			array(
-				'priority' => 40,
-				'title'    => __( 'Blog', 'astra' ),
-				'panel'    => 'panel-layout',
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-blog',
-			array(
-				'priority' => 5,
-				'title'    => __( 'Blog / Archive', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-blog-group',
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-blog-single',
-			array(
-				'priority' => 10,
-				'title'    => __( 'Single Post', 'astra' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-blog-group',
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-sidebars', array(
-			'title'    => __( 'Sidebar', 'astra' ),
-			'panel'    => 'panel-layout',
-			'priority' => 50,
-		)
-	);
-
-	/**
-	 * Colors Panel
-	 */
-	$wp_customize->add_panel(
-		'panel-colors-background', array(
-			'priority' => 15,
-			'title'    => __( 'Colors & Background', 'astra' ),
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-colors-body', array(
-			'title'    => __( 'Base Colors', 'astra' ),
-			'panel'    => 'panel-colors-background',
-			'priority' => 1,
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-colors-footer', array(
-			'title'    => __( 'Footer Bar', 'astra' ),
-			'panel'    => 'panel-colors-background',
-			'priority' => 60,
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-footer-adv-color-bg', array(
-			'title'    => __( 'Footer Widgets', 'astra' ),
-			'panel'    => 'panel-colors-background',
-			'priority' => 55,
-		)
-	);
-
-	/**
-	 * Typography Panel
-	 */
-	$wp_customize->add_panel(
-		'panel-typography', array(
-			'priority' => 20,
-			'title'    => __( 'Typography', 'astra' ),
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-body-typo', array(
-			'title'    => __( 'Base Typography', 'astra' ),
-			'panel'    => 'panel-typography',
-			'priority' => 1,
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-content-typo', array(
-			'title'    => __( 'Content', 'astra' ),
-			'panel'    => 'panel-typography',
-			'priority' => 35,
-		)
-	);
-
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-header-typo',
-			apply_filters(
-				'astra_customizer_primary_header_typo',
+				/**
+				 * Layout Panel
+				 */
 				array(
+					'name'  => 'panel-layout',
+					'type'  => 'panel',
+					'priority' => 10,
+					'title' => __( 'Layout', 'astra' ),
+				),
+
+				array(
+					'name'  => 'section-site-layout',
+					'type'  => 'section',
+					'title' => __( 'Site Layout', 'astra' ),
+					'panel' => 'panel-layout'
+				),
+
+				array(
+					'name'     => 'section-container-layout',
+					'type'     => 'section',
+					'priority' => 10,
+					'title'    => __( 'Container', 'astra' ),
+					'panel'    => 'panel-layout'
+				),
+
+				/*
+				 * Header section
+				 *
+				 * @since 1.4.0
+				 */
+				array(
+					'name'     => 'section-header-group',
+					'type'     => 'section',
+					'priority' => 20,
+					'title'    => __( 'Header', 'astra' ),
+					'panel'    => 'panel-layout'
+				),
+
+				/*
+				 * Update the Site Identity section inside Layout -> Header
+				 *
+				 * @since 1.4.0
+				 */
+				array(
+					'name'     => 'title_tagline',
+					'type'     => 'section',
+					'priority' => 5,
+					'title'    => __( 'Site Identity', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-header-group',
+				),
+
+				/*
+				 * Update the Primary Header section
+				 *
+				 * @since 1.4.0
+				 */
+				array(
+					'name'     => 'section-header',
+					'type'     => 'section',
+					'priority' => 15,
+					'title'    => __( 'Primary Header', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-header-group',
+				),
+
+				/*
+				 * Mobile Header section
+				 *
+				 * @since 1.4.0
+				 */
+				array(
+				    'name'  => 'section-mobile-header',
+				    'type'     => 'section',
+					'priority' => 40,
+					'title'    => __( 'Menu Breakpoint', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-header-group',
+				),
+				array(
+				    'name'  => 'section-footer-group',
+				    'type'     => 'section',
+					'title'    => __( 'Footer', 'astra' ),
+					'panel'    => 'panel-layout',
+					'priority' => 55,
+				),
+
+				/**
+				 * WooCommerce
+				 */
+				
+				array(
+				    'name'     => 'section-woo-group',
+					'title'    => __( 'WooCommerce', 'astra' ),
+					'panel'    => 'panel-layout',
+				    'type'     => 'section',
+					'priority' => 60,
+				),
+
+				array(
+				    'name'  => 'section-woo-general',
+				    'type'     => 'section',
+					'title'    => __( 'General', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-woo-group',
+					'priority' => 5,
+				),
+
+				array(
+				    'name'  => 'section-woo-shop',
+					'title'    => __( 'Shop', 'astra' ),
+				    'type'     => 'section',
+					'panel'    => 'panel-layout',
+					'section'  => 'section-woo-group',
+					'priority' => 10,
+				),
+
+				array(
+				    'name'  => 'section-woo-shop-single',
+				    'type'     => 'section',
+					'title'    => __( 'Single Product', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-woo-group',
+					'priority' => 15,
+				),
+
+				/**
+				 * Footer Widgets Section
+				 */
+				
+				array(
+				    'name'  => 'section-footer-adv',
+				    'type'     => 'section',
+					'title'    => __( 'Footer Widgets', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-footer-group',
+					'priority' => 5,
+				),
+
+				array(
+				    'name'  => 'section-footer-small',
+				    'type'     => 'section',
+					'title'    => __( 'Footer Bar', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-footer-group',
+					'priority' => 10,
+				),
+
+				array(
+				    'name'  => 'section-blog-group',
+				    'type'     => 'section',
+					'priority' => 40,
+					'title'    => __( 'Blog', 'astra' ),
+					'panel'    => 'panel-layout',
+				),
+				array(
+				    'name'  => 'section-blog',
+				    'type'     => 'section',
+					'priority' => 5,
+					'title'    => __( 'Blog / Archive', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-blog-group',
+				),
+				array(
+				    'name'  => 'section-blog-single',
+				    'type'     => 'section',
+					'priority' => 10,
+					'title'    => __( 'Single Post', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-blog-group',
+				),
+
+				array(
+				    'name'  => 'section-sidebars',
+				    'type'     => 'section',
+					'priority' => 50,
+					'title'    => __( 'Sidebar', 'astra' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-blog-group',
+				),
+
+				/**
+				 * Colors Panel
+				 */
+				array(
+				    'name'  => 'panel-colors-background',
+				    'type'     => 'panel',
+					'priority' => 15,
+					'title'    => __( 'Colors & Background', 'astra' ),
+					'panel'    => 'panel-layout',
+				),
+
+				array(
+					'name'     => 'section-colors-body',
+				    'type'     => 'section',
+					'title'    => __( 'Base Colors', 'astra' ),
+					'panel'    => 'panel-colors-background',
+					'priority' => 1,
+				),
+
+				array(
+					'name' => 'section-colors-footer',
+				    'type'     => 'section',
+					'title'    => __( 'Footer Bar', 'astra' ),
+					'panel'    => 'panel-colors-background',
+					'priority' => 60,
+				),
+
+				array(
+					'name' => 'section-footer-adv-color-bg',
+				    'type'     => 'section',
+					'title'    => __( 'Footer Widgets', 'astra' ),
+					'panel'    => 'panel-colors-background',
+					'priority' => 55,
+				),
+
+				/**
+				 * Typography Panel
+				 */
+				array(
+					'name'     => 'panel-typography',
+				    'type'     => 'panel',
+					'title'    => __( 'Footer Widgets', 'astra' ),
+					'panel'    => 'panel-colors-background',
+					'priority' => 55,
+				),
+
+				array(
+					'name' => 'section-body-typo',
+				    'type'     => 'section',
+					'title'    => __( 'Base Typography', 'astra' ),
+					'panel'    => 'panel-typography',
+					'priority' => 1,
+				),
+
+				array(
+					'name' => 'section-content-typo',
+				    'type'     => 'section',
+					'title'    => __( 'Content', 'astra' ),
+					'panel'    => 'panel-typography',
+					'priority' => 35,
+				),
+
+				array(
+					'name'     => 'section-header-typo',
+				    'type'     => 'section',
 					'title'    => __( 'Header', 'astra' ),
 					'panel'    => 'panel-typography',
 					'priority' => 20,
-				)
-			)
-		)
-	);
+				),
 
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-primary-header-typo',
-			apply_filters(
-				'astra_customizer_primary_header_typo',
 				array(
+				    'name'     => 'section-primary-header-typo',
+				    'type'     => 'section',
 					'title'    => __( 'Primary Header', 'astra' ),
 					'panel'    => 'panel-typography',
-					'priority' => 21,
+					'priority' => 21
+				),
+
+				array(
+				    'name'  => 'section-blog-typo-group',
+				    'type'     => 'section',
+					'priority' => 40,
+					'title'    => __( 'Blog', 'astra' ),
+					'panel'    => 'panel-typography',
+				),
+
+				array(
+				    'name'  => 'section-archive-typo',
+				    'type'     => 'section',
+					'priority' => 5,
+					'title'    => __( 'Blog / Archive', 'astra' ),
+					'panel'    => 'panel-typography',
+					'section'  => 'section-blog-typo-group',
+				),
+
+				array(
+				    'name'  => 'section-single-typo',
+				    'type'     => 'section',
+					'priority' => 10,
+					'title'    => __( 'Single Post', 'astra' ),
+					'panel'    => 'panel-typography',
+					'section'  => 'section-blog-typo-group',
+				),
+
+				/**
+				 * Buttons Section
+				 */
+				array(
+				    'name'  => 'section-buttons',
+				    'type'     => 'section',
+					'priority' => 50,
+					'title'    => __( 'Buttons', 'astra' ),
+					'panel'    => 'panel-typography'
+				),
+
+				/**
+				 * Widget Areas Section
+				 */
+				array(
+					'name' => 'section-widget-areas',
+				    'type'     => 'section',
+					'priority' => 55,
+					'title'    => __( 'Widget Areas', 'astra' ),
 				)
-			)
-		)
-	);
 
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-blog-typo-group',
-			array(
-				'priority' => 40,
-				'title'    => __( 'Blog', 'astra' ),
-				'panel'    => 'panel-typography',
-			)
-		)
-	);
+			);
 
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-archive-typo',
-			array(
-				'priority' => 5,
-				'title'    => __( 'Blog / Archive', 'astra' ),
-				'panel'    => 'panel-typography',
-				'section'  => 'section-blog-typo-group',
-			)
-		)
-	);
+			return array_merge( $configurations, $configs );
+		}
+	}
+}
 
-	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
-			$wp_customize, 'section-single-typo',
-			array(
-				'priority' => 10,
-				'title'    => __( 'Single Post', 'astra' ),
-				'panel'    => 'panel-typography',
-				'section'  => 'section-blog-typo-group',
-			)
-		)
-	);
 
-	/**
-	 * Buttons Section
-	 */
-	$wp_customize->add_section(
-		'section-buttons', array(
-			'priority' => 50,
-			'title'    => __( 'Buttons', 'astra' ),
-		)
-	);
-
-	/**
-	 * Widget Areas Section
-	 */
-	$wp_customize->add_section(
-		'section-widget-areas', array(
-			'priority' => 55,
-			'title'    => __( 'Widget Areas', 'astra' ),
-		)
-	);
+/**
+ * Kicking this off by calling 'get_instance()' method
+ */
+new Astra_Customizer_Register_sections_panels;

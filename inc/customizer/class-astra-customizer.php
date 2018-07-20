@@ -67,8 +67,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public function register_customizer_settings( $wp_customize ) {
 
 			$this->include_configurations();
+			$configurations = $this->get_customizer_configurations( $wp_customize );
 
-			foreach ( $this->get_customizer_configurations( $wp_customize ) as $key => $config ) {
+			foreach ( $configurations as $key => $config ) {
 				$config = wp_parse_args( $config, $this->get_astra_customizer_configuration_defaults() );
 
 				switch ( $config['type'] ) {
@@ -172,7 +173,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private function include_configurations() {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/class-astra-customizer-config-base.php';
 
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-asra-customizer-button-configs.php';
+			/**
+			 * Register Sections & Panels
+			 */
+			require ASTRA_THEME_DIR . 'inc/customizer/register-panels-and-sections.php';
+
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-astra-button-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-layout-configs.php';
 		}
 
 		/**
@@ -342,11 +349,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Override Defaults
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/override-defaults.php';
-
-			/**
-			 * Register Sections & Panels
-			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/register-panels-and-sections.php';
 
 			/**
 			 * Sections
