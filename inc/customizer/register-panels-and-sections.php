@@ -242,7 +242,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_sections_panels' ) ) {
 				array(
 					'name'     => 'panel-typography',
 				    'type'     => 'panel',
-					'title'    => __( 'Footer Widgets', 'astra' ),
+					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 20,
 				),
 
