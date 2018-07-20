@@ -309,6 +309,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $ast_icon ) { ?>
 									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<span class="astra-theme-version"><?php echo ASTRA_THEME_VERSION; ?></span>
 								<?php } ?>
 								<?php do_action( 'astra_welcome_page_header_title' ); ?>
 								</a>

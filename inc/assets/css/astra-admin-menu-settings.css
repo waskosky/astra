@@ -109,9 +109,21 @@
     align-content: center;
 }
 .ast-theme-title {
-    flex: auto;
     align-content: flex-start;
     text-align: left;
+}
+.ast-theme-title .astra-theme-version {
+    background-color: #e5e5e5;
+    border-radius: 3px;
+    font-size:  0.5em;
+    font-weight:  400;
+    margin-left: 10px;
+    padding: 2px 7px;
+}
+.ast-theme-title a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .ast-theme-title a,
 .ast-theme-title span{
