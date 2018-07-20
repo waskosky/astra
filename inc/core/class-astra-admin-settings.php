@@ -145,9 +145,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				}
 			}
 
-			if ( true === get_option( 'astra-theme-first-activate', true ) ) {
-				update_option( 'astra-theme-first-activate', false );
+			if ( false === get_option( 'astra-theme-old-setup' ) ) {
 				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
+				update_option( 'astra-theme-old-setup', true );
 			} elseif ( false === get_transient( 'astra-theme-first-rating' ) ) {
 				Astra_Notices::add_notice(
 					array(
