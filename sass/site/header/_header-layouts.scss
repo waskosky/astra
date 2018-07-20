@@ -86,6 +86,11 @@
  *  3 - Header Layout 3
 */
 .header-main-layout-3 {
+
+	.ast-site-identity{
+		text-align: right;
+	}
+
 	.main-header-container	{
 		flex-direction: row-reverse;
 	}
@@ -137,14 +142,29 @@
 	.ast-mobile-header-stack{
 		.ast-masthead-custom-menu-items{
 			flex: 1 1 100%;
-			justify-content: center;
-			text-align: center;
 		}	
 		.site-branding{
 			padding-bottom: 1em;
 			flex: 1 1 100%;
+		}
+
+		.ast-masthead-custom-menu-items,
+		.site-branding,
+		.site-title,
+		.ast-site-identity{
+			justify-content: center;
+			text-align: center;
+		}
+		
+		.ast-mobile-menu-buttons{
+			flex: 1 1 100%;
 			text-align: center;
 			justify-content: center;
+		}
+		&.header-main-layout-3{
+			.main-header-container{
+				flex-direction: initial;
+			}
 		}
 	}
 
@@ -156,19 +176,6 @@
 	    .main-header-bar-navigation,
 	    .widget {
 			text-align: left;
-		}
-	}
-
-	.ast-mobile-header-stack{
-		.ast-mobile-menu-buttons{
-			flex: 1 1 100%;
-			text-align: center;
-			justify-content: center;
-		}
-		&.header-main-layout-3{
-			.main-header-container{
-				flex-direction: initial;
-			}
 		}
 	}
 
@@ -214,7 +221,7 @@
 @media (max-width: $mx-col-sm) {
 
 	.site-branding,
-	#masthead .site-logo-img .custom-logo-link{
+	.site-header .site-logo-img .custom-logo-link{
 		img{
 			max-width: 100%;
 		}

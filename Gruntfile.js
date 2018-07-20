@@ -216,8 +216,8 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
 	                    },
                     	{
-                    		src: 'assets/css/unminified/compatibility/lifter-lms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/lifter-lms.min-rtl.css',
+                    		src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
+	                        dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
