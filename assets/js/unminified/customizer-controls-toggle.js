@@ -290,21 +290,6 @@
 				}
 			},
 		],
-		'astra-settings[shop-archive-width]' :
-		[
-			{
-				controls: [
-					'astra-settings[shop-archive-max-width]'
-				],
-				callback: function( blog_width ) {
-
-					if ( 'custom' == blog_width ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		],
 	};
 
 } )( jQuery );

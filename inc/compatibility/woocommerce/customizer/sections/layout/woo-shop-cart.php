@@ -13,21 +13,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
+
+
 	/**
-	 * Option: Disable Breadcrumb
+	 * Customizer Sanitizes Initial setup
 	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[enable-cart-upsells]', array(
-			'default'           => astra_get_option( 'enable-cart-upsells' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[enable-cart-upsells]', array(
-			'section'  => 'section-woo-shop-cart',
-			'label'    => __( 'Enable Upsells', 'astra' ),
-			'priority' => 10,
-			'type'     => 'checkbox',
-		)
-	);
+	class Astra_Woo_Shop_Cart_Layout_Configs extends Astra_Customizer_Config_Base {
+
+		public function register_configuration( $configurations, $wp_customize ) {
+
+			$_configs = array(
+
+				/**
+				 * Option: Cart upsells
+				 */
+				array( 
+					'name'     => ASTRA_THEME_SETTINGS . '[enable-cart-upsells]',
+					'section'  => 'section-woo-shop-cart',
+					'type'     => 'control',
+					'control'  => 'checkbox',
+					'default'  => astra_get_option( 'enable-cart-upsells' ),
+					'title'    => __( 'Enable Upsells', 'astra' ),
+					'priority' => 10
+				)
+			);
+
+			$configurations = array_merge( $configurations, $_configs );
+
+			return $configurations;
+
+		}
+	}
+}
+
+new Astra_Woo_Shop_Cart_Layout_Configs;

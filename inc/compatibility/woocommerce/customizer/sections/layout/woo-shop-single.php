@@ -13,21 +13,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
+
+
 	/**
-	 * Option: Disable Breadcrumb
+	 * Customizer Sanitizes Initial setup
 	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
-			'default'           => astra_get_option( 'single-product-breadcrumb-disable' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
-			'section'  => 'section-woo-shop-single',
-			'label'    => __( 'Disable Breadcrumb', 'astra' ),
-			'priority' => 10,
-			'type'     => 'checkbox',
-		)
-	);
+	class Astra_Woo_Shop_Single_Layout_Configs extends Astra_Customizer_Config_Base {
+
+		public function register_configuration( $configurations, $wp_customize ) {
+
+			$_configs = array(
+
+				/**
+				* Option: Disable Breadcrumb
+				*/
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]',
+					'section'  => 'section-woo-shop-single',
+					'type'     => 'control',
+					'control'  => 'checkbox',
+					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
+					'title'    => __( 'Disable Breadcrumb', 'astra' ),
+					'priority' => 10,
+				)
+			);
+
+			$configurations = array_merge( $configurations, $_configs );
+
+			return $configurations;
+
+		}
+	}
+}
+
+new Astra_Woo_Shop_Single_Layout_Configs;
+	
+

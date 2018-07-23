@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_customizer_configurations', array( $this, 'register_configuration' ), 20, 2 );
+			add_filter( 'astra_customizer_configurations', array( $this, 'register_configuration' ), 30, 2 );
 		}
 
 		public function register_configuration( $configurations, $wp_customize ) {

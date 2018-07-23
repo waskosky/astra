@@ -54,7 +54,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
 
 			if ( is_admin() || is_customize_preview() ) {
-				add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
+				add_action( 'customize_register', array( $this, 'load_configurations' ), 20 );
+				add_action( 'customize_register', array( $this, 'register_customizer_settings' ), 50 );
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
@@ -64,9 +65,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 		}
 
+		public function load_configurations() {
+			$this->include_configurations();
+		}
+
 		public function register_customizer_settings( $wp_customize ) {
 
-			$this->include_configurations();
 			$configurations = $this->get_customizer_configurations( $wp_customize );
 
 			foreach ( $configurations as $key => $config ) {
