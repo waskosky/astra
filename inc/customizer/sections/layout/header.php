@@ -265,6 +265,30 @@ $header_rt_sections = array(
 	);
 
 	/**
+	 * Option: Toggle Button Style
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]', array(
+			'default'           => astra_get_option( 'mobile-header-toggle-target' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]', array(
+			'section'  => 'section-header',
+			'label'    => __( 'Toggle Button Style', 'astra' ),
+			'type'     => 'select',
+			'priority' => 41,
+			'choices'  => array(
+				'icon'    => __( 'Icon', 'astra' ),
+				'link' => __( 'Link', 'astra' ),
+			),
+		)
+	);
+
+	/**
 	 * Option: Mobile Menu Label
 	 */
 	$wp_customize->add_setting(
