@@ -278,7 +278,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]', array(
 			'section'  => 'section-header',
-			'label'    => __( 'Toggle Button Style', 'astra' ),
+			'label'    => __( 'Dropdown Target', 'astra' ),
 			'type'     => 'select',
 			'priority' => 41,
 			'choices'  => array(
