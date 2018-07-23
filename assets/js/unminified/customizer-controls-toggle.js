@@ -335,36 +335,6 @@
 				}
 			}
 		],
-		'astra-settings[mobile-header-logo]' :
-		[
-			{
-				controls: [
-					'astra-settings[mobile-header-logo-width]'
-				],
-				callback: function( mobile_logo ) {
-
-					if ( mobile_logo ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		],
-		'astra-settings[different-mobile-logo]' :
-		[
-			{
-				controls: [
-					'astra-settings[mobile-header-logo]'
-				],
-				callback: function( different_mobile_logo ) {
-
-					if ( different_mobile_logo ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		],
 	};
 
 } )( jQuery );
