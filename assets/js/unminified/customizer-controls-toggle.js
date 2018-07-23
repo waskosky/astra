@@ -565,6 +565,21 @@
 				}
 			}
 		],
+		'astra-settings[different-retina-logo]' :
+		[
+			{
+				controls: [
+					'astra-settings[ast-header-retina-logo]'
+				],
+				callback: function( different_mobile_logo ) {
+
+					if ( different_mobile_logo ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 	};
 
 } )( jQuery );
