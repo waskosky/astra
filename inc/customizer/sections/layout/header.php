@@ -282,7 +282,7 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'priority' => 41,
 			'choices'  => array(
-				'icon'    => __( 'Icon', 'astra' ),
+				'icon' => __( 'Icon', 'astra' ),
 				'link' => __( 'Link', 'astra' ),
 			),
 		)

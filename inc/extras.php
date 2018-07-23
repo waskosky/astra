@@ -757,7 +757,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$mobile_header_order           = astra_get_option( 'mobile-header-order' );
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
-		$menu_mobile_target       	   = astra_get_option( 'mobile-header-toggle-target', 'icon' );
+		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
