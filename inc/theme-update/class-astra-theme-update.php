@@ -158,8 +158,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_4_0_beta_5();
 			}
 
-			if ( version_compare( $saved_version, '1.4.1', '<' ) ) {
-				self::v_1_4_1();
+			if ( version_compare( $saved_version, '1.4.2', '<' ) ) {
+				self::v_1_4_2();
 			}
 
 			// Not have stored?
@@ -730,7 +730,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @since 1.4.1
 		 */
-		static public function v_1_4_1() {
+		static public function v_1_4_2() {
 
 			$mobile_header_logo = astra_get_option( 'ast-header-retina-logo' );
 			$theme_options      = get_option( 'astra-settings' );
