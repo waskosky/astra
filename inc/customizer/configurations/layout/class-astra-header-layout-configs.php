@@ -112,6 +112,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'textarea',
 					'section'   => 'section-header',
+					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'text-html' ),
 					'priority'  => 10,
 					'partial'   => array(
 						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
@@ -148,6 +149,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'default'    => '',
 					'type'       => 'control',
+					'required'   => array( ASTRA_THEME_SETTINGS . '[header-main-sep]', '>=', 1 ),
 					'control'    => 'ast-color',
 					'section'    => 'section-header',
 					'priority'   => 30,
@@ -211,6 +213,13 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'header-main-menu-label' ),
 					'section'   => 'section-header',
+					'required' => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', [ 'none' ] ),
+							array( ASTRA_THEME_SETTINGS . '[disable-primary-nav]', '!=', [ '1' ] )
+						),
+						'operator' => 'OR'
+					),
 					'priority'  => 45,
 					'title'     => __( 'Menu Label on Small Devices', 'astra' ),
 					'type'      => 'control',
@@ -221,10 +230,11 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Hide Last item in Menu on mobile device
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
-					'default'     => astra_get_option( 'hide-custom-menu-mobile' ),
-					'type'        => 'control',
-					'control'     => 'checkbox',
+					'name'     => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
+					'default'  => astra_get_option( 'hide-custom-menu-mobile' ),
+					'type'     => 'control',
+					'control'  => 'checkbox',
+					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', 'none' ),
 					'section'     => 'section-header',
 					'title'       => __( 'Hide Last item in Menu on mobile', 'astra' ),
 					'priority'    => 45,
@@ -238,6 +248,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[header-display-outside-menu]',
 					'type'     => 'control',
 					'control'  => 'checkbox',
+					'required' => array( ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]', '!=', '1' ),
 					'default'  => astra_get_option( 'header-display-outside-menu' ),
 					'section'  => 'section-header',
 					'title'    => __( 'Take Last item in Menu outside menu', 'astra' ),

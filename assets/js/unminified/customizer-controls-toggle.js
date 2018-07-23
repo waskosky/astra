@@ -180,76 +180,6 @@
 		// Layout 2 > Right Section > Text / HTML
 		// Layout 2 > Right Section > Search Type
 		// Layout 2 > Right Section > Search Type > Search Box Type.
-		'astra-settings[header-main-rt-section]' :
-		[
-			{
-				controls: [
-					'astra-settings[header-main-rt-section-html]'
-				],
-				callback: function( val ) {
-
-					if ( 'text-html' == val ) {
-						return true;
-					}
-					return false;
-				}
-			},
-			{
-				controls: [
-					'astra-settings[header-main-menu-label]',
-				],
-				callback: function( custom_menu ) {
-					var menu = api( 'astra-settings[disable-primary-nav]' ).get();
-					if ( !menu || 'none' !=  custom_menu) {
-						return true;
-					}
-					return false;
-				}
-			},
-			{
-				controls: [
-					'astra-settings[hide-custom-menu-mobile]',
-				],
-				callback: function( custom_menu ) {
-					
-					if ( 'none' !=  custom_menu ) {
-						return true;
-					}
-					return false;
-				}
-			},
-			{
-				controls: [
-					'astra-settings[header-display-outside-menu]',
-				],
-				callback: function( custom_menu ) {
-					
-					var hide_custom_menu = api( 'astra-settings[hide-custom-menu-mobile]' ).get();
-
-					if ( 'none' !=  custom_menu && ! hide_custom_menu ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
-
-		'astra-settings[hide-custom-menu-mobile]' :
-		[
-			{
-				controls: [
-					'astra-settings[header-display-outside-menu]',
-				],
-				callback: function( hide_custom_menu ) {
-					
-					var last_item = api( 'astra-settings[header-main-rt-section]' ).get();
-					if ( ! hide_custom_menu && 'none' != last_item ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
 
 		/**
 		 * Blog
@@ -360,37 +290,6 @@
 				callback: function( small_footer_layout ) {
 
 					if ( 'disabled' != small_footer_layout ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
-		'astra-settings[header-main-sep]' :
-		[
-			{
-				controls: [
-					'astra-settings[header-main-sep-color]',
-				],
-				callback: function( border_width ) {
-
-					if ( '1' <= border_width ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
-
-		'astra-settings[disable-primary-nav]' :
-		[
-			{
-				controls: [
-					'astra-settings[header-main-menu-label]',
-				],
-				callback: function( menu ) {
-					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
-					if ( !menu || 'none' !=  custom_menu) {
 						return true;
 					}
 					return false;
