@@ -184,21 +184,6 @@
 		/**
 		 * Blog
 		 */
-		'astra-settings[blog-width]' :
-		[
-			{
-				controls: [
-					'astra-settings[blog-max-width]'
-				],
-				callback: function( blog_width ) {
-
-					if ( 'custom' == blog_width ) {
-						return true;
-					}
-					return false;
-				}
-		}
-		],
 		'astra-settings[blog-post-structure]' :
 		[
 			{
@@ -230,21 +215,6 @@
 					return false;
 				}
 			}
-		],
-		'astra-settings[blog-single-width]' :
-		[
-			{
-				controls: [
-					'astra-settings[blog-single-max-width]'
-				],
-				callback: function( blog_width ) {
-
-					if ( 'custom' == blog_width ) {
-						return true;
-					}
-					return false;
-				}
-		}
 		],
 		'astra-settings[blog-single-meta]' :
 		[
