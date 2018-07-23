@@ -391,7 +391,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/advanced-footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/advanced-footer.php';

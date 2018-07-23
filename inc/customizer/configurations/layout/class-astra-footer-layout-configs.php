@@ -217,10 +217,70 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
 					),
+				),
+
+				/**
+				 * Option: Footer Widgets Layout Layout
+				 */
+				array(
+				    'name'     => ASTRA_THEME_SETTINGS . '[footer-adv]',
+					'type'     => 'control',
+					'control'  => 'ast-radio-image',
+					'default'  => astra_get_option( 'footer-adv' ),
+					'label'    => __( 'Footer Widgets Layout', 'astra' ),
+					'section'  => 'section-footer-adv',
+					'choices'  => array(
+						'disabled' => array(
+							'label' => __( 'Disable', 'astra' ),
+							'path'  => ASTRA_THEME_URI . '/assets/images/no-adv-footer-115x48.png',
+						),
+						'layout-4' => array(
+							'label' => __( 'Layout 4', 'astra' ),
+							'path'  => ASTRA_THEME_URI . '/assets/images/layout-4-115x48.png',
+						),
+					),
 				)
 			);
 
-			return array_merge( $configurations, $_configs );
+			$configurations = array_merge( $configurations, $_configs );
+
+			// Learn More link if Astra Pro is not activated.
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+
+
+				$config = array(
+					/**
+					 * Option: Divider
+					 */
+					array(
+				    	'name'     => ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-footer-adv',
+						'priority' => 999,
+						'settings' => array(),
+					),
+
+					/**
+					 * Option: Learn More about Footer Widget
+					 */
+					array(
+				    	'name'     => ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-description]',
+						'type'     => 'control',
+						'control'  => 'ast-description',
+						'section'  => 'section-footer-adv',
+						'priority' => 999,
+						'label'    => '',
+						'help'     => '<p>' . __( 'More Options Available for Footer Widgets in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'settings' => array(),
+					)
+
+				);
+
+				$configurations = array_merge( $configurations, $config );
+			}
+
+			return $configurations;
 
 		}
 	}
