@@ -343,7 +343,6 @@
 		[
 			{
 				controls: [
-					'astra-settings[footer-sml-section-1]',
 					'astra-settings[footer-sml-section-2]',
 					'astra-settings[section-ast-small-footer-background-styling]',
 					'astra-settings[ast-small-footer-color]',
@@ -354,7 +353,6 @@
 					'astra-settings[ast-small-footer-text-font]',
 					'astra-settings[footer-sml-divider]',
 					'astra-settings[section-ast-small-footer-layout-info]',
-					'astra-settings[footer-layout-width]',
 					'astra-settings[footer-color]',
 					'astra-settings[footer-link-color]',
 					'astra-settings[footer-link-h-color]',
@@ -369,102 +367,7 @@
 					return false;
 				}
 			},
-			{
-				controls: [
-					'astra-settings[footer-sml-section-1-credit]',
-				],
-				callback: function( small_footer_layout ) {
-
-					var footer_section_1 = api( 'astra-settings[footer-sml-section-1]' ).get();
-
-					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_1 ) {
-						return true;
-					}
-					return false;
-				}
-			},
-			{
-				controls: [
-					'astra-settings[footer-sml-section-2-credit]',
-				],
-				callback: function( small_footer_layout ) {
-
-					var footer_section_2 = api( 'astra-settings[footer-sml-section-2]' ).get();
-
-					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_2 ) {
-						return true;
-					}
-					return false;
-				}
-			},
-			{
-				controls: [
-					'astra-settings[footer-sml-divider-color]',
-				],
-				callback: function( small_footer_layout ) {
-
-					var border_width = api( 'astra-settings[footer-sml-divider]' ).get();
-
-					if ( '1' <= border_width && 'disabled' != small_footer_layout ) {
-						return true;
-					}
-					return false;
-				}
-			},
 		],
-		'astra-settings[footer-sml-section-1]' :
-		[
-			{
-				controls: [
-					'astra-settings[footer-sml-section-1-credit]',
-				],
-				callback: function( enabled_section_1 ) {
-
-					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
-
-					if ( 'custom' == enabled_section_1 && 'disabled' != footer_layout ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		],
-		'astra-settings[footer-sml-section-2]' :
-		[
-			{
-				controls: [
-					'astra-settings[footer-sml-section-2-credit]',
-				],
-				callback: function( enabled_section_2 ) {
-
-					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
-
-					if ( 'custom' == enabled_section_2 && 'disabled' != footer_layout ) {
-						return true;
-					}
-					return false;
-				}
-			}
-		],
-
-		'astra-settings[footer-sml-divider]' :
-		[
-			{
-				controls: [
-					'astra-settings[footer-sml-divider-color]',
-				],
-				callback: function( border_width ) {
-
-					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
-
-					if ( '1' <= border_width && 'disabled' != footer_layout ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
-
 		'astra-settings[header-main-sep]' :
 		[
 			{

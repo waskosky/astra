@@ -48,6 +48,8 @@
 		 */
 		handleDependency: function() {
 
+            console.log( astra.config );
+
 			var $this = this;
 			var values = api.get();
 
@@ -66,7 +68,7 @@
 		 * @access private
 		 * @method checkControlVisibility
 		 */
-		checkControlVisibility: function( control, id, values ) {
+		checkControlVisibility: function( control, id ) {
 
 			var $this = this;
 			var values = api.get();
@@ -77,15 +79,17 @@
             	if( 'undefined' != typeof astra.config[id] ) {
                     var check = false;
                     var required_param = astra.config[id];
-                    var conditions     = required_param.conditions;
-                    var operator       = 'undefined' !== typeof required_param.operator ? required_param.operator : 'AND';
+                    var conditions     = !_.isUndefined( required_param.conditions ) ? required_param.conditions : required_param;
+                    var operator       = !_.isUndefined( required_param.operator ) ? required_param.operator : 'AND';
 
-                    check = $this.checkDependency( conditions, values, operator );
+                    if( 'undefined' !== typeof conditions ) {
+                        check = $this.checkDependency( conditions, values, operator );
 
-                    if ( !check ) {
-                        control.container.addClass('ast-hide');
-                    } else {
-                        control.container.removeClass('ast-hide');
+                        if ( !check ) {
+                            control.container.addClass('ast-hide');
+                        } else {
+                            control.container.removeClass('ast-hide');
+                        }
                     }
                 }
             }
@@ -106,12 +110,32 @@
       		var test = conditions[0];
 
             if ( _.isString( test ) ) {
+
                 check = false;
                 var cond = conditions[1];
                 var cond_val = conditions[2];
                 var value;
 
-                if ( !_.isUndefined( values[test] ) ) {
+                if( 'undefined' !== typeof astra.config[test] ) {
+
+                    var conditions     = !_.isUndefined( astra.config[test]['conditions'] ) ? astra.config[test]['conditions'] : astra.config[test];
+                    var operator       = !_.isUndefined( astra.config[test]['operator'] ) ? astra.config[test]['operator'] : 'AND';
+
+                    if( !_.isUndefined( conditions ) ) {
+                        
+                        // Check visibility for dependent controls also
+                        if( ! control.checkDependency( conditions, values, operator ) ) {
+                            returnNow = true;
+                            check = false;
+                            return;
+                        } else {
+                            var control_obj = api.control(test);
+                            control_obj.container.removeClass('ast-hide');
+                        }
+                    }
+                }
+
+                if ( !_.isUndefined( values[test] ) && ! returnNow ) {
                     value = values[test];
                     check = control.compareValues( value, cond, cond_val );
                 }
@@ -125,18 +149,23 @@
                     var cond_cond = val[1];
                     var cond_val = val[2];            
                     var t_val = values[cond_key];
-                    var element = api.control(cond_key);
 
                     if( 'undefined' !== typeof astra.config[cond_key] ) {
 
-                    	// Check visibility for dependent controls also
-	                    if( ! control.checkDependency( astra.config[cond_key]['conditions'], values, astra.config[cond_key]['operator'] ) ) {
-	                    	check = false;
-	                    	return;
-	                    } else {
-                			var control_obj = api.control(cond_key);
-                			control_obj.container.removeClass('ast-hide');
-	                    }
+                        var conditions     = !_.isUndefined( astra.config[cond_key]['conditions'] ) ? astra.config[cond_key]['conditions'] : astra.config[cond_key];
+                        var operator       = !_.isUndefined( astra.config[cond_key]['operator'] ) ? astra.config[cond_key]['operator'] : 'AND';
+
+                        if( !_.isUndefined( conditions ) ) {
+                            
+                            // Check visibility for dependent controls also
+                            if( ! control.checkDependency( conditions, values, operator ) ) {
+                                check = false;
+                                return;
+                            } else {
+                                var control_obj = api.control(cond_key);
+                    			control_obj.container.removeClass('ast-hide');
+    	                    }
+                        }
                     }
         
                     if ( _.isUndefined( t_val ) ) {
@@ -185,6 +214,12 @@
                     break;
                 case '<':
                     equal = ( value1 < value2 ) ? true : false;
+                    break;
+                case '<=': 
+                    equal = ( value1 <= value2 ) ? true : false;
+                    break;
+                case '>=': 
+                    equal = ( value1 >= value2 ) ? true : false;
                     break;
                 case '!=':
                     equal = ( value1 != value2 ) ? true : false;
