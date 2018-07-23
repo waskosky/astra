@@ -309,6 +309,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $ast_icon ) { ?>
 									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<span class="astra-theme-version"><?php echo ASTRA_THEME_VERSION; ?></span>
 								<?php } ?>
 								<?php do_action( 'astra_welcome_page_header_title' ); ?>
 								</a>
@@ -346,6 +347,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<span class="dashicons dashicons-admin-customizer"></span>
 					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Site', 'astra' ) ) ); ?></span>
 				</h2>
+				<img class="ast-starter-sites-img" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' ); ?>">
 				<div class="inside">
 					<p>
 						<?php
@@ -962,7 +964,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$top_links = apply_filters(
 				'astra_header_top_links', array(
 					'astra-theme-info' => array(
-						'title' => __( 'Stylish, Lightning Fast & Easily Customizable Theme!', 'astra' ),
+						'title' => __( '⚡ Lightning Fast & Fully Customizable WordPress theme!', 'astra' ),
 					),
 				)
 			);
