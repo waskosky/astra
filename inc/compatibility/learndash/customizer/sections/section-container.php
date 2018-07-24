@@ -13,43 +13,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Option: Divider
- */
-$wp_customize->add_control(
-	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-content-divider]', array(
-			'section'  => 'section-container-layout',
-			'type'     => 'ast-divider',
-			'priority' => 68,
-			'settings' => array(),
-		)
-	)
-);
+if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 
-/**
- * Option: Shop Page
- */
-$wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-content-layout]', array(
-		'default'           => astra_get_option( 'learndash-content-layout' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-content-layout]', array(
-		'type'        => 'select',
-		'section'     => 'section-container-layout',
-		'priority'    => 68,
-		'label'       => __( 'Container for LearnDash', 'astra' ),
-		'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
-		'choices'     => array(
-			'default'                 => __( 'Default', 'astra' ),
-			'boxed-container'         => __( 'Boxed', 'astra' ),
-			'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-			'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-			'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
-		),
-	)
-);
+	/**
+	 * Customizer Sanitizes Initial setup
+	 */
+	class Astra_Learndash_Container_Configs extends Astra_Customizer_Config_Base {
+
+		public function register_configuration( $configurations, $wp_customize ) {
+
+			$_configs = array(
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-content-divider]',
+					'type'     => 'control',
+					'section'  => 'section-container-layout',
+					'control'  => 'ast-divider',
+					'priority' => 68,
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Shop Page
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-content-layout]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-container-layout',
+					'default'  => astra_get_option( 'learndash-content-layout' ),
+					'priority' => 68,
+					'title'    => __( 'Container for LearnDash', 'astra' ),
+					'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
+					'choices'     => array(
+						'default'                 => __( 'Default', 'astra' ),
+						'boxed-container'         => __( 'Boxed', 'astra' ),
+						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
+						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+					),
+				)
+			);
+
+			return array_merge( $configurations, $_configs );
+
+		}
+	}
+}
+
+new Astra_Learndash_Container_Configs;

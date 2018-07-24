@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_dynamic_styles' ) );
 
-			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
+			add_action( 'customize_register', array( $this, 'customize_register' ), 20 );
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			// Sidebar Layout.

@@ -12,54 +12,62 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-/**
- * Option: Divider
- */
-$wp_customize->add_control(
-	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-lesson-content]', array(
-			'label'    => __( 'Course Content Table', 'astra' ),
-			'section'  => 'section-learndash',
-			'type'     => 'ast-divider',
-			'priority' => 20,
-			'settings' => array(),
-		)
-	)
-);
-/**
- * Option: Display Serial Number
- */
-$wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
-		'default'           => astra_get_option( 'learndash-lesson-serial-number' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
-	)
-);
-$wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
-		'section'  => 'section-learndash',
-		'label'    => __( 'Display Serial Number', 'astra' ),
-		'priority' => 25,
-		'type'     => 'checkbox',
-	)
-);
+	
+if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 
-/**
- * Option: Differentiate Rows
- */
-$wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
-		'default'           => astra_get_option( 'learndash-differentiate-rows' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
-	)
-);
-$wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
-		'section'  => 'section-learndash',
-		'label'    => __( 'Differentiate Rows', 'astra' ),
-		'priority' => 30,
-		'type'     => 'checkbox',
-	)
-);
+	/**
+	 * Customizer Sanitizes Initial setup
+	 */
+	class Astra_Learndash_General_Configs extends Astra_Customizer_Config_Base {
+
+		public function register_configuration( $configurations, $wp_customize ) {
+
+			$_configs = array(
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-content]',
+					'type'     => 'control',
+					'title'    => __( 'Course Content Table', 'astra' ),
+					'section'  => 'section-learndash',
+					'control'  => 'ast-divider',
+					'priority' => 20,
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Display Serial Number
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', 
+					'section'  => 'section-learndash',
+					'type'     => 'control',
+					'control'  => 'checkbox',
+					'default'  => astra_get_option( 'learndash-lesson-serial-number' ),
+					'title'    => __( 'Display Serial Number', 'astra' ),
+					'priority' => 25,
+				),
+
+				/**
+				 * Option: Differentiate Rows
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', 
+					'default'  => astra_get_option( 'learndash-differentiate-rows' ),
+					'type'     => 'control',
+					'control'  => 'checkbox',
+					'section'  => 'section-learndash',
+					'title'    => __( 'Differentiate Rows', 'astra' ),
+					'priority' => 30,
+				)
+			);
+
+			return array_merge( $configurations, $_configs );
+
+		}
+	}
+}
+
+new Astra_Learndash_General_Configs;
