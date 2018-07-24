@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-adv-wgt-title-color]',
 					'type'     => 'control',
-					'control'  => 'color',
+					'control'  => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 					'title'    => __( 'Widget Title Color', 'astra' ),
 					'default'  => '',
@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-adv-text-color]',
 					'type'     => 'control',
-					'control'  => 'color',
+					'control'  => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 					'title'    => __( 'Text Color', 'astra' ),
 					'default'  => '',
@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-adv-link-color]',
 					'type'     => 'control',
-					'control'  => 'color',
+					'control'  => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 					'title'    => __( 'Link Color', 'astra' ),
 					'default'  => '',
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[footer-adv-link-h-color]',
 					'type'     => 'control',
-					'control'  => 'color',
+					'control'  => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 					'title'    => __( 'Link Hover Color', 'astra' ),
 					'default'  => '',

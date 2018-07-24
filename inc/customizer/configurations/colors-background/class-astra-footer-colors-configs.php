@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => ASTRA_THEME_SETTINGS . '[footer-color]',
 					'type'    => 'control',
-					'control' => 'color',
+					'control' => 'ast-color',
 					'title'   => __( 'Text Color', 'astra' ),
 					'default' => '',
 					'section' => 'section-colors-footer',
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => ASTRA_THEME_SETTINGS . '[footer-link-color]', 
 					'type'    => 'control',
-					'control' => 'color',
+					'control' => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'default' => '',
 					'title'   => __( 'Link Color', 'astra' ),
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => ASTRA_THEME_SETTINGS . '[footer-link-h-color]', 
 					'type'    => 'control',
-					'control' => 'color',
+					'control' => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'title'   => __( 'Link Hover Color', 'astra' ),
 					'default' => '',

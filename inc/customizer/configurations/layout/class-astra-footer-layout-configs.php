@@ -195,7 +195,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'  => 'section-footer-small',
 					'default'  => '#7a7a7a',
 					'type'     => 'control',
-					'control'  => 'color',
+					'control'  => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
 					'priority' => 45,
 					'title'    => __( 'Footer Bar Top Border Color', 'astra' ),

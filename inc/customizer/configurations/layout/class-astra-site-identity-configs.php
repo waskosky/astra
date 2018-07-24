@@ -33,9 +33,22 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => 'title_tagline',
+					'required'       => array( ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', '!=', 0 ),
 					'priority'       => 5,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+				),
+
+				/**
+				 * Option: Different retina logo
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
+					'section'  => 'title_tagline',
+					'label'    => __( 'Different Logo for retina devices?', 'astra' ),
+					'default'           => false,
+					'priority' => 5,
+					'type'     => 'checkbox',
 				),
 
 				/**

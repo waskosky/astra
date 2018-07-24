@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'name'    => ASTRA_THEME_SETTINGS . '[button-color]',
 					'default' => '',
 					'type'    => 'control',
-					'control' => 'color',
+					'control' => 'ast-color',
 					'section' => 'section-buttons',
 					'title'   => __( 'Button Text Color', 'astra' ),
 				),
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default' => '',
 					'section' => 'section-buttons',
 					'type'    => 'control',
-					'control' => 'color',
+					'control' => 'ast-color',
 					'title'   => __( 'Button Text Hover Color', 'astra' ),
 				),
 
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default' => '',
 					'section' => 'section-buttons',
 					'type'    => 'control',
-					'control' => 'color',
+					'control' => 'ast-color',
 					'title'   => __( 'Button Background Color', 'astra' ),
 				),
 
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section' => 'section-buttons',
 					'default' => '',
 					'type'    => 'control',
-					'control' => 'color',
+					'control' => 'ast-color',
 					'title'   => __( 'Button Background Hover Color', 'astra' ),
 				),
 
