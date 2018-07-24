@@ -738,6 +738,21 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							),
 						),
 					),
+					'advanced-search'       => array(
+						'title'       => __( 'Advanced Search', 'astra-addon' ),
+						'class'       => 'ast-addon',
+						'icon'        => ASTRA_EXT_URI . 'assets/img/astra-addon.png',
+						'description' => 'Introduce four different styling for Default Search Box.',
+						'default'     => false,
+						'links'       => array(
+							array(
+								'link_class'   => 'ast-learn-more',
+								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'astra' ),
+								'target_blank' => true,
+							),
+						),
+					),
 					'advanced-footer'       => array(
 						'title'     => __( 'Footer Widgets', 'astra' ),
 						'class'     => 'ast-addon',
@@ -817,7 +832,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							),
 						),
 					),
-
 				)
 			);
 			?>
