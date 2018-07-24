@@ -219,6 +219,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-archive-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-body-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-content-typo-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-header-typo-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-single-typo-configs.php';
 
 		}
 
@@ -406,12 +408,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Override Defaults
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/override-defaults.php';
-
-			/**
-			 * Sections
-			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/header.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/single.php';
 
 		}
 
