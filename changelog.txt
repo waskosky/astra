@@ -1,3 +1,6 @@
+v1.4.2
+- Fix: Elementor modules getting 100% height in preview mode due to z-index bump in v1.4.1.
+
 v1.4.1
 - Fix: Widget contents inside custom menu item hidden in some cases.
 - Fix: Elementor editor controls hidden in the first row.
