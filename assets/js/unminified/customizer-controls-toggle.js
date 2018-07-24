@@ -266,30 +266,6 @@
 				}
 			},
 		],
-
-		/**
-		 * Footer Widgets
-		 */
-		'astra-settings[footer-adv]' :
-		[
-			{
-				controls: [
-					'astra-settings[footer-adv-background-divider]',
-					'astra-settings[footer-adv-wgt-title-color]',
-					'astra-settings[footer-adv-text-color]',
-					'astra-settings[footer-adv-link-color]',
-					'astra-settings[footer-adv-link-h-color]',
-					'astra-settings[footer-adv-bg-obj]',
-				],
-				callback: function( footer_widget_area ) {
-
-					if ( 'disabled' != footer_widget_area ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
 	};
 
 } )( jQuery );

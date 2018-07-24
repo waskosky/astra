@@ -6,7 +6,7 @@
 
 ( function( $ ) {
 
-	 'use strict';
+	'use strict';
 
 	/* Internal shorthand */
 	var api = wp.customize;
@@ -32,9 +32,11 @@
 		{
 			var $this = this;
 			$this.handleDependency();
+            $this.hideEmptySections();
 
-			api.bind( 'change', function ( setting ) {
+            api.bind( 'change', function ( setting ) {
 				$this.handleDependency();
+                $this.hideEmptySections();
 			} );
 
 		},
@@ -194,6 +196,37 @@
             }
 
             return check;
+        },
+
+        /**
+         * Hide Section without Controls.
+         *
+        */
+        hideEmptySections: function() {
+
+            $( 'ul.accordion-section.control-section-ast_section' ).each( function() {
+
+                var parentId  = $(this).attr( 'id' );
+                var visibleIt = false;
+                var controls  = $(this).find( ' > .customize-control' );
+
+                if( controls.length > 0 ) {
+
+                    controls.each( function() {
+
+                        if( ! $(this).hasClass( 'ast-hide' ) || $( this ).css( 'display' ) != 'none' ) {
+                            visibleIt = true;
+                        }
+                    });
+
+                    if ( ! visibleIt ) {
+                        $( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
+                    } else {
+                        $( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
+                    }
+                }
+            });
+
         },
 
         /**

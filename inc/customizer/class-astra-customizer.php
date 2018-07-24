@@ -212,6 +212,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-footer-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-body-colors-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-footer-colors-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-advanced-footer-colors-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-container-configs.php';
 		}
 
@@ -404,9 +407,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Sections
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/advanced-footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/header.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/body.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/content.php';
