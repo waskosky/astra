@@ -13,29 +13,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 
 	/**
-	 * Option: Shop Page
+	 * Customizer Sanitizes Initial setup
 	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
-			'default'           => astra_get_option( 'woocommerce-content-layout' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
-			'type'     => 'select',
-			'section'  => 'section-container-layout',
-			'priority' => 85,
-			'label'    => __( 'Container for WooCommerce', 'astra' ),
-			'choices'  => array(
-				'default'                 => __( 'Default', 'astra' ),
-				'boxed-container'         => __( 'Boxed', 'astra' ),
-				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
-			),
-		)
-	);
+	class Astra_Woo_Shop_Container_Configs extends Astra_Customizer_Config_Base {
+
+		public function register_configuration( $configurations, $wp_customize ) {
+
+			$_configs = array(
+
+				/**
+				 * Option: Shop Page
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'default'  => astra_get_option( 'woocommerce-content-layout' ),
+					'section'  => 'section-container-layout',
+					'priority' => 85,
+					'title'    => __( 'Container for WooCommerce', 'astra' ),
+					'choices'  => array(
+						'default'                 => __( 'Default', 'astra' ),
+						'boxed-container'         => __( 'Boxed', 'astra' ),
+						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
+						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+					),
+				)
+			);
+
+			return array_merge( $configurations, $_configs );
+
+		}
+	}
+}
+
+new Astra_Woo_Shop_Container_Configs;
+	
