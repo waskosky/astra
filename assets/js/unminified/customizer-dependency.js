@@ -282,9 +282,16 @@
                     }
                     equal = _.isEmpty(_v) ? false : true;
                     break;
+                case 'contains':
+                    if ( _.isArray( value1 ) ) {
+                        if( $.inArray( value2, value1 ) !== -1 ) {
+                            equal = true;
+                        }  
+                    }
+                    break;
                 default:
-                    if (_.isArray(value2)) {
-                        if (!_.isEmpty(value2) && !_.isEmpty(value1)) {
+                    if ( _.isArray( value2 ) ) {
+                        if ( !_.isEmpty(value2) && !_.isEmpty( value1 ) ) {
                             equal = _.contains(value2, value1);
                         } else {
                             equal = false;

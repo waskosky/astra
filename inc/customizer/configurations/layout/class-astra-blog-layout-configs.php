@@ -66,8 +66,9 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'section'  => 'section-blog',
-					'default'           => astra_get_option( 'blog-meta' ),
+					'default'  => astra_get_option( 'blog-meta' ),
 					'priority' => 105,
+					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
 					'title'    => __( 'Blog Meta', 'astra' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'astra' ),

@@ -59,6 +59,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]',
 					'control'  => 'ast-divider',
  					'type'     => 'control',
+ 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'section'  => 'section-footer-small',
 					'priority' => 10,
 					'settings' => array(),

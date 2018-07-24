@@ -49,6 +49,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'default'  => astra_get_option( 'blog-single-meta' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', 'contains', 'single-title-meta' ),
 					'section'  => 'section-blog-single',
 					'priority' => 5,
 					'title'    => __( 'Single Post Meta', 'astra' ),
