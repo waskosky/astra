@@ -13,62 +13,66 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	/**
-	 * Option: Course Columns
-	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[llms-course-grid]', array(
-			'default'           => array(
-				'desktop' => 3,
-				'tablet'  => 2,
-				'mobile'  => 1,
-			),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[llms-course-grid]', array(
-				'type'        => 'ast-responsive-slider',
-				'section'     => 'section-lifterlms',
-				'label'       => __( 'Course Columns', 'astra' ),
-				'priority'    => 0,
-				'input_attrs' => array(
-					'step' => 1,
-					'min'  => 1,
-					'max'  => 6,
-				),
-			)
-		)
-	);
+if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 
 	/**
-	 * Option: Membership Columns
+	 * Customizer Sanitizes Initial setup
 	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[llms-membership-grid]', array(
-			'default'           => array(
-				'desktop' => 3,
-				'tablet'  => 2,
-				'mobile'  => 1,
-			),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[llms-membership-grid]', array(
-				'type'        => 'ast-responsive-slider',
-				'section'     => 'section-lifterlms',
-				'label'       => __( 'Membership Columns', 'astra' ),
-				'priority'    => 0,
-				'input_attrs' => array(
-					'step' => 1,
-					'min'  => 1,
-					'max'  => 6,
+	class Astra_Lifter_General_Configs extends Astra_Customizer_Config_Base {
+
+		public function register_configuration( $configurations, $wp_customize ) {
+
+			$_configs = array(
+
+				/**
+				 * Option: Course Columns
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[llms-course-grid]',
+					'type'      => 'control',
+					'control'   => 'ast-responsive-slider',
+					'section'   => 'section-lifterlms',
+					'default'   => array(
+						'desktop' => 3,
+						'tablet'  => 2,
+						'mobile'  => 1,
+					),
+					'title'       => __( 'Course Columns', 'astra' ),
+					'priority'    => 0,
+					'input_attrs' => array(
+						'step' => 1,
+						'min'  => 1,
+						'max'  => 6,
+					),
 				),
-			)
-		)
-	);
+
+				/**
+				 * Option: Membership Columns
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[llms-membership-grid]',
+					'type'      => 'control',
+					'control'   => 'ast-responsive-slider',
+					'section'   => 'section-lifterlms',
+					'default'   => array(
+						'desktop' => 3,
+						'tablet'  => 2,
+						'mobile'  => 1,
+					),
+					'title'       => __( 'Membership Columns', 'astra' ),
+					'priority'    => 0,
+					'input_attrs' => array(
+						'step' => 1,
+						'min'  => 1,
+						'max'  => 6,
+					),
+				)
+			);
+
+			return array_merge( $configurations, $_configs );
+
+		}
+	}
+}
+
+new Astra_Lifter_General_Configs;

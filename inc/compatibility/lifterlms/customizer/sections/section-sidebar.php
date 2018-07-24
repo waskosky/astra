@@ -13,67 +13,72 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-divider]', array(
-				'section'  => 'section-sidebars',
-				'type'     => 'ast-divider',
-				'priority' => 5,
-				'settings' => array(),
-			)
-		)
-	);
+if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 
 	/**
-	 * Option: Shop Page
+	 * Customizer Sanitizes Initial setup
 	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-layout]', array(
-			'default'           => astra_get_option( 'lifterlms-sidebar-layout' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-layout]', array(
-			'type'     => 'select',
-			'section'  => 'section-sidebars',
-			'priority' => 5,
-			'label'    => __( 'LifterLMS', 'astra' ),
-			'choices'  => array(
-				'default'       => __( 'Default', 'astra' ),
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
-			),
-		)
-	);
+	class Astra_Lifter_Sidebar_Configs extends Astra_Customizer_Config_Base {
 
-	/**
-	 * Option: LifterLMS Course/Lesson
-	 */
-	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]', array(
-			'default'           => astra_get_option( 'lifterlms-course-lesson-sidebar-layout' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]', array(
-			'type'     => 'select',
-			'section'  => 'section-sidebars',
-			'priority' => 5,
-			'label'    => __( 'LifterLMS Course/Lesson', 'astra' ),
-			'choices'  => array(
-				'default'       => __( 'Default', 'astra' ),
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
-			),
-		)
-	);
+		public function register_configuration( $configurations, $wp_customize ) {
 
+			$_configs = array(
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-divider]', 
+					'section'  => 'section-sidebars',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'priority' => 5,
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Shop Page
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-layout]', 
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-sidebars',
+					'priority' => 5,
+					'default'  => astra_get_option( 'lifterlms-sidebar-layout' ),
+					'title'    => __( 'LifterLMS', 'astra' ),
+					'choices'  => array(
+						'default'       => __( 'Default', 'astra' ),
+						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
+						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
+						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: LifterLMS Course/Lesson
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-sidebars',
+					'default'  => astra_get_option( 'lifterlms-course-lesson-sidebar-layout' ),
+					'priority' => 5,
+					'title'    => __( 'LifterLMS Course/Lesson', 'astra' ),
+					'choices'  => array(
+						'default'       => __( 'Default', 'astra' ),
+						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
+						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
+						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+					),
+				)
+			);
+
+			return array_merge( $configurations, $_configs );
+
+		}
+	}
+}
+
+new Astra_Lifter_Sidebar_Configs;
