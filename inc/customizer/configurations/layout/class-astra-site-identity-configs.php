@@ -43,12 +43,13 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 * Option: Different retina logo
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
-					'section'  => 'title_tagline',
+					'name'     => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
+					'type'     => 'control',
+					'control'  => 'checkbox',
+ 					'section'  => 'title_tagline',
 					'label'    => __( 'Different Logo for retina devices?', 'astra' ),
-					'default'           => false,
+					'default'  => false,
 					'priority' => 5,
-					'type'     => 'checkbox',
 				),
 
 				/**
