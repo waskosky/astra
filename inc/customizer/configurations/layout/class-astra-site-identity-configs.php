@@ -125,13 +125,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'title'   => __( 'Display Site Tagline', 'astra' ),
 				),
 
-				/**
-				 * Option: Disable Menu
-				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[logo-title-inline]',
 					'default'  => astra_get_option( 'logo-title-inline' ),
 					'type'     => 'control',
+					'required' => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '!=', 0 ),
+							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '!=', 0 ),
+							array( 'custom_logo', '!=', '' ),
+							array( ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', '!=', '' )
+						),
+						'operator' => 'OR'
+					),
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
 					'title'    => __( 'Inline Logo & Site Title', 'astra' ),

@@ -190,7 +190,7 @@
 
                 	// Break loop in case of OR operator
                     if( returnNow && 'OR' == compare_operator ) {
-	                	return false;
+                        check = true;
 	                }
                 });
             }
