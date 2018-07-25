@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
-					'label'    => __( 'Different Logo for retina devices?', 'astra' ),
+					'title'    => __( 'Different Logo for retina devices?', 'astra' ),
 					'default'  => false,
 					'priority' => 5,
 				),
