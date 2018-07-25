@@ -58,17 +58,17 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Font Weight
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[body-font-weight]',
-					'type'        => 'control',
-					'control'     => 'ast-font',
-					'font-type'   => 'ast-font-weight',
+					'name'              => ASTRA_THEME_SETTINGS . '[body-font-weight]',
+					'type'              => 'control',
+					'control'           => 'ast-font',
+					'font-type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'     => astra_get_option( 'body-font-weight' ),
-					'ast_inherit' => __( 'Default', 'astra' ),
-					'section'     => 'section-body-typo',
-					'priority'    => 10,
-					'title'       => __( 'Font Weight', 'astra' ),
-					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-family]',
+					'default'           => astra_get_option( 'body-font-weight' ),
+					'ast_inherit'       => __( 'Default', 'astra' ),
+					'section'           => 'section-body-typo',
+					'priority'          => 10,
+					'title'             => __( 'Font Weight', 'astra' ),
+					'connect'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
 				),
 
 				/**
@@ -167,31 +167,31 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Headings Font Family
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[headings-font-family]',
-					'type'     => 'control',
-					'control'  => 'ast-font',
-					'font-type'=> 'ast-font-family',
-					'default'  => astra_get_option( 'headings-font-family' ),
-					'title'    => __( 'Font Family', 'astra' ),
-					'section'  => 'section-body-typo',
-					'priority' => 35,
-					'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
+					'name'      => ASTRA_THEME_SETTINGS . '[headings-font-family]',
+					'type'      => 'control',
+					'control'   => 'ast-font',
+					'font-type' => 'ast-font-family',
+					'default'   => astra_get_option( 'headings-font-family' ),
+					'title'     => __( 'Font Family', 'astra' ),
+					'section'   => 'section-body-typo',
+					'priority'  => 35,
+					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
 				),
 
 				/**
 				 * Option: Headings Font Weight
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
-					'type'     => 'control',
-					'control'  => 'ast-font',
-					'font-type'=> 'ast-font-weight',
+					'name'              => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
+					'type'              => 'control',
+					'control'           => 'ast-font',
+					'font-type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'  => astra_get_option( 'headings-font-weight' ),
-					'title'    => __( 'Font Weight', 'astra' ),
-					'section'  => 'section-body-typo',
-					'priority' => 40,
-					'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-family]',
+					'default'           => astra_get_option( 'headings-font-weight' ),
+					'title'             => __( 'Font Weight', 'astra' ),
+					'section'           => 'section-body-typo',
+					'priority'          => 40,
+					'connect'           => ASTRA_THEME_SETTINGS . '[headings-font-family]',
 				),
 
 				/**
