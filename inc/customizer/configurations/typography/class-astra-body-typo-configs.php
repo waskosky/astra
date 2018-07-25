@@ -44,7 +44,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[body-font-family]',
 					'type'        => 'control',
-					'control'     => 'ast-font-family',
+					'control'     => 'ast-font',
+					'font-type'   => 'ast-font-family',
 					'ast_inherit' => __( 'Default System Font', 'astra' ),
 					'default'     => astra_get_option( 'body-font-family' ),
 					'section'     => 'section-body-typo',
@@ -59,7 +60,9 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'type'        => 'control',
-					'control'     => 'ast-font-weight',
+					'control'     => 'ast-font',
+					'font-type'   => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'     => astra_get_option( 'body-font-weight' ),
 					'ast_inherit' => __( 'Default', 'astra' ),
 					'section'     => 'section-body-typo',
@@ -166,7 +169,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[headings-font-family]',
 					'type'     => 'control',
-					'control'  => 'ast-font-family',
+					'control'  => 'ast-font',
+					'font-type'=> 'ast-font-family',
 					'default'  => astra_get_option( 'headings-font-family' ),
 					'title'    => __( 'Font Family', 'astra' ),
 					'section'  => 'section-body-typo',
@@ -180,7 +184,9 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
 					'type'     => 'control',
-					'control'  => 'ast-font-weight',
+					'control'  => 'ast-font',
+					'font-type'=> 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'  => astra_get_option( 'headings-font-weight' ),
 					'title'    => __( 'Font Weight', 'astra' ),
 					'section'  => 'section-body-typo',
