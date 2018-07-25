@@ -28,11 +28,11 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 				 * Option: Course Columns
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[llms-course-grid]',
-					'type'      => 'control',
-					'control'   => 'ast-responsive-slider',
-					'section'   => 'section-lifterlms',
-					'default'   => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[llms-course-grid]',
+					'type'        => 'control',
+					'control'     => 'ast-responsive-slider',
+					'section'     => 'section-lifterlms',
+					'default'     => array(
 						'desktop' => 3,
 						'tablet'  => 2,
 						'mobile'  => 1,
@@ -50,11 +50,11 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 				 * Option: Membership Columns
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[llms-membership-grid]',
-					'type'      => 'control',
-					'control'   => 'ast-responsive-slider',
-					'section'   => 'section-lifterlms',
-					'default'   => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[llms-membership-grid]',
+					'type'        => 'control',
+					'control'     => 'ast-responsive-slider',
+					'section'     => 'section-lifterlms',
+					'default'     => array(
 						'desktop' => 3,
 						'tablet'  => 2,
 						'mobile'  => 1,
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
-				)
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

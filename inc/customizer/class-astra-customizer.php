@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					case 'section':
 						// Remove type from configuration.
 						unset( $config['type'] );
-						
+
 						$this->register_section( $config, $wp_customize );
 
 						break;
@@ -173,7 +173,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( astar( $config, 'partial', false ) ) {
 
 				if ( isset( $wp_customize->selective_refresh ) ) {
-					$wp_customize->selective_refresh->add_partial( astar( $config, 'name' ), array(
+					$wp_customize->selective_refresh->add_partial(
+						astar( $config, 'name' ), array(
 							'selector'            => astar( $config['partial'], 'selector' ),
 							'container_inclusive' => astar( $config['partial'], 'container_inclusive' ),
 							'render_callback'     => astar( $config['partial'], 'render_callback' ),

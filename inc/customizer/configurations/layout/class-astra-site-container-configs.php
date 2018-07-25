@@ -23,7 +23,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 	class Astra_Site_Container_Layout_Configs extends Astra_Customizer_Config_Base {
 
 		public function register_configuration( $configurations, $wp_customize ) {
-		
+
 			$_configs = array(
 
 				/**
@@ -31,11 +31,11 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				 */
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
-					'type'        => 'control',
-					'control'     => 'ast-divider',
-					'section'     => 'section-container-layout',
-					'priority'    => 50,
+					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-container-layout',
+					'priority' => 50,
 					'settings' => array(),
 				),
 
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout]',
 					'type'     => 'control',
-					'default'           => astra_get_option( 'site-content-layout' ),
+					'default'  => astra_get_option( 'site-content-layout' ),
 					'control'  => 'select',
 					'section'  => 'section-container-layout',
 					'priority' => 50,
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
-					'default'           => astra_get_option( 'single-post-content-layout' ),
+					'default'  => astra_get_option( 'single-post-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 60,
 					'title'    => __( 'Container for Blog Posts', 'astra' ),
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
-					'default'           => astra_get_option( 'archive-post-content-layout' ),
+					'default'  => astra_get_option( 'archive-post-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 65,
 					'title'    => __( 'Container for Blog Archives', 'astra' ),
@@ -118,11 +118,11 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]',
 					'type'     => 'control',
 					'control'  => 'ast-background',
-					'default'           => astra_get_option( 'site-layout-outside-bg-obj' ),
+					'default'  => astra_get_option( 'site-layout-outside-bg-obj' ),
 					'section'  => 'section-colors-body',
 					'priority' => 25,
 					'title'    => __( 'Background', 'astra' ),
-				)
+				),
 
 			);
 
@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available for Container in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
-					)
+					),
 				);
 
 				$configurations = array_merge( $configurations, $config );
@@ -167,9 +167,9 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 	}
 }
 
-	
+
 new Astra_Site_Container_Layout_Configs;
 
-	
 
-	
+
+

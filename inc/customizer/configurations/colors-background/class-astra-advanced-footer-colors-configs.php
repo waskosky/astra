@@ -21,7 +21,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 	class Astra_Adv_Footer_Colors_Configs extends Astra_Customizer_Config_Base {
 
 		public function register_configuration( $configurations, $wp_customize ) {
-			$_configs =  array(
+			$_configs = array(
 
 				/**
 				 * Option: Widget Title Color
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'default'  => '',
 					'section'  => 'section-footer-adv-color-bg',
 				),
-			
+
 				/**
 				 * Option: Text Color
 				 */
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'default'  => '',
 					'section'  => 'section-footer-adv-color-bg',
 				),
-			
+
 				/**
 				 * Option: Link Hover Color
 				 */
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'default'  => astra_get_option( 'footer-adv-bg-obj' ),
 					'section'  => 'section-footer-adv-color-bg',
 					'title'    => __( 'Background', 'astra' ),
-				)
+				),
 
 			);
 
@@ -111,4 +111,4 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 
 new Astra_Adv_Footer_Colors_Configs;
 
-	
+

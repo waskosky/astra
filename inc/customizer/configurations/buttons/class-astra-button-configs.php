@@ -82,12 +82,12 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Button Radius
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-radius]',
-					'section'  => 'section-buttons',
-					'default'  => astra_get_option( 'button-radius' ),
-					'type'    => 'control',
-					'control' => 'number',
-					'title'    => __( 'Button Radius', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[button-radius]',
+					'section'     => 'section-buttons',
+					'default'     => astra_get_option( 'button-radius' ),
+					'type'        => 'control',
+					'control'     => 'number',
+					'title'       => __( 'Button Radius', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -99,12 +99,12 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Vertical Padding
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[button-v-padding]',
-					'section'   => 'section-buttons',
-					'default'   => astra_get_option( 'button-v-padding' ),
-					'title'     => __( 'Vertical Padding', 'astra' ),
-					'type'      => 'control',
-					'control'   => 'number',
+					'name'        => ASTRA_THEME_SETTINGS . '[button-v-padding]',
+					'section'     => 'section-buttons',
+					'default'     => astra_get_option( 'button-v-padding' ),
+					'title'       => __( 'Vertical Padding', 'astra' ),
+					'type'        => 'control',
+					'control'     => 'number',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
@@ -116,18 +116,18 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Horizontal Padding
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[button-h-padding]',
-					'section'    => 'section-buttons',
-					'default'    => astra_get_option( 'button-h-padding' ),
-					'title'      => __( 'Horizontal Padding', 'astra' ),
-					'type'       => 'control',
-					'control'    => 'number',
+					'name'        => ASTRA_THEME_SETTINGS . '[button-h-padding]',
+					'section'     => 'section-buttons',
+					'default'     => astra_get_option( 'button-h-padding' ),
+					'title'       => __( 'Horizontal Padding', 'astra' ),
+					'type'        => 'control',
+					'control'     => 'number',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
 						'max'  => 200,
 					),
-				)
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

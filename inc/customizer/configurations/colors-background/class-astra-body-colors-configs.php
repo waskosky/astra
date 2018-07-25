@@ -21,7 +21,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 	class Astra_Body_Colors_Configs extends Astra_Customizer_Config_Base {
 
 		public function register_configuration( $configurations, $wp_customize ) {
-			$_configs =  array(
+			$_configs = array(
 
 				/**
 				 * Option: Theme Color
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[theme-color]',
 					'type'     => 'control',
-					'control'  => 'ast-color', 
+					'control'  => 'ast-color',
 					'section'  => 'section-colors-body',
 					'default'  => '#0274be',
 					'priority' => 5,
@@ -40,10 +40,10 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				 * Option: Link Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[link-color]', 
+					'name'     => ASTRA_THEME_SETTINGS . '[link-color]',
 					'section'  => 'section-colors-body',
 					'type'     => 'control',
-					'control'  => 'ast-color', 
+					'control'  => 'ast-color',
 					'default'  => '#0274be',
 					'priority' => 5,
 					'title'    => __( 'Link Color', 'astra' ),
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[text-color]',
 					'default'  => '#3a3a3a',
 					'type'     => 'control',
-					'control'  => 'ast-color', 
+					'control'  => 'ast-color',
 					'section'  => 'section-colors-body',
 					'priority' => 10,
 					'title'    => __( 'Text Color', 'astra' ),
@@ -70,11 +70,11 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'  => 'section-colors-body',
 					'default'  => '#3a3a3a',
 					'type'     => 'control',
-					'control'  => 'ast-color', 
+					'control'  => 'ast-color',
 					'priority' => 15,
 					'title'    => __( 'Link Hover Color', 'astra' ),
 				),
-				
+
 				/**
 				 * Option: Divider
 				 */
@@ -85,9 +85,8 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'  => 'section-colors-body',
 					'priority' => 20,
 					'settings' => array(),
-				)
+				),
 			);
-
 
 			$configurations = array_merge( $configurations, $_configs );
 
@@ -98,4 +97,4 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 
 new Astra_Body_Colors_Configs;
 
-	
+

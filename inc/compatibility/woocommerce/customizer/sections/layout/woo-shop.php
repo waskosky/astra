@@ -50,13 +50,13 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Products Per Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-no-of-products]',
-					'type'     => 'control',
-					'section'  => 'section-woo-shop',
-					'title'    => __( 'Products Per Page', 'astra' ),
-					'default'  => astra_get_option( 'shop-no-of-products' ),
-					'control'  => 'number',
-					'priority' => 15,
+					'name'        => ASTRA_THEME_SETTINGS . '[shop-no-of-products]',
+					'type'        => 'control',
+					'section'     => 'section-woo-shop',
+					'title'       => __( 'Products Per Page', 'astra' ),
+					'default'     => astra_get_option( 'shop-no-of-products' ),
+					'control'     => 'number',
+					'priority'    => 15,
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'section'  => 'section-woo-shop',
-					'default'           => astra_get_option( 'shop-product-structure' ),
+					'default'  => astra_get_option( 'shop-product-structure' ),
 					'priority' => 30,
 					'title'    => __( 'Shop Product Structure', 'astra' ),
 					'choices'  => array(
@@ -139,21 +139,21 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Enter Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-max-width]',
-					'type'     => 'control',
-					'control'  => 'ast-slider',
-					'section'  => 'section-woo-shop',
-					'default'  => 1200,
-					'priority' => 225,
-					'required' => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
-					'title'    => __( 'Enter Width', 'astra' ),
-					'suffix'   => '',
+					'name'        => ASTRA_THEME_SETTINGS . '[shop-archive-max-width]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-woo-shop',
+					'default'     => 1200,
+					'priority'    => 225,
+					'required'    => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
+					'title'       => __( 'Enter Width', 'astra' ),
+					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,
 						'max'  => 1920,
 					),
-				)
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -165,4 +165,4 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 }
 
 new Astra_Woo_Shop_Layout_Configs;
-	
+

@@ -21,8 +21,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 	class Astra_Single_Typo_Configs extends Astra_Customizer_Config_Base {
 
 		public function register_configuration( $configurations, $wp_customize ) {
-			
-			$_configs =  array(
+
+			$_configs = array(
 
 				/**
 				 * Option: Divider
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-header-single-title]',
 					'type'     => 'control',
- 					'control'  => 'ast-divider',
+					'control'  => 'ast-divider',
 					'section'  => 'section-single-typo',
 					'priority' => 5,
 					'title'    => __( 'Single Post / Page Title', 'astra' ),
@@ -41,12 +41,12 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				 * Option: Single Post / Page Title Font Size
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
-					'type'      => 'control',
-					'control'   => 'ast-responsive',
-					'section'   => 'section-single-typo',
-					'default'   => astra_get_option( 'font-size-entry-title' ),
-					'transport' => 'postMessage',
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
+					'type'        => 'control',
+					'control'     => 'ast-responsive',
+					'section'     => 'section-single-typo',
+					'default'     => astra_get_option( 'font-size-entry-title' ),
+					'transport'   => 'postMessage',
 					'priority'    => 10,
 					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
@@ -56,9 +56,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'px' => 'px',
 						'em' => 'em',
 					),
-				)
+				),
 			);
-
 
 			$configurations = array_merge( $configurations, $_configs );
 
@@ -91,8 +90,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available for Typography in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
-					)
-					
+					),
+
 				);
 
 				$configurations = array_merge( $configurations, $_configs );
@@ -105,4 +104,4 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 
 new Astra_Single_Typo_Configs;
 
-	
+

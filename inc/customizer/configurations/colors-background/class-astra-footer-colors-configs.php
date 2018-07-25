@@ -21,72 +21,72 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 	class Astra_Footer_Colors_Configs extends Astra_Customizer_Config_Base {
 
 		public function register_configuration( $configurations, $wp_customize ) {
-			$_configs =  array(
+			$_configs = array(
 
 				/**
 				 * Option: Color
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-color]',
-					'type'    => 'control',
-					'control' => 'ast-color',
-					'title'   => __( 'Text Color', 'astra' ),
-					'default' => '',
-					'section' => 'section-colors-footer',
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-color]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'title'    => __( 'Text Color', 'astra' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'default'  => '',
+					'section'  => 'section-colors-footer',
 				),
-	
+
 				/**
 				 * Option: Link Color
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-link-color]', 
-					'type'    => 'control',
-					'control' => 'ast-color',
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-link-color]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-					'default' => '',
-					'title'   => __( 'Link Color', 'astra' ),
-					'section' => 'section-colors-footer',
+					'default'  => '',
+					'title'    => __( 'Link Color', 'astra' ),
+					'section'  => 'section-colors-footer',
 				),
 
 				/**
 				 * Option: Link Hover Color
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-link-h-color]', 
-					'type'    => 'control',
-					'control' => 'ast-color',
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-link-h-color]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-					'title'   => __( 'Link Hover Color', 'astra' ),
-					'default' => '',
-					'section' => 'section-colors-footer',
+					'title'    => __( 'Link Hover Color', 'astra' ),
+					'default'  => '',
+					'section'  => 'section-colors-footer',
 				),
 
 				/**
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-footer-image]', 
-					'type'    => 'control',
-					'control' => 'ast-divider',
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-footer-image]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'section'  => 'section-colors-footer',
 					'settings' => array(),
 				),
-		
+
 				/**
 				 * Option: Footer Background
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-bg-obj]',
-					'type'    => 'control',
-					'control' => 'ast-background',
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-bg-obj]',
+					'type'     => 'control',
+					'control'  => 'ast-background',
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-					'default' => astra_get_option( 'footer-bg-obj' ),
-					'section' => 'section-colors-footer',
-					'title'   => __( 'Background', 'astra' ),
-				)
+					'default'  => astra_get_option( 'footer-bg-obj' ),
+					'section'  => 'section-colors-footer',
+					'title'    => __( 'Background', 'astra' ),
+				),
 			);
-
 
 			$configurations = array_merge( $configurations, $_configs );
 
@@ -97,4 +97,4 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 
 new Astra_Footer_Colors_Configs;
 
-	
+

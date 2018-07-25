@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
 						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
 					),
-				)
+				),
 			);
 
 			return array_merge( $configurations, $_configs );
@@ -83,5 +83,5 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 
 new Astra_Woo_Shop_Sidebar_Configs;
 
-				
+
 

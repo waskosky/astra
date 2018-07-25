@@ -33,7 +33,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => 'title_tagline',
-					'required'       => array( ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', '!=', 0 ),
+					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
 					'priority'       => 5,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
 					'type'     => 'control',
 					'control'  => 'checkbox',
- 					'section'  => 'title_tagline',
+					'section'  => 'title_tagline',
 					'label'    => __( 'Different Logo for retina devices?', 'astra' ),
 					'default'  => false,
 					'priority' => 5,
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'image',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-mobile-logo]', '==', '1' ),
- 					'section'        => 'title_tagline',
+					'section'        => 'title_tagline',
 					'priority'       => 5,
 					'title'          => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
@@ -148,9 +148,9 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '!=', 0 ),
 							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '!=', 0 ),
 							array( 'custom_logo', '!=', '' ),
-							array( ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', '!=', '' )
+							array( ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', '!=', '' ),
 						),
-						'operator' => 'OR'
+						'operator'   => 'OR',
 					),
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'  => 'title_tagline',
 					'priority' => 50,
 					'settings' => array(),
-				)
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -178,10 +178,10 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 	}
 }
 
-	
+
 new Astra_Site_Identity_Configs;
-	
 
-	
 
-	
+
+
+

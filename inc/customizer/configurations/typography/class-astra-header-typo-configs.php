@@ -21,8 +21,8 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 	class Astra_Header_Typo_Configs extends Astra_Customizer_Config_Base {
 
 		public function register_configuration( $configurations, $wp_customize ) {
-			
-			$_configs =  array(
+
+			$_configs = array(
 
 				/**
 				 * Option: Divider
@@ -31,26 +31,26 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
-					'required' => array( ASTRA_THEME_SETTINGS . '[display-site-title]', '===', '1'  ), 
+					'required' => array( ASTRA_THEME_SETTINGS . '[display-site-title]', '===', '1' ),
 					'section'  => 'section-primary-header-typo',
 					'priority' => 5,
 					'title'    => __( 'Site Title', 'astra' ),
 					'settings' => array(),
 				),
-					
+
 				/**
 				 * Option: Site Title Font Size
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[font-size-site-title]',
-					'type'      => 'control',
-					'control'   => 'ast-responsive',
-					'section'   => 'section-primary-header-typo',
-					'default'   => astra_get_option( 'font-size-site-title' ),
-					'transport' => 'postMessage',
-					'required' => array( ASTRA_THEME_SETTINGS . '[display-site-title]', '===', '1'  ), 
-					'priority'  => 10,
-					'title'     => __( 'Font Size', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-site-title]',
+					'type'        => 'control',
+					'control'     => 'ast-responsive',
+					'section'     => 'section-primary-header-typo',
+					'default'     => astra_get_option( 'font-size-site-title' ),
+					'transport'   => 'postMessage',
+					'required'    => array( ASTRA_THEME_SETTINGS . '[display-site-title]', '===', '1' ),
+					'priority'    => 10,
+					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]',
-					'type'     => 'control', 
+					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-header-typo',
 					'required' => array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '===', '1' ),
@@ -78,15 +78,15 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 				 * Option: Site Tagline Font Size
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[font-size-site-tagline]',
-					'type'      => 'control',
-					'control'   => 'ast-responsive',
-					'required' => array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '===', '1' ),
-					'section'   => 'section-header-typo',
-					'default'   => astra_get_option( 'font-size-site-tagline' ),
-					'transport' => 'postMessage',
-					'priority'  => 20,
-					'title'     => __( 'Font Size', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-site-tagline]',
+					'type'        => 'control',
+					'control'     => 'ast-responsive',
+					'required'    => array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '===', '1' ),
+					'section'     => 'section-header-typo',
+					'default'     => astra_get_option( 'font-size-site-tagline' ),
+					'transport'   => 'postMessage',
+					'priority'    => 20,
+					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -94,9 +94,8 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 						'px' => 'px',
 						'em' => 'em',
 					),
-				)
+				),
 			);
-
 
 			$configurations = array_merge( $configurations, $_configs );
 
@@ -109,14 +108,14 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					 * Option: Divider
 					 */
 					array(
-						'name'     =>  ASTRA_THEME_SETTINGS . '[ast-header-typography-more-feature-divider]',
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-header-typography-more-feature-divider]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-header-typo',
 						'priority' => 999,
 						'settings' => array(),
 					),
-						
+
 					/**
 					 * Option: Learn More about Typography
 					 */
@@ -129,7 +128,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available for Typography in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
-					)
+					),
 				);
 
 				$configurations = array_merge( $configurations, $_configs );
@@ -142,4 +141,4 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 
 new Astra_Header_Typo_Configs;
 
-	
+

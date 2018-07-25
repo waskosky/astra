@@ -12,7 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-	
+
 if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 
 	/**
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 				 * Option: Display Serial Number
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', 
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]',
 					'section'  => 'section-learndash',
 					'type'     => 'control',
 					'control'  => 'checkbox',
@@ -54,14 +54,14 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 				 * Option: Differentiate Rows
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', 
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]',
 					'default'  => astra_get_option( 'learndash-differentiate-rows' ),
 					'type'     => 'control',
 					'control'  => 'checkbox',
 					'section'  => 'section-learndash',
 					'title'    => __( 'Differentiate Rows', 'astra' ),
 					'priority' => 30,
-				)
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

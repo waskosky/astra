@@ -21,8 +21,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 	class Astra_Body_Typo_Configs extends Astra_Customizer_Config_Base {
 
 		public function register_configuration( $configurations, $wp_customize ) {
-			
-			$_configs =  array(
+
+			$_configs = array(
 
 				/**
 				 * Option: Body & Content Divider
@@ -52,14 +52,13 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'       => __( 'Font Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 				),
-					
 
 				/**
 				 * Option: Font Weight
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[body-font-weight]',
-					'type'     	  => 'control',
+					'type'        => 'control',
 					'control'     => 'ast-font-weight',
 					'default'     => astra_get_option( 'body-font-weight' ),
 					'ast_inherit' => __( 'Default', 'astra' ),
@@ -68,7 +67,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'       => __( 'Font Weight', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-family]',
 				),
-					
 
 				/**
 				 * Option: Body Text Transform
@@ -89,18 +87,18 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
 				),
-				
+
 				/**
 				 * Option: Body Font Size
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[font-size-body]',
-					'type'     => 'control',
-					'control'  => 'ast-responsive',
-					'section'  => 'section-body-typo',
-					'default'  => astra_get_option( 'font-size-body' ),
-					'priority' => 20,
-					'title'    => __( 'Font Size', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-body]',
+					'type'        => 'control',
+					'control'     => 'ast-responsive',
+					'section'     => 'section-body-typo',
+					'default'     => astra_get_option( 'font-size-body' ),
+					'priority'    => 20,
+					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -113,15 +111,15 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Body Line Height
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[body-line-height]',
-					'type'      => 'control',
-					'control'   => 'ast-slider',
-					'section'   => 'section-body-typo',
-					'transport' => 'postMessage',
-					'default'   => '',
-					'priority'  => 25,
-					'title'     => __( 'Line Height', 'astra' ),
-					'suffix'    => '',
+					'name'        => ASTRA_THEME_SETTINGS . '[body-line-height]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-body-typo',
+					'transport'   => 'postMessage',
+					'default'     => '',
+					'priority'    => 25,
+					'title'       => __( 'Line Height', 'astra' ),
+					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -133,15 +131,15 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Paragraph Margin Bottom
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[para-margin-bottom]',
-					'type'      => 'control',
-					'type'      => 'ast-slider',
-					'default'   => '',
-					'transport' => 'postMessage',
-					'section'   => 'section-body-typo',
-					'priority'  => 25,
-					'title'     => __( 'Paragraph Margin Bottom', 'astra' ),
-					'suffix'    => '',
+					'name'        => ASTRA_THEME_SETTINGS . '[para-margin-bottom]',
+					'type'        => 'control',
+					'type'        => 'ast-slider',
+					'default'     => '',
+					'transport'   => 'postMessage',
+					'section'     => 'section-body-typo',
+					'priority'    => 25,
+					'title'       => __( 'Paragraph Margin Bottom', 'astra' ),
+					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 0.5,
 						'step' => 0.01,
@@ -209,9 +207,9 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
-				)
+				),
 			);
-				
+
 			return array_merge( $configurations, $_configs );
 		}
 	}
@@ -219,4 +217,4 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 
 new Astra_Body_Typo_Configs;
 
-	
+

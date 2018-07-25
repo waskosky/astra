@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'title'    => '',
 					'help'     => __( 'Sidebar width will apply only when one of the above sidebar is set.', 'astra' ),
 					'settings' => array(),
-				)
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -162,10 +162,10 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 	}
 }
 
-	
+
 new Astra_Sidebar_Layout_Configs;
-	
 
-	
 
-	
+
+
+

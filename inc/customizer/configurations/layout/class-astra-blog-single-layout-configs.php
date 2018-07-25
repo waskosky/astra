@@ -95,21 +95,21 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Enter Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
-					'type'     => 'control',
-					'control'  => 'ast-slider',
-					'section'  => 'section-blog-single',
-					'default'  => 1200,
-					'required' => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom'  ),
- 					'priority' => 20,
-					'title'    => __( 'Enter Width', 'astra' ),
-					'suffix'   => '',
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-blog-single',
+					'default'     => 1200,
+					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
+					'priority'    => 20,
+					'title'       => __( 'Enter Width', 'astra' ),
+					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,
 						'max'  => 1920,
 					),
-				)
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 				$config = array(
-					
+
 					/**
 					 * Option: Divider
 					 */
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available for Single Post in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
-					)
+					),
 				);
 
 				$configurations = array_merge( $configurations, $config );
@@ -155,10 +155,10 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 	}
 }
 
-	
+
 new Astra_Blog_Single_Layout_Configs;
-	
 
-	
 
-	
+
+
+

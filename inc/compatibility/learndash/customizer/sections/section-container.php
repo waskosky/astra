@@ -40,13 +40,13 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-content-layout]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-container-layout',
-					'default'  => astra_get_option( 'learndash-content-layout' ),
-					'priority' => 68,
-					'title'    => __( 'Container for LearnDash', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[learndash-content-layout]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'section'     => 'section-container-layout',
+					'default'     => astra_get_option( 'learndash-content-layout' ),
+					'priority'    => 68,
+					'title'       => __( 'Container for LearnDash', 'astra' ),
 					'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
 					'choices'     => array(
 						'default'                 => __( 'Default', 'astra' ),
@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-				)
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

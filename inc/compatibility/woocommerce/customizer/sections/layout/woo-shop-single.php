@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
 					'title'    => __( 'Disable Breadcrumb', 'astra' ),
 					'priority' => 10,
-				)
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -48,5 +48,5 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 }
 
 new Astra_Woo_Shop_Single_Layout_Configs;
-	
+
 

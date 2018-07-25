@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout-divider]',
 					'type'     => 'control',
- 					'section'  => 'section-sidebars',
+					'section'  => 'section-sidebars',
 					'control'  => 'ast-divider',
 					'priority' => 5,
 					'settings' => array(),
@@ -40,13 +40,13 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 				 * Option: LearnDash
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-sidebars',
-					'default'  => astra_get_option( 'learndash-sidebar-layout' ),
-					'priority' => 5,
-					'title'    => __( 'LearnDash', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]',
+					'type'        => 'control',
+					'control'     => 'select',
+					'section'     => 'section-sidebars',
+					'default'     => astra_get_option( 'learndash-sidebar-layout' ),
+					'priority'    => 5,
+					'title'       => __( 'LearnDash', 'astra' ),
 					'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'astra' ),
 					'choices'     => array(
 						'default'       => __( 'Default', 'astra' ),
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
 						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
 					),
-				)
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

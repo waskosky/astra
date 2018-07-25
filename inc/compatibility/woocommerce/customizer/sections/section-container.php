@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
-				)
+				),
 			);
 
 			return array_merge( $configurations, $_configs );
@@ -52,4 +52,4 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 }
 
 new Astra_Woo_Shop_Container_Configs;
-	
+
