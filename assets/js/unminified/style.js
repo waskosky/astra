@@ -888,7 +888,7 @@ var toggleClass = function ( el, className ) {
 				AstraNavigationMenu( parentList );
 
 				if ( document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
-                	var astra_menu_toggle 	   = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .menu-item-has-children > a, ul.main-header-menu .ast-menu-toggle' );
+					var astra_menu_toggle 	   = __main_header_all[i].querySelectorAll( '.ast-header-break-point ul.main-header-menu .menu-item-has-children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle' );
 				} else {
 				 	var astra_menu_toggle      = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
 				}
