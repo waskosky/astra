@@ -805,6 +805,12 @@ var toggleClass = function ( el, className ) {
 
 				var parent_li = this.parentNode;
 
+				if ( parent_li.classList.contains( 'ast-submenu-expanded' ) && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
+				    var url = this.getAttribute("href");
+				    window.location = url;
+				    return;
+				}
+
 				var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 				for (var j = 0; j < parent_li_child.length; j++) {
 
