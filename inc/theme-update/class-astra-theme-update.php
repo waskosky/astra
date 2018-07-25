@@ -736,7 +736,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options      = get_option( 'astra-settings' );
 
 			if ( '' != $mobile_header_logo ) {
-				$theme_options['different-retina-logo'] = true;
+				$theme_options['different-retina-logo'] = '1';
 			}
 
 			update_option( 'astra-settings', $theme_options );
