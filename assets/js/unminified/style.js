@@ -810,7 +810,6 @@ var toggleClass = function ( el, className ) {
 					    var link = parent_li.querySelector('a').getAttribute('href');
 					    if( '' !== link || '#' !== link ) {
 	    				    window.location = link;
-	    				    return;
 	                    }
 					}
 				}
@@ -844,6 +843,7 @@ var toggleClass = function ( el, className ) {
 						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
 					}
 				}
+
 			}, false);
 		};
 	};
