@@ -319,6 +319,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'     => 'ast-slider',
 					'section'     => 'section-header',
 					'title'       => __( 'Border Radius', 'astra' ),
+					'required'    => array( ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]', '!=', 'minimal' ),
 					'priority'    => 42,
 					'suffix'      => '',
 					'input_attrs' => array(
