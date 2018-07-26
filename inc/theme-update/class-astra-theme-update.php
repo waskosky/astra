@@ -158,6 +158,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_4_0_beta_5();
 			}
 
+			if ( version_compare( $saved_version, '1.4.3-alpha.1', '<' ) ) {
+				self::v_1_4_3_alpha_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -720,6 +724,24 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 
+		}
+
+		/**
+		 * Function to backward compatibility for version less than 1.4.3
+		 * Set the new option different-retina-logo to true for users who are already using a retina logo.
+		 *
+		 * @since 1.4.3-aplha.1
+		 */
+		static public function v_1_4_3_alpha_1() {
+
+			$mobile_header_logo = astra_get_option( 'ast-header-retina-logo' );
+			$theme_options      = get_option( 'astra-settings' );
+
+			if ( '' != $mobile_header_logo ) {
+				$theme_options['different-retina-logo'] = '1';
+			}
+
+			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
