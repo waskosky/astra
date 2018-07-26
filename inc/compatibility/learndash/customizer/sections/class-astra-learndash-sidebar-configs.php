@@ -23,7 +23,10 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 		/**
 		 * Register LearnDash Sidebar settings.
 		 * 
+		 * @param Array                $configurations
+		 * @param WP_Customize_Manager $wp_customize
 		 * @since x.x.x
+		 * @return void
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 

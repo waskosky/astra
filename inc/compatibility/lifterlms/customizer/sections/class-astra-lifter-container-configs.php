@@ -6,24 +6,29 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       1.3.0
+ * @since       x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
+if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
+	 * 
+	 * @since x.x.x
 	 */
-	class Astra_Learndash_Container_Configs extends Astra_Customizer_Config_Base {
+	class Astra_Lifter_Container_Configs extends Astra_Customizer_Config_Base {
 
-		/**	
-		 * Register LearnDash Container settings.
+		/**
+		 * Register LifterLMS Container Settings.
 		 * 
+		 * @param Array                $configurations
+		 * @param WP_Customize_Manager $wp_customize
 		 * @since x.x.x
+		 * @return void
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -33,11 +38,11 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-content-divider]',
-					'type'     => 'control',
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-content-divider]',
 					'section'  => 'section-container-layout',
+					'type'     => 'control',
 					'control'  => 'ast-divider',
-					'priority' => 68,
+					'priority' => 66,
 					'settings' => array(),
 				),
 
@@ -45,15 +50,14 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[learndash-content-layout]',
-					'type'        => 'control',
-					'control'     => 'select',
-					'section'     => 'section-container-layout',
-					'default'     => astra_get_option( 'learndash-content-layout' ),
-					'priority'    => 68,
-					'title'       => __( 'Container for LearnDash', 'astra' ),
-					'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
-					'choices'     => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-container-layout',
+					'default'  => astra_get_option( 'lifterlms-content-layout' ),
+					'priority' => 66,
+					'title'    => __( 'Container for LifterLMS', 'astra' ),
+					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
@@ -69,4 +73,6 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 	}
 }
 
-new Astra_Learndash_Container_Configs;
+new Astra_Lifter_Container_Configs;
+
+

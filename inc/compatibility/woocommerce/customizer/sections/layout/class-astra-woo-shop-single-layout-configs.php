@@ -21,6 +21,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 	 */
 	class Astra_Woo_Shop_Single_Layout_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Astra-WooCommerce Shop Single Layout Customizer Configurations.
+		 *
+		 * @param Array                $configurations
+		 * @param WP_Customize_Manager $wp_customize
+		 * @since x.x.x
+		 * @return void
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
@@ -39,9 +47,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
+			return array_merge( $configurations, $_configs );
 
 		}
 	}

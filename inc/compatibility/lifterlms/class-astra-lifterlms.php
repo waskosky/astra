@@ -159,9 +159,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-section-container.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-section-sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-section-general.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php';
 		}
 
 		/**

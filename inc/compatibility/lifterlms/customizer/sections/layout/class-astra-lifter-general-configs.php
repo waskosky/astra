@@ -21,9 +21,12 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 	class Astra_Lifter_General_Configs extends Astra_Customizer_Config_Base {
 
 		/**
-		 * Register Configurations for LifterLMS Panel.
+		 * Register Astra-LifterLMS General Customizer Configurations.
 		 *
+		 * @param Array                $configurations
+		 * @param WP_Customize_Manager $wp_customize
 		 * @since x.x.x
+		 * @return void
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
