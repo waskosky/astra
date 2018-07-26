@@ -176,7 +176,8 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			?>
 			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
 				<p>
-					<?php echo $notice['message'];
+					<?php vl($notice['message']);
+					echo $notice['message'];
 					?>
 				</p>
 			</div>
@@ -227,11 +228,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return boolean
 		 */
 		private static function is_expired( $notice ) {
-
-			// vl( get_transient( $notice['id'] ), true );
-			// delete_transient( $notice['id'] );
-			// vl( get_user_meta( get_current_user_id(), $notice['id'] ), true );
-			// delete_user_meta( get_current_user_id(), $notice['id'] );
 
 			$expired = get_transient( $notice['id'] );
 			if ( false === $expired ) {

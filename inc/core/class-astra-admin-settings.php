@@ -145,11 +145,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				}
 			}
 
-
-			// delete_transient( 'astra-theme-first-rating' );
-			// delete_option( 'astra-theme-old-setup' );
-
-
 			if ( false === get_option( 'astra-theme-old-setup' ) ) {
 				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
 				update_option( 'astra-theme-old-setup', true );
