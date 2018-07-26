@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'input_attrs' => array(
 				'min'  => 1,
 				'step' => 1,
-				'max'  => 50,
+				'max'  => 200,
 			),
 		)
 	);
