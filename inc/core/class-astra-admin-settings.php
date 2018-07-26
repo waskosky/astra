@@ -145,6 +145,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				}
 			}
 
+
+			// delete_transient( 'astra-theme-first-rating' );
+			// delete_option( 'astra-theme-old-setup' );
+
+
 			if ( false === get_option( 'astra-theme-old-setup' ) ) {
 				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
 				update_option( 'astra-theme-old-setup', true );
@@ -154,8 +159,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'id'                => 'astra-theme-rating',
 						'type'              => 'info',
 						/* translators: %1$s product rating link, %2$s dismissable notice transient time. */
-						'message'           => sprintf( __( 'Hello! Seems like you have used Astra theme to build this website — thanks a ton!<br/><br/>Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.<br/><br/><a href="%1$s" class="astra-notice-close" target="_blank">Ok, you deserve it</a><br/><a href="#" data-show-notice-after="%2$s" class="astra-notice-close">Nope, maybe later</a><br/><a href="#" class="astra-notice-close">I already did</a>', 'astra' ), 'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post', MONTH_IN_SECONDS ),
-						'show-notice-after' => MONTH_IN_SECONDS,
+						'message'           => sprintf( __( 'Hello! Seems like you have used Astra theme to build this website — thanks a ton!<br/><br/>Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.<br/><br/><a href="%1$s" class="astra-notice-close" target="_blank">Ok, you deserve it</a><br/><a href="#" data-repeat-notice-after="%2$s" class="astra-notice-close">Nope, maybe later</a><br/><a href="#" class="astra-notice-close">I already did</a>', 'astra' ), 'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post', MONTH_IN_SECONDS ),
+						'repeat-notice-after' => MONTH_IN_SECONDS,
 					)
 				);
 			}
