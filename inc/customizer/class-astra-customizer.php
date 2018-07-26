@@ -162,6 +162,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$config['label'] = astar( $config, 'title' );
 			$config['type']  = astar( $config, 'control' );
 
+			// For ast-font control font-weight and font-family is passed as param `font-type` which needs to be converted to `type`.
+			if ( false !== astar( $config, 'font-type', false ) ) {
+				$config['type'] = astar( $config, 'font-type', false );
+			}
+
 			if ( false !== $instance ) {
 				$wp_customize->add_control(
 					new $instance( $wp_customize, astar( $config, 'name' ), $config )
@@ -378,6 +383,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				array(
 					'callback'         => 'WP_Customize_Image_Control',
 					'santize_callback' => 'esc_url_raw',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
+				'ast-font',
+				array(
+					'callback'         => 'Astra_Control_Typography',
+					'santize_callback' => 'sanitize_text_field',
 				)
 			);
 
