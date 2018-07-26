@@ -76,8 +76,17 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			add_filter( 'wp_kses_allowed_html', array( $this, 'add_data_attributes' ), 10, 2 );
 		}
 
+		/**
+		 * Filters and Returns a list of allowed tags and attributes for a given context.
+		 *
+		 * @param Array  $allowedposttags Array of allowed tags.
+		 * @param String $context Context type (explicit).
+		 * @since 1.4.0
+		 * @return Array
+		 */
 		function add_data_attributes( $allowedposttags, $context ) {
 			$allowedposttags['a']['data-repeat-notice-after'] = true;
+
 			return $allowedposttags;
 		}
 
