@@ -137,7 +137,6 @@
 
 	.search-submit {
 		display: none;
-
 	}
 
 	&.ast-dropdown-active {
@@ -145,6 +144,10 @@
 		opacity: 1;
 		.search-field {
 			width: 235px;
+
+			@media (max-width: $mx-col-sm) {
+				width: 170px;
+			}
 		}
 	}
 }
@@ -196,6 +199,10 @@ li.ast-masthead-custom-menu-items {
 	.ast-search-icon .astra-search-icon {
 		line-height: 1;
 	}
+}
+
+.search-custom-menu-item {
+    position: relative;
 }
 
 /* Hide Mobile logo. */
@@ -331,7 +338,7 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
-	.ast-search-menu-icon {
+	&.ast-header-custom-item-inside .ast-search-menu-icon {
 		position: relative;
 		display: block;
 		right: auto;
@@ -402,9 +409,9 @@ li.ast-masthead-custom-menu-items {
 
 	&.ast-header-custom-item-outside {
 
-		.ast-search-icon {
+		/*.ast-search-icon {
 			display: none;
-		}
+		}*/
 
 		.ast-mobile-menu-buttons {
 			order: 2;

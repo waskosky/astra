@@ -379,15 +379,12 @@ var toggleClass = function ( el, className ) {
 
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
-		if ( ! this.classList.contains( 'ast-header-break-point' ) ) {
-			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.ast-search-menu-icon' ).length === 0 && getParents( event.target, '.ast-search-icon' ).length === 0  ) {
+		if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.ast-search-menu-icon' ).length === 0 && getParents( event.target, '.ast-search-icon' ).length === 0  ) {
+			var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
 
-				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
-
-				for (var i = 0; i < dropdownSearchWrap.length; i++) {
-					dropdownSearchWrap[i].classList.remove( 'ast-dropdown-active' );
-				};
-			}
+			for (var i = 0; i < dropdownSearchWrap.length; i++) {
+				dropdownSearchWrap[i].classList.remove( 'ast-dropdown-active' );
+			};
 		}
 	}
 	/**
