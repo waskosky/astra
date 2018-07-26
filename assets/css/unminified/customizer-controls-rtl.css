@@ -192,5 +192,5 @@
 }
 
 .ast-hide{
-	display: none;
+	display: none !important;
 }

@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Customizer Sanitizes
+ * Base Class for Registering Customizer Controls.
  *
- * @since 1.0.0
+ * @since x.x.x
  */
 if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 
@@ -26,23 +26,38 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 	 */
 	class Astra_Customizer_Control_Base {
 
+		/**
+		 * Registered Controls.
+		 *
+		 * @since x.x.x
+		 * @var Array
+		 */
 		private static $controls;
 
+		/**
+		 * Add Control to self::$controls and Register control to WordPress Customizer.
+		 *
+		 * @param String $name Slug for the control.
+		 * @param Array  $atts Control Attributes.
+		 * @return void
+		 */
 		public static function add_control( $name, $atts ) {
 			global $wp_customize;
 			self::$controls[ $name ] = $atts;
 
-			/**
-			 * Register controls
-			 */
-			$wp_customize->register_control_type( $atts['callback'] );
+			if ( 'Astra_Control_Typography' !== $atts['callback'] ) {
+				/**
+				 * Register controls
+				 */
+				$wp_customize->register_control_type( $atts['callback'] );
+			}
 		}
 
 		/**
 		 * Returns control instance
 		 *
 		 * @param  string $control_type control type.
-		 * @since 1.4.1
+		 * @since x.x.x
 		 * @return string
 		 */
 		public static function get_control_instance( $control_type ) {
@@ -51,6 +66,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			if ( isset( $control_class['callback'] ) ) {
 				return class_exists( $control_class['callback'] ) ? $control_class['callback'] : false;
 			}
+
 			return false;
 		}
 
@@ -58,14 +74,14 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * Returns control and its attributes
 		 *
 		 * @param  string $control_type control type.
-		 * @since 1.4.1
+		 * @since x.x.x
 		 * @return array
 		 */
 		public static function get_control( $control_type ) {
-
 			if ( isset( self::$controls[ $control_type ] ) ) {
 				return self::$controls[ $control_type ];
 			}
+
 			return array();
 		}
 
@@ -73,14 +89,14 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * Returns Santize callback for control
 		 *
 		 * @param  string $control control.
-		 * @since 1.4.1
+		 * @since x.x.x
 		 * @return string
 		 */
 		public static function get_sanitize_call( $control ) {
-
 			if ( isset( self::$controls[ $control ]['sanitize_callback'] ) ) {
 				return self::$controls[ $control ]['sanitize_callback'];
 			}
+
 			return false;
 		}
 	}

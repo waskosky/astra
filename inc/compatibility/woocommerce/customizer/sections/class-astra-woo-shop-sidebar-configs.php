@@ -6,20 +6,28 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       Astra 1.2.0
+ * @since       Astra 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
+if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Lifter_Sidebar_Configs extends Astra_Customizer_Config_Base {
+	class Astra_Woo_Shop_Sidebar_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Astra-WooCommerce Shop Sidebar Configurations.
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return Array Astra Customizer Configurations with updated configurations.
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
@@ -28,7 +36,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-sidebar-layout-divider]',
 					'section'  => 'section-sidebars',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
@@ -40,13 +48,13 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-layout]',
+					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-sidebars',
+					'default'  => astra_get_option( 'woocommerce-sidebar-layout' ),
 					'priority' => 5,
-					'default'  => astra_get_option( 'lifterlms-sidebar-layout' ),
-					'title'    => __( 'LifterLMS', 'astra' ),
+					'title'    => __( 'WooCommerce', 'astra' ),
 					'choices'  => array(
 						'default'       => __( 'Default', 'astra' ),
 						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
@@ -56,16 +64,16 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 				),
 
 				/**
-				 * Option: LifterLMS Course/Lesson
+				 * Option: Single Product
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]',
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
+					'default'  => astra_get_option( 'single-product-sidebar-layout' ),
 					'section'  => 'section-sidebars',
-					'default'  => astra_get_option( 'lifterlms-course-lesson-sidebar-layout' ),
 					'priority' => 5,
-					'title'    => __( 'LifterLMS Course/Lesson', 'astra' ),
+					'title'    => __( 'Single Product', 'astra' ),
 					'choices'  => array(
 						'default'       => __( 'Default', 'astra' ),
 						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
@@ -81,4 +89,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Lifter_Sidebar_Configs;
+new Astra_Woo_Shop_Sidebar_Configs;
+
+
+
