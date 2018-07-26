@@ -73,6 +73,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			add_action( 'admin_notices', array( $this, 'show_notices' ), 30 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_ajax_astra-notice-dismiss', array( $this, 'dismiss_notice' ) );
+			add_filter( 'wp_kses_allowed_html',  array( $this, 'add_data_attributes' ), 10, 2 );
+		}
+
+		function add_data_attributes( $allowedposttags, $context ) {
+			$allowedposttags['a']['data-repeat-notice-after'] = true;
+			return $allowedposttags;
 		}
 
 		/**
@@ -176,9 +182,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			?>
 			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
 				<p>
-					<?php vl($notice['message']);
-					echo $notice['message'];
-					?>
+					<?php echo wp_kses_post( $notice['message'] ); ?>
 				</p>
 			</div>
 			<?php
