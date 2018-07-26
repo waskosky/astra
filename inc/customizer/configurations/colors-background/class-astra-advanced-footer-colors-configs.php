@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
- * @since       Astra 1.0.15
+ * @since       x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,10 +16,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 
 	/**
-	 * Customizer Sanitizes Initial setup
+	 * Register Advanced Footer Color Customizer Configurations.
 	 */
-	class Astra_Adv_Footer_Colors_Configs extends Astra_Customizer_Config_Base {
+	class Astra_Advanced_Footer_Colors_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Advanced Footer Color Customizer Configurations.
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return Array Astra Customizer Configurations with updated configurations.
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 			$_configs = array(
 
