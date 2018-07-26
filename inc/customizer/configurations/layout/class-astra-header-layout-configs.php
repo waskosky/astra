@@ -245,8 +245,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'required'    => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', 'none' ),
 					'section'     => 'section-header',
 					'title'       => __( 'Hide Last item in Menu on mobile', 'astra' ),
-					'priority'    => 45,
-					'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
+					'priority'    => 45
 				),
 
 				/**
@@ -283,8 +282,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 					'section'     => 'section-header',
 					'priority'    => 50,
-					'title'       => __( 'Mobile Header Alignment', 'astra' ),
-					'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
+					'title'       => __( 'Mobile Header Alignment', 'astra' )
 				),
 
 				/**
