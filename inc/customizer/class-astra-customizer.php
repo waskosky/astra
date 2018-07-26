@@ -29,8 +29,22 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static $instance;
 
+		/**
+		 * Customizer Configurations.
+		 *
+		 * @access Private
+		 * @since x.x.x
+		 * @var Array
+		 */
 		private static $configuration;
 
+		/**
+		 * Customizer Dependency Array.
+		 *
+		 * @access Private
+		 * @since x.x.x
+		 * @var array
+		 */
 		private static $_dependency_arr = array();
 
 		/**
@@ -54,7 +68,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
 
 			if ( is_admin() || is_customize_preview() ) {
-				add_action( 'customize_register', array( $this, 'load_configurations' ), 20 );
+				add_action( 'customize_register', array( $this, 'include_configurations' ), 20 );
 				add_action( 'customize_register', array( $this, 'register_customizer_settings' ), 50 );
 			}
 
@@ -65,10 +79,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 		}
 
-		public function load_configurations() {
-			$this->include_configurations();
-		}
-
+		/**
+		 * Process and Register Customizer Panels, Sections, Settings and Controls.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Reference to WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return void
+		 */
 		public function register_customizer_settings( $wp_customize ) {
 
 			$configurations = $this->get_customizer_configurations( $wp_customize );
@@ -105,6 +122,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 		}
 
+		/**
+		 * Filter and return Customizer Configurations.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Reference to WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return Array Customizer Configurations for registering Sections/Panels/Controls.
+		 */
 		private function get_customizer_configurations( $wp_customize ) {
 			if ( ! is_null( self::$configuration ) ) {
 				return self::$configuration;
@@ -113,6 +137,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			return apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
 		}
 
+		/**
+		 * Return default values for the Customize Configurations.
+		 *
+		 * @since x.x.x
+		 * @return Array default values for the Customizer Configurations.
+		 */
 		private function get_astra_customizer_configuration_defaults() {
 			return apply_filters(
 				'astra_customizer_configuration_defaults',
@@ -126,26 +156,49 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'capability'           => null,
 					'datastore_type'       => 'option', // theme_mod or option. Default option.
 					'settings'             => null,
-					'active_callback'      => null, // For control
+					'active_callback'      => null,
 					'sanitize_callback'    => null,
 					'sanitize_js_callback' => null,
 					'theme_supports'       => null,
 					'transport'            => null,
 					'default'              => null,
-					'selector'             => null, // for selective refresh
-					'custom_css_class'     => null, // Custom class for control
+					'selector'             => null,
 				)
 			);
 		}
 
+		/**
+		 * Register Customizer Panel.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return void
+		 */
 		private function register_panel( $config, $wp_customize ) {
 			$wp_customize->add_panel( new Astra_WP_Customize_Panel( $wp_customize, astar( $config, 'name' ), $config ) );
 		}
 
+		/**
+		 * Register Customizer Section.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return void
+		 */
 		private function register_section( $config, $wp_customize ) {
 			$wp_customize->add_section( new Astra_WP_Customize_Section( $wp_customize, astar( $config, 'name' ), $config ) );
 		}
 
+		/**
+		 * Register Customizer Control and Setting.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return void
+		 */
 		private function register_setting_control( $config, $wp_customize ) {
 
 			$wp_customize->add_setting(
@@ -194,15 +247,35 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 		}
 
+		/**
+		 * Update dependency in the dependency array.
+		 *
+		 * @param String $key name of the Setting/Control for which the dependency is added.
+		 * @param Array  $dependency dependency of the $name Setting/Control.
+		 * @since x.x.x
+		 * @return void
+		 */
 		private function update_dependency_arr( $key, $dependency ) {
 			self::$_dependency_arr[ $key ] = $dependency;
 		}
 
+		/**
+		 * Get dependency Array.
+		 *
+		 * @since x.x.x
+		 * @return Array Dependencies discovered when registering controls and settings.
+		 */
 		private function get_dependency_arr() {
 			return self::$_dependency_arr;
 		}
 
-		private function include_configurations() {
+		/**
+		 * Include Customizer Configuration files.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function include_configurations() {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/class-astra-customizer-config-base.php';
 
 			/**
