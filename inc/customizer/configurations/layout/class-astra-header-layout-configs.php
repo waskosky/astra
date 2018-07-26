@@ -222,7 +222,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'select',
 					'section'     => 'section-header',
-					'transport'   => 'postMessage',
 					'priority'    => 41,
 					'title'    	  => __( 'Dropdown Target', 'astra' ),
 					'suffix'      => '',
