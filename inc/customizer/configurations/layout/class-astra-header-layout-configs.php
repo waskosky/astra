@@ -217,14 +217,14 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Toggle on click of button or link.
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]',
-					'default'     => astra_get_option( 'mobile-header-toggle-target' ),
-					'type'        => 'control',
-					'control'     => 'select',
-					'section'     => 'section-header',
-					'priority'    => 41,
-					'title'    	  => __( 'Dropdown Target', 'astra' ),
-					'suffix'      => '',
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]',
+					'default'  => astra_get_option( 'mobile-header-toggle-target' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-header',
+					'priority' => 41,
+					'title'    => __( 'Dropdown Target', 'astra' ),
+					'suffix'   => '',
 					'choices'  => array(
 						'icon' => __( 'Icon', 'astra' ),
 						'link' => __( 'Link', 'astra' ),
