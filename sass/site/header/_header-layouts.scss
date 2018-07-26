@@ -155,6 +155,11 @@
 			justify-content: center;
 			text-align: center;
 		}
+		&.ast-logo-title-inline {
+			.site-title {
+				text-align: left;
+			}
+		}
 		
 		.ast-mobile-menu-buttons{
 			flex: 1 1 100%;
