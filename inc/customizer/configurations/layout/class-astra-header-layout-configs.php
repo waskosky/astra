@@ -16,10 +16,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 
 	/**
-	 * Customizer Sanitizes Initial setup
+	 * Register Header Layout Customizer Configurations.
 	 */
 	class Astra_Header_Layout_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Header Layout Customizer Configurations.
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return Array Astra Customizer Configurations with updated configurations.
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$header_rt_sections = array(
@@ -215,8 +223,8 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'   => 'section-header',
 					'required'  => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', [ 'none' ] ),
-							array( ASTRA_THEME_SETTINGS . '[disable-primary-nav]', '!=', [ '1' ] ),
+							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', array( 'none' ) ),
+							array( ASTRA_THEME_SETTINGS . '[disable-primary-nav]', '!=', array( '1' ) ),
 						),
 						'operator'   => 'OR',
 					),

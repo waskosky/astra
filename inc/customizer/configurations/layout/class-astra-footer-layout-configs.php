@@ -16,10 +16,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 
 	/**
-	 * Customizer Sanitizes Initial setup
+	 * Register Footer Layout Configurations.
 	 */
 	class Astra_Footer_Layout_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Footer Layout Configurations.
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return Array Astra Customizer Configurations with updated configurations.
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
@@ -96,7 +104,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'required'  => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', '==', [ 'custom' ] ),
+							array( ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', '==', array( 'custom' ) ),
 						),
 					),
 					'priority'  => 20,

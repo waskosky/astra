@@ -16,10 +16,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 
 	/**
-	 * Customizer Sanitizes Initial setup
+	 * Customizer Single Typography Configurations.
+	 *
+	 * @since x.x.x
 	 */
 	class Astra_Single_Typo_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Single Typography configurations.
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return Array Astra Customizer Configurations with updated configurations.
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(

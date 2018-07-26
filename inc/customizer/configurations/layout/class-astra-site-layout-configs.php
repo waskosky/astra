@@ -13,13 +13,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_site_layout_Configs' ) ) {
+if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 
 	/**
-	 * Customizer Sanitizes Initial setup
+	 * Register Site Layout Customizer Configurations.
 	 */
-	class Astra_site_layout_Configs extends Astra_Customizer_Config_Base {
+	class Astra_Site_Layout_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Site Layout Customizer Configurations.
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since x.x.x
+		 * @return Array Astra Customizer Configurations with updated configurations.
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
@@ -50,4 +58,4 @@ if ( ! class_exists( 'Astra_site_layout_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_site_layout_Configs;
+new Astra_Site_Layout_Configs;
