@@ -45,10 +45,12 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			global $wp_customize;
 			self::$controls[ $name ] = $atts;
 
-			/**
-			 * Register controls
-			 */
-			$wp_customize->register_control_type( $atts['callback'] );
+			if ( 'Astra_Control_Typography' !== $atts['callback'] ) {
+				/**
+				 * Register controls
+				 */
+				$wp_customize->register_control_type( $atts['callback'] );
+			}
 		}
 
 		/**
