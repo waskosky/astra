@@ -1118,7 +1118,7 @@ var toggleClass = function ( el, className ) {
             var link = new String( self );
             if( link.indexOf( hash ) !== -1 ) {
 
-                if ( document.body.classList.contains('ast-header-break-point') ) {
+                if ( document.body.classList.contains('ast-header-break-point') && ! document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
 	                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
 	                main_header_menu_toggle.classList.remove( 'toggled' );
 
