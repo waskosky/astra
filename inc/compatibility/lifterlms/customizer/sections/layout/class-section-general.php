@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       1.2.0
+ * @since       x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,6 +20,11 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 	 */
 	class Astra_Lifter_General_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register Configurations for LifterLMS Panel.
+		 *
+		 * @since x.x.x
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
@@ -75,4 +80,4 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 	}
 }
 
-new Astra_Lifter_General_Configs;
+new Astra_Lifter_General_Configs();

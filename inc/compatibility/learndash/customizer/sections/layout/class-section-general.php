@@ -20,6 +20,11 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 	 */
 	class Astra_Learndash_General_Configs extends Astra_Customizer_Config_Base {
 
+		/**
+		 * Register LearnDash General Layout settings.
+		 * 
+		 * @since x.x.x
+		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(

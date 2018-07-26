@@ -35,7 +35,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -159,9 +159,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-container.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/section-general.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-section-container.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-section-sidebar.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-section-general.php';
 		}
 
 		/**

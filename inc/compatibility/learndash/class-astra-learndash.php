@@ -193,9 +193,9 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-container.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/section-general.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-section-container.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-section-sidebar.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/class-section-general.php';
 		}
 
 		/**
