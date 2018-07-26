@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/register-panels-and-sections.php';
 
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-astra-button-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-header-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-identity-configs.php';
