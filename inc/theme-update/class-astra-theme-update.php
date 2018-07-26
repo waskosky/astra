@@ -725,10 +725,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
-		 * Function to backward compatibility for version less than 1.4.1
+		 * Function to backward compatibility for version less than 1.4.3
 		 * Set the new option different-retina-logo to true for users who are already using a retina logo.
 		 *
-		 * @since 1.4.1
+		 * @since 1.4.3-aplha.1
 		 */
 		static public function v_1_4_3_alpha_1() {
 
@@ -736,7 +736,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options      = get_option( 'astra-settings' );
 
 			if ( '' != $mobile_header_logo ) {
-				$theme_options['different-retina-logo'] = true;
+				$theme_options['different-retina-logo'] = '1';
 			}
 
 			update_option( 'astra-settings', $theme_options );

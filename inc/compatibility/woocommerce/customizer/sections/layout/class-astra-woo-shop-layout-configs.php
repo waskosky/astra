@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
-						'max'  => 50,
+						'max'  => 100,
 					),
 				),
 
