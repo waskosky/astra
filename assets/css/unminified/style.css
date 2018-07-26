@@ -3157,14 +3157,6 @@ body {
   justify-content: left;
 }
 
-.ast-header-break-point.ast-header-custom-item-outside .ast-logo-title-inline .ast-site-identity {
-  display: block;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .ast-logo-title-inline .site-logo-img {
-  padding-right: 0;
-}
-
 .ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-mobile-menu-buttons {
   padding-bottom: 1em;
 }
