@@ -775,7 +775,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		}
 
 		// Add class if Mobile Header Logo is set.
-		if ( '' !== $mobile_header_logo && '1' === $different_mobile_header_order ) {
+		if ( '' !== $mobile_header_logo && '1' == $different_mobile_header_order ) {
 			$classes[] = 'ast-has-mobile-header-logo';
 		}
 
