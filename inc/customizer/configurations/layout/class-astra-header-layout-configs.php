@@ -238,14 +238,14 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Hide Last item in Menu on mobile device
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
-					'default'     => astra_get_option( 'hide-custom-menu-mobile' ),
-					'type'        => 'control',
-					'control'     => 'checkbox',
-					'required'    => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', 'none' ),
-					'section'     => 'section-header',
-					'title'       => __( 'Hide Last item in Menu on mobile', 'astra' ),
-					'priority'    => 45
+					'name'     => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
+					'default'  => astra_get_option( 'hide-custom-menu-mobile' ),
+					'type'     => 'control',
+					'control'  => 'checkbox',
+					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', 'none' ),
+					'section'  => 'section-header',
+					'title'    => __( 'Hide Last item in Menu on mobile', 'astra' ),
+					'priority' => 45,
 				),
 
 				/**
@@ -266,11 +266,11 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Mobile Menu Alignment
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
-					'default'     => astra_get_option( 'header-main-menu-align' ),
-					'type'        => 'control',
-					'control'     => 'ast-radio-image',
-					'choices'     => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
+					'default'  => astra_get_option( 'header-main-menu-align' ),
+					'type'     => 'control',
+					'control'  => 'ast-radio-image',
+					'choices'  => array(
 						'inline' => array(
 							'label' => __( 'Inline', 'astra' ),
 							'path'  => ASTRA_THEME_URI . '/assets/images/mobile-inline-layout-76x48.png',
@@ -280,9 +280,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 							'path'  => ASTRA_THEME_URI . '/assets/images/mobile-stack-layout-76x48.png',
 						),
 					),
-					'section'     => 'section-header',
-					'priority'    => 50,
-					'title'       => __( 'Mobile Header Alignment', 'astra' )
+					'section'  => 'section-header',
+					'priority' => 50,
+					'title'    => __( 'Mobile Header Alignment', 'astra' ),
 				),
 
 				/**
