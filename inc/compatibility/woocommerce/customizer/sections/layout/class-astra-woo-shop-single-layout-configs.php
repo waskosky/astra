@@ -24,10 +24,10 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 		/**
 		 * Register Astra-WooCommerce Shop Single Layout Customizer Configurations.
 		 *
-		 * @param Array                $configurations
-		 * @param WP_Customize_Manager $wp_customize
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since x.x.x
-		 * @return void
+		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 

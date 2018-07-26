@@ -22,11 +22,11 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 
 		/**
 		 * Register LearnDash General Layout settings.
-		 * 
-		 * @param Array                $configurations
-		 * @param WP_Customize_Manager $wp_customize
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since x.x.x
-		 * @return void
+		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 

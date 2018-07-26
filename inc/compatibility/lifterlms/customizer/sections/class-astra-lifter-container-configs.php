@@ -17,18 +17,18 @@ if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
-	 * 
+	 *
 	 * @since x.x.x
 	 */
 	class Astra_Lifter_Container_Configs extends Astra_Customizer_Config_Base {
 
 		/**
 		 * Register LifterLMS Container Settings.
-		 * 
-		 * @param Array                $configurations
-		 * @param WP_Customize_Manager $wp_customize
+		 *
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since x.x.x
-		 * @return void
+		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
