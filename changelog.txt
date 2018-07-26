@@ -1,6 +1,7 @@
 v1.4.3
 - New: Option to select Dropdown target - Submenu icon or Menu Link.
 - Improvement: Ask if retina logo is to be added using a checkbox setting.
+- Fix: LifterLMS - When center header layout is selected mobile menu toggle doe snot work.
 
 v1.4.2
 - Fix: Elementor modules getting 100% height in preview mode due to z-index bump in v1.4.1.
