@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 1.4.3
  */
 
 // No direct access, please.
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Base Class for Registering Customizer Controls.
  *
- * @since x.x.x
+ * @since 1.4.3
  */
 if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		/**
 		 * Registered Controls.
 		 *
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @var Array
 		 */
 		private static $controls;
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * Returns control instance
 		 *
 		 * @param  string $control_type control type.
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @return string
 		 */
 		public static function get_control_instance( $control_type ) {
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * Returns control and its attributes
 		 *
 		 * @param  string $control_type control type.
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @return array
 		 */
 		public static function get_control( $control_type ) {
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * Returns Santize callback for control
 		 *
 		 * @param  string $control control.
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @return string
 		 */
 		public static function get_sanitize_call( $control ) {

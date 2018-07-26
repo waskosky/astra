@@ -14,7 +14,7 @@
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
-	 * @since x.x.x
+	 * @since 1.4.3
 	 * @class Astra_Customizer
 	 */
     var Astra_Customizer = {
@@ -24,7 +24,7 @@
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
 		 *
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @access private
 		 * @method init
 		 */
@@ -42,7 +42,7 @@
 		/**
 		 * Handles dependency for controls.
 		 *
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @access private
 		 * @method handleDependency
 		 */
@@ -61,7 +61,7 @@
 		/**
 		 * Hide OR display controls according to dependency
 		 *
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @access private
 		 * @method checkControlVisibility
 		 */
@@ -95,7 +95,7 @@
 		/**
 		 * Checks dependency condtions for controls
 		 *
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @access private
 		 * @method checkDependency
 		 */
@@ -227,7 +227,7 @@
         /**
 		 * Compare values
 		 *
-		 * @since x.x.x
+		 * @since 1.4.3
 		 * @access private
 		 * @method compareValues
 		 */
