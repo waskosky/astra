@@ -206,8 +206,13 @@ li.ast-masthead-custom-menu-items {
 .ast-header-break-point {
 
 	.ast-mobile-header-stack{
-		.site-description{
+		.site-description {
 			text-align: center;
+		}
+		&.ast-logo-title-inline {
+			.site-description {
+				text-align: left;
+			}
 		}
 	}
 	&.ast-header-custom-item-outside {
