@@ -73,7 +73,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			add_action( 'admin_notices', array( $this, 'show_notices' ), 30 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_ajax_astra-notice-dismiss', array( $this, 'dismiss_notice' ) );
-			add_filter( 'wp_kses_allowed_html',  array( $this, 'add_data_attributes' ), 10, 2 );
+			add_filter( 'wp_kses_allowed_html', array( $this, 'add_data_attributes' ), 10, 2 );
 		}
 
 		function add_data_attributes( $allowedposttags, $context ) {
