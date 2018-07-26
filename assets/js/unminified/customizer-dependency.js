@@ -4,12 +4,12 @@
  * @package Astra
  */
 
-( function( $ ) {
+(function ($) {
 
-	'use strict';
+    'use strict';
 
-	/* Internal shorthand */
-	var api = wp.customize;
+    /* Internal shorthand */
+    var api = wp.customize;
 
 	/**
 	 * Helper class for the main Customizer interface.
@@ -17,9 +17,9 @@
 	 * @since x.x.x
 	 * @class Astra_Customizer
 	 */
-	var Astra_Customizer = {
+    var Astra_Customizer = {
 
-		controls	: {},
+        controls: {},
 		/**
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
@@ -28,18 +28,16 @@
 		 * @access private
 		 * @method init
 		 */
-		init: function()
-		{
-			var $this = this;
-			$this.handleDependency();
+        init: function () {
+            var $this = this;
+            $this.handleDependency();
             $this.hideEmptySections();
 
-            api.bind( 'change', function ( setting ) {
-				$this.handleDependency();
+            api.bind('change', function (setting) {
+                $this.handleDependency();
                 $this.hideEmptySections();
-			} );
-
-		},
+            });
+        },
 
 		/**
 		 * Handles dependency for controls.
@@ -48,20 +46,17 @@
 		 * @access private
 		 * @method handleDependency
 		 */
-		handleDependency: function() {
+        handleDependency: function () {
+            var $this = this;
+            var values = api.get();
 
-            console.log( astra.config );
-
-			var $this = this;
-			var values = api.get();
-
-            _.each( values, function ( value, id ) {
+            _.each(values, function (value, id) {
                 var control = api.control(id);
 
-                $this.checkControlVisibility( control, id );
-                
+                $this.checkControlVisibility(control, id);
+
             });
-		}, 
+        },
 
 		/**
 		 * Hide OR display controls according to dependency
@@ -70,24 +65,24 @@
 		 * @access private
 		 * @method checkControlVisibility
 		 */
-		checkControlVisibility: function( control, id ) {
+        checkControlVisibility: function (control, id) {
 
-			var $this = this;
-			var values = api.get();
+            var $this = this;
+            var values = api.get();
 
-			if ( !_.isUndefined( control ) ) {
+            if (!_.isUndefined(control)) {
 
-				// If control has dependency defined
-            	if( 'undefined' != typeof astra.config[id] ) {
+                // If control has dependency defined
+                if ('undefined' != typeof astra.config[id]) {
                     var check = false;
                     var required_param = astra.config[id];
-                    var conditions     = !_.isUndefined( required_param.conditions ) ? required_param.conditions : required_param;
-                    var operator       = !_.isUndefined( required_param.operator ) ? required_param.operator : 'AND';
+                    var conditions = !_.isUndefined(required_param.conditions) ? required_param.conditions : required_param;
+                    var operator = !_.isUndefined(required_param.operator) ? required_param.operator : 'AND';
 
-                    if( 'undefined' !== typeof conditions ) {
-                        check = $this.checkDependency( conditions, values, operator );
+                    if ('undefined' !== typeof conditions) {
+                        check = $this.checkDependency(conditions, values, operator);
 
-                        if ( !check ) {
+                        if (!check) {
                             control.container.addClass('ast-hide');
                         } else {
                             control.container.removeClass('ast-hide');
@@ -95,7 +90,7 @@
                     }
                 }
             }
-		}, 
+        },
 
 		/**
 		 * Checks dependency condtions for controls
@@ -104,29 +99,29 @@
 		 * @access private
 		 * @method checkDependency
 		 */
-		checkDependency: function ( conditions, values, compare_operator ) {
+        checkDependency: function (conditions, values, compare_operator) {
 
             var control = this;
             var check = false;
             var returnNow = false;
-      		var test = conditions[0];
+            var test = conditions[0];
 
-            if ( _.isString( test ) ) {
+            if (_.isString(test)) {
 
                 check = false;
                 var cond = conditions[1];
                 var cond_val = conditions[2];
                 var value;
 
-                if( 'undefined' !== typeof astra.config[test] ) {
+                if ('undefined' !== typeof astra.config[test]) {
 
-                    var conditions     = !_.isUndefined( astra.config[test]['conditions'] ) ? astra.config[test]['conditions'] : astra.config[test];
-                    var operator       = !_.isUndefined( astra.config[test]['operator'] ) ? astra.config[test]['operator'] : 'AND';
+                    var conditions = !_.isUndefined(astra.config[test]['conditions']) ? astra.config[test]['conditions'] : astra.config[test];
+                    var operator = !_.isUndefined(astra.config[test]['operator']) ? astra.config[test]['operator'] : 'AND';
 
-                    if( !_.isUndefined( conditions ) ) {
-                        
+                    if (!_.isUndefined(conditions)) {
+
                         // Check visibility for dependent controls also
-                        if( ! control.checkDependency( conditions, values, operator ) ) {
+                        if (!control.checkDependency(conditions, values, operator)) {
                             returnNow = true;
                             check = false;
                             return;
@@ -137,61 +132,61 @@
                     }
                 }
 
-                if ( !_.isUndefined( values[test] ) && ! returnNow ) {
+                if (!_.isUndefined(values[test]) && !returnNow) {
                     value = values[test];
-                    check = control.compareValues( value, cond, cond_val );
+                    check = control.compareValues(value, cond, cond_val);
                 }
 
-            } else if ( _.isArray( test ) ) {
+            } else if (_.isArray(test)) {
                 check = true;
-                
-                $.each( conditions, function ( index, val ) {
+
+                $.each(conditions, function (index, val) {
 
                     var cond_key = val[0];
                     var cond_cond = val[1];
-                    var cond_val = val[2];            
+                    var cond_val = val[2];
                     var t_val = values[cond_key];
 
-                    if( 'undefined' !== typeof astra.config[cond_key] ) {
+                    if ('undefined' !== typeof astra.config[cond_key]) {
 
-                        var conditions     = !_.isUndefined( astra.config[cond_key]['conditions'] ) ? astra.config[cond_key]['conditions'] : astra.config[cond_key];
-                        var operator       = !_.isUndefined( astra.config[cond_key]['operator'] ) ? astra.config[cond_key]['operator'] : 'AND';
+                        var conditions = !_.isUndefined(astra.config[cond_key]['conditions']) ? astra.config[cond_key]['conditions'] : astra.config[cond_key];
+                        var operator = !_.isUndefined(astra.config[cond_key]['operator']) ? astra.config[cond_key]['operator'] : 'AND';
 
-                        if( !_.isUndefined( conditions ) ) {
-                            
+                        if (!_.isUndefined(conditions)) {
+
                             // Check visibility for dependent controls also
-                            if( ! control.checkDependency( conditions, values, operator ) ) {
+                            if (!control.checkDependency(conditions, values, operator)) {
                                 check = false;
                                 return;
                             } else {
                                 var control_obj = api.control(cond_key);
-                    			control_obj.container.removeClass('ast-hide');
-    	                    }
+                                control_obj.container.removeClass('ast-hide');
+                            }
                         }
                     }
-        
-                    if ( _.isUndefined( t_val ) ) {
+
+                    if (_.isUndefined(t_val)) {
                         t_val = '';
                     }
 
-                    if( 'AND' == compare_operator ) {
-                        if ( !control.compareValues( t_val, cond_cond, cond_val ) ) {
+                    if ('AND' == compare_operator) {
+                        if (!control.compareValues(t_val, cond_cond, cond_val)) {
                             check = false;
                         }
                     } else {
 
-                    	if ( control.compareValues( t_val, cond_cond, cond_val ) ) {
+                        if (control.compareValues(t_val, cond_cond, cond_val)) {
                             returnNow = true;
                             check = true;
                         } else {
-                    		check = false;
+                            check = false;
                         }
                     }
 
-                	// Break loop in case of OR operator
-                    if( returnNow && 'OR' == compare_operator ) {
+                    // Break loop in case of OR operator
+                    if (returnNow && 'OR' == compare_operator) {
                         check = true;
-	                }
+                    }
                 });
             }
 
@@ -202,27 +197,27 @@
          * Hide Section without Controls.
          *
         */
-        hideEmptySections: function() {
+        hideEmptySections: function () {
 
-            $( 'ul.accordion-section.control-section-ast_section' ).each( function() {
+            $('ul.accordion-section.control-section-ast_section').each(function () {
 
-                var parentId  = $(this).attr( 'id' );
+                var parentId = $(this).attr('id');
                 var visibleIt = false;
-                var controls  = $(this).find( ' > .customize-control' );
+                var controls = $(this).find(' > .customize-control');
 
-                if( controls.length > 0 ) {
+                if (controls.length > 0) {
 
-                    controls.each( function() {
+                    controls.each(function () {
 
-                        if( ! $(this).hasClass( 'ast-hide' ) || $( this ).css( 'display' ) != 'none' ) {
+                        if (!$(this).hasClass('ast-hide') || $(this).css('display') != 'none') {
                             visibleIt = true;
                         }
                     });
 
-                    if ( ! visibleIt ) {
-                        $( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
+                    if (!visibleIt) {
+                        $('.control-section[aria-owns="' + parentId + '"]').addClass('ast-hide');
                     } else {
-                        $( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
+                        $('.control-section[aria-owns="' + parentId + '"]').removeClass('ast-hide');
                     }
                 }
             });
@@ -236,26 +231,26 @@
 		 * @access private
 		 * @method compareValues
 		 */
-        compareValues: function ( value1, cond, value2 ) {
+        compareValues: function (value1, cond, value2) {
             var equal = false;
             switch (cond) {
                 case '===':
-                    equal = ( value1 === value2 ) ? true : false;
+                    equal = (value1 === value2) ? true : false;
                     break;
                 case '>':
-                    equal = ( value1 > value2 ) ? true : false;
+                    equal = (value1 > value2) ? true : false;
                     break;
                 case '<':
-                    equal = ( value1 < value2 ) ? true : false;
+                    equal = (value1 < value2) ? true : false;
                     break;
-                case '<=': 
-                    equal = ( value1 <= value2 ) ? true : false;
+                case '<=':
+                    equal = (value1 <= value2) ? true : false;
                     break;
-                case '>=': 
-                    equal = ( value1 >= value2 ) ? true : false;
+                case '>=':
+                    equal = (value1 >= value2) ? true : false;
                     break;
                 case '!=':
-                    equal = ( value1 != value2 ) ? true : false;
+                    equal = (value1 != value2) ? true : false;
                     break;
                 case 'empty':
                     var _v = _.clone(value1);
@@ -283,29 +278,29 @@
                     equal = _.isEmpty(_v) ? false : true;
                     break;
                 case 'contains':
-                    if ( _.isArray( value1 ) ) {
-                        if( $.inArray( value2, value1 ) !== -1 ) {
+                    if (_.isArray(value1)) {
+                        if ($.inArray(value2, value1) !== -1) {
                             equal = true;
-                        }  
+                        }
                     }
                     break;
                 default:
-                    if ( _.isArray( value2 ) ) {
-                        if ( !_.isEmpty(value2) && !_.isEmpty( value1 ) ) {
+                    if (_.isArray(value2)) {
+                        if (!_.isEmpty(value2) && !_.isEmpty(value1)) {
                             equal = _.contains(value2, value1);
                         } else {
                             equal = false;
                         }
                     } else {
-                        equal = ( value1 == value2 ) ? true : false;
+                        equal = (value1 == value2) ? true : false;
                     }
             }
 
             return equal;
         },
-	};
+    };
 
-	$( function() { Astra_Customizer.init(); } );
+    $(function () { Astra_Customizer.init(); });
 
 
-})( jQuery );
+})(jQuery);
