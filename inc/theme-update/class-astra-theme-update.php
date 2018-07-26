@@ -713,6 +713,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		static public function v_1_4_0_beta_5() {
 
+			// Set default toggle button style.
 			$theme_options = get_option( 'astra-settings' );
 
 			if ( ! isset( $theme_options['mobile-header-toggle-btn-style'] ) ) {
@@ -722,6 +723,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options['hide-custom-menu-mobile'] = 0;
 
 			update_option( 'astra-settings', $theme_options );
+
 		}
 
 		/**
