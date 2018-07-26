@@ -66,6 +66,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			if ( isset( $control_class['callback'] ) ) {
 				return class_exists( $control_class['callback'] ) ? $control_class['callback'] : false;
 			}
+
 			return false;
 		}
 
@@ -77,10 +78,10 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * @return array
 		 */
 		public static function get_control( $control_type ) {
-
 			if ( isset( self::$controls[ $control_type ] ) ) {
 				return self::$controls[ $control_type ];
 			}
+
 			return array();
 		}
 
@@ -92,10 +93,10 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * @return string
 		 */
 		public static function get_sanitize_call( $control ) {
-
 			if ( isset( self::$controls[ $control ]['sanitize_callback'] ) ) {
 				return self::$controls[ $control ]['sanitize_callback'];
 			}
+			
 			return false;
 		}
 	}
