@@ -1,3 +1,6 @@
+v1.4.4
+- Fix: Customizer options sequence is changed for typography content settings.
+
 v1.4.3
 - New: Option to select Dropdown target - Submenu icon or Menu Link.
 - Improvement: Ask if retina logo is to be added using a checkbox setting.
