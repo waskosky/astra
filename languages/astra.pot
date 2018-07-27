@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.4.3\n"
+"Project-Id-Version: Astra 1.4.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-07-26 12:19:07+00:00\n"
+"POT-Creation-Date: 2018-07-27 14:47:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -943,7 +943,7 @@ msgid "Container"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:66
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:275
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:331
 #: inc/widgets.php:100
 msgid "Header"
 msgstr ""
@@ -952,8 +952,8 @@ msgstr ""
 msgid "Site Identity"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:93
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:283
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:92
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:274
 msgid "Primary Header"
 msgstr ""
 
@@ -972,17 +972,17 @@ msgid "Footer Bar"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:184
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:292
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:283
 msgid "Blog"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:191
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:300
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:291
 msgid "Blog / Archive"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:199
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:309
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:300
 msgid "Single Post"
 msgstr ""
 
@@ -998,11 +998,11 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:321
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:312
 msgid "Buttons"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:331
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:322
 msgid "Widget Areas"
 msgstr ""
 
@@ -1242,7 +1242,7 @@ msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:35
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:105
-#: inc/extras.php:280
+#: inc/extras.php:281
 #. translators: 1: Site Title Markup, 2: Site Tagline Markup
 msgid "Search"
 msgstr ""
@@ -1710,23 +1710,23 @@ msgstr ""
 msgid "Ultra-Bold 900"
 msgstr ""
 
-#: inc/extras.php:309
+#: inc/extras.php:310
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:448
+#: inc/extras.php:449
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:1077
+#: inc/extras.php:1078
 msgid "Add Widget"
 msgstr ""
 
-#: inc/extras.php:1114
+#: inc/extras.php:1115
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
-#: inc/extras.php:1450
+#: inc/extras.php:1451
 msgid "Astra Pro"
 msgstr ""
 
