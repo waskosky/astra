@@ -68,8 +68,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
 
 			if ( is_admin() || is_customize_preview() ) {
-				add_action( 'customize_register', array( $this, 'include_configurations' ), 20 );
-				add_action( 'customize_register', array( $this, 'register_customizer_settings' ), 50 );
+				add_action( 'customize_register', array( $this, 'include_configurations' ), 2 );
+				add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
