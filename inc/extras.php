@@ -89,9 +89,10 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Current Astra verion.
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
+		$menu_item    = astra_get_option( 'header-main-rt-section' );
 		$outside_menu = astra_get_option( 'header-display-outside-menu' );
 
-		if ( $outside_menu ) {
+		if ( 'none' !== $menu_item && $outside_menu ) {
 			$classes[] = 'ast-header-custom-item-outside';
 		} else {
 			$classes[] = 'ast-header-custom-item-inside';
@@ -757,6 +758,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$mobile_header_order           = astra_get_option( 'mobile-header-order' );
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
+		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -774,7 +776,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		}
 
 		// Add class if Mobile Header Logo is set.
-		if ( '' !== $mobile_header_logo && '1' === $different_mobile_header_order ) {
+		if ( '' !== $mobile_header_logo && '1' == $different_mobile_header_order ) {
 			$classes[] = 'ast-has-mobile-header-logo';
 		}
 
@@ -786,6 +788,8 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		if ( '1' == $hide_custom_menu_mobile ) {
 			$classes[] = 'ast-hide-custom-menu-mobile';
 		}
+
+		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
