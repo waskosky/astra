@@ -1902,6 +1902,10 @@ input[type="submit"]:focus {
   color: #999;
 }
 
+.search-form .search-field {
+  outline: none;
+}
+
 .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: none;
 }
