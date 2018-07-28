@@ -2457,10 +2457,6 @@ body {
  * @import
  */
 /* 1 - Primary Menus */
-.astra-search-icon {
-  vertical-align: middle;
-}
-
 .astra-search-icon::before {
   content: "\e8b6";
   font-family: 'Astra';
