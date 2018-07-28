@@ -1,3 +1,6 @@
+v1.4.5
+- Fix: WooCommerce sidebbar option selection not visible in the customizer.
+
 v1.4.4
 - Fix: Customizer options sequence is changed for typography content settings.
 
