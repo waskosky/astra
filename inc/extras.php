@@ -279,13 +279,13 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	function astra_get_search( $option = '' ) {
 		ob_start();
 		?>
-		<div class="ast-search-icon">
-			<a class="slide-search astra-search-icon" href="#">
-				<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
-			</a>
-		</div>
 		<div class="ast-search-menu-icon slide-search" id="ast-search-form">
-		<?php get_search_form(); ?>
+			<div class="ast-search-icon">
+				<a class="slide-search astra-search-icon" href="#">
+					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
+				</a>
+			</div>
+			<?php get_search_form(); ?>
 		</div>
 		<?php
 		$search_html = ob_get_clean();
