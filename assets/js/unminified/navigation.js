@@ -53,7 +53,6 @@ var getParents = function ( elem, selector ) {
 	return parents;
 };
 
-/* . */
 /**
  * Toggle Class funtion
  *
@@ -67,6 +66,19 @@ var toggleClass = function ( el, className ) {
 	} else {
 		el.classList.add( className );
 	}
+};
+
+/**
+ * Trigget custom JS Event.
+ * 
+ * @since x.x.x
+ * 
+ * @param {Node} el Dom Element.
+ * @param {String} type Name of the event.
+ */
+var astraTriggerEvent = function( el, type ) {
+	var event = new Event(type);
+	el.dispatchEvent(event);
 };
 
 // CustomEvent() constructor functionality in Internet Explorer 9 and higher.
@@ -454,7 +466,7 @@ var toggleClass = function ( el, className ) {
      * @return void
      */
     function toggleClose( )
-    {
+    {		
         var self = this || '',
             hash = '#';
 
@@ -469,7 +481,9 @@ var toggleClass = function ( el, className ) {
 	                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
 	                main_header_bar_navigation.classList.remove( 'toggle-on' );
 
-                	main_header_bar_navigation.style.display = 'none';
+					main_header_bar_navigation.style.display = 'none';
+					
+					astraTriggerEvent( document.querySelector('body'), 'astraCloseDropdown' );
                 }
             }
         }        
