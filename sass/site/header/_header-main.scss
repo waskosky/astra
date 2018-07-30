@@ -94,7 +94,12 @@
 			padding-top: 1em;
 		}
 	}
+
+	.ast-search-menu-icon form {
+		background-color: #ffffff;
+	}
 }
+
 .ast-search-menu-icon {
 	visibility: hidden;
 	opacity: 0;
@@ -118,7 +123,7 @@
 		backface-visibility: hidden;
 		position: relative;
 		color: inherit;
-		background-color: #ffffff;
+		background-color: transparent;
 	}
 
 	.search-field {
