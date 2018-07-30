@@ -371,6 +371,9 @@ var toggleClass = function ( el, className ) {
                      sibling.querySelector( '.search-field' ).focus();
                     },200);
                 } else {
+	                if( '' !== searchTerm ) {
+    		            sibling.querySelector( '.search-form' ).submit();
+                    }
                     sibling.classList.remove( 'ast-dropdown-active' );
                 }
             }

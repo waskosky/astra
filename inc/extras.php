@@ -279,6 +279,18 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	function astra_get_search( $option = '' ) {
 		ob_start();
 		?>
+		<!-- <div class="ast-search-menu-icon slide-search">
+			<div class="ast-search-icon">
+				<a class="slide-search astra-search-icon" href="#">
+					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
+				</a>
+			</div>
+			<form class="search-form" action="<?php esc_url( home_url() ); ?>/" method="get">
+				<label for="s" class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-search-input-placeholder', false ) ); ?></label>
+				<input type="search"  autocomplete="off" class="search-field" placeholder="<?php echo esc_attr( astra_default_strings( 'string-search-input-placeholder', false ) ); ?>" value="" name="s">
+				<button type="submit" class="search-submit" value="<?php echo esc_html__( 'Search', 'astra-addon' ); ?>"><i class="astra-search-icon"></i></button>
+			</form>
+		</div> -->
 		<div class="ast-search-menu-icon slide-search" id="ast-search-form">
 			<div class="ast-search-icon">
 				<a class="slide-search astra-search-icon" href="#">

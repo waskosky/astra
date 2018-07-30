@@ -98,6 +98,17 @@
 	.ast-search-menu-icon form {
 		background-color: #ffffff;
 	}
+
+}
+
+
+.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon form {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
 }
 
 .ast-search-menu-icon {
