@@ -1139,7 +1139,7 @@ var astraTriggerEvent = function( el, type ) {
 
 					main_header_bar_navigation.style.display = 'none';
 					
-					astraTriggerEvent( document.querySelector('body'), 'astraCloseDropdown' );
+					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
                 }
             }
         }        
