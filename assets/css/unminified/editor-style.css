@@ -1906,6 +1906,10 @@ input[type="submit"]:focus {
   outline: none;
 }
 
+.ast-search-menu-icon {
+  position: relative;
+}
+
 .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: none;
 }

@@ -1932,6 +1932,10 @@ input[type="submit"]:focus {
   outline: none;
 }
 
+.ast-search-menu-icon {
+  position: relative;
+}
+
 .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: none;
 }
@@ -3565,6 +3569,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-primary-menu-disabled.header-main-layout-3 .ast-masthead-custom-menu-items {
   text-align: right;
+}
+
+.ast-masthead-custom-menu-items.search-custom-menu-item {
+  padding: 0;
 }
 
 .ast-masthead-custom-menu-items {
