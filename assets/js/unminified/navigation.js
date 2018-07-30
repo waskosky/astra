@@ -371,6 +371,7 @@ var toggleClass = function ( el, className ) {
                      sibling.querySelector( '.search-field' ).focus();
                     },200);
                 } else {
+                	var searchTerm = sibling.querySelector( '.search-field' ).val || '';
 	                if( '' !== searchTerm ) {
     		            sibling.querySelector( '.search-form' ).submit();
                     }

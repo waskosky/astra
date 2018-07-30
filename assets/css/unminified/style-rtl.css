@@ -3461,7 +3461,21 @@ body {
   transform: none;
 }
 
-.ast-search-menu-icon.ast-dropdown-active form {
+.ast-search-menu-icon.slide-search form {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: absolute;
+  z-index: 3;
+  left: -1em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.ast-search-menu-icon.ast-dropdown-active.slide-search form {
   visibility: visible;
   opacity: 1;
 }
@@ -3478,17 +3492,6 @@ body {
   position: relative;
   color: inherit;
   background-color: transparent;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-  position: absolute;
-  z-index: 3;
-  left: -1em;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 
 .ast-search-menu-icon .astra-search-icon {

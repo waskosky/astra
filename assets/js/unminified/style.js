@@ -1019,19 +1019,17 @@ var toggleClass = function ( el, className ) {
 		SearchIcons[i].onclick = function(event) {
             if ( this.classList.contains( 'slide-search' ) ) {
                 event.preventDefault();
-                var sibling    = this.parentNode.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
-                var searchTerm = sibling.querySelector( '.search-field' ).value || '';
-
-
+                var sibling = this.parentNode.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
                 if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
                     sibling.classList.add( 'ast-dropdown-active' );
                     sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
                     setTimeout(function() {
-                        sibling.querySelector( '.search-field' ).focus();
+                     sibling.querySelector( '.search-field' ).focus();
                     },200);
                 } else {
-                    if( '' !== searchTerm ) {
-                        sibling.querySelector( '.search-form' ).submit();
+                	var searchTerm = sibling.querySelector( '.search-field' ).val || '';
+	                if( '' !== searchTerm ) {
+    		            sibling.querySelector( '.search-form' ).submit();
                     }
                     sibling.classList.remove( 'ast-dropdown-active' );
                 }

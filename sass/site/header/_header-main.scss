@@ -113,7 +113,18 @@
 
 .ast-search-menu-icon {
 	
-	&.ast-dropdown-active form {
+
+	&.slide-search form {
+		visibility: hidden;
+	    opacity: 0;
+	    transition: all .2s;
+	    position: absolute;
+	    z-index: 3;
+	    right: -1em;
+	    top: 50%;
+	    transform: translateY(-50%);
+    }
+	&.ast-dropdown-active.slide-search form {
 		visibility: visible;
 	    opacity: 1;
 	}
@@ -128,14 +139,6 @@
 		position: relative;
 		color: inherit;
 		background-color: transparent;
-		visibility: hidden;
-	    opacity: 0;
-	    transition: all .2s;
-	    position: absolute;
-	    z-index: 3;
-	    right: -1em;
-	    top: 50%;
-	    transform: translateY(-50%);
 	}
 
 	.astra-search-icon {
