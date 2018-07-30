@@ -3462,7 +3462,7 @@ body {
 
 .ast-search-menu-icon form {
   border: 1px solid #e7e7e7;
-  line-height: 1;
+  line-height: normal;
   padding: 0 0 0 3em;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -3471,7 +3471,7 @@ body {
   backface-visibility: hidden;
   position: relative;
   color: inherit;
-  background-color: transparent;
+  background-color: #ffffff;
 }
 
 .ast-search-menu-icon .search-field {
