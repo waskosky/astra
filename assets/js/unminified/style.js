@@ -1027,7 +1027,8 @@ var toggleClass = function ( el, className ) {
                      sibling.querySelector( '.search-field' ).focus();
                     },200);
                 } else {
-                	var searchTerm = sibling.querySelector( '.search-field' ).val || '';
+                	var searchTerm = sibling.querySelector( '.search-field' ).value || '';
+                	console.log( searchTerm );
 	                if( '' !== searchTerm ) {
     		            sibling.querySelector( '.search-form' ).submit();
                     }
