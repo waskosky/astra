@@ -326,11 +326,11 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 
 			$typography_header = apply_filters(
 				'astra_customizer_primary_header_typo', array(
-					'name'     => 'section-header-typo',
+					'name'     => 'section-primary-header-typo',
 					'type'     => 'section',
-					'title'    => __( 'Header', 'astra' ),
+					'title'    => __( 'Primary Header', 'astra' ),
 					'panel'    => 'panel-typography',
-					'priority' => 20,
+					'priority' => 21,
 				)
 			);
 
