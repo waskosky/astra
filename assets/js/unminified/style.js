@@ -7,8 +7,10 @@
  * @package Astra
  */
 
-var isIE = false;
-var isEdge = false;
+// Internet Explorer 6-11
+var isIE = false || !!document.documentMode;
+// Edge 20+
+var isEdge = !isIE && !!window.StyleMedia;
 
 /**
  * Get all of an element's parent elements up the DOM tree
@@ -53,7 +55,6 @@ var getParents = function ( elem, selector ) {
 	return parents;
 };
 
-/* . */
 /**
  * Toggle Class funtion
  *
@@ -71,29 +72,40 @@ var toggleClass = function ( el, className ) {
 
 // CustomEvent() constructor functionality in Internet Explorer 9 and higher.
 (function () {
-
-	
+ 	
     // Internet Explorer 6-11
     isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-    // Edge 20+
+     // Edge 20+
     isEdge = !isIE && !!window.StyleMedia;
-
-
-	if ( typeof window.CustomEvent === "function" ) return false;
-
-	function CustomEvent ( event, params ) {
+ 	if ( typeof window.CustomEvent === "function" ) return false;
+ 	function CustomEvent ( event, params ) {
 		params = params || { bubbles: false, cancelable: false, detail: undefined };
 		var evt = document.createEvent( 'CustomEvent' );
 		evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
 		return evt;
 	}
+ 	CustomEvent.prototype = window.Event.prototype;
+ 	window.CustomEvent = CustomEvent;
+ })();
 
-	CustomEvent.prototype = window.Event.prototype;
-
-	window.CustomEvent = CustomEvent;
-
-})();
+/**
+ * Trigget custom JS Event.
+ * 
+ * @since x.x.x
+ * 
+ * @link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+ * @param {Node} el Dom Node element on which the event is to be triggered.
+ * @param {Node} typeArg A DOMString representing the name of the event.
+ * @param {String} A CustomEventInit dictionary, having the following fields:
+ *			"detail", optional and defaulting to null, of type any, that is an event-dependent value associated with the event.	
+ */
+var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
+	var customEventInit =
+	  arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  
+	var event = new CustomEvent(typeArg, customEventInit);
+	el.dispatchEvent(event);
+};
 
 ( function() {
 
@@ -311,14 +323,12 @@ var toggleClass = function ( el, className ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
 						document.body.classList.remove( "ast-header-break-point" );
-						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
-						document.body.dispatchEvent( responsive_enabled );
+						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
 
 					} else {
 
 						document.body.classList.add( "ast-header-break-point" );
-						var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
-						document.body.dispatchEvent( responsive_disabled );
+						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						
 					}
 				}
 			}
@@ -454,7 +464,7 @@ var toggleClass = function ( el, className ) {
      * @return void
      */
     function toggleClose( )
-    {
+    {		
         var self = this || '',
             hash = '#';
 
@@ -469,7 +479,9 @@ var toggleClass = function ( el, className ) {
 	                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
 	                main_header_bar_navigation.classList.remove( 'toggle-on' );
 
-                	main_header_bar_navigation.style.display = 'none';
+					main_header_bar_navigation.style.display = 'none';
+					
+					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
                 }
             }
         }        
