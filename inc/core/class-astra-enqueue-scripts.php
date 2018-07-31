@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		/**
 		 * Enqueue Scripts
 		 */
-		public function enqueue_scripts() {			
+		public function enqueue_scripts() {
 
 			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
 
