@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'gform_enqueue_scripts', array( $this, 'add_styles' ), 10, 2 );
+			add_action( 'gform_enqueue_scripts', array( $this, 'add_styles' ) );
 		}
 
 		/**
