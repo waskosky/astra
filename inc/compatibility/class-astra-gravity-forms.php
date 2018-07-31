@@ -56,6 +56,11 @@ if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
 		function add_styles() {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+
+			if ( is_rtl() ) {
+				$file_prefix .= '-rtl';
+			}
+			
 			$css_file    = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/gravity-forms' . $file_prefix . '.css';
 
 			wp_register_style( 'astra-gravity-forms', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
