@@ -73,13 +73,19 @@ var toggleClass = function ( el, className ) {
  * 
  * @since x.x.x
  * 
- * @param {Node} el Dom Element.
- * @param {String} type Name of the event.
+ * @param {Node} el Dom Node element on which the event is to be triggered.
+ * @param {Node} typeArg A DOMString representing the name of the event.
+ * @param {String} A CustomEventInit dictionary, having the following fields:
+ *			"detail", optional and defaulting to null, of type any, that is an event-dependent value associated with the event.	
  */
-var astraTriggerEvent = function( el, type ) {
-	var event = new Event(type);
+var astraTriggerEvent = function astraTriggerEvent(el, typeArg) {
+	var customEventInit =
+	  arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  
+	var event = new CustomEvent(typeArg, customEventInit);
 	el.dispatchEvent(event);
 };
+  
 
 // CustomEvent() constructor functionality in Internet Explorer 9 and higher.
 (function () {
