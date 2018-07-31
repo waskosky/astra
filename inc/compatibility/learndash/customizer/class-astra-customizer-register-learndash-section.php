@@ -6,7 +6,8 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       1.3.0
+ * @since       1.2.0
+ * @since 		x.x.x Chnaged to using Astra_Customizer API 
  */
 
 if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
@@ -21,7 +22,8 @@ if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.4.3
+		 * @since 1.2.0
+		 * @since x.x.x Chnaged to using Astra_Customizer API
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
