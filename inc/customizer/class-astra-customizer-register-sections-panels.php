@@ -89,9 +89,9 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-header',
 					'type'     => 'section',
-					'priority' => 15,
 					'title'    => __( 'Primary Header', 'astra' ),
 					'panel'    => 'panel-layout',
+					'priority' => 15,
 					'section'  => 'section-header-group',
 				),
 
@@ -114,45 +114,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Footer', 'astra' ),
 					'panel'    => 'panel-layout',
 					'priority' => 55,
-				),
-
-				/**
-				 * WooCommerce
-				 */
-
-				array(
-					'name'     => 'section-woo-group',
-					'title'    => __( 'WooCommerce', 'astra' ),
-					'panel'    => 'panel-layout',
-					'type'     => 'section',
-					'priority' => 60,
-				),
-
-				array(
-					'name'     => 'section-woo-general',
-					'type'     => 'section',
-					'title'    => __( 'General', 'astra' ),
-					'panel'    => 'panel-layout',
-					'section'  => 'section-woo-group',
-					'priority' => 5,
-				),
-
-				array(
-					'name'     => 'section-woo-shop',
-					'title'    => __( 'Shop', 'astra' ),
-					'type'     => 'section',
-					'panel'    => 'panel-layout',
-					'section'  => 'section-woo-group',
-					'priority' => 10,
-				),
-
-				array(
-					'name'     => 'section-woo-shop-single',
-					'type'     => 'section',
-					'title'    => __( 'Single Product', 'astra' ),
-					'panel'    => 'panel-layout',
-					'section'  => 'section-woo-group',
-					'priority' => 15,
 				),
 
 				/**
@@ -268,15 +229,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'panel'    => 'panel-typography',
 					'priority' => 35,
 				),
-
-				array(
-					'name'     => 'section-header-typo',
-					'type'     => 'section',
-					'title'    => __( 'Header', 'astra' ),
-					'panel'    => 'panel-typography',
-					'priority' => 20,
-				),
-
 				array(
 					'name'     => 'section-primary-header-typo',
 					'type'     => 'section',
@@ -332,6 +284,18 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 			);
+
+			$typography_header = apply_filters(
+				'astra_customizer_primary_header_typo', array(
+					'name'     => 'section-header-typo',
+					'type'     => 'section',
+					'title'    => __( 'Header', 'astra' ),
+					'panel'    => 'panel-typography',
+					'priority' => 20,
+				)
+			);
+
+			array_push( $configs, $typography_header );
 
 			return array_merge( $configurations, $configs );
 		}

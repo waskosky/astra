@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_dynamic_styles' ) );
 
-			add_action( 'customize_register', array( $this, 'customize_register' ), 20 );
+			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
@@ -154,7 +154,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/register-panels-and-sections.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/class-astra-liferlms-section-configs.php';
 
 			/**
 			 * Sections

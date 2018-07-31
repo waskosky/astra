@@ -160,7 +160,6 @@ module.exports = function (grunt) {
 	                    },
 	                    {
 		                    src: [
-		                        'assets/js/minified/flexibility.min.js',
 		                    	'assets/js/minified/navigation.min.js',
                                 'assets/js/minified/skip-link-focus-fix.min.js',
                                 'assets/js/minified/custom-events-polyfill.js'
@@ -341,7 +340,6 @@ module.exports = function (grunt) {
                 },
                 dist: {
                     src: [
-                        'assets/js/unminified/flexibility.js',
                         'assets/js/unminified/navigation.js',
                         'assets/js/unminified/skip-link-focus-fix.js',
                     ],
