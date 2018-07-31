@@ -117,45 +117,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				/**
-				 * WooCommerce
-				 */
-
-				array(
-					'name'     => 'section-woo-group',
-					'title'    => __( 'WooCommerce', 'astra' ),
-					'panel'    => 'panel-layout',
-					'type'     => 'section',
-					'priority' => 60,
-				),
-
-				array(
-					'name'     => 'section-woo-general',
-					'type'     => 'section',
-					'title'    => __( 'General', 'astra' ),
-					'panel'    => 'panel-layout',
-					'section'  => 'section-woo-group',
-					'priority' => 5,
-				),
-
-				array(
-					'name'     => 'section-woo-shop',
-					'title'    => __( 'Shop', 'astra' ),
-					'type'     => 'section',
-					'panel'    => 'panel-layout',
-					'section'  => 'section-woo-group',
-					'priority' => 10,
-				),
-
-				array(
-					'name'     => 'section-woo-shop-single',
-					'type'     => 'section',
-					'title'    => __( 'Single Product', 'astra' ),
-					'panel'    => 'panel-layout',
-					'section'  => 'section-woo-group',
-					'priority' => 15,
-				),
-
-				/**
 				 * Footer Widgets Section
 				 */
 
