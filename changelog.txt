@@ -6,11 +6,11 @@ v1.4.4
 
 v1.4.3
 - New: Option to select Dropdown target - Submenu icon or Menu Link.
-- Improvement: Ask if retina logo is to be added using a checkbox setting.
+- Improvement: Ask if the retina logo is to be added using a checkbox setting.
 - Fix: LifterLMS - When center header layout is selected mobile menu toggle doe snot work.
-- Fix: Inline logo and title does not work correctly if custom menu item is set to be outside. 
+- Fix: Inline logo and the title does not work correctly if the custom menu item is set to be outside. 
 - Fix: When option 'Inline Logo & site title' checked then the site title getting left aligned.
-- Fix: Custom Menu item outside class is added to body even if last menu item is disabled.
+- Fix: Custom Menu item outside class is added to the body even if the last menu item is disabled.
 
 v1.4.2
 - Fix: Elementor modules getting 100% height in preview mode due to z-index bump in v1.4.1.
