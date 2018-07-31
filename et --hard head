@@ -1,0 +1,150 @@
+warning: LF will be replaced by CRLF in inc/customizer/custom-controls/heading/class-astra-control-heading.php.
+The file will have its original line endings in your working directory.
+[1mdiff --git a/inc/customizer/custom-controls/heading/class-astra-control-heading.php b/inc/customizer/custom-controls/heading/class-astra-control-heading.php[m
+[1mindex 83907912..652f09a7 100644[m
+[1m--- a/inc/customizer/custom-controls/heading/class-astra-control-heading.php[m
+[1m+++ b/inc/customizer/custom-controls/heading/class-astra-control-heading.php[m
+[36m@@ -14,77 +14,80 @@[m [mif ( ! defined( 'ABSPATH' ) ) {[m
+ 	exit;[m
+ }[m
+ [m
+[31m-/**[m
+[31m- * A text control with validation for CSS units.[m
+[31m- */[m
+[31m-class Astra_Control_Heading extends WP_Customize_Control {[m
+[32m+[m[32mif ( ! class_exists( 'Astra_Control_Heading' ) && class_exists( 'WP_Customize_Control' ) ) :[m
+ [m
+ 	/**[m
+[31m-	 * The control type.[m
+[31m-	 *[m
+[31m-	 * @access public[m
+[31m-	 * @var string[m
+[32m+[m	[32m * A text control with validation for CSS units.[m
+ 	 */[m
+[31m-	public $type = 'ast-heading';[m
+[32m+[m	[32mclass Astra_Control_Heading extends WP_Customize_Control {[m
+ [m
+[31m-	/**[m
+[31m-	 * The control type.[m
+[31m-	 *[m
+[31m-	 * @access public[m
+[31m-	 * @var string[m
+[31m-	 */[m
+[31m-	public $caption = '';[m
+[32m+[m		[32m/**[m
+[32m+[m		[32m * The control type.[m
+[32m+[m		[32m *[m
+[32m+[m		[32m * @access public[m
+[32m+[m		[32m * @var string[m
+[32m+[m		[32m */[m
+[32m+[m		[32mpublic $type = 'ast-heading';[m
+ [m
+[31m-	/**[m
+[31m-	 * Enqueue control related scripts/styles.[m
+[31m-	 *[m
+[31m-	 * @access public[m
+[31m-	 */[m
+[31m-	public function enqueue() {[m
+[32m+[m		[32m/**[m
+[32m+[m		[32m * The control type.[m
+[32m+[m		[32m *[m
+[32m+[m		[32m * @access public[m
+[32m+[m		[32m * @var string[m
+[32m+[m		[32m */[m
+[32m+[m		[32mpublic $caption = '';[m
+ [m
+[31m-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/heading/';[m
+[31m-		wp_enqueue_style( 'astra-heading-css', $css_uri . 'heading.css', null, ASTRA_THEME_VERSION );[m
+[31m-	}[m
+[32m+[m		[32m/**[m
+[32m+[m		[32m * Enqueue control related scripts/styles.[m
+[32m+[m		[32m *[m
+[32m+[m		[32m * @access public[m
+[32m+[m		[32m */[m
+[32m+[m		[32mpublic function enqueue() {[m
+ [m
+[31m-	/**[m
+[31m-	 * Refresh the parameters passed to the JavaScript via JSON.[m
+[31m-	 *[m
+[31m-	 * @see WP_Customize_Control::to_json()[m
+[31m-	 */[m
+[31m-	public function to_json() {[m
+[31m-		parent::to_json();[m
+[31m-		$this->json['label']       = esc_html( $this->label );[m
+[31m-		$this->json['caption']     = $this->caption;[m
+[31m-		$this->json['description'] = $this->description;[m
+[31m-	}[m
+[32m+[m			[32m$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/heading/';[m
+[32m+[m			[32mwp_enqueue_style( 'astra-heading-css', $css_uri . 'heading.css', null, ASTRA_THEME_VERSION );[m
+[32m+[m		[32m}[m
+ [m
+[31m-	/**[m
+[31m-	 * An Underscore (JS) template for this control's content (but not its container).[m
+[31m-	 *[m
+[31m-	 * Class variables for this control class are available in the `data` JS object;[m
+[31m-	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.[m
+[31m-	 *[m
+[31m-	 * @see WP_Customize_Control::print_template()[m
+[31m-	 *[m
+[31m-	 * @access protected[m
+[31m-	 */[m
+[31m-	protected function content_template() {[m
+[31m-		?>[m
+[32m+[m		[32m/**[m
+[32m+[m		[32m * Refresh the parameters passed to the JavaScript via JSON.[m
+[32m+[m		[32m *[m
+[32m+[m		[32m * @see WP_Customize_Control::to_json()[m
+[32m+[m		[32m */[m
+[32m+[m		[32mpublic function to_json() {[m
+[32m+[m			[32mparent::to_json();[m
+[32m+[m			[32m$this->json['label']       = esc_html( $this->label );[m
+[32m+[m			[32m$this->json['caption']     = $this->caption;[m
+[32m+[m			[32m$this->json['description'] = $this->description;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m/**[m
+[32m+[m		[32m * An Underscore (JS) template for this control's content (but not its container).[m
+[32m+[m		[32m *[m
+[32m+[m		[32m * Class variables for this control class are available in the `data` JS object;[m
+[32m+[m		[32m * export custom variables by overriding {@see WP_Customize_Control::to_json()}.[m
+[32m+[m		[32m *[m
+[32m+[m		[32m * @see WP_Customize_Control::print_template()[m
+[32m+[m		[32m *[m
+[32m+[m		[32m * @access protected[m
+[32m+[m		[32m */[m
+[32m+[m		[32mprotected function content_template() {[m
+[32m+[m			[32m?>[m
+ [m
+[31m-		<# if ( data.caption ) { #>[m
+[31m-			<span class="customize-control-caption">{{{ data.caption }}}</span>[m
+[31m-		<# } #>[m
+[31m-		<div class="ast-heading-wrapper wp-ui-highlight">[m
+[31m-			<label class="customizer-text">[m
+[31m-				<# if ( data.label ) { #>[m
+[31m-					<span class="customize-control-title wp-ui-text-highlight">{{{ data.label }}}</span>[m
+[31m-				<# } #>[m
+[31m-				<# if ( data.description ) { #>[m
+[31m-					<span class="description customize-control-description">{{{ data.description }}}</span>[m
+[31m-				<# } #>[m
+[31m-			</label>[m
+[31m-		</div>[m
+[31m-		<?php[m
+[32m+[m			[32m<# if ( data.caption ) { #>[m
+[32m+[m				[32m<span class="customize-control-caption">{{{ data.caption }}}</span>[m
+[32m+[m			[32m<# } #>[m
+[32m+[m			[32m<div class="ast-heading-wrapper wp-ui-highlight">[m
+[32m+[m				[32m<label class="customizer-text">[m
+[32m+[m					[32m<# if ( data.label ) { #>[m
+[32m+[m						[32m<span class="customize-control-title wp-ui-text-highlight">{{{ data.label }}}</span>[m
+[32m+[m					[32m<# } #>[m
+[32m+[m					[32m<# if ( data.description ) { #>[m
+[32m+[m						[32m<span class="description customize-control-description">{{{ data.description }}}</span>[m
+[32m+[m					[32m<# } #>[m
+[32m+[m				[32m</label>[m
+[32m+[m			[32m</div>[m
+[32m+[m			[32m<?php[m
+[32m+[m		[32m}[m
+ 	}[m
+[31m-}[m
+[32m+[m[32mendif;[m
+ [m
