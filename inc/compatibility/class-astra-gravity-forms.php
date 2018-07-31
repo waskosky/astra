@@ -49,8 +49,6 @@ if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
 		/**
 		 * Add assets in theme
 		 *
-		 * @param array $assets list of theme assets (JS & CSS).
-		 * @return array List of updated assets.
 		 * @since 1.0.0
 		 */
 		function add_styles() {
@@ -60,8 +58,8 @@ if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
 			if ( is_rtl() ) {
 				$file_prefix .= '-rtl';
 			}
-			
-			$css_file    = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/gravity-forms' . $file_prefix . '.css';
+
+			$css_file = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/gravity-forms' . $file_prefix . '.css';
 
 			wp_register_style( 'astra-gravity-forms', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 			wp_enqueue_style( 'astra-gravity-forms' );
