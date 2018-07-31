@@ -79,7 +79,7 @@ var toggleClass = function ( el, className ) {
  * @param {String} A CustomEventInit dictionary, having the following fields:
  *			"detail", optional and defaulting to null, of type any, that is an event-dependent value associated with the event.	
  */
-var astraTriggerEvent = function astraTriggerEvent(el, typeArg) {
+var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	var customEventInit =
 	  arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
   
@@ -330,14 +330,12 @@ var astraTriggerEvent = function astraTriggerEvent(el, typeArg) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
 						document.body.classList.remove( "ast-header-break-point" );
-						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
-						document.body.dispatchEvent( responsive_enabled );
+						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
 
 					} else {
 
 						document.body.classList.add( "ast-header-break-point" );
-						var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
-						document.body.dispatchEvent( responsive_disabled );
+						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						
 					}
 				}
 			}

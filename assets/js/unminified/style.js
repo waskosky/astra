@@ -73,6 +73,7 @@ var toggleClass = function ( el, className ) {
  * 
  * @since x.x.x
  * 
+ * @link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
  * @param {Node} el Dom Node element on which the event is to be triggered.
  * @param {Node} typeArg A DOMString representing the name of the event.
  * @param {String} A CustomEventInit dictionary, having the following fields:
@@ -329,14 +330,12 @@ var astraTriggerEvent = function astraTriggerEvent(el, typeArg) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
 						document.body.classList.remove( "ast-header-break-point" );
-						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
-						document.body.dispatchEvent( responsive_enabled );
+						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
 
 					} else {
 
 						document.body.classList.add( "ast-header-break-point" );
-						var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
-						document.body.dispatchEvent( responsive_disabled );
+						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						
 					}
 				}
 			}
