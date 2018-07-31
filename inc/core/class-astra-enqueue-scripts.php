@@ -166,7 +166,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			 * IE Only Js and CSS Files.
 			 */
 			// Flexibility.js for flexbox IE10 support.
-			wp_enqueue_script( 'astra-flexibility', ASTRA_THEME_URI . '/assets/js/minified/flexibility.min.js', array(), ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-flexibility', $js_uri . 'flexibility' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION );
 			wp_add_inline_script( 'astra-flexibility', 'flexibility(document.documentElement);' );
 			wp_script_add_data( 'astra-flexibility', 'conditional', 'IE' );
 		}
