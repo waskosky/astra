@@ -79,40 +79,13 @@ var toggleClass = function ( el, className ) {
  * @param {String} A CustomEventInit dictionary, having the following fields:
  *			"detail", optional and defaulting to null, of type any, that is an event-dependent value associated with the event.	
  */
-var astraTriggerEvent = function astraTriggerEvent(el, typeArg) {
+var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	var customEventInit =
 	  arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
   
 	var event = new CustomEvent(typeArg, customEventInit);
 	el.dispatchEvent(event);
 };
-  
-
-// CustomEvent() constructor functionality in Internet Explorer 9 and higher.
-(function () {
-
-	
-    // Internet Explorer 6-11
-    isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-    // Edge 20+
-    isEdge = !isIE && !!window.StyleMedia;
-
-
-	if ( typeof window.CustomEvent === "function" ) return false;
-
-	function CustomEvent ( event, params ) {
-		params = params || { bubbles: false, cancelable: false, detail: undefined };
-		var evt = document.createEvent( 'CustomEvent' );
-		evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
-		return evt;
-	}
-
-	CustomEvent.prototype = window.Event.prototype;
-
-	window.CustomEvent = CustomEvent;
-
-})();
 
 ( function() {
 

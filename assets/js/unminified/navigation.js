@@ -86,33 +86,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	var event = new CustomEvent(typeArg, customEventInit);
 	el.dispatchEvent(event);
 };
-  
-
-// CustomEvent() constructor functionality in Internet Explorer 9 and higher.
-(function () {
-
-	
-    // Internet Explorer 6-11
-    isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-    // Edge 20+
-    isEdge = !isIE && !!window.StyleMedia;
-
-
-	if ( typeof window.CustomEvent === "function" ) return false;
-
-	function CustomEvent ( event, params ) {
-		params = params || { bubbles: false, cancelable: false, detail: undefined };
-		var evt = document.createEvent( 'CustomEvent' );
-		evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
-		return evt;
-	}
-
-	CustomEvent.prototype = window.Event.prototype;
-
-	window.CustomEvent = CustomEvent;
-
-})();
 
 ( function() {
 
@@ -412,7 +385,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	var container, button, menu, links, subMenus, i, len;
 
-	container = document.getElementById( 'site-navigation' );
+	container = document.querySelector( '.astra-nav-menu' );
 	if ( ! container ) {
 		return;
 	}
