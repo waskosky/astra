@@ -7,7 +7,7 @@
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
  * @since       1.2.0
- * @since 		x.x.x Chnaged to using Astra_Customizer API 
+ * @since       x.x.x Chnaged to using Astra_Customizer API
  */
 
 if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
@@ -44,4 +44,4 @@ if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
 }
 
 
-new Astra_Customizer_Register_Learndash_Section;
+new Astra_Customizer_Register_Learndash_Section();
