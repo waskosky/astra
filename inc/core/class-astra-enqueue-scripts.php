@@ -162,6 +162,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
 
+			/**
+			 * IE Only Js and CSS Files.
+			 */
+			// Flexibility.js for flexbox IE10 support.
+			wp_enqueue_script( 'astra-flexibility', ASTRA_THEME_URI . '/assets/js/minified/flexibility.min.js', array(), ASTRA_THEME_VERSION );
+			wp_add_inline_script( 'astra-flexibility', 'console.log("Loading in IE");flexibility(document.documentElement);' );
+			wp_script_add_data( 'astra-flexibility', 'conditional', 'IE' );
 		}
 
 		/**
@@ -171,7 +178,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * @param string $css CSS content to trim.
 		 * @return string
 		 */
-		static public function trim_css( $css = '' ) {
+		public static function trim_css( $css = '' ) {
 
 			// Trim white space for faster page loading.
 			if ( ! empty( $css ) ) {
