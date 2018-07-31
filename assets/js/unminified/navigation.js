@@ -385,7 +385,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	var container, button, menu, links, subMenus, i, len;
 
-	container = document.querySelector( '.astra-nav-menu' );
+	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
 		return;
 	}
