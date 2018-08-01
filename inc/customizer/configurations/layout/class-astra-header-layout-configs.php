@@ -175,6 +175,13 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'  => 'section-header',
 					'priority' => 35,
 					'title'    => __( 'Header Width', 'astra' ),
+					'required' => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[site-layout]', '==', 'ast-padded-layout' ),
+							array( ASTRA_THEME_SETTINGS . '[site-layout]', '==', 'ast-full-width-layout' ),
+						),
+						'operator'   => 'OR',
+					),
 					'choices'  => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
