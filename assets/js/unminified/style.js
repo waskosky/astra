@@ -7,10 +7,8 @@
  * @package Astra
  */
 
-// Internet Explorer 6-11
-var isIE = false || !!document.documentMode;
-// Edge 20+
-var isEdge = !isIE && !!window.StyleMedia;
+var isIE = false;
+var isEdge = false;
 
 /**
  * Get all of an element's parent elements up the DOM tree
