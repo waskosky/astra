@@ -2470,6 +2470,7 @@ body {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
 }
 
 .ast-search-icon .astra-search-icon {
