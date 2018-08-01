@@ -54,9 +54,14 @@
     text-decoration: none;
     font-style: italic;
     border-bottom: 1px dotted transparent;
+    -webkit-transition: all ease-in-out .3s;
     transition: all ease-in-out .3s;
 }
 
 .astra-section-description a:hover {
     border-bottom-color: inherit;
+}
+
+#customize-controls .control-section-ast_section .customize-info .customize-section-description {
+    margin-bottom: 0;
 }
