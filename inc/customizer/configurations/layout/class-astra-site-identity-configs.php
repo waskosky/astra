@@ -59,7 +59,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 				),
 
-
 				/**
 				 * Option: Inherit Desktop logo
 				 */
