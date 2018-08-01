@@ -91,7 +91,7 @@ var toggleClass = function ( el, className ) {
 /**
  * Trigget custom JS Event.
  * 
- * @since x.x.x
+ * @since 1.4.6
  * 
  * @link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
  * @param {Node} el Dom Node element on which the event is to be triggered.

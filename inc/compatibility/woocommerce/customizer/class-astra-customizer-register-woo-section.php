@@ -7,7 +7,7 @@
  * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
  * @since       Astra 1.1.0
- * @since       x.x.x Chnaged to using Astra_Customizer API
+ * @since       1.4.6 Chnaged to using Astra_Customizer API
  */
 
 if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
