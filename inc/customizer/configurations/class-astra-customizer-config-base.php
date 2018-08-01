@@ -63,7 +63,8 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 			}
 
 			// Description.
-			$content = wp_kses_post( astar( $args, 'description' ) );
+			$content  = '<div class="astra-section-description">';
+			$content .= wp_kses_post( astar( $args, 'description' ) );
 
 			// Links.
 			if ( astar( $args, 'links' ) ) {
@@ -86,6 +87,8 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				}
 				$content .= '</ul>';
 			}
+
+			$content .= '</div><!-- .astra-section-description -->';
 
 			return $content;
 		}
