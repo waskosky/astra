@@ -58,13 +58,13 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Site Layout ', 'astra' ) . '»',
+									'text'  => __( 'Site Layout Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'customizer', 'site-layout', 'helpful-information' ),
 									),
 								),
 								array(
-									'text'  => __( 'Container ', 'astra' ) . '»',
+									'text'  => __( 'Container Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/container-overview/', 'customizer', 'container', 'helpful-information' ),
 									),
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Site Identity ', 'astra' ) . '»',
+									'text'  => __( 'Site Identity Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/site-identity-free/', 'customizer', 'site-identity', 'helpful-information' ),
 									),
@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Primary Header ', 'astra' ) . '»',
+									'text'  => __( 'Primary Header Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/header-overview/', 'customizer', 'primary-header', 'helpful-information' ),
 									),
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Footer Bar ', 'astra' ) . '»',
+									'text'  => __( 'Footer Bar Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/footer-bar/', 'customizer', 'footer-bar', 'helpful-information' ),
 									),
@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Sidebar ', 'astra' ) . '»',
+									'text'  => __( 'Sidebar Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/sidebar-free/', 'customizer', 'sidebar', 'helpful-information' ),
 									),
@@ -260,7 +260,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Colors & Background ', 'astra' ) . '»',
+									'text'  => __( 'Colors & Background Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/colors-background/', 'customizer', 'colors-background', 'helpful-information' ),
 									),
@@ -309,7 +309,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Typography ', 'astra' ) . '»',
+									'text'  => __( 'Typography Overview', 'astra' ) . ' »',
 									'attrs' => array(
 										'href' => astra_get_pro_url( 'https://wpastra.com/docs/typography-free/', 'customizer', 'typography', 'helpful-information' ),
 									),
