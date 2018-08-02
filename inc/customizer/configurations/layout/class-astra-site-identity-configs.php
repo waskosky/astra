@@ -157,7 +157,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							array( ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', '!=', '' ),
 							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '!=', 0 ),
 						),
-						'operator' => 'OR'
+						'operator'   => 'OR',
 					),
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
