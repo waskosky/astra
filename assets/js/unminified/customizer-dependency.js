@@ -205,11 +205,11 @@
                 var visibleIt = false;
                 var controls = $(this).find(' > .customize-control');
 
-                if (controls.length > 0) {
+                if ( controls.length > 0 ) {
 
                     controls.each(function () {
 
-                        if (!$(this).hasClass('ast-hide') || $(this).css('display') != 'none') {
+                        if ( ! $(this).hasClass('ast-hide') && $(this).css('display') != 'none' ) {
                             visibleIt = true;
                         }
                     });
