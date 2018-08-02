@@ -1,3 +1,9 @@
+v1.4.6
+- Improvement: Default thumbnail size for blog set to `large` instead of full. credit - (ipokkel)[https://github.com/ipokkel] (#697)[https://github.com/brainstormforce/astra/pull/697]
+- Improvement: Contact form 7 & Gravity Forms compatibility CSS will load only on the pages where contact forms are used. 
+- Fix: SVG logo getting incorrect height in firefox browser.
+- Fix: Header layouts not correctly aligned in case of IE10 & IE 11.
+
 v1.4.5
 - Fix: Sidebar option for WooCommerce, LifterLMS, LearnDash not visible in the customizer.
 
