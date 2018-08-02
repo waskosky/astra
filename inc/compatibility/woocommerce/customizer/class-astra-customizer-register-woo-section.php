@@ -28,15 +28,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$configs = array(
-
-				array(
-					'name'     => 'section-learndash',
-					'type'     => 'section',
-					'priority' => 65,
-					'title'    => __( 'LearnDash', 'astra' ),
-					'panel'    => 'panel-layout',
-				),
-
 				/**
 				 * WooCommerce
 				 */
