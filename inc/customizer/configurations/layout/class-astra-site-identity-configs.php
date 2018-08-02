@@ -154,8 +154,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'conditions' => array(
 							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '!=', 0 ),
 							array( 'custom_logo', '!=', '' ),
-						),
-						'operator'   => 'OR',
+						)
 					),
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
