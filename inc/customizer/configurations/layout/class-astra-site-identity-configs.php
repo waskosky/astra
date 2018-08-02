@@ -153,9 +153,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'required' => array(
 						'conditions' => array(
 							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '!=', 0 ),
-							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '!=', 0 ),
 							array( 'custom_logo', '!=', '' ),
-							array( ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', '!=', '' ),
 						),
 						'operator'   => 'OR',
 					),
