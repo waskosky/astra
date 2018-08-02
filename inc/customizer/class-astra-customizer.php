@@ -70,6 +70,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( is_admin() || is_customize_preview() ) {
 				add_action( 'customize_register', array( $this, 'include_configurations' ), 2 );
 				add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
+				add_action( 'customize_register', array( $this, 'astra_pro_upgrade_configurations' ), 2 );
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
@@ -491,18 +492,24 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		function customize_register( $wp_customize ) {
 
 			/**
-			 * Astra Pro Upsell Link
-			 */
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-upgrade-link-configs.php';
-			}
-
-			/**
 			 * Override Defaults
 			 */
 			require ASTRA_THEME_DIR . 'inc/customizer/override-defaults.php';
 
+		}
+
+		/**
+		 * Add upgrade link configurations controls.
+		 *
+		 * @since 1.0.0
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		function astra_pro_upgrade_configurations( $wp_customize ) {
+
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
+				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-upgrade-link-configs.php';
+			}
 		}
 
 		/**
