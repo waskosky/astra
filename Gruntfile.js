@@ -216,8 +216,12 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
 	                    },
                     	{
-                    		src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
+                            src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
+                            dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
+                        },
+                        {
+                    		src: 'assets/css/unminified/compatibility/learndash-rtl.css',
+	                        dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
