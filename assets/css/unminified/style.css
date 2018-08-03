@@ -3468,6 +3468,10 @@ body {
   transform: none;
 }
 
+.main-header-bar .ast-search-menu-icon.slide-search form {
+  right: 0;
+}
+
 .ast-search-menu-icon.slide-search form {
   visibility: hidden;
   opacity: 0;
