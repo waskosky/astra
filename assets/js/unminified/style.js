@@ -119,7 +119,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					toggleButton.setAttribute("class", "ast-menu-toggle");
 					toggleButton.setAttribute("aria-expanded", "false");
 					toggleButton.innerHTML="<span class='screen-reader-text'>Menu Toggle</span>";
-				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
+				
+				if( null === parentList[i].querySelector('button') ) {
+				    parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
+				}
+
 
 				var menuLeft         = parentList[i].getBoundingClientRect().left,
 					windowWidth      = window.innerWidth,
@@ -232,6 +236,66 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 	}, false);
+
+	var astraMenu = function() {
+	    if ( menu_toggle_all.length > 0 ) {
+
+	        for (var i = 0; i < menu_toggle_all.length; i++) {
+	            
+	            menu_toggle_all[i].setAttribute('data-index', i);
+
+	            menu_toggle_all[i].addEventListener( 'click', function( event ) {
+	                event.preventDefault();
+
+	                var event_index = this.getAttribute( 'data-index' );
+
+	                if ( 'undefined' === typeof __main_header_all[event_index] ) {
+
+	                    return false;
+	                }
+
+	                var menuHasChildren = __main_header_all[event_index].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+	                for ( var i = 0; i < menuHasChildren.length; i++ ) {
+	                    menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
+	                    var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );     
+	                    for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {       
+	                        menuHasChildrenSubMenu[j].style.display = 'none';       
+	                    };
+	                }
+
+	                var rel = this.getAttribute( 'rel' ) || '';
+
+	                switch ( rel ) {
+	                    case 'main-menu':
+	                            toggleClass( __main_header_all[event_index], 'toggle-on' );
+	                            toggleClass( menu_toggle_all[event_index], 'toggled' );
+	                            if ( __main_header_all[event_index].classList.contains( 'toggle-on' ) ) {       
+	                                __main_header_all[event_index].style.display = 'block'; 
+	                                document.body.classList.add( "ast-main-header-nav-open" );  
+	                            } else {        
+	                                __main_header_all[event_index].style.display = '';
+	                                document.body.classList.remove( "ast-main-header-nav-open" );
+	                            }
+	                        break;
+	                }
+	            }, false);
+	            
+	            if ( 'undefined' !== typeof __main_header_all[i] ) {
+	                var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
+	                AstraNavigationMenu( parentList );
+
+	                if ( document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
+	                    var astra_menu_toggle      = __main_header_all[i].querySelectorAll( '.ast-header-break-point .main-header-menu .menu-item-has-children > a, .ast-header-break-point .main-header-menu .page_item_has_children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle' );
+	                } else { 
+	                    var astra_menu_toggle      = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
+	                }
+
+	                AstraToggleMenu( astra_menu_toggle );
+	                
+	            }
+	        };
+	    }
+	}
 	
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
@@ -277,67 +341,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener("resize", function() {
 		updateHeaderBreakPoint();
-	});
+        astraMenu();
+    });
 
-	updateHeaderBreakPoint();
+    updateHeaderBreakPoint();
+    astraMenu();
 
-	if ( menu_toggle_all.length > 0 ) {
-
-		for (var i = 0; i < menu_toggle_all.length; i++) {
-			
-			menu_toggle_all[i].setAttribute('data-index', i);
-
-			menu_toggle_all[i].addEventListener( 'click', function( event ) {
-		    	event.preventDefault();
-
-		    	var event_index = this.getAttribute( 'data-index' );
-
-		    	if ( 'undefined' === typeof __main_header_all[event_index] ) {
-
-		    		return false;
-		    	}
-
-		    	var menuHasChildren = __main_header_all[event_index].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
-				for ( var i = 0; i < menuHasChildren.length; i++ ) {
-					menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
-					var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
-					for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
-						menuHasChildrenSubMenu[j].style.display = 'none';		
-					};
-				}
-
-				var rel = this.getAttribute( 'rel' ) || '';
-
-				switch ( rel ) {
-					case 'main-menu':
-							toggleClass( __main_header_all[event_index], 'toggle-on' );
-							toggleClass( menu_toggle_all[event_index], 'toggled' );
-							if ( __main_header_all[event_index].classList.contains( 'toggle-on' ) ) {		
-								__main_header_all[event_index].style.display = 'block';	
-								document.body.classList.add( "ast-main-header-nav-open" );	
-							} else {		
-								__main_header_all[event_index].style.display = '';
-								document.body.classList.remove( "ast-main-header-nav-open" );
-							}
-						break;
-				}
-		    }, false);
-			
-			if ( 'undefined' !== typeof __main_header_all[i] ) {
-				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
-				AstraNavigationMenu( parentList );
-
-				if ( document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
-					var astra_menu_toggle 	   = __main_header_all[i].querySelectorAll( '.ast-header-break-point .main-header-menu .menu-item-has-children > a, .ast-header-break-point .main-header-menu .page_item_has_children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle' );
-				} else { 
-				 	var astra_menu_toggle      = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
-				}
-
-                AstraToggleMenu( astra_menu_toggle );
-			 	
-			}
-		};
-	}
 
 	var get_browser = function () {
 	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
