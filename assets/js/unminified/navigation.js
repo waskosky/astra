@@ -468,9 +468,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
         if( self && ! self.classList.contains('astra-search-icon') ) {
             var link = new String( self );
+            var endsWithHash = link.endsWith(hash);
+
             if( link.indexOf( hash ) !== -1 ) {
 
-                if ( document.body.classList.contains('ast-header-break-point') && ! document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
+                if ( document.body.classList.contains('ast-header-break-point') && ! endsWithHash ) {
 	                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
 	                main_header_menu_toggle.classList.remove( 'toggled' );
 
