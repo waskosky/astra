@@ -380,7 +380,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
                     },200);
                 } else {
                 	var searchTerm = sibling.querySelector( '.search-field' ).value || '';
-                	console.log( searchTerm );
 	                if( '' !== searchTerm ) {
     		            sibling.querySelector( '.search-form' ).submit();
                     }

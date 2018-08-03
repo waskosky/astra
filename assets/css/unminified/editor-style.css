@@ -1910,6 +1910,10 @@ input[type="submit"]:focus {
   position: relative;
 }
 
+.ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {
+  margin-right: 1em;
+}
+
 .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: none;
 }
