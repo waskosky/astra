@@ -160,9 +160,9 @@ module.exports = function (grunt) {
 	                    },
 	                    {
 		                    src: [
-		                        'assets/js/minified/flexibility.min.js',
 		                    	'assets/js/minified/navigation.min.js',
-		                    	'assets/js/minified/skip-link-focus-fix.min.js',
+                                'assets/js/minified/skip-link-focus-fix.min.js',
+                                'assets/js/minified/custom-events-polyfill.js'
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
 		                },
@@ -216,8 +216,12 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
 	                    },
                     	{
-                    		src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
+                            src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
+                            dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
+                        },
+                        {
+                    		src: 'assets/css/unminified/compatibility/learndash-rtl.css',
+	                        dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
@@ -340,7 +344,6 @@ module.exports = function (grunt) {
                 },
                 dist: {
                     src: [
-                        'assets/js/unminified/flexibility.js',
                         'assets/js/unminified/navigation.js',
                         'assets/js/unminified/skip-link-focus-fix.js',
                     ],
