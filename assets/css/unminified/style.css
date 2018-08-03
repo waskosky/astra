@@ -2480,7 +2480,7 @@ body {
   font-size: 1.3em;
 }
 
-.ast-header-custom-item-inside .ast-inline-search {
+.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .search-form {
   display: none;
 }
 
