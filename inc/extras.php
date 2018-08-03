@@ -501,6 +501,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 				<?php astra_logo(); ?>
 			</div>
 		</div>
+		
 		<!-- .site-branding -->
 		<?php
 	}
