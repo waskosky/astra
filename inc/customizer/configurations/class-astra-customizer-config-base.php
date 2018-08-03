@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			// Return if white labeled.
 			if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-				if ( Astra_Ext_White_Label_Markup::is_theme_white_labeled() ) {
+				if ( ! empty( Astra_Ext_White_Label_Markup::$branding['astra']['name'] ) ) {
 					return '';
 				}
 			}
