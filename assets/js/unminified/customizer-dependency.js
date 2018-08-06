@@ -21,8 +21,6 @@
 
         controls: {},
 
-        checked_controls: {},
-
 		/**
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
@@ -118,10 +116,10 @@
             var $this = this;
             var values = api.get();
 
-            if (!_.isUndefined(control)) {
+            if ( !_.isUndefined( control ) ) {
 
                 // If control has dependency defined
-                if ('undefined' != typeof astra.config[id]) {
+                if ( 'undefined' != typeof astra.config[id] ) {
                     var check = false;
                     var required_param = astra.config[id];
                     var conditions = !_.isUndefined(required_param.conditions) ? required_param.conditions : required_param;
@@ -152,13 +150,12 @@
         checkDependency: function (conditions, values, compare_operator) {
 
             var control = this;
-            var check = false;
+            var check = true;
             var returnNow = false;
             var test = conditions[0];
 
-            if (_.isString(test)) {
+            if ( _.isString( test ) ) {
 
-                check = false;
                 var cond = conditions[1];
                 var cond_val = conditions[2];
                 var value;
@@ -174,7 +171,9 @@
                         if ( ! control.checkDependency( conditions, values, operator ) ) {
                             returnNow = true;
                             check = false;
-                            return;
+                            if( 'AND' == compare_operator ) {
+                                return;
+                            }
                         } else {
                             var control_obj = api.control(test);
                             control_obj.container.removeClass('ast-hide');
@@ -182,21 +181,20 @@
                     }
                 }
 
-                if ( !_.isUndefined( values[test] ) && !returnNow ) {
+                if ( !_.isUndefined( values[test] ) && !returnNow && check ) {
                     value = values[test];
-                    check = control.compareValues(value, cond, cond_val);
+                    check = control.compareValues( value, cond, cond_val );
                 }
                 
 
-            } else if (_.isArray(test)) {
-                check = true;
+            } else if ( _.isArray( test ) ) {
 
-                $.each(conditions, function (index, val) {
+                $.each( conditions, function ( index, val ) {
 
                     var cond_key = val[0];
                     var cond_cond = val[1];
                     var cond_val = val[2];
-                    var t_val = values[cond_key];
+                    var t_val = !_.isUndefined( values[cond_key] ) ? values[cond_key] : ''; 
 
                     if ( 'undefined' !== typeof astra.config[cond_key] ) {
 
@@ -206,41 +204,45 @@
                         if ( !_.isUndefined( conditions ) ) {
 
                             // Check visibility for dependent controls also
-                            if ( !control.checkDependency( conditions, values, operator ) ) {
+                            if ( ! control.checkDependency( conditions, values, operator ) ) {
+
                                 check = false;
-                                return;
+                                if( 'AND' == compare_operator ) {
+                                    return;
+                                }
                             } else {
+                                check = true;
                                 var control_obj = api.control(cond_key);
                                 control_obj.container.removeClass('ast-hide');
                             }
                         }
-                    }
-
-                    if ( _.isUndefined( t_val ) ) {
-                        t_val = '';
-                    }
-
-                    if ( 'AND' == compare_operator ) {
-                        if (!control.compareValues(t_val, cond_cond, cond_val) ) {
-                            check = false;
-                        }
                     } else {
-
-                        if ( control.compareValues(t_val, cond_cond, cond_val) ) {
-                            returnNow = true;
-                            check = true;
-                        } else {
-                            check = false;
-                        }
+                        check = true;
                     }
 
-                    // Break loop in case of OR operator
-                    if ( returnNow && 'OR' == compare_operator ) {
-                        check = true;
-                    }         
-                    
-                    
+                    if( check ) {
+
+                        if ( 'AND' == compare_operator ) {
+                            if ( ! control.compareValues( t_val, cond_cond, cond_val ) ) {
+                                check = false;
+                                return false;
+                            }
+                        } else {
+
+                            if ( control.compareValues( t_val, cond_cond, cond_val ) ) {
+                                returnNow = true;
+                                check = true;
+                            } else {
+                                check = false;
+                            }
+                        }
+                    }
                 });
+
+                // Break loop in case of OR operator
+                if ( returnNow && 'OR' == compare_operator ) {
+                    check = true;
+                }
             }
 
             return check;
