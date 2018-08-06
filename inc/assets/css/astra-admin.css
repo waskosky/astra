@@ -55,9 +55,13 @@
     bottom: 3px;
     right: 0;
 }
+.astra-review-notice-container {
+	display: flex;
+	align-items: center;
+}
 .astra-review-notice-container .dashicons {
-	padding-left: 10px;
     font-size: 1.4em;
+	padding-left: 10px;
 }
 .astra-review-notice-container a {
     padding-left: 10px;
