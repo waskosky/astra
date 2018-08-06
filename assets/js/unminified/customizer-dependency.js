@@ -21,8 +21,6 @@
 
         controls: {},
 
-        flag: false,
-
 		/**
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
@@ -81,12 +79,6 @@
                     var required_param = astra.config[id];
                     var conditions = !_.isUndefined(required_param.conditions) ? required_param.conditions : required_param;
                     var operator = !_.isUndefined(required_param.operator) ? required_param.operator : 'AND';
-
-                    if( 'astra-settings[above-header-menu-align]' == id ) {
-                        $this.flag = true;
-                    } else {
-                        $this.flag = false;
-                    }
 
                     if ( 'undefined' !== typeof conditions ) {
                         check = $this.checkDependency(conditions, values, operator);
