@@ -2480,10 +2480,6 @@ body {
   font-size: 1.3em;
 }
 
-.ast-header-custom-item-inside:not(.ast-header-break-point) .main-header-menu .ast-search-menu-icon.header-cover {
-  display: none;
-}
-
 .main-navigation {
   -js-display: inline-flex;
   display: -webkit-inline-box;
