@@ -3495,7 +3495,7 @@ body {
 
 .ast-search-menu-icon .astra-search-icon {
   line-height: normal;
-  color: inherit;
+  color: #3a3a3a;
 }
 
 .ast-search-menu-icon .astra-search-icon:focus {
@@ -3512,11 +3512,7 @@ body {
   color: inherit;
   font-size: inherit;
   width: 0;
-}
-
-.ast-search-menu-icon .search-field:focus {
-  background-color: transparent;
-  color: inherit;
+  color: #3a3a3a;
 }
 
 .ast-search-menu-icon .search-submit {
