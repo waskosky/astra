@@ -13,7 +13,7 @@
 	font-size: 1.3em;
 }
 
-.ast-header-custom-item-inside .main-header-menu .search-form {
+.ast-header-custom-item-inside:not(.ast-header-break-point) .main-header-menu .ast-search-menu-icon.header-cover {
     display: none;
 }
 
