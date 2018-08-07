@@ -471,7 +471,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-font',
 				array(
 					'callback'          => 'Astra_Control_Typography',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_text_field' ),
+					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
 
