@@ -3437,14 +3437,6 @@ body {
   position: relative;
 }
 
-.main-header-bar .main-header-bar-navigation .slide-search .search-field {
-  background-color: white;
-}
-
-.main-header-bar .main-header-bar-navigation .slide-search .search-field:focus {
-  background-color: white;
-}
-
 .main-header-bar .main-header-bar-navigation.toggle-on {
   padding-top: 1em;
 }
@@ -3498,7 +3490,7 @@ body {
   backface-visibility: hidden;
   position: relative;
   color: inherit;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .ast-search-menu-icon .astra-search-icon {

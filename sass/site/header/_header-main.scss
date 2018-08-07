@@ -83,13 +83,6 @@
 			position: relative;
 		}
 
-		.slide-search .search-field {
-			background-color: white;
-			&:focus {
-				background-color: white;
-			}
-		}
-
 		&.toggle-on {
 			padding-top: 1em;
 		}
@@ -141,7 +134,7 @@
 		backface-visibility: hidden;
 		position: relative;
 		color: inherit;
-		background-color: transparent;
+		background-color: #fff;
 	}
 
 	.astra-search-icon {
