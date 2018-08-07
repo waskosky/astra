@@ -3498,6 +3498,10 @@ body {
   color: #3a3a3a;
 }
 
+.ast-search-menu-icon .astra-search-icon:hover, .ast-search-menu-icon .astra-search-icon:focus {
+  color: #3a3a3a;
+}
+
 .ast-search-menu-icon .astra-search-icon:focus {
   outline: none;
 }

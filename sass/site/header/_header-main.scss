@@ -141,6 +141,11 @@
 		line-height: normal;
 		color: #3a3a3a;
 
+		&:hover,
+		&:focus {
+			color: #3a3a3a;
+		}
+
 		&:focus {
 			outline: none;
 		}
