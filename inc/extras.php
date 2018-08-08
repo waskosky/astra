@@ -186,17 +186,70 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			}
 
 			/**
-			 * Filters the tags for site title.
+			 * Filters the site title output.
 			 *
-			 * @since 1.3.1
+			 * @since x.x.x
 			 *
-			 * @param string $tags string containing the HTML tags for Site Title.
+			 * @param string the HTML output for Site Title.
 			 */
-			$tag               = apply_filters( 'astra_site_title_tag', $tag );
-			$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
+			// Site Title.
+			$site_title_markup = apply_filters(
+				'astra_site_title_output', sprintf(
+					'<%1$s class="site-title" itemprop="name">
+					<a href="%2$s" rel="home" itemprop="url" >
+						%3$s
+					</a>
+				</%1$s>',
+					/**
+					* Filters the tags for site title.
+					*
+					* @since 1.3.1
+					*
+					* @param string $tags string containing the HTML tags for Site Title.
+					*/
+					apply_filters( 'astra_site_title_tag', $tag ),
+					/**
+					* Filters the href for the site title.
+					*
+					* @since x.x.x
+					*
+					* @param string site title home url
+					*/
+					esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ),
+					/**
+					* Filters the site title.
+					*
+					* @since x.x.x
+					*
+					* @param string site title
+					*/
+					apply_filters( 'astra_site_title', get_bloginfo( 'name' ) )
+				)
+			);
 
 			// Site Description.
-			$site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+			/**
+			 * Filters the site description output.
+			 *
+			 * @since x.x.x
+			 *
+			 * @param string the HTML output for Site Title.
+			 */
+			$site_tagline_markup = apply_filters(
+				'astra_site_description_output', sprintf(
+					'<p class="site-description" itemprop="description">
+					%1$s
+				</p>',
+					/**
+					* Filters the site description.
+					*
+					* @since x.x.x
+					*
+					* @param string site description
+					*/
+					apply_filters( 'astra_site_description', get_bloginfo( 'description' ) )
+				)
+			);
 
 			if ( $display_site_title || $display_site_tagline ) {
 				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
