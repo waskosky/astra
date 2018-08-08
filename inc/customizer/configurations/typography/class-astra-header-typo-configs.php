@@ -41,8 +41,8 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'required' => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '==', '1' ),
-							array( ASTRA_THEME_SETTINGS . '[display-sticky-site-tagline]', '==', '1' ),
+							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '==', '1' ),
+							array( ASTRA_THEME_SETTINGS . '[display-sticky-site-title]', '==', '1' ),
 						),
 						'operator'   => 'OR',
 					),
@@ -171,6 +171,6 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 	}
 }
 
-new Astra_Header_Typo_Configs;
+new Astra_Header_Typo_Configs();
 
 
