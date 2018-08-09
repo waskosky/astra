@@ -956,15 +956,31 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		private static function conditional_headings_css_selectors( $selectors_with_achors, $selectors_without_achors ) {
 
-			if ( true == astra_get_option( 'include-headings-in-typography', false ) ||
-				true === apply_filters(
-					'astra_include_achors_in_headings_typography', false
-				) ) {
+			if ( true == self::anchors_in_css_selectors_heading() ) {
 				return $selectors_with_achors;
 			} else {
 				return $selectors_without_achors;
 			}
 
+		}
+
+		/**
+		 * Check if CSS selectors in Headings should use annchors.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if it should include anchors, False if not.
+		 */
+		public static function anchors_in_css_selectors_heading() {
+			if ( true == astra_get_option( 'include-headings-in-typography', false ) ||
+				true === apply_filters(
+					'astra_include_achors_in_headings_typography', false
+				) ) {
+
+					return true;
+			} else {
+
+				return false;
+			}
 		}
 	}
 }
