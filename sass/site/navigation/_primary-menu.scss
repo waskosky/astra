@@ -17,7 +17,7 @@
 }
 
 .main-navigation {
-	display: inline-block;
+	display: inline-flex;
 	font-weight:600;
 	ul {
 		list-style: none;
@@ -41,8 +41,8 @@
 
 		&:hover > ul,
 		&.focus > ul {
-			left: 0;
 			right: auto;
+			left: 0;
 		}
 
 		@media (min-width: $col-md) {
@@ -132,39 +132,34 @@
 				padding: 0 20px;
 				display: inline-block;
 				width: 100%;
-				border-bottom: 1px solid #dadada;
+				border-bottom-width: 1px;
+				border-style: solid;
+				border-color: #eaeaea;
 			}
 			&.children li a,
 			&.sub-menu li a {
 			    padding-left: 30px;
 			    &:before{
-			    	content: "-";
-    				margin-right: 2px;
+			    	content: "\e900";
+				    font-family: 'Astra';
+				    font-size: .65em;
+				    text-decoration: inherit;
+				    display: inline-block;
+				    transform: translate(0, -2px) rotateZ(270deg);
+    				margin-right: 5px;
 			    }
 			}
 			&.children li li a,
 			&.sub-menu li li a {
 			    padding-left: 40px;
-			    &:before{
-			    	content: "--";
-    				margin-right: 2px;
-			    }
 			}
 			&.children li li li a,
 			&.sub-menu li li li a {
 			    padding-left: 50px;
-			    &:before{
-			    	content: "---";
-    				margin-right: 2px;
-			    }
 			}
 			&.children li li li li a,
 			&.sub-menu li li li li a {
 			    padding-left: 60px;
-			    &:before{
-			    	content: "----";
-    				margin-right: 2px;
-			    }
 			}
 		}
 	}
@@ -172,8 +167,11 @@
 		background-color: $color-background-nav-mobile;
 	}
 
-	.main-header-menu {
+	.main-header-menu{
 		background-color: $color-background-nav-mobile;
+	}
+
+	.main-header-menu {
 		ul {
 			background-color: $color-background-nav-mobile;
 			position: static;

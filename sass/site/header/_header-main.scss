@@ -48,6 +48,12 @@
 /**
  * 4 - Search Form & Main Header
  */
+
+.ast-main-header-nav-open {
+	.main-header-bar {
+    	padding-bottom: 0;
+    }
+}
 .main-header-bar{
 	z-index: 4;
 	position: relative;
@@ -82,6 +88,10 @@
 			&:focus {
 				background-color: white;
 			}
+		}
+
+		&.toggle-on {
+			padding-top: 1em;
 		}
 	}
 }
@@ -157,10 +167,15 @@ li.ast-masthead-custom-menu-items {
 }
 
 .ast-primary-menu-disabled{
+
+	&.ast-mobile-header-inline{
+		.ast-masthead-custom-menu-items{
+			text-align: right;
+		}
+	}
 	
 	.ast-masthead-custom-menu-items {
 		flex: 1;
-		text-align: right;
 	}
 
 	&.header-main-layout-2 {
@@ -183,8 +198,23 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
+/* Hide Mobile logo. */
+.ast-mobile-header-logo{
+	display: none;
+}
+
 .ast-header-break-point {
 
+	.ast-mobile-header-stack{
+		.site-description {
+			text-align: center;
+		}
+		&.ast-logo-title-inline {
+			.site-description {
+				text-align: left;
+			}
+		}
+	}
 	&.ast-header-custom-item-outside {
 		.ast-primary-menu-disabled{
 			.ast-mobile-menu-buttons {
@@ -192,12 +222,33 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 	}
-	.site-branding{
-		display: flex;
-		flex: 1;
-		align-self: center;
-		padding-bottom: 1.5em;
+
+	.ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items{
+		display: none;
 	}
+
+	.ast-mobile-header-inline{
+		.site-branding{
+			text-align: left;
+			padding-bottom: 0;
+		}
+		&.header-main-layout-3{
+			.site-branding{
+				text-align: right;
+			}
+		}
+	}
+
+	.site-header{
+		.main-header-bar-wrap{
+			.site-branding{
+				display: flex;
+				flex: 1;
+				align-self: center;
+			}
+		}
+	}
+
 	ul li.ast-masthead-custom-menu-items a {
 		padding: 0;
 		width: auto;
@@ -212,7 +263,9 @@ li.ast-masthead-custom-menu-items {
 	}
 	.ast-site-identity {
 		padding: 0;
+		width: 100%;
 	}
+
 	.main-header-bar-navigation {
 
 		.page_item_has_children > a:after,
@@ -223,7 +276,6 @@ li.ast-masthead-custom-menu-items {
 
 	.main-header-bar {
 		display: block;
-		padding: 1.5em 0 0;
 		line-height: 3;
 
 		.main-header-bar-navigation {
@@ -272,7 +324,9 @@ li.ast-masthead-custom-menu-items {
 			}
 
 			.main-header-menu {
-				border-top: 1px solid #eaeaea;
+				border-top-width: 1px;
+				border-style: solid;
+				border-color: #eaeaea;
 			}
 		}
 	}
@@ -327,6 +381,25 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
+	.ast-has-mobile-header-logo {
+		.custom-logo,
+		.astra-logo-svg {
+			display: none;
+		}
+		.ast-mobile-header-logo{
+			display: inline-block;
+		}
+	}
+	
+	&.ast-mobile-inherit-site-logo{
+		.ast-has-mobile-header-logo{
+			.custom-logo,
+			.astra-logo-svg{
+				display: block;
+			}
+		}
+	}
+
 	&.ast-header-custom-item-outside {
 
 		.ast-search-icon {
@@ -342,7 +415,6 @@ li.ast-masthead-custom-menu-items {
 		}
 
 		.ast-masthead-custom-menu-items {
-			padding-bottom: 1.5em;
 			order: 1;
 		}
 
@@ -350,6 +422,88 @@ li.ast-masthead-custom-menu-items {
 			.ast-masthead-custom-menu-items {
 				text-align: center;
 			}
+		}
+
+		.ast-mobile-header-inline{
+			.site-branding,
+			.ast-mobile-menu-buttons{
+				display:flex;
+			}
+		}
+
+		&.ast-header-custom-item-outside{
+			.header-main-layout-2{
+				.ast-mobile-menu-buttons{
+					padding-bottom: 0;
+				}
+			}
+		}
+
+		.ast-mobile-header-inline{
+			.ast-site-identity{
+				width: 100%;
+			}
+			&.header-main-layout-3{
+				.ast-site-identity{
+					width: auto;
+				}	
+			}
+			&.header-main-layout-2{
+				.site-branding{
+					flex: 1 1 auto;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $mx-col-sm) {
+	
+	.ast-header-break-point{
+		.ast-mobile-header-stack{
+			.ast-mobile-menu-buttons{
+				width: 100%;
+			}
+
+			.site-branding,
+			.ast-mobile-menu-buttons{
+				justify-content: center;
+			}
+			
+			.site-branding{
+				flex: 1 1 auto;
+			}
+			.ast-mobile-menu-buttons{
+				padding-top: 0.8em;
+			}
+			&.header-main-layout-2{
+				.ast-mobile-menu-buttons{
+					padding-top: 0.8em;
+				}
+			}
+			&.header-main-layout-1{
+				.site-branding{
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.ast-header-custom-item-outside{
+		&.ast-header-break-point{
+			.ast-mobile-header-stack{
+				.ast-masthead-custom-menu-items{
+					padding: 0.8em 1em 0 1em;
+					text-align: center;
+					width: 100%;
+				}
+				&.header-main-layout-3{
+					.ast-mobile-menu-buttons,
+					.ast-masthead-custom-menu-items{
+						padding-top: 0.8em;
+					}
+				}
+			}	
 		}
 	}
 }

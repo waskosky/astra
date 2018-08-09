@@ -1,3 +1,7 @@
+jQuery(window).on("load", function() {
+	jQuery('html').addClass('background-colorpicker-ready');
+});
+
 wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend({
 
 	// When we're finished loading continue processing
@@ -28,23 +32,23 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 		// Color.
 		picker.wpColorPicker({
 			change: function() {
-				setTimeout( function() {
-					control.saveValue( 'background-color', picker.val() );
-				}, 100 );
+				if ( jQuery('html').hasClass('background-colorpicker-ready') ) {
+					setTimeout( function() {
+						control.saveValue( 'background-color', picker.val() );
+					}, 100 );
+				}
 			},
 
 			/**
 		     * @param {Event} event - standard jQuery event, produced by "Clear"
 		     * button.
 		     */
-		    clear: function (event) {
+		    clear: function (event)
+		    {
+		    	var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
 
-				var element = jQuery(event.target).siblings('label').first().find('.wp-color-picker');
-			
-				if ( element.length > 0 ) {
-				    setTimeout( function() {
-						control.saveValue( 'background-color', '' );
-					}, 100 );
+		        if (element) {
+					control.saveValue( 'background-color', '' );
 				}
 		    }
 		});

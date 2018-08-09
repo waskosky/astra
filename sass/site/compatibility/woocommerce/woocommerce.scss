@@ -304,7 +304,7 @@ p.demo_store,
 
 	/** 
 	 * Header layout 1
-	 * if no primary menu & no custom menu items
+	 * if no primary menu & no last items in menu
 	 */
 	 .header-main-layout-1 {
 	 	&.ast-no-menu-items {
@@ -322,7 +322,7 @@ p.demo_store,
 	 * Header layout 3
 	 */
 	 .header-main-layout-3 {
-		/* No primary menu & no custom menu items */
+		/* No primary menu & no last items in menu */
 		&.ast-no-menu-items {
     	 	.ast-site-header-cart {
     	 		flex: 1;
@@ -447,6 +447,7 @@ p.demo_store,
 
 			a {
 				border: none;
+				display: inline-block;
 			}
 		}
 	}
@@ -1025,12 +1026,6 @@ p.demo_store,
 			    opacity: .6;
 			    font-size: 11px;
 			    text-transform: uppercase;
-			}
-
-			.variations_button{
-				align-items: center;
-				display: flex;
-				flex-wrap: wrap;
 			}
 
 			.wc-no-matching-variations {
@@ -3960,4 +3955,40 @@ button.pswp__button--zoom:hover {
 .woocommerce-password-hint {
 	margin: 0.5em 0 0;
 	display: block;
+}
+
+.ast-safari-browser-less-than-11 {
+
+	&.ast-woocommerce-cart-menu {
+		.header-main-layout-2{
+			.main-header-container {
+	  			display: block
+	  		}
+	  	}
+
+	  	&.ast-header-custom-item-outside {
+	  		.header-main-layout-2 { 
+	  			.main-header-container {
+			  		text-align: center;
+			  	}
+			}
+			.ast-main-header-bar-alignment {
+				display: inline-block;
+			}
+			.ast-masthead-custom-menu-items {
+				display: inline-block;
+				float: right;
+			}
+		}
+	}
+
+	&.ast-woocommerce-cart-menu {
+		&.ast-header-break-point {
+			.header-main-layout-2{
+				.main-header-container {
+		  			display: flex;
+		  		}
+		  	}
+		}
+	}
 }

@@ -254,6 +254,15 @@ function astra_content_loop() {
 }
 
 /**
+ * Conten Page Loop.
+ *
+ * Called from page.php
+ */
+function astra_content_page_loop() {
+	do_action( 'astra_content_page_loop' );
+}
+
+/**
  * Content while after
  */
 function astra_content_while_after() {
@@ -462,4 +471,11 @@ function astra_primary_content_top() {
  */
 function astra_primary_content_bottom() {
 	do_action( 'astra_primary_content_bottom' );
+}
+
+/**
+ * 404 Page content template action.
+ */
+function astra_404_content_template() {
+	do_action( 'astra_404_content_template' );
 }

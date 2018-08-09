@@ -27,7 +27,6 @@ module.exports = function (grunt) {
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
-                                    '!customizer-controls.css',
                                     '!font-awesome.css',
                                     '!astra-fonts.css',
                                 ],
@@ -41,7 +40,6 @@ module.exports = function (grunt) {
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
-                                    '!customizer-controls.css',
                                     '!font-awesome.css',
                                     '!astra-fonts.css',
                                 ],
@@ -54,7 +52,6 @@ module.exports = function (grunt) {
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
-                                    '!customizer-controls.css',
                                     '!font-awesome.css',
                                     '!astra-fonts.css',
                                 ],
@@ -83,6 +80,7 @@ module.exports = function (grunt) {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
                             'inc/customizer/custom-controls/responsive/responsive.css': 'inc/customizer/custom-controls/responsive/responsive.scss',
                             'inc/customizer/custom-controls/divider/divider.css': 'inc/customizer/custom-controls/divider/divider.scss',
+                            'inc/customizer/custom-controls/heading/heading.css': 'inc/customizer/custom-controls/heading/heading.scss',
                             'inc/customizer/custom-controls/description/description.css': 'inc/customizer/custom-controls/description/description.scss',
                             'inc/customizer/custom-controls/radio-image/radio-image.css': 'inc/customizer/custom-controls/radio-image/radio-image.scss',
                             'inc/customizer/custom-controls/slider/slider.css': 'inc/customizer/custom-controls/slider/slider.scss',
@@ -162,9 +160,9 @@ module.exports = function (grunt) {
 	                    },
 	                    {
 		                    src: [
-		                        'assets/js/minified/flexibility.min.js',
 		                    	'assets/js/minified/navigation.min.js',
-		                    	'assets/js/minified/skip-link-focus-fix.min.js',
+                                'assets/js/minified/skip-link-focus-fix.min.js',
+                                'assets/js/minified/custom-events-polyfill.js'
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
 		                },
@@ -218,8 +216,12 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
 	                    },
                     	{
-                    		src: 'assets/css/unminified/compatibility/lifter-lms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/lifter-lms.min-rtl.css',
+                            src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
+                            dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
+                        },
+                        {
+                    		src: 'assets/css/unminified/compatibility/learndash-rtl.css',
+	                        dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
@@ -236,6 +238,10 @@ module.exports = function (grunt) {
                         {
                             src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css',
                             dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
+                            dest: 'assets/css/minified/compatibility/divi-builder.min-rtl.css',
                         },
                     ]
                 }
@@ -338,7 +344,6 @@ module.exports = function (grunt) {
                 },
                 dist: {
                     src: [
-                        'assets/js/unminified/flexibility.js',
                         'assets/js/unminified/navigation.js',
                         'assets/js/unminified/skip-link-focus-fix.js',
                     ],
