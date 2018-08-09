@@ -880,7 +880,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Conditionally iclude CSS Selectors with anchors in the typography settings.
 		 *
-		 * Historically Astra adds Colors/Typography CSS for headings and anchors for headings but this is a wrog approach annd causes irregularities with the expected output.
+		 * Historically Astra adds Colors/Typography CSS for headings and anchors for headings but this causes irregularities with the expected output.
 		 * For eg Link color does not work for the links inside headings.
 		 *
 		 * If filter `astra_include_achors_in_headings_typography` is set to true or Astra Option `include-headings-in-typography` is set to true, This will return selectors with anchors. Else This will return selectors without anchors.
