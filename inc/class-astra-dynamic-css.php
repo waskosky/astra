@@ -972,7 +972,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function anchors_in_css_selectors_heading() {
 
-			if ( true == astra_get_option( 'include-headings-in-typography', false ) &&
+			if ( true == astra_get_option( 'include-headings-in-typography' ) &&
 				true === apply_filters(
 					'astra_include_achors_in_headings_typography', true
 				) ) {
