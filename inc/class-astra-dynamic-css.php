@@ -982,7 +982,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				return false;
 			}
-			
+
 		}
 	}
 }
