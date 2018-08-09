@@ -965,15 +965,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Check if CSS selectors in Headings should use annchors.
+		 * Check if CSS selectors in Headings should use anchors.
 		 *
 		 * @since x.x.x
 		 * @return boolean true if it should include anchors, False if not.
 		 */
 		public static function anchors_in_css_selectors_heading() {
-			if ( true == astra_get_option( 'include-headings-in-typography', false ) ||
+
+			if ( true == astra_get_option( 'include-headings-in-typography', false ) &&
 				true === apply_filters(
-					'astra_include_achors_in_headings_typography', false
+					'astra_include_achors_in_headings_typography', true
 				) ) {
 
 					return true;
@@ -981,6 +982,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				return false;
 			}
+			
 		}
 	}
 }
