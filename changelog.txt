@@ -1,3 +1,6 @@
+v1.4.8
+- Fix: Correctly sanitize font-family settings in customizer. This fixes font-family settings not being saved.
+
 v1.4.7
 - Fix: Optimized the customizer dependency logic to fix the Slowness when changing the customizer options.
 - Fix: W3 Validation error due to empty border-radius value.
