@@ -759,9 +759,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options = get_option( 'astra-settings' );
 
 			// Set flag to use anchors CSS selectors in the CSS for headings.
-			$theme_options['include-headings-in-typography'] = true;
+			if ( ! isset( $theme_options['include-headings-in-typography'] )  ) {
+				$theme_options['include-headings-in-typography'] = true;
+				update_option( 'astra-settings', $theme_options );
+			}
 
-			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
