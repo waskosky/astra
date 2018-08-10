@@ -2967,10 +2967,6 @@ body {
   position: relative;
 }
 
-.header-main-layout-3 .ast-search-menu-icon form {
-  padding: 0 3em 0 0;
-}
-
 .header-main-layout-3 li .ast-search-icon {
   padding-right: .5em;
 }
@@ -2983,6 +2979,15 @@ body {
 .header-main-layout-3 li .ast-search-menu-icon {
   right: 1em;
   left: 0;
+}
+
+.header-main-layout-3 .main-header-bar .ast-search-menu-icon form {
+  padding: 0 3em 0 0;
+}
+
+.header-main-layout-3 .main-header-bar .ast-search-menu-icon.slide-search form {
+  right: -1em;
+  left: auto;
 }
 
 .ast-header-break-point .header-main-layout-1 .site-branding {
@@ -3071,6 +3076,16 @@ body {
 .ast-header-break-point .header-main-layout-2 .main-header-bar-navigation,
 .ast-header-break-point .header-main-layout-2 .widget {
   text-align: right;
+}
+
+.ast-header-break-point.ast-header-custom-item-outside .header-main-layout-3 .main-header-bar .ast-search-icon {
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.ast-header-break-point .header-main-layout-3 .main-header-bar .ast-search-menu-icon.slide-search form {
+  left: auto;
+  right: 0;
 }
 
 .ast-header-break-point .header-main-layout-3.ast-mobile-header-inline .ast-mobile-menu-buttons {
