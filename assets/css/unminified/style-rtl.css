@@ -2832,6 +2832,10 @@ body {
 /**
  * 1 - Header Layout 1
 */
+.header-main-layout-1.ast-primary-menu-disabled .ast-masthead-custom-menu-items {
+  text-align: left;
+}
+
 .header-main-layout-1 .main-header-bar-navigation {
   text-align: left;
 }
