@@ -229,14 +229,14 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 			// Site Description.
 			/**
-			 * Filters the site description output.
+			 * Filters the site description markup.
 			 *
 			 * @since x.x.x
 			 *
 			 * @param string the HTML output for Site Title.
 			 */
 			$site_tagline_markup = apply_filters(
-				'astra_site_description_output', sprintf(
+				'astra_site_description_markup', sprintf(
 					'<p class="site-description" itemprop="description">
 					%1$s
 				</p>',
