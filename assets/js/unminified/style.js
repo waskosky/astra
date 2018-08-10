@@ -407,62 +407,73 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 	}
+
+
 	/**
 	 * Navigation Keyboard Navigation.
 	 */
+
 	var container, button, menu, links, subMenus, i, len;
+	var header = document.getElementById('masthead');
+	var items = header.getElementsByClassName('astra-nav-menu');
 
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
-	}
+	Array.from(items).forEach(function (container) {
 
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
-
-	menu = container.getElementsByTagName( 'ul' )[0];
-
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
-
-	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
-	}
-
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
+		console.log( container );
+		// container = document.getElementById( 'site-navigation' );
+		if ( ! container ) {
+			return;
 		}
-	};
 
-	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
-	subMenus = menu.getElementsByTagName( 'ul' );
+		button = container.getElementsByTagName( 'button' )[0];
+		console.log( button );
+		if ( 'undefined' === typeof button ) {
+			return;
+		}
+
+		menu = container.getElementsByTagName( 'ul' )[0];
+		console.log( menu )
+		// Hide menu toggle button if menu is empty and return early.
+		if ( 'undefined' === typeof menu ) {
+			button.style.display = 'none';
+			return;
+		}
+
+		console.log( '----------------------------------------------------------------------------------------------------------' );
+		menu.setAttribute( 'aria-expanded', 'false' );
+		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+			menu.className += ' nav-menu';
+		}
+
+		button.onclick = function() {
+			if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+				container.className = container.className.replace( ' toggled', '' );
+				button.setAttribute( 'aria-expanded', 'false' );
+				menu.setAttribute( 'aria-expanded', 'false' );
+			} else {
+				container.className += ' toggled';
+				button.setAttribute( 'aria-expanded', 'true' );
+				menu.setAttribute( 'aria-expanded', 'true' );
+			}
+		};
+
+		// Get all the link elements within the menu.
+		links    = menu.getElementsByTagName( 'a' );
+		subMenus = menu.getElementsByTagName( 'ul' );
 
 
-	// Set menu items with submenus to aria-haspopup="true".
-	for ( i = 0, len = subMenus.length; i < len; i++ ) {
-		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
-	}
+		// Set menu items with submenus to aria-haspopup="true".
+		for ( i = 0, len = subMenus.length; i < len; i++ ) {
+			subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
+		}
 
-	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
-		links[i].addEventListener( 'click', toggleClose, true );
-	}
+		// Each time a menu link is focused or blurred, toggle focus.
+		for ( i = 0, len = links.length; i < len; i++ ) {
+			links[i].addEventListener( 'focus', toggleFocus, true );
+			links[i].addEventListener( 'blur', toggleFocus, true );
+			links[i].addEventListener( 'click', toggleClose, true );
+		}
+	});
 
 	/**
      * Close the Toggle Menu on Click on hash (#) link.
@@ -470,7 +481,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
      * @since 1.3.2
      * @return void
      */
-    function toggleClose( )
+    function toggleClose()
     {		
         var self = this || '',
             hash = '#';
@@ -479,18 +490,32 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
             var link = new String( self );
             var endsWithHash = link.endsWith(hash);
 
+            var container = self.closest( '.astra-nav-menu' );
+            console.log( container );
+            var containers = container.closest( '.astra-nav-menu-container' );
+            console.log( containers );
+
+            button = container.getElementsByTagName( 'button' )[0];
             if( link.indexOf( hash ) !== -1 ) {
 
                 if ( document.body.classList.contains('ast-header-break-point') && ! endsWithHash ) {
-	                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
-	                main_header_menu_toggle.classList.remove( 'toggled' );
+	                // var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
+	                console.log( button );
+	                // main_header_menu_toggle.classList.remove( 'toggled' );
+	                button.classList.remove( 'toggled' );
+	                // container.classList.remove( 'toggled' );
+	                containers.classList.remove( 'toggle-on' );
 
-	                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
-	                main_header_bar_navigation.classList.remove( 'toggle-on' );
+	                // var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
+	                // main_header_bar_navigation.classList.remove( 'toggle-on' );
 
-					main_header_bar_navigation.style.display = 'none';
+					menu = container.getElementsByTagName( 'ul' )[0];
+
+					menu.style.display = 'none';
 					
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
+					astraTriggerEvent( document.querySelector('body'), 'astraAboveMenuHashLinkClicked' );
+					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuHashLinkClicked' );					
                 }
             }
         }        
