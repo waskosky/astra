@@ -3575,6 +3575,7 @@ li.ast-masthead-custom-menu-items {
 li.ast-masthead-custom-menu-items a {
   padding-left: 0;
   padding-right: 0;
+  vertical-align: middle;
 }
 
 li.ast-masthead-custom-menu-items a,
