@@ -4979,6 +4979,10 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+.ast-page-builder-template.single-post .site-content > .ast-container {
+  max-width: 100%;
+}
+
 /*----------  Single Post Comment Form Stylesheet  ----------*/
 /**
  *  Comment Form Styles

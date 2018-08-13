@@ -1212,13 +1212,13 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
-				$post_thumb = get_the_post_thumbnail(
+				$post_thumb = apply_filters( 'astra_featured_image_markup', get_the_post_thumbnail(
 					get_the_ID(),
 					apply_filters( 'astra_post_thumbnail_default_size', 'large' ),
 					array(
 						'itemprop' => 'image',
 					)
-				);
+				) );
 
 				if ( '' != $post_thumb ) {
 					$output .= '<div class="post-thumb-img-content post-thumb">';
