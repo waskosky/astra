@@ -264,7 +264,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		}
 
 		/**
-		 * Remove theme post's default classes
+		 * Remove theme post's default classes when Elementor's template builder is activated.
 		 *
 		 * @param  array $classes Post Classes.
 		 * @return array
