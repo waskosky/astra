@@ -3,6 +3,7 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer    = require('autoprefixer');
     var flexibility     = require('postcss-flexibility');
+    const sass = require('node-sass');
 
     var pkgInfo = grunt.file.readJSON('package.json');
 
@@ -64,6 +65,7 @@ module.exports = function (grunt) {
 
             sass: {
                 options: {
+                    implementation: sass,
                     sourcemap: 'none',
                     outputStyle: 'expanded',
                     linefeed: 'lf',
