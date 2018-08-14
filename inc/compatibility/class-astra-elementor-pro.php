@@ -275,7 +275,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$result     = array_intersect( $classes, $post_class );
 
 			if ( count( $result ) > 0 ) {
-				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post', 'remove-featured-img-padding', 'ast-col-md-8', 'ast-col-md-6', 'ast-col-md-12', 'ast-featured-post', 'ast-separate-posts', 'remove-featured-img-padding' ) );
+				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post', 'remove-featured-img-padding', 'ast-col-md-8', 'ast-col-md-6', 'ast-col-md-12', 'ast-featured-post', 'ast-separate-posts' ) );
 			}
 			return $classes;
 		}
