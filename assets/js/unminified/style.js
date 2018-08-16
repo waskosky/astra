@@ -477,32 +477,32 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
      * @since 1.3.2
      * @return void
      */
-    function toggleClose()
-    {		
-        var self = this || '',
-            hash = '#';
+     function toggleClose() {		
+		var self = this || '',
+		 hash = '#';
 
-        if( self && ! self.classList.contains('astra-search-icon') ) {
-            var link = new String( self );
-            var endsWithHash = link.endsWith(hash);
+		if( self && ! self.classList.contains('astra-search-icon') ) {
 
-            var container = self.closest( '.astra-nav-menu' );
+			var link = new String( self );
+			var endsWithHash = link.endsWith(hash);
 
-            if( container.classList.contains( 'main-header-container' ) ) {
-            	var containers = container.querySelector( '.astra-nav-menu-container' );
-            } else {
-            	var containers = container.closest( '.astra-nav-menu-container' );
-            }
-            display = container.querySelector( '.astra-nav-menu-display' );
+			var container = self.closest( '.astra-nav-menu' );
 
-            button = container.getElementsByTagName( 'button' )[0];
-            if( link.indexOf( hash ) !== -1 ) {
+			if( container.classList.contains( 'main-header-container' ) ) {
+				var containers = container.querySelector( '.astra-nav-menu-container' );
+			} else {
+				var containers = container.closest( '.astra-nav-menu-container' );
+			}
+			display = container.querySelector( '.astra-nav-menu-display' );
 
-                if ( document.body.classList.contains('ast-header-break-point') && ! endsWithHash ) {
+			button = container.getElementsByTagName( 'button' )[0];
 
-                	// Close dropdown menu
+			if( link.indexOf( hash ) !== -1 ) {
+				if ( document.body.classList.contains('ast-header-break-point') && ! endsWithHash ) {
+
+					// Close dropdown menu
 					button.classList.remove( 'toggled' );
-	                containers.classList.remove( 'toggle-on' );
+				    containers.classList.remove( 'toggle-on' );
 					display.style.display = 'none';	
 
 					// Close full screen and flyout menu
@@ -511,10 +511,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuHashLinkClicked' );
 					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuDropdownHashLinkClicked' );
 					astraTriggerEvent( document.querySelector('body'), 'astraAboveMenuDropdownHashLinkClicked' );
-                }
-            }
-        }        
-    }
+				}
+			}
+		}        
+     }
 
 	/**
 	 * Sets or removes .focus class on an element.

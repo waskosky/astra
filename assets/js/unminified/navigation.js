@@ -419,27 +419,23 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	Array.from(items).forEach(function (container) {
 
-		console.log( container );
 		// container = document.getElementById( 'site-navigation' );
 		if ( ! container ) {
 			return;
 		}
 
 		button = container.getElementsByTagName( 'button' )[0];
-		console.log( button );
 		if ( 'undefined' === typeof button ) {
 			return;
 		}
 
 		menu = container.getElementsByTagName( 'ul' )[0];
-		console.log( menu )
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
 			button.style.display = 'none';
 			return;
 		}
 
-		console.log( '----------------------------------------------------------------------------------------------------------' );
 		menu.setAttribute( 'aria-expanded', 'false' );
 		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
 			menu.className += ' nav-menu';
@@ -481,47 +477,44 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
      * @since 1.3.2
      * @return void
      */
-    function toggleClose()
-    {		
-        var self = this || '',
-            hash = '#';
+     function toggleClose() {		
+		var self = this || '',
+		 hash = '#';
 
-        if( self && ! self.classList.contains('astra-search-icon') ) {
-            var link = new String( self );
-            var endsWithHash = link.endsWith(hash);
+		if( self && ! self.classList.contains('astra-search-icon') ) {
 
-            var container = self.closest( '.astra-nav-menu' );
-            console.log( container );
-            var containers = container.closest( '.astra-nav-menu-container' );
-            console.log( containers );
+			var link = new String( self );
+			var endsWithHash = link.endsWith(hash);
 
-            button = container.getElementsByTagName( 'button' )[0];
-            if( link.indexOf( hash ) !== -1 ) {
+			var container = self.closest( '.astra-nav-menu' );
 
-                if ( document.body.classList.contains('ast-header-break-point') && ! endsWithHash ) {
-	                // var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
-	                // console.log( button );
-	                // main_header_menu_toggle.classList.remove( 'toggled' );
-	                // button.classList.remove( 'toggled' );
-	                // container.classList.remove( 'toggled' );
-	                // containers.classList.remove( 'toggle-on' );
+			if( container.classList.contains( 'main-header-container' ) ) {
+				var containers = container.querySelector( '.astra-nav-menu-container' );
+			} else {
+				var containers = container.closest( '.astra-nav-menu-container' );
+			}
+			display = container.querySelector( '.astra-nav-menu-display' );
 
-	                // var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
-	                // main_header_bar_navigation.classList.remove( 'toggle-on' );
+			button = container.getElementsByTagName( 'button' )[0];
 
-					// menu = container.getElementsByTagName( 'ul' )[0];
+			if( link.indexOf( hash ) !== -1 ) {
+				if ( document.body.classList.contains('ast-header-break-point') && ! endsWithHash ) {
 
-					// menu.style.display = 'none';
-					
+					// Close dropdown menu
+					button.classList.remove( 'toggled' );
+				    containers.classList.remove( 'toggle-on' );
+					display.style.display = 'none';	
+
+					// Close full screen and flyout menu
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
 					astraTriggerEvent( document.querySelector('body'), 'astraAboveMenuHashLinkClicked' );
-					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuHashLinkClicked' );					
-					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuDropdownHashLinkClicked' );					
-					astraTriggerEvent( document.querySelector('body'), 'astraAboveMenuDropdownHashLinkClicked' );					
-                }
-            }
-        }        
-    }
+					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuHashLinkClicked' );
+					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuDropdownHashLinkClicked' );
+					astraTriggerEvent( document.querySelector('body'), 'astraAboveMenuDropdownHashLinkClicked' );
+				}
+			}
+		}        
+     }
 
 	/**
 	 * Sets or removes .focus class on an element.
