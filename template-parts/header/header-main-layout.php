@@ -14,6 +14,7 @@
  * @since       Astra 1.0.0
  */
 
+$is_menu_disabled = astra_get_option( 'disable-primary-nav' );
 ?>
 
 <div class="main-header-bar-wrap">
@@ -21,7 +22,7 @@
 		<?php astra_main_header_bar_top(); ?>
 		<div class="ast-container">
 
-			<div class="ast-flex main-header-container">
+			<div class="ast-flex main-header-container<?php echo ( $is_menu_disabled ) ? '' : ' astra-nav-menu'; ?>">
 				<?php astra_masthead_content(); ?>
 			</div><!-- Main Header Container -->
 		</div><!-- ast-row -->

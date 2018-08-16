@@ -500,22 +500,24 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
                 if ( document.body.classList.contains('ast-header-break-point') && ! endsWithHash ) {
 	                // var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
-	                console.log( button );
+	                // console.log( button );
 	                // main_header_menu_toggle.classList.remove( 'toggled' );
-	                button.classList.remove( 'toggled' );
+	                // button.classList.remove( 'toggled' );
 	                // container.classList.remove( 'toggled' );
-	                containers.classList.remove( 'toggle-on' );
+	                // containers.classList.remove( 'toggle-on' );
 
 	                // var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
 	                // main_header_bar_navigation.classList.remove( 'toggle-on' );
 
-					menu = container.getElementsByTagName( 'ul' )[0];
+					// menu = container.getElementsByTagName( 'ul' )[0];
 
-					menu.style.display = 'none';
+					// menu.style.display = 'none';
 					
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
 					astraTriggerEvent( document.querySelector('body'), 'astraAboveMenuHashLinkClicked' );
 					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuHashLinkClicked' );					
+					astraTriggerEvent( document.querySelector('body'), 'astraBelowMenuDropdownHashLinkClicked' );					
+					astraTriggerEvent( document.querySelector('body'), 'astraAboveMenuDropdownHashLinkClicked' );					
                 }
             }
         }        

@@ -605,7 +605,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 astra-nav-menu" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -617,7 +617,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'menu_id'         => 'primary-menu',
 				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
 				'container'       => 'div',
-				'container_class' => 'main-header-bar-navigation',
+				'container_class' => 'main-header-bar-navigation astra-nav-menu-container astra-nav-menu-display',
 				'items_wrap'      => $items_wrap,
 			);
 
@@ -629,7 +629,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				echo  '</div>';
 			} else {
 
-				echo '<div class="main-header-bar-navigation">';
+				echo '<div class="main-header-bar-navigation astra-nav-menu-container astra-nav-menu-display">';
 					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 						wp_page_menu( $fallback_menu_args );
 					echo  '</nav>';
