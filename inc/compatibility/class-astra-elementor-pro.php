@@ -271,7 +271,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @since  1.4.9
 		 */
 		function render_post_class( $classes ) {
-			$post_class = array( 'elementor-post elementor-grid-item', );
+			$post_class = array( 'elementor-post elementor-grid-item' );
 			$result     = array_intersect( $classes, $post_class );
 
 			if ( count( $result ) > 0 ) {
