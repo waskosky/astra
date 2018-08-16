@@ -330,11 +330,18 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 * @return mixed Search HTML structure created.
 	 */
 	function astra_get_search( $option = '' ) {
-
-		$search_html  = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'astra' ) . '</span></a></div>
-						<div class="ast-search-menu-icon slide-search" id="ast-search-form" >';
-		$search_html .= get_search_form( false );
-		$search_html .= '</div>';
+		ob_start();
+		?>
+		<div class="ast-search-menu-icon slide-search" id="ast-search-form">
+			<div class="ast-search-icon">
+				<a class="slide-search astra-search-icon" href="#">
+					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
+				</a>
+			</div>
+			<?php get_search_form(); ?>
+		</div>
+		<?php
+		$search_html = ob_get_clean();
 
 		return apply_filters( 'astra_get_search', $search_html, $option );
 	}
@@ -1258,11 +1265,13 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
-				$post_thumb = get_the_post_thumbnail(
-					get_the_ID(),
-					apply_filters( 'astra_post_thumbnail_default_size', 'large' ),
-					array(
-						'itemprop' => 'image',
+				$post_thumb = apply_filters(
+					'astra_featured_image_markup', get_the_post_thumbnail(
+						get_the_ID(),
+						apply_filters( 'astra_post_thumbnail_default_size', 'large' ),
+						array(
+							'itemprop' => 'image',
+						)
 					)
 				);
 

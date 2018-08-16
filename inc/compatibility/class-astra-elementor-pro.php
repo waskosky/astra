@@ -70,6 +70,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			add_action( 'astra_entry_content_404_page', array( $this, 'do_template_part_404' ), 0 );
 
+			add_filter( 'post_class', array( $this, 'render_post_class' ), 99 );
 			// Override post meta.
 			add_action( 'wp', array( $this, 'override_meta' ), 0 );
 		}
@@ -260,6 +261,23 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( $did_location ) {
 				remove_action( 'astra_footer', 'astra_footer_markup' );
 			}
+		}
+
+		/**
+		 * Remove theme post's default classes when Elementor's template builder is activated.
+		 *
+		 * @param  array $classes Post Classes.
+		 * @return array
+		 * @since  1.4.9
+		 */
+		function render_post_class( $classes ) {
+			$post_class = array( 'elementor-post elementor-grid-item' );
+			$result     = array_intersect( $classes, $post_class );
+
+			if ( count( $result ) > 0 ) {
+				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post', 'remove-featured-img-padding', 'ast-col-md-8', 'ast-col-md-6', 'ast-col-md-12', 'ast-featured-post', 'ast-separate-posts' ) );
+			}
+			return $classes;
 		}
 
 	}

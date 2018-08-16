@@ -44,7 +44,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 			$b   = hexdec( substr( $hex, 4, 2 ) );
 			$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
 
-			return 128 <= $hex ? '#000000' : '#ffffff';
+			return 128 <= $hex ? '#222222' : '#ffffff';
 		}
 	}
 }
