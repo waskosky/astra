@@ -3895,7 +3895,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
     -ms-flex-pack: center;
     justify-content: center;
   }
-  .ast-header-break-point .ast-mobile-header-stack .site-branding {
+  .ast-header-break-point .ast-mobile-header-stack .main-header-bar-wrap .site-branding {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     -moz-box-flex: 1;
