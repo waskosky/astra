@@ -275,48 +275,50 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$result     = array_intersect( $classes, $post_class );
 
 			if ( count( $result ) > 0 ) {
-				$classes = array_diff( $classes, array( 
-					//Astra common grid.
-					'ast-col-sm-12',
-					'ast-col-md-8',
-					'ast-col-md-6',
-					'ast-col-md-12',
+				$classes = array_diff(
+					$classes, array(
+						// Astra common grid.
+						'ast-col-sm-12',
+						'ast-col-md-8',
+						'ast-col-md-6',
+						'ast-col-md-12',
 
-					//Astra Blog / Single Post/
-					'ast-article-post',
-					'ast-article-single',
-					'ast-separate-posts',
-					'remove-featured-img-padding',
-					'ast-featured-post',
+						// Astra Blog / Single Post/
+						'ast-article-post',
+						'ast-article-single',
+						'ast-separate-posts',
+						'remove-featured-img-padding',
+						'ast-featured-post',
 
-					//Astra Woocommerce
-					'ast-product-gallery-layout-vertical',
-					'ast-product-gallery-layout-horizontal',
-					'ast-product-gallery-with-no-image',
+						// Astra Woocommerce
+						'ast-product-gallery-layout-vertical',
+						'ast-product-gallery-layout-horizontal',
+						'ast-product-gallery-with-no-image',
 
-					'ast-product-tabs-layout-vertical',
-					'ast-product-tabs-layout-horizontal',
+						'ast-product-tabs-layout-vertical',
+						'ast-product-tabs-layout-horizontal',
 
-					'ast-qv-disabled',
-					'ast-qv-on-image',
-					'ast-qv-on-image-click',
-					'ast-qv-after-summary',
+						'ast-qv-disabled',
+						'ast-qv-on-image',
+						'ast-qv-on-image-click',
+						'ast-qv-after-summary',
 
-					'astra-woo-hover-swap',
+						'astra-woo-hover-swap',
 
-					'box-shadow-0',
-					'box-shadow-0-hover',
-					'box-shadow-1',
-					'box-shadow-1-hover',
-					'box-shadow-2',
-					'box-shadow-2-hover',
-					'box-shadow-3',
-					'box-shadow-3-hover',
-					'box-shadow-4',
-					'box-shadow-4-hover',
-					'box-shadow-5',
-					'box-shadow-5-hover',
-				) );
+						'box-shadow-0',
+						'box-shadow-0-hover',
+						'box-shadow-1',
+						'box-shadow-1-hover',
+						'box-shadow-2',
+						'box-shadow-2-hover',
+						'box-shadow-3',
+						'box-shadow-3-hover',
+						'box-shadow-4',
+						'box-shadow-4-hover',
+						'box-shadow-5',
+						'box-shadow-5-hover',
+					)
+				);
 			}
 			return $classes;
 		}
