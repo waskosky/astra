@@ -129,6 +129,7 @@
 .ast-search-menu-icon {
 	
 	&.slide-search form {
+		backface-visibility: visible;
 		visibility: hidden;
 	    opacity: 0;
 	    transition: all .2s;
