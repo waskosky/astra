@@ -3549,6 +3549,10 @@ body {
 
 .ast-search-menu-icon .search-submit {
   display: none;
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  color: inherit;
 }
 
 .ast-search-menu-icon.ast-dropdown-active {

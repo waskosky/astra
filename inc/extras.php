@@ -338,7 +338,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
 				</a>
 			</div>
-			<?php get_search_form(); ?>
+			<?php astra_get_search_form(); ?>
 		</div>
 		<?php
 		$search_html = ob_get_clean();
@@ -346,6 +346,43 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 		return apply_filters( 'astra_get_search', $search_html, $option );
 	}
 }
+
+/**
+ * Search Form
+ */
+if ( ! function_exists( 'astra_get_custom_html' ) ) :
+	/**
+	 * Display search form.
+	 * 
+	 * @param bool $echo Default to echo and not return the form.
+	 * @return string|void String when $echo is false.
+	 */
+	function astra_get_search_form( $echo = true ) {
+
+		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+			<label>
+				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
+				<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) . '" value="' . get_search_query() . '" name="s" />
+			</label>
+			<button type="submit" class="search-submit" value="'.esc_html__( 'Search', 'astra' ).'"><i class="astra-search-icon"></i></button>
+		</form>';
+
+		/**
+		 * Filters the HTML output of the search form.
+		 *
+		 * @param string $form The search form HTML output.
+		 */
+		$result = apply_filters( 'astra_get_search_form', $form );
+
+		if ( null === $result )
+			$result = $form;
+
+		if ( $echo )
+			echo $result;
+		else
+			return $result;
+	}
+endif;
 
 /**
  * Get custom HTML added by user.
