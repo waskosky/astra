@@ -120,7 +120,11 @@
 	}
 }
 
-
+.ast-masthead-custom-menu-items .ast-dropdown-active .slide-search.astra-search-icon,
+.below-header-user-select .ast-dropdown-active .slide-search.astra-search-icon,
+.ast-above-header-section .user-select .ast-dropdown-active .slide-search.astra-search-icon {
+    color: #757575;
+}
 
 .ast-search-menu-icon {
 	
@@ -154,11 +158,6 @@
 	.astra-search-icon {
 		line-height: normal;
 
-		&:hover,
-		&:focus {
-			color: #3a3a3a;
-		}
-
 		&:focus {
 			outline: none;
 		}
@@ -173,7 +172,7 @@
 		color: inherit;
 		font-size: inherit;
 		width: 0;
-		color: #3a3a3a;
+		color: #757575;
 	}
 
 	.search-submit {
