@@ -353,7 +353,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 if ( ! function_exists( 'astra_get_custom_html' ) ) :
 	/**
 	 * Display search form.
-	 * 
+	 *
 	 * @param bool $echo Default to echo and not return the form.
 	 * @return string|void String when $echo is false.
 	 */
@@ -364,7 +364,7 @@ if ( ! function_exists( 'astra_get_custom_html' ) ) :
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
 				<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) . '" value="' . get_search_query() . '" name="s" />
 			</label>
-			<button type="submit" class="search-submit" value="'.esc_html__( 'Search', 'astra' ).'"><i class="astra-search-icon"></i></button>
+			<button type="submit" class="search-submit" value="' . esc_html__( 'Search', 'astra' ) . '"><i class="astra-search-icon"></i></button>
 		</form>';
 
 		/**
@@ -374,13 +374,15 @@ if ( ! function_exists( 'astra_get_custom_html' ) ) :
 		 */
 		$result = apply_filters( 'astra_get_search_form', $form );
 
-		if ( null === $result )
+		if ( null === $result ) {
 			$result = $form;
+		}
 
-		if ( $echo )
+		if ( $echo ) {
 			echo $result;
-		else
+		} else {
 			return $result;
+		}
 	}
 endif;
 
