@@ -350,7 +350,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 /**
  * Search Form
  */
-if ( ! function_exists( 'astra_get_custom_html' ) ) :
+if ( ! function_exists( 'astra_get_search_form' ) ) :
 	/**
 	 * Display search form.
 	 *
