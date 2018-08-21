@@ -3554,7 +3554,7 @@ body {
   background: none;
   border: none;
   font-size: 1.3em;
-  color: inherit;
+  color: #757575;
 }
 
 .ast-search-menu-icon.ast-dropdown-active {
