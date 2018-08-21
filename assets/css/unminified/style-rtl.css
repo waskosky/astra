@@ -3496,6 +3496,8 @@ body {
 }
 
 .ast-search-menu-icon.slide-search form {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: all .2s;
