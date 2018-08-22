@@ -338,7 +338,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
 				</a>
 			</div>
-			<?php get_search_form(); ?>
+			<?php astra_get_search_form(); ?>
 		</div>
 		<?php
 		$search_html = ob_get_clean();
