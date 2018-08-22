@@ -3517,6 +3517,7 @@ body {
 }
 
 .ast-search-menu-icon form {
+  border: 1px solid #e7e7e7;
   line-height: normal;
   padding: 0 3em 0 0;
   -webkit-border-radius: 2px;
