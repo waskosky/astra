@@ -283,14 +283,14 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 						'ast-col-md-6',
 						'ast-col-md-12',
 
-						// Astra Blog / Single Post/
+						// Astra Blog / Single Post.
 						'ast-article-post',
 						'ast-article-single',
 						'ast-separate-posts',
 						'remove-featured-img-padding',
 						'ast-featured-post',
 
-						// Astra Woocommerce
+						// Astra Woocommerce.
 						'ast-product-gallery-layout-vertical',
 						'ast-product-gallery-layout-horizontal',
 						'ast-product-gallery-with-no-image',
