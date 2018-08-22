@@ -404,10 +404,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-color'     => esc_attr( $btn_bg_hover_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
 				),
-				'.search-submit, .search-submit:hover, .search-submit:focus' => array(
-					'color'            => astra_get_foreground_color( $link_color ),
-					'background-color' => esc_attr( $link_color ),
-				),
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *'              => array(
