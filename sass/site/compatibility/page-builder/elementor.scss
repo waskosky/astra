@@ -25,3 +25,11 @@
 		}
 	}
 }
+// Add Default elementor styling to the post article when elementor prodct widget is used.
+.elementor-post {
+	&.elementor-grid-item{
+		&.hentry{
+			margin-bottom: 0;
+		}
+	}
+}
