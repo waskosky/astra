@@ -198,15 +198,16 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Mobile Header Breakpoint
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]',
-					'default'     => '',
-					'type'        => 'control',
-					'control'     => 'ast-slider',
-					'section'     => 'section-header',
-					'priority'    => 40,
-					'title'       => __( 'Menu Breakpoint', 'astra' ),
-					'suffix'      => '',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]',
+					'default'           => '',
+					'type'              => 'control',
+					'control'           => 'ast-slider',
+					'section'           => 'section-header',
+					'priority'          => 40,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Menu Breakpoint', 'astra' ),
+					'suffix'            => '',
+					'input_attrs'       => array(
 						'min'  => 100,
 						'step' => 1,
 						'max'  => 1921,
