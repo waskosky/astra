@@ -208,9 +208,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'title'             => __( 'Menu Breakpoint', 'astra' ),
 					'suffix'            => '',
 					'input_attrs'       => array(
-						'min'  => 100,
-						'step' => 1,
-						'max'  => 1921,
+						'min'  => 0,
+						'step' => 10,
+						'max'  => 6000,
 					),
 				),
 
@@ -398,7 +398,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 }
 
 
-new Astra_Header_Layout_Configs;
+new Astra_Header_Layout_Configs();
 
 
 
