@@ -655,6 +655,14 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
+			/**
+			 * Filter the classes(array) for Primary Menu (<ul>).
+			 *
+			 * @since  x.x.x
+			 * @var Array
+			 */
+			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
+
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
 				'theme_location' => 'primary',
@@ -662,7 +670,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
 
-				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
+				'before'         => '<ul class="' . esc_attr( implode( ' ', $primary_menu_classes ) ) . '">',
 				'after'          => '</ul>',
 			);
 
@@ -676,7 +684,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
+				'menu_class'      => esc_attr( implode( ' ', $primary_menu_classes ) ),
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => $items_wrap,
