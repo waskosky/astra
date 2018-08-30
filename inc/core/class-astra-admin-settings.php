@@ -223,7 +223,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			/**
 			 * Filters the Admin JavaScript handles added
 			 *
-			 * @since x.x.x
+			 * @since v1.4.9
 			 *
 			 * @param array array of the javascript handles.
 			 */
