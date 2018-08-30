@@ -107,7 +107,9 @@
 
 .submenu-with-border {
 	ul {
-		border-top: 1px solid $color-border-submenu;
+		border-width: 1px 0 0;
+		border-style: solid;
+		border-color: $color-border-submenu;
 
 		a {
 			border: 1px solid $color-border-submenu;
