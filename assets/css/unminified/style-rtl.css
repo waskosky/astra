@@ -2568,7 +2568,9 @@ body {
 }
 
 .submenu-with-border ul {
-  border-top: 1px solid #eaeaea;
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: #eaeaea;
 }
 
 .submenu-with-border ul a {
