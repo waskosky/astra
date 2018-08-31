@@ -1,3 +1,6 @@
+v1.5.0-beta.1 
+- Introducing Nav Menu from Astra Pro
+
 v1.4.9
 - Improvement: Search will not turn into search box on mobile devices. This will make search layouts usable on mobile devices as well.
 - Fix: Elementor Pro's WooCommerce grid adding not displayed in full width because of Astra's WooCommerce options.
