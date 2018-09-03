@@ -714,7 +714,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'nav-menu'              => array(
 						'title'     => __( 'Nav Menu', 'astra' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/how-to-white-label-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/nav-menu-addon/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
