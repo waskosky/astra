@@ -126,6 +126,10 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-beaver-themer.php';
 }
 
+// Load widgets
+require_once ASTRA_THEME_DIR . 'inc/widgets/class-astra-ext-widgets.php';
+
+
 /**
  * Load deprecated functions
  */
