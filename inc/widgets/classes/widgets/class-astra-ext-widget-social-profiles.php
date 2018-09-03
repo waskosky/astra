@@ -149,7 +149,6 @@ if ( ! class_exists( 'Astra_Ext_Widget_Social_Profiles' ) ) :
 		/**
 		 * Dynamic CSS
 		 *
-		 * @param  string $dynamic_css Dynamic CSS.
 		 * @return string              Dynamic CSS.
 		 */
 		function get_dynamic_css() {
@@ -198,7 +197,7 @@ if ( ! class_exists( 'Astra_Ext_Widget_Social_Profiles' ) ) :
 					$dynamic_css .= $dynamic_css . $new_color_output;
 				}
 
-				$css_output = array(
+				$css_output  = array(
 					'.astra-widget-social-profiles-inner li .icon' => array(
 						'color' => esc_attr( $icon_color ),
 					),
@@ -233,8 +232,8 @@ if ( ! class_exists( 'Astra_Ext_Widget_Social_Profiles' ) ) :
 						'font-size' => esc_attr( $icon_width ) . 'px',
 					),
 				);
-				$css_output = astra_parse_css( $css_output );
-				$dynamic_css =  $dynamic_css . $css_output;
+				$css_output  = astra_parse_css( $css_output );
+				$dynamic_css = $dynamic_css . $css_output;
 			}
 
 			return $dynamic_css;

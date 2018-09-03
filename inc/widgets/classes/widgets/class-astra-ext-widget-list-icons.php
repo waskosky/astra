@@ -181,7 +181,6 @@ if ( ! class_exists( 'Astra_Ext_Widget_List_Icons' ) ) :
 							<li>
 								<div class="link">
 									<a href="<?php echo esc_url( $list['link'] ); ?>" target="<?php echo esc_attr( $target ); ?>" rel="<?php echo esc_attr( $rel ); ?>">
-										
 									<?php if ( 'icon' === $list['imageoricon'] ) { ?>
 										<div class="icon">
 											<span class="<?php echo esc_html( $list['icon'] ); ?>"></span>
@@ -329,7 +328,7 @@ if ( ! class_exists( 'Astra_Ext_Widget_List_Icons' ) ) :
 		function get_dynamic_css() {
 
 			$dynamic_css = '';
-			
+
 			$instances = get_option( 'widget_' . $this->id_base );
 
 			if ( array_key_exists( $this->number, $instances ) ) {

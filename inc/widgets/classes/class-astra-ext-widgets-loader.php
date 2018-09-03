@@ -48,8 +48,8 @@ if ( ! class_exists( 'Astra_Ext_Widgets_Loader' ) ) {
 			add_action( 'widgets_init', array( $this, 'register_list_icons_widgets' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts_backend_and_frontend') );
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_backend_and_frontend') );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts_backend_and_frontend' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_backend_and_frontend' ) );
 
 		}
 
