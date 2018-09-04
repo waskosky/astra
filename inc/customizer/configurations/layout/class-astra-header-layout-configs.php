@@ -189,6 +189,11 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-header',
+					'required' => array(
+						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+						'!=',
+						true,
+					),
 					'priority' => 34,
 					'title'    => __( 'Menu Animation', 'astra' ),
 					'settings' => array(),
@@ -203,6 +208,11 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-header',
+					'required' => array(
+						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+						'!=',
+						true,
+					),
 					'priority' => 34,
 					'title'    => __( 'Submenu Container Animation', 'astra' ),
 					'choices'  => array(
