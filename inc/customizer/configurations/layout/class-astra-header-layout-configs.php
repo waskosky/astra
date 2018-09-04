@@ -194,7 +194,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'settings' => array(),
 				),
 
-
 				/**
 				 * Option: Submenu Container Animation
 				 */
