@@ -173,11 +173,54 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-header',
-					'priority' => 35,
+					'priority' => 30,
 					'title'    => __( 'Header Width', 'astra' ),
 					'choices'  => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Mobile Menu Label Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-animation]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-header',
+					'required' => array(
+						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+						'!=',
+						true,
+					),
+					'priority' => 34,
+					'title'    => __( 'Menu Animation', 'astra' ),
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Submenu Container Animation
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-submenu-container-animation]',
+					'default'  => astra_get_option( 'header-main-submenu-container-animation' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-header',
+					'required' => array(
+						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+						'!=',
+						true,
+					),
+					'priority' => 34,
+					'title'    => __( 'Submenu Container Animation', 'astra' ),
+					'choices'  => array(
+						''           => __( 'Default', 'astra' ),
+						'slide-down' => __( 'Slide Down', 'astra' ),
+						'slide-up'   => __( 'Slide Up', 'astra' ),
+						'fade'       => __( 'Fade', 'astra' ),
+						'scale'      => __( 'Scale', 'astra' ),
 					),
 				),
 

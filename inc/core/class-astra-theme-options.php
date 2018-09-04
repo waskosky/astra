@@ -166,6 +166,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
+					'header-main-submenu-container-animation' => '',
 					// Mobile Header.
 					'mobile-header-breakpoint'         => '',
 					'mobile-header-logo'               => '',
