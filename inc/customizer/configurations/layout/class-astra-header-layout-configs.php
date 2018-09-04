@@ -131,6 +131,26 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Submenu Container Animation
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-submenu-container-animation]',
+					'default'  => astra_get_option( 'header-main-submenu-container-animation' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-header',
+					'priority' => 35,
+					'title'    => __( 'Submenu Container Animation', 'astra' ),
+					'choices'  => array(
+						''           => __( 'Default', 'astra' ),
+						'slide-down' => __( 'Slide Down', 'astra' ),
+						'slide-up'   => __( 'Slide Up', 'astra' ),
+						'fade'       => __( 'Fade', 'astra' ),
+						'scale'      => __( 'Scale', 'astra' ),
+					),
+				),
+
+				/**
 				 * Option: Bottom Border Size
 				 */
 				array(

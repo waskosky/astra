@@ -6259,3 +6259,103 @@ input[type="color"]::-webkit-color-swatch {
   -ms-flex-item-align: stretch;
   align-self: stretch;
 }
+/* Submenu container animation */
+
+/* Slide down for normal menu */
+.ast-primary-submenu-animation-slide-down .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: transform 300ms;
+}
+
+.ast-primary-submenu-animation-slide-down .main-header-menu > li > ul {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5em);
+    transition: transform 300ms;
+}
+
+/* Slide down for mega menu */
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast-mega-menu-enabled .astra-megamenu {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    transform: translateY(-0.5em);
+    transition: transform 300ms;
+}
+
+/* Fade for normal menu */
+.ast-primary-submenu-animation-fade .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 300ms ease-in-out;
+}
+
+.ast-primary-submenu-animation-fade .main-header-menu > li > ul {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms ease-out;
+}
+
+/* Fade for mega menu */
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-menu-enabled .astra-megamenu {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    transition: opacity 300ms ease-out;
+}
+
+/* Slide up for normal menu */
+.ast-primary-submenu-animation-slide-up .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: transform 300ms;
+}
+
+.ast-primary-submenu-animation-slide-up .main-header-menu > li > ul {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5em);
+    transition: transform 300ms;
+}
+
+/* Slide up for mega menu */
+
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-mega-menu-enabled .astra-megamenu {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    transform: translateY(0.5em);
+    transition: transform 300ms;
+}
+
+
+/* Scale for normal menu */
+.ast-primary-submenu-animation-scale .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-scale .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: transform 300ms;
+}
+
+.ast-primary-submenu-animation-scale .main-header-menu > li > ul {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.5);
+    transition: transform 300ms;
+}
+
+/* Scale for mega menu */
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-scale .ast-mega-menu-enabled .astra-megamenu {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    transform: scale(0.5);
+    transition: transform 300ms;
+}

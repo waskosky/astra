@@ -828,6 +828,11 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
+		$submenu_container_animation   = astra_get_option( 'header-main-submenu-container-animation' );
+
+		if ( '' !== $submenu_container_animation ) {
+			$classes[] = 'ast-primary-submenu-animation-' . $submenu_container_animation;
+		}
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
