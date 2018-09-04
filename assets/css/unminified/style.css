@@ -6259,11 +6259,12 @@ input[type="color"]::-webkit-color-swatch {
   -ms-flex-item-align: stretch;
   align-self: stretch;
 }
+
 /* Submenu container animation */
 
 /* Slide down for normal menu */
-.ast-primary-submenu-animation-slide-down .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+.ast-primary-submenu-animation-slide-down .main-header-menu li:hover > ul, .ast-primary-submenu-animation-slide-down .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -6278,7 +6279,7 @@ body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast
 }
 
 /* Slide down for mega menu */
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast-mega-menu-enabled .astra-megamenu {
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast-mega-menu-enabled.main-header-menu .astra-megamenu {
     opacity: 0;
     visibility: hidden;
     display: flex;
@@ -6287,8 +6288,8 @@ body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-down .ast
 }
 
 /* Fade for normal menu */
-.ast-primary-submenu-animation-fade .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+.ast-primary-submenu-animation-fade .main-header-menu li:hover > ul, .ast-primary-submenu-animation-fade .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu {
     opacity: 1;
     visibility: visible;
     transition: opacity 300ms ease-in-out;
@@ -6301,7 +6302,7 @@ body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-
 }
 
 /* Fade for mega menu */
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-menu-enabled .astra-megamenu {
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-menu-enabled.main-header-menu .astra-megamenu {
     opacity: 0;
     visibility: hidden;
     display: flex;
@@ -6309,8 +6310,8 @@ body:not(.ast-header-break-point) .ast-primary-submenu-animation-fade .ast-mega-
 }
 
 /* Slide up for normal menu */
-.ast-primary-submenu-animation-slide-up .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+.ast-primary-submenu-animation-slide-up .main-header-menu li:hover > ul, .ast-primary-submenu-animation-slide-up .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -6326,7 +6327,7 @@ body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-m
 
 /* Slide up for mega menu */
 
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-mega-menu-enabled .astra-megamenu {
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-mega-menu-enabled.main-header-menu .astra-megamenu {
     opacity: 0;
     visibility: hidden;
     display: flex;
@@ -6336,8 +6337,8 @@ body:not(.ast-header-break-point) .ast-primary-submenu-animation-slide-up .ast-m
 
 
 /* Scale for normal menu */
-.ast-primary-submenu-animation-scale .main-header-menu li:hover > ul, .main-header-menu li.focus > ul,
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-scale .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-megamenu {
+.ast-primary-submenu-animation-scale .main-header-menu li:hover > ul, .ast-primary-submenu-animation-scale .main-header-menu li.focus > ul,
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-scale .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
@@ -6352,7 +6353,7 @@ body:not(.ast-header-break-point) .ast-primary-submenu-animation-scale .ast-mega
 }
 
 /* Scale for mega menu */
-body:not(.ast-header-break-point) .ast-primary-submenu-animation-scale .ast-mega-menu-enabled .astra-megamenu {
+body:not(.ast-header-break-point) .ast-primary-submenu-animation-scale .ast-mega-menu-enabled.main-header-menu .astra-megamenu {
     opacity: 0;
     visibility: hidden;
     display: flex;
