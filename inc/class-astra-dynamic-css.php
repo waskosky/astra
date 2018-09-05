@@ -161,6 +161,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$menu_btn_color = astra_get_foreground_color( $btn_style_color );
 			}
 
+			// Submenu Container Animation.
+			$submenu_container_animation = astra_get_option( 'header-main-submenu-container-animation' );
+
 			$css_output = array();
 			// Body Font Family.
 			$body_font_family = astra_body_font_family();
@@ -480,6 +483,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
+
+			// Submenu container animation.
+			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
+				$animation_output = self::get_submenu_container_animation_css( $submenu_container_animation );
+				$parse_css       .= $animation_output;
+			}
 
 			// Foreground color.
 			if ( ! empty( $footer_adv_link_color ) ) {
@@ -979,6 +988,88 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				return false;
 			}
 
+		}
+
+		/**
+		 * Get submenu container animation.
+		 *
+		 * @since 1.4.10
+		 * @param String $submenu_container_animation Animation name.
+		 *
+		 * @return array $css Animation css.
+		 */
+		public static function get_submenu_container_animation_css( $submenu_container_animation ) {
+
+			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
+				$animation_output = array(
+					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li.focus > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu' => array(
+						'opacity'    => '1',
+						'visibility' => 'visible',
+					),
+					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu > li > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => array(
+						'opacity'    => '0',
+						'visibility' => 'hidden',
+					),
+					'body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => array(
+						'display' => 'flex',
+					),
+				);
+				$animation_output = astra_parse_css( $animation_output );
+
+				if ( 'slide-up' === $submenu_container_animation ) {
+					$slide_up_animation = array(
+						'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li.focus > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu' => array(
+							'transform'  => 'translateY(0)',
+							'transition' => 'transform 300ms',
+						),
+						'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu > li > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => array(
+							'transition' => 'transform 300ms',
+							'transform'  => 'translateY(0.5em)',
+						),
+					);
+					$animation_output  .= astra_parse_css( $slide_up_animation );
+
+				}
+
+				if ( 'slide-down' === $submenu_container_animation ) {
+					$slide_up_animation = array(
+						'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li.focus > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu' => array(
+							'transform'  => 'translateY(0)',
+							'transition' => 'transform 300ms',
+						),
+						'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu > li > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => array(
+							'transform'  => 'translateY(-0.5em)',
+							'transition' => 'transform 300ms',
+						),
+					);
+					$animation_output  .= astra_parse_css( $slide_up_animation );
+				}
+
+				if ( 'fade' === $submenu_container_animation ) {
+					$slide_up_animation = array(
+						'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li.focus > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu > li > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => array(
+							'transition' => 'opacity 300ms ease-out',
+						),
+					);
+					$animation_output  .= astra_parse_css( $slide_up_animation );
+				}
+
+				if ( 'scale' === $submenu_container_animation ) {
+					$slide_up_animation = array(
+						'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li.focus > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu' => array(
+							'transform'  => 'scale(1)',
+							'transition' => 'transform 300ms',
+						),
+						'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu > li > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => array(
+							'transform'  => 'scale(0.5)',
+							'transition' => 'transform 300ms',
+						),
+					);
+					$animation_output  .= astra_parse_css( $slide_up_animation );
+
+				}
+			}
+			return $animation_output;
 		}
 	}
 }
