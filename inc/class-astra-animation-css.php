@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 					'normal' => array(
 						'opacity'    => '0',
 						'visibility' => 'hidden',
-						'transform'  => 'translateY(0.5em)',
+						'transform'  => 'translateY(-0.5em)',
 						'transition' => 'transform 300ms',
 					),
 					'hover'  => array(
