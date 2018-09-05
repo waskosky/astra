@@ -487,9 +487,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Submenu container animation.
 			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
 				$animation_output = array(
-					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul.astra-megamenu ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li.focus > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu' => Astra_Animation_CSS::get_hover_animation_css( $submenu_container_animation ),
+					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul.astra-megamenu ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li.focus > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu' => astra_get_animation( $submenu_container_animation, 'hover' ),
 
-					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => Astra_Animation_CSS::get_normal_animation_css( $submenu_container_animation ),
+					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul, body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => astra_get_animation( $submenu_container_animation, 'normal' ),
 					'body:not(.ast-header-break-point) .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu' => array(
 						'display' => 'flex',
 					),

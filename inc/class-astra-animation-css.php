@@ -7,7 +7,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
- * @since       Astra 1.5.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,162 +25,87 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 	class Astra_Animation_CSS {
 
 		/**
-		 * Member Variable
+		 *  CSS Aniamtion Properties.
 		 *
-		 * @var object instance
+		 * @since x.x.x
 		 */
-		private static $instance;
-
-		/**
-		 *  Initiator
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
-			}
-			return self::$instance;
-		}
-
-		/**
-		 * Add animation.
-		 *
-		 * @since 1.5.0
-		 * @param String $submenu_container_animation Animation name.
-		 *
-		 * @return array $css Animation css.
-		 */
-		public static function get_normal_animation( $submenu_container_animation ) {
-
-			$css_output = '';
-
-			switch ( $submenu_container_animation ) {
-				case 'slide-up':
-					$css_output = array(
+		public static function animations() {
+			return array(
+				'slide-up'   => array(
+					'normal' => array(
 						'opacity'    => '0',
 						'visibility' => 'hidden',
 						'transform'  => 'translateY(0.5em)',
 						'transition' => 'transform 300ms',
-					);
-					break;
-				case 'slide-down':
-					$css_output = array(
+					),
+					'hover'  => array(
+						'opacity'    => '1',
+						'visibility' => 'visible',
+						'transform'  => 'translateY(0)',
+						'transition' => 'transform 300ms',
+					),
+				),
+				'slide-down' => array(
+					'normal' => array(
 						'opacity'    => '0',
 						'visibility' => 'hidden',
 						'transform'  => 'translateY(-0.5em)',
 						'transition' => 'transform 300ms',
-					);
-					break;
-				case 'fade':
-					$css_output = array(
+					),
+					'hover'  => array(
+						'opacity'    => '1',
+						'visibility' => 'visible',
+						'transform'  => 'translateY(0)',
+						'transition' => 'transform 300ms',
+					),
+				),
+				'fade'       => array(
+					'normal' => array(
 						'opacity'    => '0',
 						'visibility' => 'hidden',
 						'transition' => 'opacity 300ms',
-					);
-					break;
-				case 'scale':
-					$css_output = array(
+					),
+					'hover'  => array(
+						'opacity'    => '1',
+						'visibility' => 'visible',
+						'transition' => 'opacity 300ms',
+					),
+				),
+				'scale'      => array(
+					'normal' => array(
 						'opacity'    => '0',
 						'visibility' => 'hidden',
 						'transform'  => 'scale(0.5)',
 						'transition' => 'transform 300ms',
-					);
-					break;
-
-				default:
-					break;
-			}
-
-			return $css_output;
-		}
-
-		/**
-		 * Add animation.
-		 *
-		 * @since 1.5.0
-		 * @param String $submenu_container_animation Animation name.
-		 *
-		 * @return array $css Animation css.
-		 */
-		public static function get_normal_animation_css( $submenu_container_animation ) {
-
-			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
-				$output = self::get_normal_animation( $submenu_container_animation );
-			}
-			return $output;
-		}
-
-		/**
-		 * Get submenu container animation.
-		 *
-		 * @since 1.5.0
-		 * @param String $submenu_container_animation Animation name.
-		 *
-		 * @return array $css Animation css.
-		 */
-		public static function get_hover_animation( $submenu_container_animation ) {
-
-			$css_output = '';
-
-			switch ( $submenu_container_animation ) {
-
-				case 'slide-up':
-					$css_output = array(
-						'opacity'    => '1',
-						'visibility' => 'visible',
-						'transform'  => 'translateY(0)',
-						'transition' => 'transform 300ms',
-					);
-					break;
-				case 'slide-down':
-					$css_output = array(
-						'opacity'    => '1',
-						'visibility' => 'visible',
-						'transform'  => 'translateY(0)',
-						'transition' => 'transform 300ms',
-					);
-					break;
-				case 'fade':
-					$css_output = array(
-						'opacity'    => '1',
-						'visibility' => 'visible',
-						'transition' => 'opacity 300ms',
-					);
-					break;
-				case 'scale':
-					$css_output = array(
+					),
+					'hover'  => array(
 						'opacity'    => '1',
 						'visibility' => 'visible',
 						'transform'  => 'scale(1)',
 						'transition' => 'transform 300ms',
-					);
-					break;
-				default:
-					break;
-			}
-
-			return $css_output;
+					),
+				),
+			);
 		}
 
 		/**
-		 * Get submenu container animation.
+		 * Get animation properties.
 		 *
-		 * @since 1.5.0
-		 * @param String $submenu_container_animation Animation name.
+		 * @since x.x.x
+		 * @param String $animation Animation name.
+		 * @param String $state Hover or Normal state for animation.
 		 *
-		 * @return array $css Animation css.
+		 * @return Array Animation CSS properties if the Animation exists else returns an empty array.
 		 */
-		public static function get_hover_animation_css( $submenu_container_animation ) {
+		public static function get_animation_prop( $animation, $state ) {
+			$animations = self::animations();
 
-			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
-				$output = self::get_hover_animation( $submenu_container_animation );
+			if ( isset( $animations[ $animation ] ) && isset( $animations[ $animation ][ $state ] ) ) {
+				return $animations[ $animation ][ $state ];
 			}
-			return $output;
+
+			return array();
 		}
 
 	}
 }
-
-/**
- *  Kicking this off by calling 'get_instance()' method
- */
-Astra_Animation_CSS::get_instance();
