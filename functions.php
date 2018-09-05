@@ -41,6 +41,7 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
+require_once ASTRA_THEME_DIR . 'inc/class-astra-animation-css.php';
 
 /**
  * Custom template tags for this theme.
