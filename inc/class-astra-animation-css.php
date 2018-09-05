@@ -7,7 +7,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        http://wpastra.com/
- * @since       Astra 1.5.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,7 +25,9 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 	class Astra_Animation_CSS {
 
 		/**
-		 *  Initiator
+		 *  CSS Aniamtion Properties.
+		 * 
+		 * @since x.x.x
 		 */
 		public static function animations() {
 			return array(
