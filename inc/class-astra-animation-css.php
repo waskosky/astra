@@ -86,6 +86,15 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 			);
 		}
 
+		/**
+		 * Get animation properties.
+		 *
+		 * @since x.x.x
+		 * @param String $animation Animation name.
+		 * @param String $state Hover or Normal state for animation.
+		 *
+		 * @return Array Animation CSS properties if the Animation exists else returns an empty array.
+		 */
 		public static function get_animation_prop( $animation, $state ) {
 			$animations = self::animations();
 
