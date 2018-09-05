@@ -26,7 +26,7 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 
 		/**
 		 *  CSS Aniamtion Properties.
-		 * 
+		 *
 		 * @since x.x.x
 		 */
 		public static function animations() {
