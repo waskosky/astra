@@ -1583,3 +1583,25 @@ if ( ! function_exists( 'astar' ) ) :
 	}
 
 endif;
+
+if ( ! function_exists( 'astra_get_animation' ) ) :
+
+	/**
+	 * Get Animation properties as array.
+	 * CSS Aniamtion properties retreived as array.
+	 *
+	 * @since x.x.x
+	 * @param String $animation Animation name.
+	 * @param String $state Hover or Normal state for animation.
+	 *
+	 * @return Array Animation CSS properties if the Animation exists else returns an empty array.
+	 */
+	function astra_get_animation( $animation, $state ) {
+		if ( ! is_callable( 'Astra_Animation_CSS::get_animation_prop' ) ) {
+			return array();
+		}
+
+		return Astra_Animation_CSS::get_animation_prop( $animation, $state );
+	}
+
+endif;
