@@ -106,7 +106,7 @@
 }
 
 .submenu-with-border {
-	ul {
+	.sub-menu {
 		border-width: 1px 0 0;
 		border-style: solid;
 		border-color: $color-border-submenu;
@@ -116,7 +116,7 @@
 			border-top: 0;
 		}
 
-		ul{
+		.sub-menu{
 			top: -1px;
 		}
 	}
@@ -194,7 +194,7 @@
 	}
 
 	.submenu-with-border {
-		ul {
+		.sub-menu {
 			border: 0;
 
 			a {
