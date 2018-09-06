@@ -3995,10 +3995,12 @@ button.pswp__button--zoom:hover {
 }
 
 
-.main-header-menu {
-	.products {
-		width: auto;
-		position: static;
-		background: inherit;
+.site-header{
+	.woocommerce{
+		.products{
+			width: auto;
+			position: static;
+			background: inherit;
+		}
 	}
 }

@@ -4686,7 +4686,7 @@ button.pswp__button--zoom:hover {
   display: flex;
 }
 
-.main-header-menu .products {
+.site-header .woocommerce .products {
   width: auto;
   position: static;
   background: inherit;

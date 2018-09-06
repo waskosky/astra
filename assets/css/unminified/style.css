@@ -2567,18 +2567,18 @@ body {
   top: 0px;
 }
 
-.submenu-with-border ul {
+.submenu-with-border .sub-menu {
   border-width: 1px 0 0;
   border-style: solid;
   border-color: #eaeaea;
 }
 
-.submenu-with-border ul a {
+.submenu-with-border .sub-menu a {
   border: 1px solid #eaeaea;
   border-top: 0;
 }
 
-.submenu-with-border ul ul {
+.submenu-with-border .sub-menu .sub-menu {
   top: -1px;
 }
 
@@ -2655,11 +2655,11 @@ body {
   left: 0;
 }
 
-.ast-header-break-point .submenu-with-border ul {
+.ast-header-break-point .submenu-with-border .sub-menu {
   border: 0;
 }
 
-.ast-header-break-point .submenu-with-border ul a {
+.ast-header-break-point .submenu-with-border .sub-menu a {
   border: 0;
 }
 
