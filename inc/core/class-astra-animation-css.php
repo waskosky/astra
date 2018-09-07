@@ -33,30 +33,38 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 			return array(
 				'slide-up'   => array(
 					'normal' => array(
-						'opacity'    => '0',
-						'visibility' => 'hidden',
+						'opacity'           => '0',
+						'visibility'        => 'hidden',
+						'-webkit-transform' => 'translateY(0.5em)'
+						'-ms-transform' => 'translateY(0.5em)'
 						'transform'  => 'translateY(0.5em)',
-						'transition' => 'visibility .2s ease,transform .2s ease',
+						'transition'        => 'visibility .2s ease,transform .2s ease',
 					),
 					'hover'  => array(
-						'opacity'    => '1',
-						'visibility' => 'visible',
+						'opacity'           => '1',
+						'visibility'        => 'visible',
+						'-webkit-transform' => 'translateY(0)'
+						'-ms-transform' => 'translateY(0)'
 						'transform'  => 'translateY(0)',
-						'transition' => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
+						'transition'        => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
 					),
 				),
 				'slide-down' => array(
 					'normal' => array(
-						'opacity'    => '0',
-						'visibility' => 'hidden',
+						'opacity'           => '0',
+						'visibility'        => 'hidden',
+						'-webkit-transform' => 'translateY(-0.5em)'
+						'-ms-transform' => 'translateY(-0.5em)'
 						'transform'  => 'translateY(-0.5em)',
-						'transition' => 'visibility .2s ease,transform .2s ease',
+						'transition'        => 'visibility .2s ease,transform .2s ease',
 					),
 					'hover'  => array(
-						'opacity'    => '1',
-						'visibility' => 'visible',
+						'opacity'           => '1',
+						'visibility'        => 'visible',
+						'-webkit-transform' => 'translateY(0)'
+						'-ms-transform' => 'translateY(0)'
 						'transform'  => 'translateY(0)',
-						'transition' => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
+						'transition'        => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
 					),
 				),
 				'fade'       => array(
@@ -73,16 +81,20 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 				),
 				'scale'      => array(
 					'normal' => array(
-						'opacity'    => '0',
-						'visibility' => 'hidden',
+						'opacity'           => '0',
+						'visibility'        => 'hidden',
+						'-webkit-transform' => 'scale(0.5, 0.5)'
+						'-ms-transform' => 'scale(0.5, 0.5)'
 						'transform'  => 'scale(0.5, 0.5)',
-						'transition' => 'visibility .3s ease,transform .3s ease',
+						'transition'        => 'visibility .3s ease,transform .3s ease',
 					),
 					'hover'  => array(
-						'opacity'    => '1',
-						'visibility' => 'visible',
+						'opacity'           => '1',
+						'visibility'        => 'visible',
+						'-webkit-transform' => 'scale(1, 1)'
+						'-ms-transform' => 'scale(1, 1)'
 						'transform'  => 'scale(1, 1)',
-						'transition' => 'opacity .3s ease,visibility .3s ease,transform .3s ease',
+						'transition'        => 'opacity .3s ease,visibility .3s ease,transform .3s ease',
 					),
 				),
 			);
