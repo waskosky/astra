@@ -479,6 +479,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
 
+				// Box Shadow.
+				'.main-header-bar .main-header-bar-navigation .sub-menu, .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
+					'box-shadow' => '0 5px 20px rgba(0,0,0,0.06)',
+				),
+				'.main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
+					'box-shadow' => 'none',
+				),
+
 			);
 
 			/* Parse CSS from array() */
