@@ -36,13 +36,13 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 						'opacity'    => '0',
 						'visibility' => 'hidden',
 						'transform'  => 'translateY(0.5em)',
-						'transition' => 'transform 300ms',
+						'transition' => 'visibility .2s ease,transform .2s ease',
 					),
 					'hover'  => array(
 						'opacity'    => '1',
 						'visibility' => 'visible',
 						'transform'  => 'translateY(0)',
-						'transition' => 'transform 300ms',
+						'transition' => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
 					),
 				),
 				'slide-down' => array(
@@ -50,39 +50,39 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 						'opacity'    => '0',
 						'visibility' => 'hidden',
 						'transform'  => 'translateY(-0.5em)',
-						'transition' => 'transform 300ms',
+						'transition' => 'visibility .2s ease,transform .2s ease',
 					),
 					'hover'  => array(
 						'opacity'    => '1',
 						'visibility' => 'visible',
 						'transform'  => 'translateY(0)',
-						'transition' => 'transform 300ms',
+						'transition' => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
 					),
 				),
 				'fade'       => array(
 					'normal' => array(
 						'opacity'    => '0',
 						'visibility' => 'hidden',
-						'transition' => 'opacity 300ms',
+						'transition' => 'opacity ease-in-out .3s',
 					),
 					'hover'  => array(
 						'opacity'    => '1',
 						'visibility' => 'visible',
-						'transition' => 'opacity 300ms',
+						'transition' => 'opacity ease-in-out .3s',
 					),
 				),
 				'scale'      => array(
 					'normal' => array(
 						'opacity'    => '0',
 						'visibility' => 'hidden',
-						'transform'  => 'scale(0.5)',
-						'transition' => 'transform 300ms',
+						'transform'  => 'scale(0.5, 0.5)',
+						'transition' => 'visibility .3s ease,transform .3s ease',
 					),
 					'hover'  => array(
 						'opacity'    => '1',
 						'visibility' => 'visible',
-						'transform'  => 'scale(1)',
-						'transition' => 'transform 300ms',
+						'transform'  => 'scale(1, 1)',
+						'transition' => 'opacity .3s ease,visibility .3s ease,transform .3s ease',
 					),
 				),
 			);
