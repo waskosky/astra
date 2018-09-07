@@ -321,11 +321,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
 						document.body.classList.remove( "ast-header-break-point" );
+						document.body.classList.add("ast-desktop");
 						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
 
 					} else {
 
 						document.body.classList.add( "ast-header-break-point" );
+						document.body.classList.remove("ast-desktop");
 						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						
 					}
 				}
