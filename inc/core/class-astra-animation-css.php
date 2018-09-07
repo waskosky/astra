@@ -35,16 +35,16 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 					'normal' => array(
 						'opacity'           => '0',
 						'visibility'        => 'hidden',
-						'-webkit-transform' => 'translateY(0.5em)'
-						'-ms-transform' => 'translateY(0.5em)'
+						'-webkit-transform' => 'translateY(0.5em)',
+						'-ms-transform' => 'translateY(0.5em)',
 						'transform'  => 'translateY(0.5em)',
 						'transition'        => 'visibility .2s ease,transform .2s ease',
 					),
 					'hover'  => array(
 						'opacity'           => '1',
 						'visibility'        => 'visible',
-						'-webkit-transform' => 'translateY(0)'
-						'-ms-transform' => 'translateY(0)'
+						'-webkit-transform' => 'translateY(0)',
+						'-ms-transform' => 'translateY(0)',
 						'transform'  => 'translateY(0)',
 						'transition'        => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
 					),
@@ -53,16 +53,16 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 					'normal' => array(
 						'opacity'           => '0',
 						'visibility'        => 'hidden',
-						'-webkit-transform' => 'translateY(-0.5em)'
-						'-ms-transform' => 'translateY(-0.5em)'
+						'-webkit-transform' => 'translateY(-0.5em)',
+						'-ms-transform' => 'translateY(-0.5em)',
 						'transform'  => 'translateY(-0.5em)',
 						'transition'        => 'visibility .2s ease,transform .2s ease',
 					),
 					'hover'  => array(
 						'opacity'           => '1',
 						'visibility'        => 'visible',
-						'-webkit-transform' => 'translateY(0)'
-						'-ms-transform' => 'translateY(0)'
+						'-webkit-transform' => 'translateY(0)',
+						'-ms-transform' => 'translateY(0)',
 						'transform'  => 'translateY(0)',
 						'transition'        => 'opacity .2s ease,visibility .2s ease,transform .2s ease',
 					),
@@ -83,16 +83,16 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 					'normal' => array(
 						'opacity'           => '0',
 						'visibility'        => 'hidden',
-						'-webkit-transform' => 'scale(0.5, 0.5)'
-						'-ms-transform' => 'scale(0.5, 0.5)'
+						'-webkit-transform' => 'scale(0.5, 0.5)',
+						'-ms-transform' => 'scale(0.5, 0.5)',
 						'transform'  => 'scale(0.5, 0.5)',
 						'transition'        => 'visibility .3s ease,transform .3s ease',
 					),
 					'hover'  => array(
 						'opacity'           => '1',
 						'visibility'        => 'visible',
-						'-webkit-transform' => 'scale(1, 1)'
-						'-ms-transform' => 'scale(1, 1)'
+						'-webkit-transform' => 'scale(1, 1)',
+						'-ms-transform' => 'scale(1, 1)',
 						'transform'  => 'scale(1, 1)',
 						'transition'        => 'opacity .3s ease,visibility .3s ease,transform .3s ease',
 					),
