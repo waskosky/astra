@@ -83,10 +83,10 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 					'normal' => array(
 						'opacity'           => '0',
 						'visibility'        => 'hidden',
-						'-webkit-transform' => 'scale(0.5, 0.5)',
-						'-ms-transform'     => 'scale(0.5, 0.5)',
-						'transform'         => 'scale(0.5, 0.5)',
-						'transition'        => 'visibility .3s ease,transform .3s ease',
+						'-webkit-transform' => 'scale(0.8, 0.8)',
+						'-ms-transform'     => 'scale(0.8, 0.8)',
+						'transform'         => 'scale(0.8, 0.8)',
+						'transition'        => 'visibility .2s ease,transform .3s ease',
 					),
 					'hover'  => array(
 						'opacity'           => '1',
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 						'-webkit-transform' => 'scale(1, 1)',
 						'-ms-transform'     => 'scale(1, 1)',
 						'transform'         => 'scale(1, 1)',
-						'transition'        => 'opacity .3s ease,visibility .3s ease,transform .3s ease',
+						'transition'        => 'opacity .2s ease,visibility .2s ease,transform .3s ease',
 					),
 				),
 			);
