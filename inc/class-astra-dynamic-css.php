@@ -480,10 +480,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Box Shadow.
-				'.main-header-bar .main-header-bar-navigation .sub-menu, .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
+				'.ast-desktop .main-header-bar .main-header-bar-navigation .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
 					'box-shadow' => '0 5px 20px rgba(0,0,0,0.06)',
 				),
-				'.main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
+				'.ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
 					'box-shadow' => 'none',
 				),
 
