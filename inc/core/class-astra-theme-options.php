@@ -167,9 +167,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Header - Sub menu Border.
 					'primary-submenu-border'           => array(
 						'top'    => '2',
-						'right'  => '',
-						'bottom' => '',
-						'left'   => '',
+						'right'  => '0',
+						'bottom' => '0',
+						'left'   => '0',
 					),
 					'primary-submenu-b-color'          => '',
 
