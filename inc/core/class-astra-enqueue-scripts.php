@@ -173,6 +173,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
+
+			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
+
+			wp_register_style( 'astra-link-pointer-style', $css_uri . 'link-pointer-style' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+			if ( 'none' !== $pointer_effect ) {
+				wp_enqueue_style( 'astra-link-pointer-style' );
+			}
 		}
 
 		/**
