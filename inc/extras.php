@@ -69,6 +69,8 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 		if ( wp_is_mobile() ) {
 			$classes[] = 'ast-header-break-point';
+		} else {
+			$classes[] = 'ast-desktop';
 		}
 
 		// Apply separate container class to the body.
