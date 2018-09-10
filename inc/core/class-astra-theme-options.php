@@ -164,6 +164,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-main-sep'                  => 1,
 					'header-main-sep-color'            => '',
 					'header-main-layout-width'         => 'content',
+					// Header - Sub menu Border.
+					'primary-submenu-border'           => array(
+						'top'    => '2',
+						'right'  => '',
+						'bottom' => '',
+						'left'   => '',
+					),
+					'primary-submenu-b-color'          => '',
+
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 					'header-main-submenu-container-animation' => '',

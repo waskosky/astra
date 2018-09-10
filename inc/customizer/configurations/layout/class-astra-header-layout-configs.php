@@ -181,6 +181,42 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
+				// Option: Primary Menu Border.
+				array(
+					'type'           => 'control',
+					'control'        => 'ast-border',
+					'transport'      => 'postMessage',
+					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-border]',
+					'section'        => 'section-header',
+					'linked_choices' => true,
+					'priority'       => 30,
+					'default'        => astra_get_option( 'primary-submenu-border' ),
+					'title'          => __( 'Submenu Border', 'astra-addon' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra-addon' ),
+						'right'  => __( 'Right', 'astra-addon' ),
+						'bottom' => __( 'Bottom', 'astra-addon' ),
+						'left'   => __( 'Left', 'astra-addon' ),
+					),
+				),
+
+				// Option: Submenu Border Color.
+				array(
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color]',
+					'default'   => $defaults['primary-submenu-b-color'],
+					'title'     => __( 'Submenu Border Color', 'astra-addon' ),
+					'section'   => 'section-header',
+					'priority'  => 30,
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[primary-submenu-border]',
+						'!=',
+						'',
+					),
+				),
+
 				/**
 				 * Option: Mobile Menu Label Divider
 				 */
