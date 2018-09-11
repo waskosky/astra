@@ -116,9 +116,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_break_point = astra_header_break_point();
 
 			// Submenu Bordercolor.
-			$submenu_border          = astra_get_option( 'primary-submenu-border' );
-			$primary_submenu_item_border          = astra_get_option( 'primary-submenu-item-border' );
-			$primary_submenu_b_color = astra_get_option( 'primary-submenu-b-color' );
+			$submenu_border              = astra_get_option( 'primary-submenu-border' );
+			$primary_submenu_item_border = astra_get_option( 'primary-submenu-item-border' );
+			$primary_submenu_b_color     = astra_get_option( 'primary-submenu-b-color' );
 
 			/**
 			 * Apply text color depends on link color
@@ -867,11 +867,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				'.main-header-menu.submenu-with-border .sub-menu, .main-header-menu.submenu-with-border .children' => array(
-					'border-top-width' => astra_get_css_value( $submenu_border['top'], 'px' ),
+					'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
 					'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
 					'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
 					'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
-					'border-style'     => 'solid',
+					'border-style'        => 'solid',
 				),
 				'.main-header-menu.submenu-with-border .sub-menu .sub-menu, .main-header-menu.submenu-with-border .children .children' => array(
 					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',

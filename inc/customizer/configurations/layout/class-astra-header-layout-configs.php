@@ -181,6 +181,18 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[primary-submenu-border-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-header',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
 				// Option: Primary Menu Border.
 				array(
 					'type'           => 'control',

@@ -777,7 +777,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_5_0_beta_4() {
 
-			$border_disabled_values = array(
+			$border_disabled_values        = array(
 				'top'    => '0',
 				'bottom' => '0',
 				'left'   => '0',
@@ -787,13 +787,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'bottom' => '0',
 			);
 
-			$border_enabled_values  = array(
+			$border_enabled_values        = array(
 				'top'    => '1',
 				'bottom' => '1',
 				'left'   => '1',
 				'right'  => '1',
 			);
-			$inside_border_enabled_values  = array(
+			$inside_border_enabled_values = array(
 				'bottom' => '1',
 			);
 
@@ -802,10 +802,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Primary Header.
 			if ( $submenu_border ) {
-				$theme_options['primary-submenu-border'] = $border_enabled_values;
+				$theme_options['primary-submenu-border']      = $border_enabled_values;
 				$theme_options['primary-submenu-item-border'] = $inside_border_enabled_values;
 			} else {
-				$theme_options['primary-submenu-border'] = $border_disabled_values;
+				$theme_options['primary-submenu-border']      = $border_disabled_values;
 				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
 			}
 

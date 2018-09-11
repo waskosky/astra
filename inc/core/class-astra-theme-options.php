@@ -171,7 +171,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'bottom' => '0',
 						'left'   => '0',
 					),
-					'primary-submenu-item-border'           => array(
+					'primary-submenu-item-border'      => array(
 						'bottom' => '0',
 					),
 					'primary-submenu-b-color'          => '',
