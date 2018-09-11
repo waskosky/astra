@@ -2587,6 +2587,11 @@ body {
   top: -1px;
 }
 
+/* Remove the last anchor border for desktop devices */
+.ast-desktop .submenu-with-border .sub-menu > li:last-child > a {
+  border-bottom-width: 0;
+}
+
 .ast-header-break-point .main-navigation {
   padding-left: 0;
 }
