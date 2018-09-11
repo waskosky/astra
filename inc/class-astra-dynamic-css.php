@@ -480,10 +480,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Box Shadow.
-				'.main-header-bar .main-header-bar-navigation .sub-menu, .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
+				'.ast-desktop .main-header-bar .main-header-bar-navigation .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
 					'box-shadow' => '0 5px 20px rgba(0,0,0,0.06)',
 				),
-				'.main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
+				'.ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
 					'box-shadow' => 'none',
 				),
 
@@ -495,9 +495,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Submenu container animation.
 			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
 				$animation_output = array(
-					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > .astra-megamenu ul, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .focus > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu li:hover .astra-full-megamenu-wrapper, .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li .astra-full-megamenu-wrapper ul' => astra_get_animation( $submenu_container_animation, 'hover' ),
+					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > .astra-megamenu ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .focus > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu li:hover .astra-full-megamenu-wrapper, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li .astra-full-megamenu-wrapper ul' => astra_get_animation( $submenu_container_animation, 'hover' ),
 
-					'.ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-full-megamenu-wrapper' => astra_get_animation( $submenu_container_animation, 'normal' ),
+					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-full-megamenu-wrapper' => astra_get_animation( $submenu_container_animation, 'normal' ),
 
 					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .full-width-mega .astra-full-megamenu-wrapper' => array(
 						'display' => 'flex',
