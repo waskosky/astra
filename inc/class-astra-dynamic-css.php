@@ -862,21 +862,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Primary Submenu Border Width & Color.
 			$submenu_border_style = array(
-				'.main-header-menu.submenu-with-border .sub-menu,.main-header-menu.submenu-with-border .children, .main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .children, .ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
 					'border-color' => esc_attr( $primary_submenu_b_color ),
 				),
 
-				'.main-header-menu.submenu-with-border .sub-menu, .main-header-menu.submenu-with-border .children' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children' => array(
 					'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
 					'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
 					'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
 					'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
 					'border-style'        => 'solid',
 				),
-				'.main-header-menu.submenu-with-border .sub-menu .sub-menu, .main-header-menu.submenu-with-border .children .children' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children' => array(
 					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
 				),
-				'.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
 					'border-bottom-width' => astra_get_css_value( $primary_submenu_item_border['bottom'], 'px' ),
 					'border-style'        => 'solid',
 				),
