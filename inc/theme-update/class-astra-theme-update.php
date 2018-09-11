@@ -783,11 +783,18 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'left'   => '0',
 				'right'  => '0',
 			);
+			$inside_border_disabled_values = array(
+				'bottom' => '0',
+			);
+
 			$border_enabled_values  = array(
 				'top'    => '1',
 				'bottom' => '1',
 				'left'   => '1',
 				'right'  => '1',
+			);
+			$inside_border_enabled_values  = array(
+				'bottom' => '1',
 			);
 
 			$theme_options  = get_option( 'astra-settings' );
@@ -796,8 +803,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Primary Header.
 			if ( $submenu_border ) {
 				$theme_options['primary-submenu-border'] = $border_enabled_values;
+				$theme_options['primary-submenu-item-border'] = $inside_border_enabled_values;
 			} else {
 				$theme_options['primary-submenu-border'] = $border_disabled_values;
+				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
 			}
 
 			update_option( 'astra-settings', $theme_options );

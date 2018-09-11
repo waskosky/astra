@@ -675,6 +675,9 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 				var dynamicStyle = '.main-header-menu.submenu-with-border .sub-menu, .main-header-menu.submenu-with-border .children';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
+					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
 					dynamicStyle += 'border-color:'        + color + ';';
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
@@ -682,26 +685,6 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 					dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu .sub-menu, .main-header-menu.submenu-with-border .children .children';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
-					dynamicStyle += '}';
-
-					dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a';
-					dynamicStyle += '{';
-					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
-					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
-					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
-					dynamicStyle += 'border-color:'        + color + ';';
-					dynamicStyle += 'border-style: solid;';
-					dynamicStyle += 'border-top: 0;';
-					dynamicStyle += '}';
-					dynamicStyle += '.ast-header-widget-area .widget ul';
-					dynamicStyle += '{';
-					dynamicStyle += 'position: static';
-					dynamicStyle += 'border: 0';
-					dynamicStyle += 'width: auto';
-					dynamicStyle += '}';
-					dynamicStyle += '.ast-header-widget-area .widget ul a';
-					dynamicStyle += '{';
-					dynamicStyle += 'border: 0';
 					dynamicStyle += '}';
 
 				astra_add_dynamic_css( 'primary-submenu-border', dynamicStyle );
@@ -716,46 +699,59 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'astra-settings[primary-submenu-b-color]', function( value ) {
 		value.bind( function( color ) {
 			var border = wp.customize( 'astra-settings[primary-submenu-border]' ).get();
+			var insideBorder = wp.customize( 'astra-settings[primary-submenu-item-border]' ).get();
 			if ( '' != color ) {
-				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left || '' != insideBorder.bottom ) {
 
 					var dynamicStyle = '.main-header-menu.submenu-with-border .sub-menu, .main-header-menu.submenu-with-border .children';
-						dynamicStyle += '{';
-						dynamicStyle += 'border-top-width:'   + border.top + 'px;';
-						dynamicStyle += 'border-color:'        + color + ';';
-						dynamicStyle += 'border-style: solid;';
-						dynamicStyle += '}';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
+					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+					dynamicStyle += 'border-color:'        + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
 
-						dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu .sub-menu, .main-header-menu.submenu-with-border .children .children';
-						dynamicStyle += '{';
-						dynamicStyle += 'top:-'   + border.top + 'px;';
-						dynamicStyle += '}';
-						
-						dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a';
-						dynamicStyle += '{';
-						dynamicStyle += 'border-right-width:'  + border.right + 'px;';
-						dynamicStyle += 'border-left-width:'   + border.left + 'px;';
-						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
-						dynamicStyle += 'border-color:'        + color + ';';
-						dynamicStyle += 'border-style: solid;';
-						dynamicStyle += 'border-top: 0;';
-						dynamicStyle += '}';
-						dynamicStyle += '.ast-header-widget-area .widget ul';
-						dynamicStyle += '{';
-						dynamicStyle += 'position: static';
-						dynamicStyle += 'border: 0';
-						dynamicStyle += 'width: auto';
-						dynamicStyle += '}';
-						dynamicStyle += '.ast-header-widget-area .widget ul a';
-						dynamicStyle += '{';
-						dynamicStyle += 'border: 0';
-						dynamicStyle += '}';
+					dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu .sub-menu, .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '{';
+					dynamicStyle += 'top:-'   + border.top + 'px;';
+					dynamicStyle += '}';
+
+					dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-bottom-width:'   + insideBorder.bottom + 'px;';
+					dynamicStyle += 'border-color:'        + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
 
 					astra_add_dynamic_css( 'primary-submenu-border-color', dynamicStyle );
 				}
 			} else {
 				wp.customize.preview.send( 'refresh' );
 			}
+		} );
+	} );
+
+	/**
+	 * Primary Submenu border COlor
+	 */
+	wp.customize( 'astra-settings[primary-submenu-item-border]', function( value ) {
+		value.bind( function( border ) {
+			var color = wp.customize( 'astra-settings[primary-submenu-b-color]' ).get();
+				if( '' != border.bottom  ) {
+
+					var dynamicStyle = '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a';
+						dynamicStyle += '{';
+						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+						dynamicStyle += 'border-color:'        + color + ';';
+						dynamicStyle += 'border-style: solid;';
+						dynamicStyle += '}';
+
+					astra_add_dynamic_css( 'primary-submenu-item-border', dynamicStyle );
+				} else {
+					wp.customize.preview.send( 'refresh' );
+				}
 		} );
 	} );
 

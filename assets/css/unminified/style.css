@@ -2568,14 +2568,19 @@ body {
 }
 
 .submenu-with-border .sub-menu {
-  border-width: 1px 0 0;
+  border-width: 1px;
   border-style: solid;
   border-color: #eaeaea;
 }
 
 .submenu-with-border .sub-menu a {
-  border: 1px solid #eaeaea;
-  border-top: 0;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+}
+
+.submenu-with-border .sub-menu > li:last-child > a {
+  border-bottom-width: 0;
 }
 
 .submenu-with-border .sub-menu .sub-menu {

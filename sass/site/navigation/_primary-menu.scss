@@ -107,13 +107,19 @@
 
 .submenu-with-border {
 	.sub-menu {
-		border-width: 1px 0 0;
+		border-width: 1px;
 		border-style: solid;
 		border-color: $color-border-submenu;
 
 		a {
-			border: 1px solid $color-border-submenu;
-			border-top: 0;
+			border-width: 0 0 1px;
+			border-style: solid;
+			border-color: $color-border-submenu;
+		}
+		> li:last-child{
+			> a{
+				border-bottom-width: 0;
+			}
 		}
 
 		.sub-menu{

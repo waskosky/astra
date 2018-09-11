@@ -191,12 +191,27 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'linked_choices' => true,
 					'priority'       => 30,
 					'default'        => astra_get_option( 'primary-submenu-border' ),
-					'title'          => __( 'Submenu Border', 'astra-addon' ),
+					'title'          => __( 'Submenu Container Border', 'astra-addon' ),
 					'choices'        => array(
 						'top'    => __( 'Top', 'astra-addon' ),
 						'right'  => __( 'Right', 'astra-addon' ),
 						'bottom' => __( 'Bottom', 'astra-addon' ),
 						'left'   => __( 'Left', 'astra-addon' ),
+					),
+				),
+
+				array(
+					'type'           => 'control',
+					'control'        => 'ast-border',
+					'transport'      => 'postMessage',
+					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+					'section'        => 'section-header',
+					'linked_choices' => false,
+					'priority'       => 30,
+					'default'        => astra_get_option( 'primary-submenu-border' ),
+					'title'          => __( 'Submenu Items Border', 'astra-addon' ),
+					'choices'        => array(
+						'bottom' => __( 'Bottom', 'astra-addon' ),
 					),
 				),
 
