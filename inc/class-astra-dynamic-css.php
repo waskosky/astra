@@ -485,7 +485,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Box Shadow.
 				'.ast-desktop .main-header-bar .main-header-bar-navigation .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
-					'box-shadow' => '0 5px 20px rgba(0,0,0,0.06)',
+					'box-shadow' => '0 0 5px 0 rgba(0,0,0,0.09)',
 				),
 				'.ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
 					'box-shadow' => 'none',
