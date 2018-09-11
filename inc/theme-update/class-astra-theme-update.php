@@ -770,13 +770,45 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
-		 * Update options when updating to v1.5.0-beta-4
+		 * Added Submenu Border options into theme from Addon
+		 *
+		 * @since 1.5.0-beta.4
 		 *
 		 * @return void
 		 */
 		public static function v_1_5_0_beta_4() {
 
-			$theme_options = get_option( 'astra-settings' );
+			$border_disabled_values        = array(
+				'top'    => '0',
+				'bottom' => '0',
+				'left'   => '0',
+				'right'  => '0',
+			);
+			$inside_border_disabled_values = array(
+				'bottom' => '0',
+			);
+
+			$border_enabled_values        = array(
+				'top'    => '1',
+				'bottom' => '1',
+				'left'   => '1',
+				'right'  => '1',
+			);
+			$inside_border_enabled_values = array(
+				'bottom' => '1',
+			);
+
+			$theme_options  = get_option( 'astra-settings' );
+			$submenu_border = isset( $theme_options['primary-submenu-border'] ) ? $theme_options['primary-submenu-border'] : true;
+
+			// Primary Header.
+			if ( $submenu_border ) {
+				$theme_options['primary-submenu-border']      = $border_enabled_values;
+				$theme_options['primary-submenu-item-border'] = $inside_border_enabled_values;
+			} else {
+				$theme_options['primary-submenu-border']      = $border_disabled_values;
+				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
+			}
 
 			// Set pointer styles 'none' for old users. For new users we have set pointer style `overline`.
 			$theme_options['nav-menu-pointer-effect'] = 'none';
