@@ -77,6 +77,11 @@ module.exports = function (grunt) {
                         'style.css': 'sass/style.scss'
                         },*/
 
+                        /* Link Pointer Style */
+                        {
+                            'assets/css/unminified/link-pointer-style.css': 'sass/site/navigation/link-pointer-style.scss',
+                        },
+
                         /* Editor Style */
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',

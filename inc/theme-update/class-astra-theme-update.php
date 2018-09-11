@@ -167,6 +167,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_4_9();
 			}
 
+			if ( version_compare( $saved_version, '1.5.0-beta.4', '<' ) ) {
+				self::v_1_5_0_beta_4();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -763,6 +767,21 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['include-headings-in-typography'] = true;
 				update_option( 'astra-settings', $theme_options );
 			}
+		}
+
+		/**
+		 * Update options when updating to v1.5.0-beta-4
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_0_beta_4() {
+
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set pointer styles 'none' for old users. For new users we have set pointer style `overline`.
+			$theme_options['nav-menu-pointer-effect'] = 'none';
+
+			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
