@@ -85,8 +85,8 @@
 			word-wrap: break-word;
 		}
 
-		li.page_item_has_children > a:after,
-		li.menu-item-has-children > a:after {
+		.page_item_has_children > a:after,
+		.menu-item-has-children > a:after {
 			position: absolute;
 			right: 1em;
 			top: 50%;
