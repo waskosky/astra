@@ -3368,6 +3368,26 @@ body {
   width: auto;
 }
 
+.ast-desktop .main-header-menu .astra-full-megamenu-wrapper .sub-menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ast-desktop .main-header-menu .astra-megamenu .sub-menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ast-desktop .main-header-menu .sub-menu {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.09);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.09);
+}
+
+.ast-desktop .main-header-menu .astra-full-megamenu-wrapper {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.09);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.09);
+}
+
 /* 4 - Header Main */
 /**
  *  Header Sections

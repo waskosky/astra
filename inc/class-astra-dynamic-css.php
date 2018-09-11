@@ -482,15 +482,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
-
-				// Box Shadow.
-				'.ast-desktop .main-header-bar .main-header-bar-navigation .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
-					'box-shadow' => '0 0 5px 0 rgba(0,0,0,0.09)',
-				),
-				'.ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
-					'box-shadow' => 'none',
-				),
-
 			);
 
 			/* Parse CSS from array() */
