@@ -799,7 +799,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			);
 
 			$theme_options  = get_option( 'astra-settings' );
-			$submenu_border = isset( $theme_options['primary-submenu-border'] ) ? $theme_options['primary-submenu-border'] : '';
+			$submenu_border = isset( $theme_options['primary-submenu-border'] ) ? $theme_options['primary-submenu-border'] : true;
 
 			// Primary Header.
 			if ( $submenu_border ) {
