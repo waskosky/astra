@@ -678,6 +678,12 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 					dynamicStyle += 'border-color:'        + color + ';';
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
+
+					dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu .sub-menu, .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '{';
+					dynamicStyle += 'top:-'   + border.top + 'px;';
+					dynamicStyle += '}';
+
 					dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
@@ -710,36 +716,43 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'astra-settings[primary-submenu-b-color]', function( value ) {
 		value.bind( function( color ) {
 			var border = wp.customize( 'astra-settings[primary-submenu-border]' ).get();
+			if ( '' != color ) {
+				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
-			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+					var dynamicStyle = '.main-header-menu.submenu-with-border .sub-menu, .main-header-menu.submenu-with-border .children';
+						dynamicStyle += '{';
+						dynamicStyle += 'border-top-width:'   + border.top + 'px;';
+						dynamicStyle += 'border-color:'        + color + ';';
+						dynamicStyle += 'border-style: solid;';
+						dynamicStyle += '}';
 
-				var dynamicStyle = '.main-header-menu.submenu-with-border .sub-menu, .main-header-menu.submenu-with-border .children';
-					dynamicStyle += '{';
-					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
-					dynamicStyle += 'border-color:'        + color + ';';
-					dynamicStyle += 'border-style: solid;';
-					dynamicStyle += '}';
-					dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a';
-					dynamicStyle += '{';
-					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
-					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
-					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
-					dynamicStyle += 'border-color:'        + color + ';';
-					dynamicStyle += 'border-style: solid;';
-					dynamicStyle += 'border-top: 0;';
-					dynamicStyle += '}';
-					dynamicStyle += '.ast-header-widget-area .widget ul';
-					dynamicStyle += '{';
-					dynamicStyle += 'position: static';
-					dynamicStyle += 'border: 0';
-					dynamicStyle += 'width: auto';
-					dynamicStyle += '}';
-					dynamicStyle += '.ast-header-widget-area .widget ul a';
-					dynamicStyle += '{';
-					dynamicStyle += 'border: 0';
-					dynamicStyle += '}';
+						dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu .sub-menu, .main-header-menu.submenu-with-border .children .children';
+						dynamicStyle += '{';
+						dynamicStyle += 'top:-'   + border.top + 'px;';
+						dynamicStyle += '}';
+						
+						dynamicStyle += '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a';
+						dynamicStyle += '{';
+						dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+						dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+						dynamicStyle += 'border-color:'        + color + ';';
+						dynamicStyle += 'border-style: solid;';
+						dynamicStyle += 'border-top: 0;';
+						dynamicStyle += '}';
+						dynamicStyle += '.ast-header-widget-area .widget ul';
+						dynamicStyle += '{';
+						dynamicStyle += 'position: static';
+						dynamicStyle += 'border: 0';
+						dynamicStyle += 'width: auto';
+						dynamicStyle += '}';
+						dynamicStyle += '.ast-header-widget-area .widget ul a';
+						dynamicStyle += '{';
+						dynamicStyle += 'border: 0';
+						dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'primary-submenu-border-color', dynamicStyle );
+					astra_add_dynamic_css( 'primary-submenu-border-color', dynamicStyle );
+				}
 			} else {
 				wp.customize.preview.send( 'refresh' );
 			}

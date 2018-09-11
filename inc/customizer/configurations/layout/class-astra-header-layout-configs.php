@@ -206,15 +206,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
 					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color]',
-					'default'   => $defaults['primary-submenu-b-color'],
+					'default'   => '',
 					'title'     => __( 'Submenu Border Color', 'astra-addon' ),
 					'section'   => 'section-header',
 					'priority'  => 30,
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[primary-submenu-border]',
-						'!=',
-						'',
-					),
 				),
 
 				/**
