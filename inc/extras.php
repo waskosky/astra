@@ -657,6 +657,12 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
+			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
+			if ( 'none' !== $pointer_effect ) {
+				$submenu_class .= ' ast-link-pointer-style ';
+				$submenu_class .= ' ast-link-pointer-style-' . $pointer_effect . ' ';
+			}
+
 			/**
 			 * Filter the classes(array) for Primary Menu (<ul>).
 			 *
@@ -868,6 +874,12 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
+
+		$pointer_effect    = astra_get_option( 'nav-menu-pointer-effect' );
+		$pointer_animation = astra_get_option( $pointer_effect . '-nav-menu-animation' );
+
+		$classes[] = 'ast-nav-style-' . $pointer_effect;
+		$classes[] = 'ast-nav-animation-' . $pointer_animation;
 
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
 
