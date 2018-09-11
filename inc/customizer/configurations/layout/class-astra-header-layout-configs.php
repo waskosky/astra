@@ -282,6 +282,66 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
+				// Option: Pointer effect.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
+					'default'  => astra_get_option( 'nav-menu-pointer-effect' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-header',
+					'priority' => 34,
+					'title'    => __( 'Link Pointer Style', 'astra-addon' ),
+					'required' => array(
+						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+						'!=',
+						true,
+					),
+					'choices'  => array(
+						'none'      => __( 'None', 'astra-addon' ),
+						'underline' => __( 'Underline', 'astra-addon' ),
+						'overline'  => __( 'Overline', 'astra-addon' ),
+					),
+				),
+
+				// Option: Pointer color.
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-color]',
+					'default'   => '#0274be',
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'section'   => 'section-header',
+					'priority'  => 34,
+					'title'     => __( 'Link Pointer Color', 'astra-addon' ),
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
+						'!=',
+						'none',
+					),
+				),
+
+				// Option: Pointer width.
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-thickness]',
+					'transport'   => 'postMessage',
+					'default'     => astra_get_option( 'nav-menu-pointer-thickness' ),
+					'type'        => 'control',
+					'control'     => 'number',
+					'required'    => array(
+						ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
+						'!=',
+						'none',
+					),
+					'section'     => 'section-header',
+					'priority'    => 34,
+					'title'       => __( 'Link Pointer Thickness', 'astra' ),
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 20,
+					),
+				),
+
 				/**
 				 * Option: Mobile Menu Label Divider
 				 */
