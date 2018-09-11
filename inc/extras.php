@@ -1619,3 +1619,19 @@ if ( ! function_exists( 'astra_get_animation' ) ) :
 	}
 
 endif;
+
+function astra_nav_menu_item_css_class( $classes ) {
+	$classes[]  = 'ast-menu-item-li';
+
+	return $classes;
+}
+
+add_filter( 'nav_menu_css_class', 'astra_nav_menu_item_css_class' );
+
+function astra_nav_menu_item_attributes( $attributes ) {
+	$attributes['class'] = 'ast-menu-item';
+
+	return $attributes;
+}
+
+add_filter( 'nav_menu_link_attributes', 'astra_nav_menu_item_attributes' );
