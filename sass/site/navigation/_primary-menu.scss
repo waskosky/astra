@@ -116,12 +116,6 @@
 			border-style: solid;
 			border-color: $color-border-submenu;
 		}
-		> li:last-child{
-			> a{
-				border-bottom-width: 0;
-			}
-		}
-
 		.sub-menu{
 			top: -1px;
 		}
@@ -214,15 +208,6 @@
 	.submenu-with-border {
 		.sub-menu {
 			border: 0;
-
-			a {
-				border-width: 0 0 1px;
-			}
-			> li:last-child{
-				> a{
-					border-width: 0 0 1px;
-				}
-			}
 		}
 	}
 }

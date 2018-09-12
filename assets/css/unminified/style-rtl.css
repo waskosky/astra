@@ -2579,10 +2579,6 @@ body {
   border-color: #eaeaea;
 }
 
-.submenu-with-border .sub-menu > li:last-child > a {
-  border-bottom-width: 0;
-}
-
 .submenu-with-border .sub-menu .sub-menu {
   top: -1px;
 }
@@ -2667,14 +2663,6 @@ body {
 
 .ast-header-break-point .submenu-with-border .sub-menu {
   border: 0;
-}
-
-.ast-header-break-point .submenu-with-border .sub-menu a {
-  border-width: 0 0 1px;
-}
-
-.ast-header-break-point .submenu-with-border .sub-menu > li:last-child > a {
-  border-width: 0 0 1px;
 }
 
 /**
