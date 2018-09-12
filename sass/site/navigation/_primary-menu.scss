@@ -107,17 +107,29 @@
 
 .submenu-with-border {
 	.sub-menu {
-		border-width: 1px 0 0;
+		border-width: 1px;
 		border-style: solid;
 		border-color: $color-border-submenu;
 
 		a {
-			border: 1px solid $color-border-submenu;
-			border-top: 0;
+			border-width: 0 0 1px;
+			border-style: solid;
+			border-color: $color-border-submenu;
 		}
-
 		.sub-menu{
 			top: -1px;
+		}
+	}
+}
+/* Remove the last anchor border for desktop devices */
+.ast-desktop{
+	.submenu-with-border{
+		.sub-menu {
+			> li:last-child{
+				> a{
+					border-bottom-width: 0;
+				}
+			}
 		}
 	}
 }
@@ -196,10 +208,6 @@
 	.submenu-with-border {
 		.sub-menu {
 			border: 0;
-
-			a {
-				border: 0;
-			}
 		}
 	}
 }
