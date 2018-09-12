@@ -73,3 +73,27 @@
 .astra-review-notice-container .dashicons:first-child {
     padding-left: 0;
 }
+
+.notice-image img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.notice-image, .notice-content {
+    display: inline-block;
+}
+
+.notice-image {
+    width: calc(10% - 10px);
+    transform: translateY(-50%);
+}
+
+.notice-content {
+    margin-left: 20px;
+    width: calc( 90% - 20px);
+}
+
+.notice-container {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}

@@ -190,9 +190,9 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			?>
 			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
-				<p>
+				<div class="notice-container">
 					<?php echo wp_kses_post( $notice['message'] ); ?>
-				</p>
+				</div>
 			</div>
 			<?php
 		}

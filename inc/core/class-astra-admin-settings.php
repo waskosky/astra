@@ -149,12 +149,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
 				update_option( 'astra-theme-old-setup', true );
 			} elseif ( false === get_transient( 'astra-theme-first-rating' ) ) {
+				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra.svg';
 				Astra_Notices::add_notice(
 					array(
 						'id'                  => 'astra-theme-rating',
 						'type'                => 'warning',
 						/* translators: %1$s product rating link, %2$s dismissable notice transient time. */
-						'message'             => sprintf( __( 'Hello! Seems like you have used Astra theme to build this website — Thanks a ton!<br/><br/>Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.<br/><br/><div class="astra-review-notice-container"><span class="dashicons dashicons-external"></span><a href="%1$s" class="astra-notice-close astra-review-notice" target="_blank">Ok, you deserve it</a><span class="dashicons dashicons-calendar"></span><a href="#" data-repeat-notice-after="%2$s" class="astra-notice-close astra-review-notice">Nope, maybe later</a><span class="dashicons dashicons-smiley"></span><a href="#" class="astra-notice-close astra-review-notice">I already did</a></div>', 'astra' ), 'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post', MONTH_IN_SECONDS ),
+						'message'             => sprintf( __( '<div class="notice-image"><img src="'.esc_url( $image_path ) .'" class="custom-logo" alt="Astra" itemprop="logo"></div> <div class="notice-content"> <div>Hello! Seems like you have used Astra theme to build this website — Thanks a ton!</div><br />Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.<br/><br/><div class="astra-review-notice-container"><span class="dashicons dashicons-external"></span><a href="%1$s" class="astra-notice-close astra-review-notice" target="_blank">Ok, you deserve it</a><span class="dashicons dashicons-calendar"></span><a href="#" data-repeat-notice-after="%2$s" class="astra-notice-close astra-review-notice">Nope, maybe later</a><span class="dashicons dashicons-smiley"></span><a href="#" class="astra-notice-close astra-review-notice">I already did</a></div></div>', 'astra' ), 'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post', MONTH_IN_SECONDS ),
 						'repeat-notice-after' => MONTH_IN_SECONDS,
 					)
 				);
