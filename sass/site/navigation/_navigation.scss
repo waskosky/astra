@@ -87,8 +87,16 @@
 	flex: 1;
 }
 
-.ast-main-header-bar-alignment {
-	flex: 1;
+.header-main-layout-1 {
+	.ast-main-header-bar-alignment {
+		margin-left: auto;
+	}
+}
+
+.header-main-layout-3 {
+	.ast-main-header-bar-alignment {
+		margin-right: auto;
+	}
 }
 
 /* Responsive Screen */

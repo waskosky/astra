@@ -2735,12 +2735,12 @@ body {
   flex: 1;
 }
 
-.ast-main-header-bar-alignment {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.header-main-layout-1 .ast-main-header-bar-alignment {
+  margin-right: auto;
+}
+
+.header-main-layout-3 .ast-main-header-bar-alignment {
+  margin-left: auto;
 }
 
 /* Responsive Screen */
