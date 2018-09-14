@@ -1,3 +1,6 @@
+1.5.0-rc.1
+- Fix: Search from the Last Item in Menu is not align vertically center.
+
 v1.5.0-beta.4
 - New: Added Link Pointer styles for primary menu.
 - New: Added Primary Header submenu border width and color.
