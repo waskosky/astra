@@ -171,6 +171,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_5_0_beta_4();
 			}
 
+			if ( version_compare( $saved_version, '1.5.0-beta.5', '<' ) ) {
+				self::v_1_5_0_beta_5();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -814,6 +818,23 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options['nav-menu-pointer-effect'] = 'none';
 
 			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Set flag 'submenu-below-header' to false to load fallback CSS to force menu load right after the container cropping logo and header.
+		 *
+		 * @see https://github.com/brainstormforce/astra/pull/820/
+		 *
+		 * @return void
+		 */
+		private function v_1_5_0_beta_5() {
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set flag to use anchors CSS selectors in the CSS for headings.
+			if ( ! isset( $theme_options['submenu-below-header'] ) ) {
+				$theme_options['submenu-below-header'] = false;
+				update_option( 'astra-settings', $theme_options );
+			}
 		}
 
 	}

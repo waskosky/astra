@@ -189,7 +189,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$sidebar = get_post_meta( $post_id, 'site-sidebar-layout', true );
 			if ( 'default' !== $sidebar ) {
 				add_filter(
-					'astra_page_layout', function( $page_layout ) use ( $sidebar ) {
+					'astra_page_layout',
+					function( $page_layout ) use ( $sidebar ) {
 						return $sidebar;
 					}
 				);
@@ -199,7 +200,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$content_layout = get_post_meta( $post_id, 'site-content-layout', true );
 			if ( 'default' !== $content_layout ) {
 				add_filter(
-					'astra_get_content_layout', function( $layout ) use ( $content_layout ) {
+					'astra_get_content_layout',
+					function( $layout ) use ( $content_layout ) {
 						return $content_layout;
 					}
 				);
@@ -209,7 +211,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$footer_layout = get_post_meta( $post_id, 'footer-sml-layout', true );
 			if ( 'disabled' === $footer_layout ) {
 				add_filter(
-					'ast_footer_sml_layout', function( $is_footer ) {
+					'ast_footer_sml_layout',
+					function( $is_footer ) {
 						return 'disabled';
 					}
 				);
@@ -219,7 +222,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$footer_widgets = get_post_meta( $post_id, 'footer-adv-display', true );
 			if ( 'disabled' === $footer_widgets ) {
 				add_filter(
-					'astra_advanced_footer_disable', function() {
+					'astra_advanced_footer_disable',
+					function() {
 						return true;
 					}
 				);
@@ -230,7 +234,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( 'disabled' === $main_header_display ) {
 				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
 				add_filter(
-					'ast_main_header_display', function( $display_header ) {
+					'ast_main_header_display',
+					function( $display_header ) {
 						return 'disabled';
 					}
 				);
@@ -276,7 +281,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			if ( count( $result ) > 0 ) {
 				$classes = array_diff(
-					$classes, array(
+					$classes,
+					array(
 						// Astra common grid.
 						'ast-col-sm-12',
 						'ast-col-md-8',
