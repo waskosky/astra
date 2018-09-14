@@ -67,7 +67,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		public static function defaults() {
 			// Defaults list of options.
 			return apply_filters(
-				'astra_theme_defaults', array(
+				'astra_theme_defaults',
+				array(
 					// Blog Single.
 					'blog-single-post-structure'       => array(
 						'single-image',

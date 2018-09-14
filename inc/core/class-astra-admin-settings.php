@@ -588,7 +588,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Quick settings.
 			$quick_settings = apply_filters(
-				'astra_quick_settings', array(
+				'astra_quick_settings',
+				array(
 					'logo-favicon' => array(
 						'title'     => __( 'Upload Logo', 'astra' ),
 						'dashicon'  => 'dashicons-format-image',
@@ -633,7 +634,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 
 			$extensions = apply_filters(
-				'astra_addon_list', array(
+				'astra_addon_list',
+				array(
 					'colors-and-background' => array(
 						'title'     => __( 'Colors & Background', 'astra' ),
 						'class'     => 'ast-addon',
@@ -1018,7 +1020,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		static public function top_header_right_section() {
 
 			$top_links = apply_filters(
-				'astra_header_top_links', array(
+				'astra_header_top_links',
+				array(
 					'astra-theme-info' => array(
 						'title' => __( '⚡ Lightning Fast & Fully Customizable WordPress theme!', 'astra' ),
 					),

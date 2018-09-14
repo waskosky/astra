@@ -906,7 +906,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-404-layout-1 .ast-404-text' => array(
 						'font-size' => astra_get_font_css_value( 100 ),
 					),
-				), '', '920'
+				),
+				'',
+				'920'
 			);
 
 			$parse_css .= astra_get_link_pointer_css( '.main-header-bar', $nav_pointer_style, $nav_pointer_color, $nav_pointer_width );
@@ -1022,7 +1024,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( true == astra_get_option( 'include-headings-in-typography' ) &&
 				true === apply_filters(
-					'astra_include_achors_in_headings_typography', true
+					'astra_include_achors_in_headings_typography',
+					true
 				) ) {
 
 					return true;
