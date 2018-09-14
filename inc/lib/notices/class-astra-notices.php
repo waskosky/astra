@@ -208,7 +208,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		private static function get_wrap_classes( $notice ) {
 			$classes   = array( 'astra-notice', 'notice', 'is-dismissible' );
 			$classes[] = $notice['class'];
-			if ( isset( $notice['type'] ) ) {
+			if ( isset( $notice['type'] ) && '' !== $notice['type'] ) {
 				$classes[] = 'notice-' . $notice['type'];
 			}
 
