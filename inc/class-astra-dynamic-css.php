@@ -980,6 +980,31 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			endif;
 
+			if ( false === self::astra_submenu_below_header_fix() ) :
+
+				$submenu_below_header = array(
+					'.ast-flex'          => array(
+						'-webkit-align-content' => 'center',
+						'-ms-flex-line-pack'    => 'center',
+						'align-content'         => 'center',
+						'-webkit-box-align'     => 'center',
+						'-webkit-align-items'   => 'center',
+						'-moz-box-align'        => 'center',
+						'-ms-flex-align'        => 'center',
+						'align-items'           => 'center',
+					),
+					'.main-header-bar'   => array(
+						'padding' => '1em 0',
+					),
+					'.ast-site-identity' => array(
+						'padding' => '0',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_below_header );
+
+			endif;
+
 			$dynamic_css = $parse_css;
 			if ( false != $return_css ) {
 				return $dynamic_css;
@@ -1032,6 +1057,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			} else {
 
 				return false;
+			}
+
+		}
+
+		/**
+		 * Check backwards compatibility CSS for loading submenu below the header needs to be added.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if CSS should be included, False if not.
+		 */
+		public static function astra_submenu_below_header_fix() {
+
+			if ( false == astra_get_option( 'submenu-below-header' ) &&
+				false === apply_filters(
+					'astra_submenu_below_header_fix',
+					false
+				) ) {
+
+					return false;
+			} else {
+
+				return true;
 			}
 
 		}
