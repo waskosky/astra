@@ -85,7 +85,7 @@
     padding-top: 5px;
 }
 
-.notice-content > div {
+.notice-content .notice-heading {
     padding-bottom: 5px;
 }
 
