@@ -69,6 +69,8 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 		if ( wp_is_mobile() ) {
 			$classes[] = 'ast-header-break-point';
+		} else {
+			$classes[] = 'ast-desktop';
 		}
 
 		// Apply separate container class to the body.
@@ -655,6 +657,20 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
+			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
+			if ( 'none' !== $pointer_effect ) {
+				$submenu_class .= ' ast-link-pointer-style ';
+				$submenu_class .= ' ast-link-pointer-style-' . $pointer_effect . ' ';
+			}
+
+			/**
+			 * Filter the classes(array) for Primary Menu (<ul>).
+			 *
+			 * @since  x.x.x
+			 * @var Array
+			 */
+			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
+
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
 				'theme_location' => 'primary',
@@ -662,7 +678,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
 
-				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
+				'before'         => '<ul class="' . esc_attr( implode( ' ', $primary_menu_classes ) ) . '">',
 				'after'          => '</ul>',
 			);
 
@@ -676,7 +692,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
+				'menu_class'      => esc_attr( implode( ' ', $primary_menu_classes ) ),
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => $items_wrap,
@@ -820,6 +836,11 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
+		$submenu_container_animation   = astra_get_option( 'header-main-submenu-container-animation' );
+
+		if ( '' !== $submenu_container_animation ) {
+			$classes[] = 'ast-primary-submenu-animation-' . $submenu_container_animation;
+		}
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -853,6 +874,12 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
+
+		$pointer_effect    = astra_get_option( 'nav-menu-pointer-effect' );
+		$pointer_animation = astra_get_option( $pointer_effect . '-nav-menu-animation' );
+
+		$classes[] = 'ast-nav-style-' . $pointer_effect;
+		$classes[] = 'ast-nav-animation-' . $pointer_animation;
 
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
 
@@ -991,13 +1018,21 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 	 * @return array
 	 */
 	function astra_comment_form_default_markup( $args ) {
-
-		$args['id_form']           = 'ast-commentform';
-		$args['title_reply']       = astra_default_strings( 'string-comment-title-reply', false );
-		$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
-		$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
-		$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
-
+		/**
+		 * Filter to enabled Astra comment for all Post Types where the commnets are enabled.
+		 *
+		 * @since x.x.x
+		 *
+		 * @return bool
+		 */
+		$all_post_type_support = apply_filters( 'astra_comment_form_all_post_type_support', false );
+		if ( 'post' == get_post_type() || $all_post_type_support ) {
+			$args['id_form']           = 'ast-commentform';
+			$args['title_reply']       = astra_default_strings( 'string-comment-title-reply', false );
+			$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
+			$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
+			$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+		}
 		return apply_filters( 'astra_comment_form_default_markup', $args );
 
 	}
@@ -1559,6 +1594,28 @@ if ( ! function_exists( 'astar' ) ) :
 		}
 
 		return empty( $value ) && null !== $default ? $default : $value;
+	}
+
+endif;
+
+if ( ! function_exists( 'astra_get_animation' ) ) :
+
+	/**
+	 * Get Animation properties as array.
+	 * CSS Aniamtion properties retreived as array.
+	 *
+	 * @since x.x.x
+	 * @param String $animation Animation name.
+	 * @param String $state Hover or Normal state for animation.
+	 *
+	 * @return Array Animation CSS properties if the Animation exists else returns an empty array.
+	 */
+	function astra_get_animation( $animation, $state ) {
+		if ( ! is_callable( 'Astra_Animation_CSS::get_animation_prop' ) ) {
+			return array();
+		}
+
+		return Astra_Animation_CSS::get_animation_prop( $animation, $state );
 	}
 
 endif;
