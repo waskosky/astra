@@ -99,6 +99,14 @@
 	}
 }
 
+#site-navigation {
+	height: 100%;
+}
+
+.ast-main-header-bar-alignment {
+	flex: 1;
+}
+
 /* Responsive Screen */
 .ast-header-break-point {
 
@@ -108,6 +116,7 @@
 
 	.ast-mobile-menu-buttons {
 		display: block;
+		align-self: center;
 	}
 
 	.main-header-bar-navigation {
