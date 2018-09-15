@@ -827,7 +827,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @return void
 		 */
-		private function v_1_5_0_rc_1() {
+		public static function v_1_5_0_rc_1() {
 			$theme_options = get_option( 'astra-settings' );
 
 			// Set flag to use anchors CSS selectors in the CSS for headings.
