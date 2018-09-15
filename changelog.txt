@@ -1,6 +1,9 @@
 1.5.0-rc.1
 - Fix: Search from the Last Item in Menu is not align vertically center.
 - Improvement: On menu navigation hover open submenu below the header.
+- Improvement: If the content in header is larger the navigation menu will drop on a new line.
+- Improvement: Add correct license information for the images used in the screenshot.
+- Improvement: Add correct license information for wp-color-picker-alpha JS Library.
 
 v1.5.0-beta.4
 - New: Added Link Pointer styles for primary menu.
