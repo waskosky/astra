@@ -5541,6 +5541,32 @@
         }
     },
     {
+        "Noto Sans JP": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "700",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Noto Sans KR": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "700",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Serif": {
             "variants": [
                 "regular",
@@ -5549,6 +5575,34 @@
                 "700italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Noto Serif JP": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Noto Serif KR": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
