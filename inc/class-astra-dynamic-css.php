@@ -1099,7 +1099,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_submenu_below_header_fix() {
 
-			if ( false == astra_get_option( 'submenu-below-header' ) &&
+			if ( false == astra_get_option( 'submenu-below-header', true ) &&
 				false === apply_filters(
 					'astra_submenu_below_header_fix',
 					false
