@@ -182,6 +182,64 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[primary-submenu-border-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-header',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
+				// Option: Primary Menu Border.
+				array(
+					'type'           => 'control',
+					'control'        => 'ast-border',
+					'transport'      => 'postMessage',
+					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-border]',
+					'section'        => 'section-header',
+					'linked_choices' => true,
+					'priority'       => 30,
+					'default'        => astra_get_option( 'primary-submenu-border' ),
+					'title'          => __( 'Submenu Container Border', 'astra' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+				),
+
+				array(
+					'type'           => 'control',
+					'control'        => 'ast-border',
+					'transport'      => 'postMessage',
+					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+					'section'        => 'section-header',
+					'linked_choices' => false,
+					'priority'       => 30,
+					'default'        => astra_get_option( 'primary-submenu-border' ),
+					'title'          => __( 'Submenu Items Border', 'astra' ),
+					'choices'        => array(
+						'bottom' => __( 'Bottom', 'astra' ),
+					),
+				),
+
+				// Option: Submenu Border Color.
+				array(
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color]',
+					'default'   => '',
+					'title'     => __( 'Submenu Border Color', 'astra' ),
+					'section'   => 'section-header',
+					'priority'  => 30,
+				),
+
+				/**
 				 * Option: Mobile Menu Label Divider
 				 */
 				array(
@@ -232,16 +290,16 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-header',
 					'priority' => 34,
-					'title'    => __( 'Link Pointer Style', 'astra-addon' ),
+					'title'    => __( 'Link Pointer Style', 'astra' ),
 					'required' => array(
 						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
 						'!=',
 						true,
 					),
 					'choices'  => array(
-						'none'      => __( 'None', 'astra-addon' ),
-						'underline' => __( 'Underline', 'astra-addon' ),
-						'overline'  => __( 'Overline', 'astra-addon' ),
+						'none'      => __( 'None', 'astra' ),
+						'underline' => __( 'Underline', 'astra' ),
+						'overline'  => __( 'Overline', 'astra' ),
 					),
 				),
 
@@ -254,7 +312,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'   => 'ast-color',
 					'section'   => 'section-header',
 					'priority'  => 34,
-					'title'     => __( 'Link Pointer Color', 'astra-addon' ),
+					'title'     => __( 'Link Pointer Color', 'astra' ),
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
 						'!=',

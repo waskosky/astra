@@ -115,6 +115,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Header Break Point.
 			$header_break_point = astra_header_break_point();
 
+			// Submenu Bordercolor.
+			$submenu_border              = astra_get_option( 'primary-submenu-border' );
+			$primary_submenu_item_border = astra_get_option( 'primary-submenu-item-border' );
+			$primary_submenu_b_color     = astra_get_option( 'primary-submenu-b-color' );
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -482,15 +487,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
-
-				// Box Shadow.
-				'.ast-desktop .main-header-bar .main-header-bar-navigation .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper' => array(
-					'box-shadow' => '0 5px 20px rgba(0,0,0,0.06)',
-				),
-				'.ast-desktop .main-header-bar .main-header-bar-navigation .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-bar .main-header-bar-navigation .astra-megamenu .sub-menu' => array(
-					'box-shadow' => 'none',
-				),
-
 			);
 
 			/* Parse CSS from array() */
@@ -859,6 +855,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css      .= astra_parse_css( $single_blog_css, '769' );
 			endif;
 
+			// Primary Submenu Border Width & Color.
+			$submenu_border_style = array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .children, .ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
+					'border-color' => esc_attr( $primary_submenu_b_color ),
+				),
+
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children' => array(
+					'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
+					'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
+					'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
+					'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
+					'border-style'        => 'solid',
+				),
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children' => array(
+					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
+				),
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
+					'border-bottom-width' => astra_get_css_value( $primary_submenu_item_border['bottom'], 'px' ),
+					'border-style'        => 'solid',
+				),
+			);
+
+			$parse_css .= astra_parse_css( $submenu_border_style );
+
 			/* Small Footer CSS */
 			if ( 'disabled' != $small_footer_layout ) :
 				$sml_footer_css = array(
@@ -886,7 +906,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-404-layout-1 .ast-404-text' => array(
 						'font-size' => astra_get_font_css_value( 100 ),
 					),
-				), '', '920'
+				),
+				'',
+				'920'
 			);
 
 			$parse_css .= astra_get_link_pointer_css( '.main-header-bar', $nav_pointer_style, $nav_pointer_color, $nav_pointer_width );
@@ -958,6 +980,61 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			endif;
 
+			if ( false === self::astra_submenu_below_header_fix() ) :
+				// If submenu below header fix is not to be loaded then add removed flex properties from class `ast-flex`.
+				// Also restore the padding to class `main-header-bar`.
+				$submenu_below_header = array(
+					'.ast-flex'          => array(
+						'-webkit-align-content' => 'center',
+						'-ms-flex-line-pack'    => 'center',
+						'align-content'         => 'center',
+						'-webkit-box-align'     => 'center',
+						'-webkit-align-items'   => 'center',
+						'-moz-box-align'        => 'center',
+						'-ms-flex-align'        => 'center',
+						'align-items'           => 'center',
+					),
+					'.main-header-bar'   => array(
+						'padding' => '1em 0',
+					),
+					'.ast-site-identity' => array(
+						'padding' => '0',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_below_header );
+
+			else :
+				// `.menu-item` required display:flex, although weight of this css increases because of which custom CSS added from child themes to be not working.
+				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
+				// @see https://github.com/brainstormforce/astra/pull/828
+				$submenu_below_header = array(
+					'.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'-js-display'             => 'flex',
+						'display'                 => '-webkit-box',
+						'display'                 => '-webkit-flex',
+						'display'                 => '-moz-box',
+						'display'                 => '-ms-flexbox',
+						'display'                 => 'flex',
+						'-webkit-box-pack'        => 'center',
+						'-webkit-justify-content' => 'center',
+						'-moz-box-pack'           => 'center',
+						'-ms-flex-pack'           => 'center',
+						'justify-content'         => 'center',
+						'-webkit-box-orient'      => 'vertical',
+						'-webkit-box-direction'   => 'normal',
+						'-webkit-flex-direction'  => 'column',
+						'-moz-box-orient'         => 'vertical',
+						'-moz-box-direction'      => 'normal',
+						'-ms-flex-direction'      => 'column',
+						'flex-direction'          => 'column',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_below_header );
+
+			endif;
+
 			$dynamic_css = $parse_css;
 			if ( false != $return_css ) {
 				return $dynamic_css;
@@ -1002,13 +1079,36 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( true == astra_get_option( 'include-headings-in-typography' ) &&
 				true === apply_filters(
-					'astra_include_achors_in_headings_typography', true
+					'astra_include_achors_in_headings_typography',
+					true
 				) ) {
 
 					return true;
 			} else {
 
 				return false;
+			}
+
+		}
+
+		/**
+		 * Check backwards compatibility CSS for loading submenu below the header needs to be added.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if CSS should be included, False if not.
+		 */
+		public static function astra_submenu_below_header_fix() {
+
+			if ( false == astra_get_option( 'submenu-below-header' ) &&
+				false === apply_filters(
+					'astra_submenu_below_header_fix',
+					false
+				) ) {
+
+					return false;
+			} else {
+
+				return true;
 			}
 
 		}

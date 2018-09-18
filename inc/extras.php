@@ -196,7 +196,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			 */
 			// Site Title.
 			$site_title_markup = apply_filters(
-				'astra_site_title_output', sprintf(
+				'astra_site_title_output',
+				sprintf(
 					'<%1$s class="site-title" itemprop="name">
 					<a href="%2$s" rel="home" itemprop="url" >
 						%3$s
@@ -238,7 +239,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			 * @param string the HTML output for Site Title.
 			 */
 			$site_tagline_markup = apply_filters(
-				'astra_site_description_markup', sprintf(
+				'astra_site_description_markup',
+				sprintf(
 					'<p class="site-description" itemprop="description">
 					%1$s
 				</p>',
@@ -466,7 +468,8 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters(
-				'astra_theme_author', array(
+				'astra_theme_author',
+				array(
 					'theme_name'       => __( 'Astra', 'astra' ),
 					'theme_author_url' => 'http://wpastra.com/',
 				)
@@ -1301,7 +1304,8 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
 				$post_thumb = apply_filters(
-					'astra_featured_image_markup', get_the_post_thumbnail(
+					'astra_featured_image_markup',
+					get_the_post_thumbnail(
 						get_the_ID(),
 						apply_filters( 'astra_post_thumbnail_default_size', 'large' ),
 						array(
