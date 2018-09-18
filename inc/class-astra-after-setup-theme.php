@@ -149,7 +149,9 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 				add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 			}
 
-			if ( apply_filters( 'astra_fullwidth_oembed', true ) ) {
+			$astra_fullwidth_oembed_on_admin_screen = apply_filters( 'astra_fullwidth_oembed_on_admin_screen', false );
+
+			if ( ( ! is_admin() && apply_filters( 'astra_fullwidth_oembed', true ) ) || ( is_admin() && $astra_fullwidth_oembed_on_admin_screen ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 				add_filter( 'oembed_result', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
