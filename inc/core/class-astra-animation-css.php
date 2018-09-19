@@ -79,24 +79,6 @@ if ( ! class_exists( 'Astra_Animation_CSS' ) ) {
 						'transition' => 'opacity ease-in-out .3s',
 					),
 				),
-				'scale'      => array(
-					'normal' => array(
-						'opacity'           => '0',
-						'visibility'        => 'hidden',
-						'-webkit-transform' => 'scale(0.8, 0.8)',
-						'-ms-transform'     => 'scale(0.8, 0.8)',
-						'transform'         => 'scale(0.8, 0.8)',
-						'transition'        => 'visibility .2s ease,transform .3s ease',
-					),
-					'hover'  => array(
-						'opacity'           => '1',
-						'visibility'        => 'visible',
-						'-webkit-transform' => 'scale(1, 1)',
-						'-ms-transform'     => 'scale(1, 1)',
-						'transform'         => 'scale(1, 1)',
-						'transition'        => 'opacity .2s ease,visibility .2s ease,transform .3s ease',
-					),
-				),
 			);
 		}
 

@@ -278,7 +278,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'slide-down' => __( 'Slide Down', 'astra' ),
 						'slide-up'   => __( 'Slide Up', 'astra' ),
 						'fade'       => __( 'Fade', 'astra' ),
-						'scale'      => __( 'Scale', 'astra' ),
 					),
 				),
 
