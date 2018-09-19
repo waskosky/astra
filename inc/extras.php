@@ -660,10 +660,17 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
+			// Link Pointer Style.
 			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
 			if ( 'none' !== $pointer_effect ) {
 				$submenu_class .= ' ast-link-pointer-style ';
-				$submenu_class .= ' ast-link-pointer-style-' . $pointer_effect . ' ';
+				$submenu_class .= ' ast-link-pointer-style-' . esc_html( $pointer_effect ) . ' ';
+			}
+
+			// Menu Animation.
+			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+			if ( ! empty( $menu_animation ) ) {
+				$submenu_class .= ' astra-menu-animation-' . esc_html( $menu_animation ) . ' ';
 			}
 
 			/**
