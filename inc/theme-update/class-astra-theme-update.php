@@ -848,13 +848,20 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_5_0_rc_3() {
+			
 			$theme_options = get_option( 'astra-settings' );
 
 			// Set the default #eaeaea sub menu border color who doesn't set any color.
 			if ( ! isset( $theme_options['primary-submenu-b-color'] ) ) {
 				$theme_options['primary-submenu-b-color'] = '#eaeaea';
-				update_option( 'astra-settings', $theme_options );
 			}
+
+			if ( ! isset( $theme_options['header-main-submenu-container-animation'] ) ) {
+				$theme_options['header-main-submenu-container-animation'] = '';
+			}
+
+			update_option( 'astra-settings', $theme_options );
+			
 		}
 
 	}
