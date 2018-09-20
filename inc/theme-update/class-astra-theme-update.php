@@ -856,6 +856,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['primary-submenu-b-color'] = '#eaeaea';
 			}
 
+			// Set the primary sub menu animation to default for existing user.
 			if ( ! isset( $theme_options['header-main-submenu-container-animation'] ) ) {
 				$theme_options['header-main-submenu-container-animation'] = '';
 			}
