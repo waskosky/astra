@@ -73,6 +73,7 @@ require_once ASTRA_THEME_DIR . 'inc/class-astra-mobile-header.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-after-setup-theme.php';
 
 // Required files.
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-helper.php';
 
 if ( is_admin() ) {
