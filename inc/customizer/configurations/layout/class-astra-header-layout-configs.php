@@ -253,7 +253,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						true,
 					),
 					'priority' => 34,
-					'title'    => __( 'Menu Animation', 'astra' ),
+					'title'    => __( 'Menu Style', 'astra' ),
 					'settings' => array(),
 				),
 
