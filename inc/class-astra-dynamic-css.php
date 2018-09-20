@@ -166,9 +166,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$menu_btn_color = astra_get_foreground_color( $btn_style_color );
 			}
 
-			// Submenu Container Animation.
-			$submenu_container_animation = astra_get_option( 'header-main-submenu-container-animation' );
-
 			$css_output = array();
 			// Body Font Family.
 			$body_font_family = astra_body_font_family();
@@ -491,21 +488,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
-
-			// Submenu container animation.
-			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
-				$animation_output = array(
-					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > .astra-megamenu ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .focus > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu li:hover .astra-full-megamenu-wrapper, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li .astra-full-megamenu-wrapper ul' => astra_get_animation( $submenu_container_animation, 'hover' ),
-
-					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-full-megamenu-wrapper' => astra_get_animation( $submenu_container_animation, 'normal' ),
-
-					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .full-width-mega .astra-full-megamenu-wrapper' => array(
-						'display' => 'flex',
-					),
-				);
-
-				$parse_css .= astra_parse_css( $animation_output );
-			}
 
 			// Foreground color.
 			if ( ! empty( $footer_adv_link_color ) ) {

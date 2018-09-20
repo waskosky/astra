@@ -1,0 +1,76 @@
+/**
+ * Slide Up
+ */
+.ast-desktop {
+  /**
+     * Slide Down
+     */
+  /**
+     * Fade
+     */
+}
+
+.ast-desktop .astra-menu-animation-slide-up .menu-item .sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(0.5em);
+  -ms-transform: translateY(0.5em);
+  transform: translateY(0.5em);
+  -webkit-transition: visibility .2s ease, -webkit-transform .2s ease;
+  transition: visibility .2s ease, -webkit-transform .2s ease;
+  transition: visibility .2s ease, transform .2s ease;
+  transition: visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-up .menu-item.focus .sub-menu,
+.ast-desktop .astra-menu-animation-slide-up .menu-item:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-down .menu-item.focus .sub-menu,
+.ast-desktop .astra-menu-animation-slide-down .menu-item:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-down .menu-item .sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-0.5em);
+  -ms-transform: translateY(-0.5em);
+  transform: translateY(-0.5em);
+  -webkit-transition: visibility .2s ease, -webkit-transform .2s ease;
+  transition: visibility .2s ease, -webkit-transform .2s ease;
+  transition: visibility .2s ease, transform .2s ease;
+  transition: visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-fade .menu-item.focus .sub-menu,
+.ast-desktop .astra-menu-animation-fade .menu-item:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity ease-in-out .3s;
+  transition: opacity ease-in-out .3s;
+}
+
+.ast-desktop .astra-menu-animation-fade .menu-item .sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity ease-in-out .3s;
+  transition: opacity ease-in-out .3s;
+}
