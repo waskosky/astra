@@ -183,11 +183,18 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
 
+			// Link Pointer Style.
 			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
-
 			wp_register_style( 'astra-link-pointer-style', $css_uri . 'link-pointer-style' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
 			if ( 'none' !== $pointer_effect ) {
 				wp_enqueue_style( 'astra-link-pointer-style' );
+			}
+
+			// Submenu Container Animation.
+			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+			wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+			if ( ! empty( $menu_animation ) ) {
+				wp_enqueue_style( 'astra-menu-animation' );
 			}
 		}
 
