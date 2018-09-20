@@ -1632,10 +1632,10 @@ function astra_nav_menu_item_css_class( $classes ) {
 
 add_filter( 'nav_menu_css_class', 'astra_nav_menu_item_css_class' );
 
-function astra_nav_menu_item_attributes( $attributes ) {
-	$attributes['class'] = 'ast-menu-item';
+function astra_nav_menu_item_attributes( $classes ) {
+	$classes[]  = 'ast-menu-item';
 
-	return $attributes;
+	return $classes;
 }
 
-add_filter( 'nav_menu_link_attributes', 'astra_nav_menu_item_attributes' );
+add_filter( 'astra_nav_menu_link_css_class', 'astra_nav_menu_item_attributes' );
