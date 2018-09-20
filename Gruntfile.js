@@ -80,6 +80,7 @@ module.exports = function (grunt) {
                         /* Link Pointer Style */
                         {
                             'assets/css/unminified/link-pointer-style.css': 'sass/site/navigation/link-pointer-style.scss',
+                            'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
                         },
 
                         /* Editor Style */
@@ -95,6 +96,7 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/spacing/spacing.css': 'inc/customizer/custom-controls/spacing/spacing.scss',
                             'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css': 'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss',
                             'inc/customizer/custom-controls/background/background.css': 'inc/customizer/custom-controls/background/background.scss',
+                            'inc/customizer/custom-controls/border/border.css': 'inc/customizer/custom-controls/border/border.scss',
                         },
 
                         /* Common Style */
