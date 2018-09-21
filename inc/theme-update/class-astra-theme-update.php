@@ -848,7 +848,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_5_0_rc_3() {
-			
+
 			$theme_options = get_option( 'astra-settings' );
 
 			// Set the default #eaeaea sub menu border color who doesn't set any color.
@@ -862,7 +862,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			update_option( 'astra-settings', $theme_options );
-			
+
 		}
 
 	}
