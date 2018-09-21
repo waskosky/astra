@@ -1,3 +1,7 @@
+v1.5.0-rc.3
+- New: Post meta support for attachment page
+- Fix: RTL styling not working in customizer
+
 v1.5.0-rc.2
 Fix: Menu highlight labels not working for non mega menus.
 
