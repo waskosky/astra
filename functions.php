@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '1.5.0-rc.2' );
+define( 'ASTRA_THEME_VERSION', '1.5.0-rc.3' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', get_template_directory() . '/' );
 define( 'ASTRA_THEME_URI', get_template_directory_uri() . '/' );
@@ -41,7 +41,6 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
-require_once ASTRA_THEME_DIR . 'inc/core/class-astra-animation-css.php';
 
 /**
  * Custom template tags for this theme.

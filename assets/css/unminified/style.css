@@ -1457,7 +1457,7 @@ big {
 
 mark,
 ins {
-  background: #fff9c0;
+  background: transparent;
   text-decoration: none;
 }
 
@@ -2576,13 +2576,11 @@ body {
 .submenu-with-border .sub-menu {
   border-width: 1px;
   border-style: solid;
-  border-color: #eaeaea;
 }
 
 .submenu-with-border .sub-menu .ast-menu-item {
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: #eaeaea;
 }
 
 .submenu-with-border .sub-menu .sub-menu {
@@ -3763,7 +3761,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point .ast-site-identity {
-  padding: 0;
   width: 100%;
 }
 
