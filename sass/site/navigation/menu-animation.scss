@@ -16,6 +16,7 @@
             &:hover > .astra-full-megamenu-wrapper,
             &.focus > .sub-menu,
             &:hover > .sub-menu,
+            .menu-item.focus > .sub-menu,
             .menu-item:hover > .sub-menu {
                 opacity: 1;
                 visibility: visible;
@@ -43,6 +44,7 @@
             &:hover > .astra-full-megamenu-wrapper,
             &.focus > .sub-menu,
             &:hover > .sub-menu,
+            .menu-item.focus > .sub-menu,
             .menu-item:hover > .sub-menu {
                 opacity: 1;
                 visibility: visible;
@@ -69,6 +71,7 @@
             &:hover > .astra-full-megamenu-wrapper,
             &.focus > .sub-menu,
             &:hover > .sub-menu,
+            .menu-item.focus > .sub-menu,
             .menu-item:hover > .sub-menu {
                 opacity: 1;
                 visibility: visible;
