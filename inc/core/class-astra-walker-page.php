@@ -71,6 +71,10 @@ function astra_page_menu_item_css_class( $css_class, $page, $depth, $args, $curr
 		$css_class[] = 'current-menu-item';
 	}
 
+	if ( in_array( 'current_page_ancestor', $css_class ) ) {
+		$css_class[] = 'current-menu-ancestor';
+	}
+
 	return $css_class;
 }
 
