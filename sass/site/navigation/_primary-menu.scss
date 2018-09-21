@@ -18,12 +18,16 @@
 	font-weight:600;
 	height: 100%;
 
-	.main-header-menu,
-	.main-header-menu .sub-menu {
+	.main-header-menu{
+		position: relative;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
-		position: relative;
+		.sub-menu {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+		}
 	}
 }
 
