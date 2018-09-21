@@ -179,7 +179,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
-					'header-main-submenu-container-animation' => '',
+					'header-main-submenu-container-animation' => 'slide-down',
 					'nav-menu-pointer-effect'          => 'overline',
 					'nav-menu-pointer-color'           => '',
 					'nav-menu-pointer-thickness'       => 2,                    // Mobile Header.
