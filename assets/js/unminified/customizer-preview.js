@@ -792,13 +792,13 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			var css = '';
 
 			if( 'underline' === style ) {
-				css += '.ast-desktop ' + prefix + ' .ast-link-pointer-style-underline > li > a:before';
+				css += '.ast-desktop ' + prefix + ' .ast-link-pointer-style-underline > .ast-menu-item-li > .ast-menu-item:before';
 				css += '{';
 				css += 'background-color: ' + color + ';';
 				css += 'height: ' + border + 'px;';
 				css += '}';
 			} else if( 'overline' === style ) {
-				css += '.ast-desktop ' + prefix + ' .ast-link-pointer-style-overline > li > a:before';
+				css += '.ast-desktop ' + prefix + ' .ast-link-pointer-style-overline > .ast-menu-item-li > .ast-menu-item:before';
 				css += '{';
 				css += 'background-color: ' + color + ';';
 				css += 'height: ' + border + 'px;';
