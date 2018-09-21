@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 				$t = '';
 				$n = '';
 			}
-			$indent = str_repeat( $t, $depth );
+			$indent  = str_repeat( $t, $depth );
 			$output .= "{$n}{$indent}<ul class='children sub-menu'>{$n}";
 		}
 
@@ -45,7 +45,7 @@ function astra_page_menu_item_attributes( $atts, $page, $depth, $args, $current_
 
 	if ( 'primary' == $args['theme_location'] || 'above_header_menu' == $args['theme_location'] || 'below_header_menu' == $args['theme_location'] ) {
 
-		if( ! isset( $atts['class'])) {
+		if ( ! isset( $atts['class'] ) ) {
 			$atts['class'] = array();
 		}
 
@@ -61,14 +61,13 @@ function astra_page_menu_item_attributes( $atts, $page, $depth, $args, $current_
 add_filter( 'page_menu_link_attributes', 'astra_page_menu_item_attributes', 10, 5 );
 
 function astra_page_menu_item_css_class( $css_class, $page, $depth, $args, $current_page ) {
-	$css_class[]  = 'ast-menu-item-li';
+	$css_class[] = 'ast-menu-item-li';
 
-	if( in_array('page_item_has_children', $css_class ) ) {
+	if ( in_array( 'page_item_has_children', $css_class ) ) {
 		$css_class[] = 'menu-item-has-children';
 	}
 
-
-	if( in_array('current_page_item', $css_class ) ) {
+	if ( in_array( 'current_page_item', $css_class ) ) {
 		$css_class[] = 'current-menu-item';
 	}
 

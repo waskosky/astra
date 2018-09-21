@@ -683,7 +683,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 				'before'         => '<ul class="' . esc_attr( implode( ' ', $primary_menu_classes ) ) . '">',
 				'after'          => '</ul>',
-				'walker' 		 => new Astra_Walker_Page(),
+				'walker'         => new Astra_Walker_Page(),
 			);
 
 			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
@@ -1626,7 +1626,7 @@ if ( ! function_exists( 'astra_get_animation' ) ) :
 endif;
 
 function astra_nav_menu_item_css_class( $classes ) {
-	$classes[]  = 'ast-menu-item-li';
+	$classes[] = 'ast-menu-item-li';
 
 	return $classes;
 }
@@ -1637,12 +1637,12 @@ function astra_nav_menu_item_attributes( $atts, $item, $args, $depth ) {
 
 	if ( 'primary' == $args->theme_location || 'above_header_menu' == $args->theme_location || 'below_header_menu' == $args->theme_location ) {
 
-		if( ! isset( $atts['class'])) {
+		if ( ! isset( $atts['class'] ) ) {
 			$atts['class'] = array();
 		}
 
 		$atts['class'][] = 'ast-menu-item';
-
+		$atts['class']   = implode( ' ', $atts['class'] );
 	}
 
 	return $atts;
