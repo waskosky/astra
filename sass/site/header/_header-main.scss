@@ -406,18 +406,18 @@ li.ast-masthead-custom-menu-items {
 		display: block;
 		width: 100%;
 
-		ul {
-			> li:first-child {
+		.main-header-menu {
+			> .ast-menu-item-li:first-child {
 				border-top: 0;
 			}
 
-			ul {
+			.sub-menu {
 				left: auto;
 				right: auto;
 			}
 		}
 
-		li {
+		.ast-menu-item-li {
 			width: 100%;
 		}
 		.widget {
@@ -437,7 +437,7 @@ li.ast-masthead-custom-menu-items {
 		margin: 0 -20px;
 	}
 	.main-header-menu {
-		ul ul {
+		.sub-menu .sub-menu {
 			top: 0;
 		}
 	}

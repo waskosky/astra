@@ -3817,16 +3817,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.ast-header-break-point .main-navigation ul > li:first-child {
+.ast-header-break-point .main-navigation .main-header-menu > .ast-menu-item-li:first-child {
   border-top: 0;
 }
 
-.ast-header-break-point .main-navigation ul ul {
+.ast-header-break-point .main-navigation .main-header-menu .sub-menu {
   left: auto;
   right: auto;
 }
 
-.ast-header-break-point .main-navigation li {
+.ast-header-break-point .main-navigation .ast-menu-item-li {
   width: 100%;
 }
 
@@ -3848,7 +3848,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0 -20px;
 }
 
-.ast-header-break-point .main-header-menu ul ul {
+.ast-header-break-point .main-header-menu .sub-menu .sub-menu {
   top: 0;
 }
 
