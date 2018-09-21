@@ -2601,11 +2601,11 @@ body {
   border-color: #eaeaea;
 }
 
-.ast-header-break-point .main-navigation .main-header-menu.sub-menu .ast-menu-item-li .ast-menu-item {
+.ast-header-break-point .main-navigation .main-header-menu .sub-menu .ast-menu-item-li .ast-menu-item {
   padding-left: 30px;
 }
 
-.ast-header-break-point .main-navigation .main-header-menu.sub-menu .ast-menu-item-li .ast-menu-item:before {
+.ast-header-break-point .main-navigation .main-header-menu .sub-menu .ast-menu-item-li .ast-menu-item:before {
   content: "\e900";
   font-family: 'Astra';
   font-size: .65em;
@@ -2617,15 +2617,15 @@ body {
   margin-right: 5px;
 }
 
-.ast-header-break-point .main-navigation .main-header-menu.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
+.ast-header-break-point .main-navigation .main-header-menu .sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
   padding-left: 40px;
 }
 
-.ast-header-break-point .main-navigation .main-header-menu.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
+.ast-header-break-point .main-navigation .main-header-menu .sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
   padding-left: 50px;
 }
 
-.ast-header-break-point .main-navigation .main-header-menu.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
+.ast-header-break-point .main-navigation .main-header-menu .sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
   padding-left: 60px;
 }
 

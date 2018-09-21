@@ -148,7 +148,7 @@
 				border-style: solid;
 				border-color: #eaeaea;
 			}
-			&.sub-menu .ast-menu-item-li .ast-menu-item {
+			.sub-menu .ast-menu-item-li .ast-menu-item {
 			    padding-left: 30px;
 			    &:before{
 			    	content: "\e900";
@@ -160,13 +160,13 @@
     				margin-right: 5px;
 			    }
 			}
-			&.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
+			.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
 			    padding-left: 40px;
 			}
-			&.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
+			.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
 			    padding-left: 50px;
 			}
-			&.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
+			.sub-menu .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item-li .ast-menu-item {
 			    padding-left: 60px;
 			}
 		}
