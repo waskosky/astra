@@ -4,12 +4,12 @@
 .ast-desktop {
     .ast-link-pointer-style {
 
-        > li,
-        > li > a {
+        > .ast-menu-item-li,
+        > .ast-menu-item-li > .ast-menu-item {
             position: relative;
         }
 
-        > li > a {
+        > .ast-menu-item-li > .ast-menu-item {
             transition: all linear 0.3s;
             
             &:before {
@@ -22,7 +22,7 @@
                 opacity: 0;
             }
         }
-        > li:hover > a:not(:hover):not(:focus):before {
+        > .ast-menu-item-li:hover > .ast-menu-item:not(:hover):not(:focus):before {
             opacity: 1;
         }
     }
@@ -31,7 +31,7 @@
      * Underline
      */
     .ast-link-pointer-style-underline {
-        > li > a {
+        > .ast-menu-item-li > .ast-menu-item {
             &:before {
                 content: '';
                 bottom: 0;
@@ -50,7 +50,7 @@
      * Overline
      */
     .ast-link-pointer-style-overline {
-        > li > a {
+        > .ast-menu-item-li > .ast-menu-item {
             &:before {
                 content: '';
                 top: 0;

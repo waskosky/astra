@@ -1140,14 +1140,14 @@ if ( ! function_exists( 'astra_get_link_pointer_css' ) ) :
 
 		if ( 'underline' === $style ) {
 			$css = array(
-				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-underline > li > a:before' => array(
+				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-underline > .ast-menu-item-li > .ast-menu-item:before' => array(
 					'background-color' => esc_attr( $color ),
 					'height'           => esc_attr( $width ) . 'px',
 				),
 			);
 		} elseif ( 'overline' === $style ) {
 			$css = array(
-				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-overline > li > a:before' => array(
+				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-overline > .ast-menu-item-li > .ast-menu-item:before' => array(
 					'background-color' => esc_attr( $color ),
 					'height'           => esc_attr( $width ) . 'px',
 				),
