@@ -50,8 +50,11 @@
 		justify-content: center;
 	}
 	.main-navigation {
-		ul{
+		.main-header-menu{
 			justify-content: center;
+			.sub-menu{
+				justify-content: center;
+			}
 		}
 	}
 	.main-header-bar-navigation {
@@ -98,8 +101,11 @@
 	}
 	.main-navigation {
 		padding-right: 15px;
-		ul {
+		.main-header-menu {
 			justify-content: flex-start;
+			.sub-menu{
+				justify-content: flex-start;
+			}
 		}
 	}
 	.main-header-bar-navigation {
