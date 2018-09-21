@@ -327,7 +327,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Main - Menu Items.
-				'.main-header-menu .ast-menu-item-li:hover > .ast-menu-item, .main-header-menu .ast-menu-item-li:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu .ast-menu-item-li.focus > .ast-menu-item, .main-header-menu .ast-menu-item-li.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > .ast-menu-item, .main-header-menu .current-menu-ancestor > .ast-menu-item, .main-header-menu .current_page_item > .ast-menu-item, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .main-header-menu .current_page_item > .ast-menu-toggle' => array(
+				'.main-header-menu .ast-menu-item-li:hover > .ast-menu-item, .main-header-menu .ast-menu-item-li:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu .ast-menu-item-li.focus > .ast-menu-item, .main-header-menu .ast-menu-item-li.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > .ast-menu-item, .main-header-menu .current-menu-ancestor > .ast-menu-item, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle' => array(
 					'color' => esc_attr( $link_color ),
 				),
 
