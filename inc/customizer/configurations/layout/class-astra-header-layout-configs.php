@@ -253,7 +253,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						true,
 					),
 					'priority' => 34,
-					'title'    => __( 'Menu Animation', 'astra' ),
+					'title'    => __( 'Menu Style', 'astra' ),
 					'settings' => array(),
 				),
 
@@ -278,7 +278,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'slide-down' => __( 'Slide Down', 'astra' ),
 						'slide-up'   => __( 'Slide Up', 'astra' ),
 						'fade'       => __( 'Fade', 'astra' ),
-						'scale'      => __( 'Scale', 'astra' ),
 					),
 				),
 

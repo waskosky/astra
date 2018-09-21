@@ -660,10 +660,17 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
+			// Link Pointer Style.
 			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
 			if ( 'none' !== $pointer_effect ) {
 				$submenu_class .= ' ast-link-pointer-style ';
-				$submenu_class .= ' ast-link-pointer-style-' . $pointer_effect . ' ';
+				$submenu_class .= ' ast-link-pointer-style-' . esc_html( $pointer_effect ) . ' ';
+			}
+
+			// Menu Animation.
+			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+			if ( ! empty( $menu_animation ) ) {
+				$submenu_class .= ' astra-menu-animation-' . esc_html( $menu_animation ) . ' ';
 			}
 
 			/**
@@ -1599,28 +1606,6 @@ if ( ! function_exists( 'astar' ) ) :
 		}
 
 		return empty( $value ) && null !== $default ? $default : $value;
-	}
-
-endif;
-
-if ( ! function_exists( 'astra_get_animation' ) ) :
-
-	/**
-	 * Get Animation properties as array.
-	 * CSS Aniamtion properties retreived as array.
-	 *
-	 * @since x.x.x
-	 * @param String $animation Animation name.
-	 * @param String $state Hover or Normal state for animation.
-	 *
-	 * @return Array Animation CSS properties if the Animation exists else returns an empty array.
-	 */
-	function astra_get_animation( $animation, $state ) {
-		if ( ! is_callable( 'Astra_Animation_CSS::get_animation_prop' ) ) {
-			return array();
-		}
-
-		return Astra_Animation_CSS::get_animation_prop( $animation, $state );
 	}
 
 endif;
