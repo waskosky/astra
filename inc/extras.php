@@ -1610,13 +1610,13 @@ if ( ! function_exists( 'astar' ) ) :
 
 endif;
 
-if( ! function_exists( 'astra_nav_menu_item_css_class' ) ) :
+if ( ! function_exists( 'astra_nav_menu_item_css_class' ) ) :
 
 	/**
 	 * Nav menu item class
 	 *
 	 * @since x.x.x
-	 * 
+	 *
 	 * @param array $classes Menu item classes.
 	 *
 	 * @return array Menu item classes.
@@ -1630,15 +1630,15 @@ if( ! function_exists( 'astra_nav_menu_item_css_class' ) ) :
 
 endif;
 
-if( ! function_exists( 'astra_nav_menu_item_attributes' ) ) :
+if ( ! function_exists( 'astra_nav_menu_item_attributes' ) ) :
 
 	/**
 	 * Menu item attributes.
 	 *
 	 * @since x.x.x
 	 *
-	 * @param array $atts {
-	 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+	 * @param array    $atts {
+	 *        The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
 	 *
 	 *     @type string $title  Title attribute.
 	 *     @type string $target Target attribute.

@@ -41,15 +41,15 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 	}
 }
 
-if( ! function_exists( 'astra_page_menu_item_attributes' ) ) :
+if ( ! function_exists( 'astra_page_menu_item_attributes' ) ) :
 
 	/**
 	 * Page menu item classes.
 	 *
 	 * @since x.x.x
-	 * 
-	 * @param array $atts {
-	 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+	 *
+	 * @param array   $atts {
+	 *       The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
 	 *
 	 *     @type string $href The href attribute.
 	 * }
@@ -57,7 +57,7 @@ if( ! function_exists( 'astra_page_menu_item_attributes' ) ) :
 	 * @param int     $depth        Depth of page, used for padding.
 	 * @param array   $args         An array of arguments.
 	 * @param int     $current_page ID of the current page.
-	 * 
+	 *
 	 * @return array menu item arguments.
 	 */
 	function astra_page_menu_item_attributes( $atts, $page, $depth, $args, $current_page ) {
@@ -80,7 +80,7 @@ if( ! function_exists( 'astra_page_menu_item_attributes' ) ) :
 
 endif;
 
-if( ! function_exists( 'astra_page_menu_item_css_class' ) ) :
+if ( ! function_exists( 'astra_page_menu_item_css_class' ) ) :
 
 	/**
 	 * Page menu item classes
@@ -95,7 +95,7 @@ if( ! function_exists( 'astra_page_menu_item_css_class' ) ) :
 	 * @param int     $depth        Depth of page, used for padding.
 	 * @param array   $args         An array of arguments.
 	 * @param int     $current_page ID of the current page.
-	 * 
+	 *
 	 * @return array menu item classes.
 	 */
 	function astra_page_menu_item_css_class( $css_class, $page, $depth, $args, $current_page ) {
