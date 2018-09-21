@@ -327,7 +327,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Main - Menu Items.
-				'.main-header-menu li:hover > a, .main-header-menu li:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .main-header-menu .current_page_item > .ast-menu-toggle' => array(
+				'.main-header-menu .ast-menu-item-li:hover > .ast-menu-item, .main-header-menu .ast-menu-item-li:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu .ast-menu-item-li.focus > .ast-menu-item, .main-header-menu .ast-menu-item-li.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > .ast-menu-item, .main-header-menu .current-menu-ancestor > .ast-menu-item, .main-header-menu .current_page_item > .ast-menu-item, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .main-header-menu .current_page_item > .ast-menu-toggle' => array(
 					'color' => esc_attr( $link_color ),
 				),
 
@@ -495,9 +495,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Submenu container animation.
 			if ( isset( $submenu_container_animation ) && '' !== $submenu_container_animation ) {
 				$animation_output = array(
-					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li:hover > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > .astra-megamenu ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .focus > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-li:hover .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu li:hover .astra-full-megamenu-wrapper, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li .astra-full-megamenu-wrapper ul' => astra_get_animation( $submenu_container_animation, 'hover' ),
+					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .ast-menu-item-li:hover > .sub-menu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .ast-menu-item-li > .astra-megamenu .sub-menu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .focus > .sub-menu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu-.ast-menu-item-li:hover .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .ast-menu-item-li:hover .astra-full-megamenu-wrapper, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .ast-menu-item-li .astra-full-megamenu-wrapper .sub-menu' => astra_get_animation( $submenu_container_animation, 'hover' ),
 
-					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu li > ul, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-full-megamenu-wrapper' => astra_get_animation( $submenu_container_animation, 'normal' ),
+					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .main-header-menu .ast-menu-item-li > .sub-menu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-full-megamenu-wrapper' => astra_get_animation( $submenu_container_animation, 'normal' ),
 
 					'.ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .astra-megamenu, .ast-desktop .ast-primary-submenu-animation-' . $submenu_container_animation . ' .ast-mega-menu-enabled.main-header-menu .full-width-mega .astra-full-megamenu-wrapper' => array(
 						'display' => 'flex',
@@ -857,21 +857,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Primary Submenu Border Width & Color.
 			$submenu_border_style = array(
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .children, .ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .sub-menu .ast-menu-item' => array(
 					'border-color' => esc_attr( $primary_submenu_b_color ),
 				),
 
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu' => array(
 					'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
 					'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
 					'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
 					'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
 					'border-style'        => 'solid',
 				),
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu' => array(
 					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
 				),
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .ast-menu-item' => array(
 					'border-bottom-width' => astra_get_css_value( $primary_submenu_item_border['bottom'], 'px' ),
 					'border-style'        => 'solid',
 				),

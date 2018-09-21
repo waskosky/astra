@@ -127,8 +127,8 @@
 .ast-desktop{
 	.submenu-with-border{
 		.sub-menu {
-			> li:last-child{
-				> a{
+			> .ast-menu-item-li:last-child{
+				> .ast-menu-item{
 					border-bottom-width: 0;
 				}
 			}
