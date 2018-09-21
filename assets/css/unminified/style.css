@@ -2883,6 +2883,7 @@ body {
   justify-content: center;
 }
 
+.header-main-layout-2 .main-navigation .sub-menu,
 .header-main-layout-2 .main-navigation .main-header-menu {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -2891,6 +2892,7 @@ body {
   justify-content: center;
 }
 
+.header-main-layout-2 .main-navigation .sub-menu .sub-menu,
 .header-main-layout-2 .main-navigation .main-header-menu .sub-menu {
   -webkit-box-pack: center;
   -webkit-justify-content: center;

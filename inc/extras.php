@@ -1610,27 +1610,61 @@ if ( ! function_exists( 'astar' ) ) :
 
 endif;
 
-function astra_nav_menu_item_css_class( $classes ) {
-	$classes[] = 'ast-menu-item-li';
+if ( ! function_exists( 'astra_nav_menu_item_css_class' ) ) :
 
-	return $classes;
-}
+	/**
+	 * Nav menu item class
+	 *
+	 * @since x.x.x
+	 *
+	 * @param array $classes Menu item classes.
+	 *
+	 * @return array Menu item classes.
+	 */
+	function astra_nav_menu_item_css_class( $classes ) {
+		$classes[] = 'ast-menu-item-li';
 
-add_filter( 'nav_menu_css_class', 'astra_nav_menu_item_css_class' );
+		return $classes;
+	}
+	add_filter( 'nav_menu_css_class', 'astra_nav_menu_item_css_class' );
 
-function astra_nav_menu_item_attributes( $atts, $item, $args, $depth ) {
+endif;
 
-	if ( 'primary' == $args->theme_location || 'above_header_menu' == $args->theme_location || 'below_header_menu' == $args->theme_location ) {
+if ( ! function_exists( 'astra_nav_menu_item_attributes' ) ) :
 
-		if ( ! isset( $atts['class'] ) ) {
-			$atts['class'] = array();
+	/**
+	 * Menu item attributes.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param array    $atts {
+	 *        The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+	 *
+	 *     @type string $title  Title attribute.
+	 *     @type string $target Target attribute.
+	 *     @type string $rel    The rel attribute.
+	 *     @type string $href   The href attribute.
+	 * }
+	 * @param WP_Post  $item  The current menu item.
+	 * @param stdClass $args  An object of wp_nav_menu() arguments.
+	 * @param int      $depth Depth of menu item. Used for padding.
+	 *
+	 * @return array Menu item arguments.
+	 */
+	function astra_nav_menu_item_attributes( $atts, $item, $args, $depth ) {
+
+		if ( 'primary' == $args->theme_location || 'above_header_menu' == $args->theme_location || 'below_header_menu' == $args->theme_location ) {
+
+			if ( ! isset( $atts['class'] ) ) {
+				$atts['class'] = array();
+			}
+
+			$atts['class'][] = 'ast-menu-item';
+			$atts['class']   = implode( ' ', $atts['class'] );
 		}
 
-		$atts['class'][] = 'ast-menu-item';
-		$atts['class']   = implode( ' ', $atts['class'] );
+		return $atts;
 	}
+	add_filter( 'nav_menu_link_attributes', 'astra_nav_menu_item_attributes', 10, 4 );
 
-	return $atts;
-}
-
-add_filter( 'nav_menu_link_attributes', 'astra_nav_menu_item_attributes', 10, 4 );
+endif;

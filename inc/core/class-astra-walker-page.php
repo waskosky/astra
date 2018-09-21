@@ -41,41 +41,81 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 	}
 }
 
-function astra_page_menu_item_attributes( $atts, $page, $depth, $args, $current_page ) {
+if ( ! function_exists( 'astra_page_menu_item_attributes' ) ) :
 
-	if ( 'primary' == $args['theme_location'] || 'above_header_menu' == $args['theme_location'] || 'below_header_menu' == $args['theme_location'] ) {
+	/**
+	 * Page menu item classes.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param array   $atts {
+	 *       The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+	 *
+	 *     @type string $href The href attribute.
+	 * }
+	 * @param WP_Post $page         Page data object.
+	 * @param int     $depth        Depth of page, used for padding.
+	 * @param array   $args         An array of arguments.
+	 * @param int     $current_page ID of the current page.
+	 *
+	 * @return array menu item arguments.
+	 */
+	function astra_page_menu_item_attributes( $atts, $page, $depth, $args, $current_page ) {
 
-		if ( ! isset( $atts['class'] ) ) {
-			$atts['class'] = array();
+		if ( 'primary' == $args['theme_location'] || 'above_header_menu' == $args['theme_location'] || 'below_header_menu' == $args['theme_location'] ) {
+
+			if ( ! isset( $atts['class'] ) ) {
+				$atts['class'] = array();
+			}
+
+			$atts['class'][] = 'ast-menu-item';
+
+			$atts['class'] = implode( ' ', $atts['class'] );
+
 		}
 
-		$atts['class'][] = 'ast-menu-item';
+		return $atts;
+	}
+	add_filter( 'page_menu_link_attributes', 'astra_page_menu_item_attributes', 10, 5 );
 
-		$atts['class'] = implode( ' ', $atts['class'] );
+endif;
 
+if ( ! function_exists( 'astra_page_menu_item_css_class' ) ) :
+
+	/**
+	 * Page menu item classes
+	 *
+	 * @since x.x.x
+	 *
+	 * @see wp_list_pages()
+	 *
+	 * @param array   $css_class    An array of CSS classes to be applied
+	 *                              to each list item.
+	 * @param WP_Post $page         Page data object.
+	 * @param int     $depth        Depth of page, used for padding.
+	 * @param array   $args         An array of arguments.
+	 * @param int     $current_page ID of the current page.
+	 *
+	 * @return array menu item classes.
+	 */
+	function astra_page_menu_item_css_class( $css_class, $page, $depth, $args, $current_page ) {
+		$css_class[] = 'ast-menu-item-li';
+
+		if ( in_array( 'page_item_has_children', $css_class ) ) {
+			$css_class[] = 'menu-item-has-children';
+		}
+
+		if ( in_array( 'current_page_item', $css_class ) ) {
+			$css_class[] = 'current-menu-item';
+		}
+
+		if ( in_array( 'current_page_ancestor', $css_class ) ) {
+			$css_class[] = 'current-menu-ancestor';
+		}
+
+		return $css_class;
 	}
 
-	return $atts;
-}
+	add_filter( 'page_css_class', 'astra_page_menu_item_css_class', 10, 5 );
 
-add_filter( 'page_menu_link_attributes', 'astra_page_menu_item_attributes', 10, 5 );
-
-function astra_page_menu_item_css_class( $css_class, $page, $depth, $args, $current_page ) {
-	$css_class[] = 'ast-menu-item-li';
-
-	if ( in_array( 'page_item_has_children', $css_class ) ) {
-		$css_class[] = 'menu-item-has-children';
-	}
-
-	if ( in_array( 'current_page_item', $css_class ) ) {
-		$css_class[] = 'current-menu-item';
-	}
-
-	if ( in_array( 'current_page_ancestor', $css_class ) ) {
-		$css_class[] = 'current-menu-ancestor';
-	}
-
-	return $css_class;
-}
-
-add_filter( 'page_css_class', 'astra_page_menu_item_css_class', 10, 5 );
+endif;
