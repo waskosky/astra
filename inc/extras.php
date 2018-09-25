@@ -676,7 +676,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			/**
 			 * Filter the classes(array) for Primary Menu (<ul>).
 			 *
-			 * @since  x.x.x
+			 * @since  1.5.0
 			 * @var Array
 			 */
 			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
@@ -1031,7 +1031,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		/**
 		 * Filter to enabled Astra comment for all Post Types where the commnets are enabled.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.0
 		 *
 		 * @return bool
 		 */

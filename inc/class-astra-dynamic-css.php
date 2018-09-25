@@ -1099,7 +1099,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Check backwards compatibility CSS for loading submenu below the header needs to be added.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.0
 		 * @return boolean true if CSS should be included, False if not.
 		 */
 		public static function astra_submenu_below_header_fix() {
