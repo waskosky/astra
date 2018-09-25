@@ -115,6 +115,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Header Break Point.
 			$header_break_point = astra_header_break_point();
 
+			// Submenu Bordercolor.
+			$submenu_border              = astra_get_option( 'primary-submenu-border' );
+			$primary_submenu_item_border = astra_get_option( 'primary-submenu-item-border' );
+			$primary_submenu_b_color     = astra_get_option( 'primary-submenu-b-color', $theme_color );
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -171,6 +176,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			} else {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
+
+			$nav_pointer_width = astra_get_option( 'nav-menu-pointer-thickness' );
+			$nav_pointer_style = astra_get_option( 'nav-menu-pointer-effect' );
+			$nav_pointer_color = astra_get_option( 'nav-menu-pointer-color', $theme_color );
 
 			$css_output = array(
 
@@ -475,7 +484,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
-
 			);
 
 			/* Parse CSS from array() */
@@ -829,6 +837,39 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css      .= astra_parse_css( $single_blog_css, '769' );
 			endif;
 
+			// Primary Submenu Border Width & Color.
+			$submenu_border_style = array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .children, .ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a, .ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper' => array(
+					'border-color' => esc_attr( $primary_submenu_b_color ),
+				),
+
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children' => array(
+					'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
+					'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
+					'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
+					'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
+					'border-style'        => 'solid',
+				),
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children' => array(
+					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
+				),
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
+					'border-bottom-width' => astra_get_css_value( $primary_submenu_item_border['bottom'], 'px' ),
+					'border-style'        => 'solid',
+				),
+			);
+
+			// Submenu items goes outside?
+			$submenu_border_for_left_align_menu = array(
+				'.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul' => array(
+					'margin-left' => ( ( isset( $submenu_border['left'] ) && '' != $submenu_border['left'] ) || isset( $submenu_border['right'] ) && '' != $submenu_border['right'] ) ? astra_get_css_value( '-' . ( $submenu_border['left'] + $submenu_border['right'] ), 'px' ) : '',
+				),
+			);
+
+			$parse_css .= astra_parse_css( $submenu_border_style );
+			// Submenu items goes outside?
+			$parse_css .= astra_parse_css( $submenu_border_for_left_align_menu, '769' );
+
 			/* Small Footer CSS */
 			if ( 'disabled' != $small_footer_layout ) :
 				$sml_footer_css = array(
@@ -856,8 +897,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-404-layout-1 .ast-404-text' => array(
 						'font-size' => astra_get_font_css_value( 100 ),
 					),
-				), '', '920'
+				),
+				'',
+				'920'
 			);
+
+			$parse_css .= astra_get_link_pointer_css( '.main-header-bar', $nav_pointer_style, $nav_pointer_color, $nav_pointer_width );
 
 			$dynamic_css = $parse_css;
 			$custom_css  = astra_get_option( 'custom-css' );
@@ -926,6 +971,75 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			endif;
 
+			if ( false === self::astra_submenu_below_header_fix() ) :
+				// If submenu below header fix is not to be loaded then add removed flex properties from class `ast-flex`.
+				// Also restore the padding to class `main-header-bar`.
+				$submenu_below_header = array(
+					'.ast-flex'          => array(
+						'-webkit-align-content' => 'center',
+						'-ms-flex-line-pack'    => 'center',
+						'align-content'         => 'center',
+						'-webkit-box-align'     => 'center',
+						'-webkit-align-items'   => 'center',
+						'-moz-box-align'        => 'center',
+						'-ms-flex-align'        => 'center',
+						'align-items'           => 'center',
+					),
+					'.main-header-bar'   => array(
+						'padding' => '1em 0',
+					),
+					'.ast-site-identity' => array(
+						'padding' => '0',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_below_header );
+
+			else :
+				// `.menu-item` required display:flex, although weight of this css increases because of which custom CSS added from child themes to be not working.
+				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
+				// @see https://github.com/brainstormforce/astra/pull/828
+				$submenu_below_header = array(
+					'.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'-js-display'             => 'flex',
+						'display'                 => '-webkit-box',
+						'display'                 => '-webkit-flex',
+						'display'                 => '-moz-box',
+						'display'                 => '-ms-flexbox',
+						'display'                 => 'flex',
+						'-webkit-box-pack'        => 'center',
+						'-webkit-justify-content' => 'center',
+						'-moz-box-pack'           => 'center',
+						'-ms-flex-pack'           => 'center',
+						'justify-content'         => 'center',
+						'-webkit-box-orient'      => 'vertical',
+						'-webkit-box-direction'   => 'normal',
+						'-webkit-flex-direction'  => 'column',
+						'-moz-box-orient'         => 'vertical',
+						'-moz-box-direction'      => 'normal',
+						'-ms-flex-direction'      => 'column',
+						'flex-direction'          => 'column',
+					),
+					'.main-header-menu > .menu-item > a' => array(
+						'height'              => '100%',
+						'-webkit-box-align'   => 'center',
+						'-webkit-align-items' => 'center',
+						'-moz-box-align'      => 'center',
+						'-ms-flex-align'      => 'center',
+						'align-items'         => 'center',
+						'-js-display'         => 'flex',
+						'display'             => '-webkit-box',
+						'display'             => '-webkit-flex',
+						'display'             => '-moz-box',
+						'display'             => '-ms-flexbox',
+						'display'             => 'flex',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_below_header );
+
+			endif;
+
 			$dynamic_css = $parse_css;
 			if ( false != $return_css ) {
 				return $dynamic_css;
@@ -970,7 +1084,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( true == astra_get_option( 'include-headings-in-typography' ) &&
 				true === apply_filters(
-					'astra_include_achors_in_headings_typography', true
+					'astra_include_achors_in_headings_typography',
+					true
 				) ) {
 
 					return true;
@@ -980,5 +1095,71 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 		}
+
+		/**
+		 * Check backwards compatibility CSS for loading submenu below the header needs to be added.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if CSS should be included, False if not.
+		 */
+		public static function astra_submenu_below_header_fix() {
+
+			if ( false == astra_get_option( 'submenu-below-header', true ) &&
+				false === apply_filters(
+					'astra_submenu_below_header_fix',
+					false
+				) ) {
+
+					return false;
+			} else {
+
+				return true;
+			}
+
+		}
 	}
 }
+
+/**
+ * Get Link Pinter CSS
+ *
+ * @since 1.0.0
+ */
+if ( ! function_exists( 'astra_get_link_pointer_css' ) ) :
+	/**
+	 * Get Link Pinter CSS
+	 *
+	 * @param  string $prefix CSS Prefix selector.
+	 * @param  string $style  Pointer style.
+	 * @param  string $color  Color.
+	 * @param  string $width  Width.
+	 * @return string         Generated CSS.
+	 */
+	function astra_get_link_pointer_css( $prefix, $style, $color, $width ) {
+
+		if ( 'none' === $style ) {
+			return '';
+		}
+
+		$css = array();
+
+		if ( 'underline' === $style ) {
+			$css = array(
+				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-underline > li > a:before' => array(
+					'background-color' => esc_attr( $color ),
+					'height'           => esc_attr( $width ) . 'px',
+				),
+			);
+		} elseif ( 'overline' === $style ) {
+			$css = array(
+				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-overline > li > a:before' => array(
+					'background-color' => esc_attr( $color ),
+					'height'           => esc_attr( $width ) . 'px',
+				),
+			);
+		}
+
+		/* Parse CSS from array() */
+		return astra_parse_css( $css, astra_header_break_point(), '' );
+	}
+endif;
