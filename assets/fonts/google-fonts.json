@@ -5511,6 +5511,14 @@
         }
     },
     {
+        "Notable": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Nothing You Could Do": {
             "variants": [
                 "regular"

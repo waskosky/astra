@@ -1,3 +1,7 @@
+v1.5.0
+- Fix: Site Title line height is different for home/front page and other pages.
+- Fix: Sub menu toggle not working when a drop-down target set to link.
+
 v1.5.0-rc.3
 - New: Post meta support for attachment page
 - Fix: RTL styling not working in customizer
