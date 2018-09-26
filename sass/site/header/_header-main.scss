@@ -23,6 +23,7 @@
 
 .site-branding {
 	line-height: 1;
+	align-self: center;
 }
 
 .ast-menu-toggle {
@@ -58,9 +59,10 @@
 	z-index: 4;
 	position: relative;
 	line-height: 4;
-	padding: 1em 0;
 
 	.main-header-bar-navigation {
+
+		height: 100%;
 
 		&:empty {
 		    padding: 0;
@@ -157,6 +159,7 @@
 	}
 
 	.astra-search-icon {
+		display: flex;
 		line-height: normal;
 
 		&:focus {
@@ -261,6 +264,10 @@ li.ast-masthead-custom-menu-items {
 	display: none;
 }
 
+.ast-site-identity {
+	padding: 1em 0;
+}
+
 .ast-header-break-point {
 
 	.ast-mobile-header-stack{
@@ -319,8 +326,8 @@ li.ast-masthead-custom-menu-items {
 		margin-bottom: 1em;
 		margin-top: 1em;
 	}
+
 	.ast-site-identity {
-		padding: 0;
 		width: 100%;
 	}
 

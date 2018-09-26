@@ -206,7 +206,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private function register_setting_control( $config, $wp_customize ) {
 
 			$wp_customize->add_setting(
-				astar( $config, 'name' ), array(
+				astar( $config, 'name' ),
+				array(
 					'default'           => astar( $config, 'default' ),
 					'type'              => astar( $config, 'datastore_type' ),
 					'transport'         => astar( $config, 'transport', 'refresh' ),
@@ -236,7 +237,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				if ( isset( $wp_customize->selective_refresh ) ) {
 					$wp_customize->selective_refresh->add_partial(
-						astar( $config, 'name' ), array(
+						astar( $config, 'name' ),
+						array(
 							'selector'            => astar( $config['partial'], 'selector' ),
 							'container_inclusive' => astar( $config['partial'], 'container_inclusive' ),
 							'render_callback'     => astar( $config['partial'], 'render_callback' ),
@@ -481,6 +483,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 				)
 			);
+			Astra_Customizer_Control_Base::add_control(
+				'ast-border',
+				array(
+					'callback'         => 'Astra_Control_Border',
+					'santize_callback' => 'sanitize_border',
+				)
+			);
 
 			/**
 			 * Helper files
@@ -557,8 +566,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
 
 			wp_localize_script(
-				'astra-customizer-controls-toggle-js', 'astra', apply_filters(
-					'astra_theme_customizer_js_localize', array(
+				'astra-customizer-controls-toggle-js',
+				'astra',
+				apply_filters(
+					'astra_theme_customizer_js_localize',
+					array(
 						'customizer' => array(
 							'settings' => array(
 								'sidebars'  => array(
