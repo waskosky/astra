@@ -242,20 +242,20 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				/**
 				 * Option: Mobile Menu Label Divider
 				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-animation]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-header',
-					'required' => array(
-						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
-						'!=',
-						true,
-					),
-					'priority' => 34,
-					'title'    => __( 'Menu Style', 'astra' ),
-					'settings' => array(),
-				),
+				// array(
+				// 	'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-animation]',
+				// 	'type'     => 'control',
+				// 	'control'  => 'ast-heading',
+				// 	'section'  => 'section-header',
+				// 	'required' => array(
+				// 		ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+				// 		'!=',
+				// 		true,
+				// 	),
+				// 	'priority' => 34,
+				// 	'title'    => __( 'Menu Style', 'astra' ),
+				// 	'settings' => array(),
+				// ),
 
 				/**
 				 * Option: Submenu Container Animation
