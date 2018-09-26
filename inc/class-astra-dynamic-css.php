@@ -991,10 +991,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-site-identity' => array(
 						'padding' => '0',
 					),
-					'.ast-sticky-main-shrink .ast-sticky-shrunk.main-header-bar' => array(
-						'padding' => '0.5em',
-						'padding' => '0.5em',
-					),
 				);
 
 				$parse_css .= astra_parse_css( $submenu_below_header );
