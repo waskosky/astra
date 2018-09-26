@@ -1621,12 +1621,14 @@ if ( ! function_exists( 'astra_nav_menu_item_css_class' ) ) :
 	 *
 	 * @return array Menu item classes.
 	 */
-	function astra_nav_menu_item_css_class( $classes ) {
-		$classes[] = 'ast-menu-item-li';
+	function astra_nav_menu_item_css_class( $classes, $item, $args, $depth ) {
+		if ( 'primary' == $args->theme_location || 'above_header_menu' == $args->theme_location || 'below_header_menu' == $args->theme_location ) {
+			$classes[] = 'ast-menu-item-li';
+		}
 
 		return $classes;
 	}
-	add_filter( 'nav_menu_css_class', 'astra_nav_menu_item_css_class' );
+	add_filter( 'nav_menu_css_class', 'astra_nav_menu_item_css_class', 10, 4 );
 
 endif;
 
