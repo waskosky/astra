@@ -855,7 +855,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
 				),
 				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
-					'border-bottom-width' => astra_get_css_value( $primary_submenu_item_border['bottom'], 'px' ),
+					'border-bottom-width' => ( true == $primary_submenu_item_border ) ? '1px' : '0px',
 					'border-style'        => 'solid',
 					'border-color'        => esc_attr( $primary_submenu_item_b_color ),
 				),

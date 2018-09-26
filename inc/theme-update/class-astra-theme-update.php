@@ -174,8 +174,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.5.0-rc.1', '<' ) ) {
 				self::v_1_5_0_rc_1();
 			}
+
 			if ( version_compare( $saved_version, '1.5.0', '<' ) ) {
 				self::v_1_5_0_rc_3();
+			}
+
+			if ( version_compare( $saved_version, '1.5.1', '<' ) ) {
+				self::v_1_5_1();
 			}
 
 			// Not have stored?
@@ -791,18 +796,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'left'   => '0',
 				'right'  => '0',
 			);
-			$inside_border_disabled_values = array(
-				'bottom' => '0',
-			);
 
 			$border_enabled_values        = array(
 				'top'    => '1',
 				'bottom' => '1',
 				'left'   => '1',
 				'right'  => '1',
-			);
-			$inside_border_enabled_values = array(
-				'bottom' => '1',
 			);
 
 			$theme_options  = get_option( 'astra-settings' );
@@ -811,10 +810,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Primary Header.
 			if ( $submenu_border ) {
 				$theme_options['primary-submenu-border']      = $border_enabled_values;
-				$theme_options['primary-submenu-item-border'] = $inside_border_enabled_values;
+				$theme_options['primary-submenu-item-border'] = true;
 			} else {
 				$theme_options['primary-submenu-border']      = $border_disabled_values;
-				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
+				$theme_options['primary-submenu-item-border'] = false;
 			}
 
 			// Set pointer styles 'none' for old users. For new users we have set pointer style `overline`.
@@ -863,6 +862,24 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 
+		}
+
+		/**
+		 * Change the Primary submenu option to be checkbpx rather than border selection.
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_1() {
+			$theme_options = get_option( 'astra-settings', array() );
+			$primary_submenu_otem_border = $theme_options['primary-submenu-item-border'];	
+
+			if ( ( is_array( $primary_submenu_otem_border ) && '0' != $primary_submenu_otem_border['bottom'] ) ) {
+				$theme_options['primary-submenu-item-border'] = 1;
+			} else {
+				$theme_options['primary-submenu-item-border'] = 0;
+			}
+
+			update_option( 'astra-settings', $theme_options );
 		}
 
 	}

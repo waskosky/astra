@@ -780,7 +780,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
 						dynamicStyle += '{';
-						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+						dynamicStyle += 'border-bottom-width:' + (true == border) ? '1px' : '0px';
 						dynamicStyle += 'border-color:'        + color + ';';
 						dynamicStyle += 'border-style: solid;';
 						dynamicStyle += '}';
