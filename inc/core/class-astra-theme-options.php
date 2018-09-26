@@ -180,8 +180,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 					'header-main-submenu-container-animation' => 'fade',
-					'nav-menu-pointer-color'           => '',
-					'nav-menu-pointer-thickness'       => 2,                    // Mobile Header.
 					'mobile-header-breakpoint'         => '',
 					'mobile-header-logo'               => '',
 					'mobile-header-logo-width'         => '',
