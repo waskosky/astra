@@ -246,7 +246,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'transport' => 'postMessage',
 					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
 					'default'   => '',
-					'title'     => __( 'Submenu Border Color', 'astra' ),
+					'title'     => __( 'Submenu Item Border Color', 'astra' ),
 					'section'   => 'section-header',
 					'priority'  => 30,
 				),
