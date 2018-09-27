@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 1.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-09-26 15:35:02+00:00\n"
+"POT-Creation-Date: 2018-09-27 09:30:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -165,7 +165,7 @@ msgstr ""
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php:141
 #: inc/customizer/configurations/layout/class-astra-blog-layout-configs.php:114
 #: inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php:97
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:259
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:272
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:77
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:96
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:115
@@ -709,7 +709,7 @@ msgid "Blog Pro"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:701
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:275
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:288
 msgid "Mobile Header"
 msgstr ""
 
@@ -1000,7 +1000,7 @@ msgid "Primary Header Overview"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:155
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:290
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:303
 msgid "Menu Breakpoint"
 msgstr ""
 
@@ -1189,7 +1189,7 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-blog-layout-configs.php:169
 #: inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php:152
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:287
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:469
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:482
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:166
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:133
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:268
@@ -1357,7 +1357,6 @@ msgid "Right"
 msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:210
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:226
 msgid "Bottom"
 msgstr ""
 
@@ -1365,91 +1364,95 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:224
-msgid "Submenu Items Border"
-msgstr ""
-
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:237
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:222
 msgid "Submenu Border Color"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:257
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:235
+msgid "Submenu Item Border"
+msgstr ""
+
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:245
+msgid "Submenu Item Border Color"
+msgstr ""
+
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:270
 msgid "Submenu Container Animation"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:260
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:273
 msgid "Slide Down"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:261
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:274
 msgid "Slide Up"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:262
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:275
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:309
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:322
 msgid "Dropdown Target"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:312
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:325
 msgid "Icon"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:313
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:326
 msgid "Link"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:333
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:346
 msgid "Menu Label on Small Devices"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:348
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:361
 msgid "Hide Last item in Menu on mobile"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:362
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:375
 msgid "Take Last item in Menu outside menu"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:376
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:389
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:380
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:393
 msgid "Stack"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:386
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:399
 msgid "Mobile Header Alignment"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:396
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:409
 msgid "Toggle Button Style"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:401
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:414
 msgid "Fill"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:402
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:415
 msgid "Outline"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:403
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:416
 msgid "Minimal"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:415
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:428
 msgid "Toggle Button Color"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:428
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:441
 msgid "Border Radius"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:469
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:482
 msgid "More Options Available for Mobile Header in Astra Pro!"
 msgstr ""
 
