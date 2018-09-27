@@ -56,3 +56,21 @@
 .entry-summary > :last-child {
     margin-bottom: 0;
 }
+
+.entry-content {
+
+    .alignfull {
+        margin-left: calc(-100vw / 2 + 100% / 2);
+        margin-right: calc(-100vw / 2 + 100% / 2);
+        max-width: 100vw;
+        text-align: center;
+    }
+
+    .alignwide {
+    	margin-left: -100px;
+    	margin-right: -100px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+}

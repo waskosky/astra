@@ -4063,6 +4063,22 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-bottom: 0;
 }
 
+.entry-content .alignfull {
+  margin-right: -webkit-calc(-100vw / 2 + 100% / 2);
+  margin-right: calc(-100vw / 2 + 100% / 2);
+  margin-left: -webkit-calc(-100vw / 2 + 100% / 2);
+  margin-left: calc(-100vw / 2 + 100% / 2);
+  max-width: 100vw;
+  text-align: center;
+}
+
+.entry-content .alignwide {
+  margin-right: -100px;
+  margin-left: -100px;
+  max-width: 100%;
+  text-align: center;
+}
+
 .comment-content a {
   word-wrap: break-word;
 }
