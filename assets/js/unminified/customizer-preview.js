@@ -747,22 +747,21 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize('astra-settings[primary-submenu-item-b-color]', function (value) {
 		value.bind(function (color) {
-			var border = wp.customize('astra-settings[primary-submenu-border]').get();
 			var insideBorder = wp.customize('astra-settings[primary-submenu-item-border]').get();
 			if ('' != color) {
-				if ('' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+				if ( true == insideBorder ) {
 
 					var dynamicStyle = '';
 
 					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
 					dynamicStyle += '{';
-					dynamicStyle += 'border-bottom-width: 1px;';
+					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:' + color + ';';
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
 
-					astra_add_dynamic_css('primary-submenu-border-color', dynamicStyle);
+					astra_add_dynamic_css('primary-submenu-item-b-color', dynamicStyle);
 				}
 			} else {
 				wp.customize.preview.send('refresh');
@@ -775,12 +774,12 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize( 'astra-settings[primary-submenu-item-border]', function( value ) {
 		value.bind( function( border ) {
-			var color = wp.customize( 'astra-settings[primary-submenu-b-color]' ).get();
+			var color = wp.customize( 'astra-settings[primary-submenu-item-b-color]' ).get();
 
 			if( true === border  ) {
 				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
 					dynamicStyle += '{';
-					dynamicStyle += 'border-bottom-width:' + ( (true === border) ? '1px;' : '0px;' );
+					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:'        + color + ';';
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
