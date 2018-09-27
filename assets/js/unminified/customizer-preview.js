@@ -707,9 +707,8 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'astra-settings[primary-submenu-b-color]', function( value ) {
 		value.bind( function( color ) {
 			var border = wp.customize( 'astra-settings[primary-submenu-border]' ).get();
-			var insideBorder = wp.customize( 'astra-settings[primary-submenu-item-border]' ).get();
 			if ( '' != color ) {
-				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left || '' != insideBorder.bottom ) {
+				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
 					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
 					dynamicStyle += '{';
@@ -724,13 +723,6 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
-					dynamicStyle += '}';
-
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
-					dynamicStyle += '{';
-					dynamicStyle += 'border-bottom-width:'   + insideBorder.bottom + 'px;';
-					dynamicStyle += 'border-color:'        + color + ';';
-					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
 					// Submenu items goes outside?
@@ -749,25 +741,54 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
+
+	/**
+	 * Primary Submenu border COlor
+	 */
+	wp.customize('astra-settings[primary-submenu-item-b-color]', function (value) {
+		value.bind(function (color) {
+			var insideBorder = wp.customize('astra-settings[primary-submenu-item-border]').get();
+			if ('' != color) {
+				if ( true == insideBorder ) {
+
+					var dynamicStyle = '';
+
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
+					dynamicStyle += 'border-color:' + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+
+					astra_add_dynamic_css('primary-submenu-item-b-color', dynamicStyle);
+				}
+			} else {
+				wp.customize.preview.send('refresh');
+			}
+		});
+	});
+
 	/**
 	 * Primary Submenu border COlor
 	 */
 	wp.customize( 'astra-settings[primary-submenu-item-border]', function( value ) {
 		value.bind( function( border ) {
-			var color = wp.customize( 'astra-settings[primary-submenu-b-color]' ).get();
-				if( '' != border.bottom  ) {
+			var color = wp.customize( 'astra-settings[primary-submenu-item-b-color]' ).get();
 
-					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
-						dynamicStyle += '{';
-						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
-						dynamicStyle += 'border-color:'        + color + ';';
-						dynamicStyle += 'border-style: solid;';
-						dynamicStyle += '}';
+			if( true === border  ) {
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
+					dynamicStyle += 'border-color:'        + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
 
-					astra_add_dynamic_css( 'primary-submenu-item-border', dynamicStyle );
-				} else {
-					wp.customize.preview.send( 'refresh' );
-				}
+				astra_add_dynamic_css( 'primary-submenu-item-border', dynamicStyle );
+			} else {
+				wp.customize.preview.send( 'refresh' );
+			}
+
 		} );
 	} );
 

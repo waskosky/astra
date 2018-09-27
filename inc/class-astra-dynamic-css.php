@@ -116,9 +116,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_break_point = astra_header_break_point();
 
 			// Submenu Bordercolor.
-			$submenu_border              = astra_get_option( 'primary-submenu-border' );
-			$primary_submenu_item_border = astra_get_option( 'primary-submenu-item-border' );
-			$primary_submenu_b_color     = astra_get_option( 'primary-submenu-b-color', $theme_color );
+			$submenu_border               = astra_get_option( 'primary-submenu-border' );
+			$primary_submenu_item_border  = astra_get_option( 'primary-submenu-item-border' );
+			$primary_submenu_b_color      = astra_get_option( 'primary-submenu-b-color', $theme_color );
+			$primary_submenu_item_b_color = astra_get_option( 'primary-submenu-item-b-color', '#eaeaea' );
 
 			/**
 			 * Apply text color depends on link color
@@ -835,7 +836,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Primary Submenu Border Width & Color.
 			$submenu_border_style = array(
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .children, .ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a, .ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .children, .ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper' => array(
 					'border-color' => esc_attr( $primary_submenu_b_color ),
 				),
 
@@ -850,8 +851,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
 				),
 				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a' => array(
-					'border-bottom-width' => astra_get_css_value( $primary_submenu_item_border['bottom'], 'px' ),
+					'border-bottom-width' => ( true == $primary_submenu_item_border ) ? '1px' : '0px',
 					'border-style'        => 'solid',
+					'border-color'        => esc_attr( $primary_submenu_item_b_color ),
 				),
 			);
 

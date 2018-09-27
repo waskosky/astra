@@ -212,22 +212,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
-				array(
-					'type'           => 'control',
-					'control'        => 'ast-border',
-					'transport'      => 'postMessage',
-					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
-					'section'        => 'section-header',
-					'linked_choices' => false,
-					'priority'       => 30,
-					'default'        => astra_get_option( 'primary-submenu-border' ),
-					'title'          => __( 'Submenu Items Border', 'astra' ),
-					'choices'        => array(
-						'bottom' => __( 'Bottom', 'astra' ),
-					),
-				),
-
-				// Option: Submenu Border Color.
+				// Option: Submenu Container Border Color.
 				array(
 					'type'      => 'control',
 					'control'   => 'ast-color',
@@ -236,6 +221,34 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'   => '',
 					'title'     => __( 'Submenu Border Color', 'astra' ),
 					'section'   => 'section-header',
+					'priority'  => 30,
+				),
+
+				array(
+					'type'      => 'control',
+					'control'   => 'checkbox',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+					'section'   => 'section-header',
+					'priority'  => 30,
+					'default'   => astra_get_option( 'primary-submenu-border' ),
+					'title'     => __( 'Submenu Item Border', 'astra' ),
+				),
+
+				// Option: Submenu item Border Color.
+				array(
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
+					'default'   => '',
+					'title'     => __( 'Submenu Item Border Color', 'astra' ),
+					'section'   => 'section-header',
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+						'==',
+						true,
+					),
 					'priority'  => 30,
 				),
 
