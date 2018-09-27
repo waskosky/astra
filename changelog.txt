@@ -1,5 +1,5 @@
 v1.5.1
-- Improvement: Remove link pointer animation styles. We are not happy with the design possibilities provided by the link pointer animations. We will work on these to get better animations that can be provided from the theme.
+- Improvement: Remove link pointer animation styles. We will work on these to get better animations that can be provided from the theme.
 - Add option to set border color for submenu item.
 
 v1.5.0
