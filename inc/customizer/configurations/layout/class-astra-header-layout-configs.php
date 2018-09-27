@@ -231,7 +231,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
 					'section'   => 'section-header',
 					'priority'  => 30,
-					'default'   => astra_get_option( 'primary-submenu-border' ),
+					'default'   => astra_get_option( 'primary-submenu-item-border' ),
 					'title'     => __( 'Submenu Item Border', 'astra' ),
 				),
 
