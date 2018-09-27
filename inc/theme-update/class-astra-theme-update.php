@@ -174,8 +174,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.5.0-rc.1', '<' ) ) {
 				self::v_1_5_0_rc_1();
 			}
+
 			if ( version_compare( $saved_version, '1.5.0', '<' ) ) {
 				self::v_1_5_0_rc_3();
+			}
+
+			if ( version_compare( $saved_version, '1.5.1', '<' ) ) {
+				self::v_1_5_1();
 			}
 
 			// Not have stored?
@@ -817,9 +822,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
 			}
 
-			// Set pointer styles 'none' for old users. For new users we have set pointer style `overline`.
-			$theme_options['nav-menu-pointer-effect'] = 'none';
-
 			update_option( 'astra-settings', $theme_options );
 		}
 
@@ -863,6 +865,27 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 
+		}
+
+		/**
+		 * Change the Primary submenu option to be checkbpx rather than border selection.
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_1() {
+			$theme_options               = get_option( 'astra-settings', array() );
+			$primary_submenu_otem_border = isset( $theme_options['primary-submenu-item-border'] ) ? $theme_options['primary-submenu-item-border'] : array();
+
+			if ( ( is_array( $primary_submenu_otem_border ) && '0' != $primary_submenu_otem_border['bottom'] ) ) {
+				$theme_options['primary-submenu-item-border'] = 1;
+			} else {
+				$theme_options['primary-submenu-item-border'] = 0;
+			}
+			if ( isset( $theme_options['primary-submenu-b-color'] ) && ! empty( $theme_options['primary-submenu-b-color'] ) ) {
+				$theme_options['primary-submenu-item-b-color'] = $theme_options['primary-submenu-b-color'];
+			}
+
+			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
