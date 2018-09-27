@@ -174,6 +174,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
+				'isRtl'       => is_rtl(),
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
@@ -181,13 +182,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				wp_enqueue_script( 'comment-reply' );
-			}
-
-			// Link Pointer Style.
-			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
-			wp_register_style( 'astra-link-pointer-style', $css_uri . 'link-pointer-style' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
-			if ( 'none' !== $pointer_effect ) {
-				wp_enqueue_style( 'astra-link-pointer-style' );
 			}
 
 			// Submenu Container Animation.

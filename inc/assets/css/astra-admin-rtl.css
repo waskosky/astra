@@ -76,11 +76,7 @@
 }
 
 .notice-image img {
-    max-width: 100px;
-}
-
-.notice-content {
-    padding-top: 7px;
+    max-width: 90px;
 }
 
 .notice-content .notice-heading {
@@ -88,12 +84,12 @@
 }
 
 .notice-content {
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .notice-container {
-    padding-top: 20px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: left;
     align-items: center;
