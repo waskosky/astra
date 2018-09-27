@@ -4,9 +4,6 @@
 .customize-control-ast-color .wp-color-result span.color-alpha {
 	height:22px !important;
 }
-.customize-control-ast-color .wp-picker-container {
-    float: left;
-}
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
     width: 96px !important;
     line-height: 17px;
