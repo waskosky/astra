@@ -1617,7 +1617,10 @@ if ( ! function_exists( 'astra_nav_menu_item_css_class' ) ) :
 	 *
 	 * @since x.x.x
 	 *
-	 * @param array $classes Menu item classes.
+	 * @param array    $classes  Nav menu item classes.
+	 * @param WP_Post  $item  The current menu item.
+	 * @param stdClass $args  An object of wp_nav_menu() arguments.
+	 * @param int      $depth Depth of menu item. Used for padding.
 	 *
 	 * @return array Menu item classes.
 	 */
