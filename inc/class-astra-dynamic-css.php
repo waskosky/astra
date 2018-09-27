@@ -177,10 +177,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
 
-			$nav_pointer_width = astra_get_option( 'nav-menu-pointer-thickness' );
-			$nav_pointer_style = astra_get_option( 'nav-menu-pointer-effect' );
-			$nav_pointer_color = astra_get_option( 'nav-menu-pointer-color', $theme_color );
-
 			$css_output = array(
 
 				// HTML.
@@ -902,8 +898,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'920'
 			);
 
-			$parse_css .= astra_get_link_pointer_css( '.main-header-bar', $nav_pointer_style, $nav_pointer_color, $nav_pointer_width );
-
 			$dynamic_css = $parse_css;
 			$custom_css  = astra_get_option( 'custom-css' );
 
@@ -1119,47 +1113,3 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 	}
 }
-
-/**
- * Get Link Pinter CSS
- *
- * @since 1.0.0
- */
-if ( ! function_exists( 'astra_get_link_pointer_css' ) ) :
-	/**
-	 * Get Link Pinter CSS
-	 *
-	 * @param  string $prefix CSS Prefix selector.
-	 * @param  string $style  Pointer style.
-	 * @param  string $color  Color.
-	 * @param  string $width  Width.
-	 * @return string         Generated CSS.
-	 */
-	function astra_get_link_pointer_css( $prefix, $style, $color, $width ) {
-
-		if ( 'none' === $style ) {
-			return '';
-		}
-
-		$css = array();
-
-		if ( 'underline' === $style ) {
-			$css = array(
-				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-underline > li > a:before' => array(
-					'background-color' => esc_attr( $color ),
-					'height'           => esc_attr( $width ) . 'px',
-				),
-			);
-		} elseif ( 'overline' === $style ) {
-			$css = array(
-				'.ast-desktop ' . $prefix . ' .ast-link-pointer-style-overline > li > a:before' => array(
-					'background-color' => esc_attr( $color ),
-					'height'           => esc_attr( $width ) . 'px',
-				),
-			);
-		}
-
-		/* Parse CSS from array() */
-		return astra_parse_css( $css, astra_header_break_point(), '' );
-	}
-endif;

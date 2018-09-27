@@ -817,9 +817,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
 			}
 
-			// Set pointer styles 'none' for old users. For new users we have set pointer style `overline`.
-			$theme_options['nav-menu-pointer-effect'] = 'none';
-
 			update_option( 'astra-settings', $theme_options );
 		}
 
