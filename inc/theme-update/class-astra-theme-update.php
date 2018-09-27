@@ -878,6 +878,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			} else {
 				$theme_options['primary-submenu-item-border'] = 0;
 			}
+			if ( isset( $theme_options['primary-submenu-b-color'] ) && ! empty( $theme_options['primary-submenu-b-color'] ) ) {
+				$theme_options['primary-submenu-item-b-color'] = $theme_options['primary-submenu-b-color'];
+			}
 
 			update_option( 'astra-settings', $theme_options );
 		}
