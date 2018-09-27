@@ -245,7 +245,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'   => '',
 					'title'     => __( 'Submenu Item Border Color', 'astra' ),
 					'section'   => 'section-header',
-					'required' => array(
+					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
 						'==',
 						true,

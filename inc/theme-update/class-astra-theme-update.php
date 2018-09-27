@@ -790,14 +790,14 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_5_0_beta_4() {
 
-			$border_disabled_values        = array(
+			$border_disabled_values = array(
 				'top'    => '0',
 				'bottom' => '0',
 				'left'   => '0',
 				'right'  => '0',
 			);
 
-			$border_enabled_values        = array(
+			$border_enabled_values = array(
 				'top'    => '1',
 				'bottom' => '1',
 				'left'   => '1',
@@ -870,8 +870,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_5_1() {
-			$theme_options 					= get_option( 'astra-settings', array() );
-			$primary_submenu_otem_border 	= isset( $theme_options['primary-submenu-item-border'] ) ? $theme_options['primary-submenu-item-border'] : array();	
+			$theme_options               = get_option( 'astra-settings', array() );
+			$primary_submenu_otem_border = isset( $theme_options['primary-submenu-item-border'] ) ? $theme_options['primary-submenu-item-border'] : array();
 
 			if ( ( is_array( $primary_submenu_otem_border ) && '0' != $primary_submenu_otem_border['bottom'] ) ) {
 				$theme_options['primary-submenu-item-border'] = 1;
