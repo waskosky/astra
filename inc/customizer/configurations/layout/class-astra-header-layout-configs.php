@@ -253,24 +253,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Mobile Menu Label Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-animation]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-header',
-					'required' => array(
-						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
-						'!=',
-						true,
-					),
-					'priority' => 34,
-					'title'    => __( 'Menu Style', 'astra' ),
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Submenu Container Animation
 				 */
 				array(
@@ -291,66 +273,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'slide-down' => __( 'Slide Down', 'astra' ),
 						'slide-up'   => __( 'Slide Up', 'astra' ),
 						'fade'       => __( 'Fade', 'astra' ),
-					),
-				),
-
-				// Option: Pointer effect.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
-					'default'  => astra_get_option( 'nav-menu-pointer-effect' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-header',
-					'priority' => 34,
-					'title'    => __( 'Link Pointer Style', 'astra' ),
-					'required' => array(
-						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
-						'!=',
-						true,
-					),
-					'choices'  => array(
-						'none'      => __( 'None', 'astra' ),
-						'underline' => __( 'Underline', 'astra' ),
-						'overline'  => __( 'Overline', 'astra' ),
-					),
-				),
-
-				// Option: Pointer color.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-color]',
-					'default'   => '#0274be',
-					'type'      => 'control',
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'section'   => 'section-header',
-					'priority'  => 34,
-					'title'     => __( 'Link Pointer Color', 'astra' ),
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
-						'!=',
-						'none',
-					),
-				),
-
-				// Option: Pointer width.
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-thickness]',
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'nav-menu-pointer-thickness' ),
-					'type'        => 'control',
-					'control'     => 'number',
-					'required'    => array(
-						ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
-						'!=',
-						'none',
-					),
-					'section'     => 'section-header',
-					'priority'    => 34,
-					'title'       => __( 'Link Pointer Thickness', 'astra' ),
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 20,
 					),
 				),
 

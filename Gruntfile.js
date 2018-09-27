@@ -89,7 +89,6 @@ module.exports = function (grunt) {
 
                         /* Link Pointer Style */
                         {
-                            'assets/css/unminified/link-pointer-style.css': 'sass/site/navigation/link-pointer-style.scss',
                             'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
                         },
 
