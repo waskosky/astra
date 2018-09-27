@@ -1622,31 +1622,6 @@ if ( ! function_exists( 'astra_nav_menu_item_css_class' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_nav_sub_menu_item_css_class' ) ) :
-
-	/**
-	 * Nav submenu item class
-	 *
-	 * @since x.x.x
-	 *
-	 * @param array    $classes  Nav menu item classes.
-	 * @param stdClass $args  An object of wp_nav_menu() arguments.
-	 * @param int      $depth Depth of menu item. Used for padding.
-	 *
-	 * @return array Menu item classes.
-	 */
-	function astra_nav_sub_menu_item_css_class( $classes, $args, $depth ) {
-		if ( 'primary' == $args->theme_location || 'above_header_menu' == $args->theme_location || 'below_header_menu' == $args->theme_location ) {
-			$classes[] = 'ast-sub-menu';
-		}
-
-		return $classes;
-	}
-	add_filter( 'nav_menu_submenu_css_class', 'astra_nav_sub_menu_item_css_class', 10, 3 );
-
-endif;
-
-
 if ( ! function_exists( 'astra_nav_menu_item_attributes' ) ) :
 
 	/**
