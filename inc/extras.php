@@ -660,13 +660,6 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
-			// Link Pointer Style.
-			$pointer_effect = astra_get_option( 'nav-menu-pointer-effect' );
-			if ( 'none' !== $pointer_effect ) {
-				$submenu_class .= ' ast-link-pointer-style ';
-				$submenu_class .= ' ast-link-pointer-style-' . esc_html( $pointer_effect ) . ' ';
-			}
-
 			// Menu Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
 			if ( ! empty( $menu_animation ) ) {
@@ -676,10 +669,10 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			/**
 			 * Filter the classes(array) for Primary Menu (<ul>).
 			 *
-			 * @since  x.x.x
+			 * @since  1.5.0
 			 * @var Array
 			 */
-			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
+			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
 
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
@@ -886,12 +879,6 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
-		$pointer_effect    = astra_get_option( 'nav-menu-pointer-effect' );
-		$pointer_animation = astra_get_option( $pointer_effect . '-nav-menu-animation' );
-
-		$classes[] = 'ast-nav-style-' . $pointer_effect;
-		$classes[] = 'ast-nav-animation-' . $pointer_animation;
-
 		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
 
 		$classes = array_map( 'sanitize_html_class', $classes );
@@ -1032,7 +1019,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 		/**
 		 * Filter to enabled Astra comment for all Post Types where the commnets are enabled.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.0
 		 *
 		 * @return bool
 		 */

@@ -212,22 +212,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 				),
 
-				array(
-					'type'           => 'control',
-					'control'        => 'ast-border',
-					'transport'      => 'postMessage',
-					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
-					'section'        => 'section-header',
-					'linked_choices' => false,
-					'priority'       => 30,
-					'default'        => astra_get_option( 'primary-submenu-border' ),
-					'title'          => __( 'Submenu Items Border', 'astra' ),
-					'choices'        => array(
-						'bottom' => __( 'Bottom', 'astra' ),
-					),
-				),
-
-				// Option: Submenu Border Color.
+				// Option: Submenu Container Border Color.
 				array(
 					'type'      => 'control',
 					'control'   => 'ast-color',
@@ -239,22 +224,32 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority'  => 30,
 				),
 
-				/**
-				 * Option: Mobile Menu Label Divider
-				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-animation]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-header',
-					'required' => array(
-						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
-						'!=',
+					'type'      => 'control',
+					'control'   => 'checkbox',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+					'section'   => 'section-header',
+					'priority'  => 30,
+					'default'   => astra_get_option( 'primary-submenu-item-border' ),
+					'title'     => __( 'Submenu Item Border', 'astra' ),
+				),
+
+				// Option: Submenu item Border Color.
+				array(
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
+					'default'   => '',
+					'title'     => __( 'Submenu Item Border Color', 'astra' ),
+					'section'   => 'section-header',
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+						'==',
 						true,
 					),
-					'priority' => 34,
-					'title'    => __( 'Menu Style', 'astra' ),
-					'settings' => array(),
+					'priority'  => 30,
 				),
 
 				/**
@@ -278,66 +273,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'slide-down' => __( 'Slide Down', 'astra' ),
 						'slide-up'   => __( 'Slide Up', 'astra' ),
 						'fade'       => __( 'Fade', 'astra' ),
-					),
-				),
-
-				// Option: Pointer effect.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
-					'default'  => astra_get_option( 'nav-menu-pointer-effect' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-header',
-					'priority' => 34,
-					'title'    => __( 'Link Pointer Style', 'astra' ),
-					'required' => array(
-						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
-						'!=',
-						true,
-					),
-					'choices'  => array(
-						'none'      => __( 'None', 'astra' ),
-						'underline' => __( 'Underline', 'astra' ),
-						'overline'  => __( 'Overline', 'astra' ),
-					),
-				),
-
-				// Option: Pointer color.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-color]',
-					'default'   => '#0274be',
-					'type'      => 'control',
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'section'   => 'section-header',
-					'priority'  => 34,
-					'title'     => __( 'Link Pointer Color', 'astra' ),
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
-						'!=',
-						'none',
-					),
-				),
-
-				// Option: Pointer width.
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[nav-menu-pointer-thickness]',
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'nav-menu-pointer-thickness' ),
-					'type'        => 'control',
-					'control'     => 'number',
-					'required'    => array(
-						ASTRA_THEME_SETTINGS . '[nav-menu-pointer-effect]',
-						'!=',
-						'none',
-					),
-					'section'     => 'section-header',
-					'priority'    => 34,
-					'title'       => __( 'Link Pointer Thickness', 'astra' ),
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 20,
 					),
 				),
 

@@ -1,3 +1,15 @@
+v1.5.1
+- Improvement: Remove link pointer animation styles. We will work on these to get better animations that can be provided from the theme.
+- Add option to set border color for submenu item.
+
+v1.5.0
+- Fix: Site Title line height is different for home/front page and other pages.
+- Fix: Sub menu toggle not working when a drop-down target set to link.
+
+v1.5.0-rc.3
+- New: Post meta support for attachment page
+- Fix: RTL styling not working in customizer
+
 v1.5.0-rc.2
 Fix: Menu highlight labels not working for non mega menus.
 
