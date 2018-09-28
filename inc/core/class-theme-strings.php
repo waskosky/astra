@@ -25,7 +25,8 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 	function astra_default_strings( $key, $echo = true ) {
 
 		$defaults = apply_filters(
-			'astra_default_strings', array(
+			'astra_default_strings',
+			array(
 
 				// Header.
 				'string-header-skip-link'                => __( 'Skip to content', 'astra' ),

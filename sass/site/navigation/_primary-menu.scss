@@ -16,6 +16,8 @@
 .main-navigation {
 	display: inline-flex;
 	font-weight:600;
+	height: 100%;
+
 	ul {
 		list-style: none;
 		margin: 0;
@@ -50,7 +52,7 @@
 		}
 	}
 
-	ul {
+	.sub-menu {
 		width: 240px;
 		background: $color-background-header-submenu;
 		left: -999em;
@@ -106,18 +108,28 @@
 }
 
 .submenu-with-border {
-	ul {
-		border-width: 1px 0 0;
+	.sub-menu {
+		border-width: 1px;
 		border-style: solid;
-		border-color: $color-border-submenu;
 
 		a {
-			border: 1px solid $color-border-submenu;
-			border-top: 0;
+			border-width: 0 0 1px;
+			border-style: solid;
 		}
-
-		ul{
+		.sub-menu{
 			top: -1px;
+		}
+	}
+}
+/* Remove the last anchor border for desktop devices */
+.ast-desktop{
+	.submenu-with-border{
+		.sub-menu {
+			> li:last-child{
+				> a{
+					border-bottom-width: 0;
+				}
+			}
 		}
 	}
 }
@@ -194,12 +206,8 @@
 	}
 
 	.submenu-with-border {
-		ul {
+		.sub-menu {
 			border: 0;
-
-			a {
-				border: 0;
-			}
 		}
 	}
 }

@@ -437,7 +437,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			var dynamicStyle = 'body.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px }';
 
-			dynamicStyle += 'body:not(.ast-header-break-point) .main-header-bar {';
+			dynamicStyle += '.ast-desktop .main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
@@ -518,7 +518,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			var dynamicStyle = ' body.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px } ';
 
-			dynamicStyle += 'body:not(.ast-header-break-point) .main-header-bar {';
+			dynamicStyle += '.ast-desktop .main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
@@ -538,7 +538,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			if ( color ) {
 
-				var dynamicStyle = ' body:not(.ast-header-break-point) .main-header-bar { border-bottom-color: ' + color + '; } ';
+				var dynamicStyle = ' .ast-desktop .main-header-bar { border-bottom-color: ' + color + '; } ';
 					dynamicStyle += ' body.ast-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
 
 				astra_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
@@ -659,6 +659,135 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			var dynamicStyle = '.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle { border-radius: ' + ( parseInt( border ) ) + 'px } ';
 			astra_add_dynamic_css( 'mobile-header-toggle-btn-border-radius', dynamicStyle );
+
+		} );
+	} );
+
+	/**
+	 * Primary Submenu border 
+	 */
+	wp.customize( 'astra-settings[primary-submenu-border]', function( value ) {
+		value.bind( function( border ) {
+			var color = wp.customize( 'astra-settings[primary-submenu-b-color]' ).get();
+
+			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
+					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+					dynamicStyle += 'border-color:'        + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '{';
+					dynamicStyle += 'top:-'   + border.top + 'px;';
+					dynamicStyle += '}';
+
+					// Submenu items goes outside?
+					dynamicStyle += '@media (min-width: 769px){';
+					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '{';
+					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
+					dynamicStyle += '}';
+					dynamicStyle += '}';
+
+				astra_add_dynamic_css( 'primary-submenu-border', dynamicStyle );
+			} else {
+				wp.customize.preview.send( 'refresh' );
+			}
+		} );
+	} );
+	/**
+	 * Primary Submenu border COlor
+	 */
+	wp.customize( 'astra-settings[primary-submenu-b-color]', function( value ) {
+		value.bind( function( color ) {
+			var border = wp.customize( 'astra-settings[primary-submenu-border]' ).get();
+			if ( '' != color ) {
+				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+
+					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
+					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+					dynamicStyle += 'border-color:'        + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '{';
+					dynamicStyle += 'top:-'   + border.top + 'px;';
+					dynamicStyle += '}';
+
+					// Submenu items goes outside?
+					dynamicStyle += '@media (min-width: 769px){';
+					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '{';
+					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
+					dynamicStyle += '}';
+					dynamicStyle += '}';
+
+					astra_add_dynamic_css( 'primary-submenu-border-color', dynamicStyle );
+				}
+			} else {
+				wp.customize.preview.send( 'refresh' );
+			}
+		} );
+	} );
+
+
+	/**
+	 * Primary Submenu border COlor
+	 */
+	wp.customize('astra-settings[primary-submenu-item-b-color]', function (value) {
+		value.bind(function (color) {
+			var insideBorder = wp.customize('astra-settings[primary-submenu-item-border]').get();
+			if ('' != color) {
+				if ( true == insideBorder ) {
+
+					var dynamicStyle = '';
+
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
+					dynamicStyle += 'border-color:' + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+
+					astra_add_dynamic_css('primary-submenu-item-b-color', dynamicStyle);
+				}
+			} else {
+				wp.customize.preview.send('refresh');
+			}
+		});
+	});
+
+	/**
+	 * Primary Submenu border COlor
+	 */
+	wp.customize( 'astra-settings[primary-submenu-item-border]', function( value ) {
+		value.bind( function( border ) {
+			var color = wp.customize( 'astra-settings[primary-submenu-item-b-color]' ).get();
+
+			if( true === border  ) {
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '{';
+					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
+					dynamicStyle += 'border-color:'        + color + ';';
+					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+				astra_add_dynamic_css( 'primary-submenu-item-border', dynamicStyle );
+			} else {
+				wp.customize.preview.send( 'refresh' );
+			}
 
 		} );
 	} );

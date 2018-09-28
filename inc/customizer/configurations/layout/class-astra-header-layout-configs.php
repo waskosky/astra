@@ -173,11 +173,106 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-header',
-					'priority' => 35,
+					'priority' => 30,
 					'title'    => __( 'Header Width', 'astra' ),
 					'choices'  => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[primary-submenu-border-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-header',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
+				// Option: Primary Menu Border.
+				array(
+					'type'           => 'control',
+					'control'        => 'ast-border',
+					'transport'      => 'postMessage',
+					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-border]',
+					'section'        => 'section-header',
+					'linked_choices' => true,
+					'priority'       => 30,
+					'default'        => astra_get_option( 'primary-submenu-border' ),
+					'title'          => __( 'Submenu Container Border', 'astra' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+				),
+
+				// Option: Submenu Container Border Color.
+				array(
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color]',
+					'default'   => '',
+					'title'     => __( 'Submenu Border Color', 'astra' ),
+					'section'   => 'section-header',
+					'priority'  => 30,
+				),
+
+				array(
+					'type'      => 'control',
+					'control'   => 'checkbox',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+					'section'   => 'section-header',
+					'priority'  => 30,
+					'default'   => astra_get_option( 'primary-submenu-item-border' ),
+					'title'     => __( 'Submenu Item Border', 'astra' ),
+				),
+
+				// Option: Submenu item Border Color.
+				array(
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
+					'default'   => '',
+					'title'     => __( 'Submenu Item Border Color', 'astra' ),
+					'section'   => 'section-header',
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+						'==',
+						true,
+					),
+					'priority'  => 30,
+				),
+
+				/**
+				 * Option: Submenu Container Animation
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-submenu-container-animation]',
+					'default'  => astra_get_option( 'header-main-submenu-container-animation' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-header',
+					'required' => array(
+						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+						'!=',
+						true,
+					),
+					'priority' => 34,
+					'title'    => __( 'Submenu Container Animation', 'astra' ),
+					'choices'  => array(
+						''           => __( 'Default', 'astra' ),
+						'slide-down' => __( 'Slide Down', 'astra' ),
+						'slide-up'   => __( 'Slide Up', 'astra' ),
+						'fade'       => __( 'Fade', 'astra' ),
 					),
 				),
 
