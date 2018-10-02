@@ -823,6 +823,10 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   content: "\f02d";
 }
 
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-memberships > a:before {
+  content: "\f0c0";
+}
+
 .llms-student-dashboard .llms-sd-header .llms-sd-item.view-achievements > a:before {
   content: "\f091";
 }
