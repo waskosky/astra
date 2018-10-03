@@ -4069,14 +4069,17 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-left: -webkit-calc(-100vw / 2 + 100% / 2);
   margin-left: calc(-100vw / 2 + 100% / 2);
   max-width: 100vw;
-  text-align: center;
 }
 
 .entry-content .alignwide {
   margin-right: -100px;
   margin-left: -100px;
   max-width: unset;
-  text-align: center;
+}
+
+.ast-header-break-point .entry-content .alignwide {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .comment-content a {
