@@ -4075,7 +4075,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .entry-content .alignwide {
   margin-left: -100px;
   margin-right: -100px;
-  max-width: 100%;
+  max-width: unset;
   text-align: center;
 }
 
