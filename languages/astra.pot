@@ -1890,7 +1890,7 @@ msgid "Continue reading %s"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://wpastra.com/"
+msgid "https://wpastra.com/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -1914,7 +1914,7 @@ msgid "Brainstorm Force"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://wpastra.com/about/"
+msgid "https://wpastra.com/about/"
 msgstr ""
 
 #: comments.php:36

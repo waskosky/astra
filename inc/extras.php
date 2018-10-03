@@ -7,7 +7,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -471,7 +471,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 				'astra_theme_author',
 				array(
 					'theme_name'       => __( 'Astra', 'astra' ),
-					'theme_author_url' => 'http://wpastra.com/',
+					'theme_author_url' => 'https://wpastra.com/',
 				)
 			);
 
