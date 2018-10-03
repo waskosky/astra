@@ -4715,7 +4715,8 @@ input[type="color"]::-webkit-color-swatch {
   word-wrap: break-word;
 }
 
-.entry-content p {
+.entry-content p,
+.entry-content img {
   margin-bottom: 1.6em;
 }
 
