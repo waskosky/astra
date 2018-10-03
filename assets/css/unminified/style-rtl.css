@@ -4105,12 +4105,15 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   max-width: unset;
 }
 
+.ast-no-sidebar .entry-content .wp-block-embed-youtube.wp-block-embed :before {
+  content: none;
+}
+
 .ast-header-break-point .entry-content .alignwide {
   margin-right: auto;
   margin-left: auto;
 }
 
-/*  */
 /*----------  Secondary  ----------*/
 .widget-title {
   font-weight: normal;
@@ -4740,7 +4743,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .entry-content p,
-.entry-content img {
+.entry-content img,
+.entry-content iframe {
   margin-bottom: 1.6em;
 }
 
