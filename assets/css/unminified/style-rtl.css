@@ -4073,10 +4073,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 /* .alignwide & .alignfull CSS compatibility */
 .ast-no-sidebar .entry-content .alignfull {
-  margin-right: -webkit-calc(-100vw / 2 + 100% / 2);
-  margin-right: calc(-100vw / 2 + 100% / 2);
-  margin-left: -webkit-calc(-100vw / 2 + 100% / 2);
-  margin-left: calc(-100vw / 2 + 100% / 2);
+  margin-right: -webkit-calc(-50vw  + 50%);
+  margin-right: calc(-50vw  + 50%);
+  margin-left: -webkit-calc(-50vw  + 50%);
+  margin-left: calc(-50vw  + 50%);
   max-width: 100vw;
 }
 
@@ -4084,6 +4084,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-right: -100px;
   margin-left: -100px;
   max-width: unset;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body .entry-content .is-type-video.wp-block-embed :before {
