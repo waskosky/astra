@@ -13,6 +13,14 @@ html {
 
             // Import CSS for the headings in the block editor.
             @import "../variables-site/variables-site";
+            @import "../elements/elements";
+
+            @import "../site/mixins/mixins-master";
+            @import "../site/variables-site/colors";
+            @import "../site/variables-site/structure";
+            @import "../site/variables-site/typography";
+            @import "../site/site-normalize/site-normalize.scss";
+
             @import "../typography/headings";
 
             p,
