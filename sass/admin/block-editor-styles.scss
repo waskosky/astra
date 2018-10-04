@@ -63,6 +63,10 @@ html {
                 list-style: none;
             }
 
+            .wp-block-gallery.is-cropped .blocks-gallery-item img {
+                height: 100%;
+            }
+
         }
     }
 
