@@ -221,13 +221,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function gutenberg_assets() {
 			/* Directory and Extension */
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$rtl         = '';
 			if ( is_rtl() ) {
 				$rtl = '-rtl';
 			}
 
-			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . $file_prefix . '.css';
+			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
 
 			wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
 
