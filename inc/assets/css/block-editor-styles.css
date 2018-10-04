@@ -1,9 +1,11 @@
-/* VAriables */
+/* Variables */
 html {
   font-size: 93.75%;
 }
 
-.gutenberg-editor-page {
+.gutenberg-editor-page,
+.gutenberg-editor-page p,
+.gutenberg-editor-page .editor-block-list__block p {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   font-weight: inherit;
   font-size: 15px;
