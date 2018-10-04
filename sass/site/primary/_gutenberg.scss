@@ -14,12 +14,17 @@
 			max-width: unset;
 		}
 
-		.wp-block-embed-youtube.wp-block-embed {
+	}
+}
+
+// Embed block adding extra spacing.
+body {
+	.entry-content {
+		.is-type-video.wp-block-embed {
 			:before {
 				content: none;
 			}
 		}
-
 	}
 }
 
@@ -33,3 +38,4 @@
 
 	}
 }
+
