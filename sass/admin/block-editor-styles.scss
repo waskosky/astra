@@ -9,7 +9,7 @@ html {
 .gutenberg-editor-page {
 
     #wpwrap {
-        .edit-post-layout__content {
+        .edit-post-visual-editor {
 
             // Import CSS for the headings in the block editor.
             @import "../variables-site/variables-site";
@@ -42,25 +42,17 @@ html {
                 max-width: 1200px;
             }
 
-            .edit-post-visual-editor {
-                .editor-block-list__block[data-align=full] {
-                    max-width: none;
-                }
-
-                .editor-block-list__block[data-align=wide] {
-                    max-width: 1400px;
-                }
+            .editor-block-list__block[data-align=full] {
+                max-width: none;
             }
 
-            // Use default styling for paragraph inside notice.
-            .components-notice-list {
-                p {
-                    margin: initial;
-                    font-family: $font-family;
-                    font-size: 13px;
-                    font-weight: normal;
-                    padding: inherit;
-                }
+            .editor-block-list__block[data-align=wide] {
+                max-width: 1400px;
+            }
+
+            // Custom block stylings.
+            .wp-block-latest-posts.is-grid {
+                list-style: none;
             }
 
         }
