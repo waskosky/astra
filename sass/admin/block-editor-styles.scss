@@ -29,15 +29,15 @@ html {
         font-family: $font-family;
     }
 
-    &.is-fullscreen-mode {
-
-        & .editor-post-title__block,
-        & .editor-default-block-appender,
-        & .editor-block-list__block {
+    
+    #wpwrap {
+        .editor-post-title__block,
+        .editor-default-block-appender,
+        .editor-block-list__block {
             max-width: 1200px;
         }
 
-        & .edit-post-visual-editor {
+        .edit-post-visual-editor {
             .editor-block-list__block[data-align=full] {
                 max-width: none;
             }
@@ -46,6 +46,5 @@ html {
                 max-width: 1400px;
             }
         }
-    
     }
 }

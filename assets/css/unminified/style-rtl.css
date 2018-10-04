@@ -4086,7 +4086,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   max-width: unset;
 }
 
-.ast-no-sidebar .entry-content .wp-block-embed-youtube.wp-block-embed :before {
+body .entry-content .is-type-video.wp-block-embed :before {
   content: none;
 }
 

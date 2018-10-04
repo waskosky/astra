@@ -23,16 +23,16 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
-.gutenberg-editor-page.is-fullscreen-mode .editor-post-title__block,
-.gutenberg-editor-page.is-fullscreen-mode .editor-default-block-appender,
-.gutenberg-editor-page.is-fullscreen-mode .editor-block-list__block {
+.gutenberg-editor-page #wpwrap .editor-post-title__block,
+.gutenberg-editor-page #wpwrap .editor-default-block-appender,
+.gutenberg-editor-page #wpwrap .editor-block-list__block {
   max-width: 1200px;
 }
 
-.gutenberg-editor-page.is-fullscreen-mode .edit-post-visual-editor .editor-block-list__block[data-align=full] {
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=full] {
   max-width: none;
 }
 
-.gutenberg-editor-page.is-fullscreen-mode .edit-post-visual-editor .editor-block-list__block[data-align=wide] {
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=wide] {
   max-width: 1400px;
 }
