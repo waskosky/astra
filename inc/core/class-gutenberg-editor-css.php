@@ -47,21 +47,21 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'html' => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
-				'.gutenberg-editor-page #wpwrap .editor-post-title__block,.gutenberg-editor-page #wpwrap .editor-default-block-appender,.gutenberg-editor-page #wpwrap .editor-block-list__block' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block,.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-default-block-appender,.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 				),
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=wide]' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .edit-post-visual-editor .editor-block-list__block[data-align=wide]' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40 + 200, 'px' ),
 				),
-				'.gutenberg-editor-page .editor-post-title__block textarea' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block textarea' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 				),
-				'.gutenberg-editor-page .editor-post-title__block textarea' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block textarea' => array(
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
 				),
-				'.gutenberg-editor-page p,.gutenberg-editor-page .editor-block-list__block p' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content p,.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block p' => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css .= astra_parse_css( $desktop_css );
 
 			$tablet_css = array(
-				'.gutenberg-editor-page .editor-post-title__block textarea' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block textarea' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
 				),
 			);
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css .= astra_parse_css( $tablet_css, '', '768' );
 
 			$mobile_css = array(
-				'.gutenberg-editor-page .editor-post-title__block textarea' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block textarea' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
 			);

@@ -3,36 +3,35 @@ html {
   font-size: 93.75%;
 }
 
-.gutenberg-editor-page,
-.gutenberg-editor-page p,
-.gutenberg-editor-page .editor-block-list__block p {
+.gutenberg-editor-page #wpwrap .edit-post-layout__content p,
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block p {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   font-weight: inherit;
   font-size: 15px;
   font-size: 1rem;
 }
 
-.gutenberg-editor-page .editor-post-title__block textarea {
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block textarea {
   font-size: 30px;
   font-size: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   font-weight: normal;
 }
 
-.gutenberg-editor-page .editor-block-list__block {
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
-.gutenberg-editor-page #wpwrap .editor-post-title__block,
-.gutenberg-editor-page #wpwrap .editor-default-block-appender,
-.gutenberg-editor-page #wpwrap .editor-block-list__block {
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block,
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-default-block-appender,
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block {
   max-width: 1200px;
 }
 
-.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=full] {
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .edit-post-visual-editor .editor-block-list__block[data-align=full] {
   max-width: none;
 }
 
-.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=wide] {
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .edit-post-visual-editor .editor-block-list__block[data-align=wide] {
   max-width: 1400px;
 }
