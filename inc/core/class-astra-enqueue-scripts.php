@@ -212,6 +212,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			return $css;
 		}
 
+		/**
+		 * Enqueue Gutenberg assets.
+		 * 
+		 * @since 1.5.2
+		 *
+		 * @return void
+		 */
 		public function gutenberg_assets() {
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
