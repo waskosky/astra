@@ -59,7 +59,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block,.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-default-block-appender,.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 				),
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .edit-post-visual-editor .editor-block-list__block[data-align=wide]' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=wide]' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40 + 200, 'px' ),
 				),
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea' => array(
