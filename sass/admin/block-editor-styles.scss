@@ -11,6 +11,7 @@ html {
     #wpwrap {
         .edit-post-layout__content {
 
+            // Import CSS for the headings in the block editor.
             @import "../variables-site/variables-site";
             @import "../typography/headings";
 
@@ -48,6 +49,17 @@ html {
 
                 .editor-block-list__block[data-align=wide] {
                     max-width: 1400px;
+                }
+            }
+
+            // Use default styling for paragraph inside 
+            .components-notice-list {
+                p {
+                    margin: initial;
+                    font-family: $font-family;
+                    font-size: 13px;
+                    font-weight: normal;
+                    padding: inherit;
                 }
             }
 

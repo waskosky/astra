@@ -88,3 +88,11 @@ html {
 .gutenberg-editor-page #wpwrap .edit-post-layout__content .edit-post-visual-editor .editor-block-list__block[data-align=wide] {
   max-width: 1400px;
 }
+
+.gutenberg-editor-page #wpwrap .edit-post-layout__content .components-notice-list p {
+  margin: initial;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  padding: inherit;
+}
