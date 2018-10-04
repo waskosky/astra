@@ -54,7 +54,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'max-width' => astra_get_css_value( $site_content_width + 40 + 200, 'px' ),
 				),
 				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block textarea' => array(
-                    'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
+					'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
+				),
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-post-title__block textarea,  .gutenberg-editor-page #wpwrap .edit-post-layout__content h1, .gutenberg-editor-page #wpwrap .edit-post-layout__content h2, .gutenberg-editor-page #wpwrap .edit-post-layout__content h3, .gutenberg-editor-page #wpwrap .edit-post-layout__content h4, .gutenberg-editor-page #wpwrap .edit-post-layout__content h5, .gutenberg-editor-page #wpwrap .edit-post-layout__content h6' => array(
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
