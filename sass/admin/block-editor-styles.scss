@@ -28,4 +28,24 @@ html {
     .editor-block-list__block {
         font-family: $font-family;
     }
+
+    &.is-fullscreen-mode {
+
+        & .editor-post-title__block,
+        & .editor-default-block-appender,
+        & .editor-block-list__block {
+            max-width: 1200px;
+        }
+
+        & .edit-post-visual-editor {
+            .editor-block-list__block[data-align=full] {
+                max-width: none;
+            }
+
+            .editor-block-list__block[data-align=wide] {
+                max-width: 1400px;
+            }
+        }
+    
+    }
 }
