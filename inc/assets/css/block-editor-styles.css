@@ -488,6 +488,10 @@ html {
   list-style: none;
 }
 
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-gallery {
+  margin: 0;
+}
+
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-gallery.is-cropped .blocks-gallery-item img {
   height: 100%;
 }
