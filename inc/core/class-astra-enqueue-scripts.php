@@ -214,7 +214,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 		/**
 		 * Enqueue Gutenberg assets.
-		 * 
+		 *
 		 * @since 1.5.2
 		 *
 		 * @return void
