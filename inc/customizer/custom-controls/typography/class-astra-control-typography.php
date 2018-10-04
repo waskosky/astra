@@ -28,6 +28,14 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public $connect = false;
 
 	/**
+	 * Used to connect variant controls to each other.
+	 *
+	 * @since x.x.x
+	 * @var bool $variant
+	 */
+	public $variant = false;
+
+	/**
 	 * Used to set the mode for code controls.
 	 *
 	 * @since 1.0.0
@@ -80,6 +88,10 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 				$this->render_font( $this->ast_inherit );
 				break;
 
+			case 'ast-font-variant':
+				$this->render_font_variant( $this->ast_inherit );
+				break;
+
 			case 'ast-font-weight':
 				$this->render_font_weight( $this->ast_inherit );
 				break;
@@ -94,19 +106,30 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public function enqueue() {
 
 		$js_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+ 		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
+ 		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		$astra_typo_localize = array(
-			'inherit' => __( 'Inherit', 'astra' ),
-			'100'     => __( 'Thin 100', 'astra' ),
-			'200'     => __( 'Extra-Light 200', 'astra' ),
-			'300'     => __( 'Light 300', 'astra' ),
-			'400'     => __( 'Normal 400', 'astra' ),
-			'500'     => __( 'Medium 500', 'astra' ),
-			'600'     => __( 'Semi-Bold 600', 'astra' ),
-			'700'     => __( 'Bold 700', 'astra' ),
-			'800'     => __( 'Extra-Bold 800', 'astra' ),
-			'900'     => __( 'Ultra-Bold 900', 'astra' ),
+			'inherit'   => __( 'Inherit', 'astra' ),
+			'100'       => __( 'Thin 100', 'astra' ),
+			'100italic' => __( '100 Italic', 'astra' ),
+			'200'       => __( 'Extra-Light 200', 'astra' ),
+			'300'       => __( 'Light 300', 'astra' ),
+			'300italic' => __( '300 Italic', 'astra' ),
+			'400'       => __( 'Normal 400', 'astra' ),
+			'italic'    => __( '400 Italic', 'astra' ),
+			'500'       => __( 'Medium 500', 'astra' ),
+			'500italic' => __( '500 Italic', 'astra' ),
+			'600'       => __( 'Semi-Bold 600', 'astra' ),
+			'700'       => __( 'Bold 700', 'astra' ),
+			'700italic' => __( '700 Italic', 'astra' ),
+			'800'       => __( 'Extra-Bold 800', 'astra' ),
+			'900'       => __( 'Ultra-Bold 900', 'astra' ),
+			'900italic' => __( '900 Italic', 'astra' ),
 		);
 
 		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
@@ -139,6 +162,10 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			echo ' data-connected-control="' . esc_attr( $this->connect ) . '"';
 			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
 		}
+		if ( $this->variant ) {
+			echo ' data-connected-variant="' . esc_attr( $this->variant ) . '"';
+			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
+		}
 	}
 
 	/**
@@ -153,6 +180,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	protected function render_font( $default ) {
 		echo '<label>';
 		$this->render_content_title();
+		echo '</label>';
 		echo '<select ';
 		$this->link();
 		$this->render_connect_attribute();
@@ -176,7 +204,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		}
 
 		echo '</select>';
-		echo '</label>';
 	}
 
 	/**
@@ -190,6 +217,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	protected function render_font_weight( $default ) {
 		echo '<label>';
 		$this->render_content_title();
+		echo '</label>';
 		echo '<select ';
 		$this->link();
 		$this->render_connect_attribute();
@@ -197,6 +225,28 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<option value="' . esc_attr( $this->value() ) . '" selected="selected">' . esc_attr( $this->value() ) . '</option>';
 		echo '</select>';
+	}
+
+	/**
+	 * Renders a font variant control.
+	 *
+	 * @since x.x.x
+	 * @param  string $default Inherit/Default.
+	 * @access protected
+	 * @return void
+	 */
+	protected function render_font_variant( $default ) {
+		echo '<label>';
+		$this->render_content_title();
 		echo '</label>';
+		echo '<select ';
+		$this->link();
+		$this->render_connect_attribute();
+		echo '>';
+		$values = explode( ",", $this->value() );
+		foreach ( $values as $key => $value ) {
+			echo '<option value="'. $value . '">' . $value . '</option>';
+		}
+		echo '</select>';
 	}
 }

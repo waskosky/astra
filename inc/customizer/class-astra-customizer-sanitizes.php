@@ -487,6 +487,20 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize Font variant
+		 *
+		 * @param  mixed $input setting input.
+		 * @return mixed        setting input value.
+		 */
+		static public function sanitize_font_variant( $input ) {
+
+			if ( is_array( $input ) ) {
+				$input = implode( ',', $input );
+			}
+			return sanitize_text_field( $input );
+		}
+
+		/**
 		 * Sanitize Background Obj
 		 *
 		 * @param  mixed $bg_obj setting input.

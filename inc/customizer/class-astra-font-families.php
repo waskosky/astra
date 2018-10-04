@@ -151,9 +151,9 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 						if ( 'variants' === $font_key ) {
 
 							foreach ( $single_font as $variant_key => $variant ) {
-								if ( stristr( $variant, 'italic' ) ) {
-									unset( $font[ $name ][ $font_key ][ $variant_key ] );
-								}
+								// if ( stristr( $variant, 'italic' ) ) {
+								// 	unset( $font[ $name ][ $font_key ][ $variant_key ] );
+								// }
 
 								if ( 'regular' == $variant ) {
 									$font[ $name ][ $font_key ][ $variant_key ] = '400';

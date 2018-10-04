@@ -8,6 +8,11 @@
 
 ( function( $ ) {
 
+	// $(document).ready(function() {
+	// 	$('.customize-control-ast-font-family select').selectWoo();
+	// 	$('.customize-control-ast-font-variant select').selectWoo({ multiple: true });
+	// })
+
 	/* Internal shorthand */
 	var api = wp.customize;
 
@@ -39,6 +44,14 @@
 		_initFonts: function()
 		{
 			$( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
+			// $(document).ready(function() {
+				$('.customize-control-ast-font-family select').selectWoo();
+
+				setTimeout(function() {
+					console.log('test');
+						$('.customize-control-ast-font-variant select').selectWoo({ multiple: true });
+				}, 5000);
+			// })
 		},
 
 		/**
@@ -52,11 +65,16 @@
 		{
 			var select  = $( this ),
 			link    = select.data( 'customize-setting-link' ),
-			weight  = select.data( 'connected-control' );
+			weight  = select.data( 'connected-control' ),
+			variant  = select.data( 'connected-variant' );
 
 			if ( 'undefined' != typeof weight ) {
 				api( link ).bind( AstTypography._fontSelectChange );
 				AstTypography._setFontWeightOptions.apply( api( link ), [ true ] );
+			}
+			if ( 'undefined' != typeof variant ) {
+				api( link ).bind( AstTypography._fontSelectChange );
+				AstTypography._setFontVarianttOptions.apply( api( link ), [ true ] );
 			}
 		},
 
@@ -70,6 +88,7 @@
 		_fontSelectChange: function()
 		{
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
+			// AstTypography._setFontVarianttOptions.apply( this, [ false ] );
 		},
 
 		/**
@@ -161,6 +180,57 @@
 			if ( ! init ) {
 				api( weightKey ).set( '' );
 				api( weightKey ).set( weightValue );
+			}
+		},
+
+		/**
+		 * Sets the options for a font weight control when a
+		 * font family control changes.
+		 *
+		 * @since 1.0.0
+		 * @access private
+		 * @method _setFontVarianttOptions
+		 * @param {Boolean} init Whether or not we're initializing this font weight control.
+		 */
+		_setFontVarianttOptions: function( init )
+		{
+			if ( ! init ) {
+				console.log(init);
+				var i               = 0,
+				fontSelect          = api.control( this.id ).container.find( 'select' ),
+				fontValue           = this(),
+				selected            = '',
+				weightKey           = fontSelect.data( 'connected-variant' ),
+				inherit             = fontSelect.data( 'inherit' ),
+				weightSelect        = api.control( weightKey ).container.find( 'select' ),
+				currentWeightTitle  = weightSelect.data( 'inherit' ),
+				weightValue         = init ? weightSelect.val() : '400',
+				weightObject        = [ '400', '600' ],
+				weightOptions       = '',
+				weightMap           = astraTypo;
+
+
+				var fontValue = AstTypography._cleanGoogleFonts(fontValue);
+
+				if ( fontValue == 'inherit' ) {
+					weightObject = [ '400','500','600','700' ];
+				} else if ( 'undefined' != typeof AstFontFamilies.system[ fontValue ] ) {
+					weightObject = AstFontFamilies.system[ fontValue ].weights;
+				} else if ( 'undefined' != typeof AstFontFamilies.google[ fontValue ] ) {
+					weightObject = AstFontFamilies.google[ fontValue ][0];
+					weightObject = Object.keys(weightObject).map(function(k) {
+					  return weightObject[k];
+					});
+				} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue.split(',')[0] ] ) {
+					weightObject = AstFontFamilies.custom[ fontValue.split(',')[0] ].weights;
+				}
+
+				weightMap[ 'inherit' ] = currentWeightTitle;
+				for ( ; i < weightObject.length; i++ ) {
+
+					weightOptions += '<option value="' + weightObject[ i ] + '">' + weightMap[ weightObject[ i ] ] + '</option>';
+				}
+				weightSelect.html( weightOptions );
 			}
 		},
 	};
