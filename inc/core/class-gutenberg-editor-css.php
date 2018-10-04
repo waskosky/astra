@@ -64,8 +64,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
+                ),
+                '.gutenberg-editor-page #wpwrap .edit-post-layout__content p,.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block p' => array(
+					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
-				'.gutenberg-editor-page #wpwrap .edit-post-layout__content p,.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block p' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-layout__content p,.gutenberg-editor-page #wpwrap .edit-post-layout__content .editor-block-list__block p, .gutenberg-editor-page #wpwrap .edit-post-layout__content a' => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
