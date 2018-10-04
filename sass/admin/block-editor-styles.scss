@@ -11,6 +11,9 @@ html {
     #wpwrap {
         .edit-post-layout__content {
 
+            @import "../variables-site/variables-site";
+            @import "../typography/headings";
+
             p,
             .editor-block-list__block p {
                 font-family: $font-family;
