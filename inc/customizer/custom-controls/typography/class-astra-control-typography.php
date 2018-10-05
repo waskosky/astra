@@ -52,6 +52,14 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public $ast_inherit = '';
 
 	/**
+	 * All font weights
+	 *
+	 * @since 1.0.8
+	 * @var string $ast_inherit
+	 */
+	public $ast_all_font_weight = array();
+
+	/**
 	 * If true, the preview button for a control will be rendered.
 	 *
 	 * @since 1.0.0
@@ -69,6 +77,27 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		$this->ast_inherit = __( 'Inherit', 'astra' );
+		$this->ast_all_font_weight = array(
+			'inherit'   => __( 'Inherit', 'astra' ),
+			'100'       => __( 'Thin 100', 'astra' ),
+			'100italic' => __( '100 Italic', 'astra' ),
+			'200'       => __( 'Extra-Light 200', 'astra' ),
+			'200italic' => __( '200 Italic', 'astra' ),
+			'300'       => __( 'Light 300', 'astra' ),
+			'300italic' => __( '300 Italic', 'astra' ),
+			'400'       => __( 'Normal 400', 'astra' ),
+			'italic'    => __( '400 Italic', 'astra' ),
+			'500'       => __( 'Medium 500', 'astra' ),
+			'500italic' => __( '500 Italic', 'astra' ),
+			'600'       => __( 'Semi-Bold 600', 'astra' ),
+			'600italic' => __( '600 Italic', 'astra' ),
+			'700'       => __( 'Bold 700', 'astra' ),
+			'700italic' => __( '700 Italic', 'astra' ),
+			'800'       => __( 'Extra-Bold 800', 'astra' ),
+			'800italic' => __( '800 Italic', 'astra' ),
+			'900'       => __( 'Ultra-Bold 900', 'astra' ),
+			'900italic' => __( '900 Italic', 'astra' ),
+		);
 		parent::__construct( $manager, $id, $args );
 	}
 
@@ -113,27 +142,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		$astra_typo_localize = array(
-			'inherit'   => __( 'Inherit', 'astra' ),
-			'100'       => __( 'Thin 100', 'astra' ),
-			'100italic' => __( '100 Italic', 'astra' ),
-			'200'       => __( 'Extra-Light 200', 'astra' ),
-			'200italic' => __( '200 Italic', 'astra' ),
-			'300'       => __( 'Light 300', 'astra' ),
-			'300italic' => __( '300 Italic', 'astra' ),
-			'400'       => __( 'Normal 400', 'astra' ),
-			'italic'    => __( '400 Italic', 'astra' ),
-			'500'       => __( 'Medium 500', 'astra' ),
-			'500italic' => __( '500 Italic', 'astra' ),
-			'600'       => __( 'Semi-Bold 600', 'astra' ),
-			'600italic' => __( '600 Italic', 'astra' ),
-			'700'       => __( 'Bold 700', 'astra' ),
-			'700italic' => __( '700 Italic', 'astra' ),
-			'800'       => __( 'Extra-Bold 800', 'astra' ),
-			'800italic' => __( '800 Italic', 'astra' ),
-			'900'       => __( 'Ultra-Bold 900', 'astra' ),
-			'900italic' => __( '900 Italic', 'astra' ),
-		);
+		$astra_typo_localize = $this->ast_all_font_weight;
 
 		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
 	}
@@ -226,7 +235,19 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->render_connect_attribute();
 		echo '>';
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
-		echo '<option value="' . esc_attr( $this->value() ) . '" selected="selected">' . esc_attr( $this->value() ) . '</option>';
+		$selected       = '';
+		$selected_value = $this->value();
+		$all_fonts      = $this->ast_all_font_weight;
+
+		foreach ( $all_fonts as $key => $value) {
+			if ( $key == $selected_value ) {
+				$selected = ' selected = "selected" ';
+			}
+			// Exclude all italic & inherit values.
+			if ( strpos( $key, 'italic') === false && strpos( $key, 'inherit') === false) {
+				echo '<option value="' . esc_attr( $key ) . '"' . esc_attr( $selected ) . '>' . esc_attr( $value ) . '</option>';
+			}
+		}
 		echo '</select>';
 	}
 
@@ -248,7 +269,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo ' multiple >';
 		$values = explode( ',', $this->value() );
 		foreach ( $values as $key => $value ) {
-			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_attr( $value ) . '</option>';
+			echo '<option value="' . $value . '" selected="selected" >' .  $value  . '</option>';
 		}
 		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
 		echo '</select>';
