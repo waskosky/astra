@@ -105,12 +105,12 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$js_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
- 		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
 		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
- 		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		$astra_typo_localize = array(
@@ -118,6 +118,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			'100'       => __( 'Thin 100', 'astra' ),
 			'100italic' => __( '100 Italic', 'astra' ),
 			'200'       => __( 'Extra-Light 200', 'astra' ),
+			'200italic' => __( '200 Italic', 'astra' ),
 			'300'       => __( 'Light 300', 'astra' ),
 			'300italic' => __( '300 Italic', 'astra' ),
 			'400'       => __( 'Normal 400', 'astra' ),
@@ -125,9 +126,11 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			'500'       => __( 'Medium 500', 'astra' ),
 			'500italic' => __( '500 Italic', 'astra' ),
 			'600'       => __( 'Semi-Bold 600', 'astra' ),
+			'600italic' => __( '600 Italic', 'astra' ),
 			'700'       => __( 'Bold 700', 'astra' ),
 			'700italic' => __( '700 Italic', 'astra' ),
 			'800'       => __( 'Extra-Bold 800', 'astra' ),
+			'800italic' => __( '800 Italic', 'astra' ),
 			'900'       => __( 'Ultra-Bold 900', 'astra' ),
 			'900italic' => __( '900 Italic', 'astra' ),
 		);
@@ -242,11 +245,12 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<select ';
 		$this->link();
 		$this->render_connect_attribute();
-		echo '>';
-		$values = explode( ",", $this->value() );
+		echo ' multiple >';
+		$values = explode( ',', $this->value() );
 		foreach ( $values as $key => $value ) {
-			echo '<option value="'. $value . '">' . $value . '</option>';
+			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_attr( $value ) . '</option>';
 		}
+		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
 		echo '</select>';
 	}
 }

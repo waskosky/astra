@@ -40,6 +40,10 @@ final class Astra_Fonts {
 		if ( 'inherit' == $name ) {
 			return;
 		}
+		if ( ! is_array( $variants ) ) {
+			// For multiple variant selectons for fonts.
+			$variants = explode( ',', str_replace( 'italic', 'i', $variants ) );
+		}
 
 		if ( is_array( $variants ) ) {
 			$key = array_search( 'inherit', $variants );
@@ -164,7 +168,6 @@ final class Astra_Fonts {
 
 				$font_args['subset'] = urlencode( trim( $subsets ) );
 			}
-
 			return add_query_arg( $font_args, $base_url );
 		}
 
