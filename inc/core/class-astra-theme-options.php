@@ -67,7 +67,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		public static function defaults() {
 			// Defaults list of options.
 			return apply_filters(
-				'astra_theme_defaults', array(
+				'astra_theme_defaults',
+				array(
 					// Blog Single.
 					'blog-single-post-structure'       => array(
 						'single-image',
@@ -164,8 +165,23 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-main-sep'                  => 1,
 					'header-main-sep-color'            => '',
 					'header-main-layout-width'         => 'content',
+					// Header - Sub menu Border.
+					'primary-submenu-border'           => array(
+						'top'    => '2',
+						'right'  => '0',
+						'bottom' => '0',
+						'left'   => '0',
+					),
+					'primary-submenu-item-border'      => false,
+					'primary-submenu-b-color'          => '',
+					'primary-submenu-item-b-color'     => '',
+
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
+					'header-main-submenu-container-animation' => 'fade',
+					'mobile-header-breakpoint'         => '',
+					'mobile-header-logo'               => '',
+					'mobile-header-logo-width'         => '',
 					// Site Layout.
 					'site-layout'                      => 'ast-full-width-layout',
 					'site-content-width'               => 1200,
@@ -298,6 +314,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// Sidebar.
 					'footer-adv'                       => 'disabled',
+
+					// toogle menu style.
+					'mobile-header-toggle-btn-style'   => 'minimal',
+					'hide-custom-menu-mobile'          => 1,
+
+					// toogle menu target.
+					'mobile-header-toggle-target'      => 'icon',
 				)
 			);
 		}

@@ -107,6 +107,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$js_uri  = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
+			/**
+			 * IE Only Js and CSS Files.
+			 */
+			// Flexibility.js for flexbox IE10 support.
+			wp_enqueue_script( 'astra-flexibility', $js_uri . 'flexibility' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION );
+			wp_add_inline_script( 'astra-flexibility', 'flexibility(document.documentElement);' );
+			wp_script_add_data( 'astra-flexibility', 'conditional', 'IE' );
+
+			// Polyfill for CustomEvent for IE.
+			wp_register_script( 'astra-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION );
+
 			// All assets.
 			$all_assets = self::theme_assets();
 			$styles     = $all_assets['css'];
@@ -142,6 +153,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
+			wp_script_add_data(
+				'astra-theme-js',
+				'data',
+				astra_get_script_polyfill(
+					array(
+						'typeof window.CustomEvent === "function"' => 'astra-customevent',
+					)
+				)
+			);
+
 			// Fonts - Render Fonts.
 			Astra_Fonts::render_fonts();
 
@@ -153,6 +174,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
+				'isRtl'       => is_rtl(),
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
@@ -162,6 +184,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
 
+			// Submenu Container Animation.
+			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+			wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+			if ( ! empty( $menu_animation ) ) {
+				wp_enqueue_style( 'astra-menu-animation' );
+			}
 		}
 
 		/**
@@ -171,7 +199,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * @param string $css CSS content to trim.
 		 * @return string
 		 */
-		static public function trim_css( $css = '' ) {
+		public static function trim_css( $css = '' ) {
 
 			// Trim white space for faster page loading.
 			if ( ! empty( $css ) ) {

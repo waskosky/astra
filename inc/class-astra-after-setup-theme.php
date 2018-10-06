@@ -101,7 +101,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			// Switch default core markup for search form, comment form, and comments.
 			// to output valid HTML5.
 			add_theme_support(
-				'html5', array(
+				'html5',
+				array(
 					'search-form',
 					'gallery',
 					'caption',
@@ -110,7 +111,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// Post formats.
 			add_theme_support(
-				'post-formats', array(
+				'post-formats',
+				array(
 					'gallery',
 					'image',
 					'link',
@@ -124,7 +126,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// Add theme support for Custom Logo.
 			add_theme_support(
-				'custom-logo', array(
+				'custom-logo',
+				array(
 					'width'       => 180,
 					'height'      => 60,
 					'flex-width'  => true,
@@ -142,7 +145,9 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			/* Directory and Extension */
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
+			if ( apply_filters( 'astra_theme_editor_style', true ) ) {
+				add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
+			}
 
 			if ( apply_filters( 'astra_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
@@ -168,7 +173,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
 
 			$allowed_providers = apply_filters(
-				'astra_allowed_fullwidth_oembed_providers', array(
+				'astra_allowed_fullwidth_oembed_providers',
+				array(
 					'vimeo.com',
 					'youtube.com',
 					'youtu.be',
