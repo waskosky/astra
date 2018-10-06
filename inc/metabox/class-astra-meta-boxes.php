@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				// Translators: %s is the theme name.
 				__( '%s Settings', 'astra' ), astra_get_theme_name()
 			);
-			
+
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
