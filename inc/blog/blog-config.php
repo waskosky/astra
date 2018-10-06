@@ -25,6 +25,8 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 		$output_str = '';
 		$loop_count = 1;
 
+		$separator = apply_filters( 'astra_post_meta_separator', $separator );
+
 		foreach ( $post_meta as $meta_value ) {
 
 			switch ( $meta_value ) {
