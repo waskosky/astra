@@ -88,7 +88,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'text-transform' => esc_attr( $body_text_transform ),
 					'margin-bottom'  => astra_get_css_value( $para_margin_bottom, 'em' ),
 				),
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h4,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h5,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h6' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block, .gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h4,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h5,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h6' => array(
 					'color' => esc_attr( $text_color ),
 				),
 				// Blockquote Text Color.
