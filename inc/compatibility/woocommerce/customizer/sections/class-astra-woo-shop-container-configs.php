@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @link        https://www.brainstormforce.com
  * @since       Astra 1.0
  */
 
