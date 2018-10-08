@@ -4101,6 +4101,11 @@ body .entry-content .is-type-video.wp-block-embed :before {
   margin-right: auto;
 }
 
+.entry-content .wp-block-image img,
+.entry-content .blocks-gallery-item img {
+  margin-bottom: auto;
+}
+
 /*----------  Secondary  ----------*/
 .widget-title {
   font-weight: normal;
