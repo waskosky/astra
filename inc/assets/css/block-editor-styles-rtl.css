@@ -495,3 +495,12 @@ html {
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-gallery.is-cropped .blocks-gallery-item img {
   height: 100%;
 }
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h4,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h5,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h6 {
+  font-weight: inherit;
+}

@@ -221,7 +221,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function gutenberg_assets() {
 			/* Directory and Extension */
-			$rtl         = '';
+			$rtl = '';
 			if ( is_rtl() ) {
 				$rtl = '-rtl';
 			}
