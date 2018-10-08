@@ -26,7 +26,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 	 */
 	function astra_get_foreground_color( $hex ) {
 
-		// bail early if color's not set
+		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
 
