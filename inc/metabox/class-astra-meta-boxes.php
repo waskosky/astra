@@ -149,7 +149,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$metabox_name = sprintf(
 				// Translators: %s is the theme name.
-				__( '%s Settings', 'astra' ), astra_get_theme_name()
+				__( '%s Settings', 'astra' ),
+				astra_get_theme_name()
 			);
 
 			// Enable for all posts.
