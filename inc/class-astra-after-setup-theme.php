@@ -70,6 +70,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			do_action( 'astra_class_loaded' );
 
+			global $content_width;
+
 			/**
 			 * Content Width
 			 */
