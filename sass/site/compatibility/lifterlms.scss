@@ -821,6 +821,9 @@ body {
 			&.view-memberships > a:before {
 				content: "\f0c0";
 			}
+			&.my-grades > a:before {
+				content: "\f19d";
+			}
 			&.view-achievements > a:before {
 				content: "\f091";
 			}
