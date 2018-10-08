@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/**
 			 * Set metabox options
 			 *
-			 * @see http://php.net/manual/en/filter.filters.sanitize.php
+			 * @see https://php.net/manual/en/filter.filters.sanitize.php
 			 */
 			self::$meta_option = apply_filters(
 				'astra_meta_box_options',
