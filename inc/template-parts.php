@@ -172,11 +172,13 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 				$menu_label_class    = 'ast-menu-label';
 				$screen_reader_title = $menu_title;
 			}
-		?>
+
+			$menu_label_class = apply_filters( 'astra_main_menu_toggle_classes', $menu_label_class );
+			?>
 		<div class="ast-button-wrap">
 			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
-				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
+				<span class="<?php echo esc_attr( $menu_icon ); ?>"></span>
 				<?php if ( '' != $menu_title ) { ?>
 
 					<span class="mobile-menu-wrap">
@@ -186,7 +188,7 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 				<?php } ?>
 			</button>
 		</div>
-	<?php
+			<?php
 		}
 	}
 }

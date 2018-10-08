@@ -104,7 +104,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * @see http://php.net/manual/en/filter.filters.sanitize.php
 			 */
 			self::$meta_option = apply_filters(
-				'astra_meta_box_options', array(
+				'astra_meta_box_options',
+				array(
 					'ast-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -274,7 +275,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					$footer_adv_layout = astra_get_option( 'footer-adv' );
 
 					if ( $show_meta_field && 'disabled' != $footer_adv_layout ) {
-					?>
+						?>
 					<div class="footer-adv-display-option-wrap">
 						<label for="footer-adv-display">
 							<input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled" <?php checked( $footer_widgets, 'disabled' ); ?> />
@@ -282,11 +283,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						</label>
 					</div>
 
-					<?php
+						<?php
 					}
 					$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
 					if ( 'disabled' != $footer_sml_layout ) {
-					?>
+						?>
 					<div class="footer-sml-layout-option-wrap">
 						<label for="footer-sml-layout">
 							<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $footer_bar, 'disabled' ); ?> />

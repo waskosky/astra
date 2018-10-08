@@ -68,6 +68,29 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 			line-height: 1.75;
 		}
 	}
+
+	.progress__indicator {
+	  line-height: 30px;
+	}
+
+	.llms-progress {
+		.llms-progress-bar {
+		  -webkit-border-radius: 20px;
+		  border-radius: 20px;
+		  height: 20px;
+		}
+
+		.progress-bar-complete {
+		  -webkit-border-radius: 20px;
+		  border-radius: 20px;
+		}
+	}
+
+	.llms-course-outline {
+		ul {
+		  margin-left: 1.5em;
+		}
+	}
 }
 
 //Seperate container layout
@@ -391,6 +414,7 @@ body {
 			}
 		}
 	}
+
 	.llms-form-heading {
 		padding: 0;
 	}
@@ -794,7 +818,13 @@ body {
 			&.view-courses > a:before {
 				content: "\f02d";
 			}
+			&.view-memberships > a:before {
+				content: "\f0c0";
+			}
 			&.view-achievements > a:before {
+				content: "\f091";
+			}
+			&.view-certificates > a:before {
 				content: "\f0a3";
 			}
 			&.notifications > a:before {
@@ -811,6 +841,9 @@ body {
 			}
 			&.signout > a:before {
 				content: "\f08b";
+			}
+			&.sl_profile > a:before {
+				content: "\f2be";
 			}
 		}
 	}
@@ -1074,6 +1107,14 @@ body {
 		content: "\2192";
 		margin-left: 5px;
 	}
+
+	@media( max-width: $mx-col-md ) {
+		.llms-start-quiz-button,
+		.llms-button-secondary {
+			margin: 5px;
+			display: block;
+		}
+	}
 }
 
 .llms-quiz-ui {
@@ -1106,6 +1147,12 @@ body {
 
 		.llms-quiz-counter {
 			font-size: inherit;	
+		}
+
+		
+		.llms-button-action,
+		.llms-button-secondary {
+			margin: 5px;
 		}
 	}
 
@@ -1169,4 +1216,12 @@ body {
 			}
 		}
 	}	
+}
+
+.ast-woocommerce-cart-menu {
+	.main-header-bar{
+		.main-header-log-out {
+		    padding-left: 10px;
+		}
+	}
 }

@@ -42,7 +42,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public function __construct() {
 
 			// Theme Updates.
-			add_action( 'init', __CLASS__ . '::init' );
+			if ( is_admin() ) {
+				add_action( 'admin_init', __CLASS__ . '::init', 5 );
+			} else {
+				add_action( 'wp', __CLASS__ . '::init', 5 );
+			}
+
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
@@ -52,12 +57,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @since 1.0.0
 		 */
 		static public function init() {
+
 			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
-			if ( ! $saved_version ) {
+			if ( false === $saved_version ) {
 
 				// Get all customizer options.
 				$customizer_options = get_option( ASTRA_THEME_SETTINGS );
@@ -138,6 +144,43 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Update astra background image data.
 			if ( version_compare( $saved_version, '1.3.0', '<' ) ) {
 				self::v_1_3_0();
+			}
+
+			// Update astra setting for inherit site logo compatibility.
+			if ( version_compare( $saved_version, '1.4.0-beta.3', '<' ) ) {
+				self::v_1_4_0_beta_3();
+			}
+
+			if ( version_compare( $saved_version, '1.4.0-beta.4', '<' ) ) {
+				self::v_1_4_0_beta_4();
+			}
+
+			if ( version_compare( $saved_version, '1.4.0-beta.5', '<' ) ) {
+				self::v_1_4_0_beta_5();
+			}
+
+			if ( version_compare( $saved_version, '1.4.3-alpha.1', '<' ) ) {
+				self::v_1_4_3_alpha_1();
+			}
+
+			if ( version_compare( $saved_version, '1.4.9', '<' ) ) {
+				self::v_1_4_9();
+			}
+
+			if ( version_compare( $saved_version, '1.5.0-beta.4', '<' ) ) {
+				self::v_1_5_0_beta_4();
+			}
+
+			if ( version_compare( $saved_version, '1.5.0-rc.1', '<' ) ) {
+				self::v_1_5_0_rc_1();
+			}
+
+			if ( version_compare( $saved_version, '1.5.0', '<' ) ) {
+				self::v_1_5_0_rc_3();
+			}
+
+			if ( version_compare( $saved_version, '1.5.1', '<' ) ) {
+				self::v_1_5_1();
 			}
 
 			// Not have stored?
@@ -642,6 +685,209 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
+
+		/**
+		 * Mobile Header - Border new param introduced for Top, Right, Bottom and left border.
+		 * Update options of older version than 1.4.0-beta.3.
+		 *
+		 * @since 1.4.0-beta.3
+		 */
+		static public function v_1_4_0_beta_3() {
+
+			$theme_options     = get_option( 'astra-settings' );
+			$mobile_logo_width = astra_get_option( 'mobile-header-logo-width' );
+
+			if ( '' != $mobile_logo_width ) {
+				$theme_options['ast-header-responsive-logo-width']['tablet'] = $mobile_logo_width;
+			}
+
+			$mobile_logo = ( isset( $theme_options['mobile-header-logo'] ) && '' !== $theme_options['mobile-header-logo'] ) ? $theme_options['mobile-header-logo'] : false;
+
+			if ( '' != $mobile_logo ) {
+				$theme_options['inherit-sticky-logo'] = false;
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Introduced different logo for mobile devices option
+		 *
+		 * @since 1.4.0-beta.4
+		 */
+		static public function v_1_4_0_beta_4() {
+
+			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
+			$theme_options      = get_option( 'astra-settings' );
+
+			if ( '' != $mobile_header_logo ) {
+				$theme_options['different-mobile-logo'] = true;
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Function to backward compatibility for version less than 1.4.0
+		 *
+		 * @since 1.4.0-beta.5
+		 */
+		static public function v_1_4_0_beta_5() {
+
+			// Set default toggle button style.
+			$theme_options = get_option( 'astra-settings' );
+
+			if ( ! isset( $theme_options['mobile-header-toggle-btn-style'] ) ) {
+				$theme_options['mobile-header-toggle-btn-style'] = 'fill';
+			}
+
+			$theme_options['hide-custom-menu-mobile'] = 0;
+
+			update_option( 'astra-settings', $theme_options );
+
+		}
+
+		/**
+		 * Function to backward compatibility for version less than 1.4.3
+		 * Set the new option different-retina-logo to true for users who are already using a retina logo.
+		 *
+		 * @since 1.4.3-aplha.1
+		 */
+		static public function v_1_4_3_alpha_1() {
+
+			$mobile_header_logo = astra_get_option( 'ast-header-retina-logo' );
+			$theme_options      = get_option( 'astra-settings' );
+
+			if ( '' != $mobile_header_logo ) {
+				$theme_options['different-retina-logo'] = '1';
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Manage backwards compatibility when migrating to v1.4.9
+		 *
+		 * @since 1.4.9
+		 * @return void
+		 */
+		public static function v_1_4_9() {
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set flag to use anchors CSS selectors in the CSS for headings.
+			if ( ! isset( $theme_options['include-headings-in-typography'] ) ) {
+				$theme_options['include-headings-in-typography'] = true;
+				update_option( 'astra-settings', $theme_options );
+			}
+		}
+
+		/**
+		 * Added Submenu Border options into theme from Addon
+		 *
+		 * @since 1.5.0-beta.4
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_0_beta_4() {
+
+			$border_disabled_values        = array(
+				'top'    => '0',
+				'bottom' => '0',
+				'left'   => '0',
+				'right'  => '0',
+			);
+			$inside_border_disabled_values = array(
+				'bottom' => '0',
+			);
+
+			$border_enabled_values        = array(
+				'top'    => '1',
+				'bottom' => '1',
+				'left'   => '1',
+				'right'  => '1',
+			);
+			$inside_border_enabled_values = array(
+				'bottom' => '1',
+			);
+
+			$theme_options  = get_option( 'astra-settings' );
+			$submenu_border = isset( $theme_options['primary-submenu-border'] ) ? $theme_options['primary-submenu-border'] : true;
+
+			// Primary Header.
+			if ( $submenu_border ) {
+				$theme_options['primary-submenu-border']      = $border_enabled_values;
+				$theme_options['primary-submenu-item-border'] = $inside_border_enabled_values;
+			} else {
+				$theme_options['primary-submenu-border']      = $border_disabled_values;
+				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Set flag 'submenu-below-header' to false to load fallback CSS to force menu load right after the container cropping logo and header.
+		 *
+		 * @see https://github.com/brainstormforce/astra/pull/820/
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_0_rc_1() {
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set flag to use anchors CSS selectors in the CSS for headings.
+			if ( ! isset( $theme_options['submenu-below-header'] ) ) {
+				$theme_options['submenu-below-header'] = false;
+				update_option( 'astra-settings', $theme_options );
+			}
+		}
+
+		/**
+		 * Set Primary Header submenu border color 'primary-submenu-b-color' to '#eaeaea' for old users who doesn't set any color and set the theme color who install the fresh 1.5.0-rc.3 theme.
+		 *
+		 * @see https://github.com/brainstormforce/astra/pull/835
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_0_rc_3() {
+
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set the default #eaeaea sub menu border color who doesn't set any color.
+			if ( ! isset( $theme_options['primary-submenu-b-color'] ) || empty( $theme_options['primary-submenu-b-color'] ) ) {
+				$theme_options['primary-submenu-b-color'] = '#eaeaea';
+			}
+
+			// Set the primary sub menu animation to default for existing user.
+			if ( ! isset( $theme_options['header-main-submenu-container-animation'] ) ) {
+				$theme_options['header-main-submenu-container-animation'] = '';
+			}
+
+			update_option( 'astra-settings', $theme_options );
+
+		}
+
+		/**
+		 * Change the Primary submenu option to be checkbpx rather than border selection.
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_1() {
+			$theme_options               = get_option( 'astra-settings', array() );
+			$primary_submenu_otem_border = isset( $theme_options['primary-submenu-item-border'] ) ? $theme_options['primary-submenu-item-border'] : array();
+
+			if ( ( is_array( $primary_submenu_otem_border ) && '0' != $primary_submenu_otem_border['bottom'] ) ) {
+				$theme_options['primary-submenu-item-border'] = 1;
+			} else {
+				$theme_options['primary-submenu-item-border'] = 0;
+			}
+			if ( isset( $theme_options['primary-submenu-b-color'] ) && ! empty( $theme_options['primary-submenu-b-color'] ) ) {
+				$theme_options['primary-submenu-item-b-color'] = $theme_options['primary-submenu-b-color'];
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
 	}
 
 }
