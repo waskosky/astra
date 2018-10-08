@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -152,16 +152,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					wp_enqueue_script( $key );
 				}
 			}
-
-			wp_script_add_data(
-				'astra-theme-js',
-				'data',
-				astra_get_script_polyfill(
-					array(
-						'typeof window.CustomEvent === "function"' => 'astra-customevent',
-					)
-				)
-			);
 
 			// Fonts - Render Fonts.
 			Astra_Fonts::render_fonts();
