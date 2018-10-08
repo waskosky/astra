@@ -153,16 +153,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
-			wp_script_add_data(
-				'astra-theme-js',
-				'data',
-				astra_get_script_polyfill(
-					array(
-						'typeof window.CustomEvent === "function"' => 'astra-customevent',
-					)
-				)
-			);
-
 			// Fonts - Render Fonts.
 			Astra_Fonts::render_fonts();
 

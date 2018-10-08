@@ -26,26 +26,26 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 	 */
 	function astra_get_foreground_color( $hex ) {
 
+		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
 
-		} else {
-
-			// Get clean hex code.
-			$hex = str_replace( '#', '', $hex );
-
-			if ( 3 == strlen( $hex ) ) {
-				$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
-			}
-
-			// Get r, g & b codes from hex code.
-			$r   = hexdec( substr( $hex, 0, 2 ) );
-			$g   = hexdec( substr( $hex, 2, 2 ) );
-			$b   = hexdec( substr( $hex, 4, 2 ) );
-			$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
-
-			return 128 <= $hex ? '#222222' : '#ffffff';
 		}
+
+		// Get clean hex code.
+		$hex = str_replace( '#', '', $hex );
+
+		if ( 3 == strlen( $hex ) ) {
+			$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
+		}
+
+		// Get r, g & b codes from hex code.
+		$r   = hexdec( substr( $hex, 0, 2 ) );
+		$g   = hexdec( substr( $hex, 2, 2 ) );
+		$b   = hexdec( substr( $hex, 4, 2 ) );
+		$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
+
+		return 128 <= $hex ? '#000000' : '#ffffff';
 	}
 }
 
@@ -1086,35 +1086,3 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_get_script_polyfill' ) ) :
-
-	/**
-	 * Returns contents of an inline script used in appending polyfill scripts for
-	 * browsers which fail the provided tests. The provided array is a mapping from
-	 * a condition to verify feature support to its polyfill script handle.
-	 *
-	 * @param array $tests Features to detect.
-	 * @return string Conditional polyfill inline script.
-	 */
-	function astra_get_script_polyfill( $tests ) {
-		global $wp_scripts;
-		$polyfill = '';
-		foreach ( $tests as $test => $handle ) {
-			if ( ! array_key_exists( $handle, $wp_scripts->registered ) ) {
-				continue;
-			}
-			$polyfill .= (
-				// Test presence of feature...
-				'( ' . $test . ' ) || ' .
-				// ...appending polyfill on any failures. Cautious viewers may balk
-				// at the `document.write`. Its caveat of synchronous mid-stream
-				// blocking write is exactly the behavior we need though.
-				'document.write( \'<script src="' .
-				esc_url( $wp_scripts->registered[ $handle ]->src ) .
-				'"></scr\' + \'ipt>\' );'
-			);
-		}
-		return $polyfill;
-	}
-
-endif;
