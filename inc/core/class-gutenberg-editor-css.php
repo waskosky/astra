@@ -51,9 +51,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$heading_h5_font_size = astra_get_option( 'font-size-h5' );
 			$heading_h6_font_size = astra_get_option( 'font-size-h6' );
 
-			// Blog Post Title Typography Options.
-			$single_post_max       = astra_get_option( 'blog-single-width' );
-			$single_post_max_width = astra_get_option( 'blog-single-max-width' );
 
 			if ( is_array( $body_font_size ) ) {
 				$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
@@ -194,19 +191,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', '768' );
 
-			/* Single Blog */
-			if ( 'custom' === $single_post_max ) :
-
-				/* Site width Responsive */
-				$single_blog_css = array(
-					'.gutenberg-editor-page.post-type-post #wpwrap .edit-post-visual-editor .editor-post-title__block,.gutenberg-editor-page.post-type-post #wpwrap .edit-post-visual-editor .editor-default-block-appender,.gutenberg-editor-page.post-type-post #wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
-						'max-width' => astra_get_css_value( $single_post_max_width, 'px' ),
-						'margin-left' => esc_attr( 'auto' ),
-						'margin-right' => esc_attr( 'auto' ),
-					),
-				);
-				$css            .= astra_parse_css( $single_blog_css, '769' );
-			endif;
 
 			return $css;
 		}
