@@ -33,6 +33,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$para_margin_bottom          = astra_get_option( 'para-margin-bottom' );
 			$theme_color                 = astra_get_option( 'theme-color' );
 			$link_color                  = astra_get_option( 'link-color', $theme_color );
+			
+			$highlight_link_color   = astra_get_foreground_color( $link_color );
+			$highlight_theme_color  = astra_get_foreground_color( $theme_color );
+			
 			$body_font_weight            = astra_get_option( 'body-font-weight' );
 			$body_font_size              = astra_get_option( 'font-size-body' );
 			$body_line_height            = astra_get_option( 'body-line-height' );
@@ -65,6 +69,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor a' => array(
 					'color' => esc_attr( $link_color ),
+				),
+				// Global CSS.
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor ::selection,.editor-block-list__layout .editor-block-list__block ::selection'                             => array(
+					'background-color' => esc_attr( $theme_color ),
+					'color'            => esc_attr( $highlight_theme_color ),
 				),
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor' => astra_get_background_obj( $box_bg_obj ),
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block,.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-default-block-appender,.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
@@ -192,6 +201,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$single_blog_css = array(
 					'.gutenberg-editor-page.post-type-post #wpwrap .edit-post-visual-editor .editor-post-title__block,.gutenberg-editor-page.post-type-post #wpwrap .edit-post-visual-editor .editor-default-block-appender,.gutenberg-editor-page.post-type-post #wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
 						'max-width' => astra_get_css_value( $single_post_max_width, 'px' ),
+						'margin-left' => esc_attr( 'auto' ),
+						'margin-right' => esc_attr( 'auto' ),
 					),
 				);
 				$css            .= astra_parse_css( $single_blog_css, '769' );
