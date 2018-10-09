@@ -1656,6 +1656,7 @@ a:hover {
 
 .aligncenter {
   clear: both;
+  text-align: center;
   display: block;
   margin-right: auto;
   margin-left: auto;
