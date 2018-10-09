@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -19,7 +19,7 @@
 
 		<?php astra_single_header_top(); ?>
 
-		<?php astra_blog_post_thumbnai_and_title_order(); ?>
+		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 
 		<?php astra_single_header_bottom(); ?>
 

@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -101,10 +101,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/**
 			 * Set metabox options
 			 *
-			 * @see http://php.net/manual/en/filter.filters.sanitize.php
+			 * @see https://php.net/manual/en/filter.filters.sanitize.php
 			 */
 			self::$meta_option = apply_filters(
-				'astra_meta_box_options', array(
+				'astra_meta_box_options',
+				array(
 					'ast-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -146,7 +147,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$post_types['fl-theme-layout'] = 'fl-theme-layout';
 
-			$metabox_name = astra_get_theme_name() . __( ' Settings', 'astra' );
+			$metabox_name = sprintf(
+				// Translators: %s is the theme name.
+				__( '%s Settings', 'astra' ),
+				astra_get_theme_name()
+			);
+
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 

@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @link        https://www.brainstormforce.com
  * @since       1.2.0
  * @since       1.4.6 Chnaged to using Astra_Customizer API
  */
@@ -28,14 +28,14 @@ if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$configs = (
+			$configs = array(
 				array(
 					'type'     => 'section',
 					'name'     => 'section-learndash',
 					'priority' => 65,
 					'title'    => __( 'LearnDash', 'astra' ),
 					'panel'    => 'panel-layout',
-				)
+				),
 			);
 
 			return array_merge( $configurations, $configs );

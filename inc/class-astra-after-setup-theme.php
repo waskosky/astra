@@ -2,15 +2,15 @@
 /**
  * Astra functions and definitions.
  * Text Domain: astra
- * When using a child theme (see http://codex.wordpress.org/Theme_Development
- * and http://codex.wordpress.org/Child_Themes), you can override certain
+ * When using a child theme (see https://codex.wordpress.org/Theme_Development
+ * and https://codex.wordpress.org/Child_Themes), you can override certain
  * functions (those wrapped in a function_exists() call) by defining them first
  * in your child theme's functions.php file. The child theme's functions.php
  * file is included before the parent theme's file, so the child theme
  * functions would be used.
  *
  * For more information on hooks, actions, and filters,
- * see http://codex.wordpress.org/Plugin_API
+ * see https://codex.wordpress.org/Plugin_API
  *
  * Astra is a very powerful theme and virtually anything can be customized
  * via a child theme.
@@ -18,7 +18,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -70,6 +70,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			do_action( 'astra_class_loaded' );
 
+			global $content_width;
+
 			/**
 			 * Content Width
 			 */
@@ -101,7 +103,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			// Switch default core markup for search form, comment form, and comments.
 			// to output valid HTML5.
 			add_theme_support(
-				'html5', array(
+				'html5',
+				array(
 					'search-form',
 					'gallery',
 					'caption',
@@ -110,7 +113,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// Post formats.
 			add_theme_support(
-				'post-formats', array(
+				'post-formats',
+				array(
 					'gallery',
 					'image',
 					'link',
@@ -124,7 +128,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// Add theme support for Custom Logo.
 			add_theme_support(
-				'custom-logo', array(
+				'custom-logo',
+				array(
 					'width'       => 180,
 					'height'      => 60,
 					'flex-width'  => true,
@@ -170,7 +175,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
 
 			$allowed_providers = apply_filters(
-				'astra_allowed_fullwidth_oembed_providers', array(
+				'astra_allowed_fullwidth_oembed_providers',
+				array(
 					'vimeo.com',
 					'youtube.com',
 					'youtu.be',

@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.15
  */
 
@@ -248,7 +248,8 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					 */
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-content-typography-more-feature-divider]',
-						'type'     => 'ast-divider',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
 						'section'  => 'section-content-typo',
 						'priority' => 999,
 						'settings' => array(),
@@ -259,7 +260,8 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					 */
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-content-typography-more-feature-description]',
-						'type'     => 'ast-description',
+						'type'     => 'control',
+						'control'  => 'ast-description',
 						'section'  => 'section-content-typo',
 						'priority' => 999,
 						'title'    => '',

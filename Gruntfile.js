@@ -3,6 +3,7 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer    = require('autoprefixer');
     var flexibility     = require('postcss-flexibility');
+    const sass = require('node-sass');
 
     var pkgInfo = grunt.file.readJSON('package.json');
 
@@ -58,12 +59,23 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '-rtl.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'inc/assets/css',
+                            src: [
+                                    '*.css',
+                                    '!*-rtl.css',
+                                ],
+                            dest: 'inc/assets/css',
+                            ext: '-rtl.css'
+                        },
                     ]
               	}
             },
 
             sass: {
                 options: {
+                    implementation: sass,
                     sourcemap: 'none',
                     outputStyle: 'expanded',
                     linefeed: 'lf',
@@ -74,6 +86,11 @@ module.exports = function (grunt) {
                         /*{
                         'style.css': 'sass/style.scss'
                         },*/
+
+                        /* Link Pointer Style */
+                        {
+                            'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
+                        },
 
                         /* Editor Style */
                         {
@@ -88,6 +105,7 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/spacing/spacing.css': 'inc/customizer/custom-controls/spacing/spacing.scss',
                             'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css': 'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss',
                             'inc/customizer/custom-controls/background/background.css': 'inc/customizer/custom-controls/background/background.scss',
+                            'inc/customizer/custom-controls/border/border.css': 'inc/customizer/custom-controls/border/border.scss',
                         },
 
                         /* Common Style */
@@ -216,8 +234,12 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
 	                    },
                     	{
-                    		src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
+                            src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
+                            dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
+                        },
+                        {
+                    		src: 'assets/css/unminified/compatibility/learndash-rtl.css',
+	                        dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',

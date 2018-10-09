@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -25,5 +25,6 @@ require $control_dir . '/heading/class-astra-control-heading.php';
 require $control_dir . '/color/class-astra-control-color.php';
 require $control_dir . '/description/class-astra-control-description.php';
 require $control_dir . '/background/class-astra-control-background.php';
+require $control_dir . '/border/class-astra-control-border.php';
 
 
