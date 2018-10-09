@@ -233,7 +233,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			// Render fonts in Gutenberg layout.
 			Astra_Fonts::render_fonts();
 
-			wp_add_inline_style( 'astra-block-editor-styles', Gutenberg_Editor_CSS::get_css() );
+			wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
 		}
 
 	}
