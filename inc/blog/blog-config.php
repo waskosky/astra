@@ -136,7 +136,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 
 		<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
 			<?php // Translators: Author Name. ?>
-			<a class="url fn n" title="<?php printf( __( 'View all posts by %1$s', 'astra' ), get_the_author() ); ?>" 
+			<a class="url fn n" title="<?php printf( esc_attr__( 'View all posts by %1$s', 'astra' ), get_the_author() ); ?>" 
 				href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" itemprop="url">
 				<span class="author-name" itemprop="name"><?php echo get_the_author(); ?></span>
 			</a>
@@ -176,7 +176,7 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
-			'<a class="' . implode( ' ', $read_more_classes ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $read_more_text . '</a>'
+			'<a class="' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $read_more_text . '</a>'
 		);
 
 		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
@@ -438,7 +438,7 @@ if ( ! function_exists( 'astra_the_content_more_link' ) ) {
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
-			'<a class="' . implode( ' ', $read_more_classes ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $more_link_text . '</a>'
+			'<a class="' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $more_link_text . '</a>'
 		);
 
 		$more_link_element = ' &hellip;<p class="ast-the-content-more-link"> ' . $post_link . '</p>';

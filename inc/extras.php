@@ -49,7 +49,7 @@ if ( ! function_exists( 'astra_schema_body' ) ) :
 		$result = apply_filters( 'astra_schema_body_itemtype', $itemtype );
 
 		// Return our HTML.
-		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_html( $result ) . "' itemscope='itemscope'" );
+		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" );
 	}
 endif;
 
@@ -663,7 +663,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			// Menu Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
 			if ( ! empty( $menu_animation ) ) {
-				$submenu_class .= ' astra-menu-animation-' . esc_html( $menu_animation ) . ' ';
+				$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 			}
 
 			/**
@@ -1561,7 +1561,7 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'astar' ) ) :
+if ( ! function_exists( 'astra_get_prop' ) ) :
 
 	/**
 	 * Get a specific property of an array without needing to check if that property exists.
@@ -1579,7 +1579,7 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * @return null|string|mixed The value
 	 */
-	function astar( $array, $prop, $default = null ) {
+	function astra_get_prop( $array, $prop, $default = null ) {
 
 		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
 			return $default;
