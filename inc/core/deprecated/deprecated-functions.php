@@ -39,6 +39,7 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) :
 	 *
 	 * @since 1.5.2
 	 * @deprecated 1.5.2 Use astra_get_secondary_class()
+	 * @param string|array $class One or more classes to add to the class list.
 	 * @see astra_get_secondary_class()
 	 *
 	 * @return void
@@ -46,7 +47,7 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) :
 	function get_astra_secondary_class( $class = '' ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_secondary_class()' );
 
-		astra_get_secondary_class( $class = '' );
+		astra_get_secondary_class( $class );
 	}
 
 endif;
@@ -58,6 +59,7 @@ if ( ! function_exists( 'deprecated_astra_color_palette' ) ) :
 	 *
 	 * @since 1.5.2
 	 * @deprecated 1.5.2 Use astra_deprecated_color_palette()
+	 * @param array $color_palette  customizer color palettes.
 	 * @see astra_deprecated_color_palette()
 	 *
 	 * @return void
@@ -77,6 +79,7 @@ if ( ! function_exists( 'deprecated_astra_sigle_post_navigation_enabled' ) ) :
 	 *
 	 * @since 1.5.2
 	 * @deprecated 1.5.2 Use astra_deprecated_sigle_post_navigation_enabled()
+	 * @param boolean $post_nav true | false.
 	 * @see astra_deprecated_sigle_post_navigation_enabled()
 	 *
 	 * @return void
@@ -96,6 +99,8 @@ if ( ! function_exists( 'deprecated_astra_primary_header_main_rt_section' ) ) :
 	 *
 	 * @since 1.5.2
 	 * @deprecated 1.5.2 Use astra_deprecated_primary_header_main_rt_section()
+	 * @param array  $elements List of elements.
+	 * @param string $header Header section type.
 	 * @see astra_deprecated_primary_header_main_rt_section()
 	 *
 	 * @return void
@@ -115,6 +120,9 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * @since 1.5.2
 	 * @deprecated 1.5.2 Use astra_get_prop()
+	 * @param array  $array   Array from which the property's value should be retrieved.
+	 * @param string $prop    Name of the property to be retrieved.
+	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
 	 * @see astra_get_prop()
 	 *
 	 * @return void
