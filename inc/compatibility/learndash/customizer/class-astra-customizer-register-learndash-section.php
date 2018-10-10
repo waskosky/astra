@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @link        https://www.brainstormforce.com
  * @since       1.2.0
  * @since       1.4.6 Chnaged to using Astra_Customizer API
  */

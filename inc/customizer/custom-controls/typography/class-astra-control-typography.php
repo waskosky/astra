@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       1.0.0
  */
 
@@ -170,8 +170,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<optgroup label="Google">';
 
 		foreach ( Astra_Font_Families::get_google_fonts() as $name => $single_font ) {
-			$variants = astar( $single_font, '0' );
-			$category = astar( $single_font, '1' );
+			$variants = astra_get_prop( $single_font, '0' );
+			$category = astra_get_prop( $single_font, '1' );
 			echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
