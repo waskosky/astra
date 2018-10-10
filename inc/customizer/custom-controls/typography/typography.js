@@ -177,7 +177,6 @@
 				variantSelect.html( weightOptions );
 				if ( ! init ) {
 					api( variants ).set( '' );
-					api( variants ).set( '400' );
 				}
 		},
 	};
