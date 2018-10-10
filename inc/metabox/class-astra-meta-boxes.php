@@ -213,7 +213,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Sidebar
 			 */
 			?>
-			<div class="site-sidebar-layout-meta-wrap">
+			<div class="site-sidebar-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
 				</p>
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Sidebar
 			 */
 			?>
-			<div class="site-content-layout-meta-wrap">
+			<div class="site-content-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 				</p>
@@ -246,7 +246,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Disable Sections - Primary Header, Title, Footer Widgets, Footer Bar
 			 */
 			?>
-			<div class="disable-section-meta-wrap">
+			<div class="disable-section-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper">
 					<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
 				</p>
