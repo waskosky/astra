@@ -504,3 +504,7 @@ html {
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor h6 {
   font-weight: inherit;
 }
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .mce-widget i {
+  font-style: normal;
+}
