@@ -1656,6 +1656,7 @@ a:hover {
 
 .aligncenter {
   clear: both;
+  text-align: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -4099,6 +4100,11 @@ body .entry-content .is-type-video.wp-block-embed :before {
 .ast-header-break-point .entry-content .alignwide {
   margin-left: auto;
   margin-right: auto;
+}
+
+.entry-content .wp-block-image img,
+.entry-content .blocks-gallery-item img {
+  margin-bottom: auto;
 }
 
 /*----------  Secondary  ----------*/
