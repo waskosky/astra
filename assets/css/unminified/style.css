@@ -3026,6 +3026,8 @@ body {
 }
 
 .ast-header-break-point .ast-mobile-header-stack .site-branding {
+  padding-left: 0;
+  padding-right: 0;
   padding-bottom: 1em;
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 100%;
