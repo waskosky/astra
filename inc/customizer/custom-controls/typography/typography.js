@@ -150,6 +150,7 @@
 				inherit             = fontSelect.data( 'inherit' ),
 				variantSelect       = api.control( variants ).container.find( 'select' ),
 				variantSavedField   = api.control( variants ).container.find( '.ast-font-variant-hidden-value' ),
+				weightValue        = '',
 				weightOptions       = '',
 				currentWeightTitle  = variantSelect.data( 'inherit' ),
 				weightMap           = astraTypo;
@@ -160,16 +161,19 @@
 				var weightObject = AstTypography._getWeightObject( fontValue );
 
 				weightMap[ 'inherit' ] = currentWeightTitle;
-				for ( ; i < weightObject.length; i++ ) {
-					if ( 0 === i && -1 === $.inArray( variantArray[i], weightObject ) ) {
-						variantArray[i] = weightObject[ 0 ];
-						selected 	= ' selected="selected"';
-					} else {
-						selected = weightObject[ i ] == variantArray[i] ? ' selected="selected"' : '';
+				
+				for ( var i = 0; i < weightObject.length; i++ ) {
+					for ( var e = 0; e < variantArray.length; e++ ) {
+						if ( weightObject[i] === variantArray[e] ) {
+							weightValue = weightObject[ i ];
+							selected 	= ' selected="selected"';
+						} else{
+							selected = ( weightObject[ i ] == weightValue ) ? ' selected="selected"' : '';
+						}
 					}
-
 					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
 				}
+
 				variantSelect.html( weightOptions );
 				if ( ! init ) {
 					api( variants ).set( '' );
