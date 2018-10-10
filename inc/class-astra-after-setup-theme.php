@@ -91,6 +91,9 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			 * Theme Support
 			 */
 
+			// Gutenberg wide images.
+			add_theme_support( 'align-wide' );
+
 			// Add default posts and comments RSS feed links to head.
 			add_theme_support( 'automatic-feed-links' );
 
