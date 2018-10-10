@@ -22,7 +22,7 @@ html {
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor *,
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor *:before,
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor *:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit;
 }
 
