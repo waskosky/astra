@@ -607,14 +607,14 @@ if ( ! function_exists( 'astra_secondary_class' ) ) {
 	function astra_secondary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', get_astra_secondary_class( $class ) ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', astra_get_secondary_class( $class ) ) ) . '"';
 	}
 }
 
 /**
  * Retrieve the classes for the secondary element as an array.
  */
-if ( ! function_exists( 'get_astra_secondary_class' ) ) {
+if ( ! function_exists( 'astra_get_secondary_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the secondary element as an array.
@@ -622,7 +622,7 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array        Return array of classes.
 	 */
-	function get_astra_secondary_class( $class = '' ) {
+	function astra_get_secondary_class( $class = '' ) {
 
 		// array of class names.
 		$classes = array();
