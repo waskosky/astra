@@ -64,23 +64,23 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			// Description.
 			$content  = '<div class="astra-section-description">';
-			$content .= wp_kses_post( astar( $args, 'description' ) );
+			$content .= wp_kses_post( astra_get_prop( $args, 'description' ) );
 
 			// Links.
-			if ( astar( $args, 'links' ) ) {
+			if ( astra_get_prop( $args, 'links' ) ) {
 				$content .= '<ul>';
 				foreach ( $args['links'] as $index => $link ) {
 
-					if ( astar( $link, 'attrs' ) ) {
+					if ( astra_get_prop( $link, 'attrs' ) ) {
 
 						$content .= '<li>';
 
 						// Attribute mapping.
 						$attributes = ' target="_blank" ';
-						foreach ( astar( $link, 'attrs' ) as $attr => $attr_value ) {
+						foreach ( astra_get_prop( $link, 'attrs' ) as $attr => $attr_value ) {
 							$attributes .= ' ' . $attr . '="' . esc_attr( $attr_value ) . '" ';
 						}
-						$content .= '<a ' . $attributes . '>' . esc_html( astar( $link, 'text' ) ) . '</a></li>';
+						$content .= '<a ' . $attributes . '>' . esc_html( astra_get_prop( $link, 'text' ) ) . '</a></li>';
 
 						$content .= '</li>';
 					}
