@@ -182,6 +182,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.5.1', '<' ) ) {
 				self::v_1_5_1();
 			}
+			if ( version_compare( $saved_version, '1.5.2', '<' ) ) {
+				self::v_1_5_2();
+			}
 
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
@@ -883,6 +886,23 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 			if ( isset( $theme_options['primary-submenu-b-color'] ) && ! empty( $theme_options['primary-submenu-b-color'] ) ) {
 				$theme_options['primary-submenu-item-b-color'] = $theme_options['primary-submenu-b-color'];
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Add same font variant as font weight for body and heading.
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_2() {
+			$theme_options = get_option( 'astra-settings', array() );
+			if ( isset( $theme_options['body-font-weight'] ) && is_numeric( $theme_options['body-font-weight'] ) ) {
+				$theme_options['body-font-variant'] = $theme_options['body-font-weight'];
+			}
+			if ( isset( $theme_options['headings-font-weight'] ) && is_numeric( $theme_options['headings-font-weight'] ) ) {
+				$theme_options['headings-font-variant'] = $theme_options['headings-font-weight'];
 			}
 
 			update_option( 'astra-settings', $theme_options );

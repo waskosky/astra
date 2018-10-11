@@ -200,6 +200,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'archive-post-content-layout'      => 'default',
 					// Typography.
 					'body-font-family'                 => 'inherit',
+					'body-font-variant'                => '',
 					'body-font-weight'                 => 'inherit',
 					'font-size-body'                   => array(
 						'desktop'      => 15,
