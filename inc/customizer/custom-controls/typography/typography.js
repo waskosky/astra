@@ -39,10 +39,8 @@
 		_initFonts: function()
 		{
 			$( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
-			// Added select2 for all font family.
-			$('.customize-control-ast-font-family select').selectWoo();
-			// Added select2 for all font variant.
-			$('.customize-control-ast-font-variant select').selectWoo({ tags: true });
+			// Added select2 for all font family & font variant.
+			$('.customize-control-ast-font-family select, .customize-control-ast-font-variant select').selectWoo();
 
 			$('.customize-control-ast-font-variant select').on('select2:unselecting', function (e) {
 				var variantSelect = $(this).data( 'customize-setting-link' ),
