@@ -68,7 +68,14 @@
 		{
 			var select  = $( this ),
 			link    = select.data( 'customize-setting-link' ),
+			weight  = select.data( 'connected-control' ),
 			variant  = select.data( 'connected-variant' );
+
+			if ( 'undefined' != typeof weight ) {
+				api( link ).bind( AstTypography._fontSelectChange );
+				AstTypography._setFontWeightOptions.apply( api( link ), [ true ] );
+			}
+
 			if ( 'undefined' != typeof variant ) {
 				api( link ).bind( AstTypography._fontSelectChange );
 				AstTypography._setFontVarianttOptions.apply( api( link ), [ true ] );
@@ -84,6 +91,7 @@
 		 */
 		_fontSelectChange: function()
 		{
+			AstTypography._setFontWeightOptions.apply( this, [ false ] );
 			AstTypography._setFontVarianttOptions.apply( this, [ false ] );
 		},
 
@@ -128,7 +136,7 @@
 		{
 			var weightObject        = [ '400', '600' ];
 			if ( fontValue == 'inherit' ) {
-				weightObject = [ '400','500','600','700' ];
+				weightObject = [ '100','200','300','400','500','600','700','800','900' ];
 			} else if ( 'undefined' != typeof AstFontFamilies.system[ fontValue ] ) {
 				weightObject = AstFontFamilies.system[ fontValue ].weights;
 			} else if ( 'undefined' != typeof AstFontFamilies.google[ fontValue ] ) {
@@ -143,6 +151,59 @@
 			return weightObject;
 		},
 
+		/**
+		 * Sets the options for a font weight control when a
+		 * font family control changes.
+		 *
+		 * @since 1.0.0
+		 * @access private
+		 * @method _setFontWeightOptions
+		 * @param {Boolean} init Whether or not we're initializing this font weight control.
+		 */
+		_setFontWeightOptions: function( init )
+		{
+			var i               = 0,
+			fontSelect          = api.control( this.id ).container.find( 'select' ),
+			fontValue           = this(),
+			selected            = '',
+			weightKey           = fontSelect.data( 'connected-control' ),
+			inherit             = fontSelect.data( 'inherit' ),
+			weightSelect        = api.control( weightKey ).container.find( 'select' ),
+			currentWeightTitle  = weightSelect.data( 'inherit' ),
+			weightValue         = init ? weightSelect.val() : '400',
+			inheritWeightObject = [ 'inherit' ],
+			weightObject        = [ '400', '600' ],
+			weightOptions       = '',
+			weightMap           = astraTypo;
+			if ( fontValue == 'inherit' ) {
+				weightValue     = init ? weightSelect.val() : 'inherit';
+			}
+
+			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
+			var weightObject = AstTypography._getWeightObject( fontValue );
+
+			weightObject = $.merge( inheritWeightObject, weightObject )
+			weightMap[ 'inherit' ] = currentWeightTitle;
+			for ( ; i < weightObject.length; i++ ) {
+
+				if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {
+					weightValue = weightObject[ 0 ];
+					selected 	= ' selected="selected"';
+				} else {
+					selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
+				}
+				if( ! weightObject[ i ].includes( "italic" ) ){
+					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
+				}
+			}
+
+			weightSelect.html( weightOptions );
+
+			if ( ! init ) {
+				api( weightKey ).set( '' );
+				api( weightKey ).set( weightValue );
+			}
+		},
 		/**
 		 * Sets the options for a font variant control when a
 		 * font family control changes.
