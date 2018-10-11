@@ -76,7 +76,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 * @param array                $args    Default parent's arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
-		$this->ast_inherit = __( 'Inherit', 'astra' );
+		$this->ast_inherit         = __( 'Inherit', 'astra' );
 		$this->ast_all_font_weight = array(
 			'100'       => __( 'Thin 100', 'astra' ),
 			'100italic' => __( '100 Italic', 'astra' ),
@@ -235,21 +235,21 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '>';
 		if ( 'normal' == $this->value() ) {
 			echo '<option value="normal" ' . selected( 'normal', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
-		} else{
+		} else {
 			echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		}
 		$selected       = '';
 		$selected_value = $this->value();
 		$all_fonts      = $this->ast_all_font_weight;
 
-		foreach ( $all_fonts as $key => $value) {
+		foreach ( $all_fonts as $key => $value ) {
 			if ( $key == $selected_value ) {
 				$selected = ' selected = "selected" ';
-			} else{
+			} else {
 				$selected = '';
 			}
 			// Exclude all italic values.
-			if ( strpos( $key, 'italic') === false) {
+			if ( strpos( $key, 'italic' ) === false ) {
 				echo '<option value="' . esc_attr( $key ) . '"' . esc_attr( $selected ) . '>' . esc_attr( $value ) . '</option>';
 			}
 		}
@@ -274,7 +274,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo ' multiple >';
 		$values = explode( ',', $this->value() );
 		foreach ( $values as $key => $value ) {
-			echo '<option value="' . $value . '" selected="selected" >' .  $value  . '</option>';
+			echo '<option value="' . $value . '" selected="selected" >' . $value . '</option>';
 		}
 		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
 		echo '</select>';

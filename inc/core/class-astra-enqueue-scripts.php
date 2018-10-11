@@ -79,15 +79,15 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public function add_fonts() {
 
 			$font_family  = astra_get_option( 'body-font-family' );
-			$font_weight = astra_get_option( 'body-font-weight' );
+			$font_weight  = astra_get_option( 'body-font-weight' );
 			$font_variant = astra_get_option( 'body-font-variant' );
 
 			Astra_Fonts::add_font( $font_family, $font_weight );
 			Astra_Fonts::add_font( $font_family, $font_variant );
 
 			// Render headings font.
-			$heading_font_family = astra_get_option( 'headings-font-family' );
-			$heading_font_weight = astra_get_option( 'headings-font-weight' );
+			$heading_font_family  = astra_get_option( 'headings-font-family' );
+			$heading_font_weight  = astra_get_option( 'headings-font-weight' );
 			$heading_font_variant = astra_get_option( 'headings-font-variant' );
 
 			Astra_Fonts::add_font( $heading_font_family, $heading_font_weight );
