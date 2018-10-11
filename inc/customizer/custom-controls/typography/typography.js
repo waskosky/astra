@@ -43,6 +43,18 @@
 			$('.customize-control-ast-font-family select').selectWoo();
 			// Added select2 for all font variant.
 			$('.customize-control-ast-font-variant select').selectWoo({ tags: true });
+			
+			$('.customize-control-ast-font-variant select').on('select2:unselecting', function (e) {
+				var variantSelect = $(this).data( 'customize-setting-link' ),
+				    unselectedValue = e.params.args.data.id || '';
+
+				if ( unselectedValue ) {
+					$(this).find('option[value="' + e.params.args.data.id + '"]').remove();
+					if ( null === $(this).val() ) {
+						api( variantSelect ).set( '' );
+					}
+				}
+			});
 		},
 
 		/**
