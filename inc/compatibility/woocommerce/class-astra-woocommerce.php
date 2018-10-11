@@ -933,7 +933,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			ob_start();
 			?>
-			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
+			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
 				<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
 					<?php $this->astra_get_cart_link(); ?>
 				</div>

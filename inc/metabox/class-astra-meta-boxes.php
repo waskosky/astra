@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/**
 			 * Set metabox options
 			 *
-			 * @see http://php.net/manual/en/filter.filters.sanitize.php
+			 * @see https://php.net/manual/en/filter.filters.sanitize.php
 			 */
 			self::$meta_option = apply_filters(
 				'astra_meta_box_options',
@@ -147,7 +147,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$post_types['fl-theme-layout'] = 'fl-theme-layout';
 
-			$metabox_name = astra_get_theme_name() . __( ' Settings', 'astra' );
+			$metabox_name = sprintf(
+				// Translators: %s is the theme name.
+				__( '%s Settings', 'astra' ),
+				astra_get_theme_name()
+			);
+
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
@@ -208,7 +213,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Sidebar
 			 */
 			?>
-			<div class="site-sidebar-layout-meta-wrap">
+			<div class="site-sidebar-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
 				</p>
@@ -224,7 +229,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Sidebar
 			 */
 			?>
-			<div class="site-content-layout-meta-wrap">
+			<div class="site-content-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 				</p>
@@ -241,7 +246,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Disable Sections - Primary Header, Title, Footer Widgets, Footer Bar
 			 */
 			?>
-			<div class="disable-section-meta-wrap">
+			<div class="disable-section-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper">
 					<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
 				</p>

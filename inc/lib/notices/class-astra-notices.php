@@ -212,7 +212,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				$classes[] = 'notice-' . $notice['type'];
 			}
 
-			return implode( ' ', $classes );
+			return esc_attr( implode( ' ', $classes ) );
 		}
 
 		/**

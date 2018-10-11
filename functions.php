@@ -13,8 +13,8 @@
  */
 define( 'ASTRA_THEME_VERSION', '1.5.2' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
-define( 'ASTRA_THEME_DIR', get_template_directory() . '/' );
-define( 'ASTRA_THEME_URI', get_template_directory_uri() . '/' );
+define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
+define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
 /**
  * Update theme
@@ -40,6 +40,7 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 
 require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
+require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
 
 /**

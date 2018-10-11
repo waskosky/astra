@@ -329,7 +329,7 @@ th {
 # Bootstrap Grid
 --------------------------------------------------------------*/
 /*!
- * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
+ * Bootstrap v4.0.0-alpha.2 (https://getbootstrap.com)
  */
 .ast-container {
   margin-left: auto;
@@ -1314,7 +1314,7 @@ html {
 *,
 *:before,
 *:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
@@ -1656,6 +1656,7 @@ a:hover {
 
 .aligncenter {
   clear: both;
+  text-align: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -3025,6 +3026,8 @@ body {
 }
 
 .ast-header-break-point .ast-mobile-header-stack .site-branding {
+  padding-left: 0;
+  padding-right: 0;
   padding-bottom: 1em;
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 100%;
@@ -4071,6 +4074,48 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: block;
 }
 
+/* .alignwide & .alignfull CSS compatibility */
+.ast-no-sidebar .entry-content .alignfull {
+  margin-left: -webkit-calc(-50vw  + 50%);
+  margin-left: calc(-50vw  + 50%);
+  margin-right: -webkit-calc(-50vw  + 50%);
+  margin-right: calc(-50vw  + 50%);
+  max-width: 100vw;
+  width: 100vw;
+}
+
+.ast-no-sidebar .entry-content .alignwide {
+  margin-left: -100px;
+  margin-right: -100px;
+  max-width: unset;
+  width: unset;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body .entry-content .is-type-video.wp-block-embed :before {
+  content: none;
+}
+
+body .entry-content .wp-block-latest-posts {
+  margin-left: 0;
+}
+
+body .entry-content .wp-block-latest-posts li {
+  list-style: none;
+}
+
+.ast-header-break-point .entry-content .alignwide {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.entry-content .blocks-gallery-item img {
+  margin-bottom: auto;
+}
+
 /*----------  Secondary  ----------*/
 .widget-title {
   font-weight: normal;
@@ -4403,8 +4448,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   }
 }
 
-.ast-header-break-point .footer-sml-layout-2 .ast-small-footer-section-2 {
-  margin-top: 1em;
+@media (max-width: 768px) {
+  .ast-header-break-point .footer-sml-layout-2 .ast-small-footer-section-2 {
+    margin-top: 1em;
+  }
 }
 
 @media screen and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) {
@@ -4699,8 +4746,13 @@ input[type="color"]::-webkit-color-swatch {
   word-wrap: break-word;
 }
 
-.entry-content p {
+.entry-content p,
+.entry-content img {
   margin-bottom: 1.6em;
+}
+
+.entry-content iframe {
+  padding-bottom: 1.6em;
 }
 
 .read-more {
