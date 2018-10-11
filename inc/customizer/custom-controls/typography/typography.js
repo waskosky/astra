@@ -43,7 +43,7 @@
 			$('.customize-control-ast-font-family select').selectWoo();
 			// Added select2 for all font variant.
 			$('.customize-control-ast-font-variant select').selectWoo({ tags: true });
-			
+
 			$('.customize-control-ast-font-variant select').on('select2:unselecting', function (e) {
 				var variantSelect = $(this).data( 'customize-setting-link' ),
 				    unselectedValue = e.params.args.data.id || '';
@@ -168,6 +168,14 @@
 				weightMap           = astraTypo;
 
 				var variantArray = variantSavedField.val().split(',');
+
+				// Hide font variant for any ohter fonts then Google
+				var selectedOptionGroup = fontSelect.find('option[value="' + fontSelect.val() + '"]').closest('optgroup').attr('label') || '';
+				if ( 'Google' == selectedOptionGroup ) {
+					variantSelect.parent().removeClass('ast-hide');
+				} else{
+					variantSelect.parent().addClass('ast-hide');
+				}
 
 				var fontValue = AstTypography._cleanGoogleFonts(fontValue);
 				var weightObject = AstTypography._getWeightObject( fontValue );
