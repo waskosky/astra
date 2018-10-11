@@ -495,3 +495,11 @@ html {
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-gallery.is-cropped .blocks-gallery-item img {
   height: 100%;
 }
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-latest-posts {
+  margin-right: 0;
+}
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-latest-posts li {
+  list-style: none;
+}
