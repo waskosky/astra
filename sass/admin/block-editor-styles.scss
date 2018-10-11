@@ -69,12 +69,17 @@ html {
                 &.is-cropped {
                     .blocks-gallery-item {
                         img {
-                    	    height: 100%;
+                            height: 100%;
                         }
                     }
                 }
             }
-
+            .wp-block-latest-posts {
+                margin-left: 0;
+                li {
+                    list-style: none;
+                }
+            }
             h1,
             h2,
             h3,
