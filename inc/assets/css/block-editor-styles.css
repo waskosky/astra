@@ -22,7 +22,7 @@ html {
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor *,
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor *:before,
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor *:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit;
 }
 
@@ -502,4 +502,17 @@ html {
 
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-latest-posts li {
   list-style: none;
+}
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h4,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h5,
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor h6 {
+  font-weight: inherit;
+}
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .mce-widget i {
+  font-style: normal;
 }

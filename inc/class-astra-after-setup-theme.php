@@ -2,15 +2,15 @@
 /**
  * Astra functions and definitions.
  * Text Domain: astra
- * When using a child theme (see http://codex.wordpress.org/Theme_Development
- * and http://codex.wordpress.org/Child_Themes), you can override certain
+ * When using a child theme (see https://codex.wordpress.org/Theme_Development
+ * and https://codex.wordpress.org/Child_Themes), you can override certain
  * functions (those wrapped in a function_exists() call) by defining them first
  * in your child theme's functions.php file. The child theme's functions.php
  * file is included before the parent theme's file, so the child theme
  * functions would be used.
  *
  * For more information on hooks, actions, and filters,
- * see http://codex.wordpress.org/Plugin_API
+ * see https://codex.wordpress.org/Plugin_API
  *
  * Astra is a very powerful theme and virtually anything can be customized
  * via a child theme.
@@ -18,7 +18,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -69,6 +69,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		function setup_theme() {
 
 			do_action( 'astra_class_loaded' );
+
+			global $content_width;
 
 			/**
 			 * Content Width
