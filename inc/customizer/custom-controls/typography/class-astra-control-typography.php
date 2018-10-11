@@ -274,7 +274,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo ' multiple >';
 		$values = explode( ',', $this->value() );
 		foreach ( $values as $key => $value ) {
-			echo '<option value="' . $value . '" selected="selected" >' .  $value  . '</option>';
+			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
 		}
 		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
 		echo '</select>';
