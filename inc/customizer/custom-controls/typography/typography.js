@@ -49,7 +49,7 @@
 				    unselectedValue = e.params.args.data.id || '';
 
 				if ( unselectedValue ) {
-					$(this).find('option[value="' + e.params.args.data.id + '"]').remove();
+					$(this).find('option[value="' + e.params.args.data.id + '"]').removeAttr('selected');
 					if ( null === $(this).val() ) {
 						api( variantSelect ).set( '' );
 					}
