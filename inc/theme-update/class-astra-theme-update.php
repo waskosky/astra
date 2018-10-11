@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -897,7 +897,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_5_2() {
-			$theme_options               = get_option( 'astra-settings', array() );
+			$theme_options = get_option( 'astra-settings', array() );
 			if ( isset( $theme_options['body-font-weight'] ) && is_numeric( $theme_options['body-font-weight'] ) ) {
 				$theme_options['body-font-variant'] = $theme_options['body-font-weight'];
 			}

@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.15
  */
 
@@ -95,7 +95,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra' ),
 					'connect'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
 				),
-
 
 				/**
 				 * Option: Body Text Transform
@@ -204,7 +203,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'   => 'section-body-typo',
 					'priority'  => 35,
 					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
-					'variant'     => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
+					'variant'   => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
 				),
 
 				/**
