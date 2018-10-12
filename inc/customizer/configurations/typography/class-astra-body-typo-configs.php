@@ -60,6 +60,23 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'    => 5,
 					'title'       => __( 'Font Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
+					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
+				),
+				/**
+				 * Option: Font Variant
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[body-font-variant]',
+					'type'              => 'control',
+					'control'           => 'ast-font',
+					'font-type'         => 'ast-font-variant',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
+					'default'           => astra_get_option( 'body-font-variant' ),
+					'ast_inherit'       => __( 'Default', 'astra' ),
+					'section'           => 'section-body-typo',
+					'priority'          => 10,
+					'title'             => __( 'Font Variant', 'astra' ),
+					'variant'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
 				),
 
 				/**
@@ -186,6 +203,24 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'   => 'section-body-typo',
 					'priority'  => 35,
 					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
+					'variant'   => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
+				),
+
+				/**
+				 * Option: Font Variant
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
+					'type'              => 'control',
+					'control'           => 'ast-font',
+					'font-type'         => 'ast-font-variant',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
+					'default'           => astra_get_option( 'headings-font-variant' ),
+					'ast_inherit'       => __( 'Default', 'astra' ),
+					'section'           => 'section-body-typo',
+					'priority'          => 35,
+					'title'             => __( 'Font Variant', 'astra' ),
+					'variant'           => ASTRA_THEME_SETTINGS . '[headings-font-family]',
 				),
 
 				/**

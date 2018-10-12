@@ -34,6 +34,12 @@ body {
 				content: none;
 			}
 		}
+		.wp-block-latest-posts {
+			margin-left: 0;
+			li {
+				list-style: none;
+			}
+		}
 	}
 }
 

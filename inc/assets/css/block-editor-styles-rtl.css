@@ -496,6 +496,14 @@ html {
   height: 100%;
 }
 
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-latest-posts {
+  margin-right: 0;
+}
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .wp-block-latest-posts li {
+  list-style: none;
+}
+
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,
