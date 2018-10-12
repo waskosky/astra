@@ -914,25 +914,14 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	/**
 	 * Function to Add Header Breakpoint Style
 	 *
+	 * @since x.x.x Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
 	function astra_header_breakpoint_style() {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();
-
-		ob_start();
-		?>
-		.main-header-bar-wrap::before {
-			content: '<?php echo esc_html( $header_break_point ); ?>';
-		}
-
-		@media all and ( min-width: <?php echo esc_html( $header_break_point ) + 1; ?>px ) {
-			.main-header-bar-wrap::before {
-				content: '';
-			}
-		}
-		<?php
+		$dynamic_css = '';
 
 		$astra_header_width = astra_get_option( 'header-main-layout-width' );
 
@@ -953,16 +942,13 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			echo astra_parse_css( $genral_global_responsive );
-			echo astra_parse_css( $padding_below_breakpoint, '', $header_break_point );
+			$dynamic_css .= astra_parse_css( $genral_global_responsive );
+			$dynamic_css .= astra_parse_css( $padding_below_breakpoint, '', $header_break_point );
+
+			// trim white space for faster page loading.
+			$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $dynamic_css );
+			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 		}
-
-		$dynamic_css = ob_get_clean();
-
-		// trim white space for faster page loading.
-		$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-
-		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
 }
 
