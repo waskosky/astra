@@ -921,7 +921,7 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();
-		$dynamic_css = '';
+		$dynamic_css        = '';
 
 		$astra_header_width = astra_get_option( 'header-main-layout-width' );
 
