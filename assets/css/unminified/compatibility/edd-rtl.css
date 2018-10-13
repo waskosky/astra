@@ -1,0 +1,91 @@
+/**
+ * edd.scss
+ * Governs the general look and feel of Easy Digital Downloads sections of stores using themes that do not
+ * integrate with Easy Digital Downloads specifically.
+ */
+/**
+ * Astra Theme compatibility with Easy Digital Downloads
+ */
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+.columns-1 .ast-edd-archive-article {
+  width: 100%;
+  margin-left: 0;
+}
+
+.columns-2 .ast-edd-archive-article {
+  width: 48.4%;
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+}
+
+.columns-2 .ast-edd-archive-article:nth-child(2n) {
+  margin-left: 0;
+  clear: left;
+}
+
+.columns-2 .ast-edd-archive-article:nth-child(2n+1) {
+  clear: right;
+}
+
+.columns-3 .ast-edd-archive-article {
+  width: 31.2%;
+  width: -webkit-calc( 33.33% - 14px);
+  width: calc( 33.33% - 14px);
+}
+
+.columns-3 .ast-edd-archive-article:nth-child(3n) {
+  margin-left: 0;
+  clear: left;
+}
+
+.columns-3 .ast-edd-archive-article:nth-child(3n+1) {
+  clear: right;
+}
+
+.columns-4 .ast-edd-archive-article {
+  width: 22.5%;
+  width: -webkit-calc( 25% - 15px);
+  width: calc( 25% - 15px);
+}
+
+.columns-4 .ast-edd-archive-article:nth-child(4n) {
+  margin-left: 0;
+  clear: left;
+}
+
+.columns-4 .ast-edd-archive-article:nth-child(4n+1) {
+  clear: right;
+}
+
+.columns-5 .ast-edd-archive-article {
+  width: 17.5%;
+  width: -webkit-calc( 20% - 16px);
+  width: calc( 20% - 16px);
+}
+
+.columns-5 .ast-edd-archive-article:nth-child(5n) {
+  margin-left: 0;
+  clear: left;
+}
+
+.columns-5 .ast-edd-archive-article:nth-child(5n+1) {
+  clear: right;
+}
+
+.columns-6 .ast-edd-archive-article {
+  width: 14%;
+  width: -webkit-calc( 16.66% - 16.66px);
+  width: calc( 16.66% - 16.66px);
+}
+
+.columns-6 .ast-edd-archive-article:nth-child(6n) {
+  margin-left: 0;
+  clear: left;
+}
+
+.columns-6 .ast-edd-archive-article:nth-child(6n+1) {
+  clear: right;
+}
