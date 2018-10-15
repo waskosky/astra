@@ -4120,6 +4120,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
+.ast-no-sidebar.ast-separate-container .entry-content {
+  /* Alignment while using the column block */
+}
+
 .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
   margin-left: -6.67em;
   margin-right: -6.67em;
@@ -4150,6 +4154,13 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .ast-no-sidebar.ast-separate-container .entry-content .alignwide {
   margin-left: -20px;
   margin-right: -20px;
+}
+
+.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignfull,
+.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignwide {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 html {
