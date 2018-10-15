@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			if ( false === get_option( 'astra-theme-old-setup' ) ) {
-				set_transient( 'astra-theme-first-rating', true, 5 );
+				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
 				update_option( 'astra-theme-old-setup', true );
 			} elseif ( false === get_transient( 'astra-theme-first-rating' ) ) {
 				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
@@ -155,8 +155,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'id'                  => 'astra-theme-rating',
 						'type'                => '',
 						/* translators: %1$s logo link, %2$s product rating link, %3$s dismissable notice transient time. */
-						'message'             => sprintf( __( '<div class="notice-image"><img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> <div class="notice-content"> <div class="notice-heading">Hello! Seems like you have used Astra theme to build this website — Thanks a ton!</div>Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.<br /><div class="astra-review-notice-container"><a href="%2$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">Ok, you deserve it</a><span class="dashicons dashicons-calendar"></span><a href="#" data-repeat-notice-after="%3$s" class="astra-notice-close astra-review-notice">Nope, maybe later</a><span class="dashicons dashicons-smiley"></span><a href="#" class="astra-notice-close astra-review-notice">I already did</a></div></div>', 'astra' ), $image_path, 'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post', 5 ),
-						'repeat-notice-after' => 5,
+						'message'             => sprintf( __( '<div class="notice-image"><img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> <div class="notice-content"> <div class="notice-heading">Hello! Seems like you have used Astra theme to build this website — Thanks a ton!</div>Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.<br /><div class="astra-review-notice-container"><a href="%2$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">Ok, you deserve it</a><span class="dashicons dashicons-calendar"></span><a href="#" data-repeat-notice-after="%3$s" class="astra-notice-close astra-review-notice">Nope, maybe later</a><span class="dashicons dashicons-smiley"></span><a href="#" class="astra-notice-close astra-review-notice">I already did</a></div></div>', 'astra' ), $image_path, 'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post', MONTH_IN_SECONDS ),
+						'repeat-notice-after' => MONTH_IN_SECONDS,
 						'priority' => '',
 						'display-with-other-notices' => false,
 					)
