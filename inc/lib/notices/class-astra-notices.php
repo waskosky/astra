@@ -99,7 +99,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public static function add_notice( $args = array() ) {
 			if ( is_array( $args ) ) {
-				self::$notices[$args['priority']] = $args;
+				if( isset( $args['priority'] ) && '' !== $args['priority'] ) {
+					self::$notices[$args['priority']] = $args;
+				} else {
+					$args['priority'] = 10;
+					self::$notices[$args['priority']] = $args;
+				}
 			}
 		}
 
@@ -139,6 +144,18 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
+		 * Rating priority sort
+		 *
+		 * @since 1.5.2
+		 * @param array $array1 array one.
+		 * @param array $array2 array two.
+		 * @return array
+		 */
+		function bsf_rating_priority_sort($array1, $array2) {
+			return strnatcmp($array1['priority'], $array2['priority']);
+		}
+
+		/**
 		 * Notice Types
 		 *
 		 * @since 1.4.0
@@ -154,16 +171,11 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'repeat-notice-after' => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
 				'class'               => '',      // Optional, Additional notice wrapper class.
 				'priority'				=> 10,
-				'display-with-other-notices' => false,
+				'display-with-other-notices' => true,
 			);
 
-		  function bsf_rating_priority_sort($array1, $array2)
-		  {
-		    return strnatcmp($array1['priority'], $array2['priority']);
-		  }
-
 		  // sort the array with priority
-		  usort(self::$notices, 'bsf_rating_priority_sort');
+		  usort(self::$notices, array( $this, 'bsf_rating_priority_sort') );
 
 			$flag = false;
 			foreach ( self::$notices as $key => $notice ) {
