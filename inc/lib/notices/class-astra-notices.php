@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public static function add_notice( $args = array() ) {
 			if ( is_array( $args ) ) {
-				self::$notices[] = $args;
+				self::$notices[$args['priority']] = $args;
 			}
 		}
 
@@ -153,10 +153,23 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'show_if'             => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
 				'repeat-notice-after' => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
 				'class'               => '',      // Optional, Additional notice wrapper class.
+				'priority'				=> 10,
+				'display-with-other-notices' => false,
 			);
 
-			foreach ( self::$notices as $key => $notice ) {
+		  function bsf_rating_priority_sort($array1, $array2)
+		  {
+		    return strnatcmp($array1['priority'], $array2['priority']);
+		  }
 
+		  // sort the array with priority
+		  usort(self::$notices, 'bsf_rating_priority_sort');
+
+			$flag = false;
+			foreach ( self::$notices as $key => $notice ) {
+				if( true == $flag && false == $notice['display-with-other-notices'] ) {
+					return;
+				}
 				$notice = wp_parse_args( $notice, $defaults );
 
 				$notice['id'] = self::get_notice_id( $notice, $key );
@@ -167,6 +180,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				if ( isset( $notice['show_if'] ) && true === $notice['show_if'] ) {
 					if ( self::is_expired( $notice ) ) {
 						self::markup( $notice );
+						$flag = true;
 					}
 				} else {
 
