@@ -28,7 +28,17 @@
 			}
 		}
 
+		/* Alignment while using the column block */
+		.wp-block-column {
+			.alignfull,
+			.alignwide {
+				margin-left: auto;
+				margin-right: auto;
+				width: 100%;
+			}
+		}
 	}
+	/* Boxed & Content Boxed container alignment support */
 	&.ast-separate-container{
 		.entry-content {
 			.alignfull{
