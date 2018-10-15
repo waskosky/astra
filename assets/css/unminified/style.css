@@ -4105,6 +4105,38 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-right: auto;
 }
 
+.ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+  margin-left: -6.67em;
+  margin-right: -6.67em;
+  width: auto;
+}
+
+@media (max-width: 1200px) {
+  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+    margin-left: -2.4em;
+    margin-right: -2.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+    margin-left: -2.14em;
+    margin-right: -2.14em;
+  }
+}
+
+@media (max-width: 544px) {
+  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+}
+
+.ast-no-sidebar.ast-separate-container .entry-content .alignwide {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
 html {
   overflow-x: hidden;
 }

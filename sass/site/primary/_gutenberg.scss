@@ -29,6 +29,31 @@
 		}
 
 	}
+	&.ast-separate-container{
+		.entry-content {
+			.alignfull{
+				margin-left: - 6.67em;
+				margin-right: - 6.67em;
+				width: auto;
+				@media (max-width: $mx-col-xl) {
+					margin-left: - 2.4em;
+					margin-right: - 2.4em;
+				}
+				@media (max-width: $mx-col-md) {
+					margin-left: - 2.14em;
+					margin-right: - 2.14em;
+				}
+				@media (max-width: $mx-col-sm) {				
+					margin-left: - 1em;
+					margin-right: - 1em;
+				}
+			}
+			.alignwide {
+				margin-left: -20px;
+				margin-right: -20px;
+			}
+		}
+	}
 }
 
 // Fullwidth image overflows out of container and adds a scrollbar in windows due to difference in calculation of `vh`.
