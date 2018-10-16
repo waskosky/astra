@@ -99,11 +99,11 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public static function add_notice( $args = array() ) {
 			if ( is_array( $args ) ) {
-				if( isset( $args['priority'] ) && '' !== $args['priority'] ) {
-					self::$notices[$args['priority']] = $args;
+				if ( isset( $args['priority'] ) && '' !== $args['priority'] ) {
+					self::$notices[ $args['priority'] ] = $args;
 				} else {
-					$args['priority'] = 10;
-					self::$notices[$args['priority']] = $args;
+					$args['priority']                   = 10;
+					self::$notices[ $args['priority'] ] = $args;
 				}
 			}
 		}
@@ -151,8 +151,8 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @param array $array2 array two.
 		 * @return array
 		 */
-		function bsf_rating_priority_sort($array1, $array2) {
-			return strnatcmp($array1['priority'], $array2['priority']);
+		function bsf_rating_priority_sort( $array1, $array2 ) {
+			return strnatcmp( $array1['priority'], $array2['priority'] );
 		}
 
 		/**
@@ -164,22 +164,22 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		function show_notices() {
 
 			$defaults = array(
-				'id'                  => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
-				'type'                => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
-				'message'             => '',      // Optional, Message.
-				'show_if'             => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
-				'repeat-notice-after' => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
-				'class'               => '',      // Optional, Additional notice wrapper class.
-				'priority'				=> 10,
+				'id'                         => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
+				'type'                       => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
+				'message'                    => '',      // Optional, Message.
+				'show_if'                    => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
+				'repeat-notice-after'        => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
+				'class'                      => '',      // Optional, Additional notice wrapper class.
+				'priority'                   => 10,
 				'display-with-other-notices' => true,
 			);
 
-		  // sort the array with priority
-		  usort(self::$notices, array( $this, 'bsf_rating_priority_sort') );
+			// sort the array with priority
+			usort( self::$notices, array( $this, 'bsf_rating_priority_sort' ) );
 
 			$flag = false;
 			foreach ( self::$notices as $key => $notice ) {
-				if( true == $flag && false == $notice['display-with-other-notices'] ) {
+				if ( true == $flag && false == $notice['display-with-other-notices'] ) {
 					return;
 				}
 				$notice = wp_parse_args( $notice, $defaults );
