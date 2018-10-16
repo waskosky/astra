@@ -4068,6 +4068,14 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 /* .alignwide & .alignfull CSS compatibility */
+.ast-no-sidebar {
+  /* Boxed & Content Boxed container alignment support */
+}
+
+.ast-no-sidebar .entry-content {
+  /* Alignment while using the column block */
+}
+
 .ast-no-sidebar .entry-content .alignfull {
   margin-right: -webkit-calc(-50vw  + 50%);
   margin-right: calc(-50vw  + 50%);
@@ -4077,11 +4085,75 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100vw;
 }
 
+.ast-no-sidebar .entry-content .alignfull .alignfull,
+.ast-no-sidebar .entry-content .alignfull .alignwide {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .ast-no-sidebar .entry-content .alignwide {
   margin-right: -100px;
   margin-left: -100px;
   max-width: unset;
   width: unset;
+}
+
+.ast-no-sidebar .entry-content .alignwide .alignfull,
+.ast-no-sidebar .entry-content .alignwide .alignwide {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ast-no-sidebar .entry-content .wp-block-column .alignfull,
+.ast-no-sidebar .entry-content .wp-block-column .alignwide {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.ast-no-sidebar.ast-separate-container .entry-content {
+  /* Alignment while using the column block */
+}
+
+.ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+  margin-right: -6.67em;
+  margin-left: -6.67em;
+  width: auto;
+}
+
+@media (max-width: 1200px) {
+  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+    margin-right: -2.4em;
+    margin-left: -2.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+    margin-right: -2.14em;
+    margin-left: -2.14em;
+  }
+}
+
+@media (max-width: 544px) {
+  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
+    margin-right: -1em;
+    margin-left: -1em;
+  }
+}
+
+.ast-no-sidebar.ast-separate-container .entry-content .alignwide {
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignfull,
+.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignwide {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
 }
 
 html {
