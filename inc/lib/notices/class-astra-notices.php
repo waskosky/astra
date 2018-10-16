@@ -167,14 +167,13 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
 			);
 
+			// Count for the notices that are rendered.
+			$notices_displayed = 0;
+
 			// sort the array with priority.
 			usort( self::$notices, array( $this, 'sort_notices' ) );
 
 			foreach ( self::$notices as $key => $notice ) {
-
-				if ( 0 !== $key && false == $notice['display-with-other-notices'] ) {
-					return;
-				}
 
 				$notice = wp_parse_args( $notice, $defaults );
 
@@ -185,7 +184,14 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				// Notices visible after transient expire.
 				if ( isset( $notice['show_if'] ) && true === $notice['show_if'] ) {
 					if ( self::is_expired( $notice ) ) {
+
+						// don't display the notice if it is not supposed to be displayed with other notices.
+						if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
+							return;
+						}
+
 						self::markup( $notice );
+						$notices_displayed++;
 					}
 				} else {
 					// No transient notices.
