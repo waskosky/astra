@@ -98,9 +98,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		public static function add_notice( $args = array() ) {
-			if ( is_array( $args ) ) {
-				self::$notices[] = $args;
-			}
+			self::$notices[] = $args;
 		}
 
 		/**
@@ -139,6 +137,18 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
+		 * Rating priority sort
+		 *
+		 * @since 1.5.2
+		 * @param array $array1 array one.
+		 * @param array $array2 array two.
+		 * @return array
+		 */
+		function sort_notices( $array1, $array2 ) {
+			return strnatcmp( $array1['priority'], $array2['priority'] );
+		}
+
+		/**
 		 * Notice Types
 		 *
 		 * @since 1.4.0
@@ -147,13 +157,21 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		function show_notices() {
 
 			$defaults = array(
-				'id'                  => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
-				'type'                => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
-				'message'             => '',      // Optional, Message.
-				'show_if'             => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
-				'repeat-notice-after' => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
-				'class'               => '',      // Optional, Additional notice wrapper class.
+				'id'                         => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
+				'type'                       => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
+				'message'                    => '',      // Optional, Message.
+				'show_if'                    => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
+				'repeat-notice-after'        => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
+				'class'                      => '',      // Optional, Additional notice wrapper class.
+				'priority'                   => 10,      // Priority of the notice.
+				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
 			);
+
+			// Count for the notices that are rendered.
+			$notices_displayed = 0;
+
+			// sort the array with priority.
+			usort( self::$notices, array( $this, 'sort_notices' ) );
 
 			foreach ( self::$notices as $key => $notice ) {
 
@@ -166,10 +184,16 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				// Notices visible after transient expire.
 				if ( isset( $notice['show_if'] ) && true === $notice['show_if'] ) {
 					if ( self::is_expired( $notice ) ) {
+
+						// don't display the notice if it is not supposed to be displayed with other notices.
+						if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
+							return;
+						}
+
 						self::markup( $notice );
+						$notices_displayed++;
 					}
 				} else {
-
 					// No transient notices.
 					self::markup( $notice );
 				}
