@@ -170,17 +170,19 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'show_if'                    => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
 				'repeat-notice-after'        => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
 				'class'                      => '',      // Optional, Additional notice wrapper class.
-				'priority'                   => 10,
-				'display-with-other-notices' => true,
+				'priority'                   => 20, 	 // Priority of the notice.
+				'display-with-other-notices' => true,	 // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
 			);
 
 			// sort the array with priority
 			usort( self::$notices, array( $this, 'sort_notices' ) );
-
+			
 			foreach ( self::$notices as $key => $notice ) {
-				if ( false == $notice['display-with-other-notices'] ) {
+				
+				if ( $key !== 0 && false == $notice['display-with-other-notices'] ) {
 					return;
 				}
+
 				$notice = wp_parse_args( $notice, $defaults );
 
 				$notice['id'] = self::get_notice_id( $notice, $key );
