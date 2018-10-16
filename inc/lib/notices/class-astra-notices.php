@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @param array $array2 array two.
 		 * @return array
 		 */
-		function bsf_rating_priority_sort( $array1, $array2 ) {
+		function sort_notices( $array1, $array2 ) {
 			return strnatcmp( $array1['priority'], $array2['priority'] );
 		}
 
@@ -175,11 +175,10 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			);
 
 			// sort the array with priority
-			usort( self::$notices, array( $this, 'bsf_rating_priority_sort' ) );
+			usort( self::$notices, array( $this, 'sort_notices' ) );
 
-			$flag = false;
 			foreach ( self::$notices as $key => $notice ) {
-				if ( true == $flag && false == $notice['display-with-other-notices'] ) {
+				if ( false == $notice['display-with-other-notices'] ) {
 					return;
 				}
 				$notice = wp_parse_args( $notice, $defaults );
@@ -192,7 +191,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				if ( isset( $notice['show_if'] ) && true === $notice['show_if'] ) {
 					if ( self::is_expired( $notice ) ) {
 						self::markup( $notice );
-						$flag = true;
 					}
 				} else {
 
