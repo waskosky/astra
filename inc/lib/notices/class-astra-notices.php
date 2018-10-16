@@ -98,14 +98,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		public static function add_notice( $args = array() ) {
-
-			if ( is_array( $args ) ) {
-				if ( isset( $args['priority'] ) && '' !== $args['priority'] ) {
-					self::$notices[] = $args;
-				} else {
-					self::$notices[] = $args;
-				}
-			}
+			self::$notices[] = $args;
 		}
 
 		/**
