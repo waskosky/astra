@@ -205,7 +205,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
 					'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-writing-flow' => array(
-						'max-width'        => 'calc( 980px - 40px )',
+						'max-width'        => 'calc( '. astra_get_css_value( $site_content_width, 'px' ) .' - 40px )',
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
 						'overflow'         => 'hidden',
