@@ -99,7 +99,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input' => array(
 					'font-family' => ( 'inherit' === $headings_font_family ) ? astra_get_font_family( $body_font_family ) : astra_get_font_family( $headings_font_family ),
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
+					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 				),
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block, .gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h4,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h5,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h6' => array(
 					'color' => esc_attr( $text_color ),
