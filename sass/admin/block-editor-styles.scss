@@ -32,7 +32,7 @@ html {
             }
 
             .editor-post-title__block {
-                textarea {
+                .editor-post-title__input {
                     font-size: 30px;
                     font-size: 2rem;
                     font-family: $font-family;
@@ -91,6 +91,14 @@ html {
 
             .mce-widget i {
                 font-style: normal;
+            }
+            .editor-block-list__block{
+                blockquote{
+                    p{
+                        font-size: 1.1rem;
+                        line-height: $line-height;
+                    }
+                }
             }
         }
     }
