@@ -125,10 +125,9 @@ if ( ! function_exists( 'astar' ) ) :
 	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
 	 * @see astra_get_prop()
 	 *
-	 * @return void
+	 * @return null|string|mixed The value
 	 */
 	function astar( $array, $prop, $default = null ) {
-		// _deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_prop()' );
 		return astra_get_prop( $array, $prop, $default );
 	}
 
