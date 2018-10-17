@@ -42,12 +42,12 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) :
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @see astra_get_secondary_class()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function get_astra_secondary_class( $class = '' ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_secondary_class()' );
 
-		astra_get_secondary_class( $class );
+		return astra_get_secondary_class( $class );
 	}
 
 endif;
@@ -62,12 +62,12 @@ if ( ! function_exists( 'deprecated_astra_color_palette' ) ) :
 	 * @param array $color_palette  customizer color palettes.
 	 * @see astra_deprecated_color_palette()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function deprecated_astra_color_palette( $color_palette ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_color_palette()' );
 
-		astra_deprecated_color_palette( $color_palette );
+		return astra_deprecated_color_palette( $color_palette );
 	}
 
 endif;
@@ -82,12 +82,12 @@ if ( ! function_exists( 'deprecated_astra_sigle_post_navigation_enabled' ) ) :
 	 * @param boolean $post_nav true | false.
 	 * @see astra_deprecated_sigle_post_navigation_enabled()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_sigle_post_navigation_enabled()' );
 
-		astra_deprecated_sigle_post_navigation_enabled( $post_nav );
+		return astra_deprecated_sigle_post_navigation_enabled( $post_nav );
 	}
 
 endif;
@@ -103,12 +103,12 @@ if ( ! function_exists( 'deprecated_astra_primary_header_main_rt_section' ) ) :
 	 * @param string $header Header section type.
 	 * @see astra_deprecated_primary_header_main_rt_section()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_primary_header_main_rt_section()' );
 
-		astra_deprecated_primary_header_main_rt_section( $elements, $header );
+		return astra_deprecated_primary_header_main_rt_section( $elements, $header );
 	}
 
 endif;
@@ -125,12 +125,10 @@ if ( ! function_exists( 'astar' ) ) :
 	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
 	 * @see astra_get_prop()
 	 *
-	 * @return void
+	 * @return null|string|mixed The value
 	 */
 	function astar( $array, $prop, $default = null ) {
-		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_prop()' );
-
-		astra_get_prop( $array, $prop, $default = null );
+		return astra_get_prop( $array, $prop, $default );
 	}
 
 endif;
