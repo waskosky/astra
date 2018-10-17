@@ -4,6 +4,7 @@ v1.5.2
 - New: LifterLMS - Add icons for new Membership and My Grades tabs in the student dashboard. (credits @actual-saurabh)
 - Improvement: Add new filter `astra_post_meta_separator` for changing the separator style in post meta.
 - Fix: Logo not perfectly center aligned in mobile layout in case of stack layout.
+- Fix: Mobile menu toggle being displayed in IE devices on random intervals.
 - Fix: Minification plugins such as WP-Rocket, W3 Total Cache etc causing the mobile menu button to be hidden on small devices.
 
 v1.5.1
