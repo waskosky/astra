@@ -459,7 +459,7 @@ html {
   font-size: 1rem;
 }
 
-.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea {
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input {
   font-size: 30px;
   font-size: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
@@ -515,4 +515,9 @@ html {
 
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor .mce-widget i {
   font-style: normal;
+}
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block blockquote p {
+  font-size: 1.1rem;
+  line-height: 1.8571428571;
 }
