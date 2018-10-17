@@ -30,7 +30,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Used to connect variant controls to each other.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.2
 	 * @var bool $variant
 	 */
 	public $variant = false;
@@ -259,7 +259,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Renders a font variant control.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.2
 	 * @param  string $default Inherit/Default.
 	 * @access protected
 	 * @return void

@@ -823,6 +823,25 @@
         }
     },
     {
+        "Bai Jamjuree": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Baloo": {
             "variants": [
                 "regular"
@@ -1578,6 +1597,23 @@
         }
     },
     {
+        "Chakra Petch": {
+            "variants": [
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Changa": {
             "variants": [
                 "200",
@@ -1606,6 +1642,15 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Charmonman": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -2619,6 +2664,25 @@
                 "700italic"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Fahkwang": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -3925,6 +3989,29 @@
         }
     },
     {
+        "K2D": {
+            "variants": [
+                "100",
+                "100italic",
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "800",
+                "800italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Kadwa": {
             "variants": [
                 "regular",
@@ -4131,6 +4218,44 @@
         }
     },
     {
+        "KoHo": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Kodchasan": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Kosugi": {
             "variants": [
                 "regular"
@@ -4192,6 +4317,25 @@
         "Krona One": {
             "variants": [
                 "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Krub": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
             ],
             "category": "sans-serif"
         }
@@ -4675,6 +4819,25 @@
                 "regular"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Mali": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -5462,6 +5625,25 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Niramit": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -7738,6 +7920,15 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Srisakdi": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "display"
         }
     },
     {
