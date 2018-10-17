@@ -29,12 +29,6 @@
     .nav-fallback-text {
         float: right;
     }
-    &::before {
-        position: absolute;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-    }
 }
 
 .main-header-bar {

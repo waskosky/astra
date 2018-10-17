@@ -7,7 +7,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -49,7 +49,7 @@ if ( ! function_exists( 'astra_schema_body' ) ) :
 		$result = apply_filters( 'astra_schema_body_itemtype', $itemtype );
 
 		// Return our HTML.
-		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_html( $result ) . "' itemscope='itemscope'" );
+		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" );
 	}
 endif;
 
@@ -471,7 +471,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 				'astra_theme_author',
 				array(
 					'theme_name'       => __( 'Astra', 'astra' ),
-					'theme_author_url' => 'http://wpastra.com/',
+					'theme_author_url' => 'https://wpastra.com/',
 				)
 			);
 
@@ -663,7 +663,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			// Menu Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
 			if ( ! empty( $menu_animation ) ) {
-				$submenu_class .= ' astra-menu-animation-' . esc_html( $menu_animation ) . ' ';
+				$submenu_class .= ' astra-menu-animation-' . esc_attr( $menu_animation ) . ' ';
 			}
 
 			/**
@@ -914,25 +914,14 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	/**
 	 * Function to Add Header Breakpoint Style
 	 *
+	 * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
 	function astra_header_breakpoint_style() {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();
-
-		ob_start();
-		?>
-		.main-header-bar-wrap::before {
-			content: '<?php echo esc_html( $header_break_point ); ?>';
-		}
-
-		@media all and ( min-width: <?php echo esc_html( $header_break_point ) + 1; ?>px ) {
-			.main-header-bar-wrap::before {
-				content: '';
-			}
-		}
-		<?php
+		$dynamic_css        = '';
 
 		$astra_header_width = astra_get_option( 'header-main-layout-width' );
 
@@ -953,16 +942,13 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			echo astra_parse_css( $genral_global_responsive );
-			echo astra_parse_css( $padding_below_breakpoint, '', $header_break_point );
+			$dynamic_css .= astra_parse_css( $genral_global_responsive );
+			$dynamic_css .= astra_parse_css( $padding_below_breakpoint, '', $header_break_point );
+
+			// trim white space for faster page loading.
+			$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $dynamic_css );
+			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 		}
-
-		$dynamic_css = ob_get_clean();
-
-		// trim white space for faster page loading.
-		$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-
-		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
 }
 
@@ -1561,7 +1547,7 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'astar' ) ) :
+if ( ! function_exists( 'astra_get_prop' ) ) :
 
 	/**
 	 * Get a specific property of an array without needing to check if that property exists.
@@ -1579,7 +1565,7 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * @return null|string|mixed The value
 	 */
-	function astar( $array, $prop, $default = null ) {
+	function astra_get_prop( $array, $prop, $default = null ) {
 
 		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
 			return $default;

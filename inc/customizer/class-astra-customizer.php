@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		private function register_panel( $config, $wp_customize ) {
-			$wp_customize->add_panel( new Astra_WP_Customize_Panel( $wp_customize, astar( $config, 'name' ), $config ) );
+			$wp_customize->add_panel( new Astra_WP_Customize_Panel( $wp_customize, astra_get_prop( $config, 'name' ), $config ) );
 		}
 
 		/**
@@ -190,9 +190,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private function register_section( $config, $wp_customize ) {
 
-			$callback = astar( $config, 'section_callback', 'Astra_WP_Customize_Section' );
+			$callback = astra_get_prop( $config, 'section_callback', 'Astra_WP_Customize_Section' );
 
-			$wp_customize->add_section( new $callback( $wp_customize, astar( $config, 'name' ), $config ) );
+			$wp_customize->add_section( new $callback( $wp_customize, astra_get_prop( $config, 'name' ), $config ) );
 		}
 
 		/**
@@ -206,49 +206,49 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private function register_setting_control( $config, $wp_customize ) {
 
 			$wp_customize->add_setting(
-				astar( $config, 'name' ),
+				astra_get_prop( $config, 'name' ),
 				array(
-					'default'           => astar( $config, 'default' ),
-					'type'              => astar( $config, 'datastore_type' ),
-					'transport'         => astar( $config, 'transport', 'refresh' ),
-					'sanitize_callback' => astar( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astar( $config, 'control' ) ) ),
+					'default'           => astra_get_prop( $config, 'default' ),
+					'type'              => astra_get_prop( $config, 'datastore_type' ),
+					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
+					'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
 				)
 			);
 
-			$instance = Astra_Customizer_Control_Base::get_control_instance( astar( $config, 'control' ) );
+			$instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
 
-			$config['label'] = astar( $config, 'title' );
-			$config['type']  = astar( $config, 'control' );
+			$config['label'] = astra_get_prop( $config, 'title' );
+			$config['type']  = astra_get_prop( $config, 'control' );
 
 			// For ast-font control font-weight and font-family is passed as param `font-type` which needs to be converted to `type`.
-			if ( false !== astar( $config, 'font-type', false ) ) {
-				$config['type'] = astar( $config, 'font-type', false );
+			if ( false !== astra_get_prop( $config, 'font-type', false ) ) {
+				$config['type'] = astra_get_prop( $config, 'font-type', false );
 			}
 
 			if ( false !== $instance ) {
 				$wp_customize->add_control(
-					new $instance( $wp_customize, astar( $config, 'name' ), $config )
+					new $instance( $wp_customize, astra_get_prop( $config, 'name' ), $config )
 				);
 			} else {
-				$wp_customize->add_control( astar( $config, 'name' ), $config );
+				$wp_customize->add_control( astra_get_prop( $config, 'name' ), $config );
 			}
 
-			if ( astar( $config, 'partial', false ) ) {
+			if ( astra_get_prop( $config, 'partial', false ) ) {
 
 				if ( isset( $wp_customize->selective_refresh ) ) {
 					$wp_customize->selective_refresh->add_partial(
-						astar( $config, 'name' ),
+						astra_get_prop( $config, 'name' ),
 						array(
-							'selector'            => astar( $config['partial'], 'selector' ),
-							'container_inclusive' => astar( $config['partial'], 'container_inclusive' ),
-							'render_callback'     => astar( $config['partial'], 'render_callback' ),
+							'selector'            => astra_get_prop( $config['partial'], 'selector' ),
+							'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
+							'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
 						)
 					);
 				}
 			}
 
-			if ( false !== astar( $config, 'required', false ) ) {
-				$this->update_dependency_arr( astar( $config, 'name' ), astar( $config, 'required' ) );
+			if ( false !== astra_get_prop( $config, 'required', false ) ) {
+				$this->update_dependency_arr( astra_get_prop( $config, 'name' ), astra_get_prop( $config, 'required' ) );
 			}
 
 		}
@@ -559,7 +559,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
-			wp_enqueue_script( 'customizer-dependency', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'astra-customizer-controls-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'astra-customizer-dependency', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'astra-customizer-controls-js' ), ASTRA_THEME_VERSION, true );
 
 			// Customizer Controls.
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
@@ -623,7 +623,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_register_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
 
 			$localize_array = array(
 				'headerBreakpoint'            => astra_header_break_point(),
@@ -631,7 +631,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
-			wp_enqueue_script( 'astra-customizer-preview-js' );
 		}
 
 		/**

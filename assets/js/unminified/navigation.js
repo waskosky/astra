@@ -7,9 +7,6 @@
  * @package Astra
  */
 
-var isIE = false;
-var isEdge = false;
-
 /**
  * Get all of an element's parent elements up the DOM tree
  *
@@ -68,6 +65,20 @@ var toggleClass = function ( el, className ) {
 	}
 };
 
+// CustomEvent() constructor functionality in Internet Explorer 9 and higher.
+(function () {
+
+	if (typeof window.CustomEvent === "function") return false;
+	function CustomEvent(event, params) {
+		params = params || { bubbles: false, cancelable: false, detail: undefined };
+		var evt = document.createEvent('CustomEvent');
+		evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+		return evt;
+	}
+	CustomEvent.prototype = window.Event.prototype;
+	window.CustomEvent = CustomEvent;
+})();
+
 /**
  * Trigget custom JS Event.
  * 
@@ -101,21 +112,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			for ( var i = 0; i < headerWrap.length; i++ ) {
 
 				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
-
-					var header_content_bp = window.getComputedStyle( headerWrap[i], '::before' ).getPropertyValue('content');
-
-					// Edge/Explorer header break point.
-					if( isEdge || isIE || header_content_bp === 'normal' ) {
-						if( window.innerWidth <= break_point ) {
-							header_content_bp = break_point;
-						}
-					}
-
-					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
-					header_content_bp = parseInt( header_content_bp );
-
-					// `ast-header-break-point` class will use for Responsive Style of Header.
-					if ( header_content_bp != break_point ) {
+					if ( window.innerWidth > break_point ) {
 						//remove menu toggled class.
 						if ( null != menu_toggle_all[i] ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );

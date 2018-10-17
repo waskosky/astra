@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -46,6 +46,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
+			add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_assets' ) );
 
 		}
 
@@ -77,16 +78,20 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function add_fonts() {
 
-			$font_family = astra_get_option( 'body-font-family' );
-			$font_weight = astra_get_option( 'body-font-weight' );
+			$font_family  = astra_get_option( 'body-font-family' );
+			$font_weight  = astra_get_option( 'body-font-weight' );
+			$font_variant = astra_get_option( 'body-font-variant' );
 
 			Astra_Fonts::add_font( $font_family, $font_weight );
+			Astra_Fonts::add_font( $font_family, $font_variant );
 
 			// Render headings font.
-			$font_family = astra_get_option( 'headings-font-family' );
-			$font_weight = astra_get_option( 'headings-font-weight' );
+			$heading_font_family  = astra_get_option( 'headings-font-family' );
+			$heading_font_weight  = astra_get_option( 'headings-font-weight' );
+			$heading_font_variant = astra_get_option( 'headings-font-variant' );
 
-			Astra_Fonts::add_font( $font_family, $font_weight );
+			Astra_Fonts::add_font( $heading_font_family, $heading_font_weight );
+			Astra_Fonts::add_font( $heading_font_family, $heading_font_variant );
 		}
 
 		/**
@@ -153,16 +158,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
-			wp_script_add_data(
-				'astra-theme-js',
-				'data',
-				astra_get_script_polyfill(
-					array(
-						'typeof window.CustomEvent === "function"' => 'astra-customevent',
-					)
-				)
-			);
-
 			// Fonts - Render Fonts.
 			Astra_Fonts::render_fonts();
 
@@ -209,6 +204,30 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			return $css;
+		}
+
+		/**
+		 * Enqueue Gutenberg assets.
+		 *
+		 * @since 1.5.2
+		 *
+		 * @return void
+		 */
+		public function gutenberg_assets() {
+			/* Directory and Extension */
+			$rtl = '';
+			if ( is_rtl() ) {
+				$rtl = '-rtl';
+			}
+
+			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
+
+			wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
+
+			// Render fonts in Gutenberg layout.
+			Astra_Fonts::render_fonts();
+
+			wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
 		}
 
 	}

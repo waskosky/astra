@@ -5,7 +5,7 @@
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -484,6 +484,20 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 			} else {
 				return 'normal';
 			}
+		}
+
+		/**
+		 * Sanitize Font variant
+		 *
+		 * @param  mixed $input setting input.
+		 * @return mixed        setting input value.
+		 */
+		static public function sanitize_font_variant( $input ) {
+
+			if ( is_array( $input ) ) {
+				$input = implode( ',', $input );
+			}
+			return sanitize_text_field( $input );
 		}
 
 		/**
