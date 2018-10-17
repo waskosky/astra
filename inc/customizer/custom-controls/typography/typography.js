@@ -125,7 +125,7 @@
 		 *
 		 * This function gets the font weights values respective to the selected fonts family{Font Name}.
 		 *
-		 * @since  x.x.x
+		 * @since  1.5.2
 		 * @param  {String} fontValue Name of the font.
 		 * 
 		 * @return {String}  Available font weights for the selected fonts.
@@ -206,7 +206,7 @@
 		 * Sets the options for a font variant control when a
 		 * font family control changes.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.2
 		 * @access private
 		 * @method _setFontVarianttOptions
 		 * @param {Boolean} init Whether or not we're initializing this font variant control.
