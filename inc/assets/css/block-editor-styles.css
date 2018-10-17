@@ -521,3 +521,13 @@ html {
   font-size: 1.1rem;
   line-height: 1.8571428571;
 }
+
+.editor-writing-flow {
+  max-width: 980px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.gutenberg__editor {
+  background-color: #f5f5f5;
+}

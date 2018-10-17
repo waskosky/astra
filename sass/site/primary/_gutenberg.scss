@@ -37,6 +37,14 @@
 				width: 100%;
 			}
 		}
+
+		.has-2-columns .wp-block-column:first-child {
+			padding-right: 10px;
+		}
+
+		.has-2-columns .wp-block-column:last-child {
+			padding-left: 10px;
+		}
 	}
 	/* Boxed & Content Boxed container alignment support */
 	&.ast-separate-container{
