@@ -516,3 +516,8 @@ html {
 .gutenberg-editor-page #wpwrap .edit-post-visual-editor .mce-widget i {
   font-style: normal;
 }
+
+.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block blockquote p {
+  font-size: 1.1rem;
+  line-height: 1.8571428571;
+}

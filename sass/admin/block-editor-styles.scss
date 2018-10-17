@@ -92,6 +92,14 @@ html {
             .mce-widget i {
                 font-style: normal;
             }
+            .editor-block-list__block{
+                blockquote{
+                    p{
+                        font-size: 1.1rem;
+                        line-height: $line-height;
+                    }
+                }
+            }
         }
     }
 
