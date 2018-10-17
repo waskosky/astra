@@ -1,3 +1,11 @@
+v1.5.2
+- New: Complete Gutenberg Support: Editor Styles, Wide and full width support.
+- New: Font variants selection for the base typography settings.
+- New: LifterLMS - Add icons for new Membership and My Grades tabs in the student dashboard. (credits @actual-saurabh)
+- Improvement: Add new filter `astra_post_meta_separator` for changing the separator style in post meta.
+- Fix: Logo not perfectly center aligned in mobile layout in case of stack layout.
+- Fix: Minification plugins such as WP-Rocket, W3 Total Cache etc causing the mobile menu button to be hidden on small devices.
+
 v1.5.1
 - Improvement: Remove link pointer animation styles. We will work on these to get better animations that can be provided from the theme.
 - Add option to set border color for submenu item.
