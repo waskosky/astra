@@ -90,10 +90,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=wide]' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40 + 200, 'px' ),
 				),
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
-				),
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea,  .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h2, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h3, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h4, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h5, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h6' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input,  .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h2, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h3, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h4, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h5, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h6' => array(
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
@@ -109,7 +106,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'text-transform' => esc_attr( $body_text_transform ),
 					'margin-bottom'  => astra_get_css_value( $para_margin_bottom, 'em' ),
 				),
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block, .gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h4,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h5,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h6' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input' => array(
+					'font-family' => ( 'inherit' === $headings_font_family ) ? astra_get_font_family( $body_font_family ) : astra_get_font_family( $headings_font_family ),
+					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
+				),
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-block-list__block, .gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input, .gutenberg-editor-page #wpwrap .edit-post-visual-editor h1,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h2,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h3,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h4,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h5,.gutenberg-editor-page #wpwrap .edit-post-visual-editor h6' => array(
 					'color' => esc_attr( $text_color ),
 				),
 				// Blockquote Text Color.
@@ -143,7 +144,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css .= astra_parse_css( $desktop_css );
 
 			$tablet_css = array(
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
 				),
 				// Heading H1 - H6 font size.
@@ -170,10 +171,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css .= astra_parse_css( $tablet_css, '', '768' );
 
 			$mobile_css = array(
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
-				),
-				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block textarea' => array(
+				'.gutenberg-editor-page #wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
 				// Heading H1 - H6 font size.
