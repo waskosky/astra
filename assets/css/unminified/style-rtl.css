@@ -4172,6 +4172,10 @@ body .entry-content .wp-block-latest-posts li {
   list-style: none;
 }
 
+.ast-no-sidebar .ast-container .entry-content .wp-block-latest-posts {
+  margin-right: 0;
+}
+
 .ast-header-break-point .entry-content .alignwide {
   margin-right: auto;
   margin-left: auto;

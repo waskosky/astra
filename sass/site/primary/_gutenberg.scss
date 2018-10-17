@@ -99,6 +99,16 @@ body {
 	}
 }
 
+.ast-no-sidebar {
+	.ast-container {
+		.entry-content {
+			.wp-block-latest-posts {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
 .ast-header-break-point {
 	.entry-content {
 
