@@ -914,7 +914,7 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	/**
 	 * Function to Add Header Breakpoint Style
 	 *
-	 * @since x.x.x Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
+	 * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
 	function astra_header_breakpoint_style() {
