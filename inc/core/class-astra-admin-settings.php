@@ -154,7 +154,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					array(
 						'id'                         => 'astra-theme-rating',
 						'type'                       => '',
-						/* translators: %1$s logo link, %2$s product rating link, %3$s dismissable notice transient time. */
 						'message'                    => sprintf(
 							'<div class="notice-image">
 								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
