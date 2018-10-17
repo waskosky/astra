@@ -47,7 +47,7 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) :
 	function get_astra_secondary_class( $class = '' ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_secondary_class()' );
 
-		astra_get_secondary_class( $class );
+		return astra_get_secondary_class( $class );
 	}
 
 endif;
@@ -67,7 +67,7 @@ if ( ! function_exists( 'deprecated_astra_color_palette' ) ) :
 	function deprecated_astra_color_palette( $color_palette ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_color_palette()' );
 
-		astra_deprecated_color_palette( $color_palette );
+		return astra_deprecated_color_palette( $color_palette );
 	}
 
 endif;
@@ -87,7 +87,7 @@ if ( ! function_exists( 'deprecated_astra_sigle_post_navigation_enabled' ) ) :
 	function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_sigle_post_navigation_enabled()' );
 
-		astra_deprecated_sigle_post_navigation_enabled( $post_nav );
+		return astra_deprecated_sigle_post_navigation_enabled( $post_nav );
 	}
 
 endif;
@@ -108,7 +108,7 @@ if ( ! function_exists( 'deprecated_astra_primary_header_main_rt_section' ) ) :
 	function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_primary_header_main_rt_section()' );
 
-		astra_deprecated_primary_header_main_rt_section( $elements, $header );
+		return astra_deprecated_primary_header_main_rt_section( $elements, $header );
 	}
 
 endif;
@@ -128,9 +128,8 @@ if ( ! function_exists( 'astar' ) ) :
 	 * @return void
 	 */
 	function astar( $array, $prop, $default = null ) {
-		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_prop()' );
-
-		astra_get_prop( $array, $prop, $default = null );
+		// _deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_prop()' );
+		return astra_get_prop( $array, $prop, $default );
 	}
 
 endif;
