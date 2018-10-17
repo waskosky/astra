@@ -42,7 +42,7 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) :
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @see astra_get_secondary_class()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function get_astra_secondary_class( $class = '' ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_get_secondary_class()' );
@@ -62,7 +62,7 @@ if ( ! function_exists( 'deprecated_astra_color_palette' ) ) :
 	 * @param array $color_palette  customizer color palettes.
 	 * @see astra_deprecated_color_palette()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function deprecated_astra_color_palette( $color_palette ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_color_palette()' );
@@ -82,7 +82,7 @@ if ( ! function_exists( 'deprecated_astra_sigle_post_navigation_enabled' ) ) :
 	 * @param boolean $post_nav true | false.
 	 * @see astra_deprecated_sigle_post_navigation_enabled()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_sigle_post_navigation_enabled()' );
@@ -103,7 +103,7 @@ if ( ! function_exists( 'deprecated_astra_primary_header_main_rt_section' ) ) :
 	 * @param string $header Header section type.
 	 * @see astra_deprecated_primary_header_main_rt_section()
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {
 		_deprecated_function( __FUNCTION__, '1.5.2', 'astra_deprecated_primary_header_main_rt_section()' );
