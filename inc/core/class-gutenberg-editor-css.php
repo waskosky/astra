@@ -214,10 +214,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'background-color' => '#f5f5f5',
 					),
 					'.gutenberg-editor-page #wpwrap .editor-block-list__layout, .gutenberg-editor-page #wpwrap .editor-post-title'  => array(
-						'padding-top'    => '5.34em;',
-						'padding-bottom' => '5.34em;',
-						'padding-left'   => 'calc( 6.67em - 14px );',
-						'padding-right'  => 'calc( 6.67em - 14px );',
+						'padding-top'    => '5.34em',
+						'padding-bottom' => '5.34em',
+						'padding-left'   => 'calc( 6.67em - 14px )',
+						'padding-right'  => 'calc( 6.67em - 14px )',
 					),
 					'.gutenberg-editor-page #wpwrap .editor-block-list__layout' => array(
 						'padding-top' => '0',
