@@ -64,6 +64,34 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_styles' ) );
+
+
+			add_action('wp', array( $this, 'edd_initialization') );
+
+		}
+
+
+		function edd_initialization(){
+			$is_edd_archive_page = astra_is_edd_archive_page();
+
+			if ( $is_edd_archive_page ) {
+				add_action('astra_template_parts_content', array( $this, 'edd_content_loop'));
+				remove_action( 'astra_template_parts_content', array( Astra_Loop::get_instance(), 'template_parts_default' ) );
+			}
+		}
+
+		function edd_content_loop(){
+			?>
+			<div <?php post_class(); ?>>
+				<?php
+				/**
+				 * Edd Archive Page Product Content Sorting
+				 */
+				astra_edd_archive_product_content();
+				?>
+			</div>
+			<?php
 		}
 
 		/**
@@ -76,6 +104,47 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		function add_styles( $assets ) {
 			$assets['css']['astra-edd'] = 'compatibility/edd';
 			return $assets;
+		}
+
+		/**
+		 * Add inline style
+		 *
+		 * @since x.x.x
+		 */
+		function add_inline_styles() {
+
+			/**
+			 * - Variable Declaration
+			 */
+			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
+			$woo_shop_archive_width     = astra_get_option( 'edd-archive-width' );
+			$woo_shop_archive_max_width = astra_get_option( 'edd-archive-max-width' );
+			$css_output = '';
+
+
+			/* Woocommerce Shop Archive width */
+			if ( 'custom' === $woo_shop_archive_width ) :
+				// Woocommerce shop archive custom width.
+				$site_width  = array(
+					'.ast-edd-archive-page .site-content > .ast-container' => array(
+						'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
+					),
+				);
+				$css_output .= astra_parse_css( $site_width, '769' );
+
+			else :
+				// Woocommerce shop archive default width.
+				$site_width = array(
+					'.ast-edd-archive-page .site-content > .ast-container' => array(
+						'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$css_output .= astra_parse_css( $site_width, '769' );
+			endif;
+
+			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $css_output ) );
 		}
 
 		/**
@@ -99,6 +168,17 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				'tablet'  => 3,
 				'mobile'  => 2,
 			);
+
+			$defaults['edd-archive-product-structure'] = array(
+				'image',
+				'category',
+				'title',
+				'price',
+				'add_cart',
+			);
+
+			$defaults['edd-archive-width']     = 'default';
+			$defaults['edd-archive-max-width'] = 1200;
 
 			return $defaults;
 		}

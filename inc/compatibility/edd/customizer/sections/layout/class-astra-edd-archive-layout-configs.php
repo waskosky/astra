@@ -1,12 +1,12 @@
 <?php
 /**
- * WooCommerce Options for Astra Theme.
+ * Easy Digital Downloads Options for Astra Theme.
  *
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        https://wpastra.com/
- * @since       Astra 1.1.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,11 +21,11 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 	class Astra_Edd_Archive_Layout_Configs extends Astra_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-WooCommerce Shop Layout Customizer Configurations.
+		 * Register Astra-Easy Digital Downloads Shop Layout Customizer Configurations.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.4.3
+		 * @since x.x.x
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
@@ -55,56 +55,18 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Products Per Page
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[shop-no-of-products]',
-					'type'        => 'control',
-					'section'     => 'section-edd-archive',
-					'title'       => __( 'Products Per Page', 'astra' ),
-					'default'     => astra_get_option( 'shop-no-of-products' ),
-					'control'     => 'number',
-					'priority'    => 15,
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-
-				/**
-				 * Option: Product Hover Style
-				 */
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-hover-style]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'shop-hover-style' ),
-					'priority' => 20,
-					'title'    => __( 'Product Image Hover Style', 'astra' ),
-					'choices'  => apply_filters(
-						'astra_woo_shop_hover_style',
-						array(
-							''     => __( 'None', 'astra' ),
-							'swap' => __( 'Swap Images', 'astra' ),
-						)
-					),
-				),
-
-				/**
 				 * Option: Single Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'shop-product-structure' ),
+					'default'  => astra_get_option( 'edd-archive-product-structure' ),
 					'priority' => 30,
-					'title'    => __( 'Shop Product Structure', 'astra' ),
+					'title'    => __( 'Product Structure', 'astra' ),
 					'choices'  => array(
+						'image'      => __( 'Image', 'astra' ),
 						'title'      => __( 'Title', 'astra' ),
 						'price'      => __( 'Price', 'astra' ),
 						'ratings'    => __( 'Ratings', 'astra' ),
@@ -115,10 +77,10 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Woocommerce Shop Archive Content Divider
+				 * Option: Easy Digital Downloads Shop Archive Content Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width-divider]',
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-width-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-edd-archive',
@@ -127,16 +89,16 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Shop Archive Content Width
+				 * Option: Archive Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'shop-archive-width' ),
+					'default'  => astra_get_option( 'edd-archive-width' ),
 					'priority' => 220,
-					'title'    => __( 'Shop Archive Content Width', 'astra' ),
+					'title'    => __( 'Archive Content Width', 'astra' ),
 					'choices'  => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
@@ -147,13 +109,13 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Enter Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[shop-archive-max-width]',
+					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-max-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'section-edd-archive',
 					'default'     => 1200,
 					'priority'    => 225,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
+					'required'    => array( ASTRA_THEME_SETTINGS . '[edd-archive-width]', '===', 'custom' ),
 					'title'       => __( 'Enter Width', 'astra' ),
 					'suffix'      => '',
 					'input_attrs' => array(

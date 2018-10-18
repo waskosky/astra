@@ -21,7 +21,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 	class Astra_Edd_Container_Configs extends Astra_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-WooCommerce Shop Container Settings.
+		 * Register Astra-Easy Digital Downloads Shop Container Settings.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
