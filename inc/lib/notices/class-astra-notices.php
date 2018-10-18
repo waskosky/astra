@@ -145,7 +145,14 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return array
 		 */
 		function sort_notices( $array1, $array2 ) {
-			return strnatcmp( $array1['priority'], $array2['priority'] );
+			if ( ! isset( $array1['priority'] ) ) {
+				$array1['priority'] = 10;
+			}
+			if ( ! isset( $array2['priority'] ) ) {
+				$array2['priority'] = 10;
+			}
+
+			return $array1['priority'] - $array2['priority'];
 		}
 
 		/**
