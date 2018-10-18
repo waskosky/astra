@@ -69,6 +69,12 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			add_action('wp', array( $this, 'edd_initialization') );
 
+			// Add Cart option in dropdown.
+			add_filter( 'astra_header_section_elements', array( $this, 'header_section_elements' ) );
+
+			// Add Cart icon in Menu.
+			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
+
 		}
 
 
@@ -81,6 +87,21 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			}
 		}
 
+		/**
+		 * Add Cart icon markup
+		 *
+		 * @param Array $options header options array.
+		 *
+		 * @return Array header options array.
+		 * @since x.x.x
+		 */
+		function header_section_elements( $options ) {
+
+			$options['edd'] = __( 'Easy Digital Downloads', 'astra');
+
+			return $options;
+		}
+
 		function edd_content_loop(){
 			?>
 			<div <?php post_class(); ?>>
@@ -91,6 +112,94 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				astra_edd_archive_product_content();
 				?>
 			</div>
+			<?php
+		}
+
+		/**
+		 * Add Cart icon markup
+		 *
+		 * @param String $output Markup.
+		 * @param String $section Section name.
+		 * @param String $section_type Section selected option.
+		 * @return Markup String.
+		 *
+		 * @since x.x.x
+		 */
+		function astra_header_cart( $output, $section, $section_type ) {
+
+			if ( 'edd' === $section_type && apply_filters( 'astra_edd_header_cart_icon', true ) ) {
+
+				$output = $this->edd_mini_cart_markup();
+			}
+
+			return $output;
+		}
+
+		/**
+		 * Easy Digital DOwnloads mini cart markup markup
+		 *
+		 * @since x.x.x
+		 * @return html
+		 */
+		function edd_mini_cart_markup() {
+			$class = '';
+			// if ( is_cart() ) {
+			// 	$class = 'current-menu-item';
+			// } else {
+			// 	$class = '';
+			// }
+
+			$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+
+			ob_start();
+			?>
+			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
+				<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
+					<?php $this->astra_get_cart_link(); ?>
+				</div>
+				<div class="ast-site-header-cart-data">
+					<?php the_widget( 'edd_cart_widget', 'title=' ); ?>
+				</div>
+			</div>
+			<?php
+			return ob_get_clean();
+		}
+
+		/**
+		 * Cart Link
+		 * Displayed a link to the cart including the number of items present and the cart total
+		 *
+		 * @return void
+		 * @since  x.x.x
+		 */
+		function astra_get_cart_link() {
+
+			$view_shopping_cart = apply_filters( 'astra_edd_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
+			?>
+			<a class="cart-container" href="<?php echo esc_url( edd_get_checkout_uri() ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
+
+						<?php
+						do_action( 'astra_edd_header_cart_icons_before' );
+
+						if ( apply_filters( 'astra_edd_default_header_cart_icon', true ) ) {
+							?>
+							<div class="ast-cart-menu-wrap">
+								<span class="count"> 
+									<?php
+									if ( apply_filters( 'astra_edd_header_cart_total', true ) ) {
+										// echo WC()->cart->get_cart_contents_count();
+										echo edd_currency_filter( edd_format_amount( edd_get_cart_total() ) );
+									}
+									?>
+								</span>
+							</div>
+							<?php
+						}
+
+						do_action( 'astra_edd_header_cart_icons_after' );
+
+						?>
+			</a>
 			<?php
 		}
 
@@ -122,9 +231,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$css_output = '';
 
 
-			/* Woocommerce Shop Archive width */
+			/* Easy Digital DOwnloads Shop Archive width */
 			if ( 'custom' === $woo_shop_archive_width ) :
-				// Woocommerce shop archive custom width.
+				// Easy Digital DOwnloads shop archive custom width.
 				$site_width  = array(
 					'.ast-edd-archive-page .site-content > .ast-container' => array(
 						'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
@@ -133,7 +242,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				$css_output .= astra_parse_css( $site_width, '769' );
 
 			else :
-				// Woocommerce shop archive default width.
+				// Easy Digital DOwnloads shop archive default width.
 				$site_width = array(
 					'.ast-edd-archive-page .site-content > .ast-container' => array(
 						'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
