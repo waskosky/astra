@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 						// don't display the notice if it is not supposed to be displayed with other notices.
 						if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
-							return;
+							continue;
 						}
 
 						self::markup( $notice );
