@@ -83,22 +83,32 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		function edd_single_post_navigation( $args ){
 			// Args
 			$is_edd_single_product_page = astra_is_edd_single_product_page();
-			if ( $is_edd_single_product_page ) {
+			$single_product_navigation = astra_get_option('enable-edd-single-product-nav');
+			if ( $is_edd_single_product_page && $single_product_navigation ) {
 				$next_post = get_next_post();
 				$prev_post = get_previous_post();
 				
-				$next_text = sprintf(
-					'%s <span class="ast-right-arrow">&rarr;</span>',
-					$next_post->post_title
-				);
-				$prev_text = sprintf(
-					'<span class="ast-left-arrow">&larr;</span> %s',
-					$prev_post->post_title
-				);
+				$next_text =false;
+				if ( $next_post ) {
+					$next_text = sprintf(
+						'%s <span class="ast-right-arrow">&rarr;</span>',
+						$next_post->post_title
+					);
+				}
 
+				$prev_text = false;
+				if ( $prev_post ) {
+					$prev_text = sprintf(
+						'<span class="ast-left-arrow">&larr;</span> %s',
+						$prev_post->post_title
+					);
+				}
 
 				$args['prev_text'] = $prev_text;
 				$args['next_text'] =$next_text;
+			} elseif ( $is_edd_single_product_page && ! $single_product_navigation ) {
+				$args['prev_text'] = false;
+				$args['next_text'] = false;
 			}
 
 			return $args;
@@ -542,6 +552,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			$defaults['edd-archive-width']     = 'default';
 			$defaults['edd-archive-max-width'] = 1200;
+			$defaults['enable-edd-single-product-nav'] = 1;
 
 			return $defaults;
 		}
@@ -740,6 +751,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-astra-edd-container-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-astra-edd-archive-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-astra-edd-single-product-layout-configs.php';
 
 		}
 
