@@ -199,9 +199,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 						self::markup( $notice );
 					}
-				} else {
-					// No transient notices.
-					self::markup( $notice );
 				}
 
 				++$notices_displayed;
