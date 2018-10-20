@@ -7,13 +7,49 @@
 /**
  * Astra Theme compatibility with Easy Digital Downloads
  */
-@import "../mixins/mixins-master";
+@import "../../mixins/mixins-master";
 @import "../../grid/variables";
 @import "../variables-site/structure";
 @import "../variables-site/colors";
 
+//Seperate container layout
+.ast-separate-container{
+	.ast-edd-container{
+		background-color: $color-background-content;
+		@include clearfix();
+
+		@media (max-width: $mx-col-xl) {
+			    padding: 3.34em 2.4em;
+		}
+		@media (max-width: $mx-col-lg) {
+			    padding: 1.5em 2.14em;
+		}
+		@media (max-width: $mx-col-sm) {
+				padding: .54em 1em 1.33333em;
+		}
+
+		@media (min-width: $col-xl) {
+			    padding: 5.34em 6.67em;
+		}
+		// .product {
+		//     border-bottom: 0;
+		// }
+	}
+	// &.single-product {
+	// 	.ast-article-single{
+	// 		margin:0;
+	// 		padding:0;
+	// 		display: inline-block;
+	// 		width: 100%;
+	// 	}
+	// }
+}
 
 /* Edd Archive Products grid layout */
+.ast-edd-archive-article{
+	padding: 0;
+	float: left;
+}
 .columns-1 .ast-edd-archive-article {
   width: 100%;
   margin-right: 0;
@@ -275,10 +311,7 @@
 		line-height: 1.3;
 		display: inline-block;
 	}
-	.edd-cart-added-alert{
-		position: static;
-		display: inline-block;
-	}
+
 	.edd_download_excerpt{
 		p{
 			margin-bottom: .5em;	
@@ -427,8 +460,13 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 .edd-cart-added-alert {
-  display: block;
-  position: absolute;
+	position: static;
+	display: block;
+	font-size: 1em;
+	.edd-icon-check {
+		max-width: 18px;
+		vertical-align: bottom;
+	}
 }
 
 
@@ -502,9 +540,9 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		  margin-bottom: 0;
 		  padding-left: 1.5em;
 		  padding-right: 1.5em;
-		  padding-bottom: .5em;
+		  padding-bottom: 1em;
 		  text-align: center;
-			border-bottom: 1px solid #e2e2e2;
+		  border-bottom: 1px solid #e2e2e2;
 		}
 		&:before, &:after {
 			bottom: 100%;
@@ -552,6 +590,26 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   }
 }
 
+
+.header-main-layout-3{
+	.ast-edd-site-header-cart {
+		&:focus .widget_edd_cart_widget, &:hover .widget_edd_cart_widget {
+			right: auto;
+			left: 0;
+		}
+		.widget_edd_cart_widget{
+			right: -999em;
+			left: auto;
+			&:before, &:after {
+				left: 8px;
+				right: auto;
+			}
+			&:after {
+				margin-left: -2px;
+			}
+		}
+	}
+}
 // .ast-edd-site-header-cart .widget_edd_cart_widget {
 //   &:before, &:after {
 //     bottom: 100%;
@@ -683,4 +741,99 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
       border-bottom: 0;
     }
   }
+}
+
+
+/* EDD form*/
+.edd_form{
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="url"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="week"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="color"],
+	select,
+	textarea{
+		width: 100%;
+	}
+	
+	.edd-description {
+		margin-bottom: 5px;
+		display: block;
+	}
+
+}
+
+
+/* EDD Checkout page*/
+.edd-checkout{
+	#edd_checkout_cart .edd_cart_header_row th {
+		background: #fafafa;
+		font-weight: bold;
+	}
+	#edd_checkout_cart th,
+	#edd_checkout_cart td {
+		text-align: left;
+		border: 1px solid #eee;
+		padding: 15px 30px;
+	}
+	#edd_checkout_cart td img {
+		float: left;
+		margin: 0 8px 0 0;
+		background: none;
+		padding: 0;
+		border: none;
+	}
+	#edd-purchase-button{
+		width: 100%;
+	}
+}
+
+
+/* EDD Notices */
+
+/* Alert Styles */
+.edd-alert {
+	border-radius: 2px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid transparent;
+	vertical-align: middle;
+}
+.edd-alert p {
+	padding: 0;
+}
+.edd-alert p:not(:last-child) {
+	margin-bottom: 5px;
+}
+.edd-alert p:last-child {
+	margin-bottom: 0;
+}
+.edd-alert-error {
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+.edd-alert-success {
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	color:#3c763d;
+}
+.edd-alert-info {
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+.edd-alert-warn {
+	color: #8a6d3b;
+	background-color: #fcf8e3;
+	border-color: #faebcc;
 }

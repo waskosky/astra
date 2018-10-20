@@ -113,12 +113,12 @@ if ( ! function_exists( 'astra_is_edd_single_product_page' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_edd_archive_product_content' ) ) {
+if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 
 	/**
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
-	function astra_edd_archive_product_content() {
+	function astra_edd_archive_product_structure() {
 		$edd_structure = apply_filters( 'astra_edd_archive_product_structure', astra_get_option( 'edd-archive-product-structure' ) );
 
 		if ( is_array( $edd_structure ) && ! empty( $edd_structure ) ) {
@@ -188,6 +188,8 @@ if ( ! function_exists( 'astra_edd_archive_product_content' ) ) {
 			do_action( 'astra_edd_archive_after_block_wrap' );
 		}
 	}
+
+	add_action( 'astra_edd_archive_product_content' , 'astra_edd_archive_product_structure');
 }
 
 /**

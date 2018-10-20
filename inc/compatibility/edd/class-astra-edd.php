@@ -60,6 +60,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			
 			add_filter( 'body_class', array( $this, 'edd_products_item_class' ) );
 			add_filter( 'post_class', array( $this, 'edd_single_product_class' ) );
+			add_filter( 'post_class', array( $this, 'render_post_class' ), 99 );
 			
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			
@@ -75,6 +76,32 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			// Add Cart icon in Menu.
 			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
 
+			add_filter('astra_single_post_navigation', array($this, 'edd_single_post_navigation') );
+
+		}
+
+		function edd_single_post_navigation( $args ){
+			// Args
+			$is_edd_single_product_page = astra_is_edd_single_product_page();
+			if ( $is_edd_single_product_page ) {
+				$next_post = get_next_post();
+				$prev_post = get_previous_post();
+				
+				$next_text = sprintf(
+					'%s <span class="ast-right-arrow">&rarr;</span>',
+					$next_post->post_title
+				);
+				$prev_text = sprintf(
+					'<span class="ast-left-arrow">&larr;</span> %s',
+					$prev_post->post_title
+				);
+
+
+				$args['prev_text'] = $prev_text;
+				$args['next_text'] =$next_text;
+			}
+
+			return $args;
 		}
 
 
@@ -84,7 +111,34 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			if ( $is_edd_archive_page ) {
 				add_action('astra_template_parts_content', array( $this, 'edd_content_loop'));
 				remove_action( 'astra_template_parts_content', array( Astra_Loop::get_instance(), 'template_parts_default' ) );
+
+				// Add edd wrapper.
+				add_action( 'astra_template_parts_content_top', array( $this, 'astra_edd_templat_part_wrap_open' ), 25 );
+				add_action( 'astra_template_parts_content_bottom', array( $this, 'astra_edd_templat_part_wrap_close' ), 5 );
+
+				// Remove closing and ending div 'ast-row'.
+				remove_action( 'astra_template_parts_content_top', array( Astra_Loop::get_instance(), 'astra_templat_part_wrap_open' ), 25 );
+				remove_action( 'astra_template_parts_content_bottom', array( Astra_Loop::get_instance(), 'astra_templat_part_wrap_close' ), 5 );
 			}
+		}
+
+
+		/**
+		 * Add start of wrapper
+		 */
+		function astra_edd_templat_part_wrap_open() {
+			?>
+				<div class="ast-edd-container">
+			<?php
+		}
+
+		/**
+		 * Add end of wrapper
+		 */
+		function astra_edd_templat_part_wrap_close() {
+			?>
+				</div> <!-- .ast-edd-container -->
+			<?php
 		}
 
 		/**
@@ -109,10 +163,73 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				/**
 				 * Edd Archive Page Product Content Sorting
 				 */
-				astra_edd_archive_product_content();
+				do_action( 'astra_edd_archive_product_content' );
 				?>
 			</div>
 			<?php
+		}
+
+
+
+		/**
+		 * Remove theme post's default classes when EDD archive.
+		 *
+		 * @param  array $classes Post Classes.
+		 * @return array
+		 * @since  x.x.x
+		 */
+		function render_post_class( $classes ) {
+			$post_class = array( 'ast-edd-archive-article' );
+			$result     = array_intersect( $classes, $post_class );
+
+			if ( count( $result ) > 0 ) {
+				$classes = array_diff(
+					$classes,
+					array(
+						// Astra common grid.
+						'ast-col-sm-12',
+						'ast-col-md-8',
+						'ast-col-md-6',
+						'ast-col-md-12',
+
+						// Astra Blog / Single Post.
+						'ast-article-post',
+						'ast-article-single',
+						'ast-separate-posts',
+						'remove-featured-img-padding',
+						'ast-featured-post',
+
+						// Astra Woocommerce.
+						'ast-product-gallery-layout-vertical',
+						'ast-product-gallery-layout-horizontal',
+						'ast-product-gallery-with-no-image',
+
+						'ast-product-tabs-layout-vertical',
+						'ast-product-tabs-layout-horizontal',
+
+						'ast-qv-disabled',
+						'ast-qv-on-image',
+						'ast-qv-on-image-click',
+						'ast-qv-after-summary',
+
+						'astra-woo-hover-swap',
+
+						'box-shadow-0',
+						'box-shadow-0-hover',
+						'box-shadow-1',
+						'box-shadow-1-hover',
+						'box-shadow-2',
+						'box-shadow-2-hover',
+						'box-shadow-3',
+						'box-shadow-3-hover',
+						'box-shadow-4',
+						'box-shadow-4-hover',
+						'box-shadow-5',
+						'box-shadow-5-hover',
+					)
+				);
+			}
+			return $classes;
 		}
 
 		/**
@@ -261,9 +378,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			$cart_h_color = astra_get_foreground_color( $link_h_color );
 
-			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
-			$woo_shop_archive_width     = astra_get_option( 'shop-archive-width' );
-			$woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
+			// $site_content_width         = astra_get_option( 'site-content-width', 1200 );
+			// $woo_shop_archive_width     = astra_get_option( 'shop-archive-width' );
+			// $woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
 
 			$css_output = array(
 				// '.woocommerce span.onsale'                => array(
@@ -336,9 +453,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				// 	'background-color' => esc_attr( $link_color ),
 				// ),
 
-				// '.ast-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
-				// 	'color' => esc_attr( $link_color ),
-				// ),
+				'.ast-edd-site-header-cart .widget_edd_cart_widget .cart-total' => array(
+					'color' => esc_attr( $link_color ),
+				),
 
 				// '.woocommerce a.remove:hover, .ast-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover' => array(
 				// 	'color'            => esc_attr( $link_color ),
