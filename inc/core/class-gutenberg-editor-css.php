@@ -206,7 +206,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'max-width'        => 'calc( ' . astra_get_css_value( $site_content_width, 'px' ) . ' - 40px )',
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
-						'flex-direction' =>  'row',
 						'overflow'         => 'hidden',
 					),
 					'.gutenberg-editor-page #wpwrap .gutenberg__editor' => array(
