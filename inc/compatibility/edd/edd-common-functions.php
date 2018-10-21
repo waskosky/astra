@@ -17,7 +17,6 @@ if ( ! function_exists( 'astra_is_edd_page' ) ) :
 	/**
 	 * Check current page is an EDD page
 	 *
-	 *
 	 * @since x.x.x
 	 * @return bool true | false
 	 */
@@ -47,7 +46,6 @@ if ( ! function_exists( 'astra_is_edd_single_page' ) ) :
 	/**
 	 * Check current page is an EDD single page
 	 *
-	 *
 	 * @since x.x.x
 	 * @return bool true | false
 	 */
@@ -74,7 +72,6 @@ if ( ! function_exists( 'astra_is_edd_archive_page' ) ) :
 	/**
 	 * Check current page is an EDD archive page
 	 *
-	 *
 	 * @since x.x.x
 	 * @return bool true | false
 	 */
@@ -99,7 +96,6 @@ if ( ! function_exists( 'astra_is_edd_single_product_page' ) ) :
 
 	/**
 	 * Check current page is an EDD single product page
-	 *
 	 *
 	 * @since x.x.x
 	 * @return bool true | false
@@ -154,7 +150,8 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						edd_get_template_part( 'shortcode', 'content-price' );
 						do_action( 'astra_edd_archive_price_after' );
 						break;
-					case 'short_desc':\
+					case 'short_desc':
+						\
 						/**
 						 * Add Product short description on edd page for all products.
 						 */
@@ -166,8 +163,6 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						do_action( 'astra_edd_archive_add_to_cart_before' );
 						edd_get_template_part( 'shortcode', 'content-cart-button' );
 						do_action( 'astra_edd_archive_add_to_cart_after' );
-
-
 
 						break;
 					case 'category':
@@ -189,23 +184,27 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 		}
 	}
 
-	add_action( 'astra_edd_archive_product_content' , 'astra_edd_archive_product_structure');
+	add_action( 'astra_edd_archive_product_content', 'astra_edd_archive_product_structure' );
 }
 
 /**
  * Returns list of Easy Digital Downloads Terms
- *
  */
 if ( ! function_exists( 'astra_edd_terms_list' ) ) {
-	
-	function astra_edd_terms_list( $taxonomy_name ) { 
+	/**
+	 * Show EDD product terms
+	 *
+	 * @param  string $taxonomy_name Taxonomy name.
+	 * @return void
+	 */
+	function astra_edd_terms_list( $taxonomy_name ) {
 		$terms = get_terms( $taxonomy_name );
-	?>
+		?>
 	<div class="ast-edd-download-categories">
 		<?php foreach ( $terms as $term ) : ?>
 			<a href="<?php echo esc_attr( get_term_link( $term, $taxonomy_name ) ); ?>" title="<?php echo $term->name; ?>"><?php echo $term->name; ?></a>
 		<?php endforeach; ?>
 	</div>
-	<?php }
-
+		<?php
+	}
 }

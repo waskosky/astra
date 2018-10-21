@@ -38,7 +38,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Edd_Section' ) ) {
 					'priority' => 70,
 				),
 
-
 				array(
 					'name'     => 'section-edd-archive',
 					'title'    => __( 'Product Archive', 'astra' ),
