@@ -35,7 +35,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Edd_Section' ) ) {
 					'type'     => 'section',
 					'title'    => __( 'Easy Digital Downloads', 'astra' ),
 					'panel'    => 'panel-layout',
-					'priority' => 70,
+					'priority' => 61,
 				),
 
 				array(

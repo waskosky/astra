@@ -239,19 +239,6 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						'ast-qv-after-summary',
 
 						'astra-woo-hover-swap',
-
-						'box-shadow-0',
-						'box-shadow-0-hover',
-						'box-shadow-1',
-						'box-shadow-1-hover',
-						'box-shadow-2',
-						'box-shadow-2-hover',
-						'box-shadow-3',
-						'box-shadow-3-hover',
-						'box-shadow-4',
-						'box-shadow-4-hover',
-						'box-shadow-5',
-						'box-shadow-5-hover',
 					)
 				);
 			}

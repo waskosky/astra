@@ -49,6 +49,7 @@
 .ast-edd-archive-article{
 	padding: 0;
 	float: left;
+	margin: 0 20px 2.992em 0;
 }
 .columns-1 .ast-edd-archive-article {
   width: 100%;
@@ -836,4 +837,22 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	color: #8a6d3b;
 	background-color: #fcf8e3;
 	border-color: #faebcc;
+}
+
+/* =Purchase buttons
+-------------------------------------------------------------- */
+.edd_download_purchase_form .edd_price_options ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.edd_download_purchase_form .edd_price_options li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+.edd_download_purchase_form .edd_price_options span {
+	display: inline;
+	padding: 0;
+	margin: 0;
 }

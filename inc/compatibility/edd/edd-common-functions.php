@@ -131,7 +131,7 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						 * Add Product Title on edd page for all products.
 						 */
 						do_action( 'astra_edd_archive_title_before' );
-						edd_get_template_part( 'shortcode', 'content-title' );
+						do_action( 'astra_edd_archive_title' );
 						do_action( 'astra_edd_archive_title_after' );
 						break;
 					case 'image':
@@ -139,7 +139,7 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						 * Add Product Title on edd page for all products.
 						 */
 						do_action( 'astra_edd_archive_image_before' );
-						edd_get_template_part( 'shortcode', 'content-image' );
+						do_action( 'astra_edd_archive_image' );
 						do_action( 'astra_edd_archive_image_after' );
 						break;
 					case 'price':
@@ -147,7 +147,7 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						 * Add Product Price on edd page for all products.
 						 */
 						do_action( 'astra_edd_archive_price_before' );
-						edd_get_template_part( 'shortcode', 'content-price' );
+						do_action( 'astra_edd_archive_price' );
 						do_action( 'astra_edd_archive_price_after' );
 						break;
 					case 'short_desc':
@@ -156,12 +156,12 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						 * Add Product short description on edd page for all products.
 						 */
 						do_action( 'astra_edd_archive_short_description_before' );
-						edd_get_template_part( 'shortcode', 'content-excerpt' );
+						do_action( 'astra_edd_archive_short_description' );
 						do_action( 'astra_edd_archive_short_description_after' );
 						break;
 					case 'add_cart':
 						do_action( 'astra_edd_archive_add_to_cart_before' );
-						edd_get_template_part( 'shortcode', 'content-cart-button' );
+						do_action( 'astra_edd_archive_add_to_cart' );
 						do_action( 'astra_edd_archive_add_to_cart_after' );
 
 						break;
@@ -170,7 +170,7 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						 * Add and/or Remove Categories from edd archive page.
 						 */
 						do_action( 'astra_edd_archive_category_before' );
-						echo astra_edd_terms_list( 'download_category' );
+						do_action( 'astra_edd_archive_category' );
 						do_action( 'astra_edd_archive_category_after' );
 						break;
 					default:
@@ -207,4 +207,39 @@ if ( ! function_exists( 'astra_edd_terms_list' ) ) {
 	</div>
 		<?php
 	}
+}
+
+
+add_action( 'astra_edd_archive_title', 'astra_edd_archive_product_title' );
+function astra_edd_archive_product_title(){
+	edd_get_template_part( 'shortcode', 'content-title' );
+}
+
+
+add_action( 'astra_edd_archive_image', 'astra_edd_archive_product_image' );
+function astra_edd_archive_product_image(){
+	edd_get_template_part( 'shortcode', 'content-image' );
+}
+
+
+add_action( 'astra_edd_archive_price', 'astra_edd_archive_product_price');
+function astra_edd_archive_product_price(){
+	edd_get_template_part( 'shortcode', 'content-price' );
+}
+
+
+add_action( 'astra_edd_archive_short_description', 'astra_edd_archive_product_short_description');
+function astra_edd_archive_product_short_description(){
+	edd_get_template_part( 'shortcode', 'content-excerpt' );
+}
+
+
+add_action( 'astra_edd_archive_add_to_cart', 'astra_edd_archive_product_add_to_cart');
+function astra_edd_archive_product_add_to_cart(){
+	edd_get_template_part( 'shortcode', 'content-cart-button' );
+}
+
+add_action( 'astra_edd_archive_category', 'astra_edd_archive_product_category');
+function astra_edd_archive_product_category(){
+	echo astra_edd_terms_list( 'download_category' );
 }
