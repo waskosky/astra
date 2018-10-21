@@ -10,6 +10,19 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+.ast-edd-container {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  clear: both;
+}
+
 .ast-separate-container .ast-edd-container {
   background-color: #fff;
   content: "";
@@ -266,6 +279,123 @@
     clear: right;
   }
   .mobile-columns-6 .ast-edd-archive-article:nth-child(6n+1) {
+    clear: left;
+  }
+}
+
+/* EDD Shortcodes */
+.edd_downloads_list .edd_download {
+  padding: 0;
+  float: left;
+  margin: 0 20px 2.992em 0;
+}
+
+.edd_downloads_list.edd_download_columns_1 .edd_download {
+  width: 100%;
+  margin-right: 0;
+}
+
+.edd_downloads_list.edd_download_columns_2 .edd_download {
+  width: 48.4%;
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+}
+
+.edd_downloads_list.edd_download_columns_2 .edd_download:nth-child(2n) {
+  margin-right: 0;
+  clear: right;
+}
+
+.edd_downloads_list.edd_download_columns_2 .edd_download:nth-child(2n+1) {
+  clear: left;
+}
+
+.edd_downloads_list.edd_download_columns_3 .edd_download {
+  width: 31.2%;
+  width: -webkit-calc( 33.33% - 14px);
+  width: calc( 33.33% - 14px);
+}
+
+.edd_downloads_list.edd_download_columns_3 .edd_download:nth-child(3n) {
+  margin-right: 0;
+  clear: right;
+}
+
+.edd_downloads_list.edd_download_columns_3 .edd_download:nth-child(3n+1) {
+  clear: left;
+}
+
+.edd_downloads_list.edd_download_columns_4 .edd_download {
+  width: 22.5%;
+  width: -webkit-calc( 25% - 15px);
+  width: calc( 25% - 15px);
+}
+
+.edd_downloads_list.edd_download_columns_4 .edd_download:nth-child(4n) {
+  margin-right: 0;
+  clear: right;
+}
+
+.edd_downloads_list.edd_download_columns_4 .edd_download:nth-child(4n+1) {
+  clear: left;
+}
+
+.edd_downloads_list.edd_download_columns_5 .edd_download {
+  width: 17.5%;
+  width: -webkit-calc( 20% - 16px);
+  width: calc( 20% - 16px);
+}
+
+.edd_downloads_list.edd_download_columns_5 .edd_download:nth-child(5n) {
+  margin-right: 0;
+  clear: right;
+}
+
+.edd_downloads_list.edd_download_columns_5 .edd_download:nth-child(5n+1) {
+  clear: left;
+}
+
+.edd_downloads_list.edd_download_columns_6 .edd_download {
+  width: 14%;
+  width: -webkit-calc( 16.66% - 16.66px);
+  width: calc( 16.66% - 16.66px);
+}
+
+.edd_downloads_list.edd_download_columns_6 .edd_download:nth-child(6n) {
+  margin-right: 0;
+  clear: right;
+}
+
+.edd_downloads_list.edd_download_columns_6 .edd_download:nth-child(6n+1) {
+  clear: left;
+}
+
+@media (max-width: 768px) and (min-width: 545px) {
+  .edd_downloads_list[class*='edd_download_columns_'] .edd_download {
+    width: 30.2%;
+    width: -webkit-calc(33.33% - 14px);
+    width: calc(33.33% - 14px);
+  }
+  .edd_downloads_list[class*='edd_download_columns_'] .edd_download:nth-child(3n) {
+    margin-right: 0;
+    clear: right;
+  }
+  .edd_downloads_list[class*='edd_download_columns_'] .edd_download:nth-child(3n+1) {
+    clear: left;
+  }
+}
+
+@media (max-width: 544px) {
+  .edd_downloads_list[class*='edd_download_columns_'] .edd_download {
+    width: 46.1%;
+    width: -webkit-calc(50% - 10px);
+    width: calc(50% - 10px);
+  }
+  .edd_downloads_list[class*='edd_download_columns_'] .edd_download:nth-child(2n) {
+    margin-right: 0;
+    clear: right;
+  }
+  .edd_downloads_list[class*='edd_download_columns_'] .edd_download:nth-child(2n+1) {
     clear: left;
   }
 }
@@ -652,7 +782,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   border-width: 1px;
 }
 
-.ast-edd-site-header-cart-wrap {
+.ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
   display: inline-block;
   line-height: 1;
 }
