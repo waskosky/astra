@@ -286,8 +286,57 @@
 		}
 }
 
+
+/* Edd Archive products strucutre */
+.ast-edd-archive-block-wrap,
+.edd_downloads_list{
+	.edd_download_image{
+		img{
+			margin-bottom: .8em;
+		}
+	}
+	.edd_download_title{
+		margin-bottom: .5em;
+		padding: 0;
+		font-size: 1em;
+	}
+	.edd_price{
+		line-height: 1.3;
+		margin-bottom: 0;
+		font-weight: 700;
+		margin-bottom: .5em;
+		font-size: .9em;
+	}
+	.edd-add-to-cart,
+	.edd_go_to_checkout {
+		margin-top: .5em;
+		margin-bottom: .5em;
+		white-space: normal;
+		line-height: 1.3;
+		display: inline-block;
+	}
+
+	.edd_download_excerpt{
+		p{
+			margin-bottom: .5em;	
+		}
+	}
+}
+.ast-edd-download-categories{
+	font-size: .85em;
+	margin-bottom: .5em;
+	display: block;
+	line-height: 1.3;
+	opacity: .6;
+}
+
+
 /* EDD Shortcodes */
 .edd_downloads_list {
+	display: flex;
+	flex-wrap: wrap;
+	clear: both;
+	@include clearfix();
 	.edd_download{
 		padding: 0;
 		float: left;
@@ -394,47 +443,29 @@
 	}
 }
 
+/* EDD Pagination */
+.edd_pagination {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0;
+    clear: both;
+    border: 0;
+    margin: 1px;
 
-/* Edd Archive products strucutre */
-.ast-edd-archive-block-wrap{
-	.edd_download_image{
-		img{
-			margin-bottom: .8em;
-		}
-	}
-	.edd_download_title{
-		margin-bottom: .5em;
-		padding: 0;
+    a,
+    span{
+		margin: 0 5px 5px 0;
+		border: 1px solid #d3ced2;
+		text-decoration: none;
+		line-height: 1;
 		font-size: 1em;
-	}
-	.edd_price{
-		line-height: 1.3;
-		margin-bottom: 0;
-		font-weight: 700;
-		margin-bottom: .5em;
-		font-size: .9em;
-	}
-	.edd-add-to-cart,
-	.edd_go_to_checkout {
-		margin-top: .5em;
-		margin-bottom: .5em;
-		white-space: normal;
-		line-height: 1.3;
-		display: inline-block;
-	}
-
-	.edd_download_excerpt{
-		p{
-			margin-bottom: .5em;	
-		}
-	}
-}
-.ast-edd-download-categories{
-	font-size: .85em;
-	margin-bottom: .5em;
-	display: block;
-	line-height: 1.3;
-	opacity: .6;
+		font-weight: normal;
+		padding: 0.75em;
+		float: left;
+		display: inline;
+		min-width: 2.5em;
+    }
 }
 
 /* =Ajax Add To Cart Button
