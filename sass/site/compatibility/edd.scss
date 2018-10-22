@@ -336,7 +336,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	clear: both;
-	@include clearfix();
 	.edd_download{
 		padding: 0;
 		float: left;

@@ -125,8 +125,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return void
 		 */
 		function edd_initialization() {
-			$is_edd_archive_page = astra_is_edd_archive_page();
-
+			$is_edd_archive_page        = astra_is_edd_archive_page();
+			$is_edd_single_product_page = astra_is_edd_single_product_page();
 			if ( $is_edd_archive_page ) {
 				add_action( 'astra_template_parts_content', array( $this, 'edd_content_loop' ) );
 				remove_action( 'astra_template_parts_content', array( Astra_Loop::get_instance(), 'template_parts_default' ) );
@@ -138,6 +138,12 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				// Remove closing and ending div 'ast-row'.
 				remove_action( 'astra_template_parts_content_top', array( Astra_Loop::get_instance(), 'astra_templat_part_wrap_open' ), 25 );
 				remove_action( 'astra_template_parts_content_bottom', array( Astra_Loop::get_instance(), 'astra_templat_part_wrap_close' ), 5 );
+			}
+			if ( $is_edd_single_product_page ) {
+				remove_action( 'astra_template_parts_content', array( Astra_Loop::get_instance(), 'template_parts_post' ) );
+
+				add_action( 'astra_template_parts_content', array( $this, 'edd_single_template' ) );
+
 			}
 		}
 
@@ -160,6 +166,28 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			?>
 				</div> <!-- .ast-edd-container -->
 			<?php
+		}
+
+		/**
+		 * Edd Single Product template
+		 */
+		function edd_single_template() {
+
+			astra_entry_before();
+			?>
+
+			<div <?php post_class(); ?>>
+
+				<?php astra_entry_top(); ?>
+
+				<?php astra_entry_content_single(); ?>
+
+				<?php astra_entry_bottom(); ?>
+
+			</div><!-- #post-## -->
+
+			<?php
+			astra_entry_after();
 		}
 
 		/**
@@ -465,7 +493,6 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				// 'border-color'     => esc_attr( $link_color ),
 				// 'background-color' => esc_attr( '#ffffff' ),
 				// ),
-
 				/**
 				 * Checkout button color for widget
 				 */

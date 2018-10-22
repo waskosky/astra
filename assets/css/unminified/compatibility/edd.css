@@ -341,8 +341,6 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   clear: both;
-  content: "";
-  display: table;
 }
 
 .edd_downloads_list .edd_download {

@@ -151,7 +151,6 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						do_action( 'astra_edd_archive_price_after' );
 						break;
 					case 'short_desc':
-						\
 						/**
 						 * Add Product short description on edd page for all products.
 						 */
@@ -160,6 +159,9 @@ if ( ! function_exists( 'astra_edd_archive_product_structure' ) ) {
 						do_action( 'astra_edd_archive_short_description_after' );
 						break;
 					case 'add_cart':
+						/**
+						 * Add to cart on edd page for all products.
+						 */
 						do_action( 'astra_edd_archive_add_to_cart_before' );
 						do_action( 'astra_edd_archive_add_to_cart' );
 						do_action( 'astra_edd_archive_add_to_cart_after' );
