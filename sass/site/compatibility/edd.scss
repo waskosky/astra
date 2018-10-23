@@ -676,7 +676,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		  padding-right: 1.5em;
 		  padding-bottom: 1em;
 		  text-align: center;
-		  border-bottom: 1px solid #e2e2e2;
 		}
 		&:before, &:after {
 			bottom: 100%;
@@ -707,38 +706,15 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			padding: .5em 1.5em;
 			margin: 0;
 			text-align: center;
-			border-top: 1px solid #e2e2e2;
-			border-bottom: 1px solid #e2e2e2;
 		}
 		.edd_checkout {
-			text-align: center;
 			padding:1em 1.5em 0;
+			text-align: center;
 			a{
-				display: block;
-				margin-right: 0;
-				width: 100%;
-				margin-left: 0;
 				padding: 10px 40px;
+				width: 100%;
+				display: block;
 			}
-		}
-		/* Product list separator*/
-		.edd-cart-item-separator {
-			display: none;
-		}
-		/* Product list title*/
-		.edd-cart-item-title{
-			display: block;
-			font-weight: normal;
-			margin: 0;
-		}
-		/* Product list price*/
-		.edd-cart-item-price{
-			float: left;
-		}
-		/* Product list remove link*/
-		.edd-remove-from-cart{
-			float: right;
-			text-transform: capitalize;
 		}
 	}
 }
@@ -769,6 +745,50 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			&:after {
 				margin-left: -2px;
 			}
+		}
+	}
+}
+
+
+/* Sidebar widget */
+.widget_edd_cart_widget{
+	.edd-cart-number-of-items {
+		margin-bottom: 0;
+		padding-bottom: .5em;
+		border-bottom: 1px solid #e2e2e2;
+	}
+	/* Product list separator*/
+	.edd-cart-item-separator {
+		display: none;
+	}
+	/* Product list title*/
+	.edd-cart-item-title{
+		display: block;
+		font-weight: normal;
+		margin: 0;
+	}
+	/* Product list price*/
+	.edd-cart-item-price{
+		float: left;
+	}
+	/* Product list remove link*/
+	.edd-remove-from-cart{
+		float: right;
+		text-transform: capitalize;
+		font-size: .8em;
+		font-weight: normal;
+	}
+	.edd-cart-meta{
+		border-top: 1px solid #e2e2e2;
+		border-bottom: 1px solid #e2e2e2;
+	}
+	.edd_checkout {
+		padding:0;
+		a{
+			margin-right: 0;
+			margin-left: 0;
+			padding: 5px 40px;
+			display: inline-block;
 		}
 	}
 }
