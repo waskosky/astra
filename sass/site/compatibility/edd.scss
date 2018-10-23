@@ -710,25 +710,44 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			margin-left: -5px;
 			right: 5px;
 		}
-		 .edd-cart-meta{
+		.edd-cart-meta{
 			padding: .5em 1.5em;
 			margin: 0;
 			text-align: center;
 			border-top: 1px solid #e2e2e2;
 			border-bottom: 1px solid #e2e2e2;
-		 }
-		 .edd_checkout {
-		 	text-align: center;
-		 	padding:1em 1.5em 0;
-			 a{
+		}
+		.edd_checkout {
+			text-align: center;
+			padding:1em 1.5em 0;
+			a{
 				display: block;
 				margin-right: 0;
 				width: 100%;
 				margin-left: 0;
 				padding: 10px 40px;
-			 }
-		 }
-  }
+			}
+		}
+		/* Product list separator*/
+		.edd-cart-item-separator {
+			display: none;
+		}
+		/* Product list title*/
+		.edd-cart-item-title{
+			display: block;
+			font-weight: normal;
+			margin: 0;
+		}
+		/* Product list price*/
+		.edd-cart-item-price{
+			float: left;
+		}
+		/* Product list remove link*/
+		.edd-remove-from-cart{
+			float: right;
+			text-transform: capitalize;
+		}
+	}
 }
 
 

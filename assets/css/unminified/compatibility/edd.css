@@ -703,6 +703,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   border: 2px solid #E6E6E6;
   opacity: 0;
   visibility: hidden;
+  /* Product list separator*/
+  /* Product list title*/
+  /* Product list price*/
+  /* Product list remove link*/
 }
 
 .ast-edd-site-header-cart .widget_edd_cart_widget .edd-cart-item {
@@ -771,6 +775,25 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   width: 100%;
   margin-left: 0;
   padding: 10px 40px;
+}
+
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-cart-item-separator {
+  display: none;
+}
+
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-cart-item-title {
+  display: block;
+  font-weight: normal;
+  margin: 0;
+}
+
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-cart-item-price {
+  float: left;
+}
+
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-remove-from-cart {
+  float: right;
+  text-transform: capitalize;
 }
 
 .header-main-layout-3 .ast-edd-site-header-cart:focus .widget_edd_cart_widget, .header-main-layout-3 .ast-edd-site-header-cart:hover .widget_edd_cart_widget {
