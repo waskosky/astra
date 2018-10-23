@@ -720,6 +720,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 					if ( 'default' !== $edd_single_product_sidebar ) {
 						$sidebar_layout = $edd_single_product_sidebar;
+					} else{
+						$sidebar_layout = astra_get_option('site-sidebar-layout');
 					}
 
 					$page_id            = get_the_ID();
