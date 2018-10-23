@@ -628,7 +628,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 .edd-cart-added-alert {
   position: static;
-  display: block;
+  display: inline-block;
   font-size: 1em;
 }
 
