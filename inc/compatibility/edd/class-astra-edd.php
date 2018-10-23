@@ -539,7 +539,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $css_output ) );
 			// Inline js for EDD Cart updates
-			wp_add_inline_script( 'edd-ajax',
+			wp_add_inline_script(
+				'edd-ajax',
 				"jQuery( document ).ready( function($) {
 					/**
 					 * Astra - Easy Digital Downloads Cart Quantity & Total Amount
