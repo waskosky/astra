@@ -69,7 +69,6 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'image'      => __( 'Image', 'astra' ),
 						'title'      => __( 'Title', 'astra' ),
 						'price'      => __( 'Price', 'astra' ),
-						'ratings'    => __( 'Ratings', 'astra' ),
 						'short_desc' => __( 'Short Description', 'astra' ),
 						'add_cart'   => __( 'Add To Cart', 'astra' ),
 						'category'   => __( 'Category', 'astra' ),
