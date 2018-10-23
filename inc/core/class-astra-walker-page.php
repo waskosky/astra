@@ -15,6 +15,7 @@
  * @package Astra WordPress theme
  */
 if ( ! class_exists( 'Astra_Walker_Page' ) ) {
+
 	/**
 	 * Astra custom navigation walker.
 	 *
@@ -25,7 +26,7 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 		/**
 		 * Outputs the beginning of the current level in the tree before elements are output.
 		 *
-		 * @since 2.1.0
+		 * @since x.x.x
 		 *
 		 * @see Walker::start_lvl()
 		 *
@@ -46,4 +47,5 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 			$output .= "{$n}{$indent}<ul class='children sub-menu'>{$n}";
 		}
 	}
+
 }
