@@ -974,7 +974,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 .edd-checkout #edd_checkout_cart th,
 .edd-checkout #edd_checkout_cart td {
   text-align: right;
-  border: 1px solid #eee;
   padding: 15px 30px;
 }
 
