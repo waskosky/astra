@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Single Post Meta
+				 * Option: EDD Archive Post Meta
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',

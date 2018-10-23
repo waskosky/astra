@@ -88,8 +88,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		function edd_single_post_navigation( $args ) {
 			$is_edd_single_product_page = astra_is_edd_single_product_page();
-			$single_product_navigation  = astra_get_option( 'enable-edd-single-product-nav' );
-			if ( $is_edd_single_product_page && $single_product_navigation ) {
+			$disable_single_product_navigation  = astra_get_option( 'disable-edd-single-product-nav' );
+			if ( $is_edd_single_product_page && ! $disable_single_product_navigation ) {
 				$next_post = get_next_post();
 				$prev_post = get_previous_post();
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 				$args['prev_text'] = $prev_text;
 				$args['next_text'] = $next_text;
-			} elseif ( $is_edd_single_product_page && ! $single_product_navigation ) {
+			} elseif ( $is_edd_single_product_page && $disable_single_product_navigation ) {
 				$args['prev_text'] = false;
 				$args['next_text'] = false;
 			}
@@ -597,7 +597,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			$defaults['edd-archive-width']             = 'default';
 			$defaults['edd-archive-max-width']         = 1200;
-			$defaults['enable-edd-single-product-nav'] = 1;
+			$defaults['disable-edd-single-product-nav'] = false;
 
 			return $defaults;
 		}

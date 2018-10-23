@@ -37,12 +37,12 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 				 * Option: Cart upsells
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[enable-edd-single-product-nav]',
+					'name'     => ASTRA_THEME_SETTINGS . '[disable-edd-single-product-nav]',
 					'section'  => 'section-edd-single',
 					'type'     => 'control',
 					'control'  => 'checkbox',
-					'default'  => astra_get_option( 'enable-edd-single-product-nav' ),
-					'title'    => __( 'Enable Product Navigation', 'astra' ),
+					'default'  => astra_get_option( 'disable-edd-single-product-nav' ),
+					'title'    => __( 'Disable Product Navigation', 'astra' ),
 					'priority' => 10,
 				),
 			);
