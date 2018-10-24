@@ -774,6 +774,13 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   display: block;
 }
 
+/**
+ * Header Cart Icon with shopping cart for responsive devices.
+ */
+.ast-header-break-point .ast-edd-site-header-cart .widget_edd_cart_widget {
+  display: none;
+}
+
 @-webkit-keyframes ast-hide-animate {
   0% {
     opacity: 1;

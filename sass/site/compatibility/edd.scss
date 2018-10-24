@@ -708,6 +708,17 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		}
 	}
 }
+/**
+ * Header Cart Icon with shopping cart for responsive devices.
+ */
+.ast-header-break-point{
+	.ast-edd-site-header-cart{
+		.widget_edd_cart_widget{
+			display: none;
+		}
+	}
+
+}
 
 @keyframes ast-hide-animate {
   0% {
