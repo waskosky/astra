@@ -211,63 +211,81 @@ if ( ! function_exists( 'astra_edd_terms_list' ) ) {
 	}
 }
 
-/**
- * Show EDD archive product title
- *
- * @return void
- */
-add_action( 'astra_edd_archive_title', 'astra_edd_archive_product_title' );
-function astra_edd_archive_product_title() {
-	edd_get_template_part( 'shortcode', 'content-title' );
+if ( ! function_exists( 'astra_edd_archive_product_title' ) ) {
+	/**
+	 * Show EDD archive product title
+	 *
+	 * @return void
+	 */
+	function astra_edd_archive_product_title() {
+		edd_get_template_part( 'shortcode', 'content-title' );
+	}
+
+	add_action( 'astra_edd_archive_title', 'astra_edd_archive_product_title' );
 }
 
-/**
- * Show EDD archive product image
- *
- * @return void
- */
-add_action( 'astra_edd_archive_image', 'astra_edd_archive_product_image' );
-function astra_edd_archive_product_image() {
-	edd_get_template_part( 'shortcode', 'content-image' );
+if ( ! function_exists( 'astra_edd_archive_product_image' ) ) {
+	/**
+	 * Show EDD archive product image
+	 *
+	 * @return void
+	 */
+	function astra_edd_archive_product_image() {
+		edd_get_template_part( 'shortcode', 'content-image' );
+	}
+
+	add_action( 'astra_edd_archive_image', 'astra_edd_archive_product_image' );
 }
 
-/**
- * Show EDD archive product price
- *
- * @return void
- */
-add_action( 'astra_edd_archive_price', 'astra_edd_archive_product_price' );
-function astra_edd_archive_product_price() {
-	edd_get_template_part( 'shortcode', 'content-price' );
+if ( ! function_exists( 'astra_edd_archive_product_price' ) ) {
+	/**
+	 * Show EDD archive product price
+	 *
+	 * @return void
+	 */
+	function astra_edd_archive_product_price() {
+		edd_get_template_part( 'shortcode', 'content-price' );
+	}
+
+	add_action( 'astra_edd_archive_price', 'astra_edd_archive_product_price' );
 }
 
-/**
- * Show EDD archive product description
- *
- * @return void
- */
-add_action( 'astra_edd_archive_short_description', 'astra_edd_archive_product_short_description' );
-function astra_edd_archive_product_short_description() {
-	edd_get_template_part( 'shortcode', 'content-excerpt' );
+if ( ! function_exists( 'astra_edd_archive_product_short_description' ) ) {
+	/**
+	 * Show EDD archive product description
+	 *
+	 * @return void
+	 */
+	function astra_edd_archive_product_short_description() {
+		edd_get_template_part( 'shortcode', 'content-excerpt' );
+	}
+
+	add_action( 'astra_edd_archive_short_description', 'astra_edd_archive_product_short_description' );
 }
 
-/**
- * Show EDD archive product add to cart
- *
- * @return void
- */
-add_action( 'astra_edd_archive_add_to_cart', 'astra_edd_archive_product_add_to_cart' );
-function astra_edd_archive_product_add_to_cart() {
-	edd_get_template_part( 'shortcode', 'content-cart-button' );
+if ( ! function_exists( 'astra_edd_archive_product_add_to_cart' ) ) {
+	/**
+	 * Show EDD archive product add to cart
+	 *
+	 * @return void
+	 */
+	function astra_edd_archive_product_add_to_cart() {
+		edd_get_template_part( 'shortcode', 'content-cart-button' );
+	}
+
+	add_action( 'astra_edd_archive_add_to_cart', 'astra_edd_archive_product_add_to_cart' );
 }
 
 
-/**
- * Show EDD archive product category
- *
- * @return void
- */
-add_action( 'astra_edd_archive_category', 'astra_edd_archive_product_category' );
-function astra_edd_archive_product_category() {
-	echo astra_edd_terms_list( 'download_category' );
+if ( ! function_exists( 'astra_edd_archive_product_category' ) ) {
+	/**
+	 * Show EDD archive product category
+	 *
+	 * @return void
+	 */
+	function astra_edd_archive_product_category() {
+		echo astra_edd_terms_list( 'download_category' );
+	}
+
+	add_action( 'astra_edd_archive_category', 'astra_edd_archive_product_category' );
 }

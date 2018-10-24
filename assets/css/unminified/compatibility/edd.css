@@ -862,6 +862,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   display: inline-block;
 }
 
+/* Site Header Cart Icon & Widget */
 .ast-edd-site-header-cart .widget_edd_cart_widget p.buttons, .ast-edd-site-header-cart .widget_edd_cart_widget p.total, .ast-edd-site-header-cart .widget_edd_cart_widget p.buttons, .ast-edd-site-header-cart .widget_edd_cart_widget p.total {
   padding: 1em 1.5em;
   margin: 0;
