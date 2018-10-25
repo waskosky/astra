@@ -297,12 +297,14 @@
 }
 
 .ast-edd-archive-block-wrap .edd_price,
-.edd_downloads_list .edd_price {
+.ast-edd-archive-block-wrap .edd_price_options,
+.edd_downloads_list .edd_price,
+.edd_downloads_list .edd_price_options {
   line-height: 1.3;
   margin-bottom: 0;
   font-weight: 700;
   margin-bottom: .5em;
-  font-size: .9em;
+  font-size: .9rem;
 }
 
 .ast-edd-archive-block-wrap .edd-add-to-cart,
@@ -327,6 +329,11 @@
   display: block;
   line-height: 1.3;
   opacity: .6;
+}
+
+/* EDD Purchase form  */
+.edd_download_purchase_form .edd_purchase_submit_wrapper {
+  margin: 10px auto;
 }
 
 /* EDD Shortcodes */
