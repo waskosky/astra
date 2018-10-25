@@ -826,6 +826,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   /* Product list remove link*/
 }
 
+.widget_edd_cart_widget .edd-cart-item {
+  border-bottom: 1px solid #e2e2e2;
+}
+
 .widget_edd_cart_widget .edd-cart-number-of-items {
   margin-bottom: 0;
   padding-bottom: .5em;
@@ -854,7 +858,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 .widget_edd_cart_widget .edd-cart-meta {
-  border-top: 1px solid #e2e2e2;
   border-bottom: 1px solid #e2e2e2;
 }
 
