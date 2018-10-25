@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 1.5.4
  */
 
 /**
@@ -19,14 +19,14 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 	/**
 	 * Astra custom navigation walker.
 	 *
-	 * @since x.x.x
+	 * @since 1.5.4
 	 */
 	class Astra_Walker_Page extends Walker_Page {
 
 		/**
 		 * Outputs the beginning of the current level in the tree before elements are output.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.4
 		 *
 		 * @see Walker::start_lvl()
 		 *
