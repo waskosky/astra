@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '1.5.3' );
+define( 'ASTRA_THEME_VERSION', '1.5.4' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -39,6 +39,7 @@ if ( is_admin() ) {
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 
 require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
