@@ -1175,3 +1175,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   padding: 0;
   margin: 0;
 }
+
+.ast-page-builder-template.ast-edd-archive-page .site-content > .ast-container {
+  max-width: 100%;
+}
