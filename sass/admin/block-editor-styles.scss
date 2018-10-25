@@ -6,101 +6,97 @@ html {
     font-size: 93.75%;
 }
 
-.block-editor-page {
+#wpwrap {
+    .edit-post-visual-editor {
 
-    #wpwrap {
-        .edit-post-visual-editor {
+        // Import CSS for the headings in the block editor.
+        @import "../variables-site/variables-site";
+        @import "../elements/elements";
 
-            // Import CSS for the headings in the block editor.
-            @import "../variables-site/variables-site";
-            @import "../elements/elements";
+        @import "../site/mixins/mixins-master";
+        @import "../site/variables-site/colors";
+        @import "../site/variables-site/structure";
+        @import "../site/variables-site/typography";
+        @import "../site/site-normalize/site-normalize.scss";
 
-            @import "../site/mixins/mixins-master";
-            @import "../site/variables-site/colors";
-            @import "../site/variables-site/structure";
-            @import "../site/variables-site/typography";
-            @import "../site/site-normalize/site-normalize.scss";
+        @import "../typography/headings";
 
-            @import "../typography/headings";
+        p,
+        .editor-block-list__block p {
+            font-family: $font-family;
+            font-weight: inherit;
+            font-size: 15px;
+            font-size: 1rem;
+        }
 
-            p,
-            .editor-block-list__block p {
+        .editor-post-title__block {
+            .editor-post-title__input {
+                font-size: 30px;
+                font-size: 2rem;
                 font-family: $font-family;
-                font-weight: inherit;
-                font-size: 15px;
-                font-size: 1rem;
+                font-weight: normal;
             }
+        }
 
-            .editor-post-title__block {
-                .editor-post-title__input {
-                    font-size: 30px;
-                    font-size: 2rem;
-                    font-family: $font-family;
-                    font-weight: normal;
-                }
-            }
+        .editor-block-list__block {
+            font-family: $font-family;
+        }
 
-            .editor-block-list__block {
-                font-family: $font-family;
-            }
+        .editor-post-title__block,
+        .editor-default-block-appender,
+        .editor-block-list__block {
+            max-width: 1200px;
+        }
 
-            .editor-post-title__block,
-            .editor-default-block-appender,
-            .editor-block-list__block {
-                max-width: 1200px;
-            }
+        .editor-block-list__block[data-align=full] {
+            max-width: none;
+        }
 
-            .editor-block-list__block[data-align=full] {
-                max-width: none;
-            }
+        .editor-block-list__block[data-align=wide] {
+            max-width: 1400px;
+        }
 
-            .editor-block-list__block[data-align=wide] {
-                max-width: 1400px;
-            }
+        // Custom block stylings.
+        .wp-block-latest-posts.is-grid {
+            list-style: none;
+        }
 
-            // Custom block stylings.
-            .wp-block-latest-posts.is-grid {
-                list-style: none;
-            }
+        .wp-block-gallery {
+            margin: 0;
 
-            .wp-block-gallery {
-                margin: 0;
-
-                &.is-cropped {
-                    .blocks-gallery-item {
-                        img {
-                            height: 100%;
-                        }
-                    }
-                }
-            }
-            .wp-block-latest-posts {
-                margin-left: 0;
-                li {
-                    list-style: none;
-                }
-            }
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6{
-                font-weight: inherit;
-            }
-
-            .mce-widget i {
-                font-style: normal;
-            }
-            .editor-block-list__block{
-                blockquote{
-                    p{
-                        font-size: 1.1rem;
-                        line-height: $line-height;
+            &.is-cropped {
+                .blocks-gallery-item {
+                    img {
+                        height: 100%;
                     }
                 }
             }
         }
-    }
+        .wp-block-latest-posts {
+            margin-left: 0;
+            li {
+                list-style: none;
+            }
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6{
+            font-weight: inherit;
+        }
 
+        .mce-widget i {
+            font-style: normal;
+        }
+        .editor-block-list__block{
+            blockquote{
+                p{
+                    font-size: 1.1rem;
+                    line-height: $line-height;
+                }
+            }
+        }
+    }
 }
