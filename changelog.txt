@@ -1,5 +1,5 @@
 v1.5.4
-- Fix: Gutenberg Compatibility with WP 5.0-Beta.1
+- Fix: Gutenberg Compatibility with WP 5.0-Beta.1. A few class names are changed after Gutenberg is merged to WordPress Core, This version takes these changes into account for the Gutenberg compatibility CSS.
 - Fix: Submenu CSS not correctly applied for the default menu when no navigation menu is assigned to primary menu location.
 
 v1.5.3
