@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -163,7 +163,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
 						'side',                                 // Context.
-						'default'                               // Priority.
+						'default',                               // Priority.
+						array( '__back_compat_meta_box' => true )
 					);
 				}
 			}
@@ -206,7 +207,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 
-			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
