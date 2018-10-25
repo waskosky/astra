@@ -973,7 +973,28 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   display: block;
 }
 
+/* EDD Table*/
+.edd-table th {
+  background: #fafafa;
+  font-weight: bold;
+}
+
+.edd-table th,
+.edd-table td {
+  text-align: right;
+  padding: 10px 20px;
+}
+
+.edd-table ul {
+  margin-right: 1em;
+  margin-bottom: 0;
+}
+
 /* EDD Checkout page*/
+.edd-checkout #edd_checkout_cart {
+  margin-bottom: 2em;
+}
+
 .edd-checkout #edd_checkout_cart .edd_cart_header_row th {
   background: #fafafa;
   font-weight: bold;
@@ -997,12 +1018,82 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   width: 100%;
 }
 
+.edd-checkout #edd_checkout_wrap #edd_purchase_form {
+  border: 1px solid #eaeaea;
+}
+
+.edd-checkout #edd_checkout_wrap legend {
+  font-size: 24px;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #eaeaea;
+  background: #fafafa;
+  font-weight: bold;
+  padding: 15px 30px;
+  margin: 0;
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.edd-checkout #edd_checkout_wrap p {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.edd-checkout #edd_checkout_wrap fieldset {
+  padding: 0;
+  border: 0;
+}
+
+.edd-checkout #edd_checkout_wrap fieldset > p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.edd-checkout #edd_checkout_wrap fieldset .edd-privacy-policy-agreement {
+  padding: 5px 30px;
+  margin-bottom: 5px;
+}
+
+/* EDD Success page*/
+.edd-success .entry-content > h3 {
+  font-size: 24px;
+  font-size: 1.6rem;
+  background: #fafafa;
+  font-weight: bold;
+  padding: 15px 30px;
+  margin: 0;
+  display: block;
+  width: 100%;
+  border-width: 1px 1px 0 1px;
+  position: relative;
+  border-style: solid;
+  border-color: #e5e5e5;
+}
+
+/* EDD Purchase Confirmation */
+#edd_purchase_receipt + h3 {
+  font-size: 24px;
+  font-size: 1.6rem;
+  background: #fafafa;
+  font-weight: bold;
+  padding: 15px 30px;
+  margin: 0;
+  display: block;
+  width: 100%;
+  border-width: 1px 1px 0 1px;
+  position: relative;
+  border-style: solid;
+  border-color: #e5e5e5;
+}
+
 /* EDD Notices */
 /* Alert Styles */
 .edd-alert {
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 10px;
   border: 1px solid transparent;
   vertical-align: middle;
