@@ -1012,7 +1012,17 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	}
 }
 
-
+/* EDD License manager */
+.edd_sl_form {
+	> div{
+		border: 1px solid #e5e5e5;
+		padding: 10px 20px;
+		> span {
+			display: block;
+			margin-bottom: 10px;
+		}
+	} 
+} 
 
 
 /* EDD Notices */
