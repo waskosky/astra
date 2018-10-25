@@ -163,8 +163,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
 						'side',                                 // Context.
-						'default',                               // Priority.
-						array( '__back_compat_meta_box' => true )
+						'default'                               // Priority.
 					);
 				}
 			}
