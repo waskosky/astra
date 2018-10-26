@@ -54,7 +54,8 @@
 }
 
 /* Edd Archive Products grid layout */
-.ast-edd-archive-article {
+.ast-edd-archive-article,
+.ast-page-builder-template .ast-edd-archive-article {
   padding: 0;
   float: left;
   margin: 0 20px 2.992em 0;

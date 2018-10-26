@@ -426,7 +426,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'color' => esc_attr( $link_color ),
 				),
 
-				'.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a' => array(
+				'.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
