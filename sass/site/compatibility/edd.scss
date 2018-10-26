@@ -976,9 +976,19 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 				padding-bottom: 5px;
 				margin-bottom: 5px;
 			}
-			.edd-privacy-policy-agreement{
+			> div{
 				padding: 5px 30px;
 				margin-bottom: 5px;
+			}
+		}
+
+		#edd_discount_code {
+			border: 1px solid #eaeaea;
+			margin-bottom: 2em;
+			padding-top: .5em;
+			padding-bottom: .5em;
+			p{
+				margin-bottom: 0;
 			}
 		}
 	}

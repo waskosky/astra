@@ -1063,9 +1063,20 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   margin-bottom: 5px;
 }
 
-.edd-checkout #edd_checkout_wrap fieldset .edd-privacy-policy-agreement {
+.edd-checkout #edd_checkout_wrap fieldset > div {
   padding: 5px 30px;
   margin-bottom: 5px;
+}
+
+.edd-checkout #edd_checkout_wrap #edd_discount_code {
+  border: 1px solid #eaeaea;
+  margin-bottom: 2em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.edd-checkout #edd_checkout_wrap #edd_discount_code p {
+  margin-bottom: 0;
 }
 
 /* EDD Success page*/
