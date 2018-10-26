@@ -401,16 +401,44 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$cart_h_color = astra_get_foreground_color( $link_h_color );
 
 			$css_output = array(
+				/**
+				 * Cart in menu
+				 */
+				'.ast-edd-site-header-cart a'          => array(
+					'color' => esc_attr( $text_color ),
+				),
+
+				'.ast-edd-site-header-cart a:focus, .ast-edd-site-header-cart a:hover, .ast-edd-site-header-cart .current-menu-item a' => array(
+					'color' => esc_attr( $link_color ),
+				),
+
+				'.ast-edd-cart-menu-wrap .count, .ast-edd-cart-menu-wrap .count:after' => array(
+					'border-color' => esc_attr( $link_color ),
+					'color'        => esc_attr( $link_color ),
+				),
+
+				'.ast-edd-cart-menu-wrap:hover .count' => array(
+					'color'            => esc_attr( $cart_h_color ),
+					'background-color' => esc_attr( $link_color ),
+				),
+
 				'.ast-edd-site-header-cart .widget_edd_cart_widget .cart-total' => array(
 					'color' => esc_attr( $link_color ),
 				),
-				/**
-				 * Checkout button color for widget
-				 */
-				'.widget_edd_cart_widget .edd_checkout a' => array(
+
+				'.ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a' => array(
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
+				),
+				'.site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a, .site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a:hover' => array(
+					'color' => $btn_color,
+				),
+				'.below-header-user-select .ast-edd-site-header-cart .widget, .ast-above-header-section .ast-edd-site-header-cart .widget a, .below-header-user-select .ast-edd-site-header-cart .widget_edd_cart_widget a' => array(
+					'color' => $text_color,
+				),
+				'.below-header-user-select .ast-edd-site-header-cart .widget_edd_cart_widget a:hover, .ast-above-header-section .ast-edd-site-header-cart .widget_edd_cart_widget a:hover, .below-header-user-select .ast-edd-site-header-cart .widget_edd_cart_widget a.remove:hover, .ast-above-header-section .ast-edd-site-header-cart .widget_edd_cart_widget a.remove:hover' => array(
+					'color' => esc_attr( $link_color ),
 				),
 			);
 
