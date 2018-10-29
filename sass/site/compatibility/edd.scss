@@ -899,6 +899,8 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 /* EDD form*/
 .edd_form{
+	border: 1px solid #eaeaea;
+
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
@@ -921,6 +923,36 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	.edd-description {
 		margin-bottom: 5px;
 		display: block;
+	}
+
+	legend {
+		font-size: 24px;
+		font-size: 1.6rem;
+		border-bottom: 1px solid #eaeaea;
+		background: #fafafa;
+		font-weight: bold;
+		padding: 15px 30px;
+		margin: 0;
+		display: block;
+		width: 100%;
+		position: relative;
+	}
+	p{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	fieldset {
+		padding: 0 0 1em;
+		border: 0;
+		> p{
+			padding-top: 5px;
+			padding-bottom: 5px;
+			margin-bottom: 5px;
+		}
+		> div{
+			padding: 5px 30px;
+			margin-bottom: 5px;
+		}
 	}
 
 }
