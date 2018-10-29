@@ -68,6 +68,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_styles' ) );
 
 			add_action( 'wp', array( $this, 'edd_initialization' ) );
+			add_action( 'init', array( $this, 'edd_set_defaults_initialization' ) );
 
 			// Add Cart option in dropdown.
 			add_filter( 'astra_header_section_elements', array( $this, 'header_section_elements' ) );
@@ -76,23 +77,26 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
 
 			add_filter( 'astra_single_post_navigation', array( $this, 'edd_single_post_navigation' ) );
-
-			add_filter( 'edd_get_option_disable_styles', array( $this, 'edd_default_styling' ) );
 		}
 
 		/**
-		 * Disable Style added by EDD
+		 * Disable EDD style only for the first time
 		 *
-		 * @param bool $bool Disable styling from edd.
-		 *
-		 * @return bool $bool true | false the edd styling.
+		 * @return void
 		 */
-		function edd_default_styling( $bool ) {
-			$default_styling = apply_filters( 'astra_edd_default_styling_enabled', true );
-			if ( $default_styling ) {
-				$bool = true;
+		function edd_set_defaults_initialization() {
+
+			$astra_theme_options = get_option( 'astra-settings' );
+			$edd_settings        = get_option( 'edd_settings' );
+
+			// Set flag to set the EDD style disable only once for the very first time.
+			if ( ! isset( $astra_theme_options['ast-edd-disable-styles'] ) ) {
+				$astra_theme_options['ast-edd-disable-styles'] = true;
+				$edd_settings['disable_styles']                = true;
+				update_option( 'astra-settings', $astra_theme_options );
+				update_option( 'edd_settings', $edd_settings );
 			}
-			return $bool;
+
 		}
 
 		/**
