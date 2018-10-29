@@ -278,6 +278,15 @@
 }
 
 
+/* Edd Single and Checkout commom Download product */
+.single-download,
+.edd-checkout{
+	.edd-item-quantity {
+		padding: .5em .5em;
+	}
+}
+
+
 /* Edd Archive products strucutre */
 .ast-edd-archive-block-wrap,
 .edd_downloads_list{
@@ -312,6 +321,15 @@
 	.edd_download_excerpt{
 		p{
 			margin-bottom: .5em;	
+		}
+	}
+	.edd_download_quantity_wrapper{
+		.edd-item-quantity {
+			padding: .5em .5em;
+			max-width: 60px;
+		}
+		+ .edd_purchase_submit_wrapper {
+			margin-top: 0;
 		}
 	}
 }
@@ -950,6 +968,9 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	}
 
 	#edd_checkout_wrap {
+		.edd_cart_remove_item_btn {
+			margin-left: 1em;
+		}
 		#edd_purchase_form{
 			border: 1px solid #eaeaea;
 		}
@@ -1094,9 +1115,11 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	list-style: none;
 }
 .edd_download_purchase_form .edd_price_options li {
-	display: block;
-	padding: 0;
+	display: flex;
+	padding: 5px 0 0;
 	margin: 0;
+	align-items: center;
+	align-self: center;
 }
 .edd_download_purchase_form .edd_price_options span {
 	display: inline;
