@@ -310,8 +310,10 @@
 
 .ast-edd-archive-block-wrap .edd-add-to-cart,
 .ast-edd-archive-block-wrap .edd_go_to_checkout,
+.ast-edd-archive-block-wrap .ast-edd-variable-btn,
 .edd_downloads_list .edd-add-to-cart,
-.edd_downloads_list .edd_go_to_checkout {
+.edd_downloads_list .edd_go_to_checkout,
+.edd_downloads_list .ast-edd-variable-btn {
   margin-top: .5em;
   margin-bottom: .5em;
   white-space: normal;

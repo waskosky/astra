@@ -127,7 +127,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		function edd_initialization() {
 			$is_edd_archive_page        = astra_is_edd_archive_page();
 			$is_edd_single_product_page = astra_is_edd_single_product_page();
-			$is_checkout = edd_is_checkout();
+			$is_checkout                = edd_is_checkout();
 
 			if ( $is_edd_archive_page ) {
 				add_action( 'astra_template_parts_content', array( $this, 'edd_content_loop' ) );
@@ -532,6 +532,10 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				'price',
 				'add_cart',
 			);
+
+			$defaults['edd-archive-add-to-cart-button-text'] = __( 'Add To Cart', 'astra' );
+			$defaults['edd-archive-variable-button']         = 'button';
+			$defaults['edd-archive-variable-button-text']    = __( 'View Details', 'astra' );
 
 			$defaults['edd-archive-width']              = 'default';
 			$defaults['edd-archive-max-width']          = 1200;

@@ -76,6 +76,52 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Add to Cart button text
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text]',
+					'type'     => 'control',
+					'control'  => 'text',
+					'section'  => 'section-edd-archive',
+					'default'  => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
+					'priority' => 31,
+					'title'    => __( 'Cart Button Text', 'astra' ),
+				),
+
+				/**
+				 * Option: Variable product button
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-edd-archive',
+					'default'  => astra_get_option( 'edd-archive-variable-button' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
+					'priority' => 31,
+					'title'    => __( 'Variable Product Button', 'astra' ),
+					'choices'  => array(
+						'button'  => __( 'Button', 'astra' ),
+						'options' => __( 'Options', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Variable product button text
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button-text]',
+					'type'     => 'control',
+					'control'  => 'text',
+					'section'  => 'section-edd-archive',
+					'default'  => astra_get_option( 'edd-archive-variable-button-text' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]', '==', 'button' ),
+					'priority' => 31,
+					'title'    => __( 'Variable Product Button Text', 'astra' ),
+				),
+
+				/**
 				 * Option: Easy Digital Downloads Shop Archive Content Divider
 				 */
 				array(

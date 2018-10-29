@@ -270,7 +270,7 @@ if ( ! function_exists( 'astra_edd_archive_product_add_to_cart' ) ) {
 	 * @return void
 	 */
 	function astra_edd_archive_product_add_to_cart() {
-		edd_get_template_part( 'shortcode', 'content-cart-button' );
+		echo astra_edd_cart_button_markup();
 	}
 
 	add_action( 'astra_edd_archive_add_to_cart', 'astra_edd_archive_product_add_to_cart' );
@@ -288,4 +288,33 @@ if ( ! function_exists( 'astra_edd_archive_product_category' ) ) {
 	}
 
 	add_action( 'astra_edd_archive_category', 'astra_edd_archive_product_category' );
+}
+
+
+/**
+ * EDD archive page Cart button markup
+ *
+ * @return array $output Add to cart button markup
+ */
+function astra_edd_cart_button_markup() {
+	$variable_button      = astra_get_option( 'edd-archive-variable-button' );
+	$add_to_cart_text     = astra_get_option( 'edd-archive-add-to-cart-button-text' );
+	$variable_button_text = astra_get_option( 'edd-archive-variable-button-text' );
+	$output               = edd_get_purchase_link();
+	if ( edd_has_variable_prices( get_the_ID() ) && 'button' == $variable_button ) {
+		$output  = '<div class="ast-edd-variable-details-button-wrap">';
+		$output .= '<a class="button ast-edd-variable-btn" href="' . esc_url( get_permalink() ) . '">' . esc_html( $variable_button_text ) . '</a>';
+		$output .= '</div>';
+	} else {
+		if ( ! empty( $add_to_cart_text ) ) {
+			$output = edd_get_purchase_link(
+				array(
+					'price' => false,
+					'text'  => esc_html( $add_to_cart_text ),
+				)
+			);
+		}
+	}
+
+	return $output;
 }
