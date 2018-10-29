@@ -77,6 +77,22 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			add_filter( 'astra_single_post_navigation', array( $this, 'edd_single_post_navigation' ) );
 
+			add_filter( 'edd_get_option_disable_styles', array( $this, 'edd_default_styling' ) );
+		}
+
+		/**
+		 * Disable Style added by EDD
+		 *
+		 * @param bool $bool Disable styling from edd.
+		 *
+		 * @return bool $bool true | false the edd styling.
+		 */
+		function edd_default_styling( $bool ) {
+			$default_styling = apply_filters( 'astra_edd_default_styling_enabled', true );
+			if ( $default_styling ) {
+				$bool = true;
+			}
+			return $bool;
 		}
 
 		/**
