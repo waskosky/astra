@@ -1150,8 +1150,13 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 .edd-checkout #edd_checkout_cart th,
 .edd-checkout #edd_checkout_cart td {
-  text-align: right;
   padding: 15px 30px;
+}
+
+.edd-checkout #edd_checkout_cart th.edd_cart_total, .edd-checkout #edd_checkout_cart th.edd_cart_actions,
+.edd-checkout #edd_checkout_cart td.edd_cart_total,
+.edd-checkout #edd_checkout_cart td.edd_cart_actions {
+  text-align: left;
 }
 
 .edd-checkout #edd_checkout_cart td img {

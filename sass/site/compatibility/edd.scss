@@ -1029,8 +1029,11 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		}
 		th,
 		td {
-			text-align: left;
 			padding: 15px 30px;
+			&.edd_cart_total,
+			&.edd_cart_actions{
+				text-align: right;
+			}
 		}
 		td img {
 			float: left;
