@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * edd.scss
  * Governs the general look and feel of Easy Digital Downloads sections of stores using themes that do not
@@ -802,6 +803,11 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   font-weight: 700;
 }
 
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-remove-from-cart:after {
+  font-weight: normal;
+  padding-bottom: 0;
+}
+
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
@@ -856,6 +862,8 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 .widget_edd_cart_widget .edd-cart-item {
   border-bottom: 1px solid #e2e2e2;
+  padding: .5em 2.6em .5em 1.5em;
+  position: relative;
 }
 
 .widget_edd_cart_widget .edd-cart-number-of-items {
@@ -879,10 +887,62 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 .widget_edd_cart_widget .edd-remove-from-cart {
-  float: right;
-  text-transform: capitalize;
-  font-size: .8em;
-  font-weight: normal;
+  position: absolute;
+  visibility: hidden;
+  right: 1.2em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.widget_edd_cart_widget .edd-remove-from-cart:after {
+  content: '×';
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #ccc;
+  visibility: visible;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font-weight: 700;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  padding-bottom: 2px;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
 }
 
 .widget_edd_cart_widget .edd-cart-meta {

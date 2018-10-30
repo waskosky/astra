@@ -468,6 +468,11 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				'.below-header-user-select .ast-edd-site-header-cart .widget_edd_cart_widget a:hover, .ast-above-header-section .ast-edd-site-header-cart .widget_edd_cart_widget a:hover, .below-header-user-select .ast-edd-site-header-cart .widget_edd_cart_widget a.remove:hover, .ast-above-header-section .ast-edd-site-header-cart .widget_edd_cart_widget a.remove:hover' => array(
 					'color' => esc_attr( $link_color ),
 				),
+				'.widget_edd_cart_widget a.edd-remove-from-cart:hover:after' => array(
+					'color'            => esc_attr( $link_color ),
+					'border-color'     => esc_attr( $link_color ),
+					'background-color' => esc_attr( '#ffffff' ),
+				),
 			);
 
 			/* Parse CSS from array() */
