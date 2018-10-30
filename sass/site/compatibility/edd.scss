@@ -1235,22 +1235,30 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 /* =Purchase buttons
 -------------------------------------------------------------- */
-.edd_download_purchase_form .edd_price_options ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.edd_download_purchase_form .edd_price_options li {
-	display: flex;
-	padding: 5px 0 0;
-	margin: 0;
-	align-items: center;
-	align-self: center;
-}
-.edd_download_purchase_form .edd_price_options span {
-	display: inline;
-	padding: 0;
-	margin: 0;
+.edd_download_purchase_form{
+	.edd_price_options{
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li {
+			display: flex;
+			padding: 5px 0 0;
+			margin: 0;
+			align-items: center;
+			align-self: center;
+			label,
+			.edd_download_quantity_wrapper{
+				flex: auto;
+			}
+		}
+		span {
+			display: inline;
+			padding: 0;
+			margin: 0;
+		}
+	}
 }
 
 

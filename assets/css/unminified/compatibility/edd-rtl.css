@@ -1392,6 +1392,15 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   align-self: center;
 }
 
+.edd_download_purchase_form .edd_price_options li label,
+.edd_download_purchase_form .edd_price_options li .edd_download_quantity_wrapper {
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  -moz-box-flex: 1;
+  -ms-flex: auto;
+  flex: auto;
+}
+
 .edd_download_purchase_form .edd_price_options span {
   display: inline;
   padding: 0;
