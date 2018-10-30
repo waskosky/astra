@@ -734,7 +734,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 .ast-edd-site-header-cart .widget_edd_cart_widget .edd-cart-item {
-  padding: .5em 1.5em;
+  padding: .5em 1.5em .5em 2.6em;
   /* remove the product from list */
 }
 
@@ -794,6 +794,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 .ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout {
   padding: 1em 1.5em 0;
   text-align: center;
+  margin-top: 0;
 }
 
 .ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a {
@@ -801,6 +802,11 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   width: 100%;
   display: block;
   font-weight: 700;
+  line-height: 1;
+}
+
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-remove-from-cart {
+  left: 1.2em;
 }
 
 .ast-edd-site-header-cart .widget_edd_cart_widget .edd-remove-from-cart:after {
@@ -862,7 +868,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 .widget_edd_cart_widget .edd-cart-item {
   border-bottom: 1px solid #e2e2e2;
-  padding: .5em 1.5em .5em 2.6em;
+  padding: .5em 0 .5em 1.6em;
   position: relative;
 }
 
@@ -870,6 +876,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   margin-bottom: 0;
   padding-bottom: .5em;
   border-bottom: 1px solid #e2e2e2;
+  font-weight: 700;
 }
 
 .widget_edd_cart_widget .edd-cart-item-separator {
@@ -889,7 +896,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 .widget_edd_cart_widget .edd-remove-from-cart {
   position: absolute;
   visibility: hidden;
-  left: 1.2em;
+  left: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -949,15 +956,26 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   border-bottom: 1px solid #e2e2e2;
 }
 
+.widget_edd_cart_widget .edd_total {
+  padding: 0 0 5px;
+  font-weight: 700;
+}
+
+.widget_edd_cart_widget .edd_total .cart-total {
+  font-weight: 400;
+}
+
 .widget_edd_cart_widget .edd_checkout {
+  margin-top: 1em;
   padding: 0;
 }
 
 .widget_edd_cart_widget .edd_checkout a {
   margin-left: 0;
   margin-right: 0;
-  padding: 5px 40px;
+  padding: 10px 40px;
   display: inline-block;
+  line-height: 1;
 }
 
 /* Site Header Cart Icon & Widget */

@@ -675,7 +675,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		visibility: hidden;
 		
 		.edd-cart-item{
-			padding: .5em 1.5em;
+			padding: .5em 2.6em .5em 1.5em;
 			/* remove the product from list */
 			&.focus{
 				animation: ast-hide-animate 1s linear;
@@ -726,16 +726,21 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		.edd_checkout {
 			padding:1em 1.5em 0;
 			text-align: center;
+			margin-top: 0;
 			a{
 				padding: 10px 40px;
 				width: 100%;
 				display: block;
 				font-weight: 700;
+				line-height: 1;
 			}
 		}
-		.edd-remove-from-cart:after{
-			font-weight: normal;
-			padding-bottom: 0;
+		.edd-remove-from-cart{
+			right: 1.2em;
+			&:after{
+				font-weight: normal;
+				padding-bottom: 0;
+			}
 		}
 	}
 }
@@ -786,13 +791,14 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 .widget_edd_cart_widget{
 	.edd-cart-item{
 		border-bottom: 1px solid #e2e2e2;
-		padding: .5em 2.6em .5em 1.5em;
+		padding: .5em 1.6em .5em 0;
 		position: relative;
 	}
 	.edd-cart-number-of-items {
 		margin-bottom: 0;
 		padding-bottom: .5em;
 		border-bottom: 1px solid #e2e2e2;
+		font-weight: 700;
 	}
 	/* Product list separator*/
 	.edd-cart-item-separator {
@@ -812,7 +818,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	.edd-remove-from-cart{
 		position: absolute;
 		visibility: hidden;
-		right: 1.2em;
+		right: 0;
 		top: 50%;
 		transform: translateY(-50%);
 		display: flex;
@@ -839,13 +845,22 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	.edd-cart-meta{
 		border-bottom: 1px solid #e2e2e2;
 	}
+	.edd_total{
+		padding: 0 0 5px;
+		font-weight: 700;
+		.cart-total {
+			font-weight: 400;
+		}
+	}
 	.edd_checkout {
+		margin-top: 1em;
 		padding:0;
 		a{
 			margin-right: 0;
 			margin-left: 0;
-			padding: 5px 40px;
+			padding: 10px 40px;
 			display: inline-block;
+			line-height: 1;
 		}
 	}
 }
