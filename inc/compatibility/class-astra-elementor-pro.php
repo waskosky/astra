@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -187,6 +187,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			// Override! Sidebar.
 			$sidebar = get_post_meta( $post_id, 'site-sidebar-layout', true );
+			if ( '' === $sidebar ) {
+				$sidebar = 'default';
+			}
+
 			if ( 'default' !== $sidebar ) {
 				add_filter(
 					'astra_page_layout',
@@ -198,6 +202,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			// Override! Content Layout.
 			$content_layout = get_post_meta( $post_id, 'site-content-layout', true );
+			if ( '' === $content_layout ) {
+				$content_layout = 'default';
+			}
+
 			if ( 'default' !== $content_layout ) {
 				add_filter(
 					'astra_get_content_layout',
@@ -209,6 +217,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			// Override! Footer Bar.
 			$footer_layout = get_post_meta( $post_id, 'footer-sml-layout', true );
+			if ( '' === $footer_layout ) {
+				$footer_layout = 'default';
+			}
+
 			if ( 'disabled' === $footer_layout ) {
 				add_filter(
 					'ast_footer_sml_layout',
@@ -220,6 +232,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			// Override! Footer Widgets.
 			$footer_widgets = get_post_meta( $post_id, 'footer-adv-display', true );
+			if ( '' === $footer_widgets ) {
+				$footer_widgets = 'default';
+			}
+
 			if ( 'disabled' === $footer_widgets ) {
 				add_filter(
 					'astra_advanced_footer_disable',
@@ -231,6 +247,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			// Override! Header.
 			$main_header_display = get_post_meta( $post_id, 'ast-main-header-display', true );
+			if ( '' === $main_header_display ) {
+				$main_header_display = 'default';
+			}
+
 			if ( 'disabled' === $main_header_display ) {
 				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
 				add_filter(
