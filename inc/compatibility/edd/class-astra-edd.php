@@ -147,7 +147,6 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		function edd_initialization() {
 			$is_edd_archive_page        = astra_is_edd_archive_page();
 			$is_edd_single_product_page = astra_is_edd_single_product_page();
-			$is_checkout                = edd_is_checkout();
 
 			if ( $is_edd_archive_page ) {
 				add_action( 'astra_template_parts_content', array( $this, 'edd_content_loop' ) );
@@ -166,12 +165,6 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 				add_action( 'astra_template_parts_content', array( $this, 'edd_single_template' ) );
 
-			}
-			if ( $is_checkout ) {
-				remove_action( 'edd_checkout_form_top', 'edd_discount_field', -1 );
-				remove_action( 'edd_checkout_form_top', 'edd_agree_to_terms_js' );
-				add_action( 'edd_before_purchase_form', 'edd_discount_field', -1 );
-				add_action( 'edd_before_purchase_form', 'edd_agree_to_terms_js' );
 			}
 		}
 

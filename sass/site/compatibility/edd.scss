@@ -926,7 +926,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 /* EDD form*/
 .edd_form{
-	border: 1px solid #eaeaea;
 
 	input[type="text"],
 	input[type="password"],
@@ -945,6 +944,14 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	select,
 	textarea{
 		width: 100%;
+	}
+	input[type="radio"] {
+		border: none;
+		margin-right: 5px;
+	}
+	.edd-select.edd-select-small {
+		display: inline;
+		width: auto;
 	}
 	
 	.edd-description {
@@ -974,10 +981,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		> p{
 			padding-top: 5px;
 			padding-bottom: 5px;
-			margin-bottom: 5px;
-		}
-		> div{
-			padding: 5px 30px;
 			margin-bottom: 5px;
 		}
 	}
@@ -1022,16 +1025,13 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			border: none;
 		}
 	}
-	#edd-purchase-button{
-		width: 100%;
-	}
 
 	#edd_checkout_wrap {
 		.edd_cart_remove_item_btn {
 			margin-left: 1em;
 		}
 		#edd_purchase_form{
-			border: 1px solid #eaeaea;
+			border: 0;
 		}
 		legend {
 			font-size: 24px;
@@ -1040,10 +1040,11 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			background: #fafafa;
 			font-weight: bold;
 			padding: 15px 30px;
-			margin: 0;
 			display: block;
 			width: 100%;
+			float: left;
 			position: relative;
+			margin: 0 0 10px;
 		}
 		p{
 			padding-left: 30px;
@@ -1060,6 +1061,9 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			> div{
 				padding: 5px 30px;
 				margin-bottom: 5px;
+				> p{
+					padding: 0;
+				}
 			}
 		}
 
@@ -1071,6 +1075,48 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			p{
 				margin-bottom: 0;
 			}
+		}
+	}
+	#edd_checkout_form_wrap{
+		fieldset {
+			border: 1px solid #eee;
+			margin: 0 0 20px;
+		}
+		#edd_purchase_submit,
+		#edd_discount_code,
+		#edd_register_account_fields{
+			border: 0;
+		}
+		#edd-discount-code-wrap,
+		#edd_final_total_wrap,
+		#edd_show_discount{
+			border: 1px solid #eee;
+			margin:0 0 20px; 
+		}
+		#edd-payment-mode-wrap{
+			label {
+				display: inline-block;
+				margin: 0 20px 0 0;
+			}
+		}
+		.edd-payment-icons {
+			height: 32px;
+			display: block;
+			margin: 0 0 30px;
+			img.payment-icon{
+				max-height: 32px;
+				width: auto;
+				margin: 0 3px 0 0;
+				float: left;
+				background: none;
+				padding: 0;
+				border: none;
+				box-shadow: none;
+			}
+		}
+		.edd-required-indicator {
+			color: #b94a48;
+			display: inline;
 		}
 	}
 }
@@ -1110,6 +1156,9 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		position: relative;
 		border-style: solid;
 		border-color: #e5e5e5;
+		+ .edd-table th{
+			background-color: transparent;
+		}
 	}
 }
 
