@@ -1116,11 +1116,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 				padding-bottom: 5px;
 				margin-bottom: 5px;
 			}
-			p {
-				&:last-child{
-					margin-bottom: 15px;
-				}
-			}
 			> div{
 				padding: 5px 30px;
 				margin-bottom: 5px;
@@ -1129,7 +1124,9 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 				}
 			}
 		}
-
+		#edd-card-state-wrap{
+			padding-bottom: 15px;
+		}
 		#edd_discount_code {
 			border: 1px solid #eaeaea;
 			margin-bottom: 2em;
