@@ -1240,6 +1240,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   margin-bottom: 5px;
 }
 
+.edd-checkout #edd_checkout_wrap fieldset p:last-child {
+  margin-bottom: 15px;
+}
+
 .edd-checkout #edd_checkout_wrap fieldset > div {
   padding: 5px 30px;
   margin-bottom: 5px;
@@ -1260,6 +1264,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   margin-bottom: 0;
 }
 
+.edd-checkout #edd_checkout_form_wrap label {
+  font-weight: bold;
+}
+
 .edd-checkout #edd_checkout_form_wrap fieldset {
   border: 1px solid #eee;
   margin: 0 0 20px;
@@ -1276,6 +1284,11 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 .edd-checkout #edd_checkout_form_wrap #edd_show_discount {
   border: 1px solid #eee;
   margin: 0 0 20px;
+}
+
+.edd-checkout #edd_checkout_form_wrap #edd_final_total_wrap {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .edd-checkout #edd_checkout_form_wrap #edd-payment-mode-wrap label {
