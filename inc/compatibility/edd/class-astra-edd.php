@@ -451,6 +451,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
+					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
 				),
 				'.site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a, .site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a:hover' => array(
 					'color' => $btn_color,
