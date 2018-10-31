@@ -1014,8 +1014,8 @@ li.ast-masthead-custom-menu-items{
 	}
 
 	legend {
-		font-size: 24px;
-		font-size: 1.6rem;
+		font-size: 22px;
+		font-size: 1.4rem;
 		border-bottom: 1px solid #eaeaea;
 		background: #fafafa;
 		font-weight: bold;
@@ -1091,8 +1091,8 @@ li.ast-masthead-custom-menu-items{
 			border: 0;
 		}
 		legend {
-			font-size: 24px;
-			font-size: 1.6rem;
+			font-size: 22px;
+			font-size: 1.4rem;
 			border-bottom: 1px solid #eaeaea;
 			background: #fafafa;
 			font-weight: bold;
@@ -1179,45 +1179,45 @@ li.ast-masthead-custom-menu-items{
 }
 
 /* EDD Success page*/
-.edd-success{
-	.entry-content{
-		> h3{
-			font-size: 24px;
-			font-size: 1.6rem;
-			background: #fafafa;
-			font-weight: bold;
-			padding: 15px 30px;
-			margin: 0;
-			display: block;
-			width: 100%;
-			border-width: 1px 1px 0 1px;
-			position: relative;
-			border-style: solid;
-			border-color: #e5e5e5;
-		}
-	}
-}
+// .edd-success{
+// 	.entry-content{
+// 		> h3{
+// 			font-size: 24px;
+// 			font-size: 1.6rem;
+// 			background: #fafafa;
+// 			font-weight: bold;
+// 			padding: 15px 30px;
+// 			margin: 0;
+// 			display: block;
+// 			width: 100%;
+// 			border-width: 1px 1px 0 1px;
+// 			position: relative;
+// 			border-style: solid;
+// 			border-color: #e5e5e5;
+// 		}
+// 	}
+// }
 
 /* EDD Purchase Confirmation */
-#edd_purchase_receipt {
-	+ h3{
-		font-size: 24px;
-		font-size: 1.6rem;
-		background: #fafafa;
-		font-weight: bold;
-		padding: 15px 30px;
-		margin: 0;
-		display: block;
-		width: 100%;
-		border-width: 1px 1px 0 1px;
-		position: relative;
-		border-style: solid;
-		border-color: #e5e5e5;
-		+ .edd-table th{
-			background-color: transparent;
-		}
-	}
-}
+// #edd_purchase_receipt {
+// 	+ h3{
+// 		font-size: 24px;
+// 		font-size: 1.6rem;
+// 		background: #fafafa;
+// 		font-weight: bold;
+// 		padding: 15px 30px;
+// 		margin: 0;
+// 		display: block;
+// 		width: 100%;
+// 		border-width: 1px 1px 0 1px;
+// 		position: relative;
+// 		border-style: solid;
+// 		border-color: #e5e5e5;
+// 		+ .edd-table th{
+// 			background-color: transparent;
+// 		}
+// 	}
+// }
 
 /* EDD License manager */
 .edd_sl_form {
