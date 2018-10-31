@@ -1286,6 +1286,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 -------------------------------------------------------------- */
 .edd_download_purchase_form{
 	.edd_price_options{
+		display: inline-block;
 		ul {
 			margin: 0;
 			padding: 0;
@@ -1297,7 +1298,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			margin: 0;
 			align-items: center;
 			align-self: center;
-			justify-content: center;
 		}
 		span {
 			display: inline;
