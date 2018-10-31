@@ -290,6 +290,14 @@
   margin-bottom: 1em;
 }
 
+.single-download .edd_download_purchase_form .edd_price_options li {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
 .single-download .edd-item-quantity,
 .edd-checkout .edd-item-quantity {
   padding: .5em .5em;
@@ -1409,15 +1417,11 @@ li.ast-masthead-custom-menu-items .edd-custom-menu-item {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.edd_download_purchase_form .edd_price_options li label,
-.edd_download_purchase_form .edd_price_options li .edd_download_quantity_wrapper {
-  -webkit-box-flex: 1;
-  -webkit-flex: auto;
-  -moz-box-flex: 1;
-  -ms-flex: auto;
-  flex: auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .edd_download_purchase_form .edd_price_options span {
@@ -1428,4 +1432,70 @@ li.ast-masthead-custom-menu-items .edd-custom-menu-item {
 
 .ast-page-builder-template.ast-edd-archive-page .site-content > .ast-container {
   max-width: 100%;
+}
+
+/* EDD form Elements */
+#edd_checkout_wrap input[type=text],
+#edd_checkout_wrap input[type=email],
+#edd_checkout_wrap input[type=url],
+#edd_checkout_wrap input[type=password],
+#edd_checkout_wrap input[type=number],
+#edd_checkout_wrap input[type=search],
+#edd_checkout_wrap input[type=reset],
+#edd_checkout_wrap input[type=tel],
+#edd_checkout_wrap textarea,
+.edd_download_purchase_form input[type=text],
+.edd_download_purchase_form input[type=email],
+.edd_download_purchase_form input[type=url],
+.edd_download_purchase_form input[type=password],
+.edd_download_purchase_form input[type=number],
+.edd_download_purchase_form input[type=search],
+.edd_download_purchase_form input[type=reset],
+.edd_download_purchase_form input[type=tel],
+.edd_download_purchase_form textarea {
+  border-color: #dddddd;
+  background: #fff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+#edd_checkout_wrap input[type=text]:focus,
+#edd_checkout_wrap input[type=email]:focus,
+#edd_checkout_wrap input[type=url]:focus,
+#edd_checkout_wrap input[type=password]:focus,
+#edd_checkout_wrap input[type=number]:focus,
+#edd_checkout_wrap input[type=search]:focus,
+#edd_checkout_wrap input[type=reset]:focus,
+#edd_checkout_wrap input[type=tel]:focus,
+#edd_checkout_wrap textarea:focus,
+.edd_download_purchase_form input[type=text]:focus,
+.edd_download_purchase_form input[type=email]:focus,
+.edd_download_purchase_form input[type=url]:focus,
+.edd_download_purchase_form input[type=password]:focus,
+.edd_download_purchase_form input[type=number]:focus,
+.edd_download_purchase_form input[type=search]:focus,
+.edd_download_purchase_form input[type=reset]:focus,
+.edd_download_purchase_form input[type=tel]:focus,
+.edd_download_purchase_form textarea:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: #dddddd;
+  outline: 0;
+}
+
+#edd_checkout_wrap select,
+.edd_download_purchase_form select {
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#edd_checkout_wrap select:focus,
+.edd_download_purchase_form select:focus {
+  outline: none;
+  outline: 0;
 }
