@@ -744,16 +744,27 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		}
 	}
 }
+li.ast-masthead-custom-menu-items{
+	.edd-custom-menu-item{
+		padding: 0;
+	}
+}
+
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
 .ast-header-break-point{
 	.ast-edd-site-header-cart{
-		.widget_edd_cart_widget{
+		.widget_edd_cart_widget,
+		.ast-edd-header-cart-info-wrap{
 			display: none;
 		}
 	}
-
+	div.ast-masthead-custom-menu-items{
+		&.edd-custom-menu-item{
+			padding: 0;
+		}
+	}
 }
 
 @keyframes ast-hide-animate {
