@@ -843,7 +843,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   padding-bottom: 1px;
 }
 
-.ast-masthead-custom-menu-items .edd-custom-menu-item {
+.ast-masthead-custom-menu-items.edd-custom-menu-item {
   padding: 0;
 }
 
