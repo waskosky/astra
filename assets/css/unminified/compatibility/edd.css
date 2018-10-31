@@ -832,7 +832,14 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 .ast-edd-site-header-cart .widget_edd_cart_widget .edd-remove-from-cart:after {
   font-weight: normal;
+}
+
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-remove-from-cart:first-child:after {
   padding-bottom: 0;
+}
+
+.ast-edd-site-header-cart .widget_edd_cart_widget .edd-cart-item:first-child .edd-remove-from-cart:after {
+  padding-bottom: 1px;
 }
 
 li.ast-masthead-custom-menu-items .edd-custom-menu-item {
@@ -989,10 +996,6 @@ li.ast-masthead-custom-menu-items .edd-custom-menu-item {
 .widget_edd_cart_widget .edd_total {
   padding: 0 0 5px;
   font-weight: 700;
-}
-
-.widget_edd_cart_widget .edd_total .cart-total {
-  font-weight: 400;
 }
 
 .widget_edd_cart_widget .edd_checkout {

@@ -758,7 +758,18 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			right: 1.2em;
 			&:after{
 				font-weight: normal;
+			}
+			&:first-child:after{
 				padding-bottom: 0;
+			}
+		}
+		.edd-cart-item{
+			&:first-child{
+				.edd-remove-from-cart{
+					&:after{
+						padding-bottom: 1px;
+					}
+				}
 			}
 		}
 	}
@@ -878,9 +889,6 @@ li.ast-masthead-custom-menu-items{
 	.edd_total{
 		padding: 0 0 5px;
 		font-weight: 700;
-		.cart-total {
-			font-weight: 400;
-		}
 	}
 	.edd_checkout {
 		margin-top: 1em;
