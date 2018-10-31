@@ -544,6 +544,7 @@
   display: none;
   position: relative;
   overflow: hidden;
+  line-height: 1.3;
 }
 
 .edd_purchase_submit_wrapper a.edd-add-to-cart.edd-has-js {
