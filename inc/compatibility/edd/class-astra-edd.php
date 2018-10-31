@@ -442,6 +442,10 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'color'            => esc_attr( $cart_h_color ),
 					'background-color' => esc_attr( $link_color ),
 				),
+				// loafinc effect color
+				'a.edd-add-to-cart.white .edd-loading, .edd-discount-loader.edd-loading, .edd-loading-ajax.edd-loading' => array(
+					'border-left-color'            => esc_attr( $cart_h_color ),
+				),
 
 				'.ast-edd-site-header-cart .widget_edd_cart_widget .cart-total' => array(
 					'color' => esc_attr( $link_color ),

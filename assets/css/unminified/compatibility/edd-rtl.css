@@ -286,6 +286,10 @@
 }
 
 /* Edd Single and Checkout commom Download product */
+.single-download .entry-header {
+  margin-bottom: 1em;
+}
+
 .single-download .edd-item-quantity,
 .edd-checkout .edd-item-quantity {
   padding: .5em .5em;
