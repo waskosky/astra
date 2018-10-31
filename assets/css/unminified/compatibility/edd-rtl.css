@@ -298,6 +298,10 @@
   justify-content: flex-start;
 }
 
+.single-download .edd_download_purchase_form .edd_purchase_submit_wrapper {
+  margin: 20px auto 0;
+}
+
 .single-download .edd-item-quantity,
 .edd-checkout .edd-item-quantity {
   padding: .5em .5em;
@@ -370,7 +374,7 @@
 
 /* EDD Purchase form  */
 .edd_download_purchase_form .edd_purchase_submit_wrapper {
-  margin: 10px auto;
+  margin: 10px auto 0;
 }
 
 /* EDD Shortcodes */
@@ -1498,4 +1502,9 @@ li.ast-masthead-custom-menu-items .edd-custom-menu-item {
 .edd_download_purchase_form select:focus {
   outline: none;
   outline: 0;
+}
+
+#edd_checkout_wrap input.edd-input.edd-item-quantity,
+.edd_download_purchase_form input.edd-input.edd-item-quantity {
+  width: 60px;
 }
