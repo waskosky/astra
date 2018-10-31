@@ -288,6 +288,9 @@
 
 
 /* Edd Archive products strucutre */
+.ast-edd-archive-article{
+	text-align: center;
+}
 .ast-edd-archive-block-wrap,
 .edd_downloads_list{
 	.edd_download_image{
@@ -356,6 +359,7 @@
 		padding: 0;
 		float: left;
 		margin: 0 20px 2.992em 0;
+		text-align: center;
 	}
 	&.edd_download_columns_1 .edd_download {
 	  width: 100%;
