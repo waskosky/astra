@@ -112,7 +112,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			for ( var i = 0; i < headerWrap.length; i++ ) {
 
 				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
-					if ( window.screen.width > break_point) {
+					if ( window.innerWidth > break_point ) {
 						//remove menu toggled class.
 						if ( null != menu_toggle_all[i] ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
@@ -149,7 +149,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
 
 				var menuLeft         = parentList[i].getBoundingClientRect().left,
-					windowWidth      = window.screen.width,
+					windowWidth      = window.innerWidth,
 					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
 					menuGoingOutside = false;
 
