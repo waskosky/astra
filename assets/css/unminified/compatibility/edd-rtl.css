@@ -1378,8 +1378,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   display: inline-block;
 }
 
-/* EDD Success page*/
-/* EDD Purchase Confirmation */
 /* EDD License manager */
 .edd_sl_form > div {
   border: 1px solid #e5e5e5;
@@ -1564,9 +1562,32 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 /* Edd Software Licensing */
-.edd_sl_license_row .edd_sl_license_key {
-  background: #eef2f5;
+.edd_sl_table .edd_sl_license_row,
+.edd_sl_license_row {
+  /* Fixed: License key display issue on profile page */
+}
+
+.edd_sl_table .edd_sl_license_row .view-key-wrapper,
+.edd_sl_license_row .view-key-wrapper {
+  position: absolute;
+}
+
+.edd_sl_table .edd_sl_license_row input.edd_sl_license_key,
+.edd_sl_license_row input.edd_sl_license_key {
+  position: relative;
+  min-width: 285px;
+  width: 20em;
+  text-align: center;
+  border: 1px solid #e0e5e8;
+  -webkit-box-shadow: 0 0 6px 0 #e1e3e4;
+  box-shadow: 0 0 6px 0 #e1e3e4;
   height: 2.5em;
+  background: #eef2f5;
+}
+
+#edd_sl_license_add_site_form div {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 #edd_checkout_form_wrap #edd_sl_show_renewal_form_wrap {

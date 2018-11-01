@@ -1230,47 +1230,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	}
 }
 
-/* EDD Success page*/
-// .edd-success{
-// 	.entry-content{
-// 		> h3{
-// 			font-size: 24px;
-// 			font-size: 1.6rem;
-// 			background: #fafafa;
-// 			font-weight: bold;
-// 			padding: 15px 30px;
-// 			margin: 0;
-// 			display: block;
-// 			width: 100%;
-// 			border-width: 1px 1px 0 1px;
-// 			position: relative;
-// 			border-style: solid;
-// 			border-color: #e5e5e5;
-// 		}
-// 	}
-// }
-
-/* EDD Purchase Confirmation */
-// #edd_purchase_receipt {
-// 	+ h3{
-// 		font-size: 24px;
-// 		font-size: 1.6rem;
-// 		background: #fafafa;
-// 		font-weight: bold;
-// 		padding: 15px 30px;
-// 		margin: 0;
-// 		display: block;
-// 		width: 100%;
-// 		border-width: 1px 1px 0 1px;
-// 		position: relative;
-// 		border-style: solid;
-// 		border-color: #e5e5e5;
-// 		+ .edd-table th{
-// 			background-color: transparent;
-// 		}
-// 	}
-// }
-
 /* EDD License manager */
 .edd_sl_form {
 	> div{
@@ -1412,12 +1371,30 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 /* Edd Software Licensing */
+
+.edd_sl_table .edd_sl_license_row,
 .edd_sl_license_row{
-	.edd_sl_license_key{
-		background: #eef2f5;
-		height: 2.5em;
+	/* Fixed: License key display issue on profile page */
+	.view-key-wrapper {
+	    position: absolute;
 	}
-} 
+	input.edd_sl_license_key{
+		position: relative;
+		min-width: 285px;
+	    width: 20em;
+	    text-align: center;
+	    border: 1px solid #e0e5e8;
+	    box-shadow: 0 0 6px 0 #e1e3e4;
+	    height: 2.5em;
+		background: #eef2f5;
+	}
+}
+#edd_sl_license_add_site_form{
+	div{
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+}
 
 #edd_checkout_form_wrap{
 	#edd_sl_show_renewal_form_wrap{
