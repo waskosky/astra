@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -59,6 +59,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
+			add_action( 'template_redirect', array( $this, 'setup_content_width' ) );
 		}
 
 		/**
@@ -66,18 +67,9 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		function setup_theme() {
+		public function setup_theme() {
 
 			do_action( 'astra_class_loaded' );
-
-			global $content_width;
-
-			/**
-			 * Content Width
-			 */
-			if ( ! isset( $content_width ) ) {
-				$content_width = apply_filters( 'astra_content_width', 700 );
-			}
 
 			/**
 			 * Make theme available for translation.
@@ -165,6 +157,40 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		}
 
 		/**
+		 * Set the $content_width global variable used by WordPress to set image dimennsions.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function setup_content_width() {
+			global $content_width;
+
+			/**
+			 * Content Width
+			 */
+			if ( ! isset( $content_width ) ) {
+
+				if ( is_home() || is_post_type_archive( 'post' ) ) {
+					$blog_width = astra_get_option( 'blog-width' );
+
+					if ( 'custom' === $blog_width ) {
+						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-max-width', 1200 ) );
+					}
+				} elseif ( is_single() ) {
+
+					$single_post_max = astra_get_option( 'blog-single-width' );
+
+					if ( 'custom' === $single_post_max ) {
+						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-single-max-width', 1200 ) );
+					}
+				} else {
+					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
+				}
+			}
+
+		}
+
+		/**
 		 * Adds a responsive embed wrapper around oEmbed content
 		 *
 		 * @param  string $html The oEmbed markup.
@@ -173,7 +199,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 *
 		 * @return string       Updated embed markup.
 		 */
-		function responsive_oembed_wrapper( $html, $url, $attr ) {
+		public function responsive_oembed_wrapper( $html, $url, $attr ) {
 
 			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
 
