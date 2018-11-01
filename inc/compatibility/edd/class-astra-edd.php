@@ -306,10 +306,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return html
 		 */
 		function edd_mini_cart_markup() {
+			$class = '';
 			if ( edd_is_checkout() ) {
 				$class = 'current-menu-item';
-			} else {
-				$class = '';
 			}
 
 			$cart_menu_classes = apply_filters( 'astra_edd_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
@@ -355,7 +354,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 								<span class="count"> 
 									<?php
 									if ( apply_filters( 'astra_edd_header_cart_total', true ) ) {
-										$cart_items = function_exists( 'edd_get_cart_contents' ) ? count( edd_get_cart_contents() ) : '';
+										$cart_items = count( edd_get_cart_contents() );
 										echo esc_html( $cart_items );
 									}
 									?>
@@ -442,9 +441,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'color'            => esc_attr( $cart_h_color ),
 					'background-color' => esc_attr( $link_color ),
 				),
-				// loafinc effect color
+				// Loading effect color.
 				'a.edd-add-to-cart.white .edd-loading, .edd-discount-loader.edd-loading, .edd-loading-ajax.edd-loading' => array(
-					'border-left-color'            => esc_attr( $cart_h_color ),
+					'border-left-color' => esc_attr( $cart_h_color ),
 				),
 
 				'.ast-edd-site-header-cart .widget_edd_cart_widget .cart-total' => array(
@@ -455,7 +454,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
-					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
+					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 				),
 				'.site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a, .site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a:hover' => array(
 					'color' => $btn_color,

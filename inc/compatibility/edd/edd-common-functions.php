@@ -204,7 +204,7 @@ if ( ! function_exists( 'astra_edd_terms_list' ) ) {
 		?>
 	<div class="ast-edd-download-categories">
 		<?php foreach ( $terms as $term ) : ?>
-			<a href="<?php echo esc_attr( get_term_link( $term, $taxonomy_name ) ); ?>" title="<?php echo $term->name; ?>"><?php echo $term->name; ?></a>
+			<a href="<?php echo esc_url( get_term_link( $term, $taxonomy_name ) ); ?>" title="<?php echo esc_attr( $term->name ); ?>"> <?php echo esc_html( $term->name ); ?> </a>
 		<?php endforeach; ?>
 	</div>
 		<?php
