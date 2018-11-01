@@ -1111,7 +1111,8 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   width: 100%;
 }
 
-.edd_form input[type="radio"] {
+.edd_form input[type="radio"],
+.edd_form input[type="checkbox"] {
   border: none;
   margin-left: 5px;
   vertical-align: middle;
@@ -1240,6 +1241,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   margin-bottom: 5px;
 }
 
+.edd-checkout #edd_checkout_wrap fieldset > p:last-child {
+  padding-bottom: 15px;
+}
+
 .edd-checkout #edd_checkout_wrap fieldset > div {
   padding: 5px 30px;
   margin-bottom: 5px;
@@ -1261,7 +1266,17 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 .edd-checkout #edd_checkout_wrap #edd_discount_code p {
+  padding-top: 10px;
   margin-bottom: 0;
+  padding-bottom: 10px;
+}
+
+.edd-checkout #edd_checkout_wrap #edd_discount_code .edd-apply-discount {
+  margin-top: 10px;
+}
+
+.edd-checkout #edd_checkout_wrap #edd_discount_code #edd-discount {
+  width: 100%;
 }
 
 .edd-checkout #edd_checkout_form_wrap label {
@@ -1271,6 +1286,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 .edd-checkout #edd_checkout_form_wrap fieldset {
   border: 1px solid #eee;
   margin: 0 0 20px;
+}
+
+.edd-checkout #edd_checkout_form_wrap #edd_purchase_submit .edd-loading-ajax.edd-loading {
+  display: none;
 }
 
 .edd-checkout #edd_checkout_form_wrap #edd_purchase_submit,
@@ -1286,9 +1305,34 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   margin: 0 0 20px;
 }
 
-.edd-checkout #edd_checkout_form_wrap #edd_final_total_wrap {
+.edd-checkout #edd_checkout_form_wrap #edd_final_total_wrap,
+.edd-checkout #edd_checkout_form_wrap .edd-privacy-policy-agreement {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.edd-checkout #edd_checkout_form_wrap #edd-show-privacy-policy {
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+.edd-checkout #edd_checkout_form_wrap #edd-show-privacy-policy + .edd-privacy-policy-agreement {
+  padding-top: 5px;
+}
+
+.edd-checkout #edd_checkout_form_wrap .edd-privacy-policy-agreement {
+  margin-bottom: 0;
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .edd-checkout #edd_checkout_form_wrap #edd-payment-mode-wrap label {
@@ -1317,6 +1361,16 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 .edd-checkout #edd_checkout_form_wrap .edd-required-indicator {
   color: #b94a48;
   display: inline;
+}
+
+.edd-checkout #edd_checkout_form_wrap .edd-description {
+  width: auto;
+  font-size: 12px;
+  margin-right: 5px;
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 6px;
+  display: inline-block;
 }
 
 /* EDD Success page*/
@@ -1489,4 +1543,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 #edd_checkout_wrap input.edd-input.edd-item-quantity,
 .edd_download_purchase_form input.edd-input.edd-item-quantity {
   width: 60px;
+}
+
+/* Edd Software Licensing */
+.edd_sl_license_row .edd_sl_license_key {
+  background: #eef2f5;
+  height: 2.5em;
 }
