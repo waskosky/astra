@@ -1481,6 +1481,13 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   margin: 0;
 }
 
+.edd_download_purchase_form .edd_price_options input[type="radio"],
+.edd_download_purchase_form .edd_price_options input[type="checkbox"] {
+  border: none;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
 .ast-page-builder-template.ast-edd-archive-page .site-content > .ast-container {
   max-width: 100%;
 }
@@ -1576,4 +1583,27 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 #edd_checkout_form_wrap #edd-cancel-license-renewal {
   padding-right: 10px;
+}
+
+#edd_profile_editor_form fieldset {
+  border: 1px solid #eaeaea;
+  margin-bottom: 2em;
+}
+
+#edd_profile_editor_form fieldset p {
+  clear: both;
+}
+
+#edd_profile_editor_form legend {
+  font-size: 20px;
+  font-size: 1.2rem;
+  float: right;
+}
+
+#edd_profile_editor_form #edd_profile_submit_fieldset {
+  border: 0;
+}
+
+#edd_profile_editor_form #edd_profile_submit_fieldset p {
+  padding: 0;
 }

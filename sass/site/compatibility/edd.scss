@@ -1351,6 +1351,12 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			padding: 0;
 			margin: 0;
 		}
+		input[type="radio"],
+		input[type="checkbox"]{
+			border: none;
+			margin-right: 5px;
+			vertical-align: middle;
+		}
 	}
 }
 
@@ -1425,5 +1431,27 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	}
 	#edd-cancel-license-renewal{
 	    padding-left: 10px;
+	}
+}
+
+
+#edd_profile_editor_form{
+	fieldset {
+		border: 1px solid #eaeaea;
+		margin-bottom: 2em;
+		p{
+			clear: both;
+		}
+	}
+	legend{
+		font-size: 20px;
+		font-size: 1.2rem;
+		float: left;
+	}
+	#edd_profile_submit_fieldset{
+		border: 0;
+		p{
+			padding: 0;
+		}
 	}
 }
