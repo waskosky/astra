@@ -149,7 +149,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
 
 				var menuLeft         = parentList[i].getBoundingClientRect().left,
-					windowWidth      = window.innerWidth,
+					windowWidth      = window.screen.width,
 					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
 					menuGoingOutside = false;
 
