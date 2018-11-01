@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 1.5.5
  */
 
 /**
@@ -17,7 +17,7 @@ if ( ! function_exists( 'astra_is_edd_page' ) ) :
 	/**
 	 * Check current page is an EDD page
 	 *
-	 * @since x.x.x
+	 * @since 1.5.5
 	 * @return bool true | false
 	 */
 	function astra_is_edd_page() {
@@ -46,7 +46,7 @@ if ( ! function_exists( 'astra_is_edd_single_page' ) ) :
 	/**
 	 * Check current page is an EDD single page
 	 *
-	 * @since x.x.x
+	 * @since 1.5.5
 	 * @return bool true | false
 	 */
 	function astra_is_edd_single_page() {
@@ -72,7 +72,7 @@ if ( ! function_exists( 'astra_is_edd_archive_page' ) ) :
 	/**
 	 * Check current page is an EDD archive page
 	 *
-	 * @since x.x.x
+	 * @since 1.5.5
 	 * @return bool true | false
 	 */
 	function astra_is_edd_archive_page() {
@@ -97,7 +97,7 @@ if ( ! function_exists( 'astra_is_edd_single_product_page' ) ) :
 	/**
 	 * Check current page is an EDD single product page
 	 *
-	 * @since x.x.x
+	 * @since 1.5.5
 	 * @return bool true | false
 	 */
 	function astra_is_edd_single_product_page() {

@@ -20,7 +20,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 	/**
 	 * Astra Easy Digital Downloads Compatibility
 	 *
-	 * @since x.x.x
+	 * @since 1.5.5
 	 */
 	class Astra_Edd {
 
@@ -217,7 +217,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @param Array $options header options array.
 		 *
 		 * @return Array header options array.
-		 * @since x.x.x
+		 * @since 1.5.5
 		 */
 		function header_section_elements( $options ) {
 
@@ -251,7 +251,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @param  array $classes Post Classes.
 		 * @return array
-		 * @since  x.x.x
+		 * @since  1.5.5
 		 */
 		function render_post_class( $classes ) {
 			$post_class = array( 'ast-edd-archive-article' );
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @param String $section_type Section selected option.
 		 * @return Markup String.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.5
 		 */
 		function astra_header_cart( $output, $section, $section_type ) {
 
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Easy Digital DOwnloads mini cart markup markup
 		 *
-		 * @since x.x.x
+		 * @since 1.5.5
 		 * @return html
 		 */
 		function edd_mini_cart_markup() {
@@ -336,7 +336,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * Displayed a link to the cart including the number of items present and the cart total
 		 *
 		 * @return void
-		 * @since  x.x.x
+		 * @since  1.5.5
 		 */
 		function astra_get_edd_cart() {
 
@@ -375,7 +375,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
-		 * @since x.x.x
+		 * @since 1.5.5
 		 */
 		function add_styles( $assets ) {
 			$assets['css']['astra-edd'] = 'compatibility/edd';
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Add inline style
 		 *
-		 * @since x.x.x
+		 * @since 1.5.5
 		 */
 		function add_inline_styles() {
 
@@ -745,7 +745,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Register Customizer sections and panel for Easy Digital Downloads.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.5
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		function customize_register( $wp_customize ) {

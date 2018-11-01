@@ -158,7 +158,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		/**
 		 * Set the $content_width global variable used by WordPress to set image dimennsions.
 		 *
-		 * @since x.x.x
+		 * @since 1.5.5
 		 * @return void
 		 */
 		public function setup_content_width() {
