@@ -688,4 +688,6 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_LifterLMS::get_instance();
+if ( apply_filters( 'astra_enable_lifterlms_integration', true ) ) {
+	Astra_LifterLMS::get_instance();
+}
