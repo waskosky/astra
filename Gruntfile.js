@@ -262,6 +262,10 @@ module.exports = function (grunt) {
                             src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
                             dest: 'assets/css/minified/compatibility/divi-builder.min-rtl.css',
                         },
+                        {
+                            src: 'assets/css/unminified/compatibility/edd-rtl.css',
+                            dest: 'assets/css/minified/compatibility/edd.min-rtl.css',
+                        },
                     ]
                 }
             },

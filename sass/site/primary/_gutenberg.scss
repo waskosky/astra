@@ -90,20 +90,17 @@ html {
 	overflow-x: hidden;
 }
 
-// Embed block adding extra spacing.
 body {
 	.entry-content {
-		.is-type-video.wp-block-embed {
-			:before {
-				content: none;
-			}
-		}
+
+		// Style latest post block to remove dics from post list.
 		.wp-block-latest-posts {
 			margin-left: 0;
 			li {
 				list-style: none;
 			}
 		}
+
 	}
 }
 

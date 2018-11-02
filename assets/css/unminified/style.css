@@ -4168,10 +4168,6 @@ html {
   overflow-x: hidden;
 }
 
-body .entry-content .is-type-video.wp-block-embed :before {
-  content: none;
-}
-
 body .entry-content .wp-block-latest-posts {
   margin-left: 0;
 }
