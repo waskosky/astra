@@ -810,7 +810,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'advanced-hooks'        => array(
 						'title'           => __( 'Custom Layouts', 'astra' ),
-						// 'icon'            => ASTRA_EXT_URI . 'assets/img/astra-advanced-hooks.png',
+						// 'icon'            => ASTRA_THEME_URI . 'assets/img/astra-advanced-hooks.png',
 						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'astra' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
