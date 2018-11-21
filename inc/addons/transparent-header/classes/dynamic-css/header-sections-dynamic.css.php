@@ -15,7 +15,7 @@ add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_above_header_sections_d
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return string
+ * @return void
  */
 function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
@@ -231,7 +231,7 @@ add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_below_header_sections_d
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return string
+ * @return void
  */
 function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
@@ -464,6 +464,5 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 
 	$dynamic_css .= $css;
 	wp_add_inline_style( 'astra-transparent-header', $dynamic_css );
-
 
 }

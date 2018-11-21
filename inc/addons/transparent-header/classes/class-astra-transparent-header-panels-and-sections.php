@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 
 				array(
 					'name'     => 'section-transparent-header',
-					'title'    => __( 'Transparent Header', 'astra-addon' ),
+					'title'    => __( 'Transparent Header', 'astra' ),
 					'panel'    => 'panel-layout',
 					'type'     => 'section',
 					'section'  => 'section-header-group',
@@ -53,8 +53,16 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 				),
 
 				array(
+					'name'     => 'section-colors-header-group',
+					'type'     => 'section',
+					'title'    => __( 'Header', 'astra-addon' ),
+					'panel'    => 'panel-colors-background',
+					'priority' => 20,
+				),
+
+				array(
 					'name'     => 'section-colors-transparent-header',
-					'title'    => __( 'Transparent Header', 'astra-addon' ),
+					'title'    => __( 'Transparent Header', 'astra' ),
 					'type'     => 'section',
 					'panel'    => 'panel-colors-background',
 					'section'  => 'section-colors-header-group',

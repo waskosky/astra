@@ -11,7 +11,7 @@ add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_header_dynamic_css' );
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return string
+ * @return void
  */
 function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
@@ -277,6 +277,6 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$css .= '}';
 
 	$dynamic_css .= $css;
-	
+
 	wp_add_inline_style( 'astra-transparent-header', $dynamic_css );
 }
