@@ -293,8 +293,8 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_THEME_TRANSPARENT_HEADER_URI . 'assets/css/';
-			$path = ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'assets/css/';
+			$uri  = ASTRA_THEME_URI . 'inc/addons/transparent_header/assets/css/';
+			$path = ASTRA_THEME_DIR . 'inc/addons/transparent_header/assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
