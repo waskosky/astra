@@ -290,38 +290,22 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 * Add Styles Callback
 		 */
 		function add_styles() {
-			/*** Start Path Logic */
 
-			/* Define Variables */
-			$uri  = ASTRA_THEME_URI . 'inc/addons/transparent_header/assets/css/';
-			$path = ASTRA_THEME_DIR . 'inc/addons/transparent_header/assets/css/';
-			$rtl  = '';
+			$css_prefix = '.min.css';
+			$dir        = 'minified';
+			if ( SCRIPT_DEBUG ) {
+				$css_prefix = '.css';
+				$dir        = 'unminified';
+			}
 
 			if ( is_rtl() ) {
-				$rtl = '-rtl';
+				$css_prefix = '-rtl.min.css';
+				if ( SCRIPT_DEBUG ) {
+					$css_prefix = '-rtl.css';
+				}
 			}
 
-			/* Directory and Extension */
-			$file_prefix = $rtl . '.min';
-			$dir_name    = 'minified';
-
-			if ( SCRIPT_DEBUG ) {
-				$file_prefix = $rtl;
-				$dir_name    = 'unminified';
-			}
-
-			$css_uri = $uri . $dir_name . '/';
-			$css_dir = $path . $dir_name . '/';
-
-			if ( defined( 'ASTRA_THEME_HTTP2' ) && ASTRA_THEME_HTTP2 ) {
-				$gen_path = $css_uri;
-			} else {
-				$gen_path = $css_dir;
-			}
-
-			/*** End Path Logic */
-
-			wp_enqueue_style( 'astra-transparent-header', $gen_path . 'style' . $file_prefix . '.css' );
+			wp_enqueue_style( 'astra-transparent-header', ASTRA_THEME_URI . 'inc/addons/transparent-header/assets/css/' . $dir . '/style' . $css_prefix, null, ASTRA_THEME_VERSION );
 		}
 
 		/**
