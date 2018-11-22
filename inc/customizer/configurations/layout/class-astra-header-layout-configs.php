@@ -103,6 +103,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						array(
 							'none'      => __( 'None', 'astra' ),
 							'search'    => __( 'Search', 'astra' ),
+							'button'    => __( 'Button', 'astra' ),
 							'text-html' => __( 'Text / HTML', 'astra' ),
 							'widget'    => __( 'Widget', 'astra' ),
 						),
@@ -128,6 +129,46 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_html' ),
 					),
 					'title'     => __( 'Custom Menu Text / HTML', 'astra' ),
+				),
+
+				/**
+				 * Option: Button Text
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text]',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'header-main-rt-section-button-text' ),
+					'type'      => 'control',
+					'control'   => 'text',
+					'section'   => 'section-header',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+					'priority'  => 10,
+					'partial'   => array(
+						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
+						'container_inclusive' => false,
+						'render_callback'     => array( 'Astra_Customizer_Partials' ),
+					),
+					'title'     => __( 'Button Text', 'astra' ),
+				),
+
+				/**
+				 * Option: Button Link
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-link]',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'header-main-rt-section-button-link' ),
+					'type'      => 'control',
+					'control'   => 'text',
+					'section'   => 'section-header',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+					'priority'  => 10,
+					'partial'   => array(
+						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
+						'container_inclusive' => false,
+						'render_callback'     => array( 'Astra_Customizer_Partials' ),
+					),
+					'title'     => __( 'Button Link', 'astra' ),
 				),
 
 				/**

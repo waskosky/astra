@@ -311,6 +311,10 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 					$output[] = astra_get_custom_widget( $option );
 				break;
 
+			case 'button':
+					$output[] = astra_get_custom_button( $option . '-button-text', $option . '-button-link' );
+				break;
+
 			default:
 					$output[] = apply_filters( 'astra_get_dynamic_header_content', '', $option, $section );
 				break;
@@ -372,6 +376,34 @@ if ( ! function_exists( 'astra_get_custom_html' ) ) {
 			$custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'astra' ) . '</a>';
+		}
+
+		return $custom_html;
+	}
+}
+
+/**
+ * Get custom Button.
+ */
+if ( ! function_exists( 'astra_get_custom_button' ) ) {
+
+	/**
+	 * Get custom HTML added by user.
+	 *
+	 * @since 1.0.0
+	 * @param  string $option_name Option name.
+	 * @return String TEXT/HTML added by user in options panel.
+	 */
+	function astra_get_custom_button( $button_text = '', $button_link = '' ) {
+
+		$custom_html = '';
+		$button_text = astra_get_option( $button_text );
+		$button_link = astra_get_option( $button_link );
+
+		if ( ! empty( $button_text ) || ! empty( $button_link ) ) {
+			$custom_html = '<a href="' . do_shortcode( $button_link ) . '"><button class="ast-button">' . do_shortcode( $button_text ) . '</button></a>';
+		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+			$custom_html = '<a class="ast-button" href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[' . $button_text . ']' ) ) . '">' . __( 'Button', 'astra' ) . '</a>';
 		}
 
 		return $custom_html;
