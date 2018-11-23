@@ -401,7 +401,7 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 		$button_link = astra_get_option( $button_link );
 
 		if ( ! empty( $button_text ) || ! empty( $button_link ) ) {
-			$custom_html = '<a href="' . do_shortcode( $button_link ) . '"><button class="ast-button">' . do_shortcode( $button_text ) . '</button></a>';
+			$custom_html = '<div class="ast-custom-button"><a href="' . do_shortcode( $button_link ) . '"><button class="ast-button">' . do_shortcode( $button_text ) . '</button></a></div>';
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			$custom_html = '<a class="ast-button" href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[' . $button_text . ']' ) ) . '">' . __( 'Button', 'astra' ) . '</a>';
 		}
