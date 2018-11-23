@@ -254,7 +254,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		}
 
 		/**
-		 * Sticky Header Meta Field markup
+		 * Transparent Header Meta Field markup
 		 *
 		 * Loads appropriate template file based on the style option selected in options panel.
 		 *

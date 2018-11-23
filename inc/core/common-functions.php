@@ -1113,3 +1113,25 @@ if ( ! function_exists( 'astra_color_responsive_css' ) ) {
 		return $css;
 	}
 }
+
+if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
+
+	/**
+	 * Check if layout is bb themer's layout
+	 */
+	function astra_check_is_bb_themer_layout() {
+
+		$is_layout = false;
+
+		$post_type = get_post_type();
+		$post_id   = get_the_ID();
+
+		if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+			$is_layout = true;
+		}
+
+		return $is_layout;
+	}
+
+endif;
