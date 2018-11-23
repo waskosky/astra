@@ -36,11 +36,11 @@ body.vc_editor.ast-theme-transparent-header #masthead {
 }
 
 /* Transparent Above Header */
-.ast-theme-transparent-header .ast-above-header {
+.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header {
   background: none;
 }
 
 /* Transparent Below Header */
-.ast-theme-transparent-header .ast-below-header {
+.ast-theme-transparent-header .ast-below-header-wrap .ast-below-header {
   background: none;
 }
