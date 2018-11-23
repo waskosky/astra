@@ -34,3 +34,13 @@ body.vc_editor.ast-theme-transparent-header #masthead {
 .ast-header-break-point.ast-replace-site-logo-transparent.ast-theme-transparent-header .transparent-custom-logo .custom-logo {
   display: inline-block;
 }
+
+/* Transparent Above Header */
+.ast-theme-transparent-header .ast-above-header {
+  background: none;
+}
+
+/* Transparent Below Header */
+.ast-theme-transparent-header .ast-below-header {
+  background: none;
+}
