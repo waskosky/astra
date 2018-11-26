@@ -187,8 +187,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_5_2();
 			}
 
-			if ( version_compare( $saved_version, '1.5.6', '<' ) ) {
-				self::v_1_5_6();
+			if ( version_compare( $saved_version, '1.6.0', '<' ) ) {
+				self::v_1_6_0();
 			}
 
 			// Not have stored?
@@ -918,7 +918,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @return void
 		 */
-		public static function v_1_5_6() {
+		public static function v_1_6_0() {
 			if ( is_callable( 'Astra_Ext_Extension::get_enabled_addons' ) ) {
 				$addons = Astra_Ext_Extension::get_enabled_addons();
 
