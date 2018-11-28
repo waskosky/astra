@@ -42,6 +42,9 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$transparent_content_section_text_color   = astra_get_option( 'transparent-content-section-text-color-responsive' );
 	$transparent_content_section_link_color   = astra_get_option( 'transparent-content-section-link-color-responsive' );
 	$transparent_content_section_link_h_color = astra_get_option( 'transparent-content-section-link-h-color-responsive' );
+
+	$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
+
 	/**
 	 * Generate Dynamic CSS
 	 */
@@ -90,15 +93,11 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	);
 	$css              .= astra_parse_css( $mobile_css_output, '', '543' );
 
-	/**
-	 * Transparent Header Colors
-	 */
-	$transparent_header_desktop = array(
-
+	$transparent_heder_base = array(
 		'.ast-theme-transparent-header #masthead' => array(
 			'position' => 'absolute',
-			'left' => '0',
-			'right' => '0',
+			'left'     => '0',
+			'right'    => '0',
 		),
 
 		'.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar' => array(
@@ -124,6 +123,12 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		'.ast-theme-transparent-header .ast-below-header-wrap .ast-below-header' => array(
 			'background' => 'none',
 		),
+	);
+
+	/**
+	 * Transparent Header Colors
+	 */
+	$transparent_header_desktop = array(
 
 		'.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar' => array(
 			'background-color' => esc_attr( $transparent_bg_color['desktop'] ),
@@ -291,20 +296,29 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	);
 
 	/* Parse CSS from array() */
-	$css .= astra_parse_css( $transparent_header_desktop );
-	$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
-	$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
+	if ( 'both' === $transparent_header_devices || 'desktop' === $transparent_header_devices ) {
+		$css .= astra_parse_css( $transparent_heder_base, '768' );
+		$css .= astra_parse_css( $transparent_header_desktop );
 
-	$css .= '.ast-theme-transparent-header.ast-header-break-point .site-header {';
-	$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
-	$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
-	$css .= '}';
-	$css .= '@media (min-width: 769px) {';
-	$css .= '.ast-theme-transparent-header .main-header-bar {';
-	$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
-	$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
-	$css .= '}';
-	$css .= '}';
+		$css .= '.ast-theme-transparent-header.ast-header-break-point .site-header {';
+		$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
+		$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
+		$css .= '}';
+
+	}
+
+	if ( 'both' === $transparent_header_devices || 'mobile' === $transparent_header_devices ) {
+		$css .= astra_parse_css( $transparent_heder_base, '', '768' );
+		$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
+		$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
+
+		$css .= '@media (min-width: 769px) {';
+		$css .= '.ast-theme-transparent-header .main-header-bar {';
+		$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
+		$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
+		$css .= '}';
+		$css .= '}';
+	}
 
 	$dynamic_css .= $css;
 
