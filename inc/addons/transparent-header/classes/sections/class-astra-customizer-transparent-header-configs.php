@@ -57,6 +57,18 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Transparent Header Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-display]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 22,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Disable Transparent Header on Archive Pages
 				 */
 				array(
@@ -64,7 +76,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => astra_get_option( 'transparent-header-disable-archive' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Disable on Archives?', 'astra' ),
+					'title'    => __( 'Disable on Special Pages?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
 				),

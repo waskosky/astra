@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 
 			if ( $enable_trans_header ) {
 
-				if ( is_archive() && '1' == astra_get_option( 'transparent-header-disable-archive' ) ) {
+				if ( ( is_archive() || is_search() || is_404() ) && '1' == astra_get_option( 'transparent-header-disable-archive' ) ) {
 					$enable_trans_header = false;
 				}
 
