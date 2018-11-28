@@ -93,7 +93,6 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			// Transparent Header.
 			$enable_trans_header = astra_get_option( 'transparent-header-enable' );
 			$trans_meta_option   = astra_get_option_meta( 'theme-transparent-header-meta', 'default' );
-			$show_trans_header   = false;
 
 			if ( 'enabled' === $trans_meta_option ) {
 				$enable_trans_header = true;
@@ -104,35 +103,35 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			if ( $enable_trans_header ) {
 
 				if ( is_archive() && '1' == astra_get_option( 'transparent-header-disable-archive' ) ) {
-					$show_trans_header = false;
+					$enable_trans_header = false;
 				}
 
 				if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) {
-					$show_trans_header = false;
+					$enable_trans_header = false;
 				}
 
 				if ( is_search() && '1' == astra_get_option( 'transparent-header-disable-search' ) ) {
-					$show_trans_header = false;
+					$enable_trans_header = false;
 				}
 
 				if ( is_404() && '1' == astra_get_option( 'transparent-header-disable-404' ) ) {
-					$show_trans_header = false;
+					$enable_trans_header = false;
 				}
 
 				if ( is_home() && '1' == astra_get_option( 'transparent-header-disable-index' ) ) {
-					$show_trans_header = false;
+					$enable_trans_header = false;
 				}
 
 				if ( is_page() && '1' == astra_get_option( 'transparent-header-disable-page' ) ) {
-					$show_trans_header = false;
+					$enable_trans_header = false;
 				}
 
 				if ( is_single() && '1' == astra_get_option( 'transparent-header-disable-posts' ) ) {
-					$show_trans_header = false;
+					$enable_trans_header = false;
 				}
 			}
 
-			return apply_filters( 'astra_is_transparent_header', $show_trans_header );
+			return apply_filters( 'astra_is_transparent_header', $enable_trans_header );
 		}
 
 		/**
