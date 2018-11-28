@@ -175,7 +175,8 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		function transparent_custom_logo( $html, $blog_id ) {
 
-			$trans_logo = astra_get_option( 'transparent-header-logo' );
+			$trans_logo                 = astra_get_option( 'transparent-header-logo' );
+			$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
 
 			if ( '' !== $trans_logo ) {
 
@@ -202,6 +203,22 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 						)
 					)
 				);
+
+				if ( 'mobile' === $transparent_header_devices ) {
+
+					$html .= sprintf(
+						'<a href="%1$s" class="custom-logo-link ast-transparent-desktop-logo" rel="home" itemprop="url">%2$s</a>',
+						esc_url( home_url( '/' ) ),
+						wp_get_attachment_image(
+							get_theme_mod( 'custom_logo' ),
+							$size,
+							false,
+							array(
+								'class' => 'custom-logo',
+							)
+						)
+					);
+				}
 
 				remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'replace_trans_header_attr' ) );
 			}

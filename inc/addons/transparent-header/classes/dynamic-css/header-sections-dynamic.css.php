@@ -236,7 +236,7 @@ add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_below_header_sections_d
 function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
-		return $dynamic_css;
+		return;
 	}
 
 	/**

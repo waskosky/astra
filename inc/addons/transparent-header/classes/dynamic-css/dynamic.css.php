@@ -6,6 +6,7 @@
  */
 
 add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_header_dynamic_css' );
+
 /**
  * Dynamic CSS
  *
@@ -16,7 +17,7 @@ add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_header_dynamic_css' );
 function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
-		return $dynamic_css;
+		return;
 	}
 
 	/**
@@ -309,6 +310,17 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
 		$css .= '}';
 
+	}
+
+	if ( 'mobile' === $transparent_header_devices ) {
+		$css .= astra_parse_css(
+			array(
+				'.transparent-custom-logo' => array(
+					'display' => 'none',
+				),
+			),
+			'768'
+		);
 	}
 
 	if ( 'both' === $transparent_header_devices || 'mobile' === $transparent_header_devices ) {
