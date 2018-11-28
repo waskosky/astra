@@ -235,6 +235,10 @@ add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_below_header_sections_d
  */
 function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+		return $dynamic_css;
+	}
+
 	/**
 	 * Set colors
 	 */
@@ -463,6 +467,6 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 	$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
 
 	$dynamic_css .= $css;
-	wp_add_inline_style('astra-theme-css', $dynamic_css );
+	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 
 }

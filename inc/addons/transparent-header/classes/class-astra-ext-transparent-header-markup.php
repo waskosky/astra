@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			 * Add class 'ast-theme-transparent-header'
 			 */
 
-			if ( $this->is_transparent_header() ) {
+			if ( self::is_transparent_header() ) {
 				$classes[] = 'ast-theme-transparent-header';
 			}
 
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 *
 		 * @return boolean true/false.
 		 */
-		function is_transparent_header() {
+		public static function is_transparent_header() {
 
 			// Transparent Header.
 			$enable_trans_header = astra_get_option( 'transparent-header-enable' );
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			$inherit_desk_logo       = astra_get_option( 'different-transparent-logo', false );
 			$transparent_header_logo = astra_get_option( 'transparent-header-logo' );
 
-			if ( $this->is_transparent_header() && '1' == $inherit_desk_logo && '' !== $transparent_header_logo ) {
+			if ( self::is_transparent_header() && '1' == $inherit_desk_logo && '' !== $transparent_header_logo ) {
 				// Logo For None Effect.
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'transparent_custom_logo' ), 10, 2 );
