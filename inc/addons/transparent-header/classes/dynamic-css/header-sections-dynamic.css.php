@@ -463,6 +463,6 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 	$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
 
 	$dynamic_css .= $css;
-	wp_add_inline_style( 'astra-transparent-header', $dynamic_css );
+	wp_add_inline_style('astra-theme-css', $dynamic_css );
 
 }

@@ -95,6 +95,36 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	 */
 	$transparent_header_desktop = array(
 
+		'.ast-theme-transparent-header #masthead' => array(
+			'position' => 'absolute',
+			'left' => '0',
+			'right' => '0',
+		),
+
+		'.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar' => array(
+			'background' => 'none',
+		),
+
+		'body.elementor-editor-active.ast-theme-transparent-header #masthead, .fl-builder-edit .ast-theme-transparent-header #masthead, body.vc_editor.ast-theme-transparent-header #masthead' => array(
+			'z-index' => '0',
+		),
+
+		'.ast-header-break-point.ast-replace-site-logo-transparent.ast-theme-transparent-header .ast-mobile-header-logo' => array(
+			'display' => 'none',
+		),
+
+		'.ast-header-break-point.ast-replace-site-logo-transparent.ast-theme-transparent-header .transparent-custom-logo .custom-logo' => array(
+			'display' => 'inline-block',
+		),
+
+		'.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header' => array(
+			'background' => 'none',
+		),
+
+		'.ast-theme-transparent-header .ast-below-header-wrap .ast-below-header' => array(
+			'background' => 'none',
+		),
+
 		'.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar' => array(
 			'background-color' => esc_attr( $transparent_bg_color['desktop'] ),
 		),
@@ -278,5 +308,5 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	$dynamic_css .= $css;
 
-	wp_add_inline_style( 'astra-transparent-header', $dynamic_css );
+	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 }
