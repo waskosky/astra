@@ -60,14 +60,91 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 * Option: Disable Transparent Header on Archive Pages
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-archive]',
-					'default'     => astra_get_option( 'transparent-header-disable-archive' ),
-					'type'        => 'control',
-					'section'     => 'section-transparent-header',
-					'title'       => __( 'Force Disable on Special Pages?', 'astra' ),
-					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
-					'priority'    => 25,
-					'control'     => 'checkbox',
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-archive]',
+					'default'  => astra_get_option( 'transparent-header-disable-archive' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Disable on Archives?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
+				 * Option: Disable Transparent Header on Archive Pages
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-index]',
+					'default'  => astra_get_option( 'transparent-header-disable-index' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Disable on Blog Index page?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
+				 * Option: Disable Transparent Header on Archive Pages
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-404]',
+					'default'  => astra_get_option( 'transparent-header-disable-404' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Disable on 404?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
+				 * Option: Disable Transparent Header on Archive Pages
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-search]',
+					'default'  => astra_get_option( 'transparent-header-disable-search' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Disable on Search?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
+				 * Option: Disable Transparent Header on Pages
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-page]',
+					'default'  => astra_get_option( 'transparent-header-disable-page' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Disable on Pages?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
+				 * Option: Disable Transparent Header on Posts
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-posts]',
+					'default'  => astra_get_option( 'transparent-header-disable-posts' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Disable on Posts?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
+				 * Option: Transparent Header Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 28,
+					'title'    => __( 'Styling', 'astra' ),
+					'settings' => array(),
 				),
 
 				array(
@@ -76,7 +153,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
 					'title'    => __( 'Different Logo for Transparent Header?', 'astra' ),
-					'priority' => 25,
+					'priority' => 30,
 					'control'  => 'checkbox',
 				),
 
@@ -90,7 +167,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'        => 'image',
 					'section'        => 'section-transparent-header',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
-					'priority'       => 25,
+					'priority'       => 30,
 					'title'          => __( 'Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 				),
@@ -105,7 +182,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'  => 'section-transparent-header',
 					'title'    => __( 'Different Logo for retina devices?', 'astra' ),
 					'required' => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
-					'priority' => 25,
+					'priority' => 30,
 					'control'  => 'checkbox',
 				),
 
@@ -119,7 +196,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'        => 'image',
 					'section'        => 'section-transparent-header',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-transparent-retina-logo]', '==', true ),
-					'priority'       => 25,
+					'priority'       => 30,
 					'title'          => __( 'Retina Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 				),
@@ -135,7 +212,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'section-transparent-header',
 					'required'    => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
-					'priority'    => 25,
+					'priority'    => 30,
 					'title'       => __( 'Logo Width', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 50,
@@ -154,7 +231,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'control'     => 'number',
 					'section'     => 'section-transparent-header',
-					'priority'    => 25,
+					'priority'    => 30,
 					'title'       => __( 'Bottom Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,

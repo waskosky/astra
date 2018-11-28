@@ -920,14 +920,20 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_6_0() {
 			if ( is_callable( 'Astra_Ext_Extension::get_enabled_addons' ) ) {
-				$addons = Astra_Ext_Extension::get_enabled_addons();
+				$addons        = Astra_Ext_Extension::get_enabled_addons();
+				$theme_options = get_option( 'astra-settings', array() );
 
 				// If transparent header is addon was disabled, disable the transparent header.
 				if ( 'transparent-header' !== $addons['transparent-header'] ) {
-					$theme_options                              = get_option( 'astra-settings', array() );
 					$theme_options['transparent-header-enable'] = 0;
-					update_option( 'astra-settings', $theme_options );
 				}
+
+				if ( $theme_options['transparent-header-disable-archive'] == '1' ) {
+					$theme_options['transparent-header-disable-search'] = 1;
+					$theme_options['transparent-header-disable-404']    = 1;
+				}
+
+				update_option( 'astra-settings', $theme_options );
 			}
 		}
 

@@ -26,7 +26,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -103,11 +103,31 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 
 			if ( $enable_trans_header ) {
 
-				$show_trans_header = true;
+				if ( is_archive() && '1' == astra_get_option( 'transparent-header-disable-archive' ) ) {
+					$show_trans_header = false;
+				}
 
-				$disable_trans_archive = astra_get_option( 'transparent-header-disable-archive' );
+				if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) {
+					$show_trans_header = false;
+				}
 
-				if ( ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) || ( ( is_archive() || is_search() || is_404() ) && '1' == $disable_trans_archive ) ) {
+				if ( is_search() && '1' == astra_get_option( 'transparent-header-disable-search' ) ) {
+					$show_trans_header = false;
+				}
+
+				if ( is_404() && '1' == astra_get_option( 'transparent-header-disable-404' ) ) {
+					$show_trans_header = false;
+				}
+
+				if ( is_home() && '1' == astra_get_option( 'transparent-header-disable-index' ) ) {
+					$show_trans_header = false;
+				}
+
+				if ( is_page() && '1' == astra_get_option( 'transparent-header-disable-page' ) ) {
+					$show_trans_header = false;
+				}
+
+				if ( is_single() && '1' == astra_get_option( 'transparent-header-disable-posts' ) ) {
 					$show_trans_header = false;
 				}
 			}
