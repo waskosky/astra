@@ -121,6 +121,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$primary_submenu_b_color      = astra_get_option( 'primary-submenu-b-color', $theme_color );
 			$primary_submenu_item_b_color = astra_get_option( 'primary-submenu-item-b-color', '#eaeaea' );
 
+			// Custom Buttom menu item.
+			$header_custom_item                = astra_get_option( 'header-main-rt-section' );
+			$header_custom_button_style        = astra_get_option( 'header-main-rt-section-button-style' );
+			$header_custom_button_text_color   = astra_get_option( 'header-main-rt-section-button-text-color' );
+			$header_custom_button_text_h_color = astra_get_option( 'header-main-rt-section-button-text-h-color' );
+			$header_custom_button_back_color   = astra_get_option( 'header-main-rt-section-button-back-color' );
+			$header_custom_button_back_h_color = astra_get_option( 'header-main-rt-section-button-back-h-color' );
+			$header_custom_button_spacing      = astra_get_option( 'header-main-rt-section-button-padding' );
+			$header_custom_button_radius       = astra_get_option( 'header-main-rt-section-button-border-radius' );
+			$header_custom_button_border_color = astra_get_option( 'header-main-rt-section-button-border-color' );
+			$header_custom_button_border_size  = astra_get_option( 'header-main-rt-section-button-border-size' );
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -480,6 +492,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Menu Toggle Border Radius.
 				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
+				),
+
+				// Custom menu item button.
+				'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+					'color'            => esc_attr( $header_custom_button_text_color ),
+					'background-color' => esc_attr( $header_custom_button_back_color ),
+					'padding-top'      => astra_responsive_spacing( $header_custom_button_spacing, 'top', 'desktop' ),
+					'padding-bottom'   => astra_responsive_spacing( $header_custom_button_spacing, 'bottom', 'desktop' ),
+					'padding-left'     => astra_responsive_spacing( $header_custom_button_spacing, 'left', 'desktop' ),
+					'padding-right'    => astra_responsive_spacing( $header_custom_button_spacing, 'right', 'desktop' ),
+					'border-style'     => 'solid',
+					'border-color'     => esc_attr( $header_custom_button_border_color ),
+					'border-width'     => astra_get_css_value( $header_custom_button_border_size, 'px' ),
+				),
+				'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' => array(
+					'color'            => esc_attr( $header_custom_button_text_h_color ),
+					'background-color' => esc_attr( $header_custom_button_back_h_color ),
+					'border-color'     => esc_attr( $header_custom_button_border_color ),
 				),
 			);
 

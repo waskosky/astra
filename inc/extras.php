@@ -312,7 +312,7 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 				break;
 
 			case 'button':
-					$output[] = astra_get_custom_button( $option . '-button-text', $option . '-button-link' );
+					$output[] = astra_get_custom_button( $option . '-button-text', $option . '-button-link', $option . '-button-style' );
 				break;
 
 			default:
@@ -391,20 +391,22 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 	 * Get custom HTML added by user.
 	 *
 	 * @since 1.0.0
-	 * @param  string $option_name Option name.
-	 * @return String TEXT/HTML added by user in options panel.
+	 * @param  string $button_text Button Text.
+	 * @param  string $button_link Button Link.
+	 * @param  string $button_style Button Style.
+	 * @return String Button added by user in options panel.
 	 */
-	function astra_get_custom_button( $button_text = '', $button_link = '' ) {
+	function astra_get_custom_button( $button_text = '', $button_link = '', $button_style = '' ) {
 
-		$custom_html = '';
-		$button_text = astra_get_option( $button_text );
-		$button_link = astra_get_option( $button_link );
+		$custom_html    = '';
+		$button_classes = '';
+		$button_text    = astra_get_option( $button_text );
+		$button_link    = astra_get_option( $button_link );
+		$button_style   = astra_get_option( $button_style );
 
-		if ( ! empty( $button_text ) || ! empty( $button_link ) ) {
-			$custom_html = '<div class="ast-custom-button"><a href="' . do_shortcode( $button_link ) . '"><button class="ast-button">' . do_shortcode( $button_text ) . '</button></a></div>';
-		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			$custom_html = '<a class="ast-button" href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[' . $button_text . ']' ) ) . '">' . __( 'Button', 'astra' ) . '</a>';
-		}
+		$button_classes = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
+
+		$custom_html = '<a class="ast-custom-button-link" href="' . do_shortcode( $button_link ) . '"><button class=' . $button_classes . '>' . do_shortcode( $button_text ) . '</button></a>';
 
 		return $custom_html;
 	}
