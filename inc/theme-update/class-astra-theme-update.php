@@ -919,22 +919,25 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_6_0() {
+			$theme_options = get_option( 'astra-settings', array() );
+
+			// Disable Transparent header is Transparent Header addon was deactivated from Astra Pro.
 			if ( is_callable( 'Astra_Ext_Extension::get_enabled_addons' ) ) {
-				$addons        = Astra_Ext_Extension::get_enabled_addons();
-				$theme_options = get_option( 'astra-settings', array() );
+				$addons = Astra_Ext_Extension::get_enabled_addons();
 
 				// If transparent header is addon was disabled, disable the transparent header.
 				if ( 'transparent-header' !== $addons['transparent-header'] ) {
 					$theme_options['transparent-header-enable'] = 0;
 				}
-
-				if ( $theme_options['transparent-header-disable-archive'] == '1' ) {
-					$theme_options['transparent-header-disable-search'] = 1;
-					$theme_options['transparent-header-disable-404']    = 1;
-				}
-
-				update_option( 'astra-settings', $theme_options );
 			}
+
+			// If Transparent header was disabled on special pages, Disable transparent header on Archive, Search, 404 pages.
+			if ( '1' == $theme_options['transparent-header-disable-archive'] ) {
+				$theme_options['transparent-header-disable-search'] = 1;
+				$theme_options['transparent-header-disable-404']    = 1;
+			}
+
+			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
