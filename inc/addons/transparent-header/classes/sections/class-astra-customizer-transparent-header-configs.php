@@ -83,32 +83,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Disable Transparent Header on Archive Pages
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-404]',
-					'default'  => astra_get_option( 'transparent-header-disable-404' ),
-					'type'     => 'control',
-					'section'  => 'section-transparent-header',
-					'title'    => __( 'Disable on 404?', 'astra' ),
-					'priority' => 25,
-					'control'  => 'checkbox',
-				),
-
-				/**
-				 * Option: Disable Transparent Header on Archive Pages
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-search]',
-					'default'  => astra_get_option( 'transparent-header-disable-search' ),
-					'type'     => 'control',
-					'section'  => 'section-transparent-header',
-					'title'    => __( 'Disable on Search?', 'astra' ),
-					'priority' => 25,
-					'control'  => 'checkbox',
-				),
-
-				/**
 				 * Option: Disable Transparent Header on Pages
 				 */
 				array(

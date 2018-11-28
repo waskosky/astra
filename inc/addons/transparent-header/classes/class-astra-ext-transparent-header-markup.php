@@ -104,14 +104,6 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 					$enable_trans_header = false;
 				}
 
-				if ( is_search() && '1' == astra_get_option( 'transparent-header-disable-search' ) ) {
-					$enable_trans_header = false;
-				}
-
-				if ( is_404() && '1' == astra_get_option( 'transparent-header-disable-404' ) ) {
-					$enable_trans_header = false;
-				}
-
 				if ( is_home() && '1' == astra_get_option( 'transparent-header-disable-index' ) ) {
 					$enable_trans_header = false;
 				}
