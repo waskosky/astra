@@ -91,10 +91,10 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		function is_transparent_header() {
 
 			// Transparent Header.
-			$enable_trans_header = astra_get_option( 'transparent-header-enable' );
-			$trans_meta_option   = astra_get_option_meta( 'theme-transparent-header-meta', 'default' );
+			$enable_trans_header  = astra_get_option( 'transparent-header-enable' );
+			$trans_meta_option    = astra_get_option_meta( 'theme-transparent-header-meta', 'default' );
 			$disable_trans_mobile = astra_get_option( 'transparent-header-disable-mobile' );
-			$show_trans_header   = false;
+			$show_trans_header    = false;
 
 			if ( 'enabled' === $trans_meta_option ) {
 				$enable_trans_header = true;
@@ -112,9 +112,9 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 					$show_trans_header = false;
 				}
 			}
-			
-			if( $disable_trans_mobile ) {
-				if( wp_is_mobile() ) {
+
+			if ( $disable_trans_mobile ) {
+				if ( wp_is_mobile() ) {
 					$show_trans_header = false;
 				}
 			}

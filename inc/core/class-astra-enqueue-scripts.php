@@ -99,9 +99,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
+			$astra_enqueue        = apply_filters( 'astra_enqueue_theme_assets', true );
 			$disable_trans_mobile = astra_get_option( 'transparent-header-disable-mobile' );
-			$enable_trans_header = astra_get_option( 'transparent-header-enable' );
+			$enable_trans_header  = astra_get_option( 'transparent-header-enable' );
 
 			if ( ! $astra_enqueue ) {
 				return;
