@@ -182,8 +182,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.5.1', '<' ) ) {
 				self::v_1_5_1();
 			}
+
 			if ( version_compare( $saved_version, '1.5.2', '<' ) ) {
 				self::v_1_5_2();
+			}
+
+			if ( version_compare( $saved_version, '1.6.0', '<' ) ) {
+				self::v_1_6_0();
 			}
 
 			// Not have stored?
@@ -906,6 +911,24 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Disable transparent header in customizer if the transparent header addon was disabled.
+		 *
+		 * @return void
+		 */
+		public static function v_1_6_0() {
+			if ( is_callable( 'Astra_Ext_Extension::get_enabled_addons' ) ) {
+				$addons = Astra_Ext_Extension::get_enabled_addons();
+
+				// If transparent header is addon was disabled, disable the transparent header.
+				if ( 'transparent-header' !== $addons['transparent-header'] ) {
+					$theme_options                              = get_option( 'astra-settings', array() );
+					$theme_options['transparent-header-enable'] = 0;
+					update_option( 'astra-settings', $theme_options );
+				}
+			}
 		}
 
 	}
