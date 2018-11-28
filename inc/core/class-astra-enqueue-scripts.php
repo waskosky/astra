@@ -100,6 +100,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public function enqueue_scripts() {
 
 			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
+			$disable_trans_mobile = astra_get_option( 'transparent-header-disable-mobile' );
+			$enable_trans_header = astra_get_option( 'transparent-header-enable' );
 
 			if ( ! $astra_enqueue ) {
 				return;
@@ -168,8 +170,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
-				'isRtl'       => is_rtl(),
+				'break_point'   => astra_header_break_point(),    // Header Break Point.
+				'isRtl'         => is_rtl(),
+				'header_enable' => $enable_trans_header,
+				'header_mobile' => $disable_trans_mobile,
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );

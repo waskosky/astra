@@ -106,6 +106,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	var updateHeaderBreakPoint = function () {
 
 		var break_point = astra.break_point,
+			header_mobile = astra.header_mobile,
+			header_enable = astra.header_enable,
 			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
 
 		if ( headerWrap.length > 0  ) {
@@ -117,12 +119,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 						if ( null != menu_toggle_all[i] ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
+						if ( header_enable ) {
+							document.body.classList.add( "ast-theme-transparent-header" );
+						}
 						document.body.classList.remove( "ast-header-break-point" );
 						document.body.classList.add("ast-desktop");
 						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
 
 					} else {
 
+						if ( header_mobile ) {
+							document.body.classList.remove( "ast-theme-transparent-header" );
+						}
 						document.body.classList.add( "ast-header-break-point" );
 						document.body.classList.remove("ast-desktop");
 						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						

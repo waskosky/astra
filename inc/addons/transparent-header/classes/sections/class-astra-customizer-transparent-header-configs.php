@@ -70,6 +70,19 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'     => 'checkbox',
 				),
 
+				/**
+				 * Option: Disable Transparent Header on Mobile
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-mobile]',
+					'default'     => astra_get_option( 'transparent-header-disable-mobile' ),
+					'type'        => 'control',
+					'section'     => 'section-transparent-header',
+					'title'       => __( 'Disable on Mobile?', 'astra' ),
+					'priority'    => 25,
+					'control'     => 'checkbox',
+				),
+
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
 					'default'  => astra_get_option( 'different-transparent-logo', false ),
