@@ -63,7 +63,6 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			);
 			$defaults['transparent-header-enable']          = 0;
 			$defaults['transparent-header-disable-archive'] = 1;
-			$defaults['transparent-header-disable-mobile']  = 0;
 			$defaults['transparent-header-main-sep']        = 0;
 			$defaults['transparent-header-main-sep-color']  = '';
 
