@@ -4900,6 +4900,16 @@ input[type="color"]::-webkit-color-swatch {
   position: relative;
 }
 
+.rtl .woocommerce-pagination ul.page-numbers li:last-child .next {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.rtl .woocommerce-pagination ul.page-numbers li:first-child .prev {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
 .blog .posted-on {
   z-index: 1;
 }

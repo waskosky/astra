@@ -111,3 +111,13 @@
         position: relative;
     }
 }
+.rtl {
+	.woocommerce-pagination {
+		ul.page-numbers li:last-child .next  {
+    	transform: rotateY(180deg);
+		}
+		ul.page-numbers li:first-child .prev  {
+    	transform: rotateY(-180deg);
+		}
+	}
+}
