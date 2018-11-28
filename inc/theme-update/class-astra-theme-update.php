@@ -931,12 +931,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
-			// If Transparent header was disabled on special pages, Disable transparent header on Archive, Search, 404 pages.
-			if ( '1' == $theme_options['transparent-header-disable-archive'] ) {
-				$theme_options['transparent-header-disable-search'] = 1;
-				$theme_options['transparent-header-disable-404']    = 1;
-			}
-
 			update_option( 'astra-settings', $theme_options );
 		}
 
