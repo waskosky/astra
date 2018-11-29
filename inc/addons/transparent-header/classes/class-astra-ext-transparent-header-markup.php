@@ -60,7 +60,8 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 * @return array
 		 */
 		public function theme_defaults( $defaults ) {
-			$defaults['transparent-header-on-devices'] = 'both';
+			$defaults['transparent-header-on-devices']    = 'both';
+			$defaults['transparent-header-disable-index'] = '1';
 
 			return $defaults;
 		}
