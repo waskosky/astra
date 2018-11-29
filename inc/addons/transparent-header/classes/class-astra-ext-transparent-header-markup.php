@@ -137,6 +137,12 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				$enable_trans_header = false;
 			}
 
+			if ( class_exists( 'Astra_Woocommerce' ) ) {
+				if ( is_product() && '1' == astra_get_option( 'transparent-header-disable-woo-products' ) ) {
+					$enable_trans_header = false;
+				}
+			}
+
 			return apply_filters( 'astra_is_transparent_header', $enable_trans_header );
 		}
 
