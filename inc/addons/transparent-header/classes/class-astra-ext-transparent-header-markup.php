@@ -41,8 +41,6 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			/* Fixed header markup */
 			add_action( 'astra_header', array( $this, 'transparent_header_logo' ), 1 );
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
-
 			/**
 			 * Metabox setup
 			 */
@@ -50,6 +48,22 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			add_action( 'astra_meta_box_markup_after', array( $this, 'add_options_markup' ) );
 
 			add_action( 'astra_customizer_save', array( $this, 'customizer_save' ) );
+
+			// Default settings.
+			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
+		}
+
+		/**
+		 * Set Options Default Values
+		 *
+		 * @param  array $defaults  Astra options default value array.
+		 * @return array
+		 */
+		public function theme_defaults( $defaults ) {
+			$defaults['transparent-header-on-devices']    = 'both';
+			$defaults['transparent-header-disable-index'] = '1';
+
+			return $defaults;
 		}
 
 		/**
@@ -76,7 +90,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			 * Add class 'ast-theme-transparent-header'
 			 */
 
-			if ( $this->is_transparent_header() ) {
+			if ( self::is_transparent_header() ) {
 				$classes[] = 'ast-theme-transparent-header';
 			}
 
@@ -88,7 +102,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 *
 		 * @return boolean true/false.
 		 */
-		function is_transparent_header() {
+		public static function is_transparent_header() {
 
 			// Transparent Header.
 			$enable_trans_header = astra_get_option( 'transparent-header-enable' );
@@ -115,13 +129,6 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				if ( is_single() && '1' == astra_get_option( 'transparent-header-disable-posts' ) ) {
 					$enable_trans_header = false;
 				}
-
-				// Check if current page is singular, although skip pages and posts as they have separate options in customizer.
-				if ( (
-					( ! is_page() && is_single() ) && is_singular() ) &&
-					'1' == astra_get_option( 'transparent-header-disable-singular' ) ) {
-					$enable_trans_header = false;
-				}
 			}
 
 			// Force Meta settings to override global settings.
@@ -129,6 +136,12 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				$enable_trans_header = true;
 			} elseif ( 'disabled' === $trans_meta_option ) {
 				$enable_trans_header = false;
+			}
+
+			if ( class_exists( 'Astra_Woocommerce' ) ) {
+				if ( is_product() && '1' == astra_get_option( 'transparent-header-disable-woo-products' ) ) {
+					$enable_trans_header = false;
+				}
 			}
 
 			return apply_filters( 'astra_is_transparent_header', $enable_trans_header );
@@ -144,7 +157,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			$inherit_desk_logo       = astra_get_option( 'different-transparent-logo', false );
 			$transparent_header_logo = astra_get_option( 'transparent-header-logo' );
 
-			if ( $this->is_transparent_header() && '1' == $inherit_desk_logo && '' !== $transparent_header_logo ) {
+			if ( self::is_transparent_header() && '1' == $inherit_desk_logo && '' !== $transparent_header_logo ) {
 				// Logo For None Effect.
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'transparent_custom_logo' ), 10, 2 );
@@ -162,7 +175,8 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		function transparent_custom_logo( $html, $blog_id ) {
 
-			$trans_logo = astra_get_option( 'transparent-header-logo' );
+			$trans_logo                 = astra_get_option( 'transparent-header-logo' );
+			$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
 
 			if ( '' !== $trans_logo ) {
 
@@ -189,6 +203,22 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 						)
 					)
 				);
+
+				if ( 'mobile' === $transparent_header_devices ) {
+
+					$html .= sprintf(
+						'<a href="%1$s" class="custom-logo-link ast-transparent-desktop-logo" rel="home" itemprop="url">%2$s</a>',
+						esc_url( home_url( '/' ) ),
+						wp_get_attachment_image(
+							get_theme_mod( 'custom_logo' ),
+							$size,
+							false,
+							array(
+								'class' => 'custom-logo',
+							)
+						)
+					);
+				}
 
 				remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'replace_trans_header_attr' ) );
 			}
@@ -303,28 +333,6 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			<?php } ?>
 
 			<?php
-		}
-
-		/**
-		 * Add Styles Callback
-		 */
-		function add_styles() {
-
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
-			if ( SCRIPT_DEBUG ) {
-				$css_prefix = '.css';
-				$dir        = 'unminified';
-			}
-
-			if ( is_rtl() ) {
-				$css_prefix = '-rtl.min.css';
-				if ( SCRIPT_DEBUG ) {
-					$css_prefix = '-rtl.css';
-				}
-			}
-
-			wp_enqueue_style( 'astra-transparent-header', ASTRA_THEME_URI . 'inc/addons/transparent-header/assets/css/' . $dir . '/style' . $css_prefix, null, ASTRA_THEME_VERSION );
 		}
 
 		/**

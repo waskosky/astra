@@ -76,7 +76,8 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-disable-archive' ),
 					'type'        => 'control',
 					'section'     => 'section-transparent-header',
-					'title'       => __( 'Disable on Special Pages?', 'astra' ),
+					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'title'       => __( 'Disable on 404, Search & Archives?', 'astra' ),
 					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
@@ -90,6 +91,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => astra_get_option( 'transparent-header-disable-index' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
+					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
 					'title'    => __( 'Disable on Blog Index page?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
@@ -103,6 +105,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => astra_get_option( 'transparent-header-disable-page' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
+					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
 					'title'    => __( 'Disable on Pages?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
@@ -116,23 +119,28 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => astra_get_option( 'transparent-header-disable-posts' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
+					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
 					'title'    => __( 'Disable on Posts?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
 				),
 
 				/**
-				 * Option: Disable Transparent Header on Singular
+				 * Option: Sticky Header Display On
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-singular]',
-					'default'     => astra_get_option( 'transparent-header-disable-singular' ),
-					'type'        => 'control',
-					'section'     => 'section-transparent-header',
-					'title'       => __( 'Disable on Singular?', 'astra' ),
-					'description' => __( 'This will disable transparent header on singulars of custom post types', 'astra' ),
-					'priority'    => 25,
-					'control'     => 'checkbox',
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-on-devices]',
+					'default'  => astra_get_option( 'transparent-header-on-devices' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'priority' => 25,
+					'title'    => __( 'Enable On', 'astra' ),
+					'control'  => 'select',
+					'choices'  => array(
+						'desktop' => __( 'Desktop', 'astra' ),
+						'mobile'  => __( 'Mobile', 'astra' ),
+						'both'    => __( 'Desktop + Mobile', 'astra' ),
+					),
 				),
 
 				/**
