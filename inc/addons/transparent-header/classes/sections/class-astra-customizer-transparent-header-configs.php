@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-disable-archive' ),
 					'type'        => 'control',
 					'section'     => 'section-transparent-header',
-					'title'       => __( 'Disable on Special Pages?', 'astra' ),
+					'title'       => __('Disable on 404, Search & Archives?', 'astra' ),
 					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
