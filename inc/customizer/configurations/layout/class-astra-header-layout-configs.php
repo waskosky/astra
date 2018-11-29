@@ -188,6 +188,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text-color]',
+					'transport'=> 'postMessage',
 					'default'  => astra_get_option( 'header-main-rt-section-button-text-color' ),
 					'type'     => 'control',
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
@@ -203,6 +204,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text-h-color]',
 					'default'  => astra_get_option( 'header-main-rt-section-button-text-h-color' ),
+					'transport'=> 'postMessage',
 					'type'     => 'control',
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'  => 'ast-color',
@@ -217,6 +219,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-back-color]',
 					'default'  => astra_get_option( 'header-main-rt-section-button-back-color' ),
+					'transport'=> 'postMessage',
 					'type'     => 'control',
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'  => 'ast-color',
@@ -232,6 +235,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-back-h-color]',
 					'default'  => astra_get_option( 'header-main-rt-section-button-back-h-color' ),
 					'type'     => 'control',
+					'transport'=> 'postMessage',
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'  => 'ast-color',
 					'section'  => 'section-header',
@@ -245,6 +249,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'        => 'ast-responsive-spacing',
 					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-padding]',
 					'section'        => 'section-header',
+					'transport'		 => 'postMessage',
 					'linked_choices' => true,
 					'priority'       => 10,
 					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
@@ -266,6 +271,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'header-main-rt-section-button-border-radius' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
+					'transport'	  => 'postMessage',
 					'section'     => 'section-header',
 					'required'    => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'priority'    => 10,
@@ -284,6 +290,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-color]',
 					'default'  => astra_get_option( 'header-main-rt-section-button-border-color' ),
 					'type'     => 'control',
+					'transport'	  => 'postMessage',
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'  => 'ast-color',
 					'section'  => 'section-header',
@@ -299,6 +306,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'        => 'ast-border',
 					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-size]',
 					'section'        => 'section-header',
+					'transport'	  => 'postMessage',
 					'linked_choices' => true,
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'priority'       => 10,
