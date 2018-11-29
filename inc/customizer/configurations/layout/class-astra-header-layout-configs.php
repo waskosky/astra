@@ -264,22 +264,24 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Border Radius
+				 * Option: Button Border Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-radius]',
-					'default'     => astra_get_option( 'header-main-rt-section-button-border-radius' ),
-					'type'        => 'control',
-					'control'     => 'ast-slider',
-					'transport'   => 'postMessage',
-					'section'     => 'section-header',
-					'required'    => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-					'priority'    => 10,
-					'title'       => __( 'Border Radius', 'astra' ),
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 100,
+					'type'           => 'control',
+					'control'        => 'ast-border',
+					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-size]',
+					'section'        => 'section-header',
+					'transport'      => 'postMessage',
+					'linked_choices' => true,
+					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'priority'       => 10,
+					'default'        => astra_get_option( 'header-main-rt-section-button-border-size' ),
+					'title'          => __( 'Border Size', 'astra' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
 				),
 
@@ -299,24 +301,22 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Border Size
+				 * Option: Button Border Radius
 				 */
 				array(
-					'type'           => 'control',
-					'control'        => 'ast-border',
-					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-size]',
-					'section'        => 'section-header',
-					'transport'      => 'postMessage',
-					'linked_choices' => true,
-					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-					'priority'       => 10,
-					'default'        => astra_get_option( 'header-main-rt-section-button-border-size' ),
-					'title'          => __( 'Border Size', 'astra' ),
-					'choices'        => array(
-						'top'    => __( 'Top', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-						'bottom' => __( 'Bottom', 'astra' ),
-						'left'   => __( 'Left', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-radius]',
+					'default'     => astra_get_option( 'header-main-rt-section-button-border-radius' ),
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'transport'   => 'postMessage',
+					'section'     => 'section-header',
+					'required'    => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'priority'    => 10,
+					'title'       => __( 'Border Radius', 'astra' ),
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
 					),
 				),
 
