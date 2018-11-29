@@ -502,6 +502,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-bottom'   => astra_responsive_spacing( $header_custom_button_spacing, 'bottom', 'desktop' ),
 					'padding-left'     => astra_responsive_spacing( $header_custom_button_spacing, 'left', 'desktop' ),
 					'padding-right'    => astra_responsive_spacing( $header_custom_button_spacing, 'right', 'desktop' ),
+					'border-radius'	   => astra_get_css_value( $header_custom_button_radius, 'px' ),
 					'border-style'     => 'solid',
 					'border-color'     => esc_attr( $header_custom_button_border_color ),
 					'border-width'     => astra_get_css_value( $header_custom_button_border_size, 'px' ),
@@ -515,6 +516,34 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
+
+			/* Parse CSS from array()*/
+
+			/* Site width Responsive */
+			$custom_button_css = array(
+				'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+					'padding-top'      => astra_responsive_spacing( $header_custom_button_spacing, 'top', 'tablet' ),
+					'padding-bottom'   => astra_responsive_spacing( $header_custom_button_spacing, 'bottom', 'tablet' ),
+					'padding-left'     => astra_responsive_spacing( $header_custom_button_spacing, 'left', 'tablet' ),
+					'padding-right'    => astra_responsive_spacing( $header_custom_button_spacing, 'right', 'tablet' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= astra_parse_css( $custom_button_css, '769' );
+
+			/* Site width Responsive */
+			$custom_button = array(
+				'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' => array(
+					'padding-top'      => astra_responsive_spacing( $header_custom_button_spacing, 'top', 'mobile' ),
+					'padding-bottom'   => astra_responsive_spacing( $header_custom_button_spacing, 'bottom', 'mobile' ),
+					'padding-left'     => astra_responsive_spacing( $header_custom_button_spacing, 'left', 'mobile' ),
+					'padding-right'    => astra_responsive_spacing( $header_custom_button_spacing, 'right', 'mobile' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= astra_parse_css( $custom_button, '', '544' );
 
 			// Foreground color.
 			if ( ! empty( $footer_adv_link_color ) ) {
