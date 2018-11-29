@@ -3993,3 +3993,17 @@ button.pswp__button--zoom:hover {
 		}
 	}
 }
+/**
+ * Woocommerce Pagination RTL
+ */
+.rtl {
+	.woocommerce-pagination {
+		.page-numbers li:last-child .next  {
+			transform: rotateY(180deg);
+		}
+		.page-numbers li:first-child .prev {
+			transform: rotateY(-180deg);
+		}
+	}
+}	
+	
