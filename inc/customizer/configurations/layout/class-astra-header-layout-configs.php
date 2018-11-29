@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'ast-color',
 					'section'  => 'section-header',
 					'priority' => 10,
-					'title'    => __( 'Button Hover Color', 'astra' ),
+					'title'    => __( 'Background Hover Color', 'astra' ),
 				),
 
 				// Option: Custom Menu Button Border.
