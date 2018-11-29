@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default' => '',
 					'type'    => 'control',
 					'control' => 'ast-color',
-					'section' => 'section-buttons',
+					'section' => 'section-theme-button',
 					'title'   => __( 'Button Text Color', 'astra' ),
 				),
 
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				array(
 					'name'    => ASTRA_THEME_SETTINGS . '[button-h-color]',
 					'default' => '',
-					'section' => 'section-buttons',
+					'section' => 'section-theme-button',
 					'type'    => 'control',
 					'control' => 'ast-color',
 					'title'   => __( 'Button Text Hover Color', 'astra' ),
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				array(
 					'name'    => ASTRA_THEME_SETTINGS . '[button-bg-color]',
 					'default' => '',
-					'section' => 'section-buttons',
+					'section' => 'section-theme-button',
 					'type'    => 'control',
 					'control' => 'ast-color',
 					'title'   => __( 'Button Background Color', 'astra' ),
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'    => ASTRA_THEME_SETTINGS . '[button-bg-h-color]',
-					'section' => 'section-buttons',
+					'section' => 'section-theme-button',
 					'default' => '',
 					'type'    => 'control',
 					'control' => 'ast-color',
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[button-radius]',
-					'section'     => 'section-buttons',
+					'section'     => 'section-theme-button',
 					'default'     => astra_get_option( 'button-radius' ),
 					'type'        => 'control',
 					'control'     => 'number',
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[button-v-padding]',
-					'section'     => 'section-buttons',
+					'section'     => 'section-theme-button',
 					'default'     => astra_get_option( 'button-v-padding' ),
 					'title'       => __( 'Vertical Padding', 'astra' ),
 					'type'        => 'control',
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[button-h-padding]',
-					'section'     => 'section-buttons',
+					'section'     => 'section-theme-button',
 					'default'     => astra_get_option( 'button-h-padding' ),
 					'title'       => __( 'Horizontal Padding', 'astra' ),
 					'type'        => 'control',
