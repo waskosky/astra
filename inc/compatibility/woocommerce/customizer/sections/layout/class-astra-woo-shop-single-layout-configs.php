@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Disable Transparent Header on Posts
+				 * Option: Disable Transparent Header on WooCommerce Product pages
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-woo-products]',
