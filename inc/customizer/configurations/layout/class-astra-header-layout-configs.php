@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'ast-color',
 					'section'  => 'section-header',
 					'priority' => 10,
-					'title'    => __( 'Text Color', 'astra' ),
+					'title'    => __( 'Button Text Color', 'astra' ),
 				),
 
 				/**
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'ast-color',
 					'section'  => 'section-header',
 					'priority' => 10,
-					'title'    => __( 'Text Hover Color', 'astra' ),
+					'title'    => __( 'Button Text Hover Color', 'astra' ),
 				),
 
 				/**
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'ast-color',
 					'section'  => 'section-header',
 					'priority' => 10,
-					'title'    => __( 'Background Color', 'astra' ),
+					'title'    => __( 'Button Background Color', 'astra' ),
 				),
 
 				/**
@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'ast-color',
 					'section'  => 'section-header',
 					'priority' => 10,
-					'title'    => __( 'Background Hover Color', 'astra' ),
+					'title'    => __( 'Button Background Hover Color', 'astra' ),
 				),
 
 				// Option: Custom Menu Button Border.
