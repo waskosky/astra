@@ -505,10 +505,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-radius'       => astra_get_css_value( $header_custom_button_radius, 'px' ),
 					'border-style'        => 'solid',
 					'border-color'        => esc_attr( $header_custom_button_border_color ),
-					'border-top-width'    => ( '' !== $header_custom_button_border_size['top'] ) ? astra_get_css_value( $header_custom_button_border_size['top'], 'px' ) : '0px',
-					'border-right-width'  => ( '' !== $header_custom_button_border_size['right'] ) ? astra_get_css_value( $header_custom_button_border_size['right'], 'px' ) : '0px',
-					'border-left-width'   => ( '' !== $header_custom_button_border_size['left'] ) ? astra_get_css_value( $header_custom_button_border_size['left'], 'px' ) : '0px',
-					'border-bottom-width' => ( '' !== $header_custom_button_border_size['bottom'] ) ? astra_get_css_value( $header_custom_button_border_size['bottom'], 'px' ) : '0px',
+					'border-top-width'    => ( isset( $header_custom_button_border_size['top'] ) && '' !== $header_custom_button_border_size['top'] ) ? astra_get_css_value( $header_custom_button_border_size['top'], 'px' ) : '0px',
+					'border-right-width'  => ( isset( $header_custom_button_border_size['right'] ) && '' !== $header_custom_button_border_size['right'] ) ? astra_get_css_value( $header_custom_button_border_size['right'], 'px' ) : '0px',
+					'border-left-width'   => ( isset( $header_custom_button_border_size['left'] ) && '' !== $header_custom_button_border_size['left'] ) ? astra_get_css_value( $header_custom_button_border_size['left'], 'px' ) : '0px',
+					'border-bottom-width' => ( isset( $header_custom_button_border_size['bottom'] ) && '' !== $header_custom_button_border_size['bottom'] ) ? astra_get_css_value( $header_custom_button_border_size['bottom'], 'px' ) : '0px',
 				),
 				'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' => array(
 					'color'            => esc_attr( $header_custom_button_text_h_color ),
@@ -533,7 +533,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $custom_button_css, '769' );
+			$parse_css .= astra_parse_css( $custom_button_css, '', '768' );
 
 			/* Site width Responsive */
 			$custom_button = array(
