@@ -3499,6 +3499,10 @@ body {
   background-color: #ffffff;
 }
 
+.ast-flyout-menu-enable .main-header-bar .ast-masthead-custom-menu-items .ast-custom-button-link {
+  border: none;
+}
+
 @media (max-width: 768px) {
   .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
     display: inline-block;
