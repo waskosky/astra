@@ -187,60 +187,60 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Button Text Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text-color]',
-					'transport'=> 'postMessage',
-					'default'  => astra_get_option( 'header-main-rt-section-button-text-color' ),
-					'type'     => 'control',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-					'control'  => 'ast-color',
-					'section'  => 'section-header',
-					'priority' => 10,
-					'title'    => __( 'Button Text Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text-color]',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'header-main-rt-section-button-text-color' ),
+					'type'      => 'control',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'control'   => 'ast-color',
+					'section'   => 'section-header',
+					'priority'  => 10,
+					'title'     => __( 'Button Text Color', 'astra' ),
 				),
 
 				/**
 				 * Option: Button Text Hover Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text-h-color]',
-					'default'  => astra_get_option( 'header-main-rt-section-button-text-h-color' ),
-					'transport'=> 'postMessage',
-					'type'     => 'control',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-					'control'  => 'ast-color',
-					'section'  => 'section-header',
-					'priority' => 10,
-					'title'    => __( 'Button Text Hover Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text-h-color]',
+					'default'   => astra_get_option( 'header-main-rt-section-button-text-h-color' ),
+					'transport' => 'postMessage',
+					'type'      => 'control',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'control'   => 'ast-color',
+					'section'   => 'section-header',
+					'priority'  => 10,
+					'title'     => __( 'Button Text Hover Color', 'astra' ),
 				),
 
 				/**
 				 * Option: Button Background Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-back-color]',
-					'default'  => astra_get_option( 'header-main-rt-section-button-back-color' ),
-					'transport'=> 'postMessage',
-					'type'     => 'control',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-					'control'  => 'ast-color',
-					'section'  => 'section-header',
-					'priority' => 10,
-					'title'    => __( 'Button Background Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-back-color]',
+					'default'   => astra_get_option( 'header-main-rt-section-button-back-color' ),
+					'transport' => 'postMessage',
+					'type'      => 'control',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'control'   => 'ast-color',
+					'section'   => 'section-header',
+					'priority'  => 10,
+					'title'     => __( 'Button Background Color', 'astra' ),
 				),
 
 				/**
 				 * Option: Button Button Hover Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-back-h-color]',
-					'default'  => astra_get_option( 'header-main-rt-section-button-back-h-color' ),
-					'type'     => 'control',
-					'transport'=> 'postMessage',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-					'control'  => 'ast-color',
-					'section'  => 'section-header',
-					'priority' => 10,
-					'title'    => __( 'Button Background Hover Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-back-h-color]',
+					'default'   => astra_get_option( 'header-main-rt-section-button-back-h-color' ),
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'control'   => 'ast-color',
+					'section'   => 'section-header',
+					'priority'  => 10,
+					'title'     => __( 'Button Background Hover Color', 'astra' ),
 				),
 
 				// Option: Custom Menu Button Border.
@@ -249,7 +249,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'        => 'ast-responsive-spacing',
 					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-padding]',
 					'section'        => 'section-header',
-					'transport'		 => 'postMessage',
+					'transport'      => 'postMessage',
 					'linked_choices' => true,
 					'priority'       => 10,
 					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
@@ -271,7 +271,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'header-main-rt-section-button-border-radius' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
-					'transport'	  => 'postMessage',
+					'transport'   => 'postMessage',
 					'section'     => 'section-header',
 					'required'    => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'priority'    => 10,
@@ -287,15 +287,15 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Button Border Hover Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-color]',
-					'default'  => astra_get_option( 'header-main-rt-section-button-border-color' ),
-					'type'     => 'control',
-					'transport'	  => 'postMessage',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-					'control'  => 'ast-color',
-					'section'  => 'section-header',
-					'priority' => 10,
-					'title'    => __( 'Border Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-color]',
+					'default'   => astra_get_option( 'header-main-rt-section-button-border-color' ),
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'control'   => 'ast-color',
+					'section'   => 'section-header',
+					'priority'  => 10,
+					'title'     => __( 'Border Color', 'astra' ),
 				),
 
 				/**
@@ -306,9 +306,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'        => 'ast-border',
 					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-size]',
 					'section'        => 'section-header',
-					'transport'	  => 'postMessage',
+					'transport'      => 'postMessage',
 					'linked_choices' => true,
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'priority'       => 10,
 					'default'        => astra_get_option( 'header-main-rt-section-button-border-size' ),
 					'title'          => __( 'Border Size', 'astra' ),
