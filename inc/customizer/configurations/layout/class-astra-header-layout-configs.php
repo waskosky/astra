@@ -300,7 +300,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-size]',
 					'section'        => 'section-header',
 					'linked_choices' => true,
-					'priority'       => 30,
+					'priority'       => 10,
 					'default'        => astra_get_option( 'header-main-rt-section-button-border-size' ),
 					'title'          => __( 'Border Size', 'astra' ),
 					'choices'        => array(
