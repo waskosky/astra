@@ -3491,6 +3491,12 @@ body {
   position: relative;
 }
 
+.main-header-bar .main-header-bar-navigation .button-custom-menu-item .ast-custom-button-link .ast-custom-button {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 .main-header-bar .main-header-bar-navigation.toggle-on {
   padding-top: 1em;
 }

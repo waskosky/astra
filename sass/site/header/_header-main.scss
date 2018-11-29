@@ -85,6 +85,16 @@
 			position: relative;
 		}
 
+		.button-custom-menu-item {
+			.ast-custom-button-link {
+				.ast-custom-button {
+					font-size: inherit;
+				    font-family: inherit;
+				    font-weight: inherit;
+				}
+			}
+		}
+
 		&.toggle-on {
 			padding-top: 1em;
 		}
