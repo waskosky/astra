@@ -403,10 +403,15 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 		$button_text    = astra_get_option( $button_text );
 		$button_link    = astra_get_option( $button_link );
 		$button_style   = astra_get_option( $button_style );
+		$outside_menu   = astra_get_option( 'header-display-outside-menu' );
 
 		$button_classes = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
 
-		$custom_html = '<a class="ast-custom-button-link" href="' . do_shortcode( $button_link ) . '"><button class=' . $button_classes . '>' . do_shortcode( $button_text ) . '</button></a>';
+		if( '1' == $outside_menu ) {
+			$custom_html = '<a class="ast-custom-button-link" href="' . do_shortcode( $button_link ) . '"><button class=' . $button_classes . '>' . do_shortcode( $button_text ) . '</button></a>';
+		} else {
+			$custom_html = '<a class="menu-link" href="' . do_shortcode( $button_link ) . '">' . do_shortcode( $button_text ) . '</a>';
+		}
 
 		return $custom_html;
 	}
