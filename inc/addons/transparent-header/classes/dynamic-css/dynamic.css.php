@@ -303,7 +303,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	/* Parse CSS from array() */
 	if ( 'both' === $transparent_header_devices || 'desktop' === $transparent_header_devices ) {
 		$css .= astra_parse_css( $transparent_heder_base, '769' );
-		$css .= astra_parse_css( $transparent_header_desktop, '769' );
+		$css .= astra_parse_css( $transparent_header_desktop );
 
 		$css .= '.ast-theme-transparent-header.ast-header-break-point .site-header {';
 		$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
