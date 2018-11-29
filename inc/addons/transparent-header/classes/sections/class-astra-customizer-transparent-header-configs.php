@@ -122,20 +122,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Disable Transparent Header on Singular
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-singular]',
-					'default'     => astra_get_option( 'transparent-header-disable-singular' ),
-					'type'        => 'control',
-					'section'     => 'section-transparent-header',
-					'title'       => __( 'Disable on Singular?', 'astra' ),
-					'description' => __( 'This will disable transparent header on singulars of custom post types', 'astra' ),
-					'priority'    => 25,
-					'control'     => 'checkbox',
-				),
-
-				/**
 				 * Option: Sticky Header Display On
 				 */
 				array(

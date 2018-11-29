@@ -128,13 +128,6 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				if ( is_single() && '1' == astra_get_option( 'transparent-header-disable-posts' ) ) {
 					$enable_trans_header = false;
 				}
-
-				// Check if current page is singular, although skip pages and posts as they have separate options in customizer.
-				if ( (
-					( ! is_page() && is_single() ) && is_singular() ) &&
-					'1' == astra_get_option( 'transparent-header-disable-singular' ) ) {
-					$enable_trans_header = false;
-				}
 			}
 
 			// Force Meta settings to override global settings.
