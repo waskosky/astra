@@ -36,6 +36,53 @@ function astra_font_size_rem( size, with_rem, device ) {
 	return css;
 }
 
+
+/**
+ * Apply CSS for the element
+ */
+function astra_color_responsive_css( addon, control, css_property, selector ) {
+
+	wp.customize( control, function( value ) {
+		value.bind( function( value ) {
+			if ( value.desktop || value.mobile || value.tablet ) {
+				// Remove <style> first!
+				control = control.replace( '[', '-' );
+				control = control.replace( ']', '' );
+				jQuery( 'style#' + control + '-' + addon ).remove();
+
+				var DeskVal = '',
+					TabletFontVal = '',
+					MobileVal = '';
+
+				if ( '' != value.desktop ) {
+					DeskVal = css_property + ': ' + value.desktop;
+				}
+				if ( '' != value.tablet ) {
+					TabletFontVal = css_property + ': ' + value.tablet;
+				}
+				if ( '' != value.mobile ) {
+					MobileVal = css_property + ': ' + value.mobile;
+				}
+
+				// Concat and append new <style>.
+				jQuery( 'head' ).append(
+					'<style id="' + control + '-' + addon + '">'
+					+ selector + '	{ ' + DeskVal + ' }'
+					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
+					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
+					+ '</style>'
+				);
+
+			} else {
+				wp.customize.preview.send( 'refresh' );
+				jQuery( 'style#' + control + '-' + addon ).remove();
+			}
+
+		} );
+	} );
+}
+
+
 /**
  * Responsive Font Size CSS
  */
