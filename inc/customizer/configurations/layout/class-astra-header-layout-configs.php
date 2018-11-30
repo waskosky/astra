@@ -307,12 +307,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'header-main-rt-trans-section-button-text-color' ),
 					'type'      => 'control',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'   => 'ast-color',
 					'section'   => 'section-header-button-transparent',
 					'priority'  => 10,
@@ -327,12 +322,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'header-main-rt-trans-section-button-text-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'control',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'   => 'ast-color',
 					'section'   => 'section-header-button-transparent',
 					'priority'  => 10,
@@ -347,12 +337,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'header-main-rt-trans-section-button-back-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'control',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'   => 'ast-color',
 					'section'   => 'section-header-button-transparent',
 					'priority'  => 10,
@@ -367,12 +352,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'header-main-rt-trans-section-button-back-h-color' ),
 					'type'      => 'control',
 					'transport' => 'postMessage',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'   => 'ast-color',
 					'section'   => 'section-header-button-transparent',
 					'priority'  => 10,
@@ -387,12 +367,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
 					'priority'       => 10,
-					'required'       => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'default'        => astra_get_option( 'header-main-rt-trans-section-button-padding' ),
 					'title'          => __( 'Button Padding', 'astra' ),
 					'choices'        => array(
@@ -413,12 +388,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'        => 'section-header-button-transparent',
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
-					'required'       => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'priority'       => 10,
 					'default'        => astra_get_option( 'header-main-rt-trans-section-button-border-size' ),
 					'title'          => __( 'Border Size', 'astra' ),
@@ -438,12 +408,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'header-main-rt-trans-section-button-border-color' ),
 					'type'      => 'control',
 					'transport' => 'postMessage',
-					'required'  => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'control'   => 'ast-color',
 					'section'   => 'section-header-button-transparent',
 					'priority'  => 10,
@@ -460,12 +425,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
 					'section'     => 'section-header-button-transparent',
-					'required'    => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
-							array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-						),
-					),
+					'required'    => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'priority'    => 10,
 					'title'       => __( 'Border Radius', 'astra' ),
 					'input_attrs' => array(
