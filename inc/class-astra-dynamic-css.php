@@ -122,27 +122,27 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$primary_submenu_item_b_color = astra_get_option( 'primary-submenu-item-b-color', '#eaeaea' );
 
 			// Custom Buttom menu item.
-			$header_custom_item                = astra_get_option( 'header-main-rt-section' );
-			$header_custom_button_style        = astra_get_option( 'header-main-rt-section-button-style' );
-			$header_custom_button_text_color   = astra_get_option( 'header-main-rt-section-button-text-color' );
-			$header_custom_button_text_h_color = astra_get_option( 'header-main-rt-section-button-text-h-color' );
-			$header_custom_button_back_color   = astra_get_option( 'header-main-rt-section-button-back-color' );
-			$header_custom_button_back_h_color = astra_get_option( 'header-main-rt-section-button-back-h-color' );
-			$header_custom_button_spacing      = astra_get_option( 'header-main-rt-section-button-padding' );
-			$header_custom_button_radius       = astra_get_option( 'header-main-rt-section-button-border-radius' );
-			$header_custom_button_border_color = astra_get_option( 'header-main-rt-section-button-border-color' );
+			$header_custom_item                  = astra_get_option( 'header-main-rt-section' );
+			$header_custom_button_style          = astra_get_option( 'header-main-rt-section-button-style' );
+			$header_custom_button_text_color     = astra_get_option( 'header-main-rt-section-button-text-color' );
+			$header_custom_button_text_h_color   = astra_get_option( 'header-main-rt-section-button-text-h-color' );
+			$header_custom_button_back_color     = astra_get_option( 'header-main-rt-section-button-back-color' );
+			$header_custom_button_back_h_color   = astra_get_option( 'header-main-rt-section-button-back-h-color' );
+			$header_custom_button_spacing        = astra_get_option( 'header-main-rt-section-button-padding' );
+			$header_custom_button_radius         = astra_get_option( 'header-main-rt-section-button-border-radius' );
+			$header_custom_button_border_color   = astra_get_option( 'header-main-rt-section-button-border-color' );
 			$header_custom_button_border_h_color = astra_get_option( 'header-main-rt-section-button-border-h-color' );
-			$header_custom_button_border_size  = astra_get_option( 'header-main-rt-section-button-border-size' );
+			$header_custom_button_border_size    = astra_get_option( 'header-main-rt-section-button-border-size' );
 
-			$header_custom_trans_button_text_color   = astra_get_option( 'header-main-rt-trans-section-button-text-color' );
-			$header_custom_trans_button_text_h_color = astra_get_option( 'header-main-rt-trans-section-button-text-h-color' );
-			$header_custom_trans_button_back_color   = astra_get_option( 'header-main-rt-trans-section-button-back-color' );
-			$header_custom_trans_button_back_h_color = astra_get_option( 'header-main-rt-trans-section-button-back-h-color' );
-			$header_custom_trans_button_spacing      = astra_get_option( 'header-main-rt-trans-section-button-padding' );
-			$header_custom_trans_button_radius       = astra_get_option( 'header-main-rt-trans-section-button-border-radius' );
-			$header_custom_trans_button_border_color = astra_get_option( 'header-main-rt-trans-section-button-border-color' );
+			$header_custom_trans_button_text_color     = astra_get_option( 'header-main-rt-trans-section-button-text-color' );
+			$header_custom_trans_button_text_h_color   = astra_get_option( 'header-main-rt-trans-section-button-text-h-color' );
+			$header_custom_trans_button_back_color     = astra_get_option( 'header-main-rt-trans-section-button-back-color' );
+			$header_custom_trans_button_back_h_color   = astra_get_option( 'header-main-rt-trans-section-button-back-h-color' );
+			$header_custom_trans_button_spacing        = astra_get_option( 'header-main-rt-trans-section-button-padding' );
+			$header_custom_trans_button_radius         = astra_get_option( 'header-main-rt-trans-section-button-border-radius' );
+			$header_custom_trans_button_border_color   = astra_get_option( 'header-main-rt-trans-section-button-border-color' );
 			$header_custom_trans_button_border_h_color = astra_get_option( 'header-main-rt-trans-section-button-border-h-color' );
-			$header_custom_trans_button_border_size  = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
+			$header_custom_trans_button_border_size    = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
 
 			/**
 			 * Apply text color depends on link color
