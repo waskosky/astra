@@ -1114,3 +1114,52 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	}
 }
 
+/*
+ * Apply CSS for the element
+ */
+if ( ! function_exists( 'astra_color_responsive_css' ) ) {
+
+	/**
+	 * Astra Responsive Colors
+	 *
+	 * @param  array  $setting      Responsive colors.
+	 * @param  string $css_property CSS property.
+	 * @param  string $selector     CSS selector.
+	 * @return string               Dynamic responsive CSS.
+	 */
+	function astra_color_responsive_css( $setting, $css_property, $selector ) {
+		$css = '';
+		if ( isset( $setting['desktop'] ) && ! empty( $setting['desktop'] ) ) {
+			$css .= $selector . '{' . $css_property . ':' . esc_attr( $setting['desktop'] ) . ';}';
+		}
+		if ( isset( $setting['tablet'] ) && ! empty( $setting['tablet'] ) ) {
+			$css .= '@media (max-width:768px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
+		}
+		if ( isset( $setting['mobile'] ) && ! empty( $setting['mobile'] ) ) {
+			$css .= '@media (max-width:544px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
+		}
+		return $css;
+	}
+}
+
+if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
+
+	/**
+	 * Check if layout is bb themer's layout
+	 */
+	function astra_check_is_bb_themer_layout() {
+
+		$is_layout = false;
+
+		$post_type = get_post_type();
+		$post_id   = get_the_ID();
+
+		if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+			$is_layout = true;
+		}
+
+		return $is_layout;
+	}
+
+endif;
