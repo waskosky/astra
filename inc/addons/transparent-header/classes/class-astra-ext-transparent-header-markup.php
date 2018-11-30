@@ -48,22 +48,6 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			add_action( 'astra_meta_box_markup_after', array( $this, 'add_options_markup' ) );
 
 			add_action( 'astra_customizer_save', array( $this, 'customizer_save' ) );
-
-			// Default settings.
-			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
-		}
-
-		/**
-		 * Set Options Default Values
-		 *
-		 * @param  array $defaults  Astra options default value array.
-		 * @return array
-		 */
-		public function theme_defaults( $defaults ) {
-			$defaults['transparent-header-on-devices']    = 'both';
-			$defaults['transparent-header-disable-index'] = '1';
-
-			return $defaults;
 		}
 
 		/**
