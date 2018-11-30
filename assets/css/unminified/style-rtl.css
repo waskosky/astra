@@ -3395,6 +3395,27 @@ body {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 
+.ast-header-custom-item-inside .button-custom-menu-item .menu-link {
+  display: none;
+}
+
+.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .ast-custom-button-link {
+  display: none;
+}
+
+.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .menu-link {
+  display: block;
+}
+
+.ast-header-custom-item-outside .button-custom-menu-item .menu-link {
+  display: none;
+}
+
 /* 4 - Header Main */
 /**
  *  Header Sections

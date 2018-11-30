@@ -409,11 +409,8 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 
 		$outside_menu   = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
-		if ( '0' == $outside_menu && wp_is_mobile() ) {
-			$custom_html = '<a class="menu-link" href="' . do_shortcode( $button_link ) . '">' . do_shortcode( $button_text ) . '</a>';
-		} else {
-			$custom_html = '<a class="ast-custom-button-link" href="' . do_shortcode( $button_link ) . '"><button class=' . $button_classes . '>' . do_shortcode( $button_text ) . '</button></a>';
-		}
+		$custom_html = '<a class="ast-custom-button-link" href="' . do_shortcode( $button_link ) . '"><button class=' . $button_classes . '>' . do_shortcode( $button_text ) . '</button></a>';
+		$custom_html .= '<a class="menu-link" href="' . do_shortcode( $button_link ) . '">' . do_shortcode( $button_text ) . '</a>';
 
 		return $custom_html;
 	}

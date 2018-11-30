@@ -181,3 +181,31 @@
         }
     }
 }
+
+.ast-header-custom-item-inside {
+    .button-custom-menu-item{
+        .menu-link {
+            display: none;
+        }
+    }
+    &.ast-header-break-point {
+        .button-custom-menu-item {
+            .ast-custom-button-link {
+                display: none;
+            }
+            .menu-link {
+                display: block;
+            }
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.ast-header-custom-item-outside {
+    .button-custom-menu-item {
+        .menu-link {
+            display: none;
+        }
+    }   
+}
