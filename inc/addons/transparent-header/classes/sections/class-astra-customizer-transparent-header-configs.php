@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => astra_get_option( 'transparent-header-on-devices' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'priority' => 25,
+					'priority' => 27,
 					'title'    => __( 'Enable On', 'astra' ),
 					'control'  => 'select',
 					'choices'  => array(
