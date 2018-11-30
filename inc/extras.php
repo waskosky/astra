@@ -409,8 +409,8 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 
 		$outside_menu_item = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
-		if( '1' == $outside_menu_item ) {
-			$custom_html  = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $button_link ) ) . '"><button class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</button></a>';
+		if ( '1' == $outside_menu_item ) {
+			$custom_html = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $button_link ) ) . '"><button class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</button></a>';
 		} else {
 			$custom_html  = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $button_link ) ) . '"><button class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</button></a>';
 			$custom_html .= '<a class="menu-link" href="' . esc_url( do_shortcode( $button_link ) ) . '">' . esc_attr( do_shortcode( $button_text ) ) . '</a>';
