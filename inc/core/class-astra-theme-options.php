@@ -165,8 +165,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-main-rt-section-button-text'  => __( 'Button', 'astra' ),
 					'header-main-rt-section-button-link'  => 'https://www.wpastra.com',
 					'header-main-rt-section-button-style' => 'theme-button',
-					'header-main-rt-section-button-text-color' 	 => '',
-					'header-main-rt-section-button-back-color'   => '',
+					'header-main-rt-section-button-text-color' => '',
+					'header-main-rt-section-button-back-color' => '',
 					'header-main-rt-section-button-text-h-color' => '',
 					'header-main-rt-section-button-back-h-color' => '',
 					'header-main-rt-section-button-padding' => array(
@@ -189,7 +189,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 							'left'   => '',
 						),
 					),
-					'header-main-rt-section-button-border-size'              => array(
+					'header-main-rt-section-button-border-size' => array(
 						'top'    => '',
 						'right'  => '',
 						'bottom' => '',
