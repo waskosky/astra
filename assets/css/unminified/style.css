@@ -3414,10 +3414,6 @@ body {
   display: block;
 }
 
-.ast-header-custom-item-outside .button-custom-menu-item .menu-link {
-  display: none;
-}
-
 .button-custom-menu-item .ast-custom-button-link .ast-custom-button {
   font-size: inherit;
   font-family: inherit;
