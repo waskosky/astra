@@ -1087,6 +1087,34 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 endif;
 
 /**
+ * Get Responsive Spacing
+ */
+if ( ! function_exists( 'astra_responsive_spacing' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $side  top | bottom | left | right.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
+
+		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
+			$spacing = astra_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
+		} elseif ( is_numeric( $option ) ) {
+			$spacing = astra_get_css_value( $option );
+		} else {
+			$spacing = ( ! is_array( $option ) ) ? $option : '';
+		}
+
+		return $spacing;
+	}
+}
+
+/*
  * Apply CSS for the element
  */
 if ( ! function_exists( 'astra_color_responsive_css' ) ) {
