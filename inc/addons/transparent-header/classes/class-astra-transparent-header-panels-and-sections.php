@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 				array(
 					'name'     => 'section-colors-header-group',
 					'type'     => 'section',
-					'title'    => __( 'Header', 'astra-addon' ),
+					'title'    => __( 'Header', 'astra' ),
 					'panel'    => 'panel-colors-background',
 					'priority' => 20,
 				),
