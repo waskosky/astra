@@ -198,6 +198,7 @@
             }
             padding-left: 0;
             padding-right: 0;
+            margin-top: 0;
         }
     }
 }
@@ -208,4 +209,14 @@
             display: none;
         }
     }   
+}
+
+.button-custom-menu-item {
+    .ast-custom-button-link {
+        .ast-custom-button {
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+        }
+    }
 }
