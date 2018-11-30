@@ -919,16 +919,19 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_6_0() {
+			$theme_options = get_option( 'astra-settings', array() );
+
+			// Disable Transparent header is Transparent Header addon was deactivated from Astra Pro.
 			if ( is_callable( 'Astra_Ext_Extension::get_enabled_addons' ) ) {
 				$addons = Astra_Ext_Extension::get_enabled_addons();
 
 				// If transparent header is addon was disabled, disable the transparent header.
 				if ( 'transparent-header' !== $addons['transparent-header'] ) {
-					$theme_options                              = get_option( 'astra-settings', array() );
 					$theme_options['transparent-header-enable'] = 0;
-					update_option( 'astra-settings', $theme_options );
 				}
 			}
+
+			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
