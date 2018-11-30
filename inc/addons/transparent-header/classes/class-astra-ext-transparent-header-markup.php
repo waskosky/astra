@@ -115,17 +115,17 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				}
 			}
 
+			if ( class_exists( 'Astra_Woocommerce' ) ) {
+				if ( is_product() && '1' == astra_get_option( 'transparent-header-disable-woo-products' ) ) {
+					$enable_trans_header = false;
+				}
+			}
+
 			// Force Meta settings to override global settings.
 			if ( 'enabled' === $trans_meta_option ) {
 				$enable_trans_header = true;
 			} elseif ( 'disabled' === $trans_meta_option ) {
 				$enable_trans_header = false;
-			}
-
-			if ( class_exists( 'Astra_Woocommerce' ) ) {
-				if ( is_product() && '1' == astra_get_option( 'transparent-header-disable-woo-products' ) ) {
-					$enable_trans_header = false;
-				}
 			}
 
 			return apply_filters( 'astra_is_transparent_header', $enable_trans_header );
