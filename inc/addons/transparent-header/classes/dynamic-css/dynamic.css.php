@@ -328,6 +328,37 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			),
 			'768'
 		);
+
+		$css .= astra_parse_css(
+			array(
+				'.ast-transparent-desktop-logo' => array(
+					'display' => 'none',
+				),
+			),
+			'',
+			'768'
+		);
+	}
+
+	if ( 'desktop' === $transparent_header_devices ) {
+		$css .= astra_parse_css(
+			array(
+				'.transparent-custom-logo' => array(
+					'display' => 'none',
+				),
+			),
+			'',
+			'768'
+		);
+
+		$css .= astra_parse_css(
+			array(
+				'.ast-transparent-mobile-logo' => array(
+					'display' => 'none',
+				),
+			),
+			'768'
+		);
 	}
 
 	if ( 'both' === $transparent_header_devices || 'mobile' === $transparent_header_devices ) {
