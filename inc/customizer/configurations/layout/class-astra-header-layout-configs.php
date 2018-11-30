@@ -265,7 +265,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
-				* Option: Button Border Hover Color
+				* Option: Button Border Color
 				*/
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-color]',
@@ -277,6 +277,21 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'   => 'section-header-button-default',
 					'priority'  => 10,
 					'title'     => __( 'Border Color', 'astra' ),
+				),
+
+				/**
+				* Option: Button Border Hover Color
+				*/
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-border-h-color]',
+					'default'   => astra_get_option( 'header-main-rt-section-button-border-h-color' ),
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'control'   => 'ast-color',
+					'section'   => 'section-header-button-default',
+					'priority'  => 10,
+					'title'     => __( 'Border Hover Color', 'astra' ),
 				),
 
 				/**
@@ -401,7 +416,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
-				* Option: Button Border Hover Color
+				* Option: Button Border Color
 				*/
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-trans-section-button-border-color]',
@@ -413,6 +428,21 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'   => 'section-header-button-transparent',
 					'priority'  => 10,
 					'title'     => __( 'Border Color', 'astra' ),
+				),
+
+				/**
+				* Option: Button Border Hover Color
+				*/
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-trans-section-button-border-h-color]',
+					'default'   => astra_get_option( 'header-main-rt-trans-section-button-border-h-color' ),
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'control'   => 'ast-color',
+					'section'   => 'section-header-button-transparent',
+					'priority'  => 10,
+					'title'     => __( 'Border Hover Color', 'astra' ),
 				),
 
 				/**

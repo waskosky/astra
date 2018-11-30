@@ -131,6 +131,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_custom_button_spacing      = astra_get_option( 'header-main-rt-section-button-padding' );
 			$header_custom_button_radius       = astra_get_option( 'header-main-rt-section-button-border-radius' );
 			$header_custom_button_border_color = astra_get_option( 'header-main-rt-section-button-border-color' );
+			$header_custom_button_border_h_color = astra_get_option( 'header-main-rt-section-button-border-h-color' );
 			$header_custom_button_border_size  = astra_get_option( 'header-main-rt-section-button-border-size' );
 
 			$header_custom_trans_button_text_color   = astra_get_option( 'header-main-rt-trans-section-button-text-color' );
@@ -140,6 +141,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_custom_trans_button_spacing      = astra_get_option( 'header-main-rt-trans-section-button-padding' );
 			$header_custom_trans_button_radius       = astra_get_option( 'header-main-rt-trans-section-button-border-radius' );
 			$header_custom_trans_button_border_color = astra_get_option( 'header-main-rt-trans-section-button-border-color' );
+			$header_custom_trans_button_border_h_color = astra_get_option( 'header-main-rt-trans-section-button-border-h-color' );
 			$header_custom_trans_button_border_size  = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
 
 			/**
@@ -522,7 +524,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' => array(
 					'color'            => esc_attr( $header_custom_button_text_h_color ),
 					'background-color' => esc_attr( $header_custom_button_back_h_color ),
-					'border-color'     => esc_attr( $header_custom_button_border_color ),
+					'border-color'     => esc_attr( $header_custom_button_border_h_color ),
 				),
 
 				// Custom menu item button - Transparent.
@@ -544,7 +546,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' => array(
 					'color'            => esc_attr( $header_custom_trans_button_text_h_color ),
 					'background-color' => esc_attr( $header_custom_trans_button_back_h_color ),
-					'border-color'     => esc_attr( $header_custom_trans_button_border_color ),
+					'border-color'     => esc_attr( $header_custom_trans_button_border_h_color ),
 				),
 			);
 
