@@ -2593,7 +2593,7 @@ body {
 }
 
 .ast-header-break-point .main-navigation ul li a,
-.ast-header-break-point .main-navigation ul .ast-masthead-custom-menu-items a {
+.ast-header-break-point .main-navigation ul .button-custom-menu-item a {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
