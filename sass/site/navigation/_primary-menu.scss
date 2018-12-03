@@ -139,13 +139,16 @@
 		padding-left: 0;
 
 		ul {
-			li a {
-				padding: 0 20px;
-				display: inline-block;
-				width: 100%;
-				border-bottom-width: 1px;
-				border-style: solid;
-				border-color: #eaeaea;
+			li,
+			.ast-masthead-custom-menu-items {
+				a {
+					padding: 0 20px;
+					display: inline-block;
+					width: 100%;
+					border-bottom-width: 1px;
+					border-style: solid;
+					border-color: #eaeaea;
+				}
 			}
 			&.children li a,
 			&.sub-menu li a {
