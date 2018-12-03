@@ -188,6 +188,27 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Header Button Style edit link
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[header-custom-button-style-link]',
+					'default'   => astra_get_option( 'header-custom-button-style-link' ),
+					'type'      => 'control',
+					'control'   => 'ast-customizer-link',
+					'section'   => 'section-header',
+					'required'  => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+						),
+					),
+					'priority'  => 10,
+					'link_type' => 'section',
+					'linked'    => 'section-header-button-default',
+					'link_text' => 'Customize Custom Button Style.',
+				),
+
+				/**
 				 * Option: Right Section Text / HTML
 				 */
 				array(

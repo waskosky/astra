@@ -15,7 +15,7 @@ wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.ex
 		this.container.on('click', '.customizer-link', function (e) {
 			e.preventDefault();
 
-			var sectionName = this.getAttribute('data-customizer-linked_section');
+			var sectionName = this.getAttribute('data-customizer-linked');
 			var section = wp.customize.section(sectionName);
 			section.expand();
 		});
