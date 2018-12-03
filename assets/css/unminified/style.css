@@ -2592,7 +2592,7 @@ body {
   padding-left: 0;
 }
 
-.ast-header-break-point .main-navigation ul li a {
+.ast-header-break-point .main-navigation ul li a, .ast-header-break-point .main-navigation ul li.ast-masthead-custom-menu-items a {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
