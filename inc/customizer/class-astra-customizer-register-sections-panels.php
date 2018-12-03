@@ -407,7 +407,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-header-button-default',
 					'type'     => 'section',
 					'priority' => 10,
-					'title'    => __( 'Default', 'astra' ),
+					'title'    => __( 'Default Button', 'astra' ),
 					'section'  => 'section-header-button',
 				),
 
@@ -418,7 +418,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-header-button-transparent',
 					'type'     => 'section',
 					'priority' => 10,
-					'title'    => __( 'Transparent', 'astra' ),
+					'title'    => __( 'Transparent Header Button', 'astra' ),
 					'section'  => 'section-header-button',
 				),
 
