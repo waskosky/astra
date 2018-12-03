@@ -499,6 +499,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			Astra_Customizer_Control_Base::add_control(
+				'ast-customizer-link',
+				array(
+					'callback' => 'Astra_Control_Customizer_Link',
+					// 'santize_callback' => 'sanitize_responsive_color',
+				)
+			);
+
 			/**
 			 * Helper files
 			 */
