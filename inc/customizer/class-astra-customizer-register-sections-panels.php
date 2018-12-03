@@ -423,17 +423,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				/**
-				 * Header Button - Sticky
-				 */
-				array(
-					'name'     => 'section-header-button-sticky',
-					'type'     => 'section',
-					'priority' => 10,
-					'title'    => __( 'Sticky', 'astra' ),
-					'section'  => 'section-header-button',
-				),
-
-				/**
 				 * Widget Areas Section
 				 */
 				array(
