@@ -28,17 +28,17 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	public $type = 'ast-customizer-link';
 
 	/**
-	 * The control type.
+	 * Link text to be added inside the anchor tag.
 	 *
-	 * @access public
 	 * @var string
 	 */
-	public $caption = '';
-
 	public $link_text = '';
 
-	public $link_type = '';
-
+	/**
+	 * Linked customizer section.
+	 *
+	 * @var string
+	 */
 	public $linked = '';
 
 	/**
@@ -62,7 +62,6 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 		$this->json['link_text'] = $this->link_text;
-		$this->json['link_type'] = $this->link_type;
 		$this->json['linked']    = $this->linked;
 	}
 
@@ -79,8 +78,8 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	protected function content_template() {
 		?>
 
-		<# if ( data.linked && data.link_type && data.link_text ) { #>
-			<a href="#" class="customizer-link" data-customizer-link-type="{{{ data.link_type }}}" data-customizer-linked="{{{ data.linked }}}">
+		<# if ( data.linked && data.link_text ) { #>
+			<a href="#" class="customizer-link" data-customizer-linked="{{{ data.linked }}}">
 				{{{ data.link_text }}}
 			</a>
 		<# } #>
