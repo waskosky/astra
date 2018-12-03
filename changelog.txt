@@ -1,3 +1,9 @@
+v1.6.0
+- New: Transparent header options in Astra Theme.
+- New: Option to enable transparent header Only on Desktop/Mobile.
+- New: More options to conditionally disable transparent header.
+- New: Option to add button in the header as a Custom Menu item.
+
 v1.5.5
 - New: Added Easy Digital Downloads complete support.
 - Fix: Featured images not getting full width.
