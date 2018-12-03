@@ -9,14 +9,14 @@
 wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.extend({
 
 	ready: function () {
-        'use strict';
-        
+		'use strict';
+
 		// Add event listener for click action.
 		this.container.on('click', '.customizer-link', function (e) {
-            e.preventDefault();
+			e.preventDefault();
 
 			var sectionName = this.getAttribute('data-customizer-linked_section');
-			var section     = wp.customize.section(sectionName);
+			var section = wp.customize.section(sectionName);
 			section.expand();
 		});
 	},
