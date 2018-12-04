@@ -181,6 +181,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 					if ( 'custom' === $single_post_max ) {
 						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-single-max-width', 1200 ) );
+					} else {
+						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
 					}
 				} else {
 					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
