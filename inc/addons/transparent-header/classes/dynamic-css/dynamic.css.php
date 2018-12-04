@@ -121,7 +121,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			'display' => 'inline-block',
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header' => array(
+		'.ast-theme-transparent-header .ast-above-header' => array(
 			'background' => 'none',
 		),
 
@@ -300,19 +300,6 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		),
 	);
 
-	if ( 'both' === $transparent_header_devices || 'mobile' === $transparent_header_devices ) {
-		$css .= astra_parse_css( $transparent_heder_base, '', '768' );
-		$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
-		$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
-
-		$css .= '@media (min-width: 769px) {';
-		$css .= '.ast-theme-transparent-header .main-header-bar {';
-		$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
-		$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
-		$css .= '}';
-		$css .= '}';
-	}
-
 	/* Parse CSS from array() */
 	if ( 'both' === $transparent_header_devices || 'desktop' === $transparent_header_devices ) {
 		$css .= astra_parse_css( $transparent_heder_base, '769' );
@@ -372,6 +359,19 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			),
 			'768'
 		);
+	}
+
+	if ( 'both' === $transparent_header_devices || 'mobile' === $transparent_header_devices ) {
+		$css .= astra_parse_css( $transparent_heder_base, '', '768' );
+		$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
+		$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
+
+		$css .= '@media (min-width: 769px) {';
+		$css .= '.ast-theme-transparent-header .main-header-bar {';
+		$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
+		$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
+		$css .= '}';
+		$css .= '}';
 	}
 
 	$dynamic_css .= $css;
