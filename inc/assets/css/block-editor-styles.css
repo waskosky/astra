@@ -13,6 +13,10 @@ html {
   /*----------  Break-point min-width Structure   ----------*/
   /*----------  Break-point max-width Structure   ----------*/
   /* must have higher specificity than alternative color schemes inline styles */
+  /*
+ * Button mixin- creates 3d-ish button effect with correct
+ * highlights/shadows, based on a base color.
+ */
 }
 
 #wpwrap .edit-post-visual-editor html {
@@ -520,4 +524,61 @@ html {
 #wpwrap .edit-post-visual-editor .editor-block-list__block blockquote p {
   font-size: 1.1rem;
   line-height: 1.8571428571;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button {
+  background: #0073aa;
+  border-color: #005177 #003f5e #003f5e;
+  color: #fff;
+  box-shadow: 0 1px 0 #003f5e;
+  text-shadow: 0 -1px 1px #003f5e, 1px 0 1px #003f5e, 0 1px 1px #003f5e, -1px 0 1px #003f5e;
+  font-size: 14px;
+  height: 46px;
+  line-height: 44px;
+  padding: 0 36px;
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  box-shadow: 0 2px 0 #006799;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button:hover, #wpwrap .edit-post-visual-editor #elementor-editor-button:focus {
+  background: #007db9;
+  border-color: #003f5e;
+  color: #fff;
+  box-shadow: 0 1px 0 #003f5e;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button:focus {
+  box-shadow: inset 0 1px 0 #005177, 0 0 2px 1px #33b3db;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button:active, #wpwrap .edit-post-visual-editor #elementor-editor-button.active, #wpwrap .edit-post-visual-editor #elementor-editor-button.active:focus, #wpwrap .edit-post-visual-editor #elementor-editor-button.active:hover {
+  background: #005177;
+  border-color: #003f5e;
+  box-shadow: inset 0 2px 0 #003f5e;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button[disabled], #wpwrap .edit-post-visual-editor #elementor-editor-button:disabled, #wpwrap .edit-post-visual-editor #elementor-editor-button.button-primary-disabled, #wpwrap .edit-post-visual-editor #elementor-editor-button.disabled {
+  color: #c7ced1 !important;
+  background: #005781 !important;
+  border-color: #003f5e !important;
+  text-shadow: none !important;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button.button-hero {
+  box-shadow: 0 2px 0 #003f5e !important;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button.button-hero:active {
+  box-shadow: inset 0 3px 0 #003f5e !important;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button i {
+  font-style: normal;
+  color: white;
 }

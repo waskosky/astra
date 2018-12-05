@@ -21,6 +21,10 @@ html {
 
         @import "../typography/headings";
 
+        // Import WordPress's Mixins for promary button CSS.
+        @import "../../../../../wp-admin/css/colors/variables";
+        @import "../../../../../wp-admin/css/colors/mixins";
+
         p,
         .editor-block-list__block p {
             font-family: $font-family;
@@ -97,6 +101,28 @@ html {
                     line-height: $line-height;
                 }
             }
+        }
+
+        #elementor-editor-button {
+            @include button($button-color);
+
+            font-size: 14px;
+            height: 46px;
+            line-height: 44px;
+            padding: 0 36px;
+            display: inline-block;
+            border-width: 1px;
+            border-style: solid;
+            -webkit-appearance: none;
+            border-radius: 3px;
+            white-space: nowrap;
+            box-sizing: border-box;
+            box-shadow: 0 2px 0 #006799;
+
+        	i {
+        		font-style: normal;
+        		color: white;
+        	}
         }
     }
 }
