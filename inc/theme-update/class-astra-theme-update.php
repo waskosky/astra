@@ -191,6 +191,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_0();
 			}
 
+			if ( version_compare( $saved_version, '1.6.1', '<' ) ) {
+				self::v_1_6_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -932,6 +936,23 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			update_option( 'astra-settings', $theme_options );
+		}
+
+		public static function v_1_6_1() {
+			
+			$theme_options = get_option( 'astra-settings', array() );
+
+ 			if ( ! isset( $theme_options['font-size-page-title'] ) ) {
+				$theme_options['font-size-page-title'] = array(
+					'desktop'      => '30',
+					'tablet'       => '',
+					'mobile'       => '',
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
+			}
+ 			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
