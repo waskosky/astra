@@ -187,12 +187,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.5.2', '<' ) ) {
 				self::v_1_5_2();
 			}
-			if ( version_compare( $saved_version, '1.6.1', '<' ) ) {
-				self::v_1_6_1();
-			}
 
 			if ( version_compare( $saved_version, '1.6.0', '<' ) ) {
 				self::v_1_6_0();
+			}
+
+			if ( version_compare( $saved_version, '1.6.1', '<' ) ) {
+				self::v_1_6_1();
 			}
 
 			// Not have stored?
@@ -916,22 +917,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 		}
-		
-		/**
-		 * Set Inline Logo & Site Title as false if user had not changed its value.
-		 *
-		 * @return void
-		 */
-		public static function v_1_6_1() {
-			echo "in here";
-			$theme_options = get_option( 'astra-settings', array() );
-			if ( isset( $theme_options['logo-title-inline'] ) ) {
-				$theme_options['logo-title-inline'] = $theme_options['logo-title-inline'];
-			} else {
-				$theme_options['logo-title-inline'] = 1;
-			}
-			update_option( 'astra-settings', $theme_options );
-		}
 
 		/**
 		 * Disable transparent header in customizer if the transparent header addon was disabled.
@@ -951,6 +936,22 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
+			update_option( 'astra-settings', $theme_options );
+		}
+		
+		/**
+		 * Set Inline Logo & Site Title as false if user had not changed its value.
+		 *
+		 * @return void
+		 */
+		public static function v_1_6_1() {
+			echo "in here";
+			$theme_options = get_option( 'astra-settings', array() );
+			if ( isset( $theme_options['logo-title-inline'] ) ) {
+				$theme_options['logo-title-inline'] = $theme_options['logo-title-inline'];
+			} else {
+				$theme_options['logo-title-inline'] = 1;
+			}
 			update_option( 'astra-settings', $theme_options );
 		}
 
