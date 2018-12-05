@@ -50,15 +50,23 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 		}
 
+		/**
+		 * Admin body classes.
+		 * 
+		 * body classes to be added to <body> tag in admin page
+		 *
+		 * @param String $classes
+		 * @return String body classes to be added to <body> tag in admin page
+		 */
 		public function admin_body_class( $classes ) {
 			$content_layout = astra_get_content_layout();
-			if ('content-boxed-container' == $content_layout) {
+			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';
-			} elseif ('boxed-container' == $content_layout) {
+			} elseif ( 'boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container ast-two-container';
-			} elseif ('page-builder' == $content_layout) {
+			} elseif ( 'page-builder' == $content_layout ) {
 				$classes .= ' ast-page-builder-template';
-			} elseif ('plain-container' == $content_layout) {
+			} elseif ( 'plain-container' == $content_layout ) {
 				$classes .= ' ast-plain-container';
 			}
 
