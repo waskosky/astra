@@ -33,19 +33,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Heading 1 (H1) Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h1]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-content-typo',
-					'priority' => 4,
-					'title'    => __( 'Heading 1 (H1)', 'astra' ),
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Heading 1 (H1) Font Size
 				 */
 				array(
