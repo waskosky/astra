@@ -26,7 +26,8 @@ html {
         @import "../../../../../wp-admin/css/colors/mixins";
 
         p,
-        .editor-block-list__block p {
+        .editor-block-list__block p,
+        .editor-default-block-appender textarea.editor-default-block-appender__content {
             font-family: $font-family;
             font-weight: inherit;
             font-size: 15px;
@@ -64,6 +65,10 @@ html {
             .editor-block-list__layout {
                 padding: 0;
             }
+        }
+
+        .editor-default-block-appender__content {
+            margin-top: 32px;
         }
 
         // Custom block stylings.

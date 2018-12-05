@@ -456,7 +456,8 @@ html {
 }
 
 #wpwrap .edit-post-visual-editor p,
-#wpwrap .edit-post-visual-editor .editor-block-list__block p {
+#wpwrap .edit-post-visual-editor .editor-block-list__block p,
+#wpwrap .edit-post-visual-editor .editor-default-block-appender textarea.editor-default-block-appender__content {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   font-weight: inherit;
   font-size: 15px;
@@ -490,6 +491,10 @@ html {
 
 #wpwrap .edit-post-visual-editor .editor-block-list__layout .editor-block-list__layout {
   padding: 0;
+}
+
+#wpwrap .edit-post-visual-editor .editor-default-block-appender__content {
+  margin-top: 32px;
 }
 
 #wpwrap .edit-post-visual-editor .wp-block-latest-posts.is-grid {
