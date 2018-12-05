@@ -944,14 +944,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_6_1() {
-			echo "in here";
 			$theme_options = get_option( 'astra-settings', array() );
-			var_dump( isset( $theme_options['logo-title-inline'] ) );
-			if ( isset( $theme_options['logo-title-inline'] ) ) {
-				$theme_options['logo-title-inline'] = $theme_options['logo-title-inline'];
-			} else {
-				$theme_options['logo-title-inline'] = 1;
+		
+			if ( ! isset( $theme_options['logo-title-inline'] ) ) {
+				$theme_options['logo-title-inline'] = 0;
 			}
+
 			update_option( 'astra-settings', $theme_options );
 		}
 
