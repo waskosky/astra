@@ -81,7 +81,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				update_option( ASTRA_THEME_SETTINGS, $theme_options );
 			}
 
-			var_dump(version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ));
+			var_dump( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) );
+			// var_dump( $saved_version );
+			// var_dump( version_compare( $saved_version, '1.6.1', '<' ) );
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
