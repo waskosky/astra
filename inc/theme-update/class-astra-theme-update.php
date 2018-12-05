@@ -937,7 +937,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 		}
-		
+
 		/**
 		 * Set Inline Logo & Site Title as false if user had not changed its value.
 		 *
@@ -945,7 +945,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_6_1() {
 			$theme_options = get_option( 'astra-settings', array() );
-		
+
 			if ( ! isset( $theme_options['logo-title-inline'] ) ) {
 				$theme_options['logo-title-inline'] = 0;
 			}
