@@ -85,7 +85,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'color' => esc_attr( $highlight_theme_color ),
 				),
 
-				'#wpwrap .edit-post-visual-editor'    => astra_get_background_obj( $box_bg_obj ),
+			'.ast-separate-container #wpwrap .edit-post-visual-editor'    => astra_get_background_obj( $box_bg_obj ),
 				'#wpwrap .edit-post-visual-editor .editor-post-title__block,#wpwrap .edit-post-visual-editor .editor-default-block-appender,#wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 				),
