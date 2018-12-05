@@ -60,6 +60,12 @@ html {
             max-width: 1400px;
         }
 
+        .editor-block-list__layout {
+            .editor-block-list__layout {
+                padding: 0;
+            }
+        }
+
         // Custom block stylings.
         .wp-block-latest-posts.is-grid {
             list-style: none;

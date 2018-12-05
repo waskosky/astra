@@ -488,6 +488,10 @@ html {
   max-width: 1400px;
 }
 
+#wpwrap .edit-post-visual-editor .editor-block-list__layout .editor-block-list__layout {
+  padding: 0;
+}
+
 #wpwrap .edit-post-visual-editor .wp-block-latest-posts.is-grid {
   list-style: none;
 }
