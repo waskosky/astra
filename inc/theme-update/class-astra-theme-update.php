@@ -941,28 +941,37 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public static function v_1_6_1() {
 			$theme_options = get_option( 'astra-settings', array() );
 
-			if ( ! isset( $theme_options['font-size-h1']['desktop'] ) ) {
-				$theme_options['font-size-h1']['desktop'] = '48';
+			if ( ! isset( $theme_options['font-size-h1'] ) ) {
+				$theme_options['font-size-h1'] = array(
+					'desktop'      => '48',
+					'tablet'       => '',
+					'mobile'       => '',
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
 			}
 
-			if ( ! isset( $theme_options['font-size-h2']['desktop'] ) ) {
-				$theme_options['font-size-h2']['desktop'] = '42';
+			if ( ! isset( $theme_options['font-size-h2'] ) ) {
+				$theme_options['font-size-h2'] = array(
+					'desktop'      => '42',
+					'tablet'       => '',
+					'mobile'       => '',
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
 			}
 
-			if ( ! isset( $theme_options['font-size-h3']['desktop'] ) ) {
-				$theme_options['font-size-h3']['desktop'] = '30';
-			}
-
-			if ( ! isset( $theme_options['font-size-h4']['desktop'] ) ) {
-				$theme_options['font-size-h4']['desktop'] = '20';
-			}
-
-			if ( ! isset( $theme_options['font-size-h5']['desktop'] ) ) {
-				$theme_options['font-size-h5']['desktop'] = '18';
-			}
-
-			if ( ! isset( $theme_options['font-size-h6']['desktop'] ) ) {
-				$theme_options['font-size-h6']['desktop'] = '15';
+			if ( ! isset( $theme_options['font-size-h3'] ) ) {
+				$theme_options['font-size-h3'] = array(
+					'desktop'      => '30',
+					'tablet'       => '',
+					'mobile'       => '',
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
 			}
 
 			update_option( 'astra-settings', $theme_options );
