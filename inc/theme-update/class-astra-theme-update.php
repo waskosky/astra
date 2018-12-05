@@ -191,6 +191,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_0();
 			}
 
+			if ( version_compare( $saved_version, '1.6.1-alpha.2', '<' ) ) {
+				self::v_1_6_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -929,6 +933,36 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				if ( 'transparent-header' !== $addons['transparent-header'] ) {
 					$theme_options['transparent-header-enable'] = 0;
 				}
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		public static function v_1_6_1() {
+			$theme_options = get_option( 'astra-settings', array() );
+
+			if ( ! isset( $theme_options['font-size-h1']['desktop'] ) ) {
+				$theme_options['font-size-h1']['desktop'] = 48;
+			}
+
+			if ( ! isset( $theme_options['font-size-h2']['desktop'] ) ) {
+				$theme_options['font-size-h2']['desktop'] = 42;
+			}
+
+			if ( ! isset( $theme_options['font-size-h3']['desktop'] ) ) {
+				$theme_options['font-size-h3']['desktop'] = 30;
+			}
+
+			if ( ! isset( $theme_options['font-size-h4']['desktop'] ) ) {
+				$theme_options['font-size-h4']['desktop'] = 20;
+			}
+
+			if ( ! isset( $theme_options['font-size-h5']['desktop'] ) ) {
+				$theme_options['font-size-h5']['desktop'] = 18;
+			}
+
+			if ( ! isset( $theme_options['font-size-h6']['desktop'] ) ) {
+				$theme_options['font-size-h6']['desktop'] = 15;
 			}
 
 			update_option( 'astra-settings', $theme_options );
