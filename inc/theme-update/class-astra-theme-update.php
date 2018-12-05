@@ -939,10 +939,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		public static function v_1_6_1() {
-			
+
 			$theme_options = get_option( 'astra-settings', array() );
 
- 			if ( ! isset( $theme_options['font-size-page-title'] ) ) {
+			if ( ! isset( $theme_options['font-size-page-title'] ) ) {
 				$theme_options['font-size-page-title'] = array(
 					'desktop'      => '30',
 					'tablet'       => '',
@@ -952,7 +952,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					'mobile-unit'  => 'px',
 				);
 			}
- 			update_option( 'astra-settings', $theme_options );
+			update_option( 'astra-settings', $theme_options );
 		}
 
 	}
