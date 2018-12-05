@@ -583,6 +583,11 @@ html {
   color: white;
 }
 
-#wpwrap .edit-post-visual-editor .editor-media-placeholder button {
+#wpwrap .edit-post-visual-editor .editor-media-placeholder button,
+#wpwrap .edit-post-visual-editor .fl-builder-layout-launch-view button {
   margin: 2px;
+}
+
+#wpwrap .edit-post-visual-editor .fl-builder-layout-launch-view .is-primary.is-primary {
+  color: white;
 }

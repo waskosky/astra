@@ -103,6 +103,7 @@ html {
             }
         }
 
+        // Edit with elementor button unstyled.
         #elementor-editor-button {
             @include button($button-color);
 
@@ -125,10 +126,18 @@ html {
         	}
         }
 
-        .editor-media-placeholder {
+        .editor-media-placeholder,
+        .fl-builder-layout-launch-view {
         	button {
         		margin: 2px;
         	}
+        }
+
+        // Edit with BB button styling.
+        .fl-builder-layout-launch-view {
+            .is-primary.is-primary {
+            	color: white;
+            }
         }
     }
 }
