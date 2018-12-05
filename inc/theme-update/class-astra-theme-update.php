@@ -938,6 +938,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( 'astra-settings', $theme_options );
 		}
 
+		/**
+		 * Add backward compatibility for Heading tags previous default values.
+		 *
+		 * @return void
+		 */
 		public static function v_1_6_1() {
 			$theme_options = get_option( 'astra-settings', array() );
 
