@@ -24,6 +24,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 		 * @return String CSS to be loaded in the editor interface.
 		 */
 		public static function get_css() {
+			global $pagenow;
+
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 );
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
@@ -200,7 +202,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', '768' );
 
-			if ( 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
+			if ( in_array( $pagenow, array( 'post-new.php' ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
 					'#wpwrap .edit-post-visual-editor .editor-writing-flow' => array(
 						'max-width'        => 'calc( ' . astra_get_css_value( $site_content_width, 'px' ) . ' - 40px )',
