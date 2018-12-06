@@ -191,6 +191,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_0();
 			}
 
+			if ( version_compare( $saved_version, '1.6.1-alpha.1', '<' ) ) {
+				self::v_1_6_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -929,6 +933,21 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				if ( 'transparent-header' !== $addons['transparent-header'] ) {
 					$theme_options['transparent-header-enable'] = 0;
 				}
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Set Inline Logo & Site Title as false if user had not changed its value.
+		 *
+		 * @return void
+		 */
+		public static function v_1_6_1() {
+			$theme_options = get_option( 'astra-settings', array() );
+
+			if ( ! isset( $theme_options['logo-title-inline'] ) ) {
+				$theme_options['logo-title-inline'] = 0;
 			}
 
 			update_option( 'astra-settings', $theme_options );
