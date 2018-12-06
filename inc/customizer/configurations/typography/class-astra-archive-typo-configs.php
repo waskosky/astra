@@ -36,13 +36,13 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-archive-typo',
-					'priority' => 0,
-					'title'    => __( 'Blog Post Title', 'astra' ),
-					'settings' => array(),
+					'name'      => ASTRA_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]',
+					'type'      => 'control',
+					'control'   => 'ast-divider',
+					'section'   => 'section-archive-typo',
+					'priority'  => 0,
+					'title'     => __( 'Blog Post Title', 'astra' ),
+					'settings'  => array(),
 					'separator' => false,
 				),
 
