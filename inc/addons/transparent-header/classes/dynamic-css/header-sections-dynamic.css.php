@@ -19,6 +19,12 @@ add_filter( 'astra_dynamic_css', 'astra_ext_transparent_above_header_sections_dy
  */
 function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+	$above_header_layout = astra_get_option( 'above-header-layout' );
+
+	if ( 'disabled' == $above_header_layout && false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+		return $dynamic_css;
+	}
+
 	/**
 	 * Set colors
 	 */
@@ -231,12 +237,15 @@ add_filter( 'astra_dynamic_css', 'astra_ext_transparent_below_header_sections_dy
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return void
+ * @return String Generated dynamic CSS.
  */
 function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
-		return;
+	// set page width depending on site layout.
+	$below_header_layout = astra_get_option( 'below-header-layout' );
+
+	if ( 'disabled' == $below_header_layout && false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+		return $dynamic_css;
 	}
 
 	/**
