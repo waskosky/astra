@@ -52,10 +52,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 		/**
 		 * Admin body classes.
-		 * 
-		 * body classes to be added to <body> tag in admin page
 		 *
-		 * @param String $classes
+		 * Body classes to be added to <body> tag in admin page
+		 *
+		 * @param String $classes body classes returned from the filter.
 		 * @return String body classes to be added to <body> tag in admin page
 		 */
 		public function admin_body_class( $classes ) {
