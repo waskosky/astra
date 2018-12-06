@@ -7,6 +7,8 @@ v1.6.1
 - Fix: Gutenberg - Edit with elementor button is not correctly styled.
 - Fix: Gutenberg - Content background color not applied in gutenberg editor.
 - Fix: Focus/active colors for Primary Header are coming from Sticky Header settings.
+- Fix: Transparent above header color not working.
+- Fix: Don't load transparent above and below header CSS if header sections are not active.
 
 v1.6.0
 - New: Transparent header options in Astra Theme.
