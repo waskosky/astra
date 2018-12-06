@@ -191,7 +191,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_0();
 			}
 
-			if ( version_compare( $saved_version, '1.6.1-alpha.1', '<' ) ) {
+			if ( version_compare( $saved_version, '1.6.1-alpha.3', '<' ) ) {
 				self::v_1_6_1();
 			}
 
@@ -941,6 +941,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		/**
 		 * Add backward compatibility for Heading tags previous default values.
 		 * Set Inline Logo & Site Title as false if user had not changed its value.
+		 * Change default value for blog archive blog title.
 		 *
 		 * @return void
 		 */
@@ -958,7 +959,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					'mobile-unit'  => 'px',
 				);
 			}
-
 			// If user was using a default value for h2, Set the default in the option.
 			if ( ! isset( $theme_options['font-size-h2'] ) ) {
 				$theme_options['font-size-h2'] = array(
@@ -970,10 +970,21 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					'mobile-unit'  => 'px',
 				);
 			}
-
 			// If user was using a default value for h3, Set the default in the option.
 			if ( ! isset( $theme_options['font-size-h3'] ) ) {
 				$theme_options['font-size-h3'] = array(
+					'desktop'      => '30',
+					'tablet'       => '',
+					'mobile'       => '',
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
+			}
+
+			// If user was using a default value for h3, Set the default in the option.
+			if ( ! isset( $theme_options['font-size-page-title'] ) ) {
+				$theme_options['font-size-page-title'] = array(
 					'desktop'      => '30',
 					'tablet'       => '',
 					'mobile'       => '',
