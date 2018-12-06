@@ -191,7 +191,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_0();
 			}
 
-			if ( version_compare( $saved_version, '1.6.1', '<' ) ) {
+			if ( version_compare( $saved_version, '1.6.1-alpha.1', '<' ) ) {
 				self::v_1_6_1();
 			}
 
@@ -940,12 +940,14 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 		/**
 		 * Add backward compatibility for Heading tags previous default values.
+		 * Set Inline Logo & Site Title as false if user had not changed its value.
 		 *
 		 * @return void
 		 */
 		public static function v_1_6_1() {
 			$theme_options = get_option( 'astra-settings', array() );
 
+			// If user was using a default value for h1, Set the default in the option.
 			if ( ! isset( $theme_options['font-size-h1'] ) ) {
 				$theme_options['font-size-h1'] = array(
 					'desktop'      => '48',
@@ -957,6 +959,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				);
 			}
 
+			// If user was using a default value for h2, Set the default in the option.
 			if ( ! isset( $theme_options['font-size-h2'] ) ) {
 				$theme_options['font-size-h2'] = array(
 					'desktop'      => '42',
@@ -968,6 +971,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				);
 			}
 
+			// If user was using a default value for h3, Set the default in the option.
 			if ( ! isset( $theme_options['font-size-h3'] ) ) {
 				$theme_options['font-size-h3'] = array(
 					'desktop'      => '30',
@@ -977,6 +981,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					'tablet-unit'  => 'px',
 					'mobile-unit'  => 'px',
 				);
+			}
+
+			// If inline-logo option was unset previously, set to to false as new default is `true`.
+			if ( ! isset( $theme_options['logo-title-inline'] ) ) {
+				$theme_options['logo-title-inline'] = 0;
 			}
 
 			update_option( 'astra-settings', $theme_options );
