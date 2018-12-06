@@ -106,6 +106,7 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css': 'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss',
                             'inc/customizer/custom-controls/background/background.css': 'inc/customizer/custom-controls/background/background.scss',
                             'inc/customizer/custom-controls/border/border.css': 'inc/customizer/custom-controls/border/border.scss',
+                            'inc/customizer/custom-controls/customizer-link/customizer-link.css': 'inc/customizer/custom-controls/customizer-link/customizer-link.scss',
                             'inc/assets/css/block-editor-styles.css': 'sass/admin/block-editor-styles.scss',
                         },
 
