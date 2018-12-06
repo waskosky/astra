@@ -15,7 +15,7 @@ add_filter( 'astra_dynamic_css', 'astra_ext_transparent_above_header_sections_dy
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return void
+ * @return String Generated dynamic CSS for above header transparent header.
  */
 function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
