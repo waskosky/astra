@@ -43,6 +43,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'priority' => 0,
 					'title'    => __( 'Archive Summary Box Title', 'astra' ),
 					'settings' => array(),
+					'separator' => false,
 				),
 
 				/**

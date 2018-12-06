@@ -50,6 +50,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					'priority' => 5,
 					'title'    => __( 'Site Title', 'astra' ),
 					'settings' => array(),
+					'separator' => false,
 				),
 
 				/**

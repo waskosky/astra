@@ -43,6 +43,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority' => 4,
 					'title'    => __( 'Body & Content', 'astra' ),
 					'settings' => array(),
+					'separator' => false,
 				),
 
 				/**

@@ -45,6 +45,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'priority' => 5,
 					'title'    => __( 'Single Post / Page Title', 'astra' ),
 					'settings' => array(),
+					'separator' => false,
 				),
 
 				/**
