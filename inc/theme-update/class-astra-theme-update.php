@@ -195,6 +195,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_1();
 			}
 
+			if ( version_compare( $saved_version, '1.6.2-beta.1', '<' ) ) {
+				self::v_1_6_2();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -997,6 +1001,24 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// If inline-logo option was unset previously, set to to false as new default is `true`.
 			if ( ! isset( $theme_options['logo-title-inline'] ) ) {
 				$theme_options['logo-title-inline'] = 0;
+			}
+
+			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Add backward compatibility for Heading tags previous default values.
+		 * Set Inline Logo & Site Title as false if user had not changed its value.
+		 * Change default value for blog archive blog title.
+		 *
+		 * @return void
+		 */
+		public static function v_1_6_2() {
+			$theme_options = get_option( 'astra-settings', array() );
+
+			// Set flag to use anchors CSS selectors in the CSS for headings.
+			if ( ! isset( $theme_options['wc-header-cart-header-colors'] ) ) {
+				$theme_options['wc-header-cart-header-colors'] = false;
 			}
 
 			update_option( 'astra-settings', $theme_options );
