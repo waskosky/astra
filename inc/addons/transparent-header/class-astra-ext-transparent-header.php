@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header' ) ) {
 
 			// Include front end files.
 			if ( ! is_admin() ) {
-				require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/dynamic-css/dynamic.css.php';
+				require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/dynamic-css/class-astra-transparent-header-dynamic-css.php';
 				require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/dynamic-css/header-sections-dynamic.css.php';
 			}
 		}

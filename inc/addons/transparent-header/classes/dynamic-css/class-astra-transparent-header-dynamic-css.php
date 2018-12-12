@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Dynamic CSS used for transparent header.
  *
@@ -25,6 +24,9 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 	 */
 	class Astra_Transparent_Header_Dynamic_CSS {
 
+		/**
+		 * Class Constructor.
+		 */
 		public function __construct() {
 			add_filter( 'wp_enqueue_scripts', array( $this, 'dynamic_css' ) );
 		}
@@ -456,6 +458,27 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 			$dynamic_css .= $css;
 
 			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+		}
+
+		/**
+		 * Check backwards compatibility CSS for loading submenu below the header needs to be added.
+		 *
+		 * @since 1.5.0
+		 * @return boolean true if CSS should be included, False if not.
+		 */
+		private static function woo_header_cart_use_header_colors() {
+			if ( false == astra_get_option( 'wc-header-cart-header-colors', true ) &&
+				false === apply_filters(
+					'astra_woo_header_cart_use_header_colors',
+					false
+				) ) {
+
+				return false;
+			} else {
+
+				return true;
+			}
+
 		}
 	}
 }
