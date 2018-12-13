@@ -4051,7 +4051,6 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-cart table.cart td.actions .coupon {
   display: flex;
-  align-items: center;
   margin: 5px 0;
 }
 
