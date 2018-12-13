@@ -125,6 +125,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_five_star_scetion', 13 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
+			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
 
 			// AJAX.
 			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
@@ -977,6 +978,197 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			</div>
 
 			<?php
+		}
+
+		/**
+		 * Include Welcome page content
+		 *
+		 * @since 1.2.4
+		 */
+		static public function astra_available_plugins() {
+
+			$astra_addon_tagline = apply_filters(
+				'astra_available_plugins',
+				sprintf(
+					__( 'Extend %1s with free plugins!', 'astra' ),
+					astra_get_theme_name()
+				)
+			);
+
+			$recommended_plugins = apply_filters(
+				'astra_recommended_plugins',
+				array(
+					'custom-fonts'                     =>
+						array(
+							'plugin-name'        => 'Custom Fonts',
+							'plugin-init'        => 'custom-fonts/custom-fonts.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'astra-bulk-edit'                  =>
+						array(
+							'plugin-name'        => 'Astra Bulk Edit',
+							'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'reset-astra-customizer'           =>
+						array(
+							'plugin-name'        => 'Astra Customizer Reset',
+							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'astra-hooks'                      =>
+						array(
+							'plugin-name'        => 'Astra Hooks',
+							'plugin-init'        => 'astra-hooks/astra-hooks.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'astra-theme-visual-hooks'         =>
+						array(
+							'plugin-name'        => 'Astra Theme Visual Hooks',
+							'plugin-init'        => 'astra-theme-visual-hooks/astra-theme-visual-hooks.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'customizer-search'                =>
+						array(
+							'plugin-name'        => 'Customizer Search',
+							'plugin-init'        => 'customizer-search/customizer-search.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'custom-template-learndash'        =>
+						array(
+							'plugin-name'        => 'Custom Template for LearnDash',
+							'plugin-init'        => 'custom-template-learndash/custom-template-learndash.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+							'display'            => class_exists( 'SFWD_LMS' ),
+						),
+					'custom-template-lifterlms'        =>
+						array(
+							'plugin-name'        => 'Custom Template for LifterLMS',
+							'plugin-init'        => 'custom-template-lifterlms/custom-template-lifterlms.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+							'display'            => class_exists( 'LifterLMS' ),
+						),
+					'custom-typekit-fonts'             =>
+						array(
+							'plugin-name'        => 'Custom Typekit Fonts',
+							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'home-page-banner-for-astra-theme' =>
+						array(
+							'plugin-name'        => 'Home Page Banner for Astra Theme',
+							'plugin-init'        => 'home-page-banner-for-astra-theme/home-page-banner-for-astra-theme.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'sidebar-manager'                  =>
+						array(
+							'plugin-name'        => 'Sidebar Manager',
+							'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'wp-templator'                     =>
+						array(
+							'plugin-name'        => 'Templator',
+							'plugin-init'        => 'wp-templator/wp-templator.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+					'ultimate-addons-for-gutenberg'    =>
+						array(
+							'plugin-name'        => 'Ultimate Addons for Gutenberg',
+							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+							'display'            => function_exists( 'register_block_type' ),
+						),
+					'unlist-posts'                     =>
+						array(
+							'plugin-name'        => 'Unlist Posts & Pages',
+							'plugin-init'        => 'unlist-posts/unlist-posts.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
+				)
+			);
+			echo '</pre>';
+
+			?>
+
+			<div class="postbox">
+				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+					<?php do_action( 'astra_addon_bulk_action' ); ?>
+				</h2>
+					<div class="ast-addon-list-section">
+						<?php
+						if ( ! empty( $recommended_plugins ) ) :
+							?>
+							<div>
+								<ul class="ast-addon-list">
+									<?php
+									foreach ( $recommended_plugins as $slug => $plugin ) {
+
+										// If display condition for the plugin does not meet, skip the plugin from displaying.
+										if ( isset( $plugin['display'] ) && false === $plugin['display'] ) {
+											continue;
+										}
+
+										echo '<li ' . astra_attr(
+											'astra-recommended-plugin-' . $slug,
+											array(
+												'id'    => esc_attr( $slug ),
+												'class' => 'astra-recommended-plugin',
+												'data-slug' => $slug,
+											)
+										) . '>';
+
+											echo '<a href="' . self::buld_worg_plugin_link( $slug ) . '" target="_blank">';
+												echo esc_html( $plugin['plugin-name'] );
+											echo '</a>';
+
+											echo '<div class="ast-addon-link-wrapper">';
+
+										if ( ! is_plugin_active( $plugin['plugin-init'] ) ) {
+											echo '<a ' . astra_attr(
+												'astra-recommended-plugin-install',
+												array(
+													'data-slug' => $slug,
+													'href' => '#',
+												)
+											) . '>';
+
+												_e( 'Install Plugin', 'astra' );
+
+											echo '</a>';
+										}
+
+											echo '</div>';
+
+										echo '</li>';
+									}
+									?>
+								</ul>
+							</div>
+							<?php endif; ?>
+					</div>
+			</div>
+
+				<?php
+
+		}
+
+		private static function buld_worg_plugin_link( $slug ) {
+			return esc_url( trailingslashit( 'https://wordpress.org/plugins/' . $slug ) );
 		}
 
 		/**
