@@ -1396,9 +1396,7 @@ p.demo_store,
 			&.disabled,
 			&:disabled,
 			&:disabled[disabled],
-			&.disabled:hover,
-			&:disabled:hover,
-			&:disabled[disabled]:hover {
+			&.disabled:hover, {
 				background-color: $primary;
 				color: $primarytext;
 			}
