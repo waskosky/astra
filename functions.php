@@ -38,6 +38,7 @@ if ( is_admin() ) {
 
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-color.php';
 require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';

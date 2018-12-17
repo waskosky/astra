@@ -74,6 +74,25 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 
 			$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
 
+			$link_color_woo_cart_desktop = $transparent_content_section_text_color['desktop'];
+			$link_color_woo_cart_tablet  = $transparent_content_section_text_color['tablet'];
+			$link_color_woo_cart_mobile  = $transparent_content_section_text_color['mobile'];
+
+			$brightness_diff_desktop = Astra_Color::brightness_difference( '#ffffff', $link_color_woo_cart_desktop );
+			if ( $brightness_diff_desktop < 125 ) {
+				$link_color_woo_cart_desktop = Astra_Color::adjust_brightness( $link_color_woo_cart_desktop, $brightness_diff_desktop - 125 );
+			}
+
+			$brightness_diff_tablet = Astra_Color::brightness_difference( $link_color_woo_cart_tablet, '#ffffff' );
+			if ( $brightness_diff_tablet < 125 ) {
+				$link_color_woo_cart_tablet = Astra_Color::adjust_brightness( $link_color_woo_cart_tablet, $brightness_diff_tablet - 125 );
+			}
+
+			$brightness_diff_mobile = Astra_Color::brightness_difference( $link_color_woo_cart_mobile, '#ffffff' );
+			if ( $brightness_diff_mobile < 125 ) {
+				$link_color_woo_cart_mobile = Astra_Color::adjust_brightness( $link_color_woo_cart_mobile, $brightness_diff_mobile - 125 );
+			}
+
 			/**
 			 * Generate Dynamic CSS
 			 */
@@ -214,7 +233,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 
 				// Content Section text color.
 				'.ast-theme-transparent-header div.ast-masthead-custom-menu-items, .ast-theme-transparent-header div.ast-masthead-custom-menu-items .widget, .ast-theme-transparent-header div.ast-masthead-custom-menu-items .widget-title' => array(
-					'color' => esc_attr( $transparent_content_section_text_color['desktop'] ),
+					'color' => esc_attr( $link_color_woo_cart_desktop ),
 				),
 
 				// Content Section link color.
@@ -278,7 +297,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 				),
 				// Content Section text color.
 				'.ast-theme-transparent-header div.ast-masthead-custom-menu-items, .ast-theme-transparent-header div.ast-masthead-custom-menu-items .widget, .ast-theme-transparent-header div.ast-masthead-custom-menu-items .widget-title' => array(
-					'color' => esc_attr( $transparent_content_section_text_color['tablet'] ),
+					'color' => esc_attr( $link_color_woo_cart_tablet ),
 				),
 
 				// Content Section link color.
@@ -344,7 +363,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 
 				// Content Section text color.
 				'.ast-theme-transparent-header div.ast-masthead-custom-menu-items, .ast-theme-transparent-header div.ast-masthead-custom-menu-items .widget, .ast-theme-transparent-header div.ast-masthead-custom-menu-items .widget-title' => array(
-					'color' => esc_attr( $transparent_content_section_text_color['mobile'] ),
+					'color' => esc_attr( $link_color_woo_cart_mobile ),
 				),
 
 				// Content Section link color.
