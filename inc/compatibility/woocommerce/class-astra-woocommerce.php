@@ -680,6 +680,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$woo_shop_archive_width     = astra_get_option( 'shop-archive-width' );
 			$woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
 
+			$header_cart_text_color = $link_color;
+
+			$brightness_diff_header_cart_text = Astra_Color::brightness_difference( '#ffffff', $header_cart_text_color );
+			if ( $brightness_diff_header_cart_text < 125 ) {
+				$header_cart_text_color = Astra_Color::adjust_brightness( $header_cart_text_color, $brightness_diff_header_cart_text - 125 );
+			}
+
 			$css_output = array(
 				'.woocommerce span.onsale'                => array(
 					'background-color' => $theme_color,
@@ -739,6 +746,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				'.ast-site-header-cart a:focus, .ast-site-header-cart a:hover, .ast-site-header-cart .current-menu-item a' => array(
 					'color' => esc_attr( $link_color ),
+				),
+
+				'.ast-masthead-custom-menu-items .woocommerce-mini-cart-item,.ast-masthead-custom-menu-items .woocommerce-mini-cart-item a, .ast-masthead-custom-menu-items .widget_shopping_cart_content' => array(
+					'color' => esc_attr( $header_cart_text_color ),
 				),
 
 				'.ast-cart-menu-wrap .count, .ast-cart-menu-wrap .count:after' => array(
