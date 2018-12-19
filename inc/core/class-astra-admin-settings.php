@@ -1101,7 +1101,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						),
 				)
 			);
-			echo '</pre>';
+			
 
 			?>
 
