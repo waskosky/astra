@@ -392,7 +392,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		return;
 	}
 
-	button = container.getElementsByTagName( 'button' )[0];
+	button = container.getElementsByClassName( 'menu-toggle' );
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
