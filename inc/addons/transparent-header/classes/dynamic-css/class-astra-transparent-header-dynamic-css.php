@@ -74,9 +74,12 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 
 			$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
 
-			$link_color_woo_cart_desktop = $transparent_content_section_text_color['desktop'];
-			$link_color_woo_cart_tablet  = $transparent_content_section_text_color['tablet'];
-			$link_color_woo_cart_mobile  = $transparent_content_section_text_color['mobile'];
+			$link_color_woo_cart_desktop    = $transparent_content_section_text_color['desktop'];
+			$link_color_woo_cart_tablet     = $transparent_content_section_text_color['tablet'];
+			$link_color_woo_cart_mobile     = $transparent_content_section_text_color['mobile'];
+			$transparent_link_hover_desktop = $transparent_menu_h_color['desktop'];
+			$transparent_link_hover_tablet  = $transparent_menu_h_color['tablet'];
+			$transparent_link_hover_mobile  = $transparent_menu_h_color['mobile'];
 
 			$brightness_diff_desktop = Astra_Color::brightness_difference( '#ffffff', $link_color_woo_cart_desktop );
 			if ( $brightness_diff_desktop < 125 ) {
@@ -91,6 +94,11 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 			$brightness_diff_mobile = Astra_Color::brightness_difference( $link_color_woo_cart_mobile, '#ffffff' );
 			if ( $brightness_diff_mobile < 125 ) {
 				$link_color_woo_cart_mobile = Astra_Color::adjust_brightness( $link_color_woo_cart_mobile, $brightness_diff_mobile - 125 );
+			}
+
+			$transparent_link_hover_desktop = Astra_Color::brightness_difference( '#ffffff', $link_color_woo_cart_desktop );
+			if ( $transparent_link_hover_desktop < 125 ) {
+				$link_color_woo_cart_desktop = Astra_Color::adjust_brightness( $link_color_woo_cart_desktop, $transparent_link_hover_desktop - 125 );
 			}
 
 			/**
@@ -228,7 +236,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Dynamic_CSS' ) ) {
 				),
 
 				'.ast-theme-transparent-header .main-header-menu li:hover > a, .ast-theme-transparent-header .main-header-menu li:hover > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .ast-masthead-custom-menu-items a:hover, .ast-theme-transparent-header .main-header-menu .focus > a, .ast-theme-transparent-header .main-header-menu .focus > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-item > a, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > a, .ast-theme-transparent-header .main-header-menu .current_page_item > a, .ast-theme-transparent-header .main-header-menu .current-menu-item > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current_page_item > .ast-menu-toggle' => array(
-					'color' => esc_attr( $transparent_menu_h_color['desktop'] ),
+					'color' => esc_attr( $transparent_link_hover_desktop ),
 				),
 
 				// Content Section text color.
