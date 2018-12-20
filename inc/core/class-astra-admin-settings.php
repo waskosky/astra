@@ -1124,7 +1124,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 										}
 
 										echo '<li ' . astra_attr(
-											'astra-recommended-plugin-' . $slug,
+											'astra-recommended-plugin-' . esc_attr( $slug ),
 											array(
 												'id'    => esc_attr( $slug ),
 												'class' => 'astra-recommended-plugin',
@@ -1132,7 +1132,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 											)
 										) . '>';
 
-											echo '<a href="' . self::buld_worg_plugin_link( $slug ) . '" target="_blank">';
+											echo '<a href="' . self::build_worg_plugin_link( $slug ) . '" target="_blank">';
 												echo esc_html( $plugin['plugin-name'] );
 											echo '</a>';
 
@@ -1167,7 +1167,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		}
 
-		private static function buld_worg_plugin_link( $slug ) {
+		private static function build_worg_plugin_link( $slug ) {
 			return esc_url( trailingslashit( 'https://wordpress.org/plugins/' . $slug ) );
 		}
 
