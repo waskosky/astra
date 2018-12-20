@@ -1,3 +1,10 @@
+v1.6.2
+- New: Need option to add top border to the footer widget area.
+- Fix: LifterLMS: Don't add lesson navigation hook back in on lessons migrated to the WP core 5.0 block editor. (Props @thomasplevy)
+- Fix: Apply Coupon input and buttonnot correctly aligned.
+- Fix: Quick view issue with external product.
+- Fix: Transparent header border not working when transparent header is enabled for desktop or mobile.
+
 v1.6.1
 - Improvement: Updated default font-sizes for H1, H2, H3 and Post archive titles for new installations.
 - Improvement: Change the default value for option `Inline Logo & Site Title` to be `on` for the new sites.
