@@ -24,7 +24,7 @@
 		 */
 		_bind: function()
 		{
-			$( document ).on('click' , '.ast-sites-notinstalled', AstraThemeAdmin._installNow );
+			$( document ).on('click' , '.astra-install-recommended-plugin', AstraThemeAdmin._installNow );
 			$( document ).on('click' , '.ast-sites-inactive', AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
@@ -36,7 +36,7 @@
 		 */
 		_installError: function( event, response ) {
 
-			var $card = jQuery( '.ast-sites-notinstalled' );
+			var $card = jQuery( '.astra-install-recommended-plugin' );
 
 			$card
 				.removeClass( 'button-primary' )
@@ -50,7 +50,7 @@
 		_pluginInstalling: function(event, args) {
 			event.preventDefault();
 
-			var $card = jQuery( '.ast-sites-notinstalled' );
+			var $card = jQuery( '.astra-install-recommended-plugin' );
 
 			$card.addClass('updating-message');
 
@@ -62,7 +62,7 @@
 
 			event.preventDefault();
 
-			var $message = $( '.ast-sites-notinstalled' );
+			var $message = $( '.astra-install-recommended-plugin' );
 			if ( 0 === $message.length ) {
 				$message = $( '.ast-sites-inactive' );
 			}
@@ -89,7 +89,7 @@
 
 					if( result.success ) {
 						var output = '<a href="'+ astra.astraSitesLink +'" aria-label="'+ astra.astraSitesLinkTitle +'">' + astra.astraSitesLinkTitle +' </a>'
-						$message.removeClass( 'ast-sites-inactive ast-sites-notinstalled button button-primary install-now activate-now updating-message' )
+						$message.removeClass( 'ast-sites-inactive astra-install-recommended-plugin button button-primary install-now activate-now updating-message' )
 							.html( output );
 
 					} else {
@@ -122,11 +122,11 @@
 				wp.updates.requestFilesystemCredentials( event );
 
 				$document.on( 'credential-modal-cancel', function() {
-					var $message = $( '.ast-sites-notinstalled.updating-message' );
+					var $message = $( '.astra-install-recommended-plugin.updating-message' );
 
 					$message
 						.addClass('ast-sites-inactive')
-						.removeClass( 'updating-message ast-sites-notinstalled' )
+						.removeClass( 'updating-message astra-install-recommended-plugin' )
 						.text( wp.updates.l10n.installNow );
 
 					wp.a11y.speak( wp.updates.l10n.updateCancel, 'polite' );

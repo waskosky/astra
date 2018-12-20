@@ -467,7 +467,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							// Astra Premium Sites - Inactive.
 						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-							$class       = 'button ast-sites-notinstalled';
+							$class       = 'button astra-install-recommended-plugin';
 							$button_text = __( 'Install Importer Plugin', 'astra' );
 							$data_slug   = 'astra-sites';
 							$data_init   = '/astra-sites/astra-sites.php';
@@ -1139,17 +1139,34 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 											echo '<div class="ast-addon-link-wrapper">';
 
 										if ( ! is_plugin_active( $plugin['plugin-init'] ) ) {
-											echo '<a ' . astra_attr(
-												'astra-recommended-plugin-install',
-												array(
-													'data-slug' => $slug,
-													'href' => '#',
-												)
-											) . '>';
 
-												_e( 'Install Plugin', 'astra' );
+											if ( file_exists( WP_CONTENT_DIR . '/plugins/' . $plugin['plugin-init'] ) ) {
+												echo '<a ' . astra_attr(
+													'astra-activate-recommended-plugin',
+													array(
+														'data-slug' => $slug,
+														'href' => '#',
+														'data-init' => $plugin['plugin-init']
+													)
+												) . '>';
 
-											echo '</a>';
+												_e('Activate Plugin', 'astra');
+
+												echo '</a>';
+											} else {
+												echo '<a ' . astra_attr(
+													'astra-install-recommended-plugin',
+													array(
+														'data-slug' => $slug,
+														'href' => '#',
+														'data-init' => $plugin['plugin-init']
+													)
+												) . '>';
+
+												_e('Install & Activate Plugin', 'astra');
+
+												echo '</a>';
+											}
 										}
 
 											echo '</div>';
