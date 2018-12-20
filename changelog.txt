@@ -1,7 +1,7 @@
 v1.6.2
 - New: Need option to add top border to the footer widget area.
 - Fix: LifterLMS: Don't add lesson navigation hook back in on lessons migrated to the WP core 5.0 block editor. (Props @thomasplevy)
-- Fix: Apply Coupon input and buttonnot correctly aligned.
+- Fix: Apply Coupon input and button not correctly aligned.
 - Fix: Quick view issue with external product.
 - Fix: Transparent header border not working when transparent header is enabled for desktop or mobile.
 
