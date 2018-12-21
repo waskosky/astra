@@ -181,3 +181,39 @@
         }
     }
 }
+
+.ast-header-custom-item-inside {
+    .button-custom-menu-item{
+        .menu-link {
+            display: none;
+        }
+    }
+    &.ast-header-break-point {
+        .button-custom-menu-item {
+            .ast-custom-button-link {
+                display: none;
+            }
+            .menu-link {
+                display: block;
+            }
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.button-custom-menu-item {
+    .ast-custom-button-link {
+        .ast-custom-button {
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+
+            &:hover {
+                @include ast-transition(all, 0.1s, ease-in-out);
+            }
+        }
+    }
+}

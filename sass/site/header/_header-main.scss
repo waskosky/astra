@@ -96,6 +96,16 @@
 
 }
 
+.ast-flyout-menu-enable {
+	.main-header-bar {
+		.ast-masthead-custom-menu-items {
+			.ast-custom-button-link {
+				border: none;
+			}
+		}
+	}
+}
+
 @media (max-width: $mx-col-md) {
 	.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
 	    display: inline-block;

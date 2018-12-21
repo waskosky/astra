@@ -491,6 +491,22 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			Astra_Customizer_Control_Base::add_control(
+				'ast-responsive-color',
+				array(
+					'callback'         => 'Astra_Control_Responsive_Color',
+					'santize_callback' => 'sanitize_responsive_color',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
+				'ast-customizer-link',
+				array(
+					'callback'         => 'Astra_Control_Customizer_Link',
+					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_links' ),
+				)
+			);
+
 			/**
 			 * Helper files
 			 */
@@ -623,7 +639,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
 
 			$localize_array = array(
 				'headerBreakpoint'            => astra_header_break_point(),

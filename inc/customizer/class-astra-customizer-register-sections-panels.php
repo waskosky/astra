@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-container-layout',
 					'type'               => 'section',
-					'priority'           => 10,
+					'priority'           => 70,
 					'title'              => __( 'Container', 'astra' ),
 					'panel'              => 'panel-layout',
 					'description_hidden' => true,
@@ -376,6 +376,50 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'     => 'section',
 					'priority' => 50,
 					'title'    => __( 'Buttons', 'astra' ),
+				),
+
+				/**
+				 * Theme Buttons
+				 */
+				array(
+					'name'     => 'section-theme-button',
+					'type'     => 'section',
+					'priority' => 10,
+					'title'    => __( 'Theme Button', 'astra' ),
+					'section'  => 'section-buttons',
+				),
+
+				/**
+				 * Header Buttons
+				 */
+				array(
+					'name'     => 'section-header-button',
+					'type'     => 'section',
+					'priority' => 10,
+					'title'    => __( 'Header Button', 'astra' ),
+					'section'  => 'section-buttons',
+				),
+
+				/**
+				 * Header Button - Default
+				 */
+				array(
+					'name'     => 'section-header-button-default',
+					'type'     => 'section',
+					'priority' => 10,
+					'title'    => __( 'Primary Header Button', 'astra' ),
+					'section'  => 'section-header-button',
+				),
+
+				/**
+				 * Header Button - Transparent
+				 */
+				array(
+					'name'     => 'section-header-button-transparent',
+					'type'     => 'section',
+					'priority' => 10,
+					'title'    => __( 'Transparent Header Button', 'astra' ),
+					'section'  => 'section-header-button',
 				),
 
 				/**
