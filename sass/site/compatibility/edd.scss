@@ -775,11 +775,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		}
 	}
 }
-.ast-masthead-custom-menu-items{
-	&.edd-custom-menu-item{
-		padding: 0;
-	}
-}
 
 /**
  * Header Cart Icon with shopping cart for responsive devices.
@@ -789,11 +784,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		.widget_edd_cart_widget,
 		.ast-edd-header-cart-info-wrap{
 			display: none;
-		}
-	}
-	div.ast-masthead-custom-menu-items{
-		&.edd-custom-menu-item{
-			padding: 0;
 		}
 	}
 }
