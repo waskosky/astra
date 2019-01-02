@@ -3286,11 +3286,6 @@ body {
   margin-bottom: 1em;
 }
 
-.ast-masthead-custom-menu-items a {
-  border: none;
-  display: inline-block;
-}
-
 /**
  * 7 - Auto Margin
  */
@@ -3768,8 +3763,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
   padding: 0;
+  border: none;
+  display: inline-block;
   width: auto;
-  display: initial;
 }
 
 .ast-header-break-point li.ast-masthead-custom-menu-items {
