@@ -25,7 +25,7 @@
 		_bind: function()
 		{
 			$( document ).on('click' , '.astra-install-recommended-plugin', AstraThemeAdmin._installNow );
-			$( document ).on('click' , '.ast-sites-inactive', AstraThemeAdmin._activatePlugin);
+			$( document ).on('click' , '.astra-activate-recommended-plugin', AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
 			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
@@ -62,17 +62,23 @@
 
 			event.preventDefault();
 
-			var $message = $( '.astra-install-recommended-plugin' );
-			if ( 0 === $message.length ) {
-				$message = $( '.ast-sites-inactive' );
+			var $message = jQuery(event.target);
+
+			var $init = $message.data('init');
+
+			if (typeof $init === 'undefined') {
+				var $message = jQuery('.astra-activate-recommended-plugin[data-slug=' + response.slug + ']');
 			}
 
 			// Transform the 'Install' button into an 'Activate' button.
 			var $init = $message.data('init');
+			var activatingText = $message.data('activating-text') || astra.recommendedPluiginActivatingText;
+			var settingsLink = $message.data('settings-link');
+			var settingsLinkText = $message.data('settings-link-text');
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
-				.html( astra.btnActivating );
+				.html( activatingText );
 
 			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
 			setTimeout( function() {
@@ -88,8 +94,8 @@
 				.done(function (result) {
 
 					if( result.success ) {
-						var output = '<a href="'+ astra.astraSitesLink +'" aria-label="'+ astra.astraSitesLinkTitle +'">' + astra.astraSitesLinkTitle +' </a>'
-						$message.removeClass( 'ast-sites-inactive astra-install-recommended-plugin button button-primary install-now activate-now updating-message' )
+						var output = '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>'
+						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' )
 							.html( output );
 
 					} else {
@@ -125,7 +131,7 @@
 					var $message = $( '.astra-install-recommended-plugin.updating-message' );
 
 					$message
-						.addClass('ast-sites-inactive')
+						.addClass('astra-activate-recommended-plugin')
 						.removeClass( 'updating-message astra-install-recommended-plugin' )
 						.text( wp.updates.l10n.installNow );
 

@@ -291,10 +291,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			wp_enqueue_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
 
 			$localize = array(
-				'ajaxUrl'             => admin_url( 'admin-ajax.php' ),
-				'btnActivating'       => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'      => admin_url( 'themes.php?page=astra-sites' ),
-				'astraSitesLinkTitle' => __( 'See Library »', 'astra' ),
+				'ajaxUrl'                          => admin_url( 'admin-ajax.php' ),
+				'btnActivating'                    => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
+				'astraSitesLink'                   => admin_url( 'themes.php?page=astra-sites' ),
+				'astraSitesLinkTitle'              => __( 'See Library »', 'astra' ),
+				'recommendedPluiginActivatingText' => __( 'Activating Plugin ', 'astra' ) . '&hellip;',
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 		}
@@ -458,19 +459,24 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						// Astra Premium Sites - Inactive.
 						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-							$class       = 'button ast-sites-inactive';
-							$button_text = __( 'Activate Importer Plugin', 'astra' );
-							$data_slug   = 'astra-sites';
-							$data_init   = '/astra-sites/astra-sites.php';
+							$class                   = 'button astra-activate-recommended-plugin';
+							$button_text             = __( 'Activate Importer Plugin', 'astra' );
+							$data_slug               = 'astra-sites';
+							$data_init               = '/astra-sites/astra-sites.php';
+							$data_settings_link      = admin_url( 'themes.php?page=astra-sites' );
+							$data_settings_link_text = __( 'See Library »', 'astra' );
+							$activating_text         = __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;';
 
 							// Astra Sites - Not Installed.
 							// Astra Premium Sites - Inactive.
 						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-							$class       = 'button astra-install-recommended-plugin';
-							$button_text = __( 'Install Importer Plugin', 'astra' );
-							$data_slug   = 'astra-sites';
-							$data_init   = '/astra-sites/astra-sites.php';
+							$class                   = 'button astra-install-recommended-plugin';
+							$button_text             = __( 'Install Importer Plugin', 'astra' );
+							$data_slug               = 'astra-sites';
+							$data_init               = '/astra-sites/astra-sites.php';
+							$data_settings_link      = admin_url( 'themes.php?page=astra-sites' );
+							$data_settings_link_text = __( 'See Library »', 'astra' );
 
 							// Astra Premium Sites - Active.
 						} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
@@ -484,11 +490,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						}
 
 						printf(
-							'<a class="%1$s" %2$s %3$s %4$s> %5$s </a>',
+							'<a class="%1$s" %2$s %3$s %4$s %5$s %6$s %7$s> %8$s </a>',
 							esc_attr( $class ),
 							isset( $link ) ? 'href="' . esc_url( $link ) . '"' : '',
 							isset( $data_slug ) ? 'data-slug="' . esc_attr( $data_slug ) . '"' : '',
 							isset( $data_init ) ? 'data-init="' . esc_attr( $data_init ) . '"' : '',
+							isset( $data_settings_link_text ) ? 'data-settings-link-text="' . esc_attr( $data_settings_link_text ) . '"' : '',
+							isset( $data_settings_link ) ? 'data-settings-link="' . esc_attr( $data_settings_link ) . '"' : '',
+							isset( $activating_text ) ? 'data-activating-text="' . esc_attr( $activating_text ) . '"' : '',
 							esc_html( $button_text )
 						);
 						?>
@@ -1002,49 +1011,49 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Custom Fonts',
 							'plugin-init'        => 'custom-fonts/custom-fonts.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'astra-bulk-edit'                  =>
 						array(
 							'plugin-name'        => 'Astra Bulk Edit',
 							'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'reset-astra-customizer'           =>
 						array(
 							'plugin-name'        => 'Astra Customizer Reset',
 							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'astra-hooks'                      =>
 						array(
 							'plugin-name'        => 'Astra Hooks',
 							'plugin-init'        => 'astra-hooks/astra-hooks.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'astra-theme-visual-hooks'         =>
 						array(
 							'plugin-name'        => 'Astra Theme Visual Hooks',
 							'plugin-init'        => 'astra-theme-visual-hooks/astra-theme-visual-hooks.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'customizer-search'                =>
 						array(
 							'plugin-name'        => 'Customizer Search',
 							'plugin-init'        => 'customizer-search/customizer-search.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'custom-template-learndash'        =>
 						array(
 							'plugin-name'        => 'Custom Template for LearnDash',
 							'plugin-init'        => 'custom-template-learndash/custom-template-learndash.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 							'display'            => class_exists( 'SFWD_LMS' ),
 						),
@@ -1052,7 +1061,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Custom Template for LifterLMS',
 							'plugin-init'        => 'custom-template-lifterlms/custom-template-lifterlms.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 							'display'            => class_exists( 'LifterLMS' ),
 						),
@@ -1060,35 +1069,35 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Custom Typekit Fonts',
 							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'home-page-banner-for-astra-theme' =>
 						array(
 							'plugin-name'        => 'Home Page Banner for Astra Theme',
 							'plugin-init'        => 'home-page-banner-for-astra-theme/home-page-banner-for-astra-theme.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'sidebar-manager'                  =>
 						array(
 							'plugin-name'        => 'Sidebar Manager',
 							'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'wp-templator'                     =>
 						array(
 							'plugin-name'        => 'Templator',
 							'plugin-init'        => 'wp-templator/wp-templator.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 					'ultimate-addons-for-gutenberg'    =>
 						array(
 							'plugin-name'        => 'Ultimate Addons for Gutenberg',
 							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 							'display'            => function_exists( 'register_block_type' ),
 						),
@@ -1096,12 +1105,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Unlist Posts & Pages',
 							'plugin-init'        => 'unlist-posts/unlist-posts.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url(),
 							'settings-link-text' => 'Settings',
 						),
 				)
 			);
-			
 
 			?>
 
@@ -1146,11 +1154,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 													array(
 														'data-slug' => $slug,
 														'href' => '#',
-														'data-init' => $plugin['plugin-init']
+														'data-init' => $plugin['plugin-init'],
+														'data-settings-link' => esc_url( $plugin['settings-link'] ),
+														'data-settings-link-text' => $plugin['settings-link-text'],
 													)
 												) . '>';
 
-												_e('Activate Plugin', 'astra');
+												_e( 'Activate Plugin', 'astra' );
 
 												echo '</a>';
 											} else {
@@ -1159,14 +1169,28 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 													array(
 														'data-slug' => $slug,
 														'href' => '#',
-														'data-init' => $plugin['plugin-init']
+														'data-init' => $plugin['plugin-init'],
+														'data-settings-link' => esc_url( $plugin['settings-link'] ),
+														'data-settings-link-text' => $plugin['settings-link-text'],
 													)
 												) . '>';
 
-												_e('Install & Activate Plugin', 'astra');
+												_e( 'Install & Activate Plugin', 'astra' );
 
 												echo '</a>';
 											}
+										} else {
+											echo '<a ' . astra_attr(
+												'astra-recommended-plugin-links',
+												array(
+													'data-slug' => $slug,
+													'href' => $plugin['settings-link'],
+												)
+											) . '>';
+
+											echo $plugin['settings-link-text'];
+
+											echo '</a>';
 										}
 
 											echo '</div>';
