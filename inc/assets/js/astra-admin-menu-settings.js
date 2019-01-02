@@ -67,7 +67,7 @@
 			var $init = $message.data('init');
 
 			if (typeof $init === 'undefined') {
-				var $message = jQuery('.astra-activate-recommended-plugin[data-slug=' + response.slug + ']');
+				var $message = jQuery('.astra-install-recommended-plugin[data-slug=' + response.slug + ']');
 			}
 
 			// Transform the 'Install' button into an 'Activate' button.
