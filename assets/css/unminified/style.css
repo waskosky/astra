@@ -3286,6 +3286,11 @@ body {
   margin-bottom: 1em;
 }
 
+.ast-masthead-custom-menu-items a {
+  border: none;
+  display: inline-block;
+}
+
 /**
  * 7 - Auto Margin
  */
