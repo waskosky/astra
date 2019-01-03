@@ -1115,7 +1115,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
-					<?php do_action( 'astra_addon_bulk_action' ); ?>
 				</h2>
 					<div class="ast-addon-list-section">
 						<?php

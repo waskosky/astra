@@ -27,7 +27,6 @@
 			$( document ).on('click' , '.astra-install-recommended-plugin', AstraThemeAdmin._installNow );
 			$( document ).on('click' , '.astra-activate-recommended-plugin', AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
-			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
 			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
 		},
 
@@ -44,17 +43,6 @@
 				.html( wp.updates.l10n.installFailedShort );
 		},
 
-		/**
-		 * Installing Plugin
-		 */
-		_pluginInstalling: function(event, args) {
-			event.preventDefault();
-
-			var $card = jQuery( '.astra-install-recommended-plugin' );
-
-			$card.addClass('updating-message');
-
-		},
 		/**
 		 * Activate Success
 		 */
@@ -138,6 +126,8 @@
 					wp.a11y.speak( wp.updates.l10n.updateCancel, 'polite' );
 				} );
 			}
+
+			$button.addClass( 'updating-message' );
 
 			wp.updates.installPlugin( {
 				slug:    $button.data( 'slug' )
