@@ -522,6 +522,11 @@ p.demo_store a,
   padding: 0;
 }
 
+.ast-header-break-point .ast-masthead-custom-menu-items.woocommerce-custom-menu-item .ast-site-header-cart a {
+  border: none;
+  display: inline-block;
+}
+
 /**
  * Main WooCommerce styles
  */
