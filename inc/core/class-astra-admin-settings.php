@@ -1123,64 +1123,46 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				)
 			);
 
+			if( apply_filters( 'astra_show_free_extennd_plugins', true ) ) {
 			?>
 
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
-				</h2>
-					<div class="ast-addon-list-section">
-						<?php
-						if ( ! empty( $recommended_plugins ) ) :
-							?>
-							<div>
-								<ul class="ast-addon-list">
-									<?php
-									foreach ( $recommended_plugins as $slug => $plugin ) {
+				<div class="postbox">
+					<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+					</h2>
+						<div class="ast-addon-list-section">
+							<?php
+							if ( ! empty( $recommended_plugins ) ) :
+								?>
+								<div>
+									<ul class="ast-addon-list">
+										<?php
+										foreach ( $recommended_plugins as $slug => $plugin ) {
 
-										// If display condition for the plugin does not meet, skip the plugin from displaying.
-										if ( isset( $plugin['display'] ) && false === $plugin['display'] ) {
-											continue;
-										}
+											// If display condition for the plugin does not meet, skip the plugin from displaying.
+											if ( isset( $plugin['display'] ) && false === $plugin['display'] ) {
+												continue;
+											}
 
-										echo '<li ' . astra_attr(
-											'astra-recommended-plugin-' . esc_attr( $slug ),
-											array(
-												'id'    => esc_attr( $slug ),
-												'class' => 'astra-recommended-plugin',
-												'data-slug' => $slug,
-											)
-										) . '>';
+											echo '<li ' . astra_attr(
+												'astra-recommended-plugin-' . esc_attr( $slug ),
+												array(
+													'id'    => esc_attr( $slug ),
+													'class' => 'astra-recommended-plugin',
+													'data-slug' => $slug,
+												)
+											) . '>';
 
-											echo '<a href="' . self::build_worg_plugin_link( $slug ) . '" target="_blank">';
-												echo esc_html( $plugin['plugin-name'] );
-											echo '</a>';
-
-											echo '<div class="ast-addon-link-wrapper">';
-
-										if ( ! is_plugin_active( $plugin['plugin-init'] ) ) {
-
-											if ( file_exists( WP_CONTENT_DIR . '/plugins/' . $plugin['plugin-init'] && current_user_can( 'install_plugins' ) ) ) {
-												echo '<a ' . astra_attr(
-													'astra-activate-recommended-plugin',
-													array(
-														'data-slug' => $slug,
-														'href' => '#',
-														'data-init' => $plugin['plugin-init'],
-														'data-settings-link' => esc_url( $plugin['settings-link'] ),
-														'data-settings-link-text' => $plugin['settings-link-text'],
-													)
-												) . '>';
-
-												_e( 'Activate Plugin', 'astra' );
-
+												echo '<a href="' . self::build_worg_plugin_link( $slug ) . '" target="_blank">';
+													echo esc_html( $plugin['plugin-name'] );
 												echo '</a>';
 
-											} else {
+												echo '<div class="ast-addon-link-wrapper">';
 
-												if( current_user_can( 'install_plugins' ) ) {
+											if ( ! is_plugin_active( $plugin['plugin-init'] ) ) {
 
+												if ( file_exists( WP_CONTENT_DIR . '/plugins/' . $plugin['plugin-init'] && current_user_can( 'install_plugins' ) ) ) {
 													echo '<a ' . astra_attr(
-														'astra-install-recommended-plugin',
+														'astra-activate-recommended-plugin',
 														array(
 															'data-slug' => $slug,
 															'href' => '#',
@@ -1190,59 +1172,79 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 														)
 													) . '>';
 
-													_e( 'Install Plugin', 'astra' );
+													_e( 'Activate Plugin', 'astra' );
 
 													echo '</a>';
+
+												} else {
+
+													if( current_user_can( 'install_plugins' ) ) {
+
+														echo '<a ' . astra_attr(
+															'astra-install-recommended-plugin',
+															array(
+																'data-slug' => $slug,
+																'href' => '#',
+																'data-init' => $plugin['plugin-init'],
+																'data-settings-link' => esc_url( $plugin['settings-link'] ),
+																'data-settings-link-text' => $plugin['settings-link-text'],
+															)
+														) . '>';
+
+														_e( 'Install Plugin', 'astra' );
+
+														echo '</a>';
+													}
 												}
-											}
-										} else {
+											} else {
 
-											if( current_user_can( 'install_plugins' ) ) {
-												
-												echo '<a ' . astra_attr(
-													'astra-deactivate-recommended-plugin',
-													array(
-														'data-slug' => $slug,
-														'href' => '#',
-														'data-init' => $plugin['plugin-init'],
-														'data-settings-link' => esc_url( $plugin['settings-link'] ),
-														'data-settings-link-text' => $plugin['settings-link-text'],
-													)
-												) . '>';
-
-												_e( 'Deactivate Plugin', 'astra' );
-
-												echo '</a>';
-
-												if ( '' !== $plugin['settings-link'] ) {
+												if( current_user_can( 'install_plugins' ) ) {
 
 													echo '<a ' . astra_attr(
-														'astra-recommended-plugin-links',
+														'astra-deactivate-recommended-plugin',
 														array(
 															'data-slug' => $slug,
-															'href' => $plugin['settings-link'],
+															'href' => '#',
+															'data-init' => $plugin['plugin-init'],
+															'data-settings-link' => esc_url( $plugin['settings-link'] ),
+															'data-settings-link-text' => $plugin['settings-link-text'],
 														)
 													) . '>';
 
-													echo $plugin['settings-link-text'];
+													_e( 'Deactivate Plugin', 'astra' );
 
 													echo '</a>';
+
+													if ( '' !== $plugin['settings-link'] ) {
+
+														echo '<a ' . astra_attr(
+															'astra-recommended-plugin-links',
+															array(
+																'data-slug' => $slug,
+																'href' => $plugin['settings-link'],
+															)
+														) . '>';
+
+														echo $plugin['settings-link-text'];
+
+														echo '</a>';
+													}
 												}
 											}
+
+												echo '</div>';
+
+											echo '</li>';
 										}
-
-											echo '</div>';
-
-										echo '</li>';
-									}
-									?>
-								</ul>
-							</div>
-							<?php endif; ?>
-					</div>
-			</div>
+										?>
+									</ul>
+								</div>
+								<?php endif; ?>
+						</div>
+				</div>
 
 				<?php
+			}
 
 		}
 
