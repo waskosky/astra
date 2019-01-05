@@ -1051,14 +1051,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Customizer Search',
 							'plugin-init'        => 'customizer-search/customizer-search.php',
-							'settings-link'      => admin_url(),
+							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
 					'custom-template-learndash'        =>
 						array(
 							'plugin-name'        => 'Custom Template for LearnDash',
 							'plugin-init'        => 'custom-template-learndash/custom-template-learndash.php',
-							'settings-link'      => admin_url(),
+							'settings-link'      => admin_url() . 'edit.php?post_type=ld-custom-template',
 							'settings-link-text' => 'Settings',
 							'display'            => class_exists( 'SFWD_LMS' ),
 						),
@@ -1066,7 +1066,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Custom Template for LifterLMS',
 							'plugin-init'        => 'custom-template-lifterlms/custom-template-lifterlms.php',
-							'settings-link'      => admin_url(),
+							'settings-link'      => admin_url() . 'edit.php?post_type=bsf-custom-template',
 							'settings-link-text' => 'Settings',
 							'display'            => class_exists( 'LifterLMS' ),
 						),
@@ -1081,21 +1081,21 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Home Page Banner for Astra Theme',
 							'plugin-init'        => 'home-page-banner-for-astra-theme/home-page-banner-for-astra-theme.php',
-							'settings-link'      => admin_url(),
+							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
 					'sidebar-manager'                  =>
 						array(
 							'plugin-name'        => 'Sidebar Manager',
 							'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
-							'settings-link'      => admin_url(),
+							'settings-link'      => admin_url() . 'edit.php?post_type=bsf-sidebar',
 							'settings-link-text' => 'Settings',
 						),
 					'wp-templator'                     =>
 						array(
 							'plugin-name'        => 'Templator',
 							'plugin-init'        => 'wp-templator/wp-templator.php',
-							'settings-link'      => admin_url(),
+							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
 					'ultimate-addons-for-gutenberg'    =>
@@ -1110,7 +1110,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						array(
 							'plugin-name'        => 'Unlist Posts & Pages',
 							'plugin-init'        => 'unlist-posts/unlist-posts.php',
-							'settings-link'      => admin_url(),
+							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
 				)
