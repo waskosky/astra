@@ -1091,7 +1091,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'settings-link'      => admin_url() . 'edit.php?post_type=bsf-sidebar',
 							'settings-link-text' => 'Settings',
 						),
-					'astra-sites'                  =>
+					'astra-sites'                      =>
 						array(
 							'plugin-name'        => 'Astra Starter Sites',
 							'plugin-init'        => 'astra-sites/astra-sites.php',
@@ -1123,8 +1123,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				)
 			);
 
-			if( apply_filters( 'astra_show_free_extennd_plugins', true ) ) {
-			?>
+			if ( apply_filters( 'astra_show_free_extennd_plugins', true ) ) {
+				?>
 
 				<div class="postbox">
 					<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
@@ -1146,7 +1146,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 											echo '<li ' . astra_attr(
 												'astra-recommended-plugin-' . esc_attr( $slug ),
 												array(
-													'id'    => esc_attr( $slug ),
+													'id' => esc_attr( $slug ),
 													'class' => 'astra-recommended-plugin',
 													'data-slug' => $slug,
 												)
@@ -1178,7 +1178,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 												} else {
 
-													if( current_user_can( 'install_plugins' ) ) {
+													if ( current_user_can( 'install_plugins' ) ) {
 
 														echo '<a ' . astra_attr(
 															'astra-install-recommended-plugin',
@@ -1198,7 +1198,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 												}
 											} else {
 
-												if( current_user_can( 'install_plugins' ) ) {
+												if ( current_user_can( 'install_plugins' ) ) {
 
 													echo '<a ' . astra_attr(
 														'astra-deactivate-recommended-plugin',
