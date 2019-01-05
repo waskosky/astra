@@ -755,8 +755,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color' => esc_attr( $link_color ),
 				),
 
-				'.ast-masthead-custom-menu-items .woocommerce-mini-cart-item,.ast-masthead-custom-menu-items .woocommerce-mini-cart-item a, .ast-masthead-custom-menu-items .widget_shopping_cart_content' => array(
+				'.ast-masthead-custom-menu-items .woocommerce-mini-cart-item a' => array(
 					'color' => esc_attr( $header_cart_text_color ),
+				),
+
+				'.ast-masthead-custom-menu-items .woocommerce-mini-cart-item a:hover' => array(
+					'color' => esc_attr( $header_cart_text_h_color ),
 				),
 
 				'.ast-cart-menu-wrap .count, .ast-cart-menu-wrap .count:after' => array(
