@@ -26,6 +26,7 @@
 		{
 			$( document ).on('click' , '.astra-install-recommended-plugin', AstraThemeAdmin._installNow );
 			$( document ).on('click' , '.astra-activate-recommended-plugin', AstraThemeAdmin._activatePlugin);
+			$( document ).on('click' , '.astra-deactivate-recommended-plugin', AstraThemeAdmin._deactivatePlugin);
 			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
 		},
@@ -60,13 +61,15 @@
 
 			// Transform the 'Install' button into an 'Activate' button.
 			var $init = $message.data('init');
-			var activatingText = $message.data('activating-text') || astra.recommendedPluiginActivatingText;
+			var activatingText = astra.recommendedPluiginActivatingText;
 			var settingsLink = $message.data('settings-link');
-			var settingsLinkText = $message.data('settings-link-text');
+			var settingsLinkText = astra.recommendedPluiginSettingsText;
+			var deactivateText = astra.recommendedPluiginDeactivateText;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
 				.html( activatingText );
+
 
 			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
 			setTimeout( function() {
@@ -82,9 +85,64 @@
 				.done(function (result) {
 
 					if( result.success ) {
-						var output = '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>'
-						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' )
-							.html( output );
+						var output  = '<a href="#" class="astra-deactivate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ deactivateText +'" aria-label="'+ deactivateText +'">'+ deactivateText +'</a><a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>';
+
+						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
+
+					} else {
+
+						$message.removeClass( 'updating-message' );
+
+					}
+
+				});
+
+			}, 1200 );
+
+		},
+
+		/**
+		 * Activate Success
+		 */
+		_deactivatePlugin: function( event, response ) {
+
+			event.preventDefault();
+
+			var $message = jQuery(event.target);
+
+			var $init = $message.data('init');
+
+			if (typeof $init === 'undefined') {
+				var $message = jQuery('.astra-install-recommended-plugin[data-slug=' + response.slug + ']');
+			}
+
+			// Transform the 'Install' button into an 'Activate' button.
+			var $init = $message.data('init');
+			var deactivatingText = $message.data('deactivating-text') || astra.recommendedPluiginDeactivatingText;
+			var settingsLink = $message.data('settings-link');
+			var settingsLinkText = astra.recommendedPluiginSettingsText;
+			var activateText = astra.recommendedPluiginActivateText;
+
+			$message.removeClass( 'install-now installed button-disabled updated-message' )
+				.addClass('updating-message')
+				.html( deactivatingText );
+
+			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
+			setTimeout( function() {
+
+				$.ajax({
+					url: astra.ajaxUrl,
+					type: 'POST',
+					data: {
+						'action'            : 'astra-sites-plugin-deactivate',
+						'init'              : $init,
+					},
+				})
+				.done(function (result) {
+
+					if( result.success ) {
+						var output = '<a href="#" class="astra-activate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ activateText +'" aria-label="'+ activateText +'">'+ activateText +'</a>'
+						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
 
 					} else {
 
