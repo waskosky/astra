@@ -1091,6 +1091,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'settings-link'      => admin_url() . 'edit.php?post_type=bsf-sidebar',
 							'settings-link-text' => 'Settings',
 						),
+					'astra-sites'                  =>
+						array(
+							'plugin-name'        => 'Astra Starter Sites',
+							'plugin-init'        => 'astra-sites/astra-sites.php',
+							'settings-link'      => admin_url() . 'themes.php?page=astra-sites',
+							'settings-link-text' => 'Settings',
+						),
 					'wp-templator'                     =>
 						array(
 							'plugin-name'        => 'Templator',
