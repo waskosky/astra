@@ -29,6 +29,8 @@
 			$( document ).on('click' , '.astra-deactivate-recommended-plugin', AstraThemeAdmin._deactivatePlugin);
 			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
+			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
+
 		},
 
 		/**
@@ -42,6 +44,18 @@
 				.removeClass( 'button-primary' )
 				.addClass( 'disabled' )
 				.html( wp.updates.l10n.installFailedShort );
+		},
+
+		/**
+		 * Installing Plugin
+		 */
+		_pluginInstalling: function(event, args) {
+			event.preventDefault();
+
+			var $card = jQuery( '.astra-install-recommended-plugin' );
+
+			$card.addClass('updating-message');
+
 		},
 
 		/**
@@ -69,7 +83,6 @@
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
 				.html( activatingText );
-
 
 			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
 			setTimeout( function() {
@@ -188,9 +201,7 @@
 					wp.a11y.speak( wp.updates.l10n.updateCancel, 'polite' );
 				} );
 			}
-
-			$button.addClass( 'updating-message' );
-
+			
 			wp.updates.installPlugin( {
 				slug:    $button.data( 'slug' )
 			} );

@@ -298,8 +298,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 				'recommendedPluiginActivatingText'   => __( 'Activating Plugin ', 'astra' ) . '&hellip;',
 				'recommendedPluiginDeactivatingText' => __( 'Deactivating Plugin ', 'astra' ) . '&hellip;',
-				'recommendedPluiginActivateText'     => __( 'Activate Plugin', 'astra' ),
-				'recommendedPluiginDeactivateText'   => __( 'Deactivate Plugin', 'astra' ),
+				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
@@ -1160,7 +1160,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 											if ( ! is_plugin_active( $plugin['plugin-init'] ) ) {
 
-												if ( file_exists( WP_CONTENT_DIR . '/plugins/' . $plugin['plugin-init'] && current_user_can( 'install_plugins' ) ) ) {
+												if ( file_exists( WP_CONTENT_DIR . '/plugins/' . $plugin['plugin-init'] ) ) {
 													echo '<a ' . astra_attr(
 														'astra-activate-recommended-plugin',
 														array(
@@ -1172,36 +1172,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 														)
 													) . '>';
 
-													_e( 'Activate Plugin', 'astra' );
+													_e( 'Activate', 'astra' );
 
 													echo '</a>';
 
 												} else {
 
-													if ( current_user_can( 'install_plugins' ) ) {
-
-														echo '<a ' . astra_attr(
-															'astra-install-recommended-plugin',
-															array(
-																'data-slug' => $slug,
-																'href' => '#',
-																'data-init' => $plugin['plugin-init'],
-																'data-settings-link' => esc_url( $plugin['settings-link'] ),
-																'data-settings-link-text' => $plugin['settings-link-text'],
-															)
-														) . '>';
-
-														_e( 'Install Plugin', 'astra' );
-
-														echo '</a>';
-													}
-												}
-											} else {
-
-												if ( current_user_can( 'install_plugins' ) ) {
-
 													echo '<a ' . astra_attr(
-														'astra-deactivate-recommended-plugin',
+														'astra-install-recommended-plugin',
 														array(
 															'data-slug' => $slug,
 															'href' => '#',
@@ -1211,24 +1189,40 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 														)
 													) . '>';
 
-													_e( 'Deactivate Plugin', 'astra' );
+													_e( 'Activate', 'astra' );
 
 													echo '</a>';
+												}
+											} else {
 
-													if ( '' !== $plugin['settings-link'] ) {
+												echo '<a ' . astra_attr(
+													'astra-deactivate-recommended-plugin',
+													array(
+														'data-slug' => $slug,
+														'href' => '#',
+														'data-init' => $plugin['plugin-init'],
+														'data-settings-link' => esc_url( $plugin['settings-link'] ),
+														'data-settings-link-text' => $plugin['settings-link-text'],
+													)
+												) . '>';
 
-														echo '<a ' . astra_attr(
-															'astra-recommended-plugin-links',
-															array(
-																'data-slug' => $slug,
-																'href' => $plugin['settings-link'],
-															)
-														) . '>';
+												_e( 'Deactivate', 'astra' );
 
-														echo $plugin['settings-link-text'];
+												echo '</a>';
 
-														echo '</a>';
-													}
+												if ( '' !== $plugin['settings-link'] ) {
+
+													echo '<a ' . astra_attr(
+														'astra-recommended-plugin-links',
+														array(
+															'data-slug' => $slug,
+															'href' => $plugin['settings-link'],
+														)
+													) . '>';
+
+													echo $plugin['settings-link-text'];
+
+													echo '</a>';
 												}
 											}
 
