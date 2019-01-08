@@ -52,9 +52,19 @@
 		_pluginInstalling: function(event, args) {
 			event.preventDefault();
 
-			var $card = jQuery( '.astra-install-recommended-plugin' );
+			var slug = args.slug;
 
-			$card.addClass('updating-message');
+			var $card = jQuery( '.astra-install-recommended-plugin' );
+			var activatingText = astra.recommendedPluiginActivatingText;
+
+
+			$card.each(function( index, element ) {
+				element = jQuery( element );
+				if ( element.data('slug') === slug ) {
+					element.addClass('updating-message');
+					element.html( activatingText );
+				}
+			});
 
 		},
 
@@ -96,10 +106,11 @@
 					},
 				})
 				.done(function (result) {
-
+					
 					if( result.success ) {
 						var output  = '<a href="#" class="astra-deactivate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ deactivateText +'" aria-label="'+ deactivateText +'">'+ deactivateText +'</a>';
-							output += ( typeof settingsLink !== 'undefined' ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
+							output += ( typeof settingsLink === 'string' && settingsLink != 'undefined' ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
+							output += ( typeof settingsLink === undefined && settingsLink != undefined ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
 						
 						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
 
@@ -204,7 +215,7 @@
 			
 			wp.updates.installPlugin( {
 				slug:    $button.data( 'slug' )
-			} );
+			});
 		},
 	};
 
