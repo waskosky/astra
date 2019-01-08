@@ -432,6 +432,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		static public function astra_welcome_page_starter_sites_section() {
+
+			if( is_astra_white_labelled() ) {
+				return;
+			}
 			?>
 
 			<div class="postbox">
@@ -520,6 +524,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		static public function astra_welcome_page_knowledge_base_scetion() {
+
+			if( is_astra_white_labelled() ) {
+				return;
+			}
+
 			?>
 
 			<div class="postbox">
@@ -553,6 +562,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		static public function astra_welcome_page_community_scetion() {
+			
+			if( is_astra_white_labelled() ) {
+				return;
+			}
+
 			?>
 
 			<div class="postbox">
@@ -599,6 +613,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		static public function astra_welcome_page_five_star_scetion() {
+
+			if( is_astra_white_labelled() ) {
+				return;
+			}
+
 			?>
 
 			<div class="postbox">
@@ -1001,6 +1020,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function astra_available_plugins() {
 
+			if( is_astra_white_labelled() ) {
+				return;
+			}
+
 			$astra_addon_tagline = apply_filters(
 				'astra_available_plugins',
 				sprintf(
@@ -1123,7 +1146,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				)
 			);
 
-			if ( apply_filters( 'astra_show_free_extennd_plugins', true ) ) {
+			if ( apply_filters( 'astra_show_free_extend_plugins', true ) ) {
 				?>
 
 				<div class="postbox">
