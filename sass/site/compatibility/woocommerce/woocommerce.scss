@@ -2236,16 +2236,6 @@ p.demo_store,
 	}
 
 	/**
-	 * Product Saerch Widget
-	 */
-	.widget_product_search {
-		button{
-			flex: 0 0 auto;
-			padding: 10px 20px;
-		}
-	}
-
-	/**
 	 * Product categories
 	 */
 	.widget_product_categories {
@@ -2432,7 +2422,15 @@ p.demo_store,
 
 .woocommerce,
 .woocommerce-page {
-	
+	/**
+	 * Product Saerch Widget
+	 */
+	.widget_product_search {
+		button{
+			flex: 0 0 auto;
+			padding: 10px 20px;
+		}
+	}
 	@media (max-width: $mx-col-sm) {
 		/* Shop Page */
 		.woocommerce-ordering{
