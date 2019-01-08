@@ -326,8 +326,9 @@ li.ast-masthead-custom-menu-items {
 
 	ul li.ast-masthead-custom-menu-items a {
 		padding: 0;
+        display: inline-block;
 		width: auto;
-		display: initial;
+		border: 0;
 	}
 
 	li.ast-masthead-custom-menu-items {
