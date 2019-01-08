@@ -3768,8 +3768,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
   padding: 0;
+  display: inline-block;
   width: auto;
-  display: initial;
+  border: 0;
 }
 
 .ast-header-break-point li.ast-masthead-custom-menu-items {

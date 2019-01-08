@@ -562,9 +562,6 @@ p.demo_store a,
 	 * Layered nav widget
 	 */
   /**
-	 * Product Saerch Widget
-	 */
-  /**
 	 * Product categories
 	 */
   /**
@@ -2565,11 +2562,6 @@ p.demo_store a,
   color: #d65d67;
 }
 
-.woocommerce .widget_product_search button {
-  flex: 0 0 auto;
-  padding: 10px 20px;
-}
-
 .woocommerce .widget_product_categories .product-categories .count {
   float: left;
 }
@@ -2751,9 +2743,18 @@ p.demo_store a,
 
 .woocommerce,
 .woocommerce-page {
+  /**
+	 * Product Saerch Widget
+	 */
   /*
 	 * Common table style for woocommerce
 	 */
+}
+
+.woocommerce .widget_product_search button,
+.woocommerce-page .widget_product_search button {
+  flex: 0 0 auto;
+  padding: 10px 20px;
 }
 
 @media (max-width: 544px) {
