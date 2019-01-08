@@ -83,6 +83,21 @@
 	}
 }
 
+@media (max-width: 782px) {
+	.ast-no-sidebar {
+		.entry-content {
+			.has-2-columns .wp-block-column:first-child {
+				padding-right: 0;
+			}
+
+			.has-2-columns .wp-block-column:last-child {
+				padding-left: 0;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
 // Fullwidth image overflows out of container and adds a scrollbar in windows due to difference in calculation of `vh`.
 // see - https://github.com/WordPress/gutenberg/issues/8289#issuecomment-414721567
 // overflow-x: hidden hides this scroll bar.

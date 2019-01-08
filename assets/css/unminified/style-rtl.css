@@ -4199,6 +4199,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
+@media (max-width: 782px) {
+  .ast-no-sidebar .entry-content .has-2-columns .wp-block-column:first-child {
+    padding-left: 0;
+  }
+  .ast-no-sidebar .entry-content .has-2-columns .wp-block-column:last-child {
+    padding-right: 0;
+    margin-right: 0;
+  }
+}
+
 html {
   overflow-x: hidden;
 }
