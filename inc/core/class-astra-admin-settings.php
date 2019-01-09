@@ -433,7 +433,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_welcome_page_starter_sites_section() {
 
-			if ( is_astra_white_labelled() ) {
+			if ( astra_is_white_labelled() ) {
 				return;
 			}
 			?>
@@ -525,7 +525,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_welcome_page_knowledge_base_scetion() {
 
-			if ( is_astra_white_labelled() ) {
+			if ( astra_is_white_labelled() ) {
 				return;
 			}
 
@@ -563,7 +563,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_welcome_page_community_scetion() {
 
-			if ( is_astra_white_labelled() ) {
+			if ( astra_is_white_labelled() ) {
 				return;
 			}
 
@@ -614,7 +614,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_welcome_page_five_star_scetion() {
 
-			if ( is_astra_white_labelled() ) {
+			if ( astra_is_white_labelled() ) {
 				return;
 			}
 
@@ -1020,7 +1020,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_available_plugins() {
 
-			if ( is_astra_white_labelled() ) {
+			if ( astra_is_white_labelled() ) {
 				return;
 			}
 

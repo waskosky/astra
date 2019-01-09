@@ -1165,18 +1165,18 @@ if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
 endif;
 
 
-if ( ! function_exists( 'is_astra_white_labelled' ) ) :
+if ( ! function_exists( 'astra_is_white_labelled' ) ) :
 
 	/**
 	 * Check if white label option is enabled in astra pro plugin
 	 */
-	function is_astra_white_labelled() {
+	function astra_is_white_labelled() {
 
 		if ( is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) && ! Astra_Ext_White_Label_Markup::show_branding() ) {
-			return true;
+			return apply_filters( 'astra_is_white_labelled', true );
 		}
 
-		return false;
+		return apply_filters( 'astra_is_white_labelled', false );
 	}
 
 endif;
