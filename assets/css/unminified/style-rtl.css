@@ -3534,19 +3534,24 @@ body {
   border: none;
 }
 
+.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon form {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  left: auto;
+  top: auto;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.main-navigation .main-header-menu .ast-masthead-custom-menu-items a {
+  padding: 0;
+}
+
 @media (max-width: 768px) {
   .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
     display: inline-block;
-  }
-  .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon form {
-    visibility: visible;
-    opacity: 1;
-    position: relative;
-    left: auto;
-    top: auto;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
   }
   .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon {
     margin: 0;
@@ -3763,8 +3768,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point ul li.ast-masthead-custom-menu-items a {
   padding: 0;
+  display: inline-block;
   width: auto;
-  display: initial;
+  border: 0;
 }
 
 .ast-header-break-point li.ast-masthead-custom-menu-items {
