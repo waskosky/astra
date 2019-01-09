@@ -219,8 +219,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 									</div>
 								</div>',
 							$image_path,
-							__( 'Welcome! Thanks for installing Astra, you rock!', 'astra' ),
-							__( 'You can go to our Astra Sites plugin and download the Astra Sites from <a href="https://wpastra.com/ready-websites/">here.', 'astra' ),
+							__( 'Thank you for installing Astra!', 'astra' ),
+							__( 'You can get ready-to-use full website demos just like the ones shown <a href="https://wpastra.com/ready-websites/">here</a> by installing the Astra Starter Sites plugin.', 'astra' ),
 							esc_attr( $ast_sites_notice_btn['class'] ),
 							isset( $ast_sites_notice_btn['link'] ) ? 'href="' . esc_url( $ast_sites_notice_btn['link'] ) . '"' : '',
 							isset( $ast_sites_notice_btn['data_slug'] ) ? 'data-slug="' . esc_attr( $ast_sites_notice_btn['data_slug'] ) . '"' : '',
