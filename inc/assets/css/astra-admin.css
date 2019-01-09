@@ -94,3 +94,14 @@
     justify-content: left;
     align-items: center;
 }
+
+#astra-sites-on-active .notice-container {
+    background-color: #fff8e5;
+    padding: 25px;
+}
+#astra-sites-on-active {
+    padding: 10px 12px 10px 6px;
+}
+#astra-sites-on-active .notice-content .notice-heading {
+    font-size: 20px;
+}
