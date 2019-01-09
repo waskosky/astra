@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Admin settings init
 		 */
-		static public function init_admin_settings() {
+		public static function init_admin_settings() {
 			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * View actions
 		 */
-		static public function get_view_actions() {
+		public static function get_view_actions() {
 
 			if ( empty( self::$view_actions ) ) {
 
@@ -217,7 +217,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Save All admin settings here
 		 */
-		static public function save_settings() {
+		public static function save_settings() {
 
 			// Only admins can save settings.
 			if ( ! current_user_can( 'manage_options' ) ) {
@@ -233,7 +233,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.1
 		 */
-		static public function customizer_scripts() {
+		public static function customizer_scripts() {
 			$color_palettes = json_encode( astra_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
@@ -243,7 +243,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function admin_scripts() {
+		public static function admin_scripts() {
 
 			// Styles.
 			if ( is_rtl() ) {
@@ -279,7 +279,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function styles_scripts() {
+		public static function styles_scripts() {
 
 			// Styles.
 			if ( is_rtl() ) {
@@ -314,7 +314,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @param string $title Title.
 		 * @return string
 		 */
-		static public function astra_admin_title( $admin_title, $title ) {
+		public static function astra_admin_title( $admin_title, $title ) {
 
 			$screen = get_current_screen();
 			if ( 'appearance_page_astra' == $screen->id ) {
@@ -340,7 +340,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @return  string page url
 		 */
-		static public function get_page_url( $menu_slug ) {
+		public static function get_page_url( $menu_slug ) {
 
 			$parent_page = self::$default_menu_position;
 
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function add_admin_menu() {
+		public static function add_admin_menu() {
 
 			$parent_page    = self::$default_menu_position;
 			$page_title     = self::$menu_page_title;
@@ -382,7 +382,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function menu_callback() {
+		public static function menu_callback() {
 
 			$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
 
@@ -422,7 +422,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function general_page() {
+		public static function general_page() {
 			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
 		}
 
@@ -431,7 +431,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_starter_sites_section() {
+		public static function astra_welcome_page_starter_sites_section() {
 
 			if ( is_astra_white_labelled() ) {
 				return;
@@ -523,7 +523,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_knowledge_base_scetion() {
+		public static function astra_welcome_page_knowledge_base_scetion() {
 
 			if ( is_astra_white_labelled() ) {
 				return;
@@ -561,7 +561,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_community_scetion() {
+		public static function astra_welcome_page_community_scetion() {
 
 			if ( is_astra_white_labelled() ) {
 				return;
@@ -612,7 +612,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_five_star_scetion() {
+		public static function astra_welcome_page_five_star_scetion() {
 
 			if ( is_astra_white_labelled() ) {
 				return;
@@ -656,7 +656,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_content() {
+		public static function astra_welcome_page_content() {
 
 			$astra_addon_tagline = apply_filters( 'astra_addon_list_tagline', __( 'More Options Available with Astra Pro!', 'astra' ) );
 
@@ -1018,7 +1018,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_available_plugins() {
+		public static function astra_available_plugins() {
 
 			if ( is_astra_white_labelled() ) {
 				return;
@@ -1027,6 +1027,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$astra_addon_tagline = apply_filters(
 				'astra_available_plugins',
 				sprintf(
+					/* translators: %1s Astra Theme */
 					__( 'Extend %1s with free plugins!', 'astra' ),
 					astra_get_theme_name()
 				)
@@ -1263,6 +1264,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		}
 
+		/**
+		 * Build plugin's page URL on WordPress.org
+		 * https://wordpress.org/plugins/{plugin-slug}
+		 *
+		 * @since x.x.x
+		 * @param String $slug plugin slug.
+		 * @return String Plugin URL on WordPress.org
+		 */
 		private static function build_worg_plugin_link( $slug ) {
 			return esc_url( trailingslashit( 'https://wordpress.org/plugins/' . $slug ) );
 		}
@@ -1272,7 +1281,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function required_plugin_activate() {
+		public static function required_plugin_activate() {
 
 			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
 				wp_send_json_error(
@@ -1310,7 +1319,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function required_plugin_deactivate() {
+		public static function required_plugin_deactivate() {
 
 			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
 				wp_send_json_error(
@@ -1348,7 +1357,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function min_addon_version_message() {
+		public static function min_addon_version_message() {
 
 			$astra_global_options = get_option( 'astra-settings' );
 
@@ -1383,7 +1392,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function top_header_right_section() {
+		public static function top_header_right_section() {
 
 			$top_links = apply_filters(
 				'astra_header_top_links',
@@ -1417,5 +1426,5 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 	}
 
-	new Astra_Admin_Settings;
+	new Astra_Admin_Settings();
 }
