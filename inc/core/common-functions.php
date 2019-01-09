@@ -1167,16 +1167,16 @@ endif;
 
 if ( ! function_exists( 'is_astra_white_labelled' ) ) :
 
-    /**
-     * Check if white label option is enabled in astra pro plugin
-     */
-    function is_astra_white_labelled() {
+	/**
+	 * Check if white label option is enabled in astra pro plugin
+	 */
+	function is_astra_white_labelled() {
 
-        if( is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) && ! Astra_Ext_White_Label_Markup::show_branding() ) {
-            return true;
-        }
+		if ( is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) && ! Astra_Ext_White_Label_Markup::show_branding() ) {
+			return true;
+		}
 
-        return false;
-    }
+		return false;
+	}
 
 endif;
