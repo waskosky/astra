@@ -3558,7 +3558,11 @@ body {
   transform: none;
 }
 
-.main-navigation .main-header-menu .ast-masthead-custom-menu-items a {
+.main-navigation .main-header-menu .ast-masthead-custom-menu-items.edd-custom-menu-item a {
+  padding: 0;
+}
+
+.main-navigation .main-header-menu .ast-masthead-custom-menu-items.woocommerce-custom-menu-item a {
   padding: 0;
 }
 

@@ -120,9 +120,16 @@
 .main-navigation {
 	.main-header-menu {
 		.ast-masthead-custom-menu-items {
-			a {
-    			padding: 0;
-    		}
+			&.edd-custom-menu-item {
+				a {
+	    			padding: 0;
+	    		}
+			}
+			&.woocommerce-custom-menu-item {
+				a {
+	    			padding: 0;
+	    		}
+			}
     	}
     }
 }
