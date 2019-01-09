@@ -1166,11 +1166,16 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 												continue;
 											}
 
+											$plugin_active_status = '';
+											if ( is_plugin_active( $plugin['plugin-init'] ) ) {
+												$plugin_active_status = ' active';
+											}
+
 											echo '<li ' . astra_attr(
 												'astra-recommended-plugin-' . esc_attr( $slug ),
 												array(
 													'id' => esc_attr( $slug ),
-													'class' => 'astra-recommended-plugin',
+													'class' => 'astra-recommended-plugin' . $plugin_active_status,
 													'data-slug' => $slug,
 												)
 											) . '>';

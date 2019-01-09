@@ -114,6 +114,7 @@
 						
 						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
 
+						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').addClass('active');
 						$message.parents('.ast-addon-link-wrapper').html( output );
 
 					} else {
@@ -170,6 +171,9 @@
 					if( result.success ) {
 						var output = '<a href="#" class="astra-activate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ activateText +'" aria-label="'+ activateText +'">'+ activateText +'</a>';
 						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
+
+						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').removeClass('active');
+						
 						$message.parents('.ast-addon-link-wrapper').html( output );
 
 					} else {
