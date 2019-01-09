@@ -3547,6 +3547,17 @@ body {
   border: none;
 }
 
+.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon form {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  left: auto;
+  top: auto;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
 .main-navigation .main-header-menu .ast-masthead-custom-menu-items a {
   padding: 0;
 }
@@ -3554,16 +3565,6 @@ body {
 @media (max-width: 768px) {
   .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
     display: inline-block;
-  }
-  .ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon form {
-    visibility: visible;
-    opacity: 1;
-    position: relative;
-    left: auto;
-    top: auto;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
   }
   .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon {
     margin: 0;
