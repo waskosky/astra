@@ -4214,16 +4214,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 @media (max-width: 782px) {
-  .ast-no-sidebar .entry-content .wp-block-columns .wp-block-column {
+  .entry-content .wp-block-columns .wp-block-column {
     -ms-flex-preferred-size: 100%;
     -webkit-flex-basis: 100%;
     flex-basis: 100%;
     margin-right: 0;
   }
-  .ast-no-sidebar .entry-content .has-2-columns .wp-block-column:first-child {
+  .entry-content .has-2-columns .wp-block-column:first-child {
     padding-left: 0;
   }
-  .ast-no-sidebar .entry-content .has-2-columns .wp-block-column:last-child {
+  .entry-content .has-2-columns .wp-block-column:last-child {
     padding-right: 0;
   }
 }
