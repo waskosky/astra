@@ -1,3 +1,13 @@
+v1.6.3
+- Fix: Block Editor - Background color from content does not work.
+- Fix: Block Editor - Columns block having incorrect margin when on tablet/mobile devices.
+- Fix: Removed padding to column element of Gutenberg for responsive devices.
+- Fix: Menu not correctly center aligned when no menu is set to primary location, i.e. wp_page_menu().
+- Fix: Search is not visible on screen sizes 768px to 920px.
+- Fix: Background color does not work for Below header.
+- Fix: Removed top border for custom menu item on mobile devices.
+- Fix: LifterLMS - add LifterLMS lesson page builder support (props - @thomasplevy)
+
 v1.6.2
 - New: Need option to add a top border to the footer widget area.
 - Fix: LifterLMS: Don't add lesson navigation hook back in on lessons migrated to the WP core 5.0 block editor. (Props @thomasplevy)
