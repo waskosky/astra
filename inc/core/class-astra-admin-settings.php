@@ -199,8 +199,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			global $pagenow;
 
 			if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
-				
-				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
+
+				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
 				Astra_Notices::add_notice(
 					array(
@@ -276,7 +276,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=astra-sites' );
 			}
 			return $ast_sites_notice_btn;
-		}	
+		}
 
 		/**
 		 * View actions
