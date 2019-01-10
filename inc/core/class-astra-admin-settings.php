@@ -1268,7 +1268,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Build plugin's page URL on WordPress.org
 		 * https://wordpress.org/plugins/{plugin-slug}
 		 *
-		 * @since x.x.x
+		 * @since 1.6.10
 		 * @param String $slug plugin slug.
 		 * @return String Plugin URL on WordPress.org
 		 */
