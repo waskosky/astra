@@ -88,7 +88,8 @@
 			var activatingText = astra.recommendedPluiginActivatingText;
 			var settingsLink = $message.data('settings-link');
 			var settingsLinkText = astra.recommendedPluiginSettingsText;
-			var deactivateText = astra.recommendedPluiginDeactivateText;
+			var astraSitesLink = astra.astraSitesLink;
+			var activatedText = astra.astraSitesLinkTitle;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
@@ -108,14 +109,9 @@
 				.done(function (result) {
 					
 					if( result.success ) {
-						var output  = '<a href="#" class="astra-deactivate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ deactivateText +'" aria-label="'+ deactivateText +'">'+ deactivateText +'</a>';
-							output += ( typeof settingsLink === 'string' && settingsLink != 'undefined' ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
-							output += ( typeof settingsLink === undefined && settingsLink != undefined ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
-						
-						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
-
-						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').addClass('active');
-						$message.parents('.ast-addon-link-wrapper').html( output );
+						var output = '<a href="'+ astraSitesLink +'" aria-label="'+ activatedText +'">' + activatedText +' </a>'
+						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' )
+							.html( output );
 
 					} else {
 
