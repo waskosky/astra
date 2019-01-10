@@ -37,7 +37,11 @@
 				width: 100%;
 			}
 		}
-
+		.wp-block-columns .wp-block-column {
+			-webkit-box-flex: 1;
+		    -ms-flex: 1;
+		    flex: 1;
+		}
 		.has-2-columns .wp-block-column:first-child {
 			padding-right: 10px;
 		}
@@ -79,6 +83,24 @@
 					width: 100%;
 				}
 			}
+		}
+	}
+}
+
+// Remove left margins from gutenberg columns.
+@media (max-width: 782px) {
+	.entry-content {
+		.wp-block-columns .wp-block-column {
+			-ms-flex-preferred-size: 100%;
+			flex-basis: 100%;
+			margin-left: 0;
+		}
+		.has-2-columns .wp-block-column:first-child {
+			padding-right: 0;
+		}
+
+		.has-2-columns .wp-block-column:last-child {
+			padding-left: 0;
 		}
 	}
 }
