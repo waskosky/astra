@@ -117,23 +117,6 @@
 	}
 }
 
-.main-navigation {
-	.main-header-menu {
-		.ast-masthead-custom-menu-items {
-			&.edd-custom-menu-item {
-				a {
-	    			padding: 0;
-	    		}
-			}
-			&.woocommerce-custom-menu-item {
-				a {
-	    			padding: 0;
-	    		}
-			}
-    	}
-    }
-}
-
 @media (max-width: $mx-col-md) {
 	.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
 	    display: inline-block;

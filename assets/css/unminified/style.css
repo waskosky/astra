@@ -3558,14 +3558,6 @@ body {
   transform: none;
 }
 
-.main-navigation .main-header-menu .ast-masthead-custom-menu-items.edd-custom-menu-item a {
-  padding: 0;
-}
-
-.main-navigation .main-header-menu .ast-masthead-custom-menu-items.woocommerce-custom-menu-item a {
-  padding: 0;
-}
-
 @media (max-width: 768px) {
   .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
     display: inline-block;
