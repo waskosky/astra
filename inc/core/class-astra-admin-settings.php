@@ -222,12 +222,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							__( 'Thank you for installing Astra!', 'astra' ),
 							__( 'You can get ready-to-use full website demos just like the ones shown <a href="https://wpastra.com/ready-websites/">here</a> by installing the Astra Starter Sites plugin.', 'astra' ),
 							esc_attr( $ast_sites_notice_btn['class'] ),
-							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ),
-							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ),
-							'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ),
-							'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ),
-							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ),
-							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ),
+							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
+							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
+							'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
+							'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
+							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
+							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
 							esc_html( $ast_sites_notice_btn['button_text'] )
 						),
 						'priority'                   => 10,
@@ -552,12 +552,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						printf(
 							'<a class="%1$s" %2$s %3$s %4$s %5$s %6$s %7$s> %8$s </a>',
 							esc_attr( $ast_sites_notice_btn['class'] ),
-							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ),
-							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ),
-							'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ),
-							'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ),
-							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ),
-							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ),
+							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
+							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
+							'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
+							'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
+							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
+							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
 							esc_html( $ast_sites_notice_btn['button_text'] )
 						);
 						?>

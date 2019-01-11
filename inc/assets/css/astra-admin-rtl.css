@@ -105,6 +105,6 @@
 #astra-sites-on-active .notice-content .notice-heading {
     font-size: 20px;
 }
-#astra-sites-on-active .astra-review-notice-container a {
+#astra-sites-on-active .astra-review-notice-container a:not(.button) {
     padding-right: 0px;
 }
