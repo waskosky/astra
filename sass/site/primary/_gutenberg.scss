@@ -37,15 +37,8 @@
 				width: 100%;
 			}
 		}
-
-		.has-2-columns .wp-block-column:first-child {
-			padding-right: 10px;
-		}
-
-		.has-2-columns .wp-block-column:last-child {
-			padding-left: 10px;
-		}
 	}
+
 	/* Boxed & Content Boxed container alignment support */
 	&.ast-separate-container{
 		.entry-content {
@@ -79,6 +72,34 @@
 					width: 100%;
 				}
 			}
+		}
+	}
+}
+
+.entry-content {
+	.has-2-columns .wp-block-column:first-child {
+		padding-right: 10px;
+	}
+
+	.has-2-columns .wp-block-column:last-child {
+		padding-left: 10px;
+	}
+}
+
+// Remove left margins from gutenberg columns.
+@media (max-width: 782px) {
+	.entry-content {
+		.wp-block-columns .wp-block-column {
+			-ms-flex-preferred-size: 100%;
+			flex-basis: 100%;
+			margin-left: 0;
+		}
+		.has-2-columns .wp-block-column:first-child {
+			padding-right: 0;
+		}
+
+		.has-2-columns .wp-block-column:last-child {
+			padding-left: 0;
 		}
 	}
 }
