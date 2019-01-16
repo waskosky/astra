@@ -189,7 +189,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function subcategory_count_markup( $content, $category ) {
 
-			$content = sprintf( // WPCS: XSS OK.
+			$content = sprintf( // phpcs:ignoreStandard.Category.SniffName.ErrorCode
 					/* translators: 1: number of products */
 					_nx( '<mark class="count">%1$s Product</mark>', '<mark class="count">%1$s Products</mark>', $category->count, 'product categories', 'astra' ),
 				number_format_i18n( $category->count )

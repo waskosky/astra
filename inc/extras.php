@@ -135,7 +135,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			);
 			echo '</div>';
 			$output = ob_get_clean();
-			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
+			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignoreStandard.Category.SniffName.ErrorCode
 		}
 	}
 }
@@ -1358,7 +1358,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$output = apply_filters( 'astra_get_post_thumbnail', $output, $before, $after );
 
 		if ( $echo ) {
-			echo $before . $output . $after; // WPCS: XSS OK.
+			echo $before . $output . $after; // phpcs:ignoreStandard.Category.SniffName.ErrorCode
 		} else {
 			return $before . $output . $after;
 		}

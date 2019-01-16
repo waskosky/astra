@@ -704,7 +704,7 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
-				echo $before . $title . $after; // WPCS: XSS OK.
+				echo $before . $title . $after; // phpcs:ignoreStandard.Category.SniffName.ErrorCode
 			} else {
 				return $before . $title . $after;
 			}

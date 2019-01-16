@@ -89,7 +89,7 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 			if ( ! empty( $output_str ) ) {
-				$output = apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+				$output = apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignoreStandard.Category.SniffName.ErrorCode
 			}
 		}
 		if ( $echo ) {
