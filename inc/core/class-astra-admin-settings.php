@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $view_actions
 		 */
-		static public $view_actions = array();
+		public static $view_actions = array();
 
 		/**
 		 * Menu page title
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $menu_page_title
 		 */
-		static public $menu_page_title = 'Astra Theme';
+		public static $menu_page_title = 'Astra Theme';
 
 		/**
 		 * Page title
@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $page_title
 		 */
-		static public $page_title = 'Astra';
+		public static $page_title = 'Astra';
 
 		/**
 		 * Plugin slug
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $plugin_slug
 		 */
-		static public $plugin_slug = 'astra';
+		public static $plugin_slug = 'astra';
 
 		/**
 		 * Default Menu position
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $default_menu_position
 		 */
-		static public $default_menu_position = 'themes.php';
+		public static $default_menu_position = 'themes.php';
 
 		/**
 		 * Parent Page Slug
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $parent_page_slug
 		 */
-		static public $parent_page_slug = 'general';
+		public static $parent_page_slug = 'general';
 
 		/**
 		 * Current Slug
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $current_slug
 		 */
-		static public $current_slug = 'general';
+		public static $current_slug = 'general';
 
 		/**
 		 * Constructor

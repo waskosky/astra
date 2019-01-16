@@ -113,6 +113,6 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 	}
 }
 
-new Astra_Single_Typo_Configs;
+new Astra_Single_Typo_Configs();
 
 

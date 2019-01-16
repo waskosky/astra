@@ -106,4 +106,4 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Control_Base;
+new Astra_Customizer_Control_Base();

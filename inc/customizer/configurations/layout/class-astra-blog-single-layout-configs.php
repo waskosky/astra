@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 }
 
 
-new Astra_Blog_Single_Layout_Configs;
+new Astra_Blog_Single_Layout_Configs();
 
 
 

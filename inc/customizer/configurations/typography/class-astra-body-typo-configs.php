@@ -267,6 +267,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 	}
 }
 
-new Astra_Body_Typo_Configs;
+new Astra_Body_Typo_Configs();
 
 

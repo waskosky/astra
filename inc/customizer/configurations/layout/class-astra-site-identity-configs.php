@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 }
 
 
-new Astra_Site_Identity_Configs;
+new Astra_Site_Identity_Configs();
 
 
 

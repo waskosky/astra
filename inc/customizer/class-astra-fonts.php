@@ -25,7 +25,7 @@ final class Astra_Fonts {
 	 * @since 1.0.0
 	 * @var array $fonts
 	 */
-	static private $fonts = array();
+	private static $fonts = array();
 
 	/**
 	 * Adds data to the $fonts array for a font to be rendered.
@@ -35,7 +35,7 @@ final class Astra_Fonts {
 	 * @param array  $variants An array of weight variants.
 	 * @return void
 	 */
-	static public function add_font( $name, $variants = array() ) {
+	public static function add_font( $name, $variants = array() ) {
 
 		if ( 'inherit' == $name ) {
 			return;
@@ -75,7 +75,7 @@ final class Astra_Fonts {
 	/**
 	 * Get Fonts
 	 */
-	static public function get_fonts() {
+	public static function get_fonts() {
 
 		do_action( 'astra_get_fonts' );
 		return apply_filters( 'astra_add_fonts', self::$fonts );
@@ -88,7 +88,7 @@ final class Astra_Fonts {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	static public function render_fonts() {
+	public static function render_fonts() {
 
 		$font_list = apply_filters( 'astra_render_fonts', self::get_fonts() );
 
@@ -125,7 +125,7 @@ final class Astra_Fonts {
 	 *
 	 * @return string
 	 */
-	static public function google_fonts_url( $fonts, $subsets = array() ) {
+	public static function google_fonts_url( $fonts, $subsets = array() ) {
 
 		/* URL */
 		$base_url  = '//fonts.googleapis.com/css';
