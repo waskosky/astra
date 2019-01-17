@@ -25,7 +25,7 @@ html {
     @import "../typography/headings";
 }
 
-p,
+.edit-post-visual-editor p,
 .editor-block-list__block p,
 .editor-default-block-appender textarea.editor-default-block-appender__content {
     font-family: $font-family;
