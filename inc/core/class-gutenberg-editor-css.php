@@ -97,7 +97,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
 				),
-				'.editor-styles-wrapper p,.editor-block-list__block p' => array(
+				'.edit-post-visual-editor.editor-styles-wrapper p,.editor-block-list__block p, .editor-block-list__layout' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
 				'.edit-post-visual-editor.editor-styles-wrapper p,.editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .editor-block-list__block' => array(
@@ -206,7 +206,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( in_array( $pagenow, array( 'post-new.php' ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
 					'.editor-writing-flow'       => array(
-						'max-width'        => 'calc( ' . astra_get_css_value( $site_content_width, 'px' ) . ' - 40px )',
+						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
 						'overflow'         => 'hidden',
@@ -215,10 +215,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'background-color' => '#f5f5f5',
 					),
 					'.editor-block-list__layout, .editor-post-title' => array(
-						'padding-top'    => '5.34em',
+						'padding-top'    => 'calc( 5.34em - 19px)',
 						'padding-bottom' => '5.34em',
-						'padding-left'   => 'calc( 6.67em - 14px )',
-						'padding-right'  => 'calc( 6.67em - 14px )',
+						'padding-left'   => 'calc( 6.67em - 28px )',
+						'padding-right'  => 'calc( 6.67em - 28px )',
 					),
 					'.editor-block-list__layout' => array(
 						'padding-top' => '0',
