@@ -14,174 +14,174 @@ html {
     font-size: 93.75%;
 }
 
-#wpwrap {
-    .edit-post-visual-editor {
+// Import CSS for the headings in the block editor.
+@import "../variables-site/variables-site";
+@import "../elements/elements";
 
-        // Import CSS for the headings in the block editor.
-        @import "../variables-site/variables-site";
-        @import "../elements/elements";
+@import "../site/mixins/mixins-master";
+@import "../site/site-normalize/site-normalize.scss";
 
-        @import "../site/mixins/mixins-master";
-        @import "../site/site-normalize/site-normalize.scss";
+@import "../typography/headings";
 
-        @import "../typography/headings";
+p,
+.editor-block-list__block p,
+.editor-default-block-appender textarea.editor-default-block-appender__content {
+    font-family: $font-family;
+    font-weight: inherit;
+    font-size: 15px;
+    font-size: 1rem;
+}
 
-        p,
-        .editor-block-list__block p,
-        .editor-default-block-appender textarea.editor-default-block-appender__content {
-            font-family: $font-family;
-            font-weight: inherit;
-            font-size: 15px;
-            font-size: 1rem;
-        }
-
-        .editor-post-title__block {
-            .editor-post-title__input {
-                font-size: 30px;
-                font-size: 2rem;
-                font-family: $font-family;
-                font-weight: normal;
-            }
-        }
-
-        .editor-block-list__block {
-            font-family: $font-family;
-
-            @media (min-width: 600px) {
-                padding-left: 0;
-                padding-right: 0;
-            }
-
-            blockquote {
-                p {
-                    font-size: 1.1rem;
-                    line-height: $line-height;
-                }
-            }
-
-            // Remove default Guteberg negative margin.
-            .editor-block-list__block-edit {
-                margin-left: 0;
-                margin-right: 0;
-
-                @media (min-width: 600px) {
-                    padding-left: 28px;
-                    padding-right: 28px;
-                }
-            }
-
-            >.editor-block-mover {
-                left: -50px;
-                top: -5px;
-            }
-        }
-
-        .editor-post-title__block {
-            .editor-post-title__input {
-                padding-left: 26px;
-                padding-right: 26px;
-            }
-        }
-
-        .editor-post-title__block,
-        .editor-default-block-appender,
-        .editor-block-list__block {
-            max-width: 1256px;
-        }
-
-        .editor-block-list__block[data-align=full] {
-            max-width: none;
-        }
-
-        .editor-block-list__block[data-align=wide] {
-            max-width: 1400px;
-        }
-
-        .editor-block-list__layout {
-            .editor-block-list__layout {
-                padding: 0;
-            }
-        }
-
-        .editor-default-block-appender__content {
-            margin-top: 32px;
-        }
-
-        // Custom block stylings.
-        .wp-block-latest-posts.is-grid {
-            list-style: none;
-        }
-
-        .wp-block-gallery {
-            margin: 0;
-
-            &.is-cropped {
-                .blocks-gallery-item {
-                    img {
-                        height: 100%;
-                    }
-                }
-            }
-        }
-        .wp-block-latest-posts {
-            margin-left: 0;
-            li {
-                list-style: none;
-            }
-        }
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6{
-            font-weight: inherit;
-        }
-
-        .mce-widget i {
-            font-style: normal;
-        }
-
-        // Edit with elementor button unstyled.
-        #elementor-editor-button {
-            @include button($button-color);
-
-            font-size: 14px;
-            height: 46px;
-            line-height: 44px;
-            padding: 0 36px;
-            display: inline-block;
-            border-width: 1px;
-            border-style: solid;
-            -webkit-appearance: none;
-            border-radius: 3px;
-            white-space: nowrap;
-            box-sizing: border-box;
-            box-shadow: 0 2px 0 #006799;
-
-        	i {
-        		font-style: normal;
-        		color: white;
-        	}
-        }
-
-        .editor-media-placeholder,
-        .fl-builder-layout-launch-view {
-        	button {
-        		margin: 2px;
-        	}
-        }
-
-        // Edit with BB button styling.
-        .fl-builder-layout-launch-view {
-            .is-primary.is-primary {
-            	color: white;
-            }
-        }
-
+.editor-post-title__block {
+    .editor-post-title__input {
+        font-size: 30px;
+        font-size: 2rem;
+        font-family: $font-family;
+        font-weight: normal;
     }
 }
 
+.editor-block-list__block {
+    font-family: $font-family;
+
+    @media (min-width: 600px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    blockquote {
+        p {
+            font-size: 1.1rem;
+            line-height: $line-height;
+        }
+    }
+
+    // Remove default Guteberg negative margin.
+    .editor-block-list__block-edit {
+        margin-left: 0;
+        margin-right: 0;
+
+        @media (min-width: 600px) {
+            padding-left: 28px;
+            padding-right: 28px;
+        }
+    }
+
+    >.editor-block-mover {
+        left: -50px;
+        top: -5px;
+    }
+}
+
+.editor-post-title__block {
+    .editor-post-title__input {
+        padding-left: 43px;
+        padding-right: 43px;
+    }
+}
+
+.editor-post-title__block,
+.editor-default-block-appender,
+.editor-block-list__block {
+    max-width: 1256px;
+}
+
+.editor-block-list__block[data-align=full] {
+    max-width: none;
+
+    .editor-block-list__block-edit {
+        @media (min-width: 600px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.editor-block-list__block[data-align=wide] {
+    max-width: 1400px;
+}
+
+.editor-block-list__layout {
+    .editor-block-list__layout {
+        padding: 0;
+    }
+}
+
+.editor-default-block-appender__content {
+    margin-top: 32px;
+}
+
+// Custom block stylings.
+.wp-block-latest-posts.is-grid {
+    list-style: none;
+}
+
+.wp-block-gallery {
+    margin: 0;
+
+    &.is-cropped {
+        .blocks-gallery-item {
+            img {
+                height: 100%;
+            }
+        }
+    }
+}
+.wp-block-latest-posts {
+    margin-left: 0;
+    li {
+        list-style: none;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-weight: inherit;
+}
+
+.mce-widget i {
+    font-style: normal;
+}
+
+// Edit with elementor button unstyled.
+#elementor-editor-button {
+    @include button($button-color);
+
+    font-size: 14px;
+    height: 46px;
+    line-height: 44px;
+    padding: 0 36px;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    box-shadow: 0 2px 0 #006799;
+
+    i {
+        font-style: normal;
+        color: white;
+    }
+}
+
+.editor-media-placeholder,
+.fl-builder-layout-launch-view {
+    button {
+        margin: 2px;
+    }
+}
+
+// Edit with BB button styling.
+.fl-builder-layout-launch-view {
+    .is-primary.is-primary {
+        color: white;
+    }
+}
 
 .ast-separate-container {
 	#wpwrap {
