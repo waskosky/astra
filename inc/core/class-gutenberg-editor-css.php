@@ -71,10 +71,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css = '';
 
 			$desktop_css = array(
-				'html'                                => array(
+				'html'                     => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
-				'a'  => array(
+				'a'                        => array(
 					'color' => esc_attr( $link_color ),
 				),
 				// Global selection CSS.
@@ -97,10 +97,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
 				),
-				'p,.editor-block-list__block p' => array(
+				'.editor-styles-wrapper p,.editor-block-list__block p' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
-				'p,.editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .editor-block-list__block' => array(
+				'.edit-post-visual-editor.editor-styles-wrapper p,.editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .editor-block-list__block' => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -111,6 +111,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.editor-post-title__block .editor-post-title__input' => array(
 					'font-family' => ( 'inherit' === $headings_font_family ) ? astra_get_font_family( $body_font_family ) : astra_get_font_family( $headings_font_family ),
 					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
+					'font-weight' => 'normal',
 				),
 				'.editor-block-list__block, .editor-post-title__block .editor-post-title__input, h1,h2,h3,h4,h5,h6' => array(
 					'color' => esc_attr( $text_color ),
@@ -119,26 +120,26 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'blockquote, blockquote a' => array(
 					'color' => astra_adjust_brightness( $text_color, 75, 'darken' ),
 				),
-				'blockquote' => array(
+				'blockquote'               => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
 				),
 				// Heading H1 - H6 font size.
-				'h1' => array(
+				'h1, .wp-block-heading h1' => array(
 					'font-size' => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
 				),
-				'h2' => array(
+				'h2, .wp-block-heading h2' => array(
 					'font-size' => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
 				),
-				'h3' => array(
+				'h3, .wp-block-heading h3' => array(
 					'font-size' => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
 				),
-				'h4' => array(
+				'h4, .wp-block-heading h4' => array(
 					'font-size' => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
 				),
-				'h5' => array(
+				'h5, .wp-block-heading h5' => array(
 					'font-size' => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
 				),
-				'h6' => array(
+				'h6, .wp-block-heading h6' => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
 				),
 			);
@@ -204,7 +205,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( in_array( $pagenow, array( 'post-new.php' ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
-					'.editor-writing-flow' => array(
+					'.editor-writing-flow'       => array(
 						'max-width'        => 'calc( ' . astra_get_css_value( $site_content_width, 'px' ) . ' - 40px )',
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
@@ -225,7 +226,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.editor-post-title'         => array(
 						'padding-bottom' => '0',
 					),
-					'.editor-block-list__block' => array(
+					'.editor-block-list__block'  => array(
 						'max-width' => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
 					),
 					'.editor-block-list__block[data-align=wide]' => array(
