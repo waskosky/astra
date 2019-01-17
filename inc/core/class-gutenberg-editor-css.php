@@ -26,7 +26,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 		public static function get_css() {
 			global $pagenow;
 
-			$site_content_width          = astra_get_option( 'site-content-width', 1200 );
+			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
 			$headings_text_transform     = astra_get_option( 'headings-text-transform' );

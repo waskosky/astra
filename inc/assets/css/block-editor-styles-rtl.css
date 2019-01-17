@@ -475,10 +475,25 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
+#wpwrap .edit-post-visual-editor .editor-block-list__block blockquote p {
+  font-size: 1.1rem;
+  line-height: 1.8571428571;
+}
+
+#wpwrap .edit-post-visual-editor .editor-block-list__block .editor-block-list__block-edit {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input {
+  padding-right: 43px;
+  padding-left: 43px;
+}
+
 #wpwrap .edit-post-visual-editor .editor-post-title__block,
 #wpwrap .edit-post-visual-editor .editor-default-block-appender,
 #wpwrap .edit-post-visual-editor .editor-block-list__block {
-  max-width: 1200px;
+  max-width: 1256px;
 }
 
 #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=full] {
@@ -528,11 +543,6 @@ html {
 
 #wpwrap .edit-post-visual-editor .mce-widget i {
   font-style: normal;
-}
-
-#wpwrap .edit-post-visual-editor .editor-block-list__block blockquote p {
-  font-size: 1.1rem;
-  line-height: 1.8571428571;
 }
 
 #wpwrap .edit-post-visual-editor #elementor-editor-button {

@@ -46,12 +46,32 @@ html {
 
         .editor-block-list__block {
             font-family: $font-family;
+
+            blockquote {
+                p {
+                    font-size: 1.1rem;
+                    line-height: $line-height;
+                }
+            }
+
+            // Remove default Guteberg negative margin.
+            .editor-block-list__block-edit {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        .editor-post-title__block {
+            .editor-post-title__input {
+                padding-left: 43px;
+                padding-right: 43px;
+            }
         }
 
         .editor-post-title__block,
         .editor-default-block-appender,
         .editor-block-list__block {
-            max-width: 1200px;
+            max-width: 1256px;
         }
 
         .editor-block-list__block[data-align=full] {
@@ -106,14 +126,6 @@ html {
         .mce-widget i {
             font-style: normal;
         }
-        .editor-block-list__block{
-            blockquote{
-                p{
-                    font-size: 1.1rem;
-                    line-height: $line-height;
-                }
-            }
-        }
 
         // Edit with elementor button unstyled.
         #elementor-editor-button {
@@ -151,6 +163,7 @@ html {
             	color: white;
             }
         }
+
     }
 }
 
