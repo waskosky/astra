@@ -78,10 +78,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'color' => esc_attr( $link_color ),
 				),
 				// Global selection CSS.
-				'::selection,.editor-block-list__layout .editor-block-list__block.is-multi-selected .editor-block-list__block-edit:before' => array(
+				'.editor-block-list__layout .editor-block-list__block ::selection,.editor-block-list__layout .editor-block-list__block.is-multi-selected .editor-block-list__block-edit:before' => array(
 					'background-color' => esc_attr( $theme_color ),
 				),
-				'::selection,.editor-block-list__layout .editor-block-list__block.is-multi-selected .editor-block-list__block-edit' => array(
+				'.editor-block-list__layout .editor-block-list__block ::selection,.editor-block-list__layout .editor-block-list__block.is-multi-selected .editor-block-list__block-edit' => array(
 					'color' => esc_attr( $highlight_theme_color ),
 				),
 
