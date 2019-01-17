@@ -47,6 +47,11 @@ html {
         .editor-block-list__block {
             font-family: $font-family;
 
+            @media (min-width: 600px) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
             blockquote {
                 p {
                     font-size: 1.1rem;
@@ -58,13 +63,23 @@ html {
             .editor-block-list__block-edit {
                 margin-left: 0;
                 margin-right: 0;
+
+                @media (min-width: 600px) {
+                    padding-left: 28px;
+                    padding-right: 28px;
+                }
+            }
+
+            >.editor-block-mover {
+                left: -50px;
+                top: -5px;
             }
         }
 
         .editor-post-title__block {
             .editor-post-title__input {
-                padding-left: 43px;
-                padding-right: 43px;
+                padding-left: 26px;
+                padding-right: 26px;
             }
         }
 

@@ -87,10 +87,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				'.ast-separate-container #wpwrap .edit-post-visual-editor, .ast-page-builder-template #wpwrap .edit-post-visual-editor, .ast-plain-container #wpwrap .edit-post-visual-editor' => astra_get_background_obj( $box_bg_obj ),
 				'#wpwrap .edit-post-visual-editor .editor-post-title__block,#wpwrap .edit-post-visual-editor .editor-default-block-appender,#wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
-					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+					'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 				),
 				'#wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=wide]' => array(
-					'max-width' => astra_get_css_value( $site_content_width + 40 + 200, 'px' ),
+					'max-width' => astra_get_css_value( $site_content_width + 200, 'px' ),
 				),
 				'#wpwrap .edit-post-visual-editor .editor-post-title__block .editor-post-title__input,  #wpwrap .edit-post-visual-editor h1, #wpwrap .edit-post-visual-editor h2, #wpwrap .edit-post-visual-editor h3, #wpwrap .edit-post-visual-editor h4, #wpwrap .edit-post-visual-editor h5, #wpwrap .edit-post-visual-editor h6' => array(
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
