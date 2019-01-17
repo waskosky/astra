@@ -209,7 +209,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
-						'overflow'         => 'hidden',
 					),
 					'.gutenberg__editor'         => array(
 						'background-color' => '#f5f5f5',
@@ -230,13 +229,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'max-width' => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
 					),
 					'.editor-block-list__block[data-align=wide]' => array(
-						'max-width'    => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em + 40px)',
 						'margin-left'  => '-20px',
 						'margin-right' => '-20px',
 					),
 					'.editor-block-list__block[data-align=full]' => array(
 						'margin-left'  => '-6.67em',
 						'margin-right' => '-6.67em',
+					),
+					'.editor-block-list__layout .editor-block-list__block[data-align="full"], .editor-block-list__layout .editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
+						'margin-left'  => '0',
+						'margin-right' => '0',
 					),
 				);
 
