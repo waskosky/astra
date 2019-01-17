@@ -1,27 +1,29 @@
-/* Variables */
-
-@import "../site/variables-site/colors";
-@import "../site/variables-site/structure";
-@import "../site/variables-site/typography";
-
-// Import WordPress's Mixins for promary button CSS.
-@import "../../../../../wp-admin/css/colors/variables";
-@import "../../../../../wp-admin/css/colors/mixins";
-
 $font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+$line-height: 1.85714285714286 !default;
 
 html {
     font-size: 93.75%;
 }
 
-// Import CSS for the headings in the block editor.
+/* Variables */
+@import "../site/variables-site/colors";
+@import "../site/variables-site/structure";
+@import "../site/variables-site/typography";
 @import "../variables-site/variables-site";
-@import "../elements/elements";
-
 @import "../site/mixins/mixins-master";
-@import "../site/site-normalize/site-normalize.scss";
 
-@import "../typography/headings";
+// Import WordPress's Mixins for promary button CSS.
+@import "../../../../../wp-admin/css/colors/variables";
+@import "../../../../../wp-admin/css/colors/mixins";
+
+.edit-post-visual-editor {
+    // Import CSS for the headings in the block editor.
+    @import "../elements/elements";
+
+    @import "../site/site-normalize/site-normalize.scss";
+
+    @import "../typography/headings";
+}
 
 p,
 .editor-block-list__block p,
