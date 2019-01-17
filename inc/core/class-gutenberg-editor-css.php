@@ -124,22 +124,22 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
 				),
 				// Heading H1 - H6 font size.
-				'h1, .wp-block-heading h1' => array(
+				'.edit-post-visual-editor h1, .wp-block-heading h1' => array(
 					'font-size' => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
 				),
-				'h2, .wp-block-heading h2' => array(
+				'.edit-post-visual-editor h2, .wp-block-heading h2' => array(
 					'font-size' => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
 				),
-				'h3, .wp-block-heading h3' => array(
+				'.edit-post-visual-editor h3, .wp-block-heading h3' => array(
 					'font-size' => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
 				),
-				'h4, .wp-block-heading h4' => array(
+				'.edit-post-visual-editor h4, .wp-block-heading h4' => array(
 					'font-size' => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
 				),
-				'h5, .wp-block-heading h5' => array(
+				'.edit-post-visual-editor h5, .wp-block-heading h5' => array(
 					'font-size' => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
 				),
-				'h6, .wp-block-heading h6' => array(
+				'.edit-post-visual-editor h6, .wp-block-heading h6' => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
 				),
 			);
@@ -151,22 +151,22 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
 				),
 				// Heading H1 - H6 font size.
-				'h1' => array(
+				'.edit-post-visual-editor h1' => array(
 					'font-size' => astra_responsive_font( $heading_h1_font_size, 'tablet', 30 ),
 				),
-				'h2' => array(
+				'.edit-post-visual-editor h2' => array(
 					'font-size' => astra_responsive_font( $heading_h2_font_size, 'tablet', 25 ),
 				),
-				'h3' => array(
+				'.edit-post-visual-editor h3' => array(
 					'font-size' => astra_responsive_font( $heading_h3_font_size, 'tablet', 20 ),
 				),
-				'h4' => array(
+				'.edit-post-visual-editor h4' => array(
 					'font-size' => astra_responsive_font( $heading_h4_font_size, 'tablet' ),
 				),
-				'h5' => array(
+				'.edit-post-visual-editor h5' => array(
 					'font-size' => astra_responsive_font( $heading_h5_font_size, 'tablet' ),
 				),
-				'h6' => array(
+				'.edit-post-visual-editor h6' => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
 				),
 			);
@@ -178,25 +178,22 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
 				// Heading H1 - H6 font size.
-				'h1' => array(
+				'.edit-post-visual-editor h1' => array(
 					'font-size' => astra_responsive_font( $heading_h1_font_size, 'mobile', 30 ),
 				),
-				'h2' => array(
+				'.edit-post-visual-editor h2' => array(
 					'font-size' => astra_responsive_font( $heading_h2_font_size, 'mobile', 25 ),
 				),
-				'h3' => array(
+				'.edit-post-visual-editor h3' => array(
 					'font-size' => astra_responsive_font( $heading_h3_font_size, 'mobile', 20 ),
 				),
-				'h4' => array(
+				'.edit-post-visual-editor h4' => array(
 					'font-size' => astra_responsive_font( $heading_h4_font_size, 'mobile' ),
 				),
-				'h4' => array(
-					'font-size' => astra_responsive_font( $heading_h4_font_size, 'mobile' ),
-				),
-				'h5' => array(
+				'.edit-post-visual-editor h5' => array(
 					'font-size' => astra_responsive_font( $heading_h5_font_size, 'mobile' ),
 				),
-				'h6' => array(
+				'.edit-post-visual-editor h6' => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'mobile' ),
 				),
 			);
