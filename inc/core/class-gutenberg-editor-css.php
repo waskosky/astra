@@ -113,7 +113,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 					'font-weight' => 'normal',
 				),
-				'.editor-block-list__block, .editor-post-title__block .editor-post-title__input, h1,h2,h3,h4,h5,h6' => array(
+				'.editor-block-list__block, .editor-post-title__block .editor-post-title__input, .edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6' => array(
 					'color' => esc_attr( $text_color ),
 				),
 				// Blockquote Text Color.
