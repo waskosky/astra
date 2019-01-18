@@ -124,22 +124,22 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
 				),
 				// Heading H1 - H6 font size.
-				'.edit-post-visual-editor h1, .wp-block-heading h1' => array(
+				'.edit-post-visual-editor h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1' => array(
 					'font-size' => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
 				),
-				'.edit-post-visual-editor h2, .wp-block-heading h2' => array(
+				'.edit-post-visual-editor h2, .wp-block-heading h2, .wp-block-freeform.block-library-rich-text__tinymce h2' => array(
 					'font-size' => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
 				),
-				'.edit-post-visual-editor h3, .wp-block-heading h3' => array(
+				'.edit-post-visual-editor h3, .wp-block-heading h3, .wp-block-freeform.block-library-rich-text__tinymce h3' => array(
 					'font-size' => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
 				),
-				'.edit-post-visual-editor h4, .wp-block-heading h4' => array(
+				'.edit-post-visual-editor h4, .wp-block-heading h4, .wp-block-freeform.block-library-rich-text__tinymce h4' => array(
 					'font-size' => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
 				),
-				'.edit-post-visual-editor h5, .wp-block-heading h5' => array(
+				'.edit-post-visual-editor h5, .wp-block-heading h5, .wp-block-freeform.block-library-rich-text__tinymce h5' => array(
 					'font-size' => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
 				),
-				'.edit-post-visual-editor h6, .wp-block-heading h6' => array(
+				'.edit-post-visual-editor h6, .wp-block-heading h6, .wp-block-freeform.block-library-rich-text__tinymce h6' => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
 				),
 			);
