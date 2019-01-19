@@ -105,27 +105,34 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
+		// Content overrflowing out of screen can give incorrect window.innerWidth.
+		// Adding overflow hidden and then calculating the window.innerWidth fixes the problem.
+		var originalOverflow = document.querySelector('body').style.overflow;
+		document.querySelector('body').style.overflow = 'hidden';
+		var ww = window.innerWidth;
+		document.querySelector('body').style.overflow = originalOverflow;
+
 		var break_point = astra.break_point,
-			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
+			headerWrap = document.querySelectorAll('.main-header-bar-wrap');
 
-		if ( headerWrap.length > 0  ) {
-			for ( var i = 0; i < headerWrap.length; i++ ) {
+		if (headerWrap.length > 0) {
+			for (var i = 0; i < headerWrap.length; i++) {
 
-				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
-					if ( window.innerWidth > break_point ) {
+				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('main-header-bar-wrap')) {
+					if (ww > break_point) {
 						//remove menu toggled class.
-						if ( null != menu_toggle_all[i] ) {
-							menu_toggle_all[i].classList.remove( 'toggled' );
+						if (null != menu_toggle_all[i]) {
+							menu_toggle_all[i].classList.remove('toggled');
 						}
-						document.body.classList.remove( "ast-header-break-point" );
+						document.body.classList.remove("ast-header-break-point");
 						document.body.classList.add("ast-desktop");
-						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
+						astraTriggerEvent(document.body, "astra-header-responsive-enabled");
 
 					} else {
 
-						document.body.classList.add( "ast-header-break-point" );
+						document.body.classList.add("ast-header-break-point");
 						document.body.classList.remove("ast-desktop");
-						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						
+						astraTriggerEvent(document.body, "astra-header-responsive-disabled")
 					}
 				}
 			}
