@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -45,11 +45,43 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @since 1.4.0
 		 */
 		public function __construct() {
-
 			add_action( 'astra_header', array( $this, 'mobile_header_markup' ), 5 );
 			add_action( 'body_class', array( $this, 'add_body_class' ) );
 			add_filter( 'astra_main_menu_toggle_classes', array( $this, 'menu_toggle_classes' ) );
+			add_filter( 'walker_nav_menu_start_el', array( $this, 'toggle_button' ), 20, 4 );
+		}
 
+		/**
+		 * Add submenu toggle button used for mobile devices.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param string   $item_output The menu item's starting HTML output.
+		 * @param WP_Post  $item        Menu item data object.
+		 * @param int      $depth       Depth of menu item. Used for padding.
+		 * @param stdClass $args        An object of wp_nav_menu() arguments.
+		 *
+		 * @return String Menu item's starting markup.
+		 */
+		public function toggle_button( $item_output, $item, $depth, $args ) {
+			// Add toggle button if manu is from Astra.
+			if ( 'primary' === $args->theme_location ||
+			'above_header_menu' === $args->theme_location ||
+			'below_header_menu' === $args->theme_location
+			) {
+				if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+					$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
+					$item_output .= '<button ' . astra_attr(
+						'ast-menu-toggle',
+						array(
+							'role'          => 'button',
+							'aria-expanded' => 'false',
+						),
+						$item
+					) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
+				}
+			}
+			return $item_output;
 		}
 
 		/**
