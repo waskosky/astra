@@ -23,6 +23,30 @@ html {
     @import "../site/site-normalize/site-normalize.scss";
 
     @import "../typography/headings";
+
+    .wp-block-heading h1 {
+    	line-height: $line-height-h1;
+    }
+
+    .wp-block-heading h2 {
+    	line-height: $line-height-h2;
+    }
+
+    .wp-block-heading h3 {
+    	line-height: $line-height-h3;
+    }
+
+    .wp-block-heading h4 {
+    	line-height: $line-height-h4;
+    }
+
+    .wp-block-heading h5 {
+    	line-height: $line-height-h5;
+    }
+
+    .wp-block-heading h6 {
+    	line-height: $line-height-h6;
+    }
 }
 
 .edit-post-visual-editor p,
