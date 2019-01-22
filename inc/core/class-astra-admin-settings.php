@@ -486,6 +486,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_init               = '/astra-sites/astra-sites.php';
 							$data_settings_link      = admin_url( 'themes.php?page=astra-sites' );
 							$data_settings_link_text = __( 'See Library »', 'astra' );
+							$detail_link_class       = 'astra-starter-sites-detail-link';
+							$detail_link			 = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=349' );
+							$detail_link_text 		 = __( 'Details »', 'astra' );
 
 							// Astra Premium Sites - Active.
 						} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
@@ -508,6 +511,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							isset( $data_settings_link ) ? 'data-settings-link="' . esc_attr( $data_settings_link ) . '"' : '',
 							isset( $activating_text ) ? 'data-activating-text="' . esc_attr( $activating_text ) . '"' : '',
 							esc_html( $button_text )
+						);
+						printf(
+							'<a class="%1$s" %2$s target="_blank" rel="noopener"> %3$s </a>',
+							esc_attr( $detail_link_class ),
+							isset( $detail_link ) ? 'href="' . esc_url( $detail_link ) . '"' : '',
+							esc_html( $detail_link_text )
 						);
 						?>
 					<div>

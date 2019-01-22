@@ -60,6 +60,13 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
+/* Details link for starter sites */
+a.astra-starter-sites-detail-link {
+    margin: 0 10px;
+    vertical-align: middle;
+    vertical-align: -webkit-baseline-middle;
+}
+
 /* Top Right Links. */
 .ast-top-links {
     flex: auto;
