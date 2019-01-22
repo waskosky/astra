@@ -457,7 +457,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	}
 
-} )();s
+} )();
 /**
  * File skip-link-focus-fix.js
  *
