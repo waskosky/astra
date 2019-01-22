@@ -457,4 +457,4 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	}
 
-} )();s
+} )();
