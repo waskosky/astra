@@ -126,6 +126,10 @@
 		}
 	}
 
+	.ui-sortable {
+		overflow-y: auto !important;
+	}
+
 }
 
 #learndash_course_certificate {
