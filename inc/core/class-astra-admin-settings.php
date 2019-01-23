@@ -198,8 +198,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			global $pagenow;
 
-			if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
-
+			// if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
 				Astra_Notices::add_notice(
@@ -210,10 +209,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'<div class="notice-image">
 								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
 								<div class="notice-content">
-									<div class="notice-heading">
+									<h2 class="notice-heading">
 										%2$s
-									</div>
-									%3$s<br />
+									</h2>
+									<p>%3$s</p>
 									<div class="astra-review-notice-container">
 										<a class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </a>
 									</div>
@@ -230,11 +229,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
 							esc_html( $ast_sites_notice_btn['button_text'] )
 						),
-						'priority'                   => 10,
-						'display-with-other-notices' => true,
+						'priority'                   => 5,
+						'display-with-other-notices' => false,
 					)
 				);
-			}
+			// }
 		}
 
 		/**
@@ -246,7 +245,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Astra Premium Sites - Inactive.
 			if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-				$ast_sites_notice_btn['class']                   = 'button astra-activate-recommended-plugin';
+				$ast_sites_notice_btn['class']                   = 'button button-primary button-hero astra-activate-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
@@ -258,7 +257,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				// Astra Premium Sites - Inactive.
 			} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-				$ast_sites_notice_btn['class']                   = 'button astra-install-recommended-plugin';
+				$ast_sites_notice_btn['class']                   = 'button button-primary button-hero astra-install-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
