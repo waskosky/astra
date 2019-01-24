@@ -205,6 +205,18 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				wp_enqueue_script( 'astra-admin-settings' );
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
+
+				if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['class'] .= ' button button-primary button-hero';
+				} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['class'] .= ' button button-primary button-hero';
+					// Astra Premium Sites - Active.
+				} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['class'] .= ' astra-notice-close';
+				} else {
+					$ast_sites_notice_btn['class'] .= ' astra-notice-close';
+				}
+
 				Astra_Notices::add_notice(
 					array(
 						'id'                         => 'astra-sites-on-active',
@@ -249,7 +261,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Astra Premium Sites - Inactive.
 			if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-				$ast_sites_notice_btn['class']                   = 'button button-primary button-hero astra-activate-recommended-plugin';
+				$ast_sites_notice_btn['class']                   = 'astra-activate-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
@@ -261,7 +273,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				// Astra Premium Sites - Inactive.
 			} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-				$ast_sites_notice_btn['class']                   = 'button button-primary button-hero astra-install-recommended-plugin';
+				$ast_sites_notice_btn['class']                   = 'astra-install-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
@@ -270,11 +282,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				// Astra Premium Sites - Active.
 			} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-				$ast_sites_notice_btn['class']       = 'astra-notice-close button button-primary button-hero';
+				$ast_sites_notice_btn['class']       = 'active';
 				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=astra-sites' );
 			} else {
-				$ast_sites_notice_btn['class']       = 'astra-notice-close button button-primary button-hero';
+				$ast_sites_notice_btn['class']       = 'active';
 				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=astra-sites' );
 			}
