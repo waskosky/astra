@@ -196,9 +196,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			global $pagenow;
+			// Force Astra welcome notice on theme activation.
+			if ( isset( $_GET['activated'] ) && '1' != get_user_meta( get_current_user_id(), 'astra-sites-on-active', true ) ) {
+				update_user_meta( get_current_user_id(), 'astra-sites-on-active', array() );
+			}
 
-			// if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
+			if ( current_user_can( 'install_plugins' ) ) {
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
 				Astra_Notices::add_notice(
@@ -233,7 +236,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'display-with-other-notices' => false,
 					)
 				);
-			// }
+			}
 		}
 
 		/**
