@@ -112,6 +112,7 @@
 						var output = '<a href="'+ astraSitesLink +'" aria-label="'+ activatedText +'">' + activatedText +' </a>'
 						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' )
 							.html( output );
+						window.location.href = astraSitesLink + '&ast-disable-activation-notice';
 
 					} else {
 

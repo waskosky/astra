@@ -196,12 +196,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
+			if ( isset( $_GET['ast-disable-activation-notice'] ) ) {
+				delete_user_meta( get_current_user_id(), 'astra-sites-on-active', array() );
+			}
+
 			// Force Astra welcome notice on theme activation.
-			if ( isset( $_GET['activated'] ) && '1' != get_user_meta( get_current_user_id(), 'astra-sites-on-active', true ) ) {
+			if ( isset( $_GET['activated'] ) && '' == get_user_meta( get_current_user_id(), 'astra-sites-on-active', true ) && '1' == get_option( 'fresh_site' ) ) {
 				update_user_meta( get_current_user_id(), 'astra-sites-on-active', array() );
 			}
 
-			if ( current_user_can( 'install_plugins' ) ) {
+			if ( current_user_can( 'install_plugins' ) && ! class_exists( 'Astra_Sites' ) && '' != get_user_meta( get_current_user_id(), 'astra-sites-on-active', true ) ) {
+
 				wp_enqueue_script( 'astra-admin-settings' );
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
@@ -237,7 +242,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								</div>',
 							$image_path,
 							__( 'Thank you for installing Astra!', 'astra' ),
-							__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/ready-websites/?utm_source=install-notice">starter site templates</a>? Install Astra Starter Sites plugin to get started.', 'astra' ),
+							__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/ready-websites/?utm_source=install-notice">starter site templates</a>? Install the Astra Starter Sites plugin to get started.', 'astra' ),
 							esc_attr( $ast_sites_notice_btn['class'] ),
 							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
 							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
