@@ -96,7 +96,7 @@
 }
 
 #astra-sites-on-active .notice-container {
-	padding: 50px;
+	padding: 38px 50px 50px 50px;
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
@@ -117,14 +117,14 @@
 
 #astra-sites-on-active {
 	padding: 10px 6px 10px 12px;
-	background-color: #fdf7ff;
+	background-color: #f3f2f8;
 	border: 10px solid white;
 }
 
 #astra-sites-on-active .notice-content .notice-heading {
 	margin-top: 10px;
-	font-size: 20px;
-	font-weight: normal;
+	font-size: 22px;
+	font-weight: 600;
 }
 
 #astra-sites-on-active .notice-content {
@@ -142,4 +142,8 @@
 
 #astra-sites-on-active .button.updating-message:before {
 	margin-top: 10px;
+}
+
+#astra-sites-on-active .notice-content p {
+	font-size: 14px;
 }
