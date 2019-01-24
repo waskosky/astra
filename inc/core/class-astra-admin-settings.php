@@ -212,9 +212,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$ast_sites_notice_btn['class'] .= ' button button-primary button-hero';
 					// Astra Premium Sites - Active.
 				} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-					$ast_sites_notice_btn['class'] .= ' astra-notice-close';
+					$ast_sites_notice_btn['class'] = ' button button-primary button-hero astra-notice-close';
 				} else {
-					$ast_sites_notice_btn['class'] .= ' astra-notice-close';
+					$ast_sites_notice_btn['class'] = ' button button-primary button-hero astra-notice-close';
 				}
 
 				Astra_Notices::add_notice(
