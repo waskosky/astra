@@ -139,3 +139,7 @@
 	top: 10px;
 	left: 11px;
 }
+
+#astra-sites-on-active .button.updating-message:before {
+	margin-top: 10px;
+}
