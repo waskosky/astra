@@ -96,7 +96,6 @@
 }
 
 #astra-sites-on-active .notice-container {
-    background-color: #fdf7ff;
 	padding: 50px;
 	align-items: center;
 	flex-direction: column;
@@ -117,7 +116,9 @@
 }
 
 #astra-sites-on-active {
-    padding: 10px 12px 10px 6px;
+	padding: 10px 12px 10px 6px;
+	background-color: #fdf7ff;
+	border: 10px solid white;
 }
 
 #astra-sites-on-active .notice-content .notice-heading {
