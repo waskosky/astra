@@ -486,8 +486,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_init               = '/astra-sites/astra-sites.php';
 							$data_settings_link      = admin_url( 'themes.php?page=astra-sites' );
 							$data_settings_link_text = __( 'See Library »', 'astra' );
-							$detail_link_class       = 'astra-starter-sites-detail-link';
-							$detail_link			 = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=349' );
+							$detail_link_class       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
+							$detail_link			 = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
 							$detail_link_text 		 = __( 'Details »', 'astra' );
 
 							// Astra Premium Sites - Active.
