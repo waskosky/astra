@@ -97,11 +97,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 
-			global $pagenow;
-
 			add_action( 'admin_enqueue_scripts', __class__ . '::register_scripts' );
 
-			if ( ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) || ( 'themes.php' == $pagenow ) ) {
+			if ( ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
