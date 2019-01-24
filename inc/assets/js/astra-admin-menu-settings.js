@@ -228,8 +228,8 @@
 		{
 			event.preventDefault();
 
-			window.location.href = astraSitesLink + '&ast-disable-activation-notice';
 		    AstraNotices._ajax( 'astra-sites-on-active', '' );
+			window.location.href = astraSitesLink + '&ast-disable-activation-notice';
 		},
 	};
 
