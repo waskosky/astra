@@ -141,40 +141,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraNavigationMenu = function( parentList ) {
-
-		for (var i = 0; i < parentList.length; i++) {
-
-			if ( null != parentList[i].querySelector( '.sub-menu, .children' ) ) {
-
-				var menuLeft         = parentList[i].getBoundingClientRect().left,
-					windowWidth      = window.innerWidth,
-					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
-					menuGoingOutside = false;
-
-				if( menuFromLeft < 500 ) {
-					menuGoingOutside = true;
-				}
-
-				// Submenu items goes outside?
-				if( menuGoingOutside ) {
-					parentList[i].classList.add( 'ast-left-align-sub-menu' );
-
-					var all_submenu_parents = parentList[i].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
-					for (var k = 0; k < all_submenu_parents.length; k++) {
-						all_submenu_parents[k].classList.add( 'ast-left-align-sub-menu' );
-					}
-				}
-
-				// Submenu Container goes to outside?
-				if( menuFromLeft < 240 ) {
-					parentList[i].classList.add( 'ast-sub-menu-goes-outside' );
-				}
-
-			};
-		};
-	};
-
 	AstraToggleSubMeu = function() {
 		var parent_li = this.parentNode;
 		if (parent_li.classList.contains('ast-submenu-expanded') && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
@@ -230,8 +196,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 
 				if ('undefined' !== typeof __main_header_all[i]) {
-					var parentList = __main_header_all[i].querySelectorAll('ul.main-header-menu li');
-					AstraNavigationMenu(parentList);
 
 					if (document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-header-break-point .main-header-menu .menu-item-has-children > a, .ast-header-break-point .main-header-menu .page_item_has_children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle');
@@ -494,7 +458,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 } )();
-
 /**
  * File skip-link-focus-fix.js
  *
