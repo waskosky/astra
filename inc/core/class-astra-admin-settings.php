@@ -196,16 +196,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			if ( isset( $_GET['ast-disable-activation-notice'] ) ) {
-				delete_user_meta( get_current_user_id(), 'astra-sites-on-active', array() );
-			}
-
 			// Force Astra welcome notice on theme activation.
-			if ( isset( $_GET['activated'] ) && '' == get_user_meta( get_current_user_id(), 'astra-sites-on-active', true ) && '1' == get_option( 'fresh_site' ) ) {
-				update_user_meta( get_current_user_id(), 'astra-sites-on-active', array() );
-			}
-
-			if ( current_user_can( 'install_plugins' ) && ! class_exists( 'Astra_Sites' ) && '' != get_user_meta( get_current_user_id(), 'astra-sites-on-active', true ) ) {
+			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
 
 				wp_enqueue_script( 'astra-admin-settings' );
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';

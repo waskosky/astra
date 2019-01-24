@@ -24,6 +24,7 @@
 		 */
 		_bind: function()
 		{
+			$( document ).on('ast-after-plugin-active', AstraThemeAdmin._disableActivcationNotice );
 			$( document ).on('click' , '.astra-install-recommended-plugin', AstraThemeAdmin._installNow );
 			$( document ).on('click' , '.astra-activate-recommended-plugin', AstraThemeAdmin._activatePlugin);
 			$( document ).on('click' , '.astra-deactivate-recommended-plugin', AstraThemeAdmin._deactivatePlugin);
@@ -112,7 +113,7 @@
 						var output = '<a href="'+ astraSitesLink +'" aria-label="'+ activatedText +'">' + activatedText +' </a>'
 						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' )
 							.html( output );
-						window.location.href = astraSitesLink + '&ast-disable-activation-notice';
+						jQuery(document).trigger( 'ast-after-plugin-active', [astraSitesLink] );
 
 					} else {
 
@@ -217,6 +218,18 @@
 			wp.updates.installPlugin( {
 				slug:    $button.data( 'slug' )
 			});
+		},
+
+
+		/**
+		 * After plugin active redirect and deactivate activation notice
+		 */
+		_disableActivcationNotice: function( event, astraSitesLink )
+		{
+			event.preventDefault();
+
+			window.location.href = astraSitesLink + '&ast-disable-activation-notice';
+		    AstraNotices._ajax( 'astra-sites-on-active', '' );
 		},
 	};
 
