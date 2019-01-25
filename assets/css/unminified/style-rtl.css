@@ -2542,7 +2542,7 @@ body {
   .main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul,
   .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul,
   .main-header-menu .sub-menu li.ast-left-align-sub-menu:hover * ul,
-  .main-header-menu .sub-menu li.ast-left-align-sub-menu:hover * ul {
+  .main-header-menu .sub-menu li.ast-left-align-sub-menu:focus * ul {
     right: -100%;
   }
   .main-header-menu .sub-menu .main-header-menu li.ast-sub-menu-goes-outside:hover > ul,

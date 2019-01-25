@@ -71,7 +71,7 @@
 				&.ast-left-align-sub-menu:hover > ul,
 				&.ast-left-align-sub-menu.focus > ul,
 				&.ast-left-align-sub-menu:hover * ul,
-				&.ast-left-align-sub-menu:hover * ul {
+				&.ast-left-align-sub-menu:focus * ul {
 					left: -100%;
 				}
 			}
