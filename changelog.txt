@@ -1,3 +1,9 @@
+v1.6.5
+- Fix: Menu toggle not working when the window is resized.
+- Fix: Block editor content width not exactly same as the frontend.
+- Fix: LearnDash sortable elements working incorrectly.
+- Fix: Submenu does not open incorrect sides when using RTL mode.
+
 v1.6.4
 - Fix: Gutenberg columns not stacking correctly on mobile devices.
 

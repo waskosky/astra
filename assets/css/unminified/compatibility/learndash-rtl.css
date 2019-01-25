@@ -113,6 +113,10 @@
   display: inline-block;
 }
 
+.learndash .ui-sortable {
+  overflow-y: auto !important;
+}
+
 #learndash_course_certificate .btn-blue {
   display: inline-block;
 }
