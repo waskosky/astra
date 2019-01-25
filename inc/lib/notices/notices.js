@@ -64,8 +64,13 @@
 
 			var link   = $( this ).attr( 'href' ) || '';
 			var target = $( this ).attr( 'target' ) || '';
-			if( '' !== link && '_blank' === target ) {
-				window.open(link , '_blank');
+			if( '' !== link ) {
+
+				if ( '_blank' !== target) {
+					window.open(link, target);
+				} else {
+					window.location.replace(link)
+				}
 			}
 		},
 
