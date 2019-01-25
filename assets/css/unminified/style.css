@@ -2540,7 +2540,9 @@ body {
     right: auto;
   }
   .main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul,
-  .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul {
+  .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul,
+  .main-header-menu .sub-menu li.ast-left-align-sub-menu:hover * ul,
+  .main-header-menu .sub-menu li.ast-left-align-sub-menu:hover * ul {
     left: -100%;
   }
   .main-header-menu .sub-menu .main-header-menu li.ast-sub-menu-goes-outside:hover > ul,
