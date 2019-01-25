@@ -133,6 +133,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
 
+			// For popup starter site plugin detail
 			wp_enqueue_script( 'plugin-install' );
 
 		}
