@@ -1,8 +1,11 @@
+v1.6.6
+- Fix: JS infinite loop causing frontend to not load when the sticky header is enabled and navigation menu does not have any sub-menu items.
+
 v1.6.5
 - Fix: Menu toggle not working when the window is resized.
 - Fix: Block editor content width not exactly same as the frontend.
 - Fix: LearnDash sortable elements working incorrectly.
-- Fix: Submenu does not open incorrect sides when using RTL mode.
+- Fix: Submenu does not open incorrect sides when using RTL mode, You can manually choose to openn the submenu on the opposite side by adding a custom class - https://wpastra.com/docs/change-the-direction-for-submenu-opening/
 
 v1.6.4
 - Fix: Gutenberg columns not stacking correctly on mobile devices.

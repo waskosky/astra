@@ -204,9 +204,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					}
 
 					// Add Eevetlisteners for Submenu.
-					for (var i = 0; i < astra_menu_toggle.length; i++) {
-						astra_menu_toggle[i].addEventListener('click', AstraToggleSubMeu, false);
-					};
+					if (astra_menu_toggle.length > 0) {
+						for (var i = 0; i <= astra_menu_toggle.length; i++) {
+							astra_menu_toggle[i].addEventListener('click', AstraToggleSubMeu, false);
+						};
+					}
 
 				}
 			};
