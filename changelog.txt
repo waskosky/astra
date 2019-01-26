@@ -1,5 +1,5 @@
 v1.6.6
-- Fix: JS infininte loop causing frontend to not load when sticky header is enabled and nnavigation menu does not have any sub-menu items.
+- Fix: JS infinite loop causing frontend to not load when the sticky header is enabled and navigation menu does not have any sub-menu items.
 
 v1.6.5
 - Fix: Menu toggle not working when the window is resized.
