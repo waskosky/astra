@@ -134,11 +134,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
-
-			// For popup starter site plugin detail
-			wp_enqueue_script( 'plugin-install' );
-			wp_enqueue_script( 'thickbox' );
-			wp_enqueue_style( 'thickbox' );
 		}
 
 		/**
@@ -377,6 +372,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
+
+			// For popup starter site plugin detail
+			wp_enqueue_script( 'plugin-install' );
+			wp_enqueue_script( 'thickbox' );
+			wp_enqueue_style( 'thickbox' );
 		}
 
 		/**
