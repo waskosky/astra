@@ -594,9 +594,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						);
 						printf(
 							'<a class="%1$s" %2$s target="_blank" rel="noopener"> %3$s </a>',
-							esc_attr( $ast_sites_notice_btn['detail_link_class'] ),
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_attr( $ast_sites_notice_btn['detail_link_class'] ) : '',
 							isset( $ast_sites_notice_btn['detail_link'] ) ? 'href="' . esc_url( $ast_sites_notice_btn['detail_link'] ) . '"' : '',
-							esc_html( $ast_sites_notice_btn['detail_link_text'] )
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_html( $ast_sites_notice_btn['detail_link_text'] ) : ''
 						);
 						?>
 					<div>
