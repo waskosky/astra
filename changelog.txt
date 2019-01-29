@@ -1,3 +1,7 @@
+v1.6.8
+- Fix: JS error appearing in FireFox browser which blocks opening navigation menus.
+- Fix: JS errors from Astra Pro for header-sections addon due to missing JS functions.
+
 v1.6.7
 - Fix: JS Error - Uncaught TypeError: Cannot read property 'addEventListener' of undefined at AstraToggleSetup
 
