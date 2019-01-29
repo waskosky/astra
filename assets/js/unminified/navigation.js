@@ -229,7 +229,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	astraNavMenuToggle = function () {
+	astraNavMenuToggle = function ( event ) {
 		event.preventDefault();
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 		var event_index = this.getAttribute('data-index');
