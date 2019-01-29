@@ -188,6 +188,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	};
 
 	AstraToggleMenu = function( astra_menu_toggle ) {
+		console.warn('AstraToggleMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future. Use AstraToggleSubMenu() instead.');
 		
 		// Add Eevetlisteners for Submenu.
 		if (astra_menu_toggle.length > 0) {
@@ -195,7 +196,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
 			};
 		}
-		console.warn( 'AstraToggleMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future. Use AstraToggleSubMenu() instead.' );
 	};
 
 	AstraToggleSetup = function () {
