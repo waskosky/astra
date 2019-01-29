@@ -141,7 +141,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraToggleSubMeu = function() {
+	AstraToggleSubMenu = function() {
 		var parent_li = this.parentNode;
 		if (parent_li.classList.contains('ast-submenu-expanded') && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 			if (!this.classList.contains('ast-menu-toggle')) {
@@ -183,6 +183,20 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
+	AstraNavigationMenu = function( parentList ) {
+		console.warn( 'AstraNavigationMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future.' );
+	};
+
+	AstraToggleMenu = function( astra_menu_toggle ) {
+		console.warn('AstraToggleMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future. Use AstraToggleSubMenu() instead.');
+		
+		// Add Eevetlisteners for Submenu.
+		if (astra_menu_toggle.length > 0) {
+			for (var i = 0; i < astra_menu_toggle.length; i++) {
+				astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
+			};
+		}
+	};
 
 	AstraToggleSetup = function () {
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
@@ -206,7 +220,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					// Add Eevetlisteners for Submenu.
 					if (astra_menu_toggle.length > 0) {
 						for (var i = 0; i < astra_menu_toggle.length; i++) {
-							astra_menu_toggle[i].addEventListener('click', AstraToggleSubMeu, false);
+							astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
 						};
 					}
 
