@@ -137,6 +137,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// For popup starter site plugin detail
 			wp_enqueue_script( 'plugin-install' );
+			wp_enqueue_script( 'thickbox' );
+			wp_enqueue_style( 'thickbox' );
 		}
 
 		/**
