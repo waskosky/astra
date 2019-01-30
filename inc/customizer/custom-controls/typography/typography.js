@@ -89,8 +89,14 @@
 		 */
 		_fontSelectChange: function()
 		{
+			var fontSelect          = api.control( this.id ).container.find( 'select' ),
+			variants            	= fontSelect.data( 'connected-variant' );
+
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
-			AstTypography._setFontVarianttOptions.apply( this, [ false ] );
+			
+			if ( 'undefined' != typeof variants ) {
+				AstTypography._setFontVarianttOptions.apply( this, [ false ] );
+			}
 		},
 
 		/**
