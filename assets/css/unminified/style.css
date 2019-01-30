@@ -3868,6 +3868,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   transform: none;
 }
 
+.ast-header-break-point.ast-header-custom-item-inside .main-header-bar-wrap .main-header-bar .main-header-bar-navigation .ast-search-icon {
+  display: block;
+}
+
 .ast-header-break-point .main-navigation {
   display: block;
   width: 100%;

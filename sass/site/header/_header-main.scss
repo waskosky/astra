@@ -419,6 +419,18 @@ li.ast-masthead-custom-menu-items {
 		transform: none;
 	}
 
+	&.ast-header-custom-item-inside {
+		.main-header-bar-wrap {
+			.main-header-bar {
+				.main-header-bar-navigation {
+					.ast-search-icon {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+
 	/* Styling Nav */
 	.main-navigation {
 		display: block;
