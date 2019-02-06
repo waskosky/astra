@@ -291,6 +291,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
 				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=astra-sites' );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
+				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
+				$ast_sites_notice_btn['detail_link']             = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
+				$ast_sites_notice_btn['detail_link_text']        = __( 'Details »', 'astra' );
 
 				// Astra Premium Sites - Active.
 			} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
@@ -382,6 +385,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
+
+			// For popup starter site plugin detail.
+			wp_enqueue_script( 'plugin-install' );
+			wp_enqueue_script( 'thickbox' );
+			wp_enqueue_style( 'thickbox' );
 		}
 
 		/**
@@ -596,6 +604,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
 							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
 							esc_html( $ast_sites_notice_btn['button_text'] )
+						);
+						printf(
+							'<a class="%1$s" %2$s target="_blank" rel="noopener"> %3$s </a>',
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_attr( $ast_sites_notice_btn['detail_link_class'] ) : '',
+							isset( $ast_sites_notice_btn['detail_link'] ) ? 'href="' . esc_url( $ast_sites_notice_btn['detail_link'] ) . '"' : '',
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_html( $ast_sites_notice_btn['detail_link_text'] ) : ''
 						);
 						?>
 					<div>
