@@ -327,6 +327,16 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 		$css .= astra_parse_css(
 			array(
+				'.transparent-custom-logo' => array(
+					'display' => 'block',
+				),
+			),
+			'',
+			'768'
+		);
+
+		$css .= astra_parse_css(
+			array(
 				'.ast-transparent-desktop-logo' => array(
 					'display' => 'none',
 				),
@@ -355,7 +365,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			),
 			'768'
 		);
-
+		
 		$css .= astra_parse_css(
 			array(
 				'.ast-transparent-mobile-logo' => array(
