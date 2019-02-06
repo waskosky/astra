@@ -103,7 +103,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
-				add_filter( 'admin_body_class', __class__ . '::astra_page_admin_classes' );
 
 				// Let extensions hook into saving.
 				do_action( 'astra_admin_settings_scripts' );
@@ -136,17 +135,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
-		}
-
-		/**
-		 * Add admin page class to Astra Options page.
-		 *
-		 * @since x.x.x
-		 * @param String $classes CSS class names for thee body attribute.
-		 * @return String SS class names for thee body attribute with new CSS classes for Astra Options page.
-		 */
-		public static function astra_page_admin_classes( $classes ) {
-			return $classes . ' appearance_page_astra';
 		}
 
 		/**
