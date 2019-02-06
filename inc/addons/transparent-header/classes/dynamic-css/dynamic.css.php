@@ -365,7 +365,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			),
 			'768'
 		);
-		
+
 		$css .= astra_parse_css(
 			array(
 				'.ast-transparent-mobile-logo' => array(
