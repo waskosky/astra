@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.6.8\n"
+"Project-Id-Version: Astra 1.6.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2019-02-06 09:40:51+00:00\n"
+"POT-Creation-Date: 2019-02-07 11:05:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -879,13 +879,13 @@ msgid "Deactivating"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:399
-#: inc/core/class-astra-admin-settings.php:1248
-#: inc/core/class-astra-admin-settings.php:1265
+#: inc/core/class-astra-admin-settings.php:1250
+#: inc/core/class-astra-admin-settings.php:1267
 msgid "Activate"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:400
-#: inc/core/class-astra-admin-settings.php:1282
+#: inc/core/class-astra-admin-settings.php:1284
 msgid "Deactivate"
 msgstr ""
 
@@ -1092,26 +1092,26 @@ msgstr ""
 msgid "Extend %1s with free plugins!"
 msgstr ""
 
-#: inc/core/class-astra-admin-settings.php:1341
-#: inc/core/class-astra-admin-settings.php:1379
+#: inc/core/class-astra-admin-settings.php:1343
+#: inc/core/class-astra-admin-settings.php:1381
 msgid "No plugin specified"
 msgstr ""
 
-#: inc/core/class-astra-admin-settings.php:1362
+#: inc/core/class-astra-admin-settings.php:1364
 msgid "Plugin Successfully Activated"
 msgstr ""
 
-#: inc/core/class-astra-admin-settings.php:1400
+#: inc/core/class-astra-admin-settings.php:1402
 msgid "Plugin Successfully Deactivated"
 msgstr ""
 
-#: inc/core/class-astra-admin-settings.php:1432
+#: inc/core/class-astra-admin-settings.php:1434
 #. translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra
 #. Addon
 msgid "Update to the latest version of %1$2s to make changes in settings below."
 msgstr ""
 
-#: inc/core/class-astra-admin-settings.php:1452
+#: inc/core/class-astra-admin-settings.php:1454
 msgid "⚡ Lightning Fast & Fully Customizable WordPress theme!"
 msgstr ""
 
