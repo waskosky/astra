@@ -383,7 +383,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Reegister Scripts and styles for Astra Admin.
 		 *
-		 * @since x.x.x
+		 * @since 1.6.9
 		 * @return void
 		 */
 		public static function register_scripts() {

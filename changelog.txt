@@ -1,3 +1,7 @@
+v1.6.9
+- Fix: Transparent header logonot displayed on tablet screen sizes.
+- Fix: After changing a font in typography param it would stop previewing next fonts due to a JS error.
+
 v1.6.8
 - Fix: JS error appearing in FireFox browser which blocks opening navigation menus.
 - Fix: JS errors from Astra Pro for header-sections addon due to missing JS functions.
