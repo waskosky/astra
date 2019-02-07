@@ -96,6 +96,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function init_admin_settings() {
 			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
+			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
 
 			add_action( 'admin_enqueue_scripts', __class__ . '::register_scripts' );
 
@@ -278,6 +279,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
 				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=astra-sites' );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
+				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
+				$ast_sites_notice_btn['detail_link']             = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
+				$ast_sites_notice_btn['detail_link_text']        = __( 'Details »', 'astra' );
 
 				// Astra Premium Sites - Active.
 			} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
@@ -369,6 +373,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
+
+			// For popup starter site plugin detail.
+			wp_enqueue_script( 'plugin-install' );
+			wp_enqueue_script( 'thickbox' );
+			wp_enqueue_style( 'thickbox' );
 		}
 
 		/**
@@ -583,6 +592,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
 							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
 							esc_html( $ast_sites_notice_btn['button_text'] )
+						);
+						printf(
+							'<a class="%1$s" %2$s target="_blank" rel="noopener"> %3$s </a>',
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_attr( $ast_sites_notice_btn['detail_link_class'] ) : '',
+							isset( $ast_sites_notice_btn['detail_link'] ) ? 'href="' . esc_url( $ast_sites_notice_btn['detail_link'] ) . '"' : '',
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_html( $ast_sites_notice_btn['detail_link_text'] ) : ''
 						);
 						?>
 					<div>
@@ -1111,106 +1126,69 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$recommended_plugins = apply_filters(
 				'astra_recommended_plugins',
 				array(
-					'ultimate-addons-for-gutenberg'    =>
-						array(
-							'plugin-name'        => 'Ultimate Addons for Gutenberg',
-							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
-							'settings-link'      => admin_url() . 'options-general.php?page=uagb',
-							'settings-link-text' => 'Settings',
-							'display'            => function_exists( 'register_block_type' ),
-						),
-					'custom-fonts'                     =>
-						array(
-							'plugin-name'        => 'Custom Fonts',
-							'plugin-init'        => 'custom-fonts/custom-fonts.php',
-							'settings-link'      => admin_url() . 'edit-tags.php?taxonomy=bsf_custom_fonts',
-							'settings-link-text' => 'Settings',
-						),
-					'custom-typekit-fonts'             =>
-						array(
-							'plugin-name'        => 'Custom Typekit Fonts',
-							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
-							'settings-link'      => admin_url() . 'themes.php?page=custom-typekit-fonts',
-							'settings-link-text' => 'Settings',
-						),
-					'sidebar-manager'                  =>
-						array(
-							'plugin-name'        => 'Sidebar Manager',
-							'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
-							'settings-link'      => admin_url() . 'edit.php?post_type=bsf-sidebar',
-							'settings-link-text' => 'Settings',
-						),
-					'astra-bulk-edit'                  =>
-						array(
-							'plugin-name'        => 'Astra Bulk Edit',
-							'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
-							'settings-link'      => '',
-							'settings-link-text' => 'Settings',
-						),
-					'reset-astra-customizer'           =>
+					'reset-astra-customizer'        =>
 						array(
 							'plugin-name'        => 'Astra Customizer Reset',
 							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
-							'settings-link'      => '',
+							'settings-link'      => admin_url( 'customize.php' ),
 							'settings-link-text' => 'Settings',
 						),
-					'astra-hooks'                      =>
+
+					'customizer-search'             =>
+					array(
+						'plugin-name'        => 'Customizer Search',
+						'plugin-init'        => 'customizer-search/customizer-search.php',
+						'settings-link'      => admin_url( 'customize.php' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'astra-bulk-edit'               =>
+					array(
+						'plugin-name'        => 'Astra Bulk Edit',
+						'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
+						'settings-link'      => '',
+						'settings-link-text' => 'Settings',
+					),
+
+					'astra-widgets'                 =>
+					array(
+						'plugin-name'        => 'Asra Widgets',
+						'plugin-init'        => 'astra-widgets/astra-widgets.php',
+						'settings-link'      => admin_url( 'widgets.php' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'custom-fonts'                  =>
+					array(
+						'plugin-name'        => 'Custom Fonts',
+						'plugin-init'        => 'custom-fonts/custom-fonts.php',
+						'settings-link'      => admin_url( 'edit-tags.php?taxonomy=bsf_custom_fonts' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'custom-typekit-fonts'          =>
 						array(
-							'plugin-name'        => 'Astra Hooks',
-							'plugin-init'        => 'astra-hooks/astra-hooks.php',
-							'settings-link'      => '',
+							'plugin-name'        => 'Custom Typekit Fonts',
+							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
+							'settings-link'      => admin_url( 'themes.php?page=custom-typekit-fonts' ),
 							'settings-link-text' => 'Settings',
 						),
-					'unlist-posts'                     =>
+
+					'sidebar-manager'               =>
+					array(
+						'plugin-name'        => 'Sidebar Manager',
+						'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
+						'settings-link'      => admin_url( 'edit.php?post_type=bsf-sidebar' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'ultimate-addons-for-gutenberg' =>
 						array(
-							'plugin-name'        => 'Unlist Posts & Pages',
-							'plugin-init'        => 'unlist-posts/unlist-posts.php',
-							'settings-link'      => '',
+							'plugin-name'        => 'Ultimate Addons for Gutenberg',
+							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+							'settings-link'      => admin_url( 'options-general.php?page=uag' ),
 							'settings-link-text' => 'Settings',
-						),
-					'customizer-search'                =>
-						array(
-							'plugin-name'        => 'Customizer Search',
-							'plugin-init'        => 'customizer-search/customizer-search.php',
-							'settings-link'      => '',
-							'settings-link-text' => 'Settings',
-						),
-					'custom-template-learndash'        =>
-						array(
-							'plugin-name'        => 'Custom Template for LearnDash',
-							'plugin-init'        => 'custom-template-learndash/custom-template-learndash.php',
-							'settings-link'      => admin_url() . 'edit.php?post_type=ld-custom-template',
-							'settings-link-text' => 'Settings',
-							'display'            => class_exists( 'SFWD_LMS' ),
-						),
-					'custom-template-lifterlms'        =>
-						array(
-							'plugin-name'        => 'Custom Template for LifterLMS',
-							'plugin-init'        => 'custom-template-lifterlms/custom-template-lifterlms.php',
-							'settings-link'      => admin_url() . 'edit.php?post_type=bsf-custom-template',
-							'settings-link-text' => 'Settings',
-							'display'            => class_exists( 'LifterLMS' ),
-						),
-					'home-page-banner-for-astra-theme' =>
-						array(
-							'plugin-name'        => 'Home Page Banner for Astra Theme',
-							'plugin-init'        => 'home-page-banner-for-astra-theme/home-page-banner-for-astra-theme.php',
-							'settings-link'      => '',
-							'settings-link-text' => 'Settings',
-						),
-					'wp-templator'                     =>
-						array(
-							'plugin-name'        => 'Templator',
-							'plugin-init'        => 'wp-templator/wp-templator.php',
-							'settings-link'      => '',
-							'settings-link-text' => 'Settings',
-						),
-					'astra-theme-visual-hooks'         =>
-						array(
-							'plugin-name'        => 'Astra Theme Visual Hooks',
-							'plugin-init'        => 'astra-theme-visual-hooks/astra-theme-visual-hooks.php',
-							'settings-link'      => '',
-							'settings-link-text' => 'Settings',
+							'display'            => function_exists( 'register_block_type' ),
 						),
 				)
 			);
