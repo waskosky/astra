@@ -1,6 +1,7 @@
 v1.6.9
 - Fix: Transparent header logonot displayed on tablet screen sizes.
 - Fix: After changing a font in typography param it would stop previewing next fonts due to a JS error.
+- Fix: Move the custom action `astra_head_bottom` after the action `wp_head` as it correctly shoud.
 
 v1.6.8
 - Fix: JS error appearing in FireFox browser which blocks opening navigation menus.
