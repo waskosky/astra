@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		/**
 		 * Add submenu toggle button used for mobile devices.
 		 *
-		 * @since x.x.x
+		 * @since 1.6.9
 		 *
 		 * @param string   $item_output The menu item's starting HTML output.
 		 * @param WP_Post  $item        Menu item data object.
