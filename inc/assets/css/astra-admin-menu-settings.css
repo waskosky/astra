@@ -60,6 +60,11 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
+/* Details link for starter sites */
+a.astra-starter-sites-detail-link {
+    margin: 0 10px;
+}
+
 /* Top Right Links. */
 .ast-top-links {
     flex: auto;
