@@ -141,41 +141,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraNavigationMenu = function( parentList ) {
-
-		for (var i = 0; i < parentList.length; i++) {
-
-			if ( null != parentList[i].querySelector( '.sub-menu, .children' ) ) {
-
-				var menuLeft         = parentList[i].getBoundingClientRect().left,
-					windowWidth      = window.innerWidth,
-					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
-					menuGoingOutside = false;
-
-				if( menuFromLeft < 500 ) {
-					menuGoingOutside = true;
-				}
-
-				// Submenu items goes outside?
-				if( menuGoingOutside ) {
-					parentList[i].classList.add( 'ast-left-align-sub-menu' );
-
-					var all_submenu_parents = parentList[i].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
-					for (var k = 0; k < all_submenu_parents.length; k++) {
-						all_submenu_parents[k].classList.add( 'ast-left-align-sub-menu' );
-					}
-				}
-
-				// Submenu Container goes to outside?
-				if( menuFromLeft < 240 ) {
-					parentList[i].classList.add( 'ast-sub-menu-goes-outside' );
-				}
-
-			};
-		};
-	};
-
-	AstraToggleSubMeu = function() {
+	AstraToggleSubMenu = function() {
 		var parent_li = this.parentNode;
 		if (parent_li.classList.contains('ast-submenu-expanded') && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 			if (!this.classList.contains('ast-menu-toggle')) {
@@ -217,6 +183,20 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
+	AstraNavigationMenu = function( parentList ) {
+		console.warn( 'AstraNavigationMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future.' );
+	};
+
+	AstraToggleMenu = function( astra_menu_toggle ) {
+		console.warn('AstraToggleMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future. Use AstraToggleSubMenu() instead.');
+		
+		// Add Eevetlisteners for Submenu.
+		if (astra_menu_toggle.length > 0) {
+			for (var i = 0; i < astra_menu_toggle.length; i++) {
+				astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
+			};
+		}
+	};
 
 	AstraToggleSetup = function () {
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
@@ -230,8 +210,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 
 				if ('undefined' !== typeof __main_header_all[i]) {
-					var parentList = __main_header_all[i].querySelectorAll('ul.main-header-menu li');
-					AstraNavigationMenu(parentList);
 
 					if (document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-header-break-point .main-header-menu .menu-item-has-children > a, .ast-header-break-point .main-header-menu .page_item_has_children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle');
@@ -240,16 +218,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					}
 
 					// Add Eevetlisteners for Submenu.
-					for (var i = 0; i < astra_menu_toggle.length; i++) {
-						astra_menu_toggle[i].addEventListener('click', AstraToggleSubMeu, false);
-					};
+					if (astra_menu_toggle.length > 0) {
+						for (var i = 0; i < astra_menu_toggle.length; i++) {
+							astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
+						};
+					}
 
 				}
 			};
 		}
 	};
 
-	astraNavMenuToggle = function () {
+	astraNavMenuToggle = function ( event ) {
 		event.preventDefault();
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 		var event_index = this.getAttribute('data-index');
@@ -494,7 +474,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 } )();
-
 /**
  * File skip-link-focus-fix.js
  *

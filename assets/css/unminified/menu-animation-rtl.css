@@ -41,6 +41,16 @@
   transition: opacity .2s ease, visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
 }
 
+.ast-desktop .astra-menu-animation-slide-up > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-up > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .ast-desktop .astra-menu-animation-slide-down > .menu-item > .astra-full-megamenu-wrapper,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu .sub-menu {
@@ -72,6 +82,16 @@
   transition: opacity .2s ease, visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
 }
 
+.ast-desktop .astra-menu-animation-slide-down > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-down > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .ast-desktop .astra-menu-animation-fade > .menu-item > .astra-full-megamenu-wrapper,
 .ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu,
 .ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu .sub-menu {
@@ -91,4 +111,14 @@
   visibility: visible;
   -webkit-transition: opacity ease-in-out .3s;
   transition: opacity ease-in-out .3s;
+}
+
+.ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
 }
