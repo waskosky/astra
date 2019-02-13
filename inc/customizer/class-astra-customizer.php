@@ -661,7 +661,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
-			if ( apply_filters( 'astra_custom_logo_width_enable', true ) ) {
+			if ( apply_filters( 'astra_resize_logo', true ) ) {
 
 				/* Generate Header Logo */
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
