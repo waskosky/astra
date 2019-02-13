@@ -320,7 +320,7 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 				break;
 		}
 
-		return $output;
+		return apply_filters( 'astra_get_dynamic_header_content_final', $output );
 	}
 }
 
