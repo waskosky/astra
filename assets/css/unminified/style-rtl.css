@@ -2522,6 +2522,10 @@ body {
   .main-header-menu li.ast-sub-menu-goes-outside.focus > ul {
     right: -100%;
   }
+  .main-header-menu li.ast-left-align-sub-menu .sub-menu li:hover > ul,
+  .main-header-menu li.ast-left-align-sub-menu .sub-menu li.focus > ul {
+    right: -100%;
+  }
 }
 
 .main-header-menu .sub-menu {

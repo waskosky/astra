@@ -49,6 +49,17 @@
 			&.ast-sub-menu-goes-outside.focus > ul {
 			    left: -100%;
 			}
+			&.ast-left-align-sub-menu {
+				.sub-menu {
+					li {
+						&:hover > ul,
+						&.focus > ul {
+							left: -100%;
+						}
+
+					}
+				}
+			}
 		}
 	}
 
