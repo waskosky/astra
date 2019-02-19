@@ -2517,6 +2517,12 @@ body {
   left: 0;
 }
 
+.main-header-menu li.ast-left-align-sub-menu:hover > ul,
+.main-header-menu li.ast-left-align-sub-menu.focus > ul {
+  right: 0;
+  left: auto;
+}
+
 @media (min-width: 769px) {
   .main-header-menu li.ast-sub-menu-goes-outside:hover > ul,
   .main-header-menu li.ast-sub-menu-goes-outside.focus > ul {

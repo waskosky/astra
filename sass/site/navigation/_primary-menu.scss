@@ -44,6 +44,12 @@
 			left: 0;
 		}
 
+		&.ast-left-align-sub-menu:hover > ul,
+		&.ast-left-align-sub-menu.focus > ul {
+			right: 0;
+			left: auto;	
+		}
+
 		@media (min-width: $col-md) {
 			&.ast-sub-menu-goes-outside:hover > ul,
 			&.ast-sub-menu-goes-outside.focus > ul {
