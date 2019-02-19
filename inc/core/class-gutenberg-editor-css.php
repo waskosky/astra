@@ -85,7 +85,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'color' => esc_attr( $highlight_theme_color ),
 				),
 
-				'.ast-separate-container .edit-post-visual-editor, .ast-page-builder-template .edit-post-visual-editor, .ast-plain-container .edit-post-visual-editor' => astra_get_background_obj( $box_bg_obj ),
+				'.ast-separate-container .edit-post-visual-editor, .ast-page-builder-template .edit-post-visual-editor, .ast-plain-container .edit-post-visual-editor, .ast-separate-container #wpwrap #editor .edit-post-visual-editor' => astra_get_background_obj( $box_bg_obj ),
 				'.editor-post-title__block,.editor-default-block-appender,.editor-block-list__block' => array(
 					'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 				),
