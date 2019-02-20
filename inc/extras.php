@@ -766,6 +766,47 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
 /**
+ * Add CSS classes from wp_nav_menu the wp_page_menu()'s menu items.
+ * This will help avoid targeting wp_page_menu and wp_nav_manu separately in CSS/JS.
+ *
+ * @since x.x.x
+ * @param array   $css_class    An array of CSS classes to be applied
+ *                              to each list item.
+ * @param WP_Post $page         Page data object.
+ * @param int     $depth        Depth of page, used for padding.
+ * @param array   $args         An array of arguments.
+ * @param int     $current_page ID of the current page.
+ * @return Array CSS classes with added menu class `menu-item`
+ */
+function astra_page_css_class( $css_class, $page, $depth, $args, $current_page ) {
+	$css_class[] = 'menu-item';
+
+	if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
+		$css_class[] = 'menu-item-has-children';
+	}
+
+	if ( ! empty( $current_page ) ) {
+		$_current_page = get_post( $current_page );
+
+		if ( $_current_page && in_array( $page->ID, $_current_page->ancestors ) ) {
+			$css_class[] = 'current-menu-ancestor';
+		}
+
+		if ( $page->ID == $current_page ) {
+			$css_class[] = 'current-menu-item';
+		} elseif ( $_current_page && $page->ID == $_current_page->post_parent ) {
+			$css_class[] = 'current-menu-parent';
+		}
+	} elseif ( get_option( 'page_for_posts' ) == $page->ID ) {
+		$css_class[] = 'current-menu-parent';
+	}
+
+	return $css_class;
+}
+
+add_filter( 'page_css_class', 'astra_page_css_class', 20, 5 );
+
+/**
  * Function to get site Footer
  */
 if ( ! function_exists( 'astra_footer_markup' ) ) {
