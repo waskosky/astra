@@ -23,14 +23,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 	class Astra_Admin_Settings {
 
 		/**
-		 * View all actions
-		 *
-		 * @since 1.0
-		 * @var array $view_actions
-		 */
-		static public $view_actions = array();
-
-		/**
 		 * Menu page title
 		 *
 		 * @since 1.0
@@ -119,8 +111,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
 
 			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
-
-			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
 
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_knowledge_base_scetion', 11 );
@@ -297,25 +287,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * View actions
-		 */
-		static public function get_view_actions() {
-
-			if ( empty( self::$view_actions ) ) {
-
-				$actions            = array(
-					'general' => array(
-						'label' => __( 'Welcome', 'astra' ),
-						'show'  => ! is_network_admin(),
-					),
-				);
-				self::$view_actions = apply_filters( 'astra_menu_options', $actions );
-			}
-
-			return self::$view_actions;
-		}
-
-		/**
 		 * Save All admin settings here
 		 */
 		public static function save_settings() {
@@ -419,33 +390,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
-		}
-
-		/**
-		 * Update Admin Title.
-		 *
-		 * @since 1.0.19
-		 *
-		 * @param string $admin_title Admin Title.
-		 * @param string $title Title.
-		 * @return string
-		 */
-		public static function astra_admin_title( $admin_title, $title ) {
-
-			$screen = get_current_screen();
-			if ( 'appearance_page_astra' == $screen->id ) {
-
-				$view_actions = self::get_view_actions();
-
-				$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
-				$active_tab   = str_replace( '_', '-', $current_slug );
-
-				if ( 'general' != $active_tab && isset( $view_actions[ $active_tab ]['label'] ) ) {
-					$admin_title = str_replace( $title, $view_actions[ $active_tab ]['label'], $admin_title );
-				}
-			}
-
-			return $admin_title;
 		}
 
 
