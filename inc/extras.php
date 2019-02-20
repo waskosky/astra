@@ -769,7 +769,7 @@ add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
  * Add CSS classes from wp_nav_menu the wp_page_menu()'s menu items.
  * This will help avoid targeting wp_page_menu and wp_nav_manu separately in CSS/JS.
  *
- * @since 1.6.10
+ * @since 1.6.9
  * @param array   $css_class    An array of CSS classes to be applied
  *                              to each list item.
  * @param WP_Post $page         Page data object.
