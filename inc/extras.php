@@ -797,7 +797,7 @@ function astra_page_css_class( $css_class, $page, $depth, $args, $current_page )
 		} elseif ( $_current_page && $page->ID == $_current_page->post_parent ) {
 			$css_class[] = 'current-menu-parent';
 		}
-	} elseif ( $page->ID == get_option( 'page_for_posts' ) ) {
+	} elseif ( get_option( 'page_for_posts' ) == $page->ID ) {
 		$css_class[] = 'current-menu-parent';
 	}
 
