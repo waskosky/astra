@@ -2555,8 +2555,8 @@ body {
   .main-header-menu .sub-menu .ast-left-align-sub-menu:focus * .sub-menu {
     left: -100%;
   }
-  .main-header-menu .sub-menu .main-header-menu .menu-item.ast-sub-menu-goes-outside:hover > .sub-menu,
-  .main-header-menu .sub-menu .main-header-menu .menu-item.ast-sub-menu-goes-outside.focus > .sub-menu {
+  .main-header-menu .sub-menu .main-header-menu .ast-sub-menu-goes-outside:hover > .sub-menu,
+  .main-header-menu .sub-menu .main-header-menu .ast-sub-menu-goes-outside.focus > .sub-menu {
     left: -100%;
   }
 }
@@ -2664,13 +2664,13 @@ body {
   width: auto;
 }
 
-.ast-header-break-point .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu,
-.ast-header-break-point .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu {
+.ast-header-break-point .main-header-menu .sub-menu .ast-left-align-sub-menu:hover > .sub-menu,
+.ast-header-break-point .main-header-menu .sub-menu .ast-left-align-sub-menu.focus > .sub-menu {
   left: 0;
 }
 
-.ast-header-break-point .main-header-menu .menu-item.ast-sub-menu-goes-outside:hover > .sub-menu,
-.ast-header-break-point .main-header-menu .menu-item.ast-sub-menu-goes-outside.focus > .sub-menu {
+.ast-header-break-point .main-header-menu .ast-sub-menu-goes-outside:hover > .sub-menu,
+.ast-header-break-point .main-header-menu .ast-sub-menu-goes-outside.focus > .sub-menu {
   left: 0;
 }
 
