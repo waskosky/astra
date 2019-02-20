@@ -153,13 +153,15 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 										( $comment->user_id === $post->post_author ) ? '<span class="ast-highlight-text ast-cmt-post-author"></span>' : ''
 									);
 
-									printf(
-										'<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
-										esc_url( get_comment_link( $comment->comment_ID ) ),
-										get_comment_time( 'c' ),
-										/* translators: 1: date, 2: time */
-										sprintf( esc_html__( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() )
-									);
+									if ( apply_filters( 'astra_single_post_comment_time_enabled', true ) ) {
+										printf(
+											'<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
+											esc_url( get_comment_link( $comment->comment_ID ) ),
+											get_comment_time( 'c' ),
+											/* translators: 1: date, 2: time */
+											sprintf( esc_html__( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() )
+										);
+									}
 
 									?>
 
