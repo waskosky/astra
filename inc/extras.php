@@ -766,6 +766,22 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
 
 /**
+ * Add class `.menu-item` to the wp_page_menu()'s menu items.
+ * This will help avoid targeting wp_page_menu and wp_nav_manu separately in CSS/JS.
+ *
+ * @since x.x.x
+ * @param Array $classes CSS classes to be added for the menu item.
+ * @return Array CSS classes with added menu class `menu-item`
+ */
+function astra_page_css_class( $classes ) {
+	$classes[] = 'menu-item';
+
+	return $classes;
+}
+
+add_filter( 'page_css_class', 'astra_page_css_class' );
+
+/**
  * Function to get site Footer
  */
 if ( ! function_exists( 'astra_footer_markup' ) ) {
