@@ -1684,21 +1684,14 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
 }
 
 /**
- * Function to return affiliate id to Ninja Forms.
+ * Return affiliate id.
+ *
+ * @since 1.6.9
+ *
+ * @return int affiliate id.
  */
-if ( ! function_exists( 'ast_filter_ninja_forms_affiliate_id' ) ) :
-	/**
-	 * Return affiliate id.
-	 *
-	 * @param int $id affiliate id.
-	 *
-	 * @return int  $id affiliate id.
-	 */
-	function ast_filter_ninja_forms_affiliate_id( $id ) {
-		$id = 1115254;
-		return $id;
-	};
+function ast_filter_ninja_forms_affiliate_id() {
+	return 1115254;
+};
 
-endif;
-
-add_filter( 'ninja_forms_affiliate_id', 'ast_filter_ninja_forms_affiliate_id', 10, 1 );
+add_filter( 'ninja_forms_affiliate_id', 'ast_filter_ninja_forms_affiliate_id' );
