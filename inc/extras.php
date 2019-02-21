@@ -769,7 +769,7 @@ add_action( 'astra_masthead_content', 'astra_primary_navigation_markup', 10 );
  * Add CSS classes from wp_nav_menu the wp_page_menu()'s menu items.
  * This will help avoid targeting wp_page_menu and wp_nav_manu separately in CSS/JS.
  *
- * @since x.x.x
+ * @since 1.6.9
  * @param array   $css_class    An array of CSS classes to be applied
  *                              to each list item.
  * @param WP_Post $page         Page data object.
@@ -1682,3 +1682,16 @@ endif;
 function astra_attr( $context, $attributes = array(), $args = array() ) {
 	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
 }
+
+/**
+ * Return affiliate id.
+ *
+ * @since 1.6.9
+ *
+ * @return int affiliate id.
+ */
+function ast_filter_ninja_forms_affiliate_id() {
+	return 1115254;
+};
+
+add_filter( 'ninja_forms_affiliate_id', 'ast_filter_ninja_forms_affiliate_id' );
