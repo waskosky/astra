@@ -1,3 +1,11 @@
+v1.6.9
+- New: Filter to disable automatic logo resizing. (https://wpastra.com/docs/disable-logo-cropping/)
+- New: CSS class `ast-left-align-sub-menu` will change the direction navigation menu opens for all submenus. (https://wpastra.com/docs/change-the-direction-for-submenu-opening/)
+- Improvement: Gutenberg - Body color not applied in the block editor when boxed layout or contained boxed layout.
+- Improvement: Correctly move hook `astra_head_bottom` to the very bottom of the <head> tag.
+- Fix: Transparent header logo not displayed on tablet screen sizes.
+- Fix: After changing a font in typography param it would stop previewing next fonts due to a JS error.
+
 v1.6.8
 - Fix: JS error appearing in FireFox browser which blocks opening navigation menus.
 - Fix: JS errors from Astra Pro for header-sections addon due to missing JS functions.
