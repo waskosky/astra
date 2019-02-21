@@ -1682,3 +1682,16 @@ endif;
 function astra_attr( $context, $attributes = array(), $args = array() ) {
 	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
 }
+
+/**
+ * Return affiliate id.
+ *
+ * @since 1.6.9
+ *
+ * @return int affiliate id.
+ */
+function ast_filter_ninja_forms_affiliate_id() {
+	return 1115254;
+};
+
+add_filter( 'ninja_forms_affiliate_id', 'ast_filter_ninja_forms_affiliate_id' );
