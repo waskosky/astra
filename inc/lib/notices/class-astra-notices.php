@@ -226,7 +226,9 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
-		 * Is notice expired? public function.
+		 * Function to check if the notice is expired or not.
+		 *
+		 * Pass Notice ID to this function to check if the notice is expired or not.
 		 *
 		 * @since 1.7.0
 		 * @param  array $id Notice id.
