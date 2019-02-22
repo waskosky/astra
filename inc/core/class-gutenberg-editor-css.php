@@ -54,7 +54,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$heading_h6_font_size = astra_get_option( 'font-size-h6' );
 
 			$container_layout = get_post_meta( get_the_id(), 'site-content-layout', true );
-			if ( 'default' === $container_layout ) {
+			
+			if ( 'default' === $container_layout || '' === $container_layout ) {
 				$container_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
 
 				if ( 'default' === $container_layout ) {
