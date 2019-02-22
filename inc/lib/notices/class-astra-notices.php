@@ -230,7 +230,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 *
 		 * @since 1.7.0
 		 * @param  array $id Notice id.
-		 * @return void
+		 * @return boolean
 		 */
 		public static function is_notice_expired( $id ) {
 			if ( self::is_expired( $id ) ) {
