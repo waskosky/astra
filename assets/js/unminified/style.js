@@ -365,7 +365,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
             };
         }
 	}
-
+	
 	/**
 	 * Navigation Keyboard Navigation.
 	 */
@@ -373,7 +373,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	container = document.querySelectorAll( '.navigation-accessibility' );
 
-	for ( count = 0; count <= container.length - 1; count++) {
+	for ( count = 0; count <= container.length - 1; count++ ) {
 		if ( container[count] ) {
 			navigation_accessibility( container[count] );
 		}
@@ -431,7 +431,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			links[i].addEventListener( 'click', toggleClose, true );
 		}	
 	}
-	
+
 	/**
      * Close the Toggle Menu on Click on hash (#) link.
      *
