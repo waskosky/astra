@@ -226,6 +226,20 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
+		 * Is notice expired? public function.
+		 *
+		 * @since 1.7.0
+		 * @param  array $id Notice id.
+		 * @return void
+		 */
+		public static function is_notice_expired( $id ) {
+			if ( self::is_expired( $id ) ) {
+				return true;
+			}
+			return false;
+		}
+
+		/**
 		 * Notice classes.
 		 *
 		 * @since 1.4.0
