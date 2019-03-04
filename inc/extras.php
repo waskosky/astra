@@ -1302,7 +1302,9 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
 		$post_meta_markup = astra_single_get_post_meta( '', '', false );
 
-		if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
+		if ( ! astra_get_option( 'blog-single-post-structure' ) ) {
+			$classes[] = 'ast-header-without-markup';
+		} elseif ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
 
