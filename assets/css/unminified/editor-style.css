@@ -1450,6 +1450,7 @@ ins {
 }
 
 .wp-block-gallery {
+  /* Removing margin from wp block gallery element */
   margin: 0;
 }
 
