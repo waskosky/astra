@@ -281,7 +281,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return int
 		 */
 		function shop_no_of_products() {
-			$products = astra_get_option( 'shop-no-of-products' );
+			$taxonomy_page_display = get_option( 'woocommerce_category_archive_display', false );
+			if ( is_product_taxonomy() && 'subcategories' === $taxonomy_page_display ) {
+				$products = wp_count_posts( 'product' )->publish;
+			} else {
+				$products = astra_get_option( 'shop-no-of-products' );
+			}
 			return $products;
 		}
 
