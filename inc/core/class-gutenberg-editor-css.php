@@ -124,7 +124,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
 				),
 				'.editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large)'               => array(
-					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
+					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
 				// Heading H1 - H6 font size.
 				'.edit-post-visual-editor h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1' => array(
