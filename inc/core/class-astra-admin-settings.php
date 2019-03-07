@@ -183,6 +183,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'repeat-notice-after'        => MONTH_IN_SECONDS,
 						'priority'                   => 10,
 						'display-with-other-notices' => false,
+						'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
 					)
 				);
 			}
@@ -237,6 +238,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						),
 						'priority'                   => 5,
 						'display-with-other-notices' => false,
+						'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
 					)
 				);
 			}
@@ -1096,7 +1098,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					'astra-widgets'                 =>
 					array(
-						'plugin-name'        => 'Asra Widgets',
+						'plugin-name'        => 'Astra Widgets',
 						'plugin-init'        => 'astra-widgets/astra-widgets.php',
 						'settings-link'      => admin_url( 'widgets.php' ),
 						'settings-link-text' => 'Settings',
