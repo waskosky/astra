@@ -1461,11 +1461,6 @@ ins {
   text-decoration: none;
 }
 
-.wp-block-gallery {
-  /* Removing margin from wp block gallery element */
-  margin: 0;
-}
-
 ul, ol {
   margin: 0 3em 1.5em 0;
 }
@@ -4221,6 +4216,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
+}
+
+.wp-block-gallery {
+  margin: 0;
 }
 
 .entry-content .has-2-columns .wp-block-column:first-child {
