@@ -2488,7 +2488,6 @@ body {
   display: -moz-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-weight: 600;
   height: 100%;
 }
 
