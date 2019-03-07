@@ -15,8 +15,13 @@
 .ast-desktop .astra-menu-animation-slide-up > .menu-item > .sub-menu .sub-menu {
   opacity: 0;
   visibility: hidden;
+  -webkit-transform: translateY(0.5em);
+  -ms-transform: translateY(0.5em);
   transform: translateY(0.5em);
+  -webkit-transition: visibility .2s ease, -webkit-transform .2s ease;
+  transition: visibility .2s ease, -webkit-transform .2s ease;
   transition: visibility .2s ease, transform .2s ease;
+  transition: visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
 }
 
 .ast-desktop .astra-menu-animation-slide-up > .menu-item.focus > .astra-full-megamenu-wrapper,
@@ -27,12 +32,22 @@
 .ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item:hover > .sub-menu {
   opacity: 1;
   visibility: visible;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
   transform: translateY(0);
+  -webkit-transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
   transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
 }
 
 .ast-desktop .astra-menu-animation-slide-up > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
 .ast-desktop .astra-menu-animation-slide-up > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -41,8 +56,13 @@
 .ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu .sub-menu {
   opacity: 0;
   visibility: hidden;
+  -webkit-transform: translateY(-0.5em);
+  -ms-transform: translateY(-0.5em);
   transform: translateY(-0.5em);
+  -webkit-transition: visibility .2s ease, -webkit-transform .2s ease;
+  transition: visibility .2s ease, -webkit-transform .2s ease;
   transition: visibility .2s ease, transform .2s ease;
+  transition: visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
 }
 
 .ast-desktop .astra-menu-animation-slide-down > .menu-item.focus > .astra-full-megamenu-wrapper,
@@ -53,12 +73,22 @@
 .ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item:hover > .sub-menu {
   opacity: 1;
   visibility: visible;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
   transform: translateY(0);
+  -webkit-transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, -webkit-transform .2s ease;
   transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease, -webkit-transform .2s ease;
 }
 
 .ast-desktop .astra-menu-animation-slide-down > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
 .ast-desktop .astra-menu-animation-slide-down > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -67,6 +97,7 @@
 .ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu .sub-menu {
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: opacity ease-in-out .3s;
   transition: opacity ease-in-out .3s;
 }
 
@@ -78,10 +109,16 @@
 .ast-desktop .astra-menu-animation-fade > .menu-item .menu-item:hover > .sub-menu {
   opacity: 1;
   visibility: visible;
+  -webkit-transition: opacity ease-in-out .3s;
   transition: opacity ease-in-out .3s;
 }
 
 .ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
 .ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
