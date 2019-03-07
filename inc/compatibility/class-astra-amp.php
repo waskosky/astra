@@ -1013,7 +1013,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return String HTML MArkup for the menu including the AML State.
 		 */
 		public function toggle_button_markup( $item_output, $item ) {
-			$item_output .= '<amp-state id="neveMenuItemExpanded' . esc_attr( $item->ID ) . '" class="i-amphtml-element i-amphtml-layout-container" hidden="" aria-hidden="true"><script type="application/json">false</script></amp-state>';
+			$item_output .= '<amp-state id="neveMenuItemExpanded' . esc_attr( $item->ID ) . '"><script type="application/json">false</script></amp-state>';
 
 			return $item_output;
 		}
