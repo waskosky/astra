@@ -1038,7 +1038,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// trim white space for faster page loading.
 			$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
 
-			return $dynamic_css;
+			return apply_filters( 'astra_theme_dynamic_css', $dynamic_css );
 		}
 
 		/**
