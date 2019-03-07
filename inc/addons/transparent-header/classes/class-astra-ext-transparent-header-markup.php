@@ -98,11 +98,11 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 					$enable_trans_header = false;
 				}
 
-				if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) {
+				if ( is_home() && '1' == astra_get_option( 'transparent-header-disable-index' ) ) {
 					$enable_trans_header = false;
 				}
 
-				if ( is_home() && '1' == astra_get_option( 'transparent-header-disable-index' ) ) {
+				if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) && '1' == astra_get_option( 'transparent-header-disable-latest-posts-index' ) ) {
 					$enable_trans_header = false;
 				}
 

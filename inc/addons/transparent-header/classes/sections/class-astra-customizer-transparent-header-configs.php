@@ -86,6 +86,20 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Disable Transparent Header on Your latest posts index Page
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-latest-posts-index]',
+					'default'  => astra_get_option( 'transparent-header-disable-latest-posts-index' ),
+					'type'     => 'control',
+					'section'  => 'section-transparent-header',
+					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'title'    => __( 'Disable on Your latest Posts Index Page?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
 				 * Option: Disable Transparent Header on Pages
 				 */
 				array(
