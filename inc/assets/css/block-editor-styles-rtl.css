@@ -170,6 +170,11 @@ html {
   text-decoration: none;
 }
 
+.edit-post-visual-editor .wp-block-gallery {
+  /* Removing margin from wp block gallery element */
+  margin: 0;
+}
+
 .edit-post-visual-editor ul, .edit-post-visual-editor ol {
   margin: 0 3em 1.5em 0;
 }
