@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '1.6.9' );
+define( 'ASTRA_THEME_VERSION', '1.7.0' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -117,6 +117,7 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gravity-forms.php'
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bne-flyout.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-ubermeu.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-divi-builder.php';
+require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-amp.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/transparent-header/class-astra-ext-transparent-header.php';
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.

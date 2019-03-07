@@ -54,7 +54,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$heading_h6_font_size = astra_get_option( 'font-size-h6' );
 
 			$container_layout = get_post_meta( get_the_id(), 'site-content-layout', true );
-			if ( 'default' === $container_layout ) {
+
+			if ( 'default' === $container_layout || '' === $container_layout ) {
 				$container_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
 
 				if ( 'default' === $container_layout ) {
@@ -122,6 +123,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 				'blockquote'               => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
+				),
+				'.editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large)' => array(
+					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
 				// Heading H1 - H6 font size.
 				'.edit-post-visual-editor h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1' => array(

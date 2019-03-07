@@ -14,7 +14,7 @@ $sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
 
 <div itemtype="https://schema.org/WPSideBar" itemscope="itemscope" id="secondary" <?php astra_secondary_class(); ?> role="complementary">
 
-	<div class="sidebar-main">
+	<div class="sidebar-main" <?php echo apply_filters( 'astra_sidebar_data_attrs', '', $sidebar ); ?>>
 
 		<?php astra_sidebars_before(); ?>
 
