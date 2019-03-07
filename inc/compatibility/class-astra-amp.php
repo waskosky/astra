@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_filter( 'astra_nav_toggle_data_attrs', array( $this, 'add_nav_toggle_attrs' ) );
 			add_filter( 'astra_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
 			add_filter( 'astra_search_field_toggle_data_attrs', array( $this, 'add_search_field_toggle_attrs' ) );
-			add_action( 'wp_head', array( $this, 'render_amp_states' ) );
+			add_action( 'wp_footer', array( $this, 'render_amp_states' ) );
 			add_filter( 'astra_attr_ast-main-header-bar-alignment', array( $this, 'nav_menu_wrapper' ) );
 			add_filter( 'astra_attr_ast-menu-toggle', array( $this, 'menu_toggle_button' ), 20, 3 );
 			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
