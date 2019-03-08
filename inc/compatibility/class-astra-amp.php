@@ -1013,7 +1013,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return String HTML MArkup for the menu including the AML State.
 		 */
 		public function toggle_button_markup( $item_output, $item ) {
-			$item_output .= '<amp-state id="neveMenuItemExpanded' . esc_attr( $item->ID ) . '"><script type="application/json">false</script></amp-state>';
+			$item_output .= '<amp-state id="astraNavMenuItemExpanded' . esc_attr( $item->ID ) . '"><script type="application/json">false</script></amp-state>';
 
 			return $item_output;
 		}
@@ -1029,8 +1029,8 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return Array updated HTML attributes.
 		 */
 		public function menu_toggle_button( $attr, $context, $args ) {
-			$attr['[class]'] = '( neveMenuItemExpanded' . $args->ID . ' ? \' ast-menu-toggle dropdown-open\' : \'ast-menu-toggle\')';
-			$attr['on']      = 'tap:AMP.setState( { neveMenuItemExpanded' . $args->ID . ': ! neveMenuItemExpanded' . $args->ID . ' } )';
+			$attr['[class]'] = '( astraNavMenuItemExpanded' . $args->ID . ' ? \' ast-menu-toggle dropdown-open\' : \'ast-menu-toggle\')';
+			$attr['on']      = 'tap:AMP.setState( { astraNavMenuItemExpanded' . $args->ID . ': ! astraNavMenuItemExpanded' . $args->ID . ' } )';
 
 			return $attr;
 		}
