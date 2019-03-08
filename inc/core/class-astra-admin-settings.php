@@ -347,9 +347,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
 
+			wp_enqueue_script( 'plugin-install' );
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
-			wp_enqueue_script( 'plugin-install' );
 		}
 
 		/**
