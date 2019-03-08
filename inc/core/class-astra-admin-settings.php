@@ -208,38 +208,40 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$ast_sites_notice_btn['class'] = ' button button-primary button-hero astra-notice-close';
 				}
 
+				$astra_sites_notice_args = array(
+					'id'                         => 'astra-sites-on-active',
+					'type'                       => '',
+					'message'                    => sprintf(
+						'<div class="notice-image">
+							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+							<div class="notice-content">
+								<h2 class="notice-heading">
+									%2$s
+								</h2>
+								<p>%3$s</p>
+								<div class="astra-review-notice-container">
+									<a class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </a>
+								</div>
+							</div>',
+						$image_path,
+						__( 'Thank you for installing Astra!', 'astra' ),
+						__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/ready-websites/?utm_source=install-notice">starter site templates</a>? Install the Astra Starter Sites plugin to get started.', 'astra' ),
+						esc_attr( $ast_sites_notice_btn['class'] ),
+						'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
+						'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
+						'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
+						'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
+						'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
+						'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
+						esc_html( $ast_sites_notice_btn['button_text'] )
+					),
+					'priority'                   => 5,
+					'display-with-other-notices' => false,
+					'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
+				);
+
 				Astra_Notices::add_notice(
-					array(
-						'id'                         => 'astra-sites-on-active',
-						'type'                       => '',
-						'message'                    => sprintf(
-							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
-								<div class="notice-content">
-									<h2 class="notice-heading">
-										%2$s
-									</h2>
-									<p>%3$s</p>
-									<div class="astra-review-notice-container">
-										<a class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </a>
-									</div>
-								</div>',
-							$image_path,
-							__( 'Thank you for installing Astra!', 'astra' ),
-							__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/ready-websites/?utm_source=install-notice">starter site templates</a>? Install the Astra Starter Sites plugin to get started.', 'astra' ),
-							esc_attr( $ast_sites_notice_btn['class'] ),
-							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
-							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
-							'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
-							'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
-							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
-							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
-							esc_html( $ast_sites_notice_btn['button_text'] )
-						),
-						'priority'                   => 5,
-						'display-with-other-notices' => false,
-						'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
-					)
+					$astra_sites_notice_args
 				);
 			}
 		}
