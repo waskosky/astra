@@ -449,7 +449,7 @@ if ( ! function_exists( 'astra_get_custom_widget' ) ) {
 			$widget_id = 'footer-widget-2';
 		}
 
-		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area"'. apply_filters( "astra_sidebar_data_attrs", "", $widget_id ) . '>';
+		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area"' . apply_filters( 'astra_sidebar_data_attrs', '', $widget_id ) . '>';
 				astra_get_sidebar( $widget_id );
 		echo '</div>';
 
