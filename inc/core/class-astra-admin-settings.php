@@ -243,11 +243,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				Astra_Notices::add_notice(
 					$astra_sites_notice_args
 				);
-
-				// Enqueue Plugin Install script only if the notice with plugin installation is not expired.
-				if ( ! Astra_Notices::is_notice_expired( $astra_sites_notice_args ) ) {
-					wp_enqueue_script( 'plugin-install' );
-				}
 			}
 		}
 
@@ -354,6 +349,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
 
+			wp_enqueue_script( 'plugin-install' );
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
 		}
