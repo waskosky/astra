@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_filter( 'astra_nav_toggle_data_attrs', array( $this, 'add_nav_toggle_attrs' ) );
 			add_filter( 'astra_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
 			add_filter( 'astra_search_field_toggle_data_attrs', array( $this, 'add_search_field_toggle_attrs' ) );
-			add_action( 'wp_head', array( $this, 'render_amp_states' ) );
+			add_action( 'wp_footer', array( $this, 'render_amp_states' ) );
 			add_filter( 'astra_attr_ast-main-header-bar-alignment', array( $this, 'nav_menu_wrapper' ) );
 			add_filter( 'astra_attr_ast-menu-toggle', array( $this, 'menu_toggle_button' ), 20, 3 );
 			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
@@ -1013,7 +1013,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return String HTML MArkup for the menu including the AML State.
 		 */
 		public function toggle_button_markup( $item_output, $item ) {
-			$item_output .= '<amp-state id="neveMenuItemExpanded' . esc_attr( $item->ID ) . '" class="i-amphtml-element i-amphtml-layout-container" hidden="" aria-hidden="true"><script type="application/json">false</script></amp-state>';
+			$item_output .= '<amp-state id="astraNavMenuItemExpanded' . esc_attr( $item->ID ) . '"><script type="application/json">false</script></amp-state>';
 
 			return $item_output;
 		}
@@ -1029,8 +1029,8 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return Array updated HTML attributes.
 		 */
 		public function menu_toggle_button( $attr, $context, $args ) {
-			$attr['[class]'] = '( neveMenuItemExpanded' . $args->ID . ' ? \' ast-menu-toggle dropdown-open\' : \'ast-menu-toggle\')';
-			$attr['on']      = 'tap:AMP.setState( { neveMenuItemExpanded' . $args->ID . ': ! neveMenuItemExpanded' . $args->ID . ' } )';
+			$attr['[class]'] = '( astraNavMenuItemExpanded' . $args->ID . ' ? \' ast-menu-toggle dropdown-open\' : \'ast-menu-toggle\')';
+			$attr['on']      = 'tap:AMP.setState( { astraNavMenuItemExpanded' . $args->ID . ': ! astraNavMenuItemExpanded' . $args->ID . ' } )';
 
 			return $attr;
 		}
