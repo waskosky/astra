@@ -241,11 +241,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
 					)
 				);
-
-				// Enqueue Plugin Install script only if the notice with plugin installation is not expired.
-				if ( ! Astra_Notices::is_notice_expired( 'astra-sites-on-active' ) ) {
-					wp_enqueue_script( 'plugin-install' );
-				}
 			}
 		}
 
@@ -354,6 +349,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
+			wp_enqueue_script( 'plugin-install' );
 		}
 
 		/**
