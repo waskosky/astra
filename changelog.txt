@@ -1,6 +1,7 @@
 v1.7.1
 - Fix: AMP - Fix usage of amp-state component to be inside <body> tag. (Props - https://github.com/westonruter)
 - Fix: Possible fatal error for some users if Ultimate Addons for Gutenberg is also activated.
+- Fix: Extra `>` being displayed in the footer widget area.
 - Fix: Margin from the title meta was removed if only the title is enabled from customizer.
 
 v1.7.0
