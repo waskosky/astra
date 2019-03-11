@@ -504,7 +504,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .ast-has-mobile-header-logo .custom-logo, .ast-amp .ast-has-mobile-header-logo .astra-logo-svg' => array(
 					'display' => 'none',
 				),
-				'.ast-amp .ast-has-mobile-header-logo .ast-mobile-header-logo' => array(
+				'.ast-amp .ast-has-mobile-header-logo .custom-mobile-logo-link' => array(
 					'display' => 'inline-block',
 				),
 				'.ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo, .ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg' => array(

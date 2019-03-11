@@ -3526,7 +3526,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 /* Hide Mobile logo. */
-.ast-mobile-header-logo {
+.custom-mobile-logo-link {
   display: none;
 }
 
@@ -3702,7 +3702,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: none;
 }
 
-.ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
+.ast-header-break-point .ast-has-mobile-header-logo .custom-mobile-logo-link {
   display: inline-block;
 }
 
