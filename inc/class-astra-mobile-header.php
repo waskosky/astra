@@ -72,30 +72,37 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 				'below_header_menu' === $args->theme_location
 				) {
 					if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
-						$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
-						$item_output .= '<button ' . astra_attr(
-							'ast-menu-toggle',
-							array(
-								'role'          => 'button',
-								'aria-expanded' => 'false',
-							),
-							$item
-						) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
+						$item_output = $this->menu_arrow_button_markup( $item_output, $item );
 					}
 				}
 			} else {
 				if ( isset( $item->post_parent ) && 0 === $item->post_parent ) {
-					$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
-					$item_output .= '<button ' . astra_attr(
-						'ast-menu-toggle',
-						array(
-							'role'          => 'button',
-							'aria-expanded' => 'false',
-						),
-						$item
-					) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
+					$item_output = $this->menu_arrow_button_markup( $item_output, $item );
 				}
 			}
+
+			return $item_output;
+		}
+
+		/**
+		 * Get Menu Arrow Button Mark up
+		 *
+		 * @param string   $item_output The menu item's starting HTML output.
+		 * @param WP_Post  $item        Menu item data object.
+		 *
+		 * @since 1.7.2
+		 * @return string Menu item arrow button markup.
+		 */
+		function menu_arrow_button_markup( $item_output, $item ) {
+			$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
+			$item_output .= '<button ' . astra_attr(
+				'ast-menu-toggle',
+				array(
+					'role'          => 'button',
+					'aria-expanded' => 'false',
+				),
+				$item
+			) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
 
 			return $item_output;
 		}
