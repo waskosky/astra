@@ -87,8 +87,8 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		/**
 		 * Get Menu Arrow Button Mark up
 		 *
-		 * @param string   $item_output The menu item's starting HTML output.
-		 * @param WP_Post  $item        Menu item data object.
+		 * @param string  $item_output The menu item's starting HTML output.
+		 * @param WP_Post $item        Menu item data object.
 		 *
 		 * @since 1.7.2
 		 * @return string Menu item arrow button markup.
