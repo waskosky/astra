@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			add_action( 'body_class', array( $this, 'add_body_class' ) );
 			add_filter( 'astra_main_menu_toggle_classes', array( $this, 'menu_toggle_classes' ) );
 			add_filter( 'walker_nav_menu_start_el', array( $this, 'toggle_button' ), 20, 4 );
-			add_filter( 'astra_walker_nav_menu_start_el', array( $this, 'toggle_button' ), 25, 4 );
+			add_filter( 'astra_walker_nav_menu_start_el', array( $this, 'toggle_button' ), 10, 4 );
 		}
 
 		/**
