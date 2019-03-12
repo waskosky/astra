@@ -245,7 +245,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 
 				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
-				add_action( "astra_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
+				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
 			}
 		}
 
