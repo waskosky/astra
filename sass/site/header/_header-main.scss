@@ -273,7 +273,7 @@ li.ast-masthead-custom-menu-items {
 }
 
 /* Hide Mobile logo. */
-.ast-mobile-header-logo{
+.custom-mobile-logo-link{
 	display: none;
 }
 
@@ -461,18 +461,18 @@ li.ast-masthead-custom-menu-items {
 	}
 
 	.ast-has-mobile-header-logo {
-		.custom-logo,
+		.custom-logo-link,
 		.astra-logo-svg {
 			display: none;
 		}
-		.ast-mobile-header-logo{
+		.custom-mobile-logo-link{
 			display: inline-block;
 		}
 	}
 	
 	&.ast-mobile-inherit-site-logo{
 		.ast-has-mobile-header-logo{
-			.custom-logo,
+			.custom-logo-link,
 			.astra-logo-svg{
 				display: block;
 			}

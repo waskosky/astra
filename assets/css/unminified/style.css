@@ -2863,10 +2863,6 @@ body {
   flex: 0 0 100%;
 }
 
-.site-logo-img .custom-logo-link .custom-logo.amp-wp-enforced-sizes {
-  display: inline-block;
-}
-
 /**
  *  3 - Header Layout 3
 */
@@ -3529,7 +3525,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 /* Hide Mobile logo. */
-.ast-mobile-header-logo {
+.custom-mobile-logo-link {
   display: none;
 }
 
@@ -3700,16 +3696,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   top: 0;
 }
 
-.ast-header-break-point .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo-link,
 .ast-header-break-point .ast-has-mobile-header-logo .astra-logo-svg {
   display: none;
 }
 
-.ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
+.ast-header-break-point .ast-has-mobile-header-logo .custom-mobile-logo-link {
   display: inline-block;
 }
 
-.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo-link,
 .ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg {
   display: block;
 }
