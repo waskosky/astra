@@ -75,28 +75,30 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 * Option: Disable Transparent Header on Archive Pages
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-index]',
-					'default'  => astra_get_option( 'transparent-header-disable-index' ),
-					'type'     => 'control',
-					'section'  => 'section-transparent-header',
-					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'    => __( 'Disable on Blog Index page?', 'astra' ),
-					'priority' => 25,
-					'control'  => 'checkbox',
+					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-index]',
+					'default'     => astra_get_option( 'transparent-header-disable-index' ),
+					'type'        => 'control',
+					'section'     => 'section-transparent-header',
+					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'title'       => __( 'Disable on Blog page?', 'astra' ),
+					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'astra' ),
+					'priority'    => 25,
+					'control'     => 'checkbox',
 				),
 
 				/**
 				 * Option: Disable Transparent Header on Your latest posts index Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-latest-posts-index]',
-					'default'  => astra_get_option( 'transparent-header-disable-latest-posts-index' ),
-					'type'     => 'control',
-					'section'  => 'section-transparent-header',
-					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'    => __( 'Disable on Your latest Posts Index Page?', 'astra' ),
-					'priority' => 25,
-					'control'  => 'checkbox',
+					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-latest-posts-index]',
+					'default'     => astra_get_option( 'transparent-header-disable-latest-posts-index' ),
+					'type'        => 'control',
+					'section'     => 'section-transparent-header',
+					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'title'       => __( 'Disable on Latest Posts Page?', 'astra' ),
+					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
+					'priority'    => 25,
+					'control'     => 'checkbox',
 				),
 
 				/**
