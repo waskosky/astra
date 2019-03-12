@@ -230,7 +230,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			<?php
 
 			do_action( "astra_notice_after_markup_{$notice['id']}" );
-		
+
 		}
 
 		/**
