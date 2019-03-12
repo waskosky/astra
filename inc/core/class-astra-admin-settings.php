@@ -243,13 +243,29 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				Astra_Notices::add_notice(
 					$astra_sites_notice_args
 				);
+
+				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
+				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
 			}
 		}
 
 		/**
-		 * Render button for Astra Site notices
+		 * Enqueue plugin install JS in Notices
+		 *
+		 * @since 1.7.2
+		 * @return void
 		 */
-		static public function astra_sites_notice_button() {
+		public static function enqueue_plugin_install_js() {
+			wp_enqueue_script( 'plugin-install' );
+		}
+
+		/**
+		 * Render button for Astra Site notices
+		 *
+		 * @since 1.6.5
+		 * @return array $ast_sites_notice_btn Rendered button
+		 */
+		public static function astra_sites_notice_button() {
 			$ast_sites_notice_btn = array();
 			// Astra Sites - Installed but Inactive.
 			// Astra Premium Sites - Inactive.
@@ -349,7 +365,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
 
-			wp_enqueue_script( 'plugin-install' );
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
 		}
