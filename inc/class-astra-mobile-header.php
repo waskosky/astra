@@ -49,6 +49,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			add_action( 'body_class', array( $this, 'add_body_class' ) );
 			add_filter( 'astra_main_menu_toggle_classes', array( $this, 'menu_toggle_classes' ) );
 			add_filter( 'walker_nav_menu_start_el', array( $this, 'toggle_button' ), 20, 4 );
+			add_filter( 'astra_walker_nav_menu_start_el', array( $this, 'toggle_button' ), 10, 4 );
 		}
 
 		/**
@@ -64,23 +65,45 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @return String Menu item's starting markup.
 		 */
 		public function toggle_button( $item_output, $item, $depth, $args ) {
-			// Add toggle button if manu is from Astra.
-			if ( 'primary' === $args->theme_location ||
-			'above_header_menu' === $args->theme_location ||
-			'below_header_menu' === $args->theme_location
-			) {
-				if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
-					$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
-					$item_output .= '<button ' . astra_attr(
-						'ast-menu-toggle',
-						array(
-							'role'          => 'button',
-							'aria-expanded' => 'false',
-						),
-						$item
-					) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
+			// Add toggle button if menu is from Astra.
+			if ( true === is_object( $args ) ) {
+				if ( 'primary' === $args->theme_location ||
+				'above_header_menu' === $args->theme_location ||
+				'below_header_menu' === $args->theme_location
+				) {
+					if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+						$item_output = $this->menu_arrow_button_markup( $item_output, $item );
+					}
+				}
+			} else {
+				if ( isset( $item->post_parent ) && 0 === $item->post_parent ) {
+					$item_output = $this->menu_arrow_button_markup( $item_output, $item );
 				}
 			}
+
+			return $item_output;
+		}
+
+		/**
+		 * Get Menu Arrow Button Mark up
+		 *
+		 * @param string  $item_output The menu item's starting HTML output.
+		 * @param WP_Post $item        Menu item data object.
+		 *
+		 * @since 1.7.2
+		 * @return string Menu item arrow button markup.
+		 */
+		function menu_arrow_button_markup( $item_output, $item ) {
+			$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
+			$item_output .= '<button ' . astra_attr(
+				'ast-menu-toggle',
+				array(
+					'role'          => 'button',
+					'aria-expanded' => 'false',
+				),
+				$item
+			) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
+
 			return $item_output;
 		}
 
