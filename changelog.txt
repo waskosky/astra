@@ -1,3 +1,11 @@
+v1.7.2
+- New: Option to enable/disable transparent header on blog home.
+- Improvement: Removed default font weight form main navigation class
+- Fix: AMP - Hide desktop logo on the mobile logo is being displayed.
+- Fix: AMP - Validation errors appearing in the slide search.
+- Fix: Mobile menu's submenu not working when no navigation menu is assigned to the primary menu.
+- Fix: Upload theme button not working.
+
 v1.7.1
 - Fix: AMP - Fix usage of amp-state component to be inside <body> tag. (Props - https://github.com/westonruter)
 - Fix: Possible fatal error for some users if Ultimate Addons for Gutenberg is also activated.
