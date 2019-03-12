@@ -48,6 +48,24 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 			$output  = apply_filters( 'astra_caret_wrap_filter', $output, $args['sort_column'] );
 
 		}
+
+		/**
+		 * Outputs the beginning of the current element in the tree.
+		 *
+		 * @see Walker::start_el()
+		 * @since 1.7.2
+		 *
+		 * @param string  $output       Used to append additional content. Passed by reference.
+		 * @param WP_Post $page         Page data object.
+		 * @param int     $depth        Optional. Depth of page. Used for padding. Default 0.
+		 * @param array   $args         Optional. Array of arguments. Default empty array.
+		 * @param int     $current_page Optional. Page ID. Default 0.
+		 */
+		public function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
+			parent::start_el( $output, $page, $depth, $args, $current_page );
+			$output = apply_filters( 'astra_walker_nav_menu_start_el', $output, $page, $depth, $args );
+			
+		}
 	}
 
 }
