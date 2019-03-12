@@ -1,4 +1,3 @@
-
 v1.7.2
 - New: Option to enable/disable transparent header on blog home.
 - Improvement: Removed default font weight form main navigation class
