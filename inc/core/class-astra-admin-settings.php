@@ -251,15 +251,21 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		/**
 		 * Enqueue plugin install JS in Notices
+		 * 
+		 * @since 1.7.2
+		 * @return void
 		 */
-		function enqueue_plugin_install_js() {
+		public static function enqueue_plugin_install_js() {
 			wp_enqueue_script( 'plugin-install' );
 		}
 
 		/**
 		 * Render button for Astra Site notices
+		 *
+		 * @since 1.6.5
+		 * @return array $ast_sites_notice_btn Rendered button
 		 */
-		static public function astra_sites_notice_button() {
+		public static function astra_sites_notice_button() {
 			$ast_sites_notice_btn = array();
 			// Astra Sites - Installed but Inactive.
 			// Astra Premium Sites - Inactive.
