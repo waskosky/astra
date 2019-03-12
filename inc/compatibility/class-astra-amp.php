@@ -501,13 +501,13 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-header-menu ul ul'         => array(
 					'top' => '0',
 				),
-				'.ast-amp .ast-has-mobile-header-logo .custom-logo, .ast-amp .ast-has-mobile-header-logo .astra-logo-svg' => array(
+				'.ast-amp .ast-has-mobile-header-logo .custom-logo-link, .ast-amp .ast-has-mobile-header-logo .astra-logo-svg' => array(
 					'display' => 'none',
 				),
 				'.ast-amp .ast-has-mobile-header-logo .custom-mobile-logo-link' => array(
 					'display' => 'inline-block',
 				),
-				'.ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo, .ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg' => array(
+				'.ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo-link, .ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg' => array(
 					'display' => 'block',
 				),
 				'.ast-theme.ast-header-custom-item-outside .ast-mobile-menu-buttons' => array(

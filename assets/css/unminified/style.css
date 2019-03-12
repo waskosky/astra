@@ -3697,7 +3697,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   top: 0;
 }
 
-.ast-header-break-point .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo-link,
 .ast-header-break-point .ast-has-mobile-header-logo .astra-logo-svg {
   display: none;
 }
@@ -3706,7 +3706,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: inline-block;
 }
 
-.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo,
+.ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo-link,
 .ast-header-break-point.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg {
   display: block;
 }
