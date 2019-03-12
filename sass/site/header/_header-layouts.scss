@@ -89,6 +89,7 @@
 	}
 }
 
+
 /**
  *  3 - Header Layout 3
 */
@@ -128,10 +129,10 @@
 		left: 1em;
 		right: 0;
 	}
-	.main-header-bar .ast-search-menu-icon form{
+	.main-header-bar .ast-search-menu-icon .search-form{
 		padding: 0 0 0 3em;
 	}
-	.main-header-bar .ast-search-menu-icon.slide-search form {
+	.main-header-bar .ast-search-menu-icon.slide-search .search-form {
 	    left: -1em;
 	    right: auto;
 	}
@@ -204,7 +205,7 @@
 	    margin-left: 1em;
 	}
 	.header-main-layout-3 {
-		.main-header-bar .ast-search-menu-icon.slide-search form {
+		.main-header-bar .ast-search-menu-icon.slide-search .search-form {
 		    right: auto;
 		    left: 0;
 		}
