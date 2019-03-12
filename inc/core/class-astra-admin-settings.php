@@ -251,7 +251,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		/**
 		 * Enqueue plugin install JS in Notices
-		 * 
+		 *
 		 * @since 1.7.2
 		 * @return void
 		 */
