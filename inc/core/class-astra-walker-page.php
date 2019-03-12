@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 		public function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
 			parent::start_el( $output, $page, $depth, $args, $current_page );
 			$output = apply_filters( 'astra_walker_nav_menu_start_el', $output, $page, $depth, $args );
-			
+
 		}
 	}
 

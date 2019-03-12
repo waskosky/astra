@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		public function toggle_button( $item_output, $item, $depth, $args ) {
 			// Add toggle button if menu is from Astra.
-			if( true === is_object( $args ) ) {
+			if ( true === is_object( $args ) ) {
 				if ( 'primary' === $args->theme_location ||
 				'above_header_menu' === $args->theme_location ||
 				'below_header_menu' === $args->theme_location
