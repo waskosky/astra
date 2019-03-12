@@ -243,7 +243,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				Astra_Notices::add_notice(
 					$astra_sites_notice_args
 				);
+
+				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
+				add_action( "astra_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
 			}
+		}
+
+		/**
+		 * Enqueue plugin install JS in Notices
+		 */
+		function enqueue_plugin_install_js() {
+			wp_enqueue_script( 'plugin-install' );
 		}
 
 		/**
@@ -349,7 +359,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
 
-			wp_enqueue_script( 'plugin-install' );
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
 		}
