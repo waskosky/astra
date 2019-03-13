@@ -126,6 +126,19 @@ html {
     }
 }
 
+.editor-block-list__layout {
+    .editor-block-list__block[data-align=full]> {
+        max-width: none;
+
+        .editor-block-list__block-edit {
+            @media (min-width: 600px) {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
 .editor-block-list__block[data-align=wide] {
     max-width: 1400px;
 }
