@@ -3960,27 +3960,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0;
 }
 
-.entry-content .has-2-columns .wp-block-column:first-child {
-  padding-right: 10px;
-}
-
-.entry-content .has-2-columns .wp-block-column:last-child {
-  padding-left: 10px;
-}
-
-@media (max-width: 782px) {
-  .entry-content .wp-block-columns .wp-block-column {
-    flex-basis: 100%;
-    margin-left: 0;
-  }
-  .entry-content .has-2-columns .wp-block-column:first-child {
-    padding-right: 0;
-  }
-  .entry-content .has-2-columns .wp-block-column:last-child {
-    padding-left: 0;
-  }
-}
-
 html {
   overflow-x: hidden;
 }
