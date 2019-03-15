@@ -840,6 +840,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							),
 						),
 					),
+					'header-layouts'       => array(
+						'title'     => __( 'Header Layouts', 'astra' ),
+						'class'     => 'ast-addon',
+						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'links'     => array(
+							array(
+								'link_class'   => 'ast-learn-more',
+								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'astra' ),
+								'target_blank' => true,
+							),
+						),
+					),
 					'nav-menu'              => array(
 						'title'     => __( 'Nav Menu', 'astra' ),
 						'class'     => 'ast-addon',
