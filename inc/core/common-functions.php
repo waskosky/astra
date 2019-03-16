@@ -468,24 +468,38 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 	 */
 	function astra_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
 
-		$post_id = ( '' != $post_id ) ? $post_id : astra_get_post_id();
+        $post_id = ( '' != $post_id ) ? $post_id : astra_get_post_id();
 
-		$value = astra_get_option( $option_id, $default );
+        $value = astra_get_option( $option_id, $default );
 
-		// Get value from option 'post-meta'.
-		if ( is_singular() || ( is_home() && ! is_front_page() ) ) {
+        // Get value from option 'post-meta'.
+        if ( is_singular() || ( is_home() && ! is_front_page() ) ) {
 
-			$value = get_post_meta( $post_id, $option_id, true );
+            $value = get_post_meta( $post_id, $option_id );
 
-			if ( empty( $value ) || 'default' == $value ) {
+            if ( empty( $value ) || 'default' == $value ) {
 
-				if ( true == $only_meta ) {
-					return false;
-				}
+                if ( true == $only_meta ) {
+                    return false;
+                }
 
-				$value = astra_get_option( $option_id, $default );
-			}
-		}
+                $value = astra_get_option( $option_id, $default );
+            }
+        } else {
+
+            $value = get_post_meta( $post_id, $option_id );
+            print_r($value);
+            // $value = $value[0];
+
+            if ( empty( $value ) || 'default' == $value ) {
+
+                if ( true == $only_meta ) {
+                    return false;
+                }
+
+                $value = astra_get_option( $option_id, $default );
+            }
+        }
 
 		/**
 		 * Dynamic filter astra_get_option_meta_$option.
