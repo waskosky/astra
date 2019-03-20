@@ -485,20 +485,6 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 
                 $value = astra_get_option( $option_id, $default );
             }
-        } else {
-
-            $value = get_post_meta( $post_id, $option_id );
-            print_r($value);
-            // $value = $value[0];
-
-            if ( empty( $value ) || 'default' == $value ) {
-
-                if ( true == $only_meta ) {
-                    return false;
-                }
-
-                $value = astra_get_option( $option_id, $default );
-            }
         }
 
 		/**
