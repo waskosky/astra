@@ -581,6 +581,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
 
+			$google_fonts = Astra_Font_Families::get_google_fonts();
+			$string       = $this->generate_font_dropdown();
+
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
 				'astra',
@@ -589,7 +592,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					array(
 						'customizer' => array(
 							'settings' => array(
-								'sidebars'  => array(
+								'sidebars'     => array(
 									'single'  => array(
 										'single-post-sidebar-layout',
 										'single-page-sidebar-layout',
@@ -598,7 +601,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 										'archive-post-sidebar-layout',
 									),
 								),
-								'container' => array(
+								'container'    => array(
 									'single'  => array(
 										'single-post-content-layout',
 										'single-page-content-layout',
@@ -607,6 +610,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 										'archive-post-content-layout',
 									),
 								),
+								'google_fonts' => $string,
 							),
 						),
 						'theme'      => array(
@@ -616,7 +620,36 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					)
 				)
 			);
+		}
 
+		/**
+		 * Generates HTML for font dropdown.
+		 *
+		 * @return string
+		 */
+		function generate_font_dropdown() {
+
+			$string = '';
+
+			$string .= '<option value="inherit">' . __( 'Inherit', 'astra' ) . '</option>';
+			$string .= '<optgroup label="Other System Fonts">';
+
+			$system_fonts = Astra_Font_Families::get_system_fonts();
+			$google_fonts = Astra_Font_Families::get_google_fonts();
+
+			foreach ( $system_fonts as $name => $variants ) {
+				$string .= '<option value="' . esc_attr( $name ) . '" >' . esc_attr( $name ) . '</option>';
+			}
+
+			$string .= '<optgroup label="Google">';
+
+			foreach ( $google_fonts as $name => $single_font ) {
+				$variants = astra_get_prop( $single_font, '0' );
+				$category = astra_get_prop( $single_font, '1' );
+				$string  .= '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . '>' . esc_attr( $name ) . '</option>';
+			}
+
+			return $string;
 		}
 
 		/**

@@ -196,23 +196,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->link();
 		$this->render_connect_attribute();
 		echo '>';
-		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
-		echo '<optgroup label="Other System Fonts">';
-
-		foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
-			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
-		}
-
-		// Add Custom Font List Into Customizer.
-		do_action( 'astra_customizer_font_list', $this->value() );
-
-		echo '<optgroup label="Google">';
-
-		foreach ( Astra_Font_Families::get_google_fonts() as $name => $single_font ) {
-			$variants = astra_get_prop( $single_font, '0' );
-			$category = astra_get_prop( $single_font, '1' );
-			echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
-		}
 
 		echo '</select>';
 	}
