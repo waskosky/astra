@@ -52,20 +52,21 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 		function theme_defaults( $defaults ) {
 
 			// Header - Transparent.
-			$defaults['transparent-header-logo']            = '';
-			$defaults['transparent-header-retina-logo']     = '';
-			$defaults['different-transparent-logo']         = 0;
-			$defaults['different-transparent-retina-logo']  = 0;
-			$defaults['transparent-header-logo-width']      = array(
+			$defaults['transparent-header-logo']                       = '';
+			$defaults['transparent-header-retina-logo']                = '';
+			$defaults['different-transparent-logo']                    = 0;
+			$defaults['different-transparent-retina-logo']             = 0;
+			$defaults['transparent-header-logo-width']                 = array(
 				'desktop' => '',
 				'tablet'  => '',
 				'mobile'  => '',
 			);
-			$defaults['transparent-header-enable']          = 0;
-			$defaults['transparent-header-disable-archive'] = 1;
-			$defaults['transparent-header-on-devices']      = 'both';
-			$defaults['transparent-header-main-sep']        = 0;
-			$defaults['transparent-header-main-sep-color']  = '';
+			$defaults['transparent-header-enable']                     = 0;
+			$defaults['transparent-header-disable-archive']            = 1;
+			$defaults['transparent-header-disable-latest-posts-index'] = 1;
+			$defaults['transparent-header-on-devices']                 = 'both';
+			$defaults['transparent-header-main-sep']                   = 0;
+			$defaults['transparent-header-main-sep-color']             = '';
 
 			/**
 			* Transparent Header
