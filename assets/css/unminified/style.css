@@ -1848,12 +1848,6 @@ blockquote {
   position: relative;
 }
 
-.wp-block-pullquote {
-  border-top: 4px solid #555d66;
-  border-bottom: 4px solid #555d66;
-  color: #40464d;
-}
-
 .ast-button,
 .button,
 input[type="button"],
@@ -4014,6 +4008,12 @@ body .entry-content .wp-block-latest-posts li {
 
 .entry-content .blocks-gallery-item img {
   margin-bottom: auto;
+}
+
+.wp-block-pullquote {
+  border-top: 4px solid #555d66;
+  border-bottom: 4px solid #555d66;
+  color: #40464d;
 }
 
 /*----------  Secondary  ----------*/

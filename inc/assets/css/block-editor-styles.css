@@ -281,12 +281,6 @@ html {
   position: relative;
 }
 
-.edit-post-visual-editor .wp-block-pullquote {
-  border-top: 4px solid #555d66;
-  border-bottom: 4px solid #555d66;
-  color: #40464d;
-}
-
 .edit-post-visual-editor .ast-button,
 .edit-post-visual-editor .button,
 .edit-post-visual-editor input[type="button"],
