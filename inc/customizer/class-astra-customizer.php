@@ -164,6 +164,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'transport'            => null,
 					'default'              => null,
 					'selector'             => null,
+					'ast_fields'           => array()
 				)
 			);
 		}
@@ -306,6 +307,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-content-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-header-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-single-typo-configs.php';
+
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-new-layout-configs.php';
 
 		}
 
@@ -504,6 +507,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				array(
 					'callback'         => 'Astra_Control_Customizer_Link',
 					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_links' ),
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
+				'ast-settings-toggle',
+				array(
+					'callback'          => 'Astra_Control_Settings_Toggle',
+					'sanitize_callback' => '',
 				)
 			);
 
