@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'transport'            => null,
 					'default'              => null,
 					'selector'             => null,
-					'ast_fields'           => array()
+					'ast_fields'           => array(),
 				)
 			);
 		}

@@ -25,13 +25,13 @@ class Astra_Control_Settings_Toggle extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-    public $type = 'ast-settings-toggle';
-    
-    public $text = '';
+	public $type = 'ast-settings-toggle';
 
-    public $name = '';
+	public $text = '';
 
-    public $ast_fields = '';
+	public $name = '';
+
+	public $ast_fields = '';
 
 	/**
 	 * The control type.
@@ -48,10 +48,10 @@ class Astra_Control_Settings_Toggle extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-        $assets_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/settings-toggle/';
-        wp_enqueue_style( 'astra-settings-toggle', $assets_uri . 'settings-toggle.css', null, ASTRA_THEME_VERSION );
-        
-        wp_enqueue_script( 'astra-settings-toggle-script', $assets_uri . 'settings-toggle.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+		$assets_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/settings-toggle/';
+		wp_enqueue_style( 'astra-settings-toggle', $assets_uri . 'settings-toggle.css', null, ASTRA_THEME_VERSION );
+
+		wp_enqueue_script( 'astra-settings-toggle-script', $assets_uri . 'settings-toggle.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 
 	}
 
@@ -63,11 +63,11 @@ class Astra_Control_Settings_Toggle extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 
-		$this->json['label']       = esc_html( $this->label );
-		$this->json['text']        = $this->text;
-        $this->json['help']        = $this->help;
-        $this->json['name']        = $this->name;
-        $this->json['ast_fields']  = $this->ast_fields; 
+		$this->json['label']      = esc_html( $this->label );
+		$this->json['text']       = $this->text;
+		$this->json['help']       = $this->help;
+		$this->json['name']       = $this->name;
+		$this->json['ast_fields'] = $this->ast_fields;
 	}
 
 	/**
@@ -83,26 +83,28 @@ class Astra_Control_Settings_Toggle extends WP_Customize_Control {
 	protected function content_template() {
 		?>
 
-        <div class="ast-toggle-desc-wrap" >
-            <label class="customizer-text">
-                <# if ( data.label ) { #>
-                    <span class="customize-control-title">{{{ data.label }}}</span>
-                <# } #>
-                <# if ( data.help ) { #>
-                    <span class="ast-description">{{{ data.help }}}</span>
-                <# } #>
-                <# if ( data.description ) { #>
-                    <span class="description customize-control-description">{{{ data.text }}}</span>
-                <# } #>
-                <span class="ast-adv-toggle-icon" data-control="{{ data.name }}"><span class="dashicons dashicons-edit"></span></span>
-            </label>
-        </div>
-        <script type="text/html" id="tmpl-ast-settings-modal">
-            <div class="ast-field-settings-wrap" >
-                <div class="ast-fields-wrap">
-                </div>
-            </div>
-        </script>
+		<div class="ast-toggle-desc-wrap" >
+			<label class="customizer-text">
+				<# if ( data.label ) { #>
+					<span class="customize-control-title">{{{ data.label }}}</span>
+				<# } #>
+				<# if ( data.help ) { #>
+					<span class="ast-description">{{{ data.help }}}</span>
+				<# } #>
+				<# if ( data.description ) { #>
+					<span class="description customize-control-description">{{{ data.text }}}</span>
+				<# } #>
+				<span class="ast-adv-toggle-icon dashicons" data-control="{{ data.name }}"></span>
+			</label>
+		</div>
+		<script type="text/html" id="tmpl-ast-settings-modal">
+			<div class="ast-field-settings-modal">
+				<div class="ast-field-settings-wrap" >
+					<div class="ast-fields-wrap">
+					</div>
+				</div>
+			</div>
+		</script>
 		<?php
 	}
 }

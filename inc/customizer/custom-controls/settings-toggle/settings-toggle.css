@@ -3,3 +3,17 @@
     right: 5px;
     position: absolute;
 }
+
+.ast-adv-toggle-icon:before{
+    content: "\f464";
+}
+
+.ast-adv-toggle-icon.open:before{
+    content: "\f158";   
+}
+
+.ast-field-settings-modal{
+    background: #FFF;
+    padding: 10px;
+    box-shadow: 1px 1px #88888859;
+}
