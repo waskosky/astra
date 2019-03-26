@@ -31,6 +31,8 @@ class Astra_Control_Settings_Toggle extends WP_Customize_Control {
 
 	public $name = '';
 
+	public $value = '';
+
 	public $ast_fields = '';
 
 	/**
@@ -67,6 +69,7 @@ class Astra_Control_Settings_Toggle extends WP_Customize_Control {
 		$this->json['text']       = $this->text;
 		$this->json['help']       = $this->help;
 		$this->json['name']       = $this->name;
+		$this->json['value']      = $this->value();
 		$this->json['ast_fields'] = $this->ast_fields;
 	}
 
@@ -95,6 +98,9 @@ class Astra_Control_Settings_Toggle extends WP_Customize_Control {
 					<span class="description customize-control-description">{{{ data.text }}}</span>
 				<# } #>
 				<span class="ast-adv-toggle-icon dashicons" data-control="{{ data.name }}"></span>
+				
+				<input type="hidden" data-name="{{ data.name }}" class="ast-hidden-input" value="{{ data.value }}">
+
 			</label>
 		</div>
 		<script type="text/html" id="tmpl-ast-settings-modal">
