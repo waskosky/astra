@@ -87,7 +87,15 @@ if ( ! class_exists( 'Astra_new_Layout_Configs' ) ) {
 							'default'  => '',
 						),
 						array(
-							'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
+							'name'     => ASTRA_THEME_SETTINGS . '[ast-new-layout-color-3]',
+							'type'     => 'control',
+							'label'    => __( 'Color 3', 'astra' ),
+							'control'  => 'ast-color',
+							'title'    => __( 'Widget Title Color', 'astra' ),
+							'default'  => '#444444',
+						),
+						array(
+							'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive-new]',
 							'default'    => $defaults['transparent-header-color-site-title-responsive'],
 							'type'       => 'control',
 							'label'    => __( 'Responsive Color 1', 'astra' ),

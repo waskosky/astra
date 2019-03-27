@@ -52,7 +52,8 @@
                 var control = attr.control;
                 var template_id = "customize-control-" + control + "-content";
                 var template = wp.template( template_id );
-                var value = field_values[attr.name] || '';
+                var value = field_values[attr.name] || attr.default;
+
                 attr.value = value;
 
                 control_types.push( control );
@@ -69,11 +70,11 @@
                 switch( control_type ) {
 
                     case "ast-color":
-                        ASTSettingsToggle.initColorPicker( ast_field_wrap, control_elem );
+                       ASTSettingsToggle.initColorPicker( ast_field_wrap, control_elem );
                     break;
 
                     case "ast-responsive-color":
-                        ASTSettingsToggle.initResponsiveColor( ast_field_wrap, control_elem );
+                       ASTSettingsToggle.initResponsiveColor( ast_field_wrap, control_elem );
                     break;  
                 }
             });
@@ -84,7 +85,7 @@
 
         initColorPicker: function( wrap, control_elem ) {
 
-            wrap.find('.ast-color-picker-alpha' ).wpColorPicker({
+            wrap.find('.customize-control-ast-color .ast-color-picker-alpha' ).wpColorPicker({
 				/**
 			     * @param {Event} event - standard jQuery event, produced by whichever
 			     * control was changed.
@@ -164,12 +165,13 @@
                     var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0],
                         device = jQuery( this ).closest('.wp-picker-input-wrap').find('.wp-color-picker').data( 'id' );
     
-                        var stored = control_elem.setting.get();
-                        var newValue = {
-                            'desktop' : stored['desktop'],
-                            'tablet'  : stored['tablet'],
-                            'mobile'  : stored['mobile'],
-                        };
+                    var stored = control_elem.setting.get();
+                    var newValue = {
+                        'desktop' : stored['desktop'],
+                        'tablet'  : stored['tablet'],
+                        'mobile'  : stored['mobile'],
+                    };
+
                     if ( element ) {
                         if ( 'desktop' === device ) {
                             newValue['desktop'] = '';
@@ -180,7 +182,9 @@
                         if ( 'mobile' === device ) {
                             newValue['mobile'] = '';
                         }
-                        control_elem.setting.set( newValue );
+
+                        jQuery(element).val( ui.color.toString() );
+                        jQuery(document).trigger( 'ast_settings_changed', [ jQuery(this), newValue ] );
                     }
                 }
             });
