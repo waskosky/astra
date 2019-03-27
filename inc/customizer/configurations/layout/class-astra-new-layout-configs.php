@@ -30,6 +30,8 @@ if ( ! class_exists( 'Astra_new_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$defaults = Astra_Theme_Options::defaults();
+
 			$_configs = array(
 
 				/**
@@ -72,15 +74,29 @@ if ( ! class_exists( 'Astra_new_Layout_Configs' ) ) {
 							'name'     => ASTRA_THEME_SETTINGS . '[ast-new-layout-color-2]',
 							'type'     => 'control',
 							'control'  => 'ast-color',
+							'label'    => __( 'Color 2', 'astra' ),
 							'title'    => __( 'Widget Title Color 2', 'astra' ),
 							'default'  => '',
 						),
 						array(
 							'name'     => ASTRA_THEME_SETTINGS . '[ast-new-layout-color]',
 							'type'     => 'control',
+							'label'    => __( 'Color 1', 'astra' ),
 							'control'  => 'ast-color',
 							'title'    => __( 'Widget Title Color', 'astra' ),
 							'default'  => '',
+						),
+						array(
+							'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
+							'default'    => $defaults['transparent-header-color-site-title-responsive'],
+							'type'       => 'control',
+							'label'    => __( 'Responsive Color 1', 'astra' ),
+							'control'    => 'ast-responsive-color',
+							'transport'  => 'postMessage',
+							'title'      => __( 'Site Title Color', 'astra' ),
+							'section'    => 'section-colors-transparent-header',
+							'responsive' => true,
+							'rgba'       => true
 						),
 					),
 				),
