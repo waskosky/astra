@@ -811,6 +811,9 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize('astra-settings[primary-submenu-item-b-color]', function (value) {
 		value.bind(function (color) {
+
+			console.log( 'this is workig' );
+
 			var insideBorder = wp.customize('astra-settings[primary-submenu-item-border]').get();
 			if ('' != color) {
 				if ( true == insideBorder ) {
@@ -915,6 +918,40 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			} else {
 				wp.customize.preview.send( 'refresh' );
 			}
+		} );
+	} );
+
+	wp.customize( 'astra-settings[settings-toggle-new]', function( control ) {
+		control.bind(function (value) {
+
+			var option_value = JSON.parse( value );
+			var overlay_color = option_value['astra-settings[transparent-header-bg-color-responsive]'];
+			var css_property = 'background-color';
+			var css_selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar, .ast-theme-transparent-header .main-header-bar .ast-search-menu-icon form';
+
+			var DeskVal = '',
+				TabletVal = '',
+				MobileVal = '';
+
+			if ( '' != overlay_color.desktop ) {
+				DeskVal = css_property + ': ' + overlay_color.desktop;
+			}
+			if ( '' != overlay_color.tablet ) {
+				TabletVal = css_property + ': ' + overlay_color.tablet;
+			}
+			if ( '' != overlay_color.mobile ) {
+				MobileVal = css_property + ': ' + overlay_color.mobile;
+			}
+
+			// Concat and append new <style>.
+			jQuery( 'head' ).append(
+				'<style id="asta-settings-toggle">'
+				+ css_selector + '	{ ' + DeskVal + ' }'
+				+ '@media (max-width: 768px) {' + css_selector + '	{ ' + TabletVal + ' } }'
+				+ '@media (max-width: 544px) {' + css_selector + '	{ ' + MobileVal + ' } }'
+				+ '</style>'
+			);
+
 		} );
 	} );
 

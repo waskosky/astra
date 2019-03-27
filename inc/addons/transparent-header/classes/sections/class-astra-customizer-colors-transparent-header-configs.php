@@ -45,37 +45,37 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 
 			$_configs = array(
 
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
-					'default'    => $defaults['transparent-header-bg-color-responsive'],
-					'type'       => 'control',
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Overlay Color', 'astra' ),
-					'section'    => 'section-colors-transparent-header',
-					'responsive' => true,
-					'rgba'       => true,
-				),
+				// array(
+				// 	'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
+				// 	'default'    => $defaults['transparent-header-bg-color-responsive'],
+				// 	'type'       => 'control',
+				// 	'transport'  => 'postMessage',
+				// 	'control'    => 'ast-responsive-color',
+				// 	'title'      => __( 'Background Overlay Color', 'astra' ),
+				// 	'section'    => 'section-colors-transparent-header',
+				// 	'responsive' => true,
+				// 	'rgba'       => true,
+				// ),
 
 				/**
 				 * Option: Site Title Color
 				 */
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
-					'default'    => $defaults['transparent-header-color-site-title-responsive'],
-					'type'       => 'control',
-					'control'    => 'ast-responsive-color',
-					'transport'  => 'postMessage',
-					'title'      => __( 'Site Title Color', 'astra' ),
-					'section'    => 'section-colors-transparent-header',
-					'responsive' => true,
-					'rgba'       => true,
-					'required'   => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
-					),
-				),
+				// array(
+				// 	'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
+				// 	'default'    => $defaults['transparent-header-color-site-title-responsive'],
+				// 	'type'       => 'control',
+				// 	'control'    => 'ast-responsive-color',
+				// 	'transport'  => 'postMessage',
+				// 	'title'      => __( 'Site Title Color', 'astra' ),
+				// 	'section'    => 'section-colors-transparent-header',
+				// 	'responsive' => true,
+				// 	'rgba'       => true,
+				// 	'required'   => array(
+				// 		ASTRA_THEME_SETTINGS . '[display-site-title]',
+				// 		'==',
+				// 		true,
+				// 	),
+				// ),
 
 				/**
 				 * Option: Site Title Hover Color

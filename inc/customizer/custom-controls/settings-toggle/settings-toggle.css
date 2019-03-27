@@ -17,3 +17,8 @@
     padding: 10px;
     box-shadow: 1px 1px #88888859;
 }
+
+.ast-field-settings-wrap{
+    display: inline-block;
+    width: 100%;
+}
