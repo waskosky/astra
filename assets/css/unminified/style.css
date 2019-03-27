@@ -1790,10 +1790,6 @@ object {
   background: #0274be;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3981,7 +3977,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   }
 }
 
-html {
+body {
   overflow-x: hidden;
 }
 
@@ -4004,6 +4000,12 @@ body .entry-content .wp-block-latest-posts li {
 
 .entry-content .blocks-gallery-item img {
   margin-bottom: auto;
+}
+
+.wp-block-pullquote {
+  border-top: 4px solid #555d66;
+  border-bottom: 4px solid #555d66;
+  color: #40464d;
 }
 
 /*----------  Secondary  ----------*/
