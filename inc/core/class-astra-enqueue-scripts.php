@@ -60,13 +60,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function admin_body_class( $classes ) {
 			$content_layout = astra_get_content_layout();
-			if ( 'content-boxed-container' == $content_layout ) {
+			if ( 'content-boxed-container' == $content_layout[0] ) {
 				$classes .= ' ast-separate-container';
-			} elseif ( 'boxed-container' == $content_layout ) {
+			} elseif ( 'boxed-container' == $content_layout[0] ) {
 				$classes .= ' ast-separate-container ast-two-container';
-			} elseif ( 'page-builder' == $content_layout ) {
+			} elseif ( 'page-builder' == $content_layout[0] ) {
 				$classes .= ' ast-page-builder-template';
-			} elseif ( 'plain-container' == $content_layout ) {
+			} elseif ( 'plain-container' == $content_layout[0] ) {
 				$classes .= ' ast-plain-container';
 			}
 

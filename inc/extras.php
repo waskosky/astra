@@ -1150,11 +1150,10 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	 * @return boolean  content layout.
 	 */
 	function astra_get_content_layout() {
-
+		global $pagenow;
 		$value = false;
 
-		if ( is_singular() ) {
-
+		if ( is_singular() || ( 'post.php' == $pagenow ) || ( 'post' == get_post_type() ) ) {
 			// If post meta value is empty,
 			// Then get the POST_TYPE content layout.
 			$content_layout = astra_get_option_meta( 'site-content-layout', '', true );

@@ -467,25 +467,24 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 	 * @return Mixed             Return option value.
 	 */
 	function astra_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
+		global $pagenow;
+		$post_id = ( '' != $post_id ) ? $post_id : astra_get_post_id();
 
-        $post_id = ( '' != $post_id ) ? $post_id : astra_get_post_id();
+		$value = astra_get_option( $option_id, $default );
 
-        $value = astra_get_option( $option_id, $default );
+		// Get value from option 'post-meta'.
+		if ( is_singular() || ( is_home() && ! is_front_page() ) || ( 'post.php' == $pagenow ) || ( 'post' == get_post_type() ) ) {
+			$value = get_post_meta( $post_id, $option_id );
 
-        // Get value from option 'post-meta'.
-        if ( is_singular() || ( is_home() && ! is_front_page() ) ) {
+			if ( empty( $value ) || 'default' == $value ) {
 
-            $value = get_post_meta( $post_id, $option_id );
+				if ( true == $only_meta ) {
+					return false;
+				}
 
-            if ( empty( $value ) || 'default' == $value ) {
-
-                if ( true == $only_meta ) {
-                    return false;
-                }
-
-                $value = astra_get_option( $option_id, $default );
-            }
-        }
+				$value = astra_get_option( $option_id, $default );
+			}
+		}
 
 		/**
 		 * Dynamic filter astra_get_option_meta_$option.
