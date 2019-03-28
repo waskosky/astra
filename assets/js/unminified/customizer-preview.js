@@ -925,34 +925,49 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		control.bind(function (value) {
 
 			var option_value = JSON.parse( value );
-			var overlay_color = option_value['astra-settings[transparent-header-bg-color-responsive]'];
+			var control      = 'astra-settings[transparent-header-bg-color-responsive]';
+			var overlay_color = option_value[control];
 			var css_property = 'background-color';
-			var css_selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar, .ast-theme-transparent-header .main-header-bar .ast-search-menu-icon form';
+			var selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar, .ast-theme-transparent-header .main-header-bar .ast-search-menu-icon form';
 
-			var DeskVal = '',
-				TabletVal = '',
-				MobileVal = '';
-
-			if ( '' != overlay_color.desktop ) {
-				DeskVal = css_property + ': ' + overlay_color.desktop;
-			}
-			if ( '' != overlay_color.tablet ) {
-				TabletVal = css_property + ': ' + overlay_color.tablet;
-			}
-			if ( '' != overlay_color.mobile ) {
-				MobileVal = css_property + ': ' + overlay_color.mobile;
-			}
-
-			// Concat and append new <style>.
-			jQuery( 'head' ).append(
-				'<style id="asta-settings-toggle">'
-				+ css_selector + '	{ ' + DeskVal + ' }'
-				+ '@media (max-width: 768px) {' + css_selector + '	{ ' + TabletVal + ' } }'
-				+ '@media (max-width: 544px) {' + css_selector + '	{ ' + MobileVal + ' } }'
-				+ '</style>'
-			);
+			var addon = 'transparent-header'; 
+		
+			astra_apply_responsive_color_property( addon, control, css_property, selector, overlay_color );
 
 		} );
 	} );
+
+	function astra_apply_responsive_color_property( addon, control, css_property, selector, value ) {
+
+		control = control.replace( '[', '-' );
+		control = control.replace( ']', '' );
+		jQuery( 'style#' + control + '-' + addon ).remove();
+
+		var DeskVal = '',
+			TabletFontVal = '',
+			MobileVal = '';
+
+		if ( '' != value.desktop ) {
+			DeskVal = css_property + ': ' + value.desktop;
+		}
+		if ( '' != value.tablet ) {
+			TabletFontVal = css_property + ': ' + value.tablet;
+		}
+		if ( '' != value.mobile ) {
+			MobileVal = css_property + ': ' + value.mobile;
+		}
+
+		console.log(control + '-' + addon );
+		console.log( value );
+
+		// Concat and append new <style>.
+		jQuery( 'head' ).append(
+			'<style id="' + control + '-' + addon + '">'
+			+ selector + '	{ ' + DeskVal + ' }'
+			+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
+			+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
+			+ '</style>'
+		);
+	}
 
 } )( jQuery );

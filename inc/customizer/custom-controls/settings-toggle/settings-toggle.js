@@ -73,10 +73,6 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
             switch( control_type ) {
 
-                case "ast-color":
-                    control.initColorPicker( ast_field_wrap, control_elem );
-                break;
-
                 case "ast-responsive-color":
                     control.initResponsiveColor( ast_field_wrap, control_elem );
                 break;  
@@ -85,44 +81,6 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
         wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
         
-    },
-
-    initColorPicker: function( wrap, control_elem ) {
-
-        var control = this;
-
-        wrap.find('.customize-control-ast-color .ast-color-picker-alpha' ).wpColorPicker({
-            /**
-             * @param {Event} event - standard jQuery event, produced by whichever
-             * control was changed.
-             * @param {Object} ui - standard jQuery UI object, with a color member
-             * containing a Color.js object.
-             */
-            change: function (event, ui) {
-                var element = event.target;
-                var color = ui.color.toString();
-
-                if ( jQuery('html').hasClass('colorpicker-ready') ) {
-                    jQuery(element).val(color);
-                    control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), color ] );
-                }
-            },
-
-            /**
-             * @param {Event} event - standard jQuery event, produced by "Clear"
-             * button.
-             */
-            clear: function (event) {
-                var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
-                var color = '';
-
-                if (element) {
-                    // Add your code here
-                    jQuery(element).val(color);
-                }
-            }
-        });
-
     },
 
     initResponsiveColor: function( wrap, control_elem ) {
@@ -172,7 +130,13 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0],
                     device = jQuery( this ).closest('.wp-picker-input-wrap').find('.wp-color-picker').data( 'id' );
 
-                var stored = control_elem.setting.get();
+                var option_name = jQuery( element ).attr('data-name');
+                var stored = {
+                    'desktop' : jQuery( ".desktop.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
+                    'tablet'  : jQuery( ".tablet.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
+                    'mobile'  : jQuery( ".mobile.ast-responsive-color[data-name='"+ option_name +"']" ).val()
+                };
+
                 var newValue = {
                     'desktop' : stored['desktop'],
                     'tablet'  : stored['tablet'],
@@ -190,8 +154,8 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
                         newValue['mobile'] = '';
                     }
 
-                    jQuery(element).val( ui.color.toString() );
-                    control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue ] );
+                    jQuery(element).val( '' );
+                    control.container.trigger( 'ast_settings_changed', [ control, jQuery(element), newValue ] );
                 }
             }
         });
@@ -226,7 +190,6 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
         }
 
         var input_name  = element.attr( 'data-name' );
-
         option_data[input_name] = value;
 
         hidden_data_input.val( JSON.stringify( option_data ) );
