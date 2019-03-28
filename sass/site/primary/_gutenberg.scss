@@ -112,7 +112,7 @@
 // Fullwidth image overflows out of container and adds a scrollbar in windows due to difference in calculation of `vh`.
 // see - https://github.com/WordPress/gutenberg/issues/8289#issuecomment-414721567
 // overflow-x: hidden hides this scroll bar.
-html {
+body {
 	overflow-x: hidden;
 }
 
@@ -157,4 +157,11 @@ body {
 			margin-bottom: auto;
 		}
 	}
+}
+
+// Added default color for pullquote
+.wp-block-pullquote {
+    border-top: 4px solid #555d66;
+    border-bottom: 4px solid #555d66;
+    color: #40464d;
 }
