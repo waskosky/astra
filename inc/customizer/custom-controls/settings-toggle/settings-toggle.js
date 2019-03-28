@@ -60,6 +60,8 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
             attr.value = value;
 
+            console.log( attr );
+
             control_types.push( control );
 
             fields_html += "<li class='customize-control customize-control-"+ attr.control +"' >";
@@ -75,6 +77,14 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
                 case "ast-responsive-color":
                     control.initResponsiveColor( ast_field_wrap, control_elem );
+                break;  
+
+                case "ast-font": 
+
+                    var google_fonts_string = astra.customizer.settings.google_fonts;
+                    control.container.find( '.ast-font-family' ).html( google_fonts_string );
+                    control.container.find( '.ast-font-family' ).selectWoo();
+                    
                 break;  
             }
         });
