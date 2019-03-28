@@ -113,10 +113,6 @@
   display: inline-block;
 }
 
-.learndash .ui-sortable {
-  overflow-y: auto !important;
-}
-
 #learndash_course_certificate .btn-blue {
   display: inline-block;
 }
@@ -1049,4 +1045,8 @@ body .wpProQuiz_content .wpProQuiz_time_limit .wpProQuiz_progress {
   #ld_course_info_mycourses_list .ld-course-info-my-courses .ld-entry-title {
     margin: 0 0 20px;
   }
+}
+
+body.single-sfwd-quiz {
+  overflow-x: unset;
 }
