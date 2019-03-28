@@ -81,10 +81,38 @@
     margin: 0;
 }
 
+.entry-content {
+	.has-2-columns .wp-block-column:first-child {
+		padding-right: 10px;
+	}
+
+	.has-2-columns .wp-block-column:last-child {
+		padding-left: 10px;
+	}
+}
+
+// Remove left margins from gutenberg columns.
+@media (max-width: 782px) {
+	.entry-content {
+		.wp-block-columns .wp-block-column {
+			-ms-flex-preferred-size: 100%;
+			flex-basis: 100%;
+			margin-left: 0;
+		}
+		.has-2-columns .wp-block-column:first-child {
+			padding-right: 0;
+		}
+
+		.has-2-columns .wp-block-column:last-child {
+			padding-left: 0;
+		}
+	}
+}
+
 // Fullwidth image overflows out of container and adds a scrollbar in windows due to difference in calculation of `vh`.
 // see - https://github.com/WordPress/gutenberg/issues/8289#issuecomment-414721567
 // overflow-x: hidden hides this scroll bar.
-html {
+body {
 	overflow-x: hidden;
 }
 
@@ -129,4 +157,11 @@ body {
 			margin-bottom: auto;
 		}
 	}
+}
+
+// Added default color for pullquote
+.wp-block-pullquote {
+    border-top: 4px solid #555d66;
+    border-bottom: 4px solid #555d66;
+    color: #40464d;
 }

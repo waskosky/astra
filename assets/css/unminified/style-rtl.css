@@ -1790,10 +1790,6 @@ object {
   background: #0274be;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3960,7 +3956,28 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0;
 }
 
-html {
+.entry-content .has-2-columns .wp-block-column:first-child {
+  padding-left: 10px;
+}
+
+.entry-content .has-2-columns .wp-block-column:last-child {
+  padding-right: 10px;
+}
+
+@media (max-width: 782px) {
+  .entry-content .wp-block-columns .wp-block-column {
+    flex-basis: 100%;
+    margin-right: 0;
+  }
+  .entry-content .has-2-columns .wp-block-column:first-child {
+    padding-left: 0;
+  }
+  .entry-content .has-2-columns .wp-block-column:last-child {
+    padding-right: 0;
+  }
+}
+
+body {
   overflow-x: hidden;
 }
 
@@ -3983,6 +4000,12 @@ body .entry-content .wp-block-latest-posts li {
 
 .entry-content .blocks-gallery-item img {
   margin-bottom: auto;
+}
+
+.wp-block-pullquote {
+  border-top: 4px solid #555d66;
+  border-bottom: 4px solid #555d66;
+  color: #40464d;
 }
 
 /*----------  Secondary  ----------*/
@@ -4665,7 +4688,7 @@ input[type="color"]::-webkit-color-swatch {
   border-bottom: 0;
 }
 
-.search .site-content .search-form {
+.search .site-content .content-area .search-form {
   margin-bottom: 3em;
 }
 
