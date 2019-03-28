@@ -29,12 +29,36 @@ if ( ! class_exists( 'Astra_Control_Settings_Toggle' ) && class_exists( 'WP_Cust
 		 */
 		public $type = 'ast-settings-toggle';
 
+		/**
+		 * The text to display.
+		 *
+		 * @access public
+		 * @var string
+		 */
 		public $text = '';
 
+		/**
+		 * The control name.
+		 *
+		 * @access public
+		 * @var string
+		 */
 		public $name = '';
 
+		/**
+		 * The control value.
+		 *
+		 * @access public
+		 * @var string
+		 */
 		public $value = '';
 
+		/**
+		 * The fields for group.
+		 *
+		 * @access public
+		 * @var string
+		 */
 		public $ast_fields = '';
 
 		/**
@@ -116,7 +140,6 @@ if ( ! class_exists( 'Astra_Control_Settings_Toggle' ) && class_exists( 'WP_Cust
 			</script>
 			<?php
 		}
-
 
 		/**
 		 * Render the control's content.

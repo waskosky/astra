@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_new_Layout_Configs' ) ) {
+if ( ! class_exists( 'Astra_New_Layout_Configs' ) ) {
 
 	/**
 	 * Register Header Layout Customizer Configurations.
 	 */
-	class Astra_new_Layout_Configs extends Astra_Customizer_Config_Base {
+	class Astra_New_Layout_Configs extends Astra_Customizer_Config_Base {
 
 		/**
 		 * Register new Layout Customizer Configurations.
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_new_Layout_Configs' ) ) {
 							'label'      => __( 'Site Title Color', 'astra' ),
 							'section'    => 'section-colors-transparent-header',
 							'responsive' => true,
-							'rgba'       => true
+							'rgba'       => true,
 						),
 					),
 				),
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Astra_new_Layout_Configs' ) ) {
 }
 
 
-new Astra_new_Layout_Configs();
+new Astra_New_Layout_Configs();
 
 
 

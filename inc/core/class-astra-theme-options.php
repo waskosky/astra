@@ -357,6 +357,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// toogle menu target.
 					'mobile-header-toggle-target'         => 'icon',
+
+					'settings-toggle-new'                 => array(
+						'transparent-header-bg-color-responsive' => '',
+						'transparent-header-color-site-title-responsive' => array(
+							'desktop' => '',
+							'tablet'  => '',
+							'mobile'  => '',
+						),
+					),
 				)
 			);
 		}

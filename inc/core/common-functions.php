@@ -1189,3 +1189,27 @@ if ( ! function_exists( 'astra_is_white_labelled' ) ) :
 	}
 
 endif;
+
+if ( ! function_exists( 'astra_get_option_by_group' ) ) :
+
+	/**
+	 * Get option value for defined group.
+	 *
+	 * @param string $option option name.
+	 * @param string $group group name.
+	 * @param string $default default value for option.
+	 */
+	function astra_get_option_by_group( $option, $group, $default = '' ) {
+
+		$group_option = astra_get_option( $group );
+		$group_option = json_decode( $group_option, true );
+		$option       = 'astra-settings[' . $option . ']';
+
+		if ( isset( $group_option[ $option ] ) ) {
+			return $group_option[ $option ];
+		}
+
+		return $default;
+	}
+
+endif;

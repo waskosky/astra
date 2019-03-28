@@ -34,7 +34,9 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$transparent_header_inherit = astra_get_option( 'different-transparent-logo' );
 	$transparent_header_logo    = astra_get_option( 'transparent-header-logo' );
 
-	$transparent_bg_color           = astra_get_option( 'transparent-header-bg-color-responsive' );
+	// $transparent_bg_color           = astra_get_option( 'transparent-header-bg-color-responsive' );
+	$transparent_bg_color = astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'settings-toggle-new' );
+
 	$transparent_color_site_title   = astra_get_option( 'transparent-header-color-site-title-responsive' );
 	$transparent_color_h_site_title = astra_get_option( 'transparent-header-color-h-site-title-responsive' );
 	$transparent_menu_bg_color      = astra_get_option( 'transparent-menu-bg-color-responsive' );
