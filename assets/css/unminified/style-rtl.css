@@ -3956,7 +3956,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0;
 }
 
-<<<<<<< HEAD
 .entry-content .has-2-columns .wp-block-column:first-child {
   padding-left: 10px;
 }
@@ -3978,10 +3977,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   }
 }
 
-html {
-=======
 body {
->>>>>>> 8f17bcbd35b94394eff8e68b7bf373ea5d95e6cf
   overflow-x: hidden;
 }
 
