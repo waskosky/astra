@@ -304,7 +304,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		</label>
 		<select <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
-		
+		data-value="{{data.value}}" 
+
 		<# if ( data.connect ) { #>
 			data-connected-control={{ data.connect }}
 		<# } #>

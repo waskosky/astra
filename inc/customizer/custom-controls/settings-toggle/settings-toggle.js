@@ -84,6 +84,18 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
                     var google_fonts_string = astra.customizer.settings.google_fonts;
                     control.container.find( '.ast-font-family' ).html( google_fonts_string );
                     control.container.find( '.ast-font-family' ).selectWoo();
+
+                    control.container.find( '.ast-font-family' ).each( function() {
+
+                        console.log( $(this).data('value') );
+
+                    }); 
+
+                    control.container.find( '.ast-font-family' ).on( 'select2:select', function() {
+
+                        var value = $(this).val();
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value ] );
+                    });
                     
                 break;  
             }
