@@ -57,10 +57,7 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
             var template_id = "customize-control-" + control + "-content";
             var template = wp.template( template_id );
             var value = field_values[attr.name] || attr.default;
-
             attr.value = value;
-
-            console.log( attr );
 
             control_types.push( control );
 
@@ -81,16 +78,36 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
                 case "ast-font": 
 
-                    var google_fonts_string = astra.customizer.settings.google_fonts;
-                    control.container.find( '.ast-font-family' ).html( google_fonts_string );
+                    var googleFontsString = astra.customizer.settings.google_fonts;
+                    control.container.find( '.ast-font-family' ).html( googleFontsString );
 
                     control.container.find( '.ast-font-family' ).each( function() {
-                        var selected_value = $(this).data('value');
-                        $(this).val( selected_value );
+                        var selectedValue = $(this).data('value');
+                        $(this).val( selectedValue );
+
+                        var optionName = $(this).data('name');
+                        var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
+                        var weightObject = AstTypography._getWeightObject( selectedValue );
+
+                        control.generateDropdownHtml( weightObject, fontWeightContainer );
+                        fontWeightContainer.val( fontWeightContainer.data('value') );
+
                     }); 
 
                     control.container.find( '.ast-font-family' ).selectWoo();
                     control.container.find( '.ast-font-family' ).on( 'select2:select', function() {
+
+                        var value = $(this).val();
+                        var weightObject = AstTypography._getWeightObject( value );
+                        var optionName = $(this).data( 'name' );
+                        var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
+
+                        control.generateDropdownHtml( weightObject, fontWeightContainer );
+
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value ] );
+                    });
+
+                    control.container.find( '.ast-font-weight' ).on( 'change', function() {
 
                         var value = $(this).val();
                         control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value ] );
@@ -102,6 +119,34 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
         wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
         
+    },
+
+    generateDropdownHtml: function( weightObject, element ) {
+
+        var currentWeightTitle  = element.data( 'inherit' );
+        var weightOptions       = '';
+        var inheritWeightObject = [ 'inherit' ];
+        var counter = 0;
+        var weightObject        = $.merge( inheritWeightObject, weightObject );
+        var weightValue         = element.val() || '400';
+        astraTypo[ 'inherit' ] = currentWeightTitle;
+
+        for ( ; counter < weightObject.length; counter++ ) {
+
+            if ( 0 === counter && -1 === $.inArray( weightValue, weightObject ) ) {
+                weightValue = weightObject[ 0 ];
+                selected 	= ' selected="selected"';
+            } else {
+                selected = weightObject[ counter ] == weightValue ? ' selected="selected"' : '';
+            }
+            if( ! weightObject[ counter ].includes( "italic" ) ){
+                weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';
+            }
+        }
+
+        console.log( element );
+
+        element.html( weightOptions );
     },
 
     initResponsiveColor: function( wrap, control_elem ) {

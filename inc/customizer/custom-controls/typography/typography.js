@@ -40,11 +40,6 @@
 		{
 			$( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
 			// Added select2 for all font family & font variant.
-
-			var google_fonts_string = astra.customizer.settings.google_fonts;
-
-			$('.customize-control-ast-font-family select, .customize-control-ast-font-variant select').html( google_fonts_string );
-
 			$('.customize-control-ast-font-family select, .customize-control-ast-font-variant select').selectWoo();
 
 			$('.customize-control-ast-font-variant select').on('select2:unselecting', function (e) {

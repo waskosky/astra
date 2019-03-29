@@ -27,10 +27,36 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public $connect = false;
 
+	/**
+	 * Option name.
+	 *
+	 * @since 1.0.0
+	 * @var string $name
+	 */
 	public $name = '';
+
+	/**
+	 * Option label.
+	 *
+	 * @since 1.0.0
+	 * @var string $label
+	 */
 	public $label = '';
+
+	/**
+	 * Option description.
+	 *
+	 * @since 1.0.0
+	 * @var string $description
+	 */
 	public $description = '';
 
+	/**
+	 * Control type.
+	 *
+	 * @since 1.0.0
+	 * @var string $type
+	 */
 	public $type = 'ast-font';
 
 	/**
@@ -280,7 +306,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->json['label']       = esc_html( $this->label );
 		$this->json['description'] = $this->description;
 		$this->json['name']        = $this->name;
-		$this->json['value']       = $this->value();    
+		$this->json['value']       = $this->value();
 	}
 
 	/**
@@ -303,7 +329,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		<# } #>
 
 		</label>
-		<select <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
+		<select data-inherit="<?php echo $this->ast_inherit; ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
 		data-value="{{data.value}}" 
 
 		<# if ( data.connect ) { #>
@@ -316,6 +342,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		>
 		</select>
 
-		<?php 
+		<?php
 	}
 }
