@@ -61,7 +61,10 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
             control_types.push( control );
 
-            fields_html += "<li class='customize-control customize-control-"+ attr.control +"' >";
+            var control_clean_name = attr.name.replace( '[', '-' );
+            control_clean_name = control_clean_name.replace( ']', '' );
+
+            fields_html += "<li id='customize-control-"+ control_clean_name +"' class='customize-control customize-control-"+ attr.control +"' >";
             fields_html += template( attr );
             fields_html += '</li>';
         });

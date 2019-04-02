@@ -936,6 +936,9 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			var fontSizeControl = 'astra-settings[font-size-site-title]';
 			var font_size_value = option_value[ fontSizeControl ];
+
+			console.log( font_size_value );
+
 			astra_apply_responsive_font_size( control, '.site-title', font_size_value );
 			
 

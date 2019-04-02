@@ -28,5 +28,5 @@ require $control_dir . '/background/class-astra-control-background.php';
 require $control_dir . '/responsive-color/class-astra-control-responsive-color.php';
 require $control_dir . '/border/class-astra-control-border.php';
 require $control_dir . '/customizer-link/class-astra-control-customizer-link.php';
-
 require $control_dir . '/settings-toggle/class-astra-control-settings-toggle.php';
+require $control_dir . '/select/class-astra-control-select.php';

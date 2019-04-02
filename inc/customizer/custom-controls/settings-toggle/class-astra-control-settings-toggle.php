@@ -120,11 +120,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Toggle' ) && class_exists( 'WP_Cust
 					<# if ( data.help ) { #>
 						<span class="ast-description">{{{ data.help }}}</span>
 					<# } #>
-					<# if ( data.description ) { #>
-						<span class="description customize-control-description">{{{ data.text }}}</span>
-					<# } #>
 					<span class="ast-adv-toggle-icon dashicons" data-control="{{ data.name }}"></span>
-
 				</label>
 			</div>
 			<div class="customize-control-content">
