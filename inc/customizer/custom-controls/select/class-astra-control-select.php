@@ -81,7 +81,7 @@ class Astra_Control_Select extends WP_Customize_Control {
 			</label>
 		<# } #>
 		<div class="customize-control-content">
-			<select class="ast-select-input" data-name="{{data.name}}" >
+			<select class="ast-select-input" data-name="{{data.name}}" data-value="{{data.value}}" >
 				<# _.each( data.choices, function( label, key ){  #>
 					<option <# if ( data.value == key ){ #> selected="selected" <# } #> value="{{ key }}">{{ label }}</option>
 				<# } ); #>

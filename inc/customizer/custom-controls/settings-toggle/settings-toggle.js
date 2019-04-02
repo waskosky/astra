@@ -129,6 +129,16 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
                     });
 
                 break;
+
+                case "ast-select":
+
+                    control.container.on( 'change', '.ast-select-input', function() {
+
+                        var value = jQuery( this ).val();   
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value ] );
+                    });
+
+                break;
             }
 
         });
