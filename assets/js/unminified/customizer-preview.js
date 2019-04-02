@@ -927,17 +927,22 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			var option_value = JSON.parse( value );
 			var control      = 'astra-settings[transparent-header-bg-color-responsive]';
 			var overlay_color = option_value[control];
-			var css_property = 'background-color';
+			var cssProperty = 'background-color';
 			var selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar, .ast-theme-transparent-header .main-header-bar .ast-search-menu-icon form';
 
 			var addon = 'transparent-header'; 
 		
-			astra_apply_responsive_color_property( addon, control, css_property, selector, overlay_color );
+			astra_apply_responsive_color_property( addon, control, cssProperty, selector, overlay_color );
+
+			var fontSizeControl = 'astra-settings[font-size-site-title]';
+			var font_size_value = option_value[ fontSizeControl ];
+			astra_apply_responsive_font_size( control, '.site-title', font_size_value );
+			
 
 		} );
 	} );
 
-	function astra_apply_responsive_color_property( addon, control, css_property, selector, value ) {
+	function astra_apply_responsive_color_property( addon, control, cssProperty, selector, value ) {
 
 		control = control.replace( '[', '-' );
 		control = control.replace( ']', '' );
@@ -948,17 +953,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			MobileVal = '';
 
 		if ( '' != value.desktop ) {
-			DeskVal = css_property + ': ' + value.desktop;
+			DeskVal = cssProperty + ': ' + value.desktop;
 		}
 		if ( '' != value.tablet ) {
-			TabletFontVal = css_property + ': ' + value.tablet;
+			TabletFontVal = cssProperty + ': ' + value.tablet;
 		}
 		if ( '' != value.mobile ) {
-			MobileVal = css_property + ': ' + value.mobile;
+			MobileVal = cssProperty + ': ' + value.mobile;
 		}
-
-		console.log(control + '-' + addon );
-		console.log( value );
 
 		// Concat and append new <style>.
 		jQuery( 'head' ).append(
@@ -966,6 +968,40 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			+ selector + '	{ ' + DeskVal + ' }'
 			+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
 			+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
+			+ '</style>'
+		);
+	}
+
+	function astra_apply_responsive_font_size( control, selector, value ) {
+
+		var control = control.replace( '[', '-' );
+			control = control.replace( ']', '' );
+			jQuery( 'style#' + control ).remove();
+
+		var fontSize = '',
+			TabletFontSize = '',
+			MobileFontSize = '';
+
+		if ( '' != value.desktop ) {
+			fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
+		}
+		if ( '' != value.tablet ) {
+			TabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
+		}
+		if ( '' != value.mobile ) {
+			MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
+		}
+
+		if( value['desktop-unit'] == 'px' ) {
+			fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
+		}
+
+		// Concat and append new <style>.
+		jQuery( 'head' ).append(
+			'<style id="' + control + '">'
+			+ selector + '	{ ' + fontSize + ' }'
+			+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
+			+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileFontSize + ' } }'
 			+ '</style>'
 		);
 	}

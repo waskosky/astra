@@ -50,7 +50,7 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
         var ast_field_wrap = wrap.find( '.ast-fields-wrap' );
         var fields_html = '';
         var control_types = [];
-        var field_values = isJsonString( control_elem.params.value ) ? JSON.parse( control_elem.params.value ) : {};
+        var field_values = control.isJsonString( control_elem.params.value ) ? JSON.parse( control_elem.params.value ) : {};
 
         _.each( fields, function( attr, index ) {
             var control = attr.control;
@@ -114,7 +114,20 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
                     });
                     
                 break;  
+
+                case "ast-responsive": 
+                    
+                    control.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
+
+                        value = jQuery( this ).val();
+        
+                        // Update value on change.
+                        control.updateResonsiveValue( jQuery(this) );
+                    });
+
+                break;
             }
+
         });
 
         wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
@@ -143,9 +156,7 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
                 weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';
             }
         }
-
-        console.log( element );
-
+        
         element.html( weightOptions );
     },
 
@@ -252,7 +263,7 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
         if( '""' == hidden_data_input.val() ) {
             var option_data = {};
         } else {
-            var option_data = isJsonString( hidden_data_input.val() ) ? JSON.parse( hidden_data_input.val() ) : {};
+            var option_data = control.isJsonString( hidden_data_input.val() ) ? JSON.parse( hidden_data_input.val() ) : {};
         }
 
         var input_name  = element.attr( 'data-name' );
@@ -261,14 +272,47 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
         hidden_data_input.val( JSON.stringify( option_data ) );
         control.setting.set( JSON.stringify( option_data ) );
     },
+
+    /**
+     * Updates the rresponsive param value.
+     */
+    updateResonsiveValue: function( element ) {
+
+        'use strict';
+
+        var control = this,
+        newValue = {};
+
+        // Set the spacing container.
+        control.responsiveContainer = control.container.find( '.ast-responsive-wrapper' ).first();
+
+        control.responsiveContainer.find( 'input.ast-responsive-input' ).each( function() {
+            var responsive_input = jQuery( this ),
+            item = responsive_input.data( 'id' ),
+            item_value = responsive_input.val();
+
+            newValue[item] = item_value;
+
+        });
+
+        control.responsiveContainer.find( 'select.ast-responsive-select' ).each( function() {
+            var responsive_input = jQuery( this ),
+            item = responsive_input.data( 'id' ),
+            item_value = responsive_input.val();
+
+            newValue[item] = item_value;
+        });
+
+        control.container.trigger( 'ast_settings_changed', [ control, element, newValue ] );
+    },
+
+    isJsonString: function( str ) {
+
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }   
 });
-
-var isJsonString = function(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
-}
-

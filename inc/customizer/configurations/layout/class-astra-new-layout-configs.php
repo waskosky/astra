@@ -96,6 +96,22 @@ if ( ! class_exists( 'Astra_New_Layout_Configs' ) ) {
 							'priority'          => 23,
 							'connect'           => ASTRA_THEME_SETTINGS . '[font-family-primary-menu]',
 						),
+						array(
+							'name'        => ASTRA_THEME_SETTINGS . '[font-size-site-title]',
+							'type'        => 'control',
+							'control'     => 'ast-responsive',
+							'section'     => 'section-primary-header-typo',
+							'default'     => astra_get_option( 'font-size-site-title' ),
+							'transport'   => 'postMessage',
+							'label'       => __( 'Font Size', 'astra' ),
+							'input_attrs' => array(
+								'min' => 0,
+							),
+							'units'       => array(
+								'px' => 'px',
+								'em' => 'em',
+							),
+						),
 					),
 				),
 			);
