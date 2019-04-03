@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Toggle' ) && class_exists( 'WP_Cust
 			<div class="customize-control-content">
 				<input type="hidden" data-name="{{ data.name }}" class="ast-hidden-input" value="{{ data.value }}">
 			</div>
-			<script type="text/html" id="tmpl-ast-settings-modal">
+			<script type="text/html" class="tmpl-ast-settings-modal">
 				<div class="ast-field-settings-modal">
 					<div class="ast-field-settings-wrap" >
 						<ul class="ast-fields-wrap">

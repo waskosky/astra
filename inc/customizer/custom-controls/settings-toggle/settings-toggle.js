@@ -17,9 +17,12 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
         var control = this;
 
-        jQuery( document ).on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
+        control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
+
+            e.preventDefault();
 
             var $this = jQuery(this);
+
             var parent_wrap = $this.closest( '.customize-control-ast-settings-toggle' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
 
@@ -31,11 +34,13 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
                 } else {
                     var fields = control.params.ast_fields;
-                    var $modal_wrap = $( $("#tmpl-ast-settings-modal").html() );
-                
+                    var $modal_wrap = $( $(".tmpl-ast-settings-modal").html() );
+
                     parent_wrap.append( $modal_wrap );
                     parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
                     control.ast_render_field( parent_wrap, fields, control );
+
+                    parent_wrap.find( '.ast-field-settings-modal' ).show();
                 }
             }
 
