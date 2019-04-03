@@ -921,23 +921,38 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
-	wp.customize( 'astra-settings[settings-toggle-new]', function( control ) {
+	wp.customize( 'astra-settings[transparent-header-colors]', function( control ) {
 		control.bind(function (value) {
 
 			var option_value = JSON.parse( value );
-			var control      = 'astra-settings[transparent-header-bg-color-responsive]';
-			var overlay_color = option_value[control];
-			var cssProperty = 'background-color';
-			var selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar, .ast-theme-transparent-header .main-header-bar .ast-search-menu-icon form';
+			var addon   = 'transparent-header';
 
-			var addon = 'transparent-header'; 
-		
-			astra_apply_responsive_color_property( addon, control, cssProperty, selector, overlay_color );
+			$.each( option_value, function( key, value ) {
 
-			var fontSizeControl = 'astra-settings[font-size-site-title]';
-			var font_size_value = option_value[ fontSizeControl ];
+				switch( key ) {
 
-			astra_apply_responsive_font_size( control, '.site-title', font_size_value );
+					case "astra-settings[transparent-header-color-h-site-title-responsive]":
+
+						var cssProperty = 	'color';
+						var cssSelector = '.ast-theme-transparent-header .site-header .site-title a:hover';
+
+						astra_apply_responsive_color_property(  addon, key, cssProperty, cssSelector, value );
+					break;	
+
+					case "astra-settings[transparent-menu-bg-color-responsive]":
+
+						var cssProperty = 'background-color';
+						var cssSelector = '.ast-theme-transparent-header .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-menu';
+
+						astra_apply_responsive_color_property(  addon, key, cssProperty, cssSelector, value );
+
+					break;
+				}
+
+				
+			});
+
+			
 
 		} );
 	} );
