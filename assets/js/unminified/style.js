@@ -430,7 +430,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( i = 0, len = links.length; i < len; i++ ) {
 			links[i].addEventListener( 'focus', toggleFocus, true );
-			links[i].addEventListener( 'blur', toggleFocus, true );
+			links[i].addEventListener( 'blur', toggleBlurFocus, true );
 			links[i].addEventListener( 'click', toggleClose, true );
 		}	
 	}
@@ -484,13 +484,23 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					}
 					
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
-                }
+                } else {
+	            	while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+						// On li elements toggle the class .focus.
+						if ( 'li' === self.tagName.toLowerCase() ) {
+							if ( -1 !== self.className.indexOf( 'focus' ) ) {
+								self.className = self.className.replace( ' focus', '' );
+							}
+						}
+						self = self.parentElement;
+					}
+				}
             }
-        }        
-    }
+        }
+   	}
 
 	/**
-	 * Sets or removes .focus class on an element.
+	 * Sets or removes .focus class on an element on focus.
 	 */
 	function toggleFocus() {
 		var self = this;
@@ -508,6 +518,45 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			self = self.parentElement;
 		}
+	}
+
+	/**
+	 * Sets or removes .focus class on an element on blur.
+	 */
+	function toggleBlurFocus() {
+		var self = this || '',
+            hash = '#';
+			link = new String( self );
+        if( link.indexOf( hash ) !== -1 && document.body.classList.contains('ast-mouse-clicked') ) {
+        	return;
+        }
+		// Move up through the ancestors of the current link until we hit .nav-menu.
+		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+
+			// On li elements toggle the class .focus.
+			if ( 'li' === self.tagName.toLowerCase() ) {
+				if ( -1 !== self.className.indexOf( 'focus' ) ) {
+					self.className = self.className.replace( ' focus', '' );
+				} else {
+					self.className += ' focus';
+				}
+			}
+
+			self = self.parentElement;
+		}
+	}
+
+	/* Add class if mouse clicked and remove if tab pressed */
+	if ( 'querySelector' in document && 'addEventListener' in window ) {
+		var body = document.body;
+
+		body.addEventListener( 'mousedown', function() {
+			body.classList.add( 'ast-mouse-clicked' );
+		} );
+
+		body.addEventListener( 'keydown', function() {
+			body.classList.remove( 'ast-mouse-clicked' );
+		} );
 	}
 
 } )();
