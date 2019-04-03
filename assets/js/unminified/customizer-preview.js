@@ -936,7 +936,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 						var cssProperty = 	'color';
 						var cssSelector = '.ast-theme-transparent-header .site-header .site-title a:hover';
 
-						astra_apply_responsive_color_property(  addon, key, cssProperty, cssSelector, value );
+						astra_apply_responsive_color_property( addon, key, cssProperty, cssSelector, value );
 					break;	
 
 					case "astra-settings[transparent-menu-bg-color-responsive]":
@@ -944,16 +944,46 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 						var cssProperty = 'background-color';
 						var cssSelector = '.ast-theme-transparent-header .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-menu';
 
-						astra_apply_responsive_color_property(  addon, key, cssProperty, cssSelector, value );
+						astra_apply_responsive_color_property( addon, key, cssProperty, cssSelector, value );
+
+					break;
+
+					case "astra-settings[transparent-menu-color-responsive]":
+
+						var cssSelector = '.ast-theme-transparent-header .main-header-menu, .ast-theme-transparent-header .main-header-menu a,.ast-theme-transparent-header .ast-masthead-custom-menu-items, .ast-theme-transparent-header .ast-masthead-custom-menu-items a,.ast-theme-transparent-header .main-header-menu li > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu li > .ast-menu-toggle';
+						var cssProperty = 'color';
+						
+						astra_apply_responsive_color_property( addon, key, cssProperty, cssSelector, value );
+
+					break;
+
+					case "astra-settings[transparent-menu-h-color-responsive]":
+
+						var cssProperty = 'color';
+						var cssSelector = '.ast-theme-transparent-header .main-header-menu li:hover > a, .ast-theme-transparent-header .main-header-menu li:hover > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .ast-masthead-custom-menu-items a:hover, .ast-theme-transparent-header .main-header-menu .focus > a, .ast-theme-transparent-header .main-header-menu .focus > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-item > a, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > a, .ast-theme-transparent-header .main-header-menu .current_page_item > a, .ast-theme-transparent-header .main-header-menu .current-menu-item > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .ast-theme-transparent-header .main-header-menu .current_page_item > .ast-menu-toggle';
+
+						astra_apply_responsive_color_property( addon, key, cssProperty, cssSelector, value );
+					break;
+
+					case "astra-settings[transparent-submenu-bg-color-responsive]":
+
+						var cssProperty = 'background-color';
+						var cssSelector = '.ast-theme-transparent-header .main-header-menu ul.sub-menu';
+
+						astra_apply_responsive_color_property( addon, key, cssProperty, cssSelector, value );
+
+					break;
+
+					case "astra-settings[transparent-submenu-color-responsive]":
+
+						var cssSelector = '.ast-theme-transparent-header .main-header-menu ul.sub-menu li a,.ast-theme-transparent-header .main-header-menu ul.sub-menu li > .ast-menu-toggle';
+						var cssProperty = 'color';
+
+						astra_apply_responsive_color_property( addon, key, cssProperty, cssSelector, value );
 
 					break;
 				}
-
-				
 			});
-
-			
-
 		} );
 	} );
 

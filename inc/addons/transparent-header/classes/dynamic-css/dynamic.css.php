@@ -34,17 +34,16 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$transparent_header_inherit = astra_get_option( 'different-transparent-logo' );
 	$transparent_header_logo    = astra_get_option( 'transparent-header-logo' );
 
-	// $transparent_bg_color           = astra_get_option( 'transparent-header-bg-color-responsive' );
-	$transparent_bg_color = astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'settings-toggle-new' );
+	$transparent_bg_color           = astra_get_option( 'transparent-header-bg-color-responsive' );
 
 	$transparent_color_site_title   = astra_get_option( 'transparent-header-color-site-title-responsive' );
-	$transparent_color_h_site_title = astra_get_option( 'transparent-header-color-h-site-title-responsive' );
-	$transparent_menu_bg_color      = astra_get_option( 'transparent-menu-bg-color-responsive' );
-	$transparent_menu_color         = astra_get_option( 'transparent-menu-color-responsive' );
-	$transparent_menu_h_color       = astra_get_option( 'transparent-menu-h-color-responsive' );
-	$transparent_sub_menu_color     = astra_get_option( 'transparent-submenu-color-responsive' );
+	$transparent_color_h_site_title = astra_get_option_by_group( 'transparent-header-color-h-site-title-responsive', 'transparent-header-colors' );
+	$transparent_menu_bg_color      = astra_get_option_by_group( 'transparent-menu-bg-color-responsive', 'transparent-header-colors' );
+	$transparent_menu_color         = astra_get_option_by_group( 'transparent-menu-color-responsive', 'transparent-header-colors' );
+	$transparent_menu_h_color       = astra_get_option_by_group( 'transparent-menu-h-color-responsive', 'transparent-header-colors' );
+	$transparent_sub_menu_color     = astra_get_option_by_group( 'transparent-submenu-color-responsive', 'transparent-header-colors' );
 	$transparent_sub_menu_h_color   = astra_get_option( 'transparent-submenu-h-color-responsive' );
-	$transparent_sub_menu_bg_color  = astra_get_option( 'transparent-submenu-bg-color-responsive' );
+	$transparent_sub_menu_bg_color  = astra_get_option_by_group( 'transparent-submenu-bg-color-responsive', 'transparent-header-colors' );
 
 	$transparent_content_section_text_color   = astra_get_option( 'transparent-content-section-text-color-responsive' );
 	$transparent_content_section_link_color   = astra_get_option( 'transparent-content-section-link-color-responsive' );
