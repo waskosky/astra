@@ -430,6 +430,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( i = 0, len = links.length; i < len; i++ ) {
 			links[i].addEventListener( 'focus', toggleFocus, true );
+			links[i].addEventListener( 'blur', toggleFocus, true );
 			links[i].addEventListener( 'click', toggleClose, true );
 		}	
 	}
@@ -483,17 +484,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					}
 					
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
-                } else {
-					// Move up through the ancestors of the current link until we hit .nav-menu.
-					while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-						// On li elements toggle the class .focus.
-						if ( 'li' === self.tagName.toLowerCase() ) {
-							if ( -1 !== self.className.indexOf( 'focus' ) ) {
-								self.className = self.className.replace( ' focus', '' );
-							}
-						}
-						self = self.parentElement;
-					}
                 }
             }
         }        
