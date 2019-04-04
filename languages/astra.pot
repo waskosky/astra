@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.7.2\n"
+"Project-Id-Version: Astra 1.8.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2019-03-28 14:23:27+00:00\n"
+"POT-Creation-Date: 2019-04-04 14:49:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,44 +28,44 @@ msgstr ""
 msgid "Comments Navigation"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:293
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:357
 msgid "Browse:"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:295
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:359
 #: inc/core/common-functions.php:779
 msgid "Home"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:296
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:360
 msgid "404 Not Found"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:297
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:361
 msgid "Archives"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:299
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:363
 #. Translators: %s is the search query.
 msgid "Search results for: %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:301
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:365
 #. Translators: %s is the page number.
 msgid "Page %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:303
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:367
 #. Translators: %s is the page number.
 msgid "Comment Page %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:305
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:369
 #. Translators: Minute archive title. %s is the minute time format.
 msgid "Minute %s"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:307
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:371
 #. Translators: Weekly archive title. %s is the week date format.
 msgid "Week %s"
 msgstr ""
@@ -158,15 +158,11 @@ msgstr ""
 msgid "Breadcrumb Overview"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:76
-msgid "Breadcrumb Source"
-msgstr ""
-
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:91
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:75
 msgid "Breadcrumb Position"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:96
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:80
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:106
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php:90
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:89
@@ -179,69 +175,73 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:97
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:81
 msgid "Inside Header"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:98
-#: inc/compatibility/class-astra-beaver-themer.php:227
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:82
+#: inc/compatibility/class-astra-beaver-themer.php:329
 msgid "After Header"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:99
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:83
 msgid "Before Title"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:119
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:95
+msgid "Breadcrumb Source"
+msgstr ""
+
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:114
 msgid "Breadcrumb Separator"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:131
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:127
 msgid "Disable on Home Page?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:144
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:140
 msgid "Latest Posts Page or when any page is selected as Blog Page"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:146
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:142
 msgid "Disable on Blog / Posts Page?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:160
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:156
 msgid "Disable on Search?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:174
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:170
 msgid "Disable on Archive?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:188
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:184
 msgid "Disable on Single Page?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:202
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:198
 msgid "Disable on Single Post?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:215
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:211
 msgid "All Pages, All Posts, All Attachments"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:217
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:213
 msgid "Disable on Singular?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:231
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:227
 msgid "Disable on 404 Page?"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:244
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:240
 msgid "Breadcrumb Alignment"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:249
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:272
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:245
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:268
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:215
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:237
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:366
@@ -250,12 +250,12 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:250
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:246
 msgid "Center"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:251
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:270
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:247
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:266
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:213
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:235
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:364
@@ -264,11 +264,11 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:265
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:261
 msgid "Breadcrumb Spacing"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:269
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:265
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:212
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:234
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:363
@@ -277,7 +277,7 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:271
+#: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:267
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:214
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:236
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:365
@@ -542,71 +542,71 @@ msgstr ""
 msgid "Menu Toggle"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:219
+#: inc/compatibility/class-astra-beaver-themer.php:321
 msgid "Before Page"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:220
+#: inc/compatibility/class-astra-beaver-themer.php:322
 msgid "After Page"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:226
+#: inc/compatibility/class-astra-beaver-themer.php:328
 msgid "Before Header"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:233
+#: inc/compatibility/class-astra-beaver-themer.php:335
 msgid "Before Content"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:234
+#: inc/compatibility/class-astra-beaver-themer.php:336
 msgid "After Content"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:240
+#: inc/compatibility/class-astra-beaver-themer.php:342
 msgid "Before Footer"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:241
+#: inc/compatibility/class-astra-beaver-themer.php:343
 msgid "After Footer"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:247
+#: inc/compatibility/class-astra-beaver-themer.php:349
 msgid "Before Sidebar"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:248
+#: inc/compatibility/class-astra-beaver-themer.php:350
 msgid "After Sidebar"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:254
+#: inc/compatibility/class-astra-beaver-themer.php:356
 msgid "Loop Start"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:255
+#: inc/compatibility/class-astra-beaver-themer.php:357
 msgid "Before Post"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:256
+#: inc/compatibility/class-astra-beaver-themer.php:358
 msgid "Before Post Content"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:257
+#: inc/compatibility/class-astra-beaver-themer.php:359
 msgid "After Post Content"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:258
+#: inc/compatibility/class-astra-beaver-themer.php:360
 msgid "After Post"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:259
+#: inc/compatibility/class-astra-beaver-themer.php:361
 msgid "Before Comments"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:260
+#: inc/compatibility/class-astra-beaver-themer.php:362
 msgid "After Comments"
 msgstr ""
 
-#: inc/compatibility/class-astra-beaver-themer.php:261
+#: inc/compatibility/class-astra-beaver-themer.php:363
 msgid "Loop End"
 msgstr ""
 
@@ -2495,49 +2495,49 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:294
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:358
 msgctxt "breadcrumbs aria label"
 msgid "Breadcrumbs"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:767
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:831
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:784
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:848
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:801
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:865
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:817
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:846
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:873
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:900
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1240
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:881
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:910
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:937
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:964
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1304
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:818
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:874
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1244
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:882
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:938
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1308
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:819
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1248
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:883
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:1312
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
 
-#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:847
+#: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:911
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
