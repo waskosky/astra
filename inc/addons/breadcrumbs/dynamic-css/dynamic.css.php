@@ -180,16 +180,16 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Breadcrumb NavXT CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-wrapper a'                => array(
+			'.ast-breadcrumbs-wrapper a'             => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .current-item'    => array(
+			'.ast-breadcrumbs-wrapper .current-item' => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper a:hover'          => array(
+			'.ast-breadcrumbs-wrapper a:hover'       => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs'  => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
