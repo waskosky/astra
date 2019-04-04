@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_assets' ) );
 			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
-			add_action( 'wp_print_footer_scripts', array( $this, 'twentynineteen_skip_link_focus_fix' ) );
+			add_action( 'wp_print_footer_scripts', array( $this, 'astra_skip_link_focus_fix' ) );
 		}
 
 		/**
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 *
 		 * @link https://git.io/vWdr2
 		 */
-		function twentynineteen_skip_link_focus_fix() {
+		function astra_skip_link_focus_fix() {
 			// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
 			?>
 			<script>
