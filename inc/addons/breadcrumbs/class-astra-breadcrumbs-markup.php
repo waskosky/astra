@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.3
+ * @since       Astra 1.8.0
  */
 
 if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
@@ -14,7 +14,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 	/**
 	 * Breadcrumbs Markup Initial Setup
 	 *
-	 * @since 1.7.3
+	 * @since 1.8.0
 	 */
 	class Astra_Breadcrumbs_Markup {
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Loads template based on the style option selected in options panel for Breadcrumbs.
 		 *
-		 * @since 1.7.3
+		 * @since 1.8.0
 		 *
 		 * @return void
 		 */
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Hook breadcrumb to position of selected option
 		 *
-		 * @since 1.7.3
+		 * @since 1.8.0
 		 *
 		 * @return void
 		 */
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Checks the rules defined for displaying Breadcrumb on different pages.
 		 *
-		 * @since 1.7.3
+		 * @since 1.8.0
 		 *
 		 * @return boolean
 		 */

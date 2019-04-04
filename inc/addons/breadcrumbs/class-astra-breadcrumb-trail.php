@@ -27,7 +27,7 @@
  *
  * Gets the basic Breadcrumb wrapper div & content
  *
- * @since 1.7.3
+ * @since 1.8.1
  * @param boolean $echo Whether to echo or not.
  * @return string
  */
@@ -81,20 +81,36 @@ function astra_get_selected_breadcrumb( $echo = true ) {
 		rank_math_the_breadcrumbs();
 	} else {
 		// Load default Astra breadcrumb if none selected.
-		return astra_breadcrumb_trail( $echo );
+		return astra_get_breadcrumb_trail( $echo );
 	}
+}
+
+
+/**
+ * Deprecating astra_breadcrumb_trail function.
+ *
+ * @since 1.8.1
+ * @deprecated 1.8.1 Use astra_get_breadcrumb()
+ * @param array  $args List of args.
+ * @see astra_breadcrumb_trail()
+ *
+ * @return string new breadcrumb function.
+ */
+function astra_breadcrumb_trail( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.8.1', 'astra_get_breadcrumb()' );
+	astra_get_breadcrumb();
 }
 
 /**
  * Shows a breadcrumb for all types of pages.  This is a wrapper function for the Breadcrumb_Trail class,
  * which should be used in theme templates.
  *
- * @since  1.8.0
+ * @since  1.8.1
  * @access public
  * @param  boolean $echo  Whether to echo or not.
  * @return string Selected Breadcrumb.
  */
-function astra_breadcrumb_trail( $echo = true ) {
+function astra_get_breadcrumb_trail( $echo = true ) {
 
 	$defaults = array(
 		'before'      => '<div class="ast-breadcrumbs">',
