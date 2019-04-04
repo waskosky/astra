@@ -58,6 +58,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * thus it does not warrant having an entire dedicated blocking script being loaded.
 		 *
 		 * @link https://git.io/vWdr2
+		 * @link https://github.com/WordPress/twentynineteen/pull/47/files
 		 */
 		function astra_skip_link_focus_fix() {
 			// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
