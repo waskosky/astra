@@ -69,6 +69,11 @@ function astra_get_selected_breadcrumb( $echo = true ) {
 		// Check if breadcrumb is turned on from WPSEO option.
 		return yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>', $echo );
 	} elseif ( function_exists( 'bcn_display' ) && $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
+
+		if( true === $echo ) {
+			echo '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">' . bcn_display( ! $echo ) . '</div>';
+			return;
+		}
 		// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
 		return '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">' . bcn_display( ! $echo ) . '</div>';
 	} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) && $breadcrumb_source && 'rank-math' == $breadcrumb_source ) {
