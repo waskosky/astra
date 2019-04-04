@@ -46,7 +46,7 @@
 		'breadcrumb',
 		'astra-settings[breadcrumb-text-color-responsive]',
 		'color',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a'
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper a'
 		);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Active Color */
