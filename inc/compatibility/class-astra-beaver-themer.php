@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 			$post_class = array( 'fl-post-grid-post', 'fl-post-gallery-post', 'fl-post-feed-post' );
 			$result     = array_intersect( $classes, $post_class );
-			
+
 			if ( count( $result ) > 0 ) {
 				$classes = array_diff(
 					$classes,
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 						'box-shadow-5-hover',
 					)
 				);
-				
+
 				add_filter( 'astra_post_link_enabled', '__return_false' );
 			}
 
