@@ -184,7 +184,6 @@ module.exports = function (grunt) {
 	                    {
 		                    src: [
 		                    	'assets/js/minified/navigation.min.js',
-                                'assets/js/minified/skip-link-focus-fix.min.js',
                                 'assets/js/minified/custom-events-polyfill.js'
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
