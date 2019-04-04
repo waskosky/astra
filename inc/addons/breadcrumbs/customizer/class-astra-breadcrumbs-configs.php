@@ -66,6 +66,25 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Breadcrumb Position
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+					'default'  => 'none',
+					'section'  => 'section-breadcrumb',
+					'title'    => __( 'Breadcrumb Position', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'priority' => 5,
+					'choices'  => array(
+						'none'                      => __( 'None', 'astra' ),
+						'astra_masthead_content'    => __( 'Inside Header', 'astra' ),
+						'astra_header_markup_after' => __( 'After Header', 'astra' ),
+						'astra_entry_top'           => __( 'Before Title', 'astra' ),
+					),
+				),
+
+				/**
 				 * Option: Breadcrumb Source
 				 */
 				array(
@@ -76,28 +95,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'           => __( 'Breadcrumb Source', 'astra' ),
 					'type'            => 'control',
 					'control'         => 'select',
-					'priority'        => 5,
+					'priority'        => 10,
 					'choices'         => $breadcrumb_source_list,
 					'active_callback' => array( $this, 'is_third_party_breadcrumb_active' ),
-				),
-
-				/**
-				 * Option: Breadcrumb Position
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-					'default'  => 'none',
-					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Breadcrumb Position', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'priority' => 10,
-					'choices'  => array(
-						'none'                      => __( 'None', 'astra' ),
-						'astra_masthead_content'    => __( 'Inside Header', 'astra' ),
-						'astra_header_markup_after' => __( 'After Header', 'astra' ),
-						'astra_entry_top'           => __( 'Before Title', 'astra' ),
-					),
 				),
 
 				/**
