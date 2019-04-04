@@ -383,7 +383,6 @@ module.exports = function (grunt) {
                 dist: {
                     src: [
                         'assets/js/unminified/navigation.js',
-                        'assets/js/unminified/skip-link-focus-fix.js',
                     ],
                     dest: 'assets/js/unminified/style.js',
                 }
