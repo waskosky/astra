@@ -91,30 +91,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				echo '<div class="main-header-bar ast-header-breadcrumb">
 							<div class="ast-container">';
 			}
-			$this->astra_get_breadcrumb();
+			astra_get_breadcrumb();
 			if ( $breadcrumb_position && 'astra_header_markup_after' === $breadcrumb_position ) {
 				echo '	</div>
 					</div>';
 			}
-		}
-
-		/**
-		 * Astra Get Breadcrumb
-		 *
-		 * Gets the basic Breadcrumb wrapper div & content
-		 *
-		 * @since 1.7.3
-		 *
-		 * @return void
-		 */
-		public function astra_get_breadcrumb() {
-			?>
-			<div class="ast-breadcrumbs-wrapper">
-				<div class="ast-breadcrumbs-inner">
-					<?php astra_breadcrumb_trail(); ?>
-				</div>
-			</div>
-			<?php
 		}
 
 		/**

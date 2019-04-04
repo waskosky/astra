@@ -23,51 +23,94 @@
  */
 
 /**
- * Shows a breadcrumb for all types of pages.  This is a wrapper function for the Breadcrumb_Trail class,
- * which should be used in theme templates.
+ * Astra Get Breadcrumb
  *
- * @since  0.1.0
- * @access public
- * @param  array $args Arguments to pass to Breadcrumb_Trail.
- * @return void
+ * Gets the basic Breadcrumb wrapper div & content
+ *
+ * @since 1.7.3
+ * @param boolean $echo Whether to echo or not.
+ * @return string
  */
-function astra_breadcrumb_trail( $args = array() ) {
+function astra_get_breadcrumb( $echo = true ) {
+
+	if ( ! $echo ) {
+		return '<div class="ast-breadcrumbs-wrapper">
+			<div class="ast-breadcrumbs-inner">' .
+				astra_get_selected_breadcrumb( $echo ) .
+			'</div>
+		</div>';
+	}
+
+	?>
+	<div class="ast-breadcrumbs-wrapper">
+		<div class="ast-breadcrumbs-inner">
+			<?php astra_get_selected_breadcrumb( $echo ); ?>
+		</div>
+	</div>
+	<?php
+
+}
+
+/**
+ * Get selected breadcrumb.
+ * Returns or echo the breadcrumb depending upon the argument.
+ *
+ * @since  1.8.1
+ * @access public
+ * @param  boolean $echo  Whether to echo or not.
+ * @return string Selected Breadcrumb.
+ */
+function astra_get_selected_breadcrumb( $echo = true ) {
 
 	$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
 	$wpseo_option      = get_option( 'wpseo_internallinks' );
 
 	if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 		// Check if breadcrumb is turned on from WPSEO option.
-		yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
+		return yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>', $echo );
 	} elseif ( function_exists( 'bcn_display' ) && $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
 		// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
-		?>
-		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-			<?php bcn_display(); ?>
-		</div>
-		<?php
+		return '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">' . bcn_display( ! $echo ) . '</div>';
 	} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) && $breadcrumb_source && 'rank-math' == $breadcrumb_source ) {
+		// Check if breadcrumb is turned on from Rank Math plugin.
+		if ( ! $echo ) {
+			ob_start();
+			rank_math_the_breadcrumbs();
+			return ob_get_clean();
+		}
 		rank_math_the_breadcrumbs();
 	} else {
 		// Load default Astra breadcrumb if none selected.
-		$defaults = array(
-			'before'      => '<div class="ast-breadcrumbs">',
-			'after'       => '</div>',
-			'show_browse' => false,
-			'echo'        => true,
-		);
-	
-		$args = wp_parse_args( $args, $defaults );
-	
-		$breadcrumb = apply_filters( 'astra_breadcrumb_trail_object', null, $args );
-	
-		if ( ! is_object( $breadcrumb ) )
-			$breadcrumb = new Astra_Breadcrumb_Trail( $args );
-	
-		return $breadcrumb->trail();
+		return astra_breadcrumb_trail( $echo );
 	}
+}
 
-	
+/**
+ * Shows a breadcrumb for all types of pages.  This is a wrapper function for the Breadcrumb_Trail class,
+ * which should be used in theme templates.
+ *
+ * @since  1.8.0
+ * @access public
+ * @param  boolean $echo  Whether to echo or not.
+ * @return string Selected Breadcrumb.
+ */
+function astra_breadcrumb_trail( $echo = true ) {
+
+	$defaults = array(
+		'before'      => '<div class="ast-breadcrumbs">',
+		'after'       => '</div>',
+		'show_browse' => false,
+		'echo'        => $echo,
+	);
+
+	$args = apply_filters( 'astra_breadcrumb_trail_args', $defaults );
+
+	$breadcrumb = apply_filters( 'astra_breadcrumb_trail_object', null, $args );
+
+	if ( ! is_object( $breadcrumb ) )
+		$breadcrumb = new Astra_Breadcrumb_Trail( $args );
+
+	return $breadcrumb->trail();
 }
 
 /**
@@ -271,7 +314,7 @@ class Astra_Breadcrumb_Trail {
 
 		// Allow developers to filter the breadcrumb trail HTML.
 		$breadcrumb = apply_filters( 'astra_breadcrumb_trail', $breadcrumb, $this->args );
-
+		
 		if ( false === $this->args['echo'] )
 			return $breadcrumb;
 
