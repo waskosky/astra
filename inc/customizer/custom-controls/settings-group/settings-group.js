@@ -1,6 +1,6 @@
 
 
-wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.extend({
 
     ready : function() {
 
@@ -23,7 +23,7 @@ wp.customize.controlConstructor['ast-settings-toggle'] = wp.customize.Control.ex
 
             var $this = jQuery(this);
 
-            var parent_wrap = $this.closest( '.customize-control-ast-settings-toggle' );
+            var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
 
             if( $this.hasClass('open') ) {

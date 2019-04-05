@@ -90,12 +90,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public function register_customizer_settings( $wp_customize ) {
 
 			$configurations = $this->get_customizer_configurations( $wp_customize );
-			
+
 			foreach ( $configurations as $key => $config ) {
 				$config = wp_parse_args( $config, $this->get_astra_customizer_configuration_defaults() );
 
 				switch ( $config['type'] ) {
-					
+
 					case 'panel':
 						// Remove type from configuration.
 						unset( $config['type'] );
@@ -116,12 +116,21 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						// Remove type from configuration.
 						unset( $config['type'] );
 
-						if( $config['control'] == 'ast-settings-toggle' ) {
+						if ( 'ast-settings-group' == $config['control'] ) {
 
-							$timer = microtime(true);	
-							wp_filter_object_list( $configurations, array(
-								'control' => astra_get_prop( $config, 'control' )
-							), 'AND' );
+							// Get Child controls for group control.
+							$config_obj = wp_filter_object_list(
+								$configurations,
+								array(
+									'parent' => astra_get_prop( $config, 'name' ),
+								)
+							);
+
+							// Sort them according to priority.
+							$config_sorted = wp_list_sort( $config_obj, 'priority' );
+
+							$config['ast_fields'] = $config_sorted;
+
 						}
 
 						$this->register_setting_control( $config, $wp_customize );
@@ -517,9 +526,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
-				'ast-settings-toggle',
+				'ast-settings-group',
 				array(
-					'callback'          => 'Astra_Control_Settings_Toggle',
+					'callback'          => 'Astra_Control_Settings_Group',
 					'sanitize_callback' => '',
 				)
 			);

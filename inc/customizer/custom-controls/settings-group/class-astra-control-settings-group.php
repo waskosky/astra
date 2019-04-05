@@ -1,12 +1,12 @@
 <?php
 /**
- * Customizer Control: description
+ * Customizer Control: Settings Group
  *
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       1.0.0
+ * @since       x.x.x
  */
 
 // Exit if accessed directly.
@@ -14,12 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Control_Settings_Toggle' ) && class_exists( 'WP_Customize_Control' ) ) :
+if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	/**
-	 * A text control with validation for CSS units.
+	 * A Settings group control.
 	 */
-	class Astra_Control_Settings_Toggle extends WP_Customize_Control {
+	class Astra_Control_Settings_Group extends WP_Customize_Control {
 
 		/**
 		 * The control type.
@@ -27,7 +27,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Toggle' ) && class_exists( 'WP_Cust
 		 * @access public
 		 * @var string
 		 */
-		public $type = 'ast-settings-toggle';
+		public $type = 'ast-settings-group';
 
 		/**
 		 * The text to display.
@@ -76,10 +76,10 @@ if ( ! class_exists( 'Astra_Control_Settings_Toggle' ) && class_exists( 'WP_Cust
 		 */
 		public function enqueue() {
 
-			$assets_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/settings-toggle/';
-			wp_enqueue_style( 'astra-settings-toggle', $assets_uri . 'settings-toggle.css', null, ASTRA_THEME_VERSION );
+			$assets_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/settings-group/';
+			wp_enqueue_style( 'astra-settings-group', $assets_uri . 'settings-group.css', null, ASTRA_THEME_VERSION );
 
-			wp_enqueue_script( 'astra-settings-toggle-script', $assets_uri . 'settings-toggle.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'astra-settings-group-script', $assets_uri . 'settings-group.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 
 		}
 
