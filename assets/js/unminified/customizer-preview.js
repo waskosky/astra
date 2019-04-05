@@ -811,9 +811,6 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize('astra-settings[primary-submenu-item-b-color]', function (value) {
 		value.bind(function (color) {
-
-			console.log( 'this is workig' );
-
 			var insideBorder = wp.customize('astra-settings[primary-submenu-item-border]').get();
 			if ('' != color) {
 				if ( true == insideBorder ) {
