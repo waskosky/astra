@@ -1873,6 +1873,8 @@
             "variants": [
                 "300",
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "display"

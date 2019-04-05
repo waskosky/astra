@@ -23,51 +23,115 @@
  */
 
 /**
- * Shows a breadcrumb for all types of pages.  This is a wrapper function for the Breadcrumb_Trail class,
- * which should be used in theme templates.
+ * Astra Get Breadcrumb
  *
- * @since  0.1.0
- * @access public
- * @param  array $args Arguments to pass to Breadcrumb_Trail.
- * @return void
+ * Gets the basic Breadcrumb wrapper div & content
+ *
+ * @since 1.8.1
+ * @param boolean $echo Whether to echo or not.
+ * @return string
  */
-function astra_breadcrumb_trail( $args = array() ) {
+function astra_get_breadcrumb( $echo = true ) {
+
+	if ( ! $echo ) {
+		return '<div class="ast-breadcrumbs-wrapper">
+			<div class="ast-breadcrumbs-inner">' .
+				astra_get_selected_breadcrumb( $echo ) .
+			'</div>
+		</div>';
+	}
+
+	?>
+	<div class="ast-breadcrumbs-wrapper">
+		<div class="ast-breadcrumbs-inner">
+			<?php astra_get_selected_breadcrumb( $echo ); ?>
+		</div>
+	</div>
+	<?php
+
+}
+
+/**
+ * Get selected breadcrumb.
+ * Returns or echo the breadcrumb depending upon the argument.
+ *
+ * @since  1.8.1
+ * @access public
+ * @param  boolean $echo  Whether to echo or not.
+ * @return string Selected Breadcrumb.
+ */
+function astra_get_selected_breadcrumb( $echo = true ) {
 
 	$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
 	$wpseo_option      = get_option( 'wpseo_internallinks' );
 
 	if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 		// Check if breadcrumb is turned on from WPSEO option.
-		yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
+		return yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>', $echo );
 	} elseif ( function_exists( 'bcn_display' ) && $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
+
+		if( true === $echo ) {
+			echo '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">' . bcn_display( ! $echo ) . '</div>';
+			return;
+		}
 		// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
-		?>
-		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-			<?php bcn_display(); ?>
-		</div>
-		<?php
+		return '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">' . bcn_display( ! $echo ) . '</div>';
 	} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) && $breadcrumb_source && 'rank-math' == $breadcrumb_source ) {
+		// Check if breadcrumb is turned on from Rank Math plugin.
+		if ( ! $echo ) {
+			ob_start();
+			rank_math_the_breadcrumbs();
+			return ob_get_clean();
+		}
 		rank_math_the_breadcrumbs();
 	} else {
 		// Load default Astra breadcrumb if none selected.
-		$defaults = array(
-			'before'      => '<div class="ast-breadcrumbs">',
-			'after'       => '</div>',
-			'show_browse' => false,
-			'echo'        => true,
-		);
-	
-		$args = wp_parse_args( $args, $defaults );
-	
-		$breadcrumb = apply_filters( 'astra_breadcrumb_trail_object', null, $args );
-	
-		if ( ! is_object( $breadcrumb ) )
-			$breadcrumb = new Astra_Breadcrumb_Trail( $args );
-	
-		return $breadcrumb->trail();
+		return astra_get_breadcrumb_trail( $echo );
 	}
+}
 
-	
+
+/**
+ * Deprecating astra_breadcrumb_trail function.
+ *
+ * @since 1.8.1
+ * @deprecated 1.8.1 Use astra_get_breadcrumb()
+ * @param array  $args List of args.
+ * @see astra_breadcrumb_trail()
+ *
+ * @return string new breadcrumb function.
+ */
+function astra_breadcrumb_trail( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.8.1', 'astra_get_breadcrumb()' );
+	astra_get_breadcrumb();
+}
+
+/**
+ * Shows a breadcrumb for all types of pages.  This is a wrapper function for the Breadcrumb_Trail class,
+ * which should be used in theme templates.
+ *
+ * @since  1.8.1
+ * @access public
+ * @param  boolean $echo  Whether to echo or not.
+ * @return string Selected Breadcrumb.
+ */
+function astra_get_breadcrumb_trail( $echo = true ) {
+
+	$defaults = array(
+		'before'      => '<div class="ast-breadcrumbs">',
+		'after'       => '</div>',
+		'show_browse' => false,
+		'echo'        => $echo,
+	);
+
+	$args = apply_filters( 'astra_breadcrumb_trail_args', $defaults );
+
+	$breadcrumb = apply_filters( 'astra_breadcrumb_trail_object', null, $args );
+
+	if ( ! is_object( $breadcrumb ) )
+		$breadcrumb = new Astra_Breadcrumb_Trail( $args );
+
+	return $breadcrumb->trail();
 }
 
 /**
@@ -271,7 +335,7 @@ class Astra_Breadcrumb_Trail {
 
 		// Allow developers to filter the breadcrumb trail HTML.
 		$breadcrumb = apply_filters( 'astra_breadcrumb_trail', $breadcrumb, $this->args );
-
+		
 		if ( false === $this->args['echo'] )
 			return $breadcrumb;
 
@@ -290,21 +354,21 @@ class Astra_Breadcrumb_Trail {
 	protected function set_labels() {
 
 		$defaults = array(
-			'browse'              => esc_html__( 'Browse:',                               'breadcrumb-trail', 'astra' ),
-			'aria_label'          => esc_attr_x( 'Breadcrumbs', 'breadcrumbs aria label', 'breadcrumb-trail', 'astra' ),
-			'home'                => esc_html__( 'Home',                                  'breadcrumb-trail', 'astra' ),
-			'error_404'           => esc_html__( '404 Not Found',                         'breadcrumb-trail', 'astra' ),
-			'archives'            => esc_html__( 'Archives',                              'breadcrumb-trail', 'astra' ),
+			'browse'              => esc_html__( 'Browse:',                               'astra' ),
+			'aria_label'          => esc_attr_x( 'Breadcrumbs', 'breadcrumbs aria label', 'astra' ),
+			'home'                => esc_html__( 'Home',                                  'astra' ),
+			'error_404'           => esc_html__( '404 Not Found',                         'astra' ),
+			'archives'            => esc_html__( 'Archives',                              'astra' ),
 			// Translators: %s is the search query.
-			'search'              => esc_html__( 'Search results for: %s',                'breadcrumb-trail', 'astra' ),
+			'search'              => esc_html__( 'Search results for: %s',                'astra' ),
 			// Translators: %s is the page number.
-			'paged'               => esc_html__( 'Page %s',                               'breadcrumb-trail', 'astra' ),
+			'paged'               => esc_html__( 'Page %s',                               'astra' ),
 			// Translators: %s is the page number.
-			'paged_comments'      => esc_html__( 'Comment Page %s',                       'breadcrumb-trail', 'astra' ),
+			'paged_comments'      => esc_html__( 'Comment Page %s',                       'astra' ),
 			// Translators: Minute archive title. %s is the minute time format.
-			'archive_minute'      => esc_html__( 'Minute %s',                             'breadcrumb-trail', 'astra' ),
+			'archive_minute'      => esc_html__( 'Minute %s',                             'astra' ),
 			// Translators: Weekly archive title. %s is the week date format.
-			'archive_week'        => esc_html__( 'Week %s',                               'breadcrumb-trail', 'astra' ),
+			'archive_week'        => esc_html__( 'Week %s',                               'astra' ),
 
 			// "%s" is replaced with the translated date/time format.
 			'archive_minute_hour' => '%s',
@@ -764,7 +828,7 @@ class Astra_Breadcrumb_Trail {
 
 		// Add the minute + hour item.
 		if ( true === $this->args['show_title'] )
-			$this->items[] = sprintf( $this->labels['archive_minute_hour'], get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'breadcrumb-trail', 'astra' ) ) );
+			$this->items[] = sprintf( $this->labels['archive_minute_hour'], get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'astra' ) ) );
 	}
 
 	/**
@@ -781,7 +845,7 @@ class Astra_Breadcrumb_Trail {
 
 		// Add the minute item.
 		if ( true === $this->args['show_title'] )
-			$this->items[] = sprintf( $this->labels['archive_minute'], get_the_time( esc_html_x( 'i', 'minute archives time format', 'breadcrumb-trail', 'astra' ) ) );
+			$this->items[] = sprintf( $this->labels['archive_minute'], get_the_time( esc_html_x( 'i', 'minute archives time format', 'astra' ) ) );
 	}
 
 	/**
@@ -798,7 +862,7 @@ class Astra_Breadcrumb_Trail {
 
 		// Add the hour item.
 		if ( true === $this->args['show_title'] )
-			$this->items[] = sprintf( $this->labels['archive_hour'], get_the_time( esc_html_x( 'g a', 'hour archives time format', 'breadcrumb-trail', 'astra' ) ) );
+			$this->items[] = sprintf( $this->labels['archive_hour'], get_the_time( esc_html_x( 'g a', 'hour archives time format', 'astra' ) ) );
 	}
 
 	/**
@@ -814,9 +878,9 @@ class Astra_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get year, month, and day.
-		$year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'breadcrumb-trail', 'astra' ) ) );
-		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'breadcrumb-trail', 'astra' ) ) );
-		$day   = sprintf( $this->labels['archive_day'],   get_the_time( esc_html_x( 'j', 'daily archives date format',   'breadcrumb-trail', 'astra' ) ) );
+		$year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'astra' ) ) );
+		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'astra' ) ) );
+		$day   = sprintf( $this->labels['archive_day'],   get_the_time( esc_html_x( 'j', 'daily archives date format',   'astra' ) ) );
 
 		// Add the year and month items.
 		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -843,8 +907,8 @@ class Astra_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get the year and week.
-		$year = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'breadcrumb-trail', 'astra' ) ) );
-		$week = sprintf( $this->labels['archive_week'],  get_the_time( esc_html_x( 'W', 'weekly archives date format', 'breadcrumb-trail', 'astra' ) ) );
+		$year = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'astra' ) ) );
+		$week = sprintf( $this->labels['archive_week'],  get_the_time( esc_html_x( 'W', 'weekly archives date format', 'astra' ) ) );
 
 		// Add the year item.
 		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -870,8 +934,8 @@ class Astra_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get the year and month.
-		$year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'breadcrumb-trail', 'astra' ) ) );
-		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'breadcrumb-trail', 'astra' ) ) );
+		$year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'astra' ) ) );
+		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'astra' ) ) );
 
 		// Add the year item.
 		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -897,7 +961,7 @@ class Astra_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get the year.
-		$year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'breadcrumb-trail', 'astra' ) ) );
+		$year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'astra' ) ) );
 
 		// Add the year item.
 		if ( is_paged() )
@@ -1237,15 +1301,15 @@ class Astra_Breadcrumb_Trail {
 
 				// If using the %year% tag, add a link to the yearly archive.
 				if ( '%year%' == $tag )
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y', $post_id ) ) ), sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'breadcrumb-trail', 'astra' ) ) ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y', $post_id ) ) ), sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'astra' ) ) ) );
 
 				// If using the %monthnum% tag, add a link to the monthly archive.
 				elseif ( '%monthnum%' == $tag )
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_month_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ) ) ), sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'breadcrumb-trail', 'astra' ) ) ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_month_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ) ) ), sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'astra' ) ) ) );
 
 				// If using the %day% tag, add a link to the daily archive.
 				elseif ( '%day%' == $tag )
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ), get_the_time( 'd', $post_id ) ) ), sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'breadcrumb-trail', 'astra' ) ) ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ), get_the_time( 'd', $post_id ) ) ), sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'astra' ) ) ) );
 
 				// If using the %author% tag, add a link to the post author archive.
 				elseif ( '%author%' == $tag )

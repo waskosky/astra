@@ -44,17 +44,17 @@
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Text Color */
 	astra_color_responsive_css( 
 		'breadcrumb',
-		'astra-settings[breadcrumb-text-color-responsive]',
-		'color',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a'
-		);
-
-	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Active Color */
-	astra_color_responsive_css(
-		'breadcrumb',
 		'astra-settings[breadcrumb-active-color-responsive]',
 		'color',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last' 
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .trail-items .trail-end'
+		);
+	
+	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Link Color */
+	astra_color_responsive_css(
+		'breadcrumb',
+		'astra-settings[breadcrumb-text-color-responsive]',
+		'color',
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .trail-items a' 
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Hover Color */
@@ -62,7 +62,7 @@
 		'breadcrumb',
 		'astra-settings[breadcrumb-hover-color-responsive]',
 		'color',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper a:hover'
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper a:hover, .ast-breadcrumbs-wrapper .trail-items a:hover'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Separator Color */

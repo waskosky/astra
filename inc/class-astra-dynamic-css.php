@@ -1158,6 +1158,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'display'             => '-ms-flexbox',
 						'display'             => 'flex',
 					),
+					'.ast-primary-menu-disabled .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'flex' => 'unset',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $submenu_below_header );
