@@ -91,6 +91,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$configurations = $this->get_customizer_configurations( $wp_customize );
 
+			$time = 0;
+			
 			foreach ( $configurations as $key => $config ) {
 				$config = wp_parse_args( $config, $this->get_astra_customizer_configuration_defaults() );
 
@@ -115,12 +117,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						// Remove type from configuration.
 						unset( $config['type'] );
 
+						if( $config['control'] == 'ast-settings-toggle' ) {
+
+							$timer = microtime(true);	
+							wp_filter_object_list( $configurations, array(
+								'control' => astra_get_prop( $config, 'control' )
+							), 'AND' );
+	
+							$time += microtime(true) - $timer;
+						}
+
 						$this->register_setting_control( $config, $wp_customize );
 
 						break;
 				}
 			}
 
+			error_log( $time );
 		}
 
 		/**

@@ -57,6 +57,19 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'priority' => 20,
 					'control'  => 'checkbox',
 				),
+				
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-h-site-title-responsive]',
+					'default'    => $defaults['transparent-header-color-h-site-title-responsive'],
+					'type'       => 'control',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'label'      => __( 'Site Title Hover Color', 'astra' ),
+					'section'    => 'section-colors-transparent-header',
+					'responsive' => true,
+					'rgba'       => true,
+				),
+
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
 					'default'    => astra_get_option( 'transparent-header-colors' ),
