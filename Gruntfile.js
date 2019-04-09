@@ -184,11 +184,22 @@ module.exports = function (grunt) {
 	                    {
 		                    src: [
 		                    	'assets/js/minified/navigation.min.js',
-                                'assets/js/minified/skip-link-focus-fix.min.js',
                                 'assets/js/minified/custom-events-polyfill.js'
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
 		                },
+                        {
+                            src: [
+                                'inc/addons/breadcrumbs/assets/js/unminified/*.js',
+                            ],
+                            dest: 'inc/addons/breadcrumbs/assets/js/minified/customizer-preview.min.js',
+                        },
+                        {
+                            src: [
+                                'inc/addons/transparent-header/assets/js/unminified/*.js',
+                            ],
+                            dest: 'inc/addons/transparent-header/assets/js/minified/customizer-preview.min.js',
+                        },
 	               	]
                 }
             },
@@ -372,7 +383,6 @@ module.exports = function (grunt) {
                 dist: {
                     src: [
                         'assets/js/unminified/navigation.js',
-                        'assets/js/unminified/skip-link-focus-fix.js',
                     ],
                     dest: 'assets/js/unminified/style.js',
                 }
@@ -406,6 +416,24 @@ module.exports = function (grunt) {
                         {
                             from: /ASTRA_THEME_VERSION', '.*?'/g,
                             to: 'ASTRA_THEME_VERSION\', \'<%= pkg.version %>\''
+                        }
+                    ]
+                },
+
+                theme_function_comment: {
+                    src: [
+                        '*.php',
+                        '**/*.php',
+                        '!node_modules/**',
+                        '!php-tests/**',
+                        '!bin/**',
+                        '!admin/bsf-core/**'
+                    ],
+                    overwrite: true,
+                    replacements: [
+                        {
+                            from: 'x.x.x',
+                            to: '<%=pkg.version %>'
                         }
                     ]
                 }

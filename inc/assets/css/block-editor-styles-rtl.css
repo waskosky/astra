@@ -223,10 +223,6 @@ html {
   background: royalblue;
 }
 
-.edit-post-visual-editor html {
-  overflow-y: scroll;
-}
-
 .edit-post-visual-editor body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -504,11 +500,6 @@ html {
     padding-right: 0;
     padding-left: 0;
   }
-}
-
-.edit-post-visual-editor .editor-block-list__block blockquote p {
-  font-size: 1.1rem;
-  line-height: 1.8571428571;
 }
 
 .edit-post-visual-editor .editor-block-list__block .editor-block-list__block-edit {

@@ -248,20 +248,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			};
 		}
 
-		var rel = this.getAttribute('rel') || '';
-
-		switch (rel) {
-			case 'main-menu':
-				toggleClass(__main_header_all[event_index], 'toggle-on');
-				toggleClass(menu_toggle_all[event_index], 'toggled');
-				if (__main_header_all[event_index].classList.contains('toggle-on')) {
-					__main_header_all[event_index].style.display = 'block';
-					document.body.classList.add("ast-main-header-nav-open");
-				} else {
-					__main_header_all[event_index].style.display = '';
-					document.body.classList.remove("ast-main-header-nav-open");
-				}
-				break;
+		var menu_class = this.getAttribute('class') || '';
+		
+		if ( menu_class.indexOf('main-header-menu-toggle') !== -1 ) {
+			toggleClass(__main_header_all[event_index], 'toggle-on');
+			toggleClass(menu_toggle_all[event_index], 'toggled');
+			if (__main_header_all[event_index].classList.contains('toggle-on')) {
+				__main_header_all[event_index].style.display = 'block';
+				document.body.classList.add("ast-main-header-nav-open");
+			} else {
+				__main_header_all[event_index].style.display = '';
+				document.body.classList.remove("ast-main-header-nav-open");
+			}
 		}
 	};
 
@@ -302,6 +300,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	document.addEventListener('DOMContentLoaded', function () {
 		AstraToggleSetup();
+		/**
+		 * Navigation Keyboard Navigation.
+		 */
+		var container, button, menu, links, subMenus, i, len, count;
+
+		container = document.querySelectorAll( '.navigation-accessibility' );
+
+		for ( count = 0; count <= container.length - 1; count++ ) {
+			if ( container[count] ) {
+				navigation_accessibility( container[count] );
+			}
+		}
 	});
 
 
@@ -369,16 +379,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	/**
 	 * Navigation Keyboard Navigation.
 	 */
-	var container, button, menu, links, subMenus, i, len, count;
-
-	container = document.querySelectorAll( '.navigation-accessibility' );
-
-	for ( count = 0; count <= container.length - 1; count++ ) {
-		if ( container[count] ) {
-			navigation_accessibility( container[count] );
-		}
-	}
-
 	function navigation_accessibility( container ) {
 		if ( ! container ) {
 			return;
@@ -386,7 +386,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		button = container.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
-			return;
+			button = container.getElementsByTagName( 'a' )[0];
+			if ( 'undefined' === typeof button ) {
+				return;
+			}
 		}
 
 		menu = container.getElementsByTagName( 'ul' )[0];
@@ -427,7 +430,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( i = 0, len = links.length; i < len; i++ ) {
 			links[i].addEventListener( 'focus', toggleFocus, true );
-			links[i].addEventListener( 'blur', toggleFocus, true );
+			links[i].addEventListener( 'blur', toggleBlurFocus, true );
 			links[i].addEventListener( 'click', toggleClose, true );
 		}	
 	}
@@ -446,8 +449,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
         if( self && ! self.classList.contains('astra-search-icon') ) {
             var link = new String( self );
             if( link.indexOf( hash ) !== -1 ) {
-
-                if ( document.body.classList.contains('ast-header-break-point') && ! document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
+            	var link_parent = self.parentNode;
+                if ( document.body.classList.contains('ast-header-break-point') && ! ( document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") && link_parent.classList.contains("menu-item-has-children") ) ) {
+                	
+                	/* Close Main Header Menu */
 	                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
 	                main_header_menu_toggle.classList.remove( 'toggled' );
 
@@ -455,15 +460,47 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	                main_header_bar_navigation.classList.remove( 'toggle-on' );
 
 					main_header_bar_navigation.style.display = 'none';
+
+					/* Close Below Header Menu */
+					var before_header_menu_toggle = document.querySelector( '.menu-below-header-toggle' );
+	                var before_header_bar_navigation = document.querySelector( '.ast-below-header' );
+	                var before_header_bar = document.querySelector( '.ast-below-header-actual-nav' );
+
+					if ( before_header_menu_toggle && before_header_bar_navigation && before_header_bar ) {
+	                	before_header_menu_toggle.classList.remove( 'toggled' );
+	                	before_header_bar_navigation.classList.remove( 'toggle-on' );
+						before_header_bar.style.display = 'none';
+					}
+
+					/* Close After Header Menu */
+	                var after_header_menu_toggle = document.querySelector( '.menu-above-header-toggle' );
+	                var after_header_bar_navigation = document.querySelector( '.ast-above-header' );
+	                var after_header_bar = document.querySelector( '.ast-above-header-navigation' );
+
+	                if ( after_header_menu_toggle && after_header_bar_navigation && after_header_bar ) {
+	                	after_header_menu_toggle.classList.remove( 'toggled' );
+	                	after_header_bar_navigation.classList.remove( 'toggle-on' );
+						after_header_bar.style.display = 'none';
+					}
 					
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
-                }
+                } else {
+	            	while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+						// On li elements toggle the class .focus.
+						if ( 'li' === self.tagName.toLowerCase() ) {
+							if ( -1 !== self.className.indexOf( 'focus' ) ) {
+								self.className = self.className.replace( ' focus', '' );
+							}
+						}
+						self = self.parentElement;
+					}
+				}
             }
-        }        
-    }
+        }
+   	}
 
 	/**
-	 * Sets or removes .focus class on an element.
+	 * Sets or removes .focus class on an element on focus.
 	 */
 	function toggleFocus() {
 		var self = this;
@@ -481,6 +518,45 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			self = self.parentElement;
 		}
+	}
+
+	/**
+	 * Sets or removes .focus class on an element on blur.
+	 */
+	function toggleBlurFocus() {
+		var self = this || '',
+            hash = '#';
+			link = new String( self );
+        if( link.indexOf( hash ) !== -1 && document.body.classList.contains('ast-mouse-clicked') ) {
+        	return;
+        }
+		// Move up through the ancestors of the current link until we hit .nav-menu.
+		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+
+			// On li elements toggle the class .focus.
+			if ( 'li' === self.tagName.toLowerCase() ) {
+				if ( -1 !== self.className.indexOf( 'focus' ) ) {
+					self.className = self.className.replace( ' focus', '' );
+				} else {
+					self.className += ' focus';
+				}
+			}
+
+			self = self.parentElement;
+		}
+	}
+
+	/* Add class if mouse clicked and remove if tab pressed */
+	if ( 'querySelector' in document && 'addEventListener' in window ) {
+		var body = document.body;
+
+		body.addEventListener( 'mousedown', function() {
+			body.classList.add( 'ast-mouse-clicked' );
+		} );
+
+		body.addEventListener( 'keydown', function() {
+			body.classList.remove( 'ast-mouse-clicked' );
+		} );
 	}
 
 } )();
