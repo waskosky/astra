@@ -95,7 +95,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                         var optionName = $(this).data('name');
                         var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
-                        var weightObject = AstTypography._getWeightObject( selectedValue );
+                        var weightObject = AstTypography._getWeightObject( AstTypography._cleanGoogleFonts( selectedValue ) );
 
                         control.generateDropdownHtml( weightObject, fontWeightContainer );
                         fontWeightContainer.val( fontWeightContainer.data('value') );
@@ -106,13 +106,15 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     control.container.find( '.ast-font-family' ).on( 'select2:select', function() {
 
                         var value = $(this).val();
-                        var weightObject = AstTypography._getWeightObject( value );
+                        var weightObject = AstTypography._getWeightObject( AstTypography._cleanGoogleFonts( value ) );
                         var optionName = $(this).data( 'name' );
                         var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
 
                         control.generateDropdownHtml( weightObject, fontWeightContainer );
 
                         control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value ] );
+                        control.container.trigger( 'ast_settings_changed', [ control, fontWeightContainer, fontWeightContainer.val() ] );
+                        
                     });
 
                     control.container.find( '.ast-font-weight' ).on( 'change', function() {

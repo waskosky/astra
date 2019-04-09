@@ -1051,7 +1051,49 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize('astra-settings[site-identity-typography]', function (control) {
 		control.bind(function (value) {
 
-			console.log( value );
+			var option_value = JSON.parse(value);
+
+			$.each( option_value, function (key, value) {
+
+				switch ( key ) {
+
+					case "astra-settings[font-family-site-title]" :
+					case "font-weight-site-title":
+					
+						wp.customize.preview.send('refresh');
+					break;
+
+					case "text-transform-site-title":
+
+						var control = key.replace('[', '-'),
+							control = control.replace(']', '');
+						var css_property = 'text-transform';
+						var selector = '.site - title a';
+
+						if ('undefined' != typeof unit) {
+
+							if ('url' === unit) {
+								new_value = 'url(' + new_value + ')';
+							} else {
+								new_value = new_value + unit;
+							}
+						}
+
+						// Remove old.
+						jQuery('style#' + control).remove();
+
+						// Concat and append new <style>.
+						jQuery('head').append(
+							'<style id="' + control + '">'
+							+ selector + '	{ ' + css_property + ': ' + value + ' }'
+							+ '</style>'
+						);
+
+
+					break;
+				}
+
+			});
 
 
 		});
