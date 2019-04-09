@@ -177,6 +177,17 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority' => 50,
 					'settings' => array(),
 				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-typography]',
+					'default'   => astra_get_option( 'site-identity-typography'),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __('Typography', 'astra'),
+					'section'   => 'title_tagline',
+					'transport' => 'postMessage',
+					'priority'  => 11,
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

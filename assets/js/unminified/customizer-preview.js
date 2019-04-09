@@ -1048,4 +1048,13 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		);
 	}
 
+	wp.customize('astra-settings[site-identity-typography]', function (control) {
+		control.bind(function (value) {
+
+			console.log( value );
+
+
+		});
+	});
+
 } )( jQuery );

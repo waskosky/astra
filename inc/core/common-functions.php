@@ -1213,14 +1213,18 @@ if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 	 * @param string $group group name.
 	 * @param string $default default value for option.
 	 */
-	function astra_get_option_by_group( $option, $group, $default = '' ) {
+	function astra_get_option_by_group($option, $group, $default = '')
+	{
 
-		$group_option = astra_get_option( $group );
-		$group_option = json_decode( $group_option, true );
+		$group_option = astra_get_option($group);
+		$group_option = !is_array($group_option) ? json_decode($group_option, true) : $group_option;
 		$option       = 'astra-settings[' . $option . ']';
 
-		if ( isset( $group_option[ $option ] ) ) {
-			return $group_option[ $option ];
+		// var_dump($group_option[$option]);
+		// die();
+
+		if (isset($group_option[$option])) {
+			return $group_option[$option];
 		}
 
 		return $default;

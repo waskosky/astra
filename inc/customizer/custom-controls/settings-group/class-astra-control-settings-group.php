@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 			$this->json['text']       = $this->text;
 			$this->json['help']       = $this->help;
 			$this->json['name']       = $this->name;
-			$this->json['value']      = $this->value();
+			$this->json['value']      = is_array( $this->value() ) ? json_encode( $this->value() ) : $this->value();
 			$this->json['ast_fields'] = $this->ast_fields;
 		}
 

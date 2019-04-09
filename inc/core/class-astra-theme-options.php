@@ -357,6 +357,52 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// toogle menu target.
 					'mobile-header-toggle-target'         => 'icon',
+
+					'transparent-header-colors'           => array(
+						'astra-settings[transparent-header-color-h-site-title-responsive]' => array(
+							'desktop' => '',
+							'tablet'  => '',
+							'mobile'  => '',
+						),
+						'astra-settings[transparent-menu-bg-color-responsive]' => array(
+							'desktop' => '',
+							'tablet' => '',
+							'mobile' => '',
+						),
+						'astra-settings[transparent-menu-color-responsive]' => array(
+							'desktop' => '',
+							'tablet' => '',
+							'mobile' => '',
+						),
+						'astra-settings[transparent-menu-h-color-responsive]' => array(
+							'desktop' => '',
+							'tablet' => '',
+							'mobile' => '',
+						),
+						'astra-settings[transparent-submenu-color-responsive]' => array(
+							'desktop' => '',
+							'tablet' => '',
+							'mobile' => '',
+						),
+						'astra-settings[transparent-submenu-h-color-responsive]' => array(
+							'desktop' => '',
+							'tablet' => '',
+							'mobile' => '',
+						),
+						'astra-settings[transparent-submenu-bg-color-responsive]' => array(
+							'desktop' => '',
+							'tablet' => '',
+							'mobile' => '',
+						)
+					),
+					'site-identity-typography' => array(
+
+						'font-family-site-title'    => 'inherit',
+						'font-weight-site-title'    => 'inherit',
+						'line-height-site-title'    => '',
+						'text-transform-site-title' => ''
+					)
+
 				)
 			);
 		}

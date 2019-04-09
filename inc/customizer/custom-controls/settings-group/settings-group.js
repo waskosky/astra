@@ -144,6 +144,38 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     });
 
                 break;
+
+                case "ast-slider": 
+                   
+                    control.container.on('input change', 'input[type=range]', function () {
+                        var value = jQuery(this).attr('value'),
+                            input_number = jQuery(this).closest('.wrapper').find('.astra_range_value .value');
+
+                        input_number.val(value);
+                        control.container.trigger('ast_settings_changed', [control, input_number, value]);
+                    });
+
+                    // Handle the reset button.
+                    control.container.on( 'click', '.ast-slider-reset', function () {
+
+                        var wrapper = jQuery(this).closest('.wrapper'),
+                            input_range = wrapper.find('input[type=range]'),
+                            input_number = wrapper.find('.astra_range_value .value'),
+                            default_value = input_range.data('reset_value');
+
+                        input_range.val(default_value);
+                        input_number.val(default_value);
+                        control.container.trigger('ast_settings_changed', [control, input_number, default_value]);
+                    });
+
+                    // Save changes.
+                    control.container.on('input change', 'input[type=number]', function () {
+                        var value = jQuery(this).val();
+                        jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
+                        control.container.trigger('ast_settings_changed', [control, jQuery(this), value]);
+                    });
+
+                break;
             }
 
         });
