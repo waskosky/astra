@@ -1061,7 +1061,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 					case "font-family-site-title" :
 					case "font-weight-site-title":
-						//wp.customize.preview.send('refresh');
+						wp.customize.preview.send('refresh');
 					break;
 
 					case "text-transform-site-title":
