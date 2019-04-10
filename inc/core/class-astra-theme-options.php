@@ -359,48 +359,68 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'mobile-header-toggle-target'         => 'icon',
 
 					'transparent-header-colors'           => array(
-						'astra-settings[transparent-header-color-h-site-title-responsive]' => array(
+						'transparent-header-color-h-site-title-responsive' => array(
 							'desktop' => '',
 							'tablet'  => '',
 							'mobile'  => '',
 						),
-						'astra-settings[transparent-menu-bg-color-responsive]' => array(
+						'transparent-menu-bg-color-responsive' => array(
 							'desktop' => '',
 							'tablet' => '',
 							'mobile' => '',
 						),
-						'astra-settings[transparent-menu-color-responsive]' => array(
+						'transparent-menu-color-responsive' => array(
 							'desktop' => '',
 							'tablet' => '',
 							'mobile' => '',
 						),
-						'astra-settings[transparent-menu-h-color-responsive]' => array(
+						'transparent-menu-h-color-responsive' => array(
 							'desktop' => '',
 							'tablet' => '',
 							'mobile' => '',
 						),
-						'astra-settings[transparent-submenu-color-responsive]' => array(
+						'transparent-submenu-color-responsive' => array(
 							'desktop' => '',
 							'tablet' => '',
 							'mobile' => '',
 						),
-						'astra-settings[transparent-submenu-h-color-responsive]' => array(
+						'transparent-submenu-h-color-responsive' => array(
 							'desktop' => '',
 							'tablet' => '',
 							'mobile' => '',
 						),
-						'astra-settings[transparent-submenu-bg-color-responsive]' => array(
+						'transparent-submenu-bg-color-responsive' => array(
 							'desktop' => '',
 							'tablet' => '',
 							'mobile' => '',
 						)
 					),
-					'site-identity-typography' => array(
-
+					'site-title-typography' => array(
 						'font-family-site-title'    => 'inherit',
+						'font-size-site-title'      => array(
+							'desktop'      => 35,
+							'tablet'       => '',
+							'mobile'       => '',
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						),
 						'font-weight-site-title'    => 'inherit',
 						'line-height-site-title'    => '',
 						'text-transform-site-title' => ''
+					),
+					'site-tagline-typography' => array(
+						'font-size-site-tagline' => array(
+							'desktop'      => 15,
+							'tablet'       => '',
+							'mobile'       => '',
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						),
+						'font-family-site-tagline' => 'inherit',
+						'font-weight-site-tagline' => 'inherit',
+						'text-transform-site-tagline' => ''
 					)
 
 				)

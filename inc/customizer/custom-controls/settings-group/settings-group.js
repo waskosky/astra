@@ -20,6 +20,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
 
             e.preventDefault();
+            e.stopPropagation();
 
             var $this = jQuery(this);
 
@@ -320,9 +321,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         var input_name  = element.attr( 'data-name' );
         option_data[input_name] = value;
+        option_data = JSON.stringify(option_data);
 
-        hidden_data_input.val( JSON.stringify( option_data ) );
-        control.setting.set( JSON.stringify( option_data ) );
+        hidden_data_input.val( option_data );
+        control.setting.set( option_data );
     },
 
     /**

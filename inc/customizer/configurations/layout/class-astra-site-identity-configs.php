@@ -177,17 +177,27 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority' => 50,
 					'settings' => array(),
 				),
-
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-typography]',
-					'default'   => astra_get_option( 'site-identity-typography'),
+					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
+					'default'   => astra_get_option('site-title-typography'),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __('Typography', 'astra'),
+					'title'     => __('Site Title Typography', 'astra'),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 11,
 				),
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
+					'default'   => astra_get_option( 'site-tagline-typography'),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __('Site Tagline Typography', 'astra'),
+					'section'   => 'title_tagline',
+					'transport' => 'postMessage',
+					'priority'  => 11,
+				),
+				
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

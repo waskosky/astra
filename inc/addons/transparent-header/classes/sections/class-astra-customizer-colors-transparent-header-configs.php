@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Site Title Hover Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-h-site-title-responsive]',
+					'name'       => 'transparent-header-color-h-site-title-responsive',
 					'default'    => $defaults['transparent-header-color-h-site-title-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 1,
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Menu Background Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-menu-bg-color-responsive]',
+					'name'       => 'transparent-menu-bg-color-responsive',
 					'default'    => $defaults['transparent-menu-bg-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 2,
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Primary Menu Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-menu-color-responsive]',
+					'name'       => 'transparent-menu-color-responsive',
 					'default'    => $defaults['transparent-menu-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 3,

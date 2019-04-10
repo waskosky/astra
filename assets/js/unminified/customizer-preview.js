@@ -1048,55 +1048,112 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		);
 	}
 
-	wp.customize('astra-settings[site-identity-typography]', function (control) {
-		control.bind(function (value) {
+	wp.customize('astra-settings[site-title-typography]', function (control) {
+
+		control.bind(function ( value, oldValue ) {
 
 			var option_value = JSON.parse(value);
+			var changed_key  = getChangedKey( value, oldValue );
 
-			$.each( option_value, function (key, value) {
+			$.each( option_value, function ( key, value ) {
 
-				switch ( key ) {
+				switch ( changed_key ) {
 
-					case "astra-settings[font-family-site-title]" :
+					case "font-family-site-title" :
 					case "font-weight-site-title":
-					
-						wp.customize.preview.send('refresh');
+						//wp.customize.preview.send('refresh');
 					break;
 
 					case "text-transform-site-title":
 
-						var control = key.replace('[', '-'),
+						var control = changed_key.replace('[', '-'),
 							control = control.replace(']', '');
 						var css_property = 'text-transform';
-						var selector = '.site - title a';
+						var selector = '.site-title a';
 
-						if ('undefined' != typeof unit) {
-
-							if ('url' === unit) {
-								new_value = 'url(' + new_value + ')';
-							} else {
-								new_value = new_value + unit;
-							}
-						}
-
-						// Remove old.
-						jQuery('style#' + control).remove();
-
-						// Concat and append new <style>.
-						jQuery('head').append(
-							'<style id="' + control + '">'
-							+ selector + '	{ ' + css_property + ': ' + value + ' }'
-							+ '</style>'
-						);
-
-
+						astra_generate_css( control, selector, css_property, option_value[changed_key] );
+						
 					break;
 				}
-
 			});
-
 
 		});
 	});
+
+	function astra_generate_css( control, selector, css_property, value, unit ) {
+
+		if ( 'undefined' != typeof unit ) {
+
+			if ( 'url' === unit ) {
+				value = 'url(' + value + ')';
+			} else {
+				value = value + unit;
+			}
+		}
+
+		// Remove old.
+		jQuery( 'style#' + control ).remove();
+
+		// Concat and append new <style>.
+		jQuery('head').append(
+			'<style id="' + control + '">'
+			+ selector + '	{ ' + css_property + ': ' + value + ' }'
+			+ '</style>'
+		);
+	};
+
+	var getChangedKey = function ( value, other ) {
+
+		value = isJsonString( value ) ? JSON.parse( value ) : value;
+		other = isJsonString( other ) ? JSON.parse( other ) : other;
+
+		// Compare two items
+		var compare = function ( item1, item2 ) {
+
+			// Get the object type
+			var itemType = Object.prototype.toString.call(item1);
+
+			// If an object or array, compare recursively
+			if ( ['[object Array]', '[object Object]'].indexOf( itemType ) >= 0 ) {
+				if ( ! getChangedKey( item1, item2 ) ) return false;
+			}
+
+			// Otherwise, do a simple comparison
+			else {
+
+				// If the two items are not the same type, return false
+				if ( itemType !== Object.prototype.toString.call( item2 ) ) return false;
+
+				// Else if it's a function, convert to a string and compare
+				// Otherwise, just compare
+				if ( itemType === '[object Function]' ) {
+					if ( item1.toString() !== item2.toString() ) return false;
+				} else {
+					if ( item1 !== item2 ) return false;
+				}
+
+			}
+		};
+
+		for ( var key in value ) {
+			if ( value.hasOwnProperty(key) ) {
+				if ( compare( value[key], other[key] ) === false ) return key;
+			}
+		}
+	
+		// If nothing failed, return true
+		return true;
+
+	};
+
+	var isJsonString = function( str ) {
+
+		try {
+			JSON.parse(str);
+		} catch (e) {
+			return false;
+		}
+		return true;
+	} 
 
 } )( jQuery );

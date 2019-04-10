@@ -1218,7 +1218,6 @@ if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 
 		$group_option = astra_get_option($group);
 		$group_option = !is_array($group_option) ? json_decode($group_option, true) : $group_option;
-		$option       = 'astra-settings[' . $option . ']';
 
 		if (isset($group_option[$option])) {
 			return $group_option[$option];
