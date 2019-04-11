@@ -64,13 +64,6 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					'section'     => 'section-primary-header-typo',
 					'default'     => astra_get_option( 'font-size-site-title' ),
 					'transport'   => 'postMessage',
-					'required'    => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '==', '1' ),
-							array( ASTRA_THEME_SETTINGS . '[display-sticky-site-title]', '==', '1' ),
-						),
-						'operator'   => 'OR',
-					),
 					'priority'    => 10,
 					'label'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(

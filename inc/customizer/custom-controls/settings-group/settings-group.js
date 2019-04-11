@@ -67,6 +67,11 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             control_types.push( control );
 
+            if ( 'ast-responsive' == control ) {
+                var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
+                attr.responsive   = is_responsive; 
+            }
+
             var control_clean_name = attr.name.replace( '[', '-' );
             control_clean_name = control_clean_name.replace( ']', '' );
 
@@ -111,6 +116,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                         var optionName = $(this).data( 'name' );
                         var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
 
+                        console.log(weightObject );
+
                         control.generateDropdownHtml( weightObject, fontWeightContainer );
 
                         control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value ] );
@@ -127,10 +134,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 break;  
 
                 case "ast-responsive": 
-                    
-                    control.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
 
-                        value = jQuery( this ).val();
+                    control.initResponsiveTrigger( ast_field_wrap, control_elem ); 
+
+                    control.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
         
                         // Update value on change.
                         control.updateResonsiveValue( jQuery(this) );
@@ -172,7 +179,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     });
 
                     // Save changes.
-                    control.container.on('input change', 'input[type=number]', function () {
+                    control.container.find( '.customize-control-ast-slider' ).on('input change', 'input[type=number]', function () {
+
                         var value = jQuery(this).val();
                         jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
                         control.container.trigger('ast_settings_changed', [control, jQuery(this), value]);
@@ -211,6 +219,24 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         }
         
         element.html( weightOptions );
+    },
+
+    initResponsiveTrigger: function( wrap, control_elem ) {
+
+        wrap.find('.ast-responsive-btns button').on('click', function (event) {
+
+            var device = jQuery(this).attr('data-device');
+            if ('desktop' == device) {
+                device = 'tablet';
+            } else if ('tablet' == device) {
+                device = 'mobile';
+            } else {
+                device = 'desktop';
+            }
+
+            jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
+        });
+
     },
 
     initResponsiveColor: function( wrap, control_elem ) {

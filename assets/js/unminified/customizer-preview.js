@@ -1055,27 +1055,26 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			var option_value = JSON.parse(value);
 			var changed_key  = getChangedKey( value, oldValue );
 
-			$.each( option_value, function ( key, value ) {
+			switch ( changed_key ) {
 
-				switch ( changed_key ) {
+				case "font-family-site-title" :
+				case "font-weight-site-title":
+					wp.customize.preview.send('refresh');
+				break;
 
-					case "font-family-site-title" :
-					case "font-weight-site-title":
-						wp.customize.preview.send('refresh');
-					break;
+				case "text-transform-site-title":
 
-					case "text-transform-site-title":
+					var css_property = 'text-transform';
+					var selector = '.site-title a';
 
-						var control = changed_key.replace('[', '-'),
-							control = control.replace(']', '');
-						var css_property = 'text-transform';
-						var selector = '.site-title a';
+					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
+					
+				break;
 
-						astra_generate_css( control, selector, css_property, option_value[changed_key] );
-						
-					break;
-				}
-			});
+				case "font-size-site-title": 
+					astra_apply_responsive_font_size( changed_key, '.site-title', option_value[changed_key] );
+				break;
+			}
 
 		});
 	});
@@ -1111,11 +1110,13 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		var compare = function ( item1, item2 ) {
 
 			// Get the object type
-			var itemType = Object.prototype.toString.call(item1);
+			var itemType = Object.prototype.toString.call( item1 );
 
 			// If an object or array, compare recursively
 			if ( ['[object Array]', '[object Object]'].indexOf( itemType ) >= 0 ) {
-				if ( ! getChangedKey( item1, item2 ) ) return false;
+				if ( 'string' == typeof getChangedKey( item1, item2 ) ) {
+					return false;
+				}
 			}
 
 			// Otherwise, do a simple comparison
