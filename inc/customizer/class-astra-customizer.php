@@ -129,6 +129,20 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							// Sort them according to priority.
 							$config_sorted = wp_list_sort( $config_obj, 'priority' );
 
+							$tabs_data = array();
+
+							foreach( $config_sorted as $config_value ) {
+
+								if( isset( $config_value['tab'] ) ) {
+									$tabs_data[ $config_value['tab'] ][] = $config_value;
+								}
+							}
+
+							if( ! empty( $tabs_data ) ) {
+								$config_sorted = array();
+								$config_sorted['tabs'] = $tabs_data;
+							}
+
 							$config['ast_fields'] = $config_sorted;
 
 						}

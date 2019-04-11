@@ -61,10 +61,9 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Site Title Color
 				 */
 				array(
-					'name'       => 'transparent-header-color-site-title-responsive',
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
 					'default'    => $defaults['transparent-header-color-site-title-responsive'],
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[site-identity-colors]',
+					'type'       => 'control',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'label'      => __( 'Site Title Color', 'astra' ),

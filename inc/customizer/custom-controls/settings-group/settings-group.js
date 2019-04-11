@@ -58,27 +58,77 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         var control_types = [];
         var field_values = control.isJsonString( control_elem.params.value ) ? JSON.parse( control_elem.params.value ) : {};
 
-        _.each( fields, function( attr, index ) {
-            var control = attr.control;
-            var template_id = "customize-control-" + control + "-content";
-            var template = wp.template( template_id );
-            var value = field_values[attr.name] || attr.default;
-            attr.value = value;
+        if( 'undefined' != typeof fields.tabs ) {
 
-            control_types.push( control );
+            fields_html += '<div id="ast-' + control_elem.params.name + '-tabs">'; 
+            fields_html += '<ul>'; 
 
-            if ( 'ast-responsive' == control ) {
-                var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
-                attr.responsive   = is_responsive; 
-            }
+            _.each(fields.tabs, function ( value, key ) {
 
-            var control_clean_name = attr.name.replace( '[', '-' );
-            control_clean_name = control_clean_name.replace( ']', '' );
+                fields_html += '<li><a href="#tab-' + key + '"><span>' + key +  '</span></a></li>';
+            });
 
-            fields_html += "<li id='customize-control-"+ control_clean_name +"' class='customize-control customize-control-"+ attr.control +"' >";
-            fields_html += template( attr );
-            fields_html += '</li>';
-        });
+            fields_html += '</ul>'; 
+
+            _.each( fields.tabs, function ( fields_data, key ) {
+
+                fields_html += '<div id="tab-'+ key +'">';
+
+                _.each( fields_data, function ( attr, index ) {
+
+                    var control = attr.control;
+                    var template_id = "customize-control-" + control + "-content";
+                    var template = wp.template(template_id);
+                    var value = field_values[attr.name] || attr.default;
+                    attr.value = value;
+
+                    control_types.push(control);
+
+                    if ('ast-responsive' == control) {
+                        var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
+                        attr.responsive = is_responsive;
+                    }
+
+                    var control_clean_name = attr.name.replace('[', '-');
+                    control_clean_name = control_clean_name.replace(']', '');
+
+                    fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
+                    fields_html += template(attr);
+                    fields_html += '</li>';
+                    
+                });
+                fields_html += '</div>';
+            });
+
+            fields_html += '</div>';
+
+            $( "#ast-" + control_elem.params.name + "-tabs" ).tabs();
+
+        } else {
+
+            _.each( fields, function( attr, index ) {
+
+                var control = attr.control;
+                var template_id = "customize-control-" + control + "-content";
+                var template = wp.template( template_id );
+                var value = field_values[attr.name] || attr.default;
+                attr.value = value;
+
+                control_types.push( control );
+
+                if ( 'ast-responsive' == control ) {
+                    var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
+                    attr.responsive   = is_responsive; 
+                }
+
+                var control_clean_name = attr.name.replace( '[', '-' );
+                control_clean_name = control_clean_name.replace( ']', '' );
+
+                fields_html += "<li id='customize-control-"+ control_clean_name +"' class='customize-control customize-control-"+ attr.control +"' >";
+                fields_html += template( attr );
+                fields_html += '</li>';
+            });
+        }
 
         ast_field_wrap.html( fields_html );
 
@@ -119,8 +169,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                         var weightObject = AstTypography._getWeightObject( AstTypography._cleanGoogleFonts( value ) );
                         var optionName = $(this).data( 'name' );
                         var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
-
-                        console.log(weightObject );
 
                         control.generateDropdownHtml( weightObject, fontWeightContainer );
 
