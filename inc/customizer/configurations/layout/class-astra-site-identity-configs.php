@@ -178,24 +178,24 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'settings' => array(),
 				),
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
-					'default'   => astra_get_option('site-title-typography'),
+					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-typography]',
+					'default'   => astra_get_option('site-identity-typography'),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __('Site Title Typography', 'astra'),
+					'title'     => __('Typography', 'astra'),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 11,
 				),
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
-					'default'   => astra_get_option( 'site-tagline-typography'),
+					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-colors]',
+					'default'   => astra_get_option( 'site-identity-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __('Site Tagline Typography', 'astra'),
+					'title'     => __('Color', 'astra'),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
-					'priority'  => 11,
+					'priority'  => 12
 				),
 				
 			);

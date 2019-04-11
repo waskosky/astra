@@ -395,7 +395,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 							'mobile' => '',
 						)
 					),
-					'site-title-typography' => array(
+					'site-identity-typography' => array(
 						'font-family-site-title'    => 'inherit',
 						'font-size-site-title'      => array(
 							'desktop'      => 35,
@@ -407,9 +407,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						),
 						'font-weight-site-title'    => 'inherit',
 						'line-height-site-title'    => '',
-						'text-transform-site-title' => ''
-					),
-					'site-tagline-typography' => array(
+						'text-transform-site-title' => '',
 						'font-size-site-tagline' => array(
 							'desktop'      => 15,
 							'tablet'       => '',
@@ -422,7 +420,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'font-weight-site-tagline' => 'inherit',
 						'text-transform-site-tagline' => ''
 					)
-
 				)
 			);
 		}

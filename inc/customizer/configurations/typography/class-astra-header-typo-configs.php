@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-site-title',
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
+					'parent'      => ASTRA_THEME_SETTINGS . '[site-identity-typography]',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-primary-header-typo',
 					'default'     => astra_get_option( 'font-size-site-title' ),
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-site-tagline',
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
+					'parent'      => ASTRA_THEME_SETTINGS . '[site-identity-typography]',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-primary-header-typo',
 					'default'     => astra_get_option( 'font-size-site-tagline' ),

@@ -61,20 +61,16 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Site Title Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
+					'name'       => 'transparent-header-color-site-title-responsive',
 					'default'    => $defaults['transparent-header-color-site-title-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[site-identity-colors]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'title'      => __( 'Site Title Color', 'astra' ),
+					'label'      => __( 'Site Title Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
-					'rgba'       => true,
-					'required'   => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
-					),
+					'rgba'       => true
 				),
 
 				/**
@@ -91,12 +87,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'label'      => __( 'Site Title Hover Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
-					'rgba'       => true,
-					'required'   => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
-					),
+					'rgba'       => true
 				),
 
 				/**

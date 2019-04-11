@@ -90,6 +90,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     control.initResponsiveColor( ast_field_wrap, control_elem );
                 break;  
 
+                case "ast-color": 
+                    control.initColor( ast_field_wrap, control_elem );
+                break;
+
                 case "ast-font": 
 
                     var googleFontsString = astra.customizer.settings.google_fonts;
@@ -237,6 +241,33 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
         });
 
+    },
+
+    initColor: function (wrap, control_elem) {
+
+        var control = this;
+        var picker = wrap.find('.ast-color-picker-alpha');
+
+        picker.wpColorPicker({
+
+            change: function (event, ui) {
+                
+                var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
+                jQuery(element).val( ui.color.toString() );
+                control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString() ] );
+            },
+
+            /**
+             * @param {Event} event - standard jQuery event, produced by "Clear"
+             * button.
+             */
+            clear: function (event) {
+                var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
+
+                jQuery(element).val('');
+                control.container.trigger('ast_settings_changed', [control, jQuery(element), '' ] );
+            }
+        });
     },
 
     initResponsiveColor: function( wrap, control_elem ) {
