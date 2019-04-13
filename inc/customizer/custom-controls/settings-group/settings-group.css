@@ -14,11 +14,63 @@
 
 .ast-field-settings-modal{
     background: #FFF;
-    padding: 10px;
+    /* padding: 10px; */
     box-shadow: 1px 1px #88888859;
 }
 
 .ast-field-settings-wrap{
     display: inline-block;
     width: 100%;
+}
+
+.ast-group-tabs,
+.ast-tab-content {
+    position: relative;
+}
+
+.ast-group-list:before, 
+.ast-group-list:after {
+    content: "";
+    display: table;
+    border-collapse: collapse;
+}
+
+.ast-group-list{
+    margin: 0;
+    padding: .2em 0 0 0;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+}
+
+.ast-group-tabs ul.ast-group-list li {
+    list-style: none;
+    float: left;
+    position: relative;
+    top: 0;
+    margin: 1px 1em 0 0;
+    border-bottom-width: 0;
+    padding: 5px;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+}
+
+.ast-group-tabs ul.ast-group-list li:first-child {
+    margin-left: 10px;
+}
+
+.ast-group-tabs ul.ast-group-list li.ui-state-active{
+    background: #fff;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.ast-group-tabs li a {
+    float: left;
+    padding: .5em 1em;
+    color: #555d66;
+    text-decoration: none;
+}
+
+.ast-group-tabs .ui-widget-content{
+    overflow: hidden;
+    padding: 20px 5px 20px;
 }

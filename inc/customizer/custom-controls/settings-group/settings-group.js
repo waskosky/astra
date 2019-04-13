@@ -60,19 +60,31 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         if( 'undefined' != typeof fields.tabs ) {
 
-            fields_html += '<div id="ast-' + control_elem.params.name + '-tabs">'; 
-            fields_html += '<ul>'; 
+            var clean_param_name = control_elem.params.name.replace( '[', '-' ),
+                clean_param_name = clean_param_name.replace( ']', '' );
+
+            fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">'; 
+            fields_html += '<ul class="ast-group-list">'; 
+            var counter = 0;
 
             _.each(fields.tabs, function ( value, key ) {
 
-                fields_html += '<li><a href="#tab-' + key + '"><span>' + key +  '</span></a></li>';
+                var li_class = '';
+                if( 0 == counter ) {
+                    li_class = "active";
+                }
+
+                fields_html += '<li class="'+ li_class + '"><a href="#tab-' + key + '"><span>' + key +  '</span></a></li>';
+                counter++;
             });
 
             fields_html += '</ul>'; 
 
+            fields_html += '<div class="ast-tab-content" >';
+
             _.each( fields.tabs, function ( fields_data, key ) {
 
-                fields_html += '<div id="tab-'+ key +'">';
+                fields_html += '<div id="tab-'+ key +'" class="tab">';
 
                 _.each( fields_data, function ( attr, index ) {
 
@@ -97,12 +109,15 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     fields_html += '</li>';
                     
                 });
+
                 fields_html += '</div>';
             });
 
-            fields_html += '</div>';
+            fields_html += '</div></div>';
 
-            $( "#ast-" + control_elem.params.name + "-tabs" ).tabs();
+            ast_field_wrap.html( fields_html );
+
+            $( "#" + clean_param_name + "-tabs" ).tabs();
 
         } else {
 
@@ -128,9 +143,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 fields_html += template( attr );
                 fields_html += '</li>';
             });
-        }
 
-        ast_field_wrap.html( fields_html );
+            ast_field_wrap.html(fields_html);
+        }
 
         _.each( control_types, function( control_type, index ) {
 
