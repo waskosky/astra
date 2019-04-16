@@ -118,8 +118,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'color' => esc_attr( $text_color ),
 				),
 				// Blockquote Text Color.
-				'blockquote, blockquote a' => array(
+				'blockquote' => array(
 					'color' => astra_adjust_brightness( $text_color, 75, 'darken' ),
+				),
+				'blockquote .editor-rich-text__tinymce a'               => array(
+					'color' => astra_hex_to_rgba( $link_color, 1 ),
 				),
 				'blockquote'               => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
@@ -148,6 +151,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
+			// var_dump($desktop_css);
 			$css .= astra_parse_css( $desktop_css );
 
 			$tablet_css = array(
