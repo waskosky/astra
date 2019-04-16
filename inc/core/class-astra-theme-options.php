@@ -419,6 +419,34 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'font-family-site-tagline' => 'inherit',
 						'font-weight-site-tagline' => 'inherit',
 						'text-transform-site-tagline' => ''
+					),
+					'primary-header-colors' => array(
+						'header-bg-obj-responsive' => array(
+							'desktop' => array(
+								'background-color'      => '',
+								'background-image'      => '',
+								'background-repeat'     => 'repeat',
+								'background-position'   => 'center center',
+								'background-size'       => 'auto',
+								'background-attachment' => 'scroll',
+							),
+							'tablet'  => array(
+								'background-color'      => '',
+								'background-image'      => '',
+								'background-repeat'     => 'repeat',
+								'background-position'   => 'center center',
+								'background-size'       => 'auto',
+								'background-attachment' => 'scroll',
+							),
+							'mobile'  => array(
+								'background-color'      => '',
+								'background-image'      => '',
+								'background-repeat'     => 'repeat',
+								'background-position'   => 'center center',
+								'background-size'       => 'auto',
+								'background-attachment' => 'scroll',
+							),
+						)
 					)
 				)
 			);

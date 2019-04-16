@@ -129,7 +129,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var value = field_values[attr.name] || attr.default;
                 attr.value = value;
 
-                control_types.push( control );
+                control_types.push({
+                    key: control,
+                    value: value
+                });
 
                 if ( 'ast-responsive' == control ) {
                     var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
@@ -149,7 +152,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         _.each( control_types, function( control_type, index ) {
 
-            switch( control_type ) {
+            switch( control_type.key ) {
 
                 case "ast-responsive-color":
                     control.initResponsiveColor( ast_field_wrap, control_elem );
@@ -252,6 +255,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                         jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
                         control.container.trigger('ast_settings_changed', [control, jQuery(this), value]);
                     });
+
+                break;
+
+                case "ast-responsive-background": 
+                    
+                    console.log( control_type );
+
+                    control.initAstBgControl( control_elem, control_type.value );
 
                 break;
             }
@@ -488,5 +499,208 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             return false;
         }
         return true;
-    }   
+    },   
+
+    initAstBgControl: function( control, value ) {
+
+        var picker = control.container.find('.ast-responsive-bg-color-control');
+
+        // Hide unnecessary controls if the value doesn't have an image.
+        if (_.isUndefined(value['desktop']['background-image']) || '' === value['desktop']['background-image']) {   
+            control.container.find('.background-wrapper > .background-container.desktop > .background-repeat').hide();
+            control.container.find('.background-wrapper > .background-container.desktop > .background-position').hide();
+            control.container.find('.background-wrapper > .background-container.desktop > .background-size').hide();
+            control.container.find('.background-wrapper > .background-container.desktop > .background-attachment').hide();
+        }
+        if (_.isUndefined(value['tablet']['background-image']) || '' === value['tablet']['background-image']) {
+            control.container.find('.background-wrapper > .background-container.tablet > .background-repeat').hide();
+            control.container.find('.background-wrapper > .background-container.tablet > .background-position').hide();
+            control.container.find('.background-wrapper > .background-container.tablet > .background-size').hide();
+            control.container.find('.background-wrapper > .background-container.tablet > .background-attachment').hide();
+        }
+        if (_.isUndefined(value['mobile']['background-image']) || '' === value['mobile']['background-image']) {
+            control.container.find('.background-wrapper > .background-container.mobile > .background-repeat').hide();
+            control.container.find('.background-wrapper > .background-container.mobile > .background-position').hide();
+            control.container.find('.background-wrapper > .background-container.mobile > .background-size').hide();
+            control.container.find('.background-wrapper > .background-container.mobile > .background-attachment').hide();
+        }
+
+        // Color.
+        picker.wpColorPicker({
+            change: function (event, ui) {
+                var device = jQuery(this).data('id');
+                if (jQuery('html').hasClass('responsive-background-img-ready')) {
+                    control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
+                }
+            },
+
+			/**
+		     * @param {Event} event - standard jQuery event, produced by "Clear"
+		     * button.
+		     */
+            clear: function (event) {
+                var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0],
+                    responsive_input = jQuery(this),
+                    screen = responsive_input.closest('.wp-picker-input-wrap').find('.wp-color-picker').data('id');
+                if (element) {
+                    control.saveValue(screen, 'background-color', '', jQuery(this) );
+                }
+            }
+        });
+
+        // Background-Repeat.
+        control.container.on('change', '.background-repeat select', function () {
+            var responsive_input = jQuery(this),
+                screen = responsive_input.data('id'),
+                item_value = responsive_input.val();
+
+            control.saveValue(screen, 'background-repeat', item_value, jQuery(this) );
+        });
+
+        // Background-Size.
+        control.container.on('change click', '.background-size input', function () {
+            var responsive_input = jQuery(this),
+                screen = responsive_input.data('id'),
+                item_value = responsive_input.val();
+
+
+            control.saveValue(screen, 'background-size', item_value, jQuery(this) );
+        });
+
+        // Background-Position.
+        control.container.on('change', '.background-position select', function () {
+            var responsive_input = jQuery(this),
+                screen = responsive_input.data('id'),
+                item_value = responsive_input.val();
+            control.saveValue(screen, 'background-position', item_value, jQuery(this) );
+        });
+
+        // Background-Attachment.
+        control.container.on('change click', '.background-attachment input', function () {
+            var responsive_input = jQuery(this),
+                screen = responsive_input.data('id'),
+                item_value = responsive_input.val();
+
+            control.saveValue(screen, 'background-attachment', item_value, jQuery(this) );
+        });
+
+        // Background-Image.
+        control.container.on('click', '.background-image-upload-button', function (e) {
+            var responsive_input = jQuery(this),
+                screen = responsive_input.data('id');
+
+            var image = wp.media({ multiple: false }).open().on('select', function () {
+
+                // This will return the selected image from the Media Uploader, the result is an object.
+                var uploadedImage = image.state().get('selection').first(),
+                    previewImage = uploadedImage.toJSON().sizes.full.url,
+                    imageUrl,
+                    imageID,
+                    imageWidth,
+                    imageHeight,
+                    preview,
+                    removeButton;
+
+                if (!_.isUndefined(uploadedImage.toJSON().sizes.medium)) {
+                    previewImage = uploadedImage.toJSON().sizes.medium.url;
+                } else if (!_.isUndefined(uploadedImage.toJSON().sizes.thumbnail)) {
+                    previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
+                }
+
+                imageUrl = uploadedImage.toJSON().sizes.full.url;
+                imageID = uploadedImage.toJSON().id;
+                imageWidth = uploadedImage.toJSON().width;
+                imageHeight = uploadedImage.toJSON().height;
+
+                // Show extra controls if the value has an image.
+                if ('' !== imageUrl) {
+                    control.container.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
+                }
+
+                control.saveValue(screen, 'background-image', imageUrl, jQuery(this) );
+                preview = control.container.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
+                removeButton = control.container.find('.background-container.' + screen + ' .background-image-upload-remove-button');
+
+                if (preview.length) {
+                    preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
+                }
+                if (removeButton.length) {
+                    removeButton.show();
+                }
+            });
+
+            e.preventDefault();
+        });
+
+        control.container.on('click', '.background-image-upload-remove-button', function (e) {
+
+            var preview,
+                removeButton,
+                responsive_input = jQuery(this),
+                screen = responsive_input.data('id');
+
+            e.preventDefault();
+
+            control.saveValue( screen, 'background-image', '', jQuery(this) );
+
+            preview = control.container.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
+            removeButton = control.container.find('.background-container.' + screen + ' .background-image-upload-remove-button');
+
+            // Hide unnecessary controls.
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').hide();
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-position').hide();
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-size').hide();
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').hide();
+
+            control.container.find('.background-container.' + screen + ' .more-settings').attr('data-direction', 'down');
+            control.container.find('.background-container.' + screen + ' .more-settings').find('.message').html(astraCustomizerControlBackground.moreSettings);
+            control.container.find('.background-container.' + screen + ' .more-settings').find('.icon').html('↓');
+
+            if (preview.length) {
+                preview.removeClass().addClass('placeholder').html(astraCustomizerControlBackground.placeholder);
+            }
+            if (removeButton.length) {
+                removeButton.hide();
+            }
+        });
+
+        control.container.on('click', '.more-settings', function (e) {
+
+            var responsive_input = jQuery(this),
+                screen = responsive_input.data('id');
+            // Hide unnecessary controls.
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').toggle();
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-position').toggle();
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-size').toggle();
+            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').toggle();
+
+            if ('down' === $(this).attr('data-direction')) {
+                $(this).attr('data-direction', 'up');
+                $(this).find('.message').html(astraCustomizerControlBackground.lessSettings)
+                $(this).find('.icon').html('↑');
+            } else {
+                $(this).attr('data-direction', 'down');
+                $(this).find('.message').html(astraCustomizerControlBackground.moreSettings)
+                $(this).find('.icon').html('↓');
+            }
+        });
+    },
+
+    saveValue: function ( screen, property, value, element ) {
+
+        var control = this,
+            input = jQuery('#customize-control-' + control.id.replace('[', '-').replace(']', '') + ' .responsive-background-hidden-value');
+
+        console.log( input );
+
+        var val = JSON.parse( input.val() );
+
+        
+
+        val[screen][property] = value;
+
+        jQuery(input).attr( 'value', JSON.stringify(val) ).trigger( 'change' );
+
+        control.container.trigger( 'ast_settings_changed', [ control, element, val ] );
+    }
 });

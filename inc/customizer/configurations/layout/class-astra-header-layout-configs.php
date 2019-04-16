@@ -471,6 +471,18 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'title'    => __( 'Mobile Header Alignment', 'astra' ),
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-header-colors]',
+					'default'   => astra_get_option('primary-header-colors'),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __('Color and Background Settings', 'astra'),
+					'section'   => 'section-header',
+					'transport' => 'postMessage',
+					'priority'  => 51,
+				),
+
+
 				/**
 				 * Option: Toggle Button Style
 				 */
