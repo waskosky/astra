@@ -47,7 +47,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
                 }
             }
-
             $this.toggleClass('open');
 
         });
@@ -70,7 +69,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             fields_html += '<ul class="ast-group-list">'; 
             var counter = 0;
 
-            _.each(fields.tabs, function ( value, key ) {
+            _.each( fields.tabs, function ( value, key ) {
 
                 var li_class = '';
                 if( 0 == counter ) {
@@ -92,7 +91,13 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var result = control.generateFieldHtml( fields_data, field_values );
 
                 fields_html += result.html;
-                control_types = result.controls;
+
+                _.each( result.controls , function ( control_value, control_key ) {
+                    control_types.push({
+                        key: control_value.key,
+                        value : control_value.value 
+                    });
+                });
 
                 fields_html += '</div>';
             });
@@ -108,7 +113,13 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var result = control.generateFieldHtml( fields, field_values );
 
             fields_html += result.html;
-            control_types = result.controls;
+            
+            _.each( result.controls, function (control_value, control_key) {
+                control_types.push({
+                    key: control_value.key,
+                    value: control_value.value
+                });
+            });
 
             ast_field_wrap.html(fields_html);
         }
@@ -222,8 +233,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 break;
 
                 case "ast-responsive-background": 
-                    
-                    console.log( control_type );
 
                     control.initAstBgControl( control_elem, control_type.value );
 
@@ -236,7 +245,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         
     },
 
-    generateFieldHtml: function (fields_data, field_values ) {    
+    generateFieldHtml: function ( fields_data, field_values ) {    
 
         var fields_html = '';
         var control_types = [];
