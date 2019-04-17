@@ -27,6 +27,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
 
+
+            console.log( is_loaded );
+
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
             } else {
@@ -86,29 +89,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                 fields_html += '<div id="tab-'+ key +'" class="tab">';
 
-                _.each( fields_data, function ( attr, index ) {
+                var result = control.generateFieldHtml( fields_data, field_values );
 
-                    var control = attr.control;
-                    var template_id = "customize-control-" + control + "-content";
-                    var template = wp.template(template_id);
-                    var value = field_values[attr.name] || attr.default;
-                    attr.value = value;
-
-                    control_types.push(control);
-
-                    if ('ast-responsive' == control) {
-                        var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
-                        attr.responsive = is_responsive;
-                    }
-
-                    var control_clean_name = attr.name.replace('[', '-');
-                    control_clean_name = control_clean_name.replace(']', '');
-
-                    fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
-                    fields_html += template(attr);
-                    fields_html += '</li>';
-                    
-                });
+                fields_html += result.html;
+                control_types = result.controls;
 
                 fields_html += '</div>';
             });
@@ -121,31 +105,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         } else {
 
-            _.each( fields, function( attr, index ) {
+            var result = control.generateFieldHtml( fields, field_values );
 
-                var control = attr.control;
-                var template_id = "customize-control-" + control + "-content";
-                var template = wp.template( template_id );
-                var value = field_values[attr.name] || attr.default;
-                attr.value = value;
-
-                control_types.push({
-                    key: control,
-                    value: value
-                });
-
-                if ( 'ast-responsive' == control ) {
-                    var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
-                    attr.responsive   = is_responsive; 
-                }
-
-                var control_clean_name = attr.name.replace( '[', '-' );
-                control_clean_name = control_clean_name.replace( ']', '' );
-
-                fields_html += "<li id='customize-control-"+ control_clean_name +"' class='customize-control customize-control-"+ attr.control +"' >";
-                fields_html += template( attr );
-                fields_html += '</li>';
-            });
+            fields_html += result.html;
+            control_types = result.controls;
 
             ast_field_wrap.html(fields_html);
         }
@@ -271,6 +234,46 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
         
+    },
+
+    generateFieldHtml: function (fields_data, field_values ) {    
+
+        var fields_html = '';
+        var control_types = [];
+
+        _.each(fields_data, function (attr, index) {
+
+            var control = attr.control;
+            var template_id = "customize-control-" + control + "-content";
+            var template = wp.template(template_id);
+            var value = field_values[attr.name] || attr.default;
+            attr.value = value;
+
+            control_types.push({
+                key: control,
+                value: value
+            });
+
+            if ('ast-responsive' == control) {
+                var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
+                attr.responsive = is_responsive;
+            }
+
+            var control_clean_name = attr.name.replace('[', '-');
+            control_clean_name = control_clean_name.replace(']', '');
+
+            fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
+            fields_html += template(attr);
+            fields_html += '</li>';
+
+        });
+
+        var result = new Object();
+
+        result.controls = control_types;
+        result.html     = fields_html;
+
+        return result;
     },
 
     generateDropdownHtml: function( weightObject, element ) {
@@ -689,18 +692,13 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     saveValue: function ( screen, property, value, element ) {
 
         var control = this,
-            input = jQuery('#customize-control-' + control.id.replace('[', '-').replace(']', '') + ' .responsive-background-hidden-value');
-
-        console.log( input );
+            input = jQuery('#customize-control-' + control.id.replace('[', '-').replace(']', '') + ' .responsive-background-hidden-value'); 
 
         var val = JSON.parse( input.val() );
-
-        
-
         val[screen][property] = value;
 
         jQuery(input).attr( 'value', JSON.stringify(val) ).trigger( 'change' );
 
-        control.container.trigger( 'ast_settings_changed', [ control, element, val ] );
+        control.container.trigger('ast_settings_changed', [control, input, val ] );
     }
 });
