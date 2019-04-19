@@ -27,9 +27,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
 
-
-            console.log( is_loaded );
-
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
             } else {
@@ -257,6 +254,13 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var template = wp.template(template_id);
             var value = field_values[attr.name] || attr.default;
             attr.value = value;
+            var dataAtts = '';
+
+            _.each( attr.input_attrs, function( value, name ) {
+                dataAtts += " data-" + name + " ='" + value + "'";
+            });
+
+            attr.inputAttrs = dataAtts;
 
             control_types.push({
                 key: control,
@@ -708,6 +712,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         jQuery(input).attr( 'value', JSON.stringify(val) ).trigger( 'change' );
 
-        control.container.trigger('ast_settings_changed', [control, input, val ] );
+        control.container.trigger('ast_settings_changed', [control, element, val ] );
     }
 });

@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'  => astra_get_option( 'display-site-title' ),
 					'section'  => 'title_tagline',
 					'title'    => __( 'Display Site Title', 'astra' ),
-					'priority' => 6,
+					'priority' => 7,
 				),
 
 				/**

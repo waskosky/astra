@@ -47,7 +47,7 @@
     float: left;
     position: relative;
     top: 0;
-    margin: 1px 1em 0 0;
+    margin: 1px 8px 0 0;
     border-bottom-width: 0;
     padding: 5px;
     white-space: nowrap;
@@ -55,7 +55,7 @@
 }
 
 .ast-group-tabs ul.ast-group-list li:first-child {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .ast-group-tabs ul.ast-group-list li.ui-state-active{
@@ -63,9 +63,9 @@
     border-bottom: 1px solid #FFFFFF;
 }
 
-.ast-group-tabs li a {
+.ast-group-tabs .ast-group-list li a {
     float: left;
-    padding: .5em 1em;
+    padding: .5em 0.5em;
     color: #555d66;
     text-decoration: none;
 }
