@@ -92,7 +92,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 _.each( result.controls , function ( control_value, control_key ) {
                     control_types.push({
                         key: control_value.key,
-                        value : control_value.value 
+                        value : control_value.value,
+                        name  : control_value.name 
                     });
                 });
 
@@ -114,7 +115,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             _.each( result.controls, function (control_value, control_key) {
                 control_types.push({
                     key: control_value.key,
-                    value: control_value.value
+                    value: control_value.value,
+                    name: control_value.name
                 });
             });
 
@@ -229,9 +231,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                 break;
 
-                case "ast-responsive-background": 
+                case "ast-responsive-background":
 
-                    control.initAstBgControl( control_elem, control_type.value );
+                    control.initAstBgControl( control_elem, control_type );
 
                 break;
             }
@@ -264,7 +266,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             control_types.push({
                 key: control,
-                value: value
+                value: value,
+                name: attr.name
             });
 
             if ('ast-responsive' == control) {
@@ -517,28 +520,34 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         return true;
     },   
 
-    initAstBgControl: function( control, value ) {
+    initAstBgControl: function( control, control_atts ) {
 
-        var picker = control.container.find('.ast-responsive-bg-color-control');
+        var value            = control_atts.value;
+        var picker           = control.container.find('.ast-responsive-bg-color-control');
+        var control_name     = control_atts.name;
+        var controlContainer = control.container.find( "#customize-control-" + control_name );
+
+        console.log( value );
+        
 
         // Hide unnecessary controls if the value doesn't have an image.
         if (_.isUndefined(value['desktop']['background-image']) || '' === value['desktop']['background-image']) {   
-            control.container.find('.background-wrapper > .background-container.desktop > .background-repeat').hide();
-            control.container.find('.background-wrapper > .background-container.desktop > .background-position').hide();
-            control.container.find('.background-wrapper > .background-container.desktop > .background-size').hide();
-            control.container.find('.background-wrapper > .background-container.desktop > .background-attachment').hide();
+            controlContainer.find('.background-wrapper > .background-container.desktop > .background-repeat').hide();
+            controlContainer.find('.background-wrapper > .background-container.desktop > .background-position').hide();
+            controlContainer.find('.background-wrapper > .background-container.desktop > .background-size').hide();
+            controlContainer.find('.background-wrapper > .background-container.desktop > .background-attachment').hide();
         }
         if (_.isUndefined(value['tablet']['background-image']) || '' === value['tablet']['background-image']) {
-            control.container.find('.background-wrapper > .background-container.tablet > .background-repeat').hide();
-            control.container.find('.background-wrapper > .background-container.tablet > .background-position').hide();
-            control.container.find('.background-wrapper > .background-container.tablet > .background-size').hide();
-            control.container.find('.background-wrapper > .background-container.tablet > .background-attachment').hide();
+            controlContainer.find('.background-wrapper > .background-container.tablet > .background-repeat').hide();
+            controlContainer.find('.background-wrapper > .background-container.tablet > .background-position').hide();
+            controlContainer.find('.background-wrapper > .background-container.tablet > .background-size').hide();
+            controlContainer.find('.background-wrapper > .background-container.tablet > .background-attachment').hide();
         }
         if (_.isUndefined(value['mobile']['background-image']) || '' === value['mobile']['background-image']) {
-            control.container.find('.background-wrapper > .background-container.mobile > .background-repeat').hide();
-            control.container.find('.background-wrapper > .background-container.mobile > .background-position').hide();
-            control.container.find('.background-wrapper > .background-container.mobile > .background-size').hide();
-            control.container.find('.background-wrapper > .background-container.mobile > .background-attachment').hide();
+            controlContainer.find('.background-wrapper > .background-container.mobile > .background-repeat').hide();
+            controlContainer.find('.background-wrapper > .background-container.mobile > .background-position').hide();
+            controlContainer.find('.background-wrapper > .background-container.mobile > .background-size').hide();
+            controlContainer.find('.background-wrapper > .background-container.mobile > .background-attachment').hide();
         }
 
         // Color.
@@ -565,7 +574,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Repeat.
-        control.container.on('change', '.background-repeat select', function () {
+        controlContainer.on('change', '.background-repeat select', function () {
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
@@ -574,7 +583,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Size.
-        control.container.on('change click', '.background-size input', function () {
+        controlContainer.on('change click', '.background-size input', function () {
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
@@ -584,7 +593,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Position.
-        control.container.on('change', '.background-position select', function () {
+        controlContainer.on('change', '.background-position select', function () {
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
@@ -592,7 +601,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Attachment.
-        control.container.on('change click', '.background-attachment input', function () {
+        controlContainer.on('change click', '.background-attachment input', function () {
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
@@ -601,7 +610,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Image.
-        control.container.on('click', '.background-image-upload-button', function (e) {
+        controlContainer.on('click', '.background-image-upload-button', function (e) {
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id');
 
@@ -630,12 +639,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                 // Show extra controls if the value has an image.
                 if ('' !== imageUrl) {
-                    control.container.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
+                    controlContainer.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
                 }
 
                 control.saveValue(screen, 'background-image', imageUrl, jQuery(this) );
-                preview = control.container.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
-                removeButton = control.container.find('.background-container.' + screen + ' .background-image-upload-remove-button');
+                preview = controlContainer.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
+                removeButton = controlContainer.find('.background-container.' + screen + ' .background-image-upload-remove-button');
 
                 if (preview.length) {
                     preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
@@ -648,7 +657,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             e.preventDefault();
         });
 
-        control.container.on('click', '.background-image-upload-remove-button', function (e) {
+        controlContainer.on('click', '.background-image-upload-remove-button', function (e) {
 
             var preview,
                 removeButton,
@@ -659,18 +668,18 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             control.saveValue( screen, 'background-image', '', jQuery(this) );
 
-            preview = control.container.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
-            removeButton = control.container.find('.background-container.' + screen + ' .background-image-upload-remove-button');
+            preview = controlContainer.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
+            removeButton = controlContainer.find('.background-container.' + screen + ' .background-image-upload-remove-button');
 
             // Hide unnecessary controls.
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').hide();
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-position').hide();
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-size').hide();
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').hide();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').hide();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-position').hide();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-size').hide();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').hide();
 
-            control.container.find('.background-container.' + screen + ' .more-settings').attr('data-direction', 'down');
-            control.container.find('.background-container.' + screen + ' .more-settings').find('.message').html(astraCustomizerControlBackground.moreSettings);
-            control.container.find('.background-container.' + screen + ' .more-settings').find('.icon').html('↓');
+            controlContainer.find('.background-container.' + screen + ' .more-settings').attr('data-direction', 'down');
+            controlContainer.find('.background-container.' + screen + ' .more-settings').find('.message').html(astraCustomizerControlBackground.moreSettings);
+            controlContainer.find('.background-container.' + screen + ' .more-settings').find('.icon').html('↓');
 
             if (preview.length) {
                 preview.removeClass().addClass('placeholder').html(astraCustomizerControlBackground.placeholder);
@@ -680,15 +689,15 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             }
         });
 
-        control.container.on('click', '.more-settings', function (e) {
+        controlContainer.on('click', '.more-settings', function (e) {
 
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id');
             // Hide unnecessary controls.
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').toggle();
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-position').toggle();
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-size').toggle();
-            control.container.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').toggle();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-repeat').toggle();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-position').toggle();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-size').toggle();
+            controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').toggle();
 
             if ('down' === $(this).attr('data-direction')) {
                 $(this).attr('data-direction', 'up');
