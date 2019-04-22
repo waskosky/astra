@@ -4002,5 +4002,9 @@ button.pswp__button--zoom:hover {
 			transform: rotateY(-180deg);
 		}
 	}
-}	
-	
+}
+
+// Rmeove this CSS when the fix - https://github.com/woocommerce/woocommerce/issues/23368 is released from WooCommerce.
+.ast-site-header-cart .widgettitle {
+    display: none;
+}
