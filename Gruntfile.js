@@ -418,6 +418,24 @@ module.exports = function (grunt) {
                             to: 'ASTRA_THEME_VERSION\', \'<%= pkg.version %>\''
                         }
                     ]
+                },
+
+                theme_function_comment: {
+                    src: [
+                        '*.php',
+                        '**/*.php',
+                        '!node_modules/**',
+                        '!php-tests/**',
+                        '!bin/**',
+                        '!admin/bsf-core/**'
+                    ],
+                    overwrite: true,
+                    replacements: [
+                        {
+                            from: 'x.x.x',
+                            to: '<%=pkg.version %>'
+                        }
+                    ]
                 }
             }
 
