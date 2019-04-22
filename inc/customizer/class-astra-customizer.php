@@ -38,6 +38,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static $configuration;
 
+		public $control_types = array();
+
 		/**
 		 * Customizer Dependency Array.
 		 *
@@ -131,6 +133,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							foreach ( $config_obj as $sub_control ) {
 								if ( isset( $sub_control['default'] ) ) {
 									$control_defaults[ $sub_control['name'] ] = $sub_control['default'];
+
+									$control_type = $sub_control['control'];
+
+									if( ! in_array( $control_type , $this->control_types ) && false != strpos( $control_type , 'ast-' ) ) {
+										$this->control_types[] = $control_type;
+									}
 								}
 							}
 
@@ -640,6 +648,20 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$google_fonts = Astra_Font_Families::get_google_fonts();
 			$string       = $this->generate_font_dropdown();
+
+			if( ! empty( $this->control_types ) ) {
+
+				foreach( $this->control_types as $control ) {
+					
+					$control_clean_name = str_replace( "ast-", "", $control );
+					
+					$uri = ASTRA_EXT_URI . 'classes/customizer/controls/ '. $control_clean_name . '/';
+
+					wp_enqueue_script( $control_clean_name . '-script', $uri . $control_clean_name .'.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
+
+					wp_enqueue_style( $control_clean_name . '-style',  $uri . $control_clean_name .'.css', null, ASTRA_THEME_VERSION );
+				}
+			}
 
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
