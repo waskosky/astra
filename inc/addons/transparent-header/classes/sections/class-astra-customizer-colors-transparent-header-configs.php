@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'label'      => __( 'Site Title Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
-					'rgba'       => true
+					'rgba'       => true,
 				),
 
 				/**
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'label'      => __( 'Site Title Hover Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
-					'rgba'       => true
+					'rgba'       => true,
 				),
 
 				/**

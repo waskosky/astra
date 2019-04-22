@@ -179,10 +179,10 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-typography]',
-					'default'   => astra_get_option('site-identity-typography'),
+					'default'   => astra_get_option( 'site-identity-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __('Typography', 'astra'),
+					'title'     => __( 'Typography', 'astra' ),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 11,
@@ -192,12 +192,12 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => astra_get_option( 'site-identity-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __('Color', 'astra'),
+					'title'     => __( 'Color', 'astra' ),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
-					'priority'  => 12
+					'priority'  => 12,
 				),
-				
+
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

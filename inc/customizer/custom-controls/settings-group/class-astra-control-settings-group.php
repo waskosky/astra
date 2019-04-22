@@ -10,17 +10,17 @@
  */
 
 // Exit if accessed directly.
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if (!class_exists('Astra_Control_Settings_Group') && class_exists('WP_Customize_Control')) :
+if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	/**
 	 * A Settings group control.
 	 */
-	class Astra_Control_Settings_Group extends WP_Customize_Control
-	{
+	class Astra_Control_Settings_Group extends WP_Customize_Control {
+
 
 		/**
 		 * The control type.
@@ -75,11 +75,9 @@ if (!class_exists('Astra_Control_Settings_Group') && class_exists('WP_Customize_
 		 *
 		 * @access public
 		 */
-		public function enqueue()
-		{
-
+		public function enqueue() {
 			$assets_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/settings-group/';
-			wp_enqueue_style('astra-settings-group', $assets_uri . 'settings-group.css', null, ASTRA_THEME_VERSION);
+			wp_enqueue_style( 'astra-settings-group', $assets_uri . 'settings-group.css', null, ASTRA_THEME_VERSION );
 
 			wp_enqueue_script( 'astra-settings-group-script', $assets_uri . 'settings-group.js', array( 'jquery', 'jquery-ui-tabs', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		}
@@ -89,15 +87,15 @@ if (!class_exists('Astra_Control_Settings_Group') && class_exists('WP_Customize_
 		 *
 		 * @see WP_Customize_Control::to_json()
 		 */
-		public function to_json()
-		{
+		public function to_json() {
 			parent::to_json();
 
-			$this->json['label']      = esc_html($this->label);
-			$this->json['text']       = $this->text;
-			$this->json['help']       = $this->help;
-			$this->json['name']       = $this->name;
-			$this->json['value']      = is_array($this->value()) ? json_encode($this->value()) : $this->value();
+			$this->json['label'] = esc_html( $this->label );
+			$this->json['text']  = $this->text;
+			$this->json['help']  = $this->help;
+			$this->json['name']  = $this->name;
+
+			$this->json['value']      = is_array( $this->value() ) ? json_encode( $this->value() ) : $this->value();
 			$this->json['ast_fields'] = $this->ast_fields;
 		}
 
@@ -111,9 +109,7 @@ if (!class_exists('Astra_Control_Settings_Group') && class_exists('WP_Customize_
 		 *
 		 * @access protected
 		 */
-		protected function content_template()
-		{
-			?>
+		protected function content_template() {             ?>
 
 		<div class="ast-toggle-desc-wrap">
 			<label class="customizer-text">
@@ -137,16 +133,15 @@ if (!class_exists('Astra_Control_Settings_Group') && class_exists('WP_Customize_
 				</div>
 			</div>
 		</script>
-	<?php
-}
+			<?php
+		}
 
-/**
- * Render the control's content.
- *
- * @see WP_Customize_Control::render_content()
- */
-protected function render_content()
- {}
-}
+		/**
+		 * Render the control's content.
+		 *
+		 * @see WP_Customize_Control::render_content()
+		 */
+		protected function render_content() {       }
+	}
 
 endif;

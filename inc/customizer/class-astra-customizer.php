@@ -126,24 +126,33 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								)
 							);
 
+							$control_defaults = array();
+
+							foreach ( $config_obj as $sub_control ) {
+								if ( isset( $sub_control['default'] ) ) {
+									$control_defaults[ $sub_control['name'] ] = $sub_control['default'];
+								}
+							}
+
 							// Sort them according to priority.
 							$config_sorted = wp_list_sort( $config_obj, 'priority' );
 
 							$tabs_data = array();
 
-							foreach( $config_sorted as $config_value ) {
+							foreach ( $config_sorted as $config_value ) {
 
-								if( isset( $config_value['tab'] ) ) {
+								if ( isset( $config_value['tab'] ) ) {
 									$tabs_data[ $config_value['tab'] ][] = $config_value;
 								}
 							}
 
-							if( ! empty( $tabs_data ) ) {
-								$config_sorted = array();
+							if ( ! empty( $tabs_data ) ) {
+								$config_sorted         = array();
 								$config_sorted['tabs'] = $tabs_data;
 							}
 
 							$config['ast_fields'] = $config_sorted;
+							$config['default']    = $control_defaults;
 
 						}
 

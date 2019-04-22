@@ -121,7 +121,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 5,
-					'title'    => __('Menu', 'astra'),
+					'title'    => __( 'Menu', 'astra' ),
 					'section'  => 'section-header',
 					'settings' => array(),
 				),
@@ -267,7 +267,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 30,
-					'title'    => __('Sub Menu', 'astra'),
+					'title'    => __( 'Sub Menu', 'astra' ),
 					'section'  => 'section-header',
 					'settings' => array(),
 				),
@@ -480,15 +480,14 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[primary-header-colors]',
-					'default'   => astra_get_option('primary-header-colors'),
+					'default'   => astra_get_option( 'primary-header-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __('Color and Background Settings', 'astra'),
+					'title'     => __( 'Color and Background Settings', 'astra' ),
 					'section'   => 'section-header',
 					'transport' => 'postMessage',
 					'priority'  => 51,
 				),
-
 
 				/**
 				 * Option: Toggle Button Style
