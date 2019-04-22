@@ -132,7 +132,9 @@ final class Astra_Fonts {
 		$font_args = array();
 		$family    = array();
 
-		$fonts = apply_filters( 'astra_google_fonts', $fonts );
+		$fonts = astra_apply_filters_deprecated( 'astra_google_fonts', array( $fonts ), 'x.x.x', 'astra_google_fonts_selected', '' );
+
+		$fonts = apply_filters( 'astra_google_fonts_selected', $fonts );
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {
