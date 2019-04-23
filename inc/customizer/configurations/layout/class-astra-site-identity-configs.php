@@ -186,17 +186,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 11,
-				),
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-colors]',
-					'default'   => astra_get_option( 'site-identity-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Color', 'astra' ),
-					'section'   => 'title_tagline',
-					'transport' => 'postMessage',
-					'priority'  => 12,
-				),
+				)
 
 			);
 

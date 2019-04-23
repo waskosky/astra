@@ -367,6 +367,62 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 	);
 }
 
+function getChangedKey( value, other ) {
+
+	value = isJsonString(value) ? JSON.parse(value) : value;
+	other = isJsonString(other) ? JSON.parse(other) : other;
+
+	// Compare two items
+	var compare = function (item1, item2) {
+
+		// Get the object type
+		var itemType = Object.prototype.toString.call(item1);
+
+		// If an object or array, compare recursively
+		if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
+			if ('string' == typeof getChangedKey(item1, item2)) {
+				return false;
+			}
+		}
+
+		// Otherwise, do a simple comparison
+		else {
+
+			// If the two items are not the same type, return false
+			if (itemType !== Object.prototype.toString.call(item2)) return false;
+
+			// Else if it's a function, convert to a string and compare
+			// Otherwise, just compare
+			if (itemType === '[object Function]') {
+				if (item1.toString() !== item2.toString()) return false;
+			} else {
+				if (item1 !== item2) return false;
+			}
+
+		}
+	};
+
+	for (var key in value) {
+		if (value.hasOwnProperty(key)) {
+			if (compare(value[key], other[key]) === false) return key;
+		}
+	}
+
+	// If nothing failed, return true
+	return true;
+
+}
+
+function isJsonString( str ) {
+
+	try {
+		JSON.parse(str);
+	} catch (e) {
+		return false;
+	}
+	return true;
+} 
+
 ( function( $ ) {
 
 	/*
@@ -1106,60 +1162,5 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 		});
 	});
 
-	var getChangedKey = function ( value, other ) {
-
-		value = isJsonString( value ) ? JSON.parse( value ) : value;
-		other = isJsonString( other ) ? JSON.parse( other ) : other;
-
-		// Compare two items
-		var compare = function ( item1, item2 ) {
-
-			// Get the object type
-			var itemType = Object.prototype.toString.call( item1 );
-
-			// If an object or array, compare recursively
-			if ( ['[object Array]', '[object Object]'].indexOf( itemType ) >= 0 ) {
-				if ( 'string' == typeof getChangedKey( item1, item2 ) ) {
-					return false;
-				}
-			}
-
-			// Otherwise, do a simple comparison
-			else {
-
-				// If the two items are not the same type, return false
-				if ( itemType !== Object.prototype.toString.call( item2 ) ) return false;
-
-				// Else if it's a function, convert to a string and compare
-				// Otherwise, just compare
-				if ( itemType === '[object Function]' ) {
-					if ( item1.toString() !== item2.toString() ) return false;
-				} else {
-					if ( item1 !== item2 ) return false;
-				}
-
-			}
-		};
-
-		for ( var key in value ) {
-			if ( value.hasOwnProperty(key) ) {
-				if ( compare( value[key], other[key] ) === false ) return key;
-			}
-		}
-	
-		// If nothing failed, return true
-		return true;
-
-	};
-
-	var isJsonString = function( str ) {
-
-		try {
-			JSON.parse(str);
-		} catch (e) {
-			return false;
-		}
-		return true;
-	} 
 
 } )( jQuery );
