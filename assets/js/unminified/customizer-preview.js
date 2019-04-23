@@ -1096,6 +1096,11 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 				case "font-size-site-title": 
 					astra_apply_responsive_font_size( changed_key, '.site-title', option_value[changed_key] );
 				break;
+
+				case "font-size-site-tagline":
+
+					astra_apply_responsive_font_size( changed_key, '.site-header .site-description', option_value[changed_key] );
+				break;
 			}
 
 		});

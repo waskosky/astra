@@ -488,7 +488,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     },
 
     /**
-     * Updates the rresponsive param value.
+     * Updates the responsive param value.
      */
     updateResonsiveValue: function( element ) {
 
@@ -498,7 +498,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         newValue = {};
 
         // Set the spacing container.
-        control.responsiveContainer = control.container.find( '.ast-responsive-wrapper' ).first();
+        control.responsiveContainer = element.closest( '.ast-responsive-wrapper' );
 
         control.responsiveContainer.find( 'input.ast-responsive-input' ).each( function() {
             var responsive_input = jQuery( this ),
@@ -506,7 +506,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             item_value = responsive_input.val();
 
             newValue[item] = item_value;
-
         });
 
         control.responsiveContainer.find( 'select.ast-responsive-select' ).each( function() {
