@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'title_tagline',
-					'priority' => 50,
+					'priority' => 6,
 					'settings' => array(),
 				),				
 				array(
