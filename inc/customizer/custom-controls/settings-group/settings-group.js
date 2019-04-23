@@ -257,14 +257,22 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var value = field_values[attr.name] || attr.default;
             attr.value = value;
             var dataAtts = '';
+            var input_attrs = '';
 
             attr.label = attr.title;
 
-            _.each( attr.input_attrs, function( value, name ) {
+            // Data attributes.
+            _.each( attr.data_attrs, function( value, name ) {
                 dataAtts += " data-" + name + " ='" + value + "'";
             });
 
-            attr.inputAttrs = dataAtts;
+            // Input attributes
+            _.each( attr.input_attrs, function ( value, name ) {
+                input_attrs += name + " ='" + value + "'";
+            });
+
+            attr.dataAttrs = dataAtts;
+            attr.inputAttrs = input_attrs;
 
             control_types.push({
                 key: control,

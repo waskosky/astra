@@ -345,6 +345,28 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	}
 }
 
+function astra_generate_css( control, selector, css_property, value, unit ) {
+
+	if ('undefined' != typeof unit) {
+
+		if ('url' === unit) {
+			value = 'url(' + value + ')';
+		} else {
+			value = value + unit;
+		}
+	}
+
+	// Remove old.
+	jQuery('style#' + control).remove();
+
+	// Concat and append new <style>.
+	jQuery('head').append(
+		'<style id="' + control + '">'
+		+ selector + '	{ ' + css_property + ': ' + value + ' }'
+		+ '</style>'
+	);
+}
+
 ( function( $ ) {
 
 	/*
@@ -1078,28 +1100,6 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		});
 	});
-
-	function astra_generate_css( control, selector, css_property, value, unit ) {
-
-		if ( 'undefined' != typeof unit ) {
-
-			if ( 'url' === unit ) {
-				value = 'url(' + value + ')';
-			} else {
-				value = value + unit;
-			}
-		}
-
-		// Remove old.
-		jQuery( 'style#' + control ).remove();
-
-		// Concat and append new <style>.
-		jQuery('head').append(
-			'<style id="' + control + '">'
-			+ selector + '	{ ' + css_property + ': ' + value + ' }'
-			+ '</style>'
-		);
-	};
 
 	var getChangedKey = function ( value, other ) {
 
