@@ -1070,7 +1070,7 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 		);
 	}
 
-	wp.customize('astra-settings[site-identity-typography]', function (control) {
+	wp.customize('astra-settings[site-title-typography]', function (control) {
 
 		control.bind(function ( value, oldValue ) {
 
@@ -1095,6 +1095,37 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 
 				case "font-size-site-title": 
 					astra_apply_responsive_font_size( changed_key, '.site-title', option_value[changed_key] );
+				break;
+			}
+
+		});
+	});
+
+	wp.customize('astra-settings[site-tagline-typography]', function (control) {
+
+		control.bind(function ( value, oldValue ) {
+
+			var option_value = JSON.parse(value);
+			var changed_key  = getChangedKey( value, oldValue );
+
+			switch ( changed_key ) {
+
+				case "font-family-site-tagline" :
+				case "font-weight-site-tagline":
+					wp.customize.preview.send('refresh');
+				break;
+
+				case "text-transform-site-tagline":
+
+					var css_property = 'text-transform';
+					var selector = '.site-tagline a';
+
+					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
+					
+				break;
+
+				case "font-size-site-tagline": 
+					astra_apply_responsive_font_size( changed_key, '.site-tagline', option_value[changed_key] );
 				break;
 			}
 
