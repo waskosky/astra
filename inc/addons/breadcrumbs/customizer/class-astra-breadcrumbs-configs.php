@@ -240,7 +240,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Breadcrumb Alignment', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'select',
-					'priority' => 60,
+					'priority' => 65,
 					'choices'  => array(
 						'left'   => __( 'Left', 'astra' ),
 						'center' => __( 'Center', 'astra' ),
@@ -257,7 +257,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-responsive-spacing',
-					'priority'       => 65,
+					'priority'       => 70,
 					'title'          => __( 'Breadcrumb Spacing', 'astra' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
