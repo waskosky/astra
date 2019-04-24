@@ -352,10 +352,10 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 	wp.customize( group, function( control ) {
 		control.bind(function (value, oldValue) {
 
-			var option_value = JSON.parse( value );
-			var changed_key  = getChangedKey( value, oldValue );
-			if ('undefined' != typeof changed_key && changed_key == subControl ) {
-				var changedValue = option_value[changed_key];
+			var optionValue = JSON.parse( value );
+			var changedKey  = getChangedKey( value, oldValue );
+			if ('undefined' != typeof changedKey && changedKey == subControl ) {
+				var changedValue = optionValue[changedKey];
 				var control = subControl.replace( '[', '-' );
 					control = control.replace( ']', '' );
 				
@@ -390,14 +390,14 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 /*
 * Generate Responsive Font CSS
 */
-function astra_apply_responsive_font_size( group, subcontrol, selector ) {
+function astra_apply_responsive_font_size( group, subControl, selector ) {
 	wp.customize( group, function (control) {
 		control.bind(function ( value, oldValue ) {
-			var changed_key  = getChangedKey( value, oldValue );
-			if ( subcontrol != changed_key ) {
+			var changedKey  = getChangedKey( value, oldValue );
+			if ( subControl != changedKey ) {
 				return;
 			}
-			var control = changed_key.replace( '[', '-' );
+			var control = changedKey.replace( '[', '-' );
 				control = control.replace( ']', '' );
 				jQuery( 'style#' + control ).remove();
 				
@@ -406,7 +406,7 @@ function astra_apply_responsive_font_size( group, subcontrol, selector ) {
 				MobileFontSize = '';
 
 			var option_value = JSON.parse(value);
-			value = option_value[changed_key];
+			value = option_value[changedKey];
 
 			if ( '' != value.desktop ) {
 				fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
@@ -435,19 +435,19 @@ function astra_apply_responsive_font_size( group, subcontrol, selector ) {
 /*
 * Generate CSS
 */
-function astra_generate_css( group, sub_control, selector, css_property )	 {
+function astra_generate_css( group, subControl, selector, cssProperty )	 {
 	wp.customize( group, function (control) {
 		control.bind(function ( value, oldValue ) {
 			
-			var option_value = JSON.parse(value);
-			var changed_key  = getChangedKey( value, oldValue );
+			var optionValue = JSON.parse(value);
+			var changedKey  = getChangedKey( value, oldValue );
 
-			if ( sub_control != changed_key) {
+			if ( subControl != changedKey) {
 				return;
 			}
 
-			value = option_value[changed_key];
-			var control = changed_key;
+			value = optionValue[changedKey];
+			var control = changedKey;
 			
 			if ('undefined' != typeof unit) {
 		
@@ -463,7 +463,7 @@ function astra_generate_css( group, sub_control, selector, css_property )	 {
 			// Concat and append new <style>.
 			jQuery('head').append(
 				'<style id="' + control + '">'
-				+ selector + '	{ ' + css_property + ': ' + value + ' }'
+				+ selector + '	{ ' + cssProperty + ': ' + value + ' }'
 				+ '</style>'
 			);
 
