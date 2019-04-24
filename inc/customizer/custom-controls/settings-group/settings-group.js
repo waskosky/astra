@@ -349,7 +349,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     initColor: function (wrap, control_elem) {
 
         var control = this;
-        var picker = wrap.find('.ast-color-picker-alpha');
+        var picker = wrap.find('.customize-control-ast-color .ast-color-picker-alpha');
 
         picker.wpColorPicker({
 
