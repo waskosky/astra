@@ -38,6 +38,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static $configuration;
 
+		/**
+		 * Customizer controls data.
+		 *
+		 * @access Public
+		 * @since x.x.x
+		 * @var Array
+		 */
 		public $control_types = array();
 
 		/**
@@ -136,7 +143,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 									$control_type = $sub_control['control'];
 
-									if( ! in_array( $control_type , $this->control_types ) && false != strpos( $control_type , 'ast-' ) ) {
+									if ( ! in_array( $control_type, $this->control_types ) && false != strpos( $control_type, 'ast-' ) ) {
 										$this->control_types[] = $control_type;
 									}
 								}
@@ -649,25 +656,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$google_fonts = Astra_Font_Families::get_google_fonts();
 			$string       = $this->generate_font_dropdown();
 
-			if( ! empty( $this->control_types ) ) {
+			if ( ! empty( $this->control_types ) ) {
 
-				foreach( $this->control_types as $control ) {
-					
-					$control_clean_name = str_replace( "ast-", "", $control );
-					
-					$uri = ASTRA_EXT_URI . 'classes/customizer/controls/ '. $control_clean_name . '/';
+				foreach ( $this->control_types as $control ) {
 
-					wp_enqueue_script( $control_clean_name . '-script', $uri . $control_clean_name .'.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
+					$control_clean_name = str_replace( 'ast-', '', $control );
 
-					wp_enqueue_style( $control_clean_name . '-style',  $uri . $control_clean_name .'.css', null, ASTRA_THEME_VERSION );
+					$uri = ASTRA_EXT_URI . 'classes/customizer/controls/ ' . $control_clean_name . '/';
+
+					wp_enqueue_script( $control_clean_name . '-script', $uri . $control_clean_name . '.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
+
+					wp_enqueue_style( $control_clean_name . '-style', $uri . $control_clean_name . '.css', null, ASTRA_THEME_VERSION );
 				}
 			}
 
 			$tmpl = '<div class="ast-field-settings-modal">
-				<div class="ast-field-settings-wrap">
 					<ul class="ast-fields-wrap">
 					</ul>
-				</div>
 			</div>';
 
 			wp_localize_script(
@@ -677,7 +682,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize',
 					array(
 						'customizer' => array(
-							'settings' => array(
+							'settings'         => array(
 								'sidebars'     => array(
 									'single'  => array(
 										'single-post-sidebar-layout',
@@ -698,7 +703,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl' => $tmpl
+							'group_modal_tmpl' => $tmpl,
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,

@@ -37,7 +37,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     var fields = control.params.ast_fields;
                     var $modal_wrap = $( astra.customizer.group_modal_tmpl );
 
-                    parent_wrap.append( $modal_wrap );
+                    parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
                     parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
                     control.ast_render_field( parent_wrap, fields, control );
 

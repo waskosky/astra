@@ -186,7 +186,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 11,
-				)
+				),
 
 			);
 
