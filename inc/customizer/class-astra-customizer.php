@@ -663,6 +663,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
+			$tmpl = '<div class="ast-field-settings-modal">
+				<div class="ast-field-settings-wrap">
+					<ul class="ast-fields-wrap">
+					</ul>
+				</div>
+			</div>';
+
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
 				'astra',
@@ -691,6 +698,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
+							'group_modal_tmpl' => $tmpl
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
