@@ -354,10 +354,13 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         picker.wpColorPicker({
 
             change: function (event, ui) {
+
+                if( 'undefined' != typeof event.originalEvent ) {
                 
-                var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
-                jQuery(element).val( ui.color.toString() );
-                control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString() ] );
+                    var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
+                    jQuery(element).val( ui.color.toString() );
+                    control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString() ] );
+                }
             },
 
             /**
@@ -381,34 +384,37 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         picker.wpColorPicker({
 
             change: function(event, ui) {
-                if ( jQuery('html').hasClass('responsive-background-color-ready') ) {
 
-                    var option_name = jQuery(this).data('name');
-                    var stored = {
-                        'desktop' : jQuery( ".desktop.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-                        'tablet'  : jQuery( ".tablet.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-                        'mobile'  : jQuery( ".mobile.ast-responsive-color[data-name='"+ option_name +"']" ).val()
-                    };
+                if ( 'undefined' != typeof event.originalEvent ) {
+                    if ( jQuery('html').hasClass('responsive-background-color-ready') ) {
 
-                    var element = event.target;
-                    var device = jQuery( this ).data( 'id' );
-                    var newValue = {
-                        'desktop' : stored['desktop'],
-                        'tablet'  : stored['tablet'],
-                        'mobile'  : stored['mobile'],
-                    };
-                    if ( 'desktop' === device ) {
-                        newValue['desktop'] = ui.color.toString();
-                    }
-                    if ( 'tablet' === device ) {
-                        newValue['tablet'] = ui.color.toString();
-                    }
-                    if ( 'mobile' === device ) {
-                        newValue['mobile'] = ui.color.toString();
-                    }
+                        var option_name = jQuery(this).data('name');
+                        var stored = {
+                            'desktop' : jQuery( ".desktop.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
+                            'tablet'  : jQuery( ".tablet.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
+                            'mobile'  : jQuery( ".mobile.ast-responsive-color[data-name='"+ option_name +"']" ).val()
+                        };
 
-                    jQuery(element).val( ui.color.toString() );
-                    control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue ] );
+                        var element = event.target;
+                        var device = jQuery( this ).data( 'id' );
+                        var newValue = {
+                            'desktop' : stored['desktop'],
+                            'tablet'  : stored['tablet'],
+                            'mobile'  : stored['mobile'],
+                        };
+                        if ( 'desktop' === device ) {
+                            newValue['desktop'] = ui.color.toString();
+                        }
+                        if ( 'tablet' === device ) {
+                            newValue['tablet'] = ui.color.toString();
+                        }
+                        if ( 'mobile' === device ) {
+                            newValue['mobile'] = ui.color.toString();
+                        }
+
+                        jQuery(element).val( ui.color.toString() );
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue ] );
+                    }
                 }
             },
 
@@ -562,9 +568,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         // Color.
         picker.wpColorPicker({
             change: function (event, ui) {
-                var device = jQuery(this).data('id');
-                if (jQuery('html').hasClass('responsive-background-img-ready')) {
-                    control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
+
+                if ( 'undefined' != typeof event.originalEvent ) {
+                    var device = jQuery(this).data('id');
+                    if (jQuery('html').hasClass('responsive-background-img-ready')) {
+                        control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
+                    }
                 }
             },
 
