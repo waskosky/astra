@@ -345,90 +345,130 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	}
 }
 
-function astra_apply_responsive_color_property( addon, control, cssProperty, selector, value ) {
+/*
+* Generate Responsive Color CSS
+*/
+function astra_apply_responsive_color_property( group, subControl, selector, cssProperty  ) {
+	wp.customize( group, function( control ) {
+		control.bind(function (value, oldValue) {
 
-	control = control.replace( '[', '-' );
-	control = control.replace( ']', '' );
-	jQuery( 'style#' + control + '-' + addon ).remove();
-
-	var DeskVal = '',
-		TabletFontVal = '',
-		MobileVal = '';
-
-	if ( '' != value.desktop ) {
-		DeskVal = cssProperty + ': ' + value.desktop;
-	}
-	if ( '' != value.tablet ) {
-		TabletFontVal = cssProperty + ': ' + value.tablet;
-	}
-	if ( '' != value.mobile ) {
-		MobileVal = cssProperty + ': ' + value.mobile;
-	}
-
-	// Concat and append new <style>.
-	jQuery( 'head' ).append(
-		'<style id="' + control + '-' + addon + '">'
-		+ selector + '	{ ' + DeskVal + ' }'
-		+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
-		+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
-		+ '</style>'
-	);
+			var option_value = JSON.parse( value );
+			var changed_key  = getChangedKey( value, oldValue );
+			if ('undefined' != typeof changed_key && changed_key == subControl ) {
+				var changedValue = option_value[changed_key];
+				var control = subControl.replace( '[', '-' );
+					control = control.replace( ']', '' );
+				
+				jQuery( 'style#' + control ).remove();
+				var DeskVal = '',
+					TabletFontVal = '',
+					MobileVal = '';
+			
+				if ( '' != changedValue.desktop ) {
+					DeskVal = cssProperty + ': ' + changedValue.desktop;
+				}
+				if ( '' != changedValue.tablet ) {
+					TabletFontVal = cssProperty + ': ' + changedValue.tablet;
+				}
+				if ( '' != changedValue.mobile ) {
+					MobileVal = cssProperty + ': ' + changedValue.mobile;
+				}
+			
+				// Concat and append new <style>.
+				jQuery( 'head' ).append(
+					'<style id="' + control + '">'
+					+ selector + '	{ ' + DeskVal + ' }'
+					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
+					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
+					+ '</style>'
+				);
+			}
+		});
+	});
 }
 
-function astra_apply_responsive_font_size( control, selector, value ) {
+/*
+* Generate Responsive Font CSS
+*/
+function astra_apply_responsive_font_size( group, subcontrol, selector ) {
+	wp.customize( group, function (control) {
+		control.bind(function ( value, oldValue ) {
+			var changed_key  = getChangedKey( value, oldValue );
+			if ( subcontrol != changed_key ) {
+				return;
+			}
+			var control = changed_key.replace( '[', '-' );
+				control = control.replace( ']', '' );
+				jQuery( 'style#' + control ).remove();
+				
+			var fontSize = '',
+				TabletFontSize = '',
+				MobileFontSize = '';
 
-	var control = control.replace( '[', '-' );
-		control = control.replace( ']', '' );
-		jQuery( 'style#' + control ).remove();
+			var option_value = JSON.parse(value);
+			value = option_value[changed_key];
 
-	var fontSize = '',
-		TabletFontSize = '',
-		MobileFontSize = '';
-
-	if ( '' != value.desktop ) {
-		fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
-	}
-	if ( '' != value.tablet ) {
-		TabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
-	}
-	if ( '' != value.mobile ) {
-		MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
-	}
-
-	if( value['desktop-unit'] == 'px' ) {
-		fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
-	}
-
-	// Concat and append new <style>.
-	jQuery( 'head' ).append(
-		'<style id="' + control + '">'
-		+ selector + '	{ ' + fontSize + ' }'
-		+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
-		+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileFontSize + ' } }'
-		+ '</style>'
-	);
+			if ( '' != value.desktop ) {
+				fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
+			}
+			if ( '' != value.tablet ) {
+				TabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
+			}
+			if ( '' != value.mobile ) {
+				MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
+			}
+			if( value['desktop-unit'] == 'px' ) {
+				fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
+			}
+			// Concat and append new <style>.
+			jQuery( 'head' ).append(
+				'<style id="' + control + '">'
+				+ selector + '	{ ' + fontSize + ' }'
+				+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
+				+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileFontSize + ' } }'
+				+ '</style>'
+			);
+		});
+	});    
 }
 
-function astra_generate_css( control, selector, css_property, value, unit ) {
+/*
+* Generate CSS
+*/
+function astra_generate_css( group, sub_control, selector, css_property )	 {
+	wp.customize( group, function (control) {
+		control.bind(function ( value, oldValue ) {
+			
+			var option_value = JSON.parse(value);
+			var changed_key  = getChangedKey( value, oldValue );
 
-	if ('undefined' != typeof unit) {
+			if ( sub_control != changed_key) {
+				return;
+			}
 
-		if ('url' === unit) {
-			value = 'url(' + value + ')';
-		} else {
-			value = value + unit;
-		}
-	}
+			value = option_value[changed_key];
+			var control = changed_key;
+			
+			if ('undefined' != typeof unit) {
+		
+				if ('url' === unit) {
+					value = 'url(' + value + ')';
+				} else {
+					value = value + unit;
+				}
+			}
+			// Remove old.
+			jQuery('style#' + control).remove();
+		
+			// Concat and append new <style>.
+			jQuery('head').append(
+				'<style id="' + control + '">'
+				+ selector + '	{ ' + css_property + ': ' + value + ' }'
+				+ '</style>'
+			);
 
-	// Remove old.
-	jQuery('style#' + control).remove();
-
-	// Concat and append new <style>.
-	jQuery('head').append(
-		'<style id="' + control + '">'
-		+ selector + '	{ ' + css_property + ': ' + value + ' }'
-		+ '</style>'
-	);
+		});
+	});
 }
 
 function getChangedKey( value, other ) {
