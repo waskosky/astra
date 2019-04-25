@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[header-layouts]',
 					'default'  => astra_get_option( 'header-layouts' ),
 					'section'  => 'section-header',
-					'priority' => 5,
+					'priority' => 4,
 					'title'    => __( 'Header Layout', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-radio-image',
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-header',
-					'priority' => 5,
+					'priority' => 4,
 					'title'    => __( 'Header Width', 'astra' ),
 					'choices'  => array(
 						'full'    => __( 'Full Width', 'astra' ),
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'number',
 					'section'     => 'section-header',
-					'priority'    => 5,
+					'priority'    => 4,
 					'title'       => __( 'Header Bottom Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-sep]', '>=', 1 ),
 					'control'   => 'ast-color',
 					'section'   => 'section-header',
-					'priority'  => 5,
+					'priority'  => 4,
 					'title'     => __( 'Header Bottom Border Color', 'astra' ),
 				),
 
@@ -476,17 +476,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'title'     => __( 'Menu Label on Small Devices', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'text',
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-header-colors]',
-					'default'   => astra_get_option( 'primary-header-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Color and Background Settings', 'astra' ),
-					'section'   => 'section-header',
-					'transport' => 'postMessage',
-					'priority'  => 51,
 				),
 
 				/**
