@@ -52,6 +52,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'default'   => astra_get_option( 'section-breadcrumb-typo' ),
 					'type'      => 'control',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Typography', 'astra' ),
 					'section'   => 'section-breadcrumb',

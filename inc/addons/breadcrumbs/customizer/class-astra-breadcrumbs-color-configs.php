@@ -52,6 +52,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
 					'default'   => astra_get_option( 'section-breadcrumb-color' ),
 					'type'      => 'control',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Color', 'astra' ),
 					'section'   => 'section-breadcrumb',
