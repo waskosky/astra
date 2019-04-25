@@ -673,7 +673,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				foreach ( $this->control_types as $control ) {
 
-					if( defined( 'ASTRA_EXT_URI' ) ) {
+					if ( defined( 'ASTRA_EXT_URI' ) ) {
 						$control_clean_name = str_replace( 'ast-', '', $control );
 						$uri                = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_clean_name . '/';
 
