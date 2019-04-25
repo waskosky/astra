@@ -71,7 +71,7 @@ function astra_get_selected_breadcrumb( $echo = true ) {
 	} elseif ( function_exists( 'bcn_display' ) && $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
 
 		if( true === $echo ) {
-			echo '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">' . bcn_display( ! $echo ) . '</div>';
+			echo '<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">' . bcn_display( $echo ) . '</div>';
 			return;
 		}
 		// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.

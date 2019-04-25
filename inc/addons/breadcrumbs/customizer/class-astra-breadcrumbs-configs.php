@@ -233,15 +233,16 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Breadcrumb Alignment
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
-					'default'  => 'left',
-					'section'  => 'section-breadcrumb',
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Breadcrumb Alignment', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'priority' => 65,
-					'choices'  => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
+					'default'   => 'left',
+					'section'   => 'section-breadcrumb',
+					'transport' => 'postMessage',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'title'     => __( 'Breadcrumb Alignment', 'astra' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'priority'  => 65,
+					'choices'   => array(
 						'left'   => __( 'Left', 'astra' ),
 						'center' => __( 'Center', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),

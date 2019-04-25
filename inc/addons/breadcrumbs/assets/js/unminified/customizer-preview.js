@@ -47,7 +47,7 @@
 	astra_apply_responsive_color_property( 
 		'astra-settings[section-breadcrumb-color]',
 		'breadcrumb-active-color-responsive',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .trail-items a',
+		'.ast-breadcrumbs-wrapper .trail-items .trail-end, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last',
 		'color'
 	);
 	
@@ -55,7 +55,7 @@
 	astra_apply_responsive_color_property(
 		'astra-settings[section-breadcrumb-color]',
 		'breadcrumb-text-color-responsive',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator',
+		'.ast-breadcrumbs-wrapper .trail-items a, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper .breadcrumbs a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb a',
 		'color'
 	);
 
@@ -63,7 +63,7 @@
 	astra_apply_responsive_color_property(
 		'astra-settings[section-breadcrumb-color]',
 		'breadcrumb-hover-color-responsive',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper a:hover, .ast-breadcrumbs-wrapper .trail-items a:hover',
+		'.ast-breadcrumbs-wrapper .trail-items a:hover, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a:hover, .ast-breadcrumbs-wrapper .breadcrumbs a:hover, .ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover',
 		'color'
 	);
 
@@ -71,22 +71,20 @@
 	astra_apply_responsive_color_property(
 		'astra-settings[section-breadcrumb-color]',
 		'breadcrumb-separator-color',
-		'.ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span, .ast-breadcrumbs-wrapper .separator, .ast-breadcrumbs-wrapper .trail-items li::after',
+		'.ast-breadcrumbs-wrapper .trail-items li::after, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator',
 		'color'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Background Color */
-	astra_color_responsive_css(
-		'breadcrumb',
-		'astra-settings[breadcrumb-bg-color]',
-		'background-color',
-		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb'
+	astra_apply_responsive_color_property(
+		'astra-settings[section-breadcrumb-color]',
+		'breadcrumb-bg-color',
+		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb',
+		'background-color'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Alignment */
-	astra_color_responsive_css(
-		'breadcrumb',
-		'astra-settings[breadcrumb-alignment]',
+	astra_css( 'astra-settings[breadcrumb-alignment]',
 		'text-align',
 		'.ast-breadcrumbs-wrapper'
 	);
