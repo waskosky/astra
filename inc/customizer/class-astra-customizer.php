@@ -673,10 +673,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				foreach ( $this->control_types as $control ) {
 
-					$control_clean_name = str_replace( 'ast-', '', $control );
-					$uri                = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_clean_name . '/';
+					if( defined( 'ASTRA_EXT_URI' ) ) {
+						$control_clean_name = str_replace( 'ast-', '', $control );
+						$uri                = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_clean_name . '/';
 
-					wp_enqueue_style( $control_clean_name . '-style', $uri . $control_clean_name . '.css', null, ASTRA_THEME_VERSION );
+						wp_enqueue_style( $control_clean_name . '-style', $uri . $control_clean_name . '.css', null, ASTRA_THEME_VERSION );
+					}
 				}
 			}
 
