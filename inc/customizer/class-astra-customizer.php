@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 									$control_type = $sub_control['control'];
 
-									if ( ! in_array( $control_type, $this->control_types ) && false != strpos( $control_type, 'ast-' ) ) {
+									if ( ! in_array( $control_type, $this->control_types ) && $this->starts_with( $control_type, 'ast-' ) ) {
 										$this->control_types[] = $control_type;
 									}
 								}
@@ -176,6 +176,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						break;
 				}
 			}
+		}
+
+		/**
+		 * Check if string is start with a string provided.
+		 *
+		 * @param string $string main string.
+		 * @param string $start_string string to search.
+		 * @since x.x.x
+		 * @return bool.
+		 */
+		function starts_with( $string, $start_string ) {
+			$len = strlen( $start_string );
+			return ( substr( $string, 0, $len ) === $start_string );
 		}
 
 		/**
@@ -661,10 +674,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				foreach ( $this->control_types as $control ) {
 
 					$control_clean_name = str_replace( 'ast-', '', $control );
-
-					$uri = ASTRA_EXT_URI . 'classes/customizer/controls/ ' . $control_clean_name . '/';
-
-					wp_enqueue_script( $control_clean_name . '-script', $uri . $control_clean_name . '.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
+					$uri                = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_clean_name . '/';
 
 					wp_enqueue_style( $control_clean_name . '-style', $uri . $control_clean_name . '.css', null, ASTRA_THEME_VERSION );
 				}
