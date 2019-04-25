@@ -202,16 +202,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 7,
 				),
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-colors]',
-					'default'   => astra_get_option( 'site-title-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Color', 'astra' ),
-					'section'   => 'title_tagline',
-					'transport' => 'postMessage',
-					'priority'  => 7,
-				),
 				/**
 				 * Option: Divider
 				 */
@@ -221,7 +211,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
 					'title'    => __( 'Site Tagline', 'astra' ),
-					'priority' => 7,
+					'priority' => 9,
 					'settings' => array(),
 				),
 				array(
@@ -234,16 +224,24 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 12,
 				),
+				
+				// Option: Site Title Color.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-colors]',
-					'default'   => astra_get_option( 'site-tagline-colors' ),
 					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Color', 'astra' ),
-					'section'   => 'title_tagline',
+					'control'   => 'ast-color',
+					'default'   => '',
 					'transport' => 'postMessage',
-					'priority'  => 12,
+					'name'      => ASTRA_THEME_SETTINGS . '[header-color-site-title]',
+					'title'     => __( 'Site Title Color', 'astra-addon' ),
+					'section'   => 'title_tagline',
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'==',
+						true,
+					),
+					'priority'  => 20,
 				),
+
 
 			);
 
