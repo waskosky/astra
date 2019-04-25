@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					'section'     => 'section-primary-header-typo',
 					'default'     => astra_get_option( 'font-size-site-tagline' ),
 					'transport'   => 'postMessage',
-					'priority'    => 20,
+					'priority'    => 15,
 					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,

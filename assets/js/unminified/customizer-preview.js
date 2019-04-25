@@ -1046,6 +1046,7 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 			TabletFontSize = '',
 			MobileFontSize = '';
 
+		console.log( value.desktop );
 		if ( '' != value.desktop ) {
 			fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
 		}
@@ -1059,6 +1060,8 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 		if( value['desktop-unit'] == 'px' ) {
 			fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
 		}
+
+		console.log( fontSize );
 
 		// Concat and append new <style>.
 		jQuery( 'head' ).append(
@@ -1087,14 +1090,15 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 				case "text-transform-site-title":
 
 					var css_property = 'text-transform';
-					var selector = '.site-title a';
+					var selector = '.site-branding .site-title a';
 
+					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
 					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
 					
 				break;
 
-				case "font-size-site-title": 
-					astra_apply_responsive_font_size( changed_key, '.site-title', option_value[changed_key] );
+				case "font-size-site-title":
+					astra_apply_responsive_font_size( changed_key, '.site-branding .site-title', option_value[changed_key] );
 				break;
 			}
 
