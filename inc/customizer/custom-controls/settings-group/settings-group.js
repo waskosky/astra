@@ -736,6 +736,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
         });
+
+        jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
+
+            var device = jQuery(this).attr('data-device');
+
+            jQuery('.customize-control-ast-responsive-background .background-container, .customize-control .ast-responsive-btns > li').removeClass('active');
+            jQuery('.customize-control-ast-responsive-background .background-container.' + device + ', .customize-control .ast-responsive-btns > li.' + device).addClass('active');
+        });
     },
 
     saveValue: function ( screen, property, value, element ) {
