@@ -371,7 +371,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
 
                 jQuery(element).val('');
-                control.container.trigger('ast_settings_changed', [control, jQuery(element), '' ] );
+                control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '' ] );
             }
         });
     },
@@ -580,8 +580,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0],
                     responsive_input = jQuery(this),
                     screen = responsive_input.closest('.wp-picker-input-wrap').find('.wp-color-picker').data('id');
-                if (element) {
-                    control.saveValue(screen, 'background-color', '', jQuery(this) );
+
+                if ( element ) {
+                    control.saveValue( screen, 'background-color', '', jQuery( element ) );
                 }
             }
         });
