@@ -355,7 +355,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             change: function (event, ui) {
 
-                if( 'undefined' != typeof event.originalEvent ) {
+                if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha) {
                 
                     var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
                     jQuery(element).val( ui.color.toString() );
@@ -385,7 +385,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             change: function(event, ui) {
 
-                if ( 'undefined' != typeof event.originalEvent ) {
+                if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha) {
                     if ( jQuery('html').hasClass('responsive-background-color-ready') ) {
 
                         var option_name = jQuery(this).data('name');
@@ -566,7 +566,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         picker.wpColorPicker({
             change: function (event, ui) {
 
-                if ( 'undefined' != typeof event.originalEvent ) {
+                if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha ) {
                     var device = jQuery(this).data('id');
                     control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
                 }
