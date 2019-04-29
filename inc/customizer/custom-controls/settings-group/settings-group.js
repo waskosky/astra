@@ -35,9 +35,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
                 } else {
                     var fields = control.params.ast_fields;
-                    var $modal_wrap = $( $(".tmpl-ast-settings-modal").html() );
+                    var $modal_wrap = $( astra.customizer.group_modal_tmpl );
 
-                    parent_wrap.append( $modal_wrap );
+                    parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
                     parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
                     control.ast_render_field( parent_wrap, fields, control );
 
@@ -349,15 +349,18 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     initColor: function (wrap, control_elem) {
 
         var control = this;
-        var picker = wrap.find('.ast-color-picker-alpha');
+        var picker = wrap.find('.customize-control-ast-color .ast-color-picker-alpha');
 
         picker.wpColorPicker({
 
             change: function (event, ui) {
+
+                if( 'undefined' != typeof event.originalEvent ) {
                 
-                var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
-                jQuery(element).val( ui.color.toString() );
-                control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString() ] );
+                    var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
+                    jQuery(element).val( ui.color.toString() );
+                    control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString() ] );
+                }
             },
 
             /**
@@ -381,34 +384,37 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         picker.wpColorPicker({
 
             change: function(event, ui) {
-                if ( jQuery('html').hasClass('responsive-background-color-ready') ) {
 
-                    var option_name = jQuery(this).data('name');
-                    var stored = {
-                        'desktop' : jQuery( ".desktop.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-                        'tablet'  : jQuery( ".tablet.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
-                        'mobile'  : jQuery( ".mobile.ast-responsive-color[data-name='"+ option_name +"']" ).val()
-                    };
+                if ( 'undefined' != typeof event.originalEvent ) {
+                    if ( jQuery('html').hasClass('responsive-background-color-ready') ) {
 
-                    var element = event.target;
-                    var device = jQuery( this ).data( 'id' );
-                    var newValue = {
-                        'desktop' : stored['desktop'],
-                        'tablet'  : stored['tablet'],
-                        'mobile'  : stored['mobile'],
-                    };
-                    if ( 'desktop' === device ) {
-                        newValue['desktop'] = ui.color.toString();
-                    }
-                    if ( 'tablet' === device ) {
-                        newValue['tablet'] = ui.color.toString();
-                    }
-                    if ( 'mobile' === device ) {
-                        newValue['mobile'] = ui.color.toString();
-                    }
+                        var option_name = jQuery(this).data('name');
+                        var stored = {
+                            'desktop' : jQuery( ".desktop.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
+                            'tablet'  : jQuery( ".tablet.ast-responsive-color[data-name='"+ option_name +"']" ).val(),
+                            'mobile'  : jQuery( ".mobile.ast-responsive-color[data-name='"+ option_name +"']" ).val()
+                        };
 
-                    jQuery(element).val( ui.color.toString() );
-                    control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue ] );
+                        var element = event.target;
+                        var device = jQuery( this ).data( 'id' );
+                        var newValue = {
+                            'desktop' : stored['desktop'],
+                            'tablet'  : stored['tablet'],
+                            'mobile'  : stored['mobile'],
+                        };
+                        if ( 'desktop' === device ) {
+                            newValue['desktop'] = ui.color.toString();
+                        }
+                        if ( 'tablet' === device ) {
+                            newValue['tablet'] = ui.color.toString();
+                        }
+                        if ( 'mobile' === device ) {
+                            newValue['mobile'] = ui.color.toString();
+                        }
+
+                        jQuery(element).val( ui.color.toString() );
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue ] );
+                    }
                 }
             },
 
@@ -488,7 +494,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     },
 
     /**
-     * Updates the rresponsive param value.
+     * Updates the responsive param value.
      */
     updateResonsiveValue: function( element ) {
 
@@ -498,7 +504,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         newValue = {};
 
         // Set the spacing container.
-        control.responsiveContainer = control.container.find( '.ast-responsive-wrapper' ).first();
+        control.responsiveContainer = element.closest( '.ast-responsive-wrapper' );
 
         control.responsiveContainer.find( 'input.ast-responsive-input' ).each( function() {
             var responsive_input = jQuery( this ),
@@ -506,7 +512,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             item_value = responsive_input.val();
 
             newValue[item] = item_value;
-
         });
 
         control.responsiveContainer.find( 'select.ast-responsive-select' ).each( function() {
@@ -563,9 +568,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         // Color.
         picker.wpColorPicker({
             change: function (event, ui) {
-                var device = jQuery(this).data('id');
-                if (jQuery('html').hasClass('responsive-background-img-ready')) {
-                    control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
+
+                if ( 'undefined' != typeof event.originalEvent ) {
+                    var device = jQuery(this).data('id');
+                    if (jQuery('html').hasClass('responsive-background-img-ready')) {
+                        control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
+                    }
                 }
             },
 

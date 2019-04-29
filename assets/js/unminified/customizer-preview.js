@@ -345,27 +345,234 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	}
 }
 
-function astra_generate_css( control, selector, css_property, value, unit ) {
+/*
+* Generate Responsive Color CSS
+*/
+function astra_apply_responsive_color_property( group, subControl, selector, cssProperty  ) {
+	wp.customize( group, function( control ) {
+		control.bind(function (value, oldValue) {
 
-	if ('undefined' != typeof unit) {
+			var optionValue = JSON.parse( value );
+			var changedKey  = getChangedKey( value, oldValue );
+			if ('undefined' != typeof changedKey && changedKey == subControl ) {
+				var changedValue = optionValue[changedKey];
+				var control = subControl.replace( '[', '-' );
+					control = control.replace( ']', '' );
+				
+				jQuery( 'style#' + control + '-' + cssProperty ).remove();
+				var DeskVal = '',
+					TabletFontVal = '',
+					MobileVal = '';
+			
+				if ( '' != changedValue.desktop ) {
+					DeskVal = cssProperty + ': ' + changedValue.desktop;
+				}
+				if ( '' != changedValue.tablet ) {
+					TabletFontVal = cssProperty + ': ' + changedValue.tablet;
+				}
+				if ( '' != changedValue.mobile ) {
+					MobileVal = cssProperty + ': ' + changedValue.mobile;
+				}
+			
+				// Concat and append new <style>.
+				jQuery( 'head' ).append(
+					'<style id="' + control + '-' + cssProperty + '">'
+					+ selector + '	{ ' + DeskVal + ' }'
+					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
+					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
+					+ '</style>'
+				);
+			}
+		});
+	});
+}
 
-		if ('url' === unit) {
-			value = 'url(' + value + ')';
-		} else {
-			value = value + unit;
+/*
+* Generate Responsive Font CSS
+*/
+function astra_apply_responsive_font_size( group, subControl, selector ) {
+	wp.customize( group, function (control) {
+		control.bind(function ( value, oldValue ) {
+			var changedKey  = getChangedKey( value, oldValue );
+			if ( subControl != changedKey ) {
+				return;
+			}
+			var control = changedKey.replace( '[', '-' );
+				control = control.replace( ']', '' );
+				jQuery( 'style#' + control ).remove();
+				
+			var fontSize = '',
+				TabletFontSize = '',
+				MobileFontSize = '';
+
+			var option_value = JSON.parse(value);
+			value = option_value[changedKey];
+
+			if ( '' != value.desktop ) {
+				fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
+			}
+			if ( '' != value.tablet ) {
+				TabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
+			}
+			if ( '' != value.mobile ) {
+				MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
+			}
+			if( value['desktop-unit'] == 'px' ) {
+				fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
+			}
+			// Concat and append new <style>.
+			jQuery( 'head' ).append(
+				'<style id="' + control + '">'
+				+ selector + '	{ ' + fontSize + ' }'
+				+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
+				+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileFontSize + ' } }'
+				+ '</style>'
+			);
+		});
+	});    
+}
+
+/*
+* Generate CSS
+*/
+function astra_generate_css( group, subControl, selector, cssProperty )	 {
+	wp.customize( group, function (control) {
+		control.bind(function ( value, oldValue ) {
+			
+			var optionValue = JSON.parse(value);
+			var changedKey  = getChangedKey( value, oldValue );
+
+			if ( subControl != changedKey) {
+				return;
+			}
+
+			value = optionValue[changedKey];
+			var control = changedKey;
+			
+			if ('undefined' != typeof unit) {
+		
+				if ('url' === unit) {
+					value = 'url(' + value + ')';
+				} else {
+					value = value + unit;
+				}
+			}
+			// Remove old.
+			jQuery('style#' + control).remove();
+		
+			// Concat and append new <style>.
+			jQuery('head').append(
+				'<style id="' + control + '">'
+				+ selector + '	{ ' + cssProperty + ': ' + value + ' }'
+				+ '</style>'
+			);
+
+		});
+	});
+}
+
+/*
+* Generate Font Family CSS
+*/
+function astra_generate_font_family_css( group, subControl, selector )	 {
+
+	wp.customize( group, function (control) {
+
+		control.bind( function ( value, oldValue ) {
+			
+			var optionValue = JSON.parse(value);
+			var cssProperty = 'font-family';
+			var changedKey  = getChangedKey( value, oldValue );
+			var link = '';
+
+			if ( subControl != changedKey) {
+				return;
+			}
+			
+			value = optionValue[changedKey];
+			var control = changedKey;
+			
+			var fontName = value.split(",")[0];
+			fontName = fontName.replace(/'/g, '')
+			
+			// Remove old.
+			jQuery('style#' + control).remove();
+			
+			if ( fontName in astraCustomizer.googleFonts ) {
+				// Remove old.
+
+				var fontName = fontName.split(' ').join('+');
+
+				jQuery('link#' + control).remove();
+				link = '<link id="' + control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+			}
+		
+			// Concat and append new <style> and <link>.
+			jQuery('head').append(
+				'<style id="' + control + '">'
+				+ selector + '	{ ' + cssProperty + ': ' + value + ' }'
+				+ '</style>'
+				+ link
+			);
+		});
+	});
+}
+
+function getChangedKey( value, other ) {
+
+	value = isJsonString(value) ? JSON.parse(value) : value;
+	other = isJsonString(other) ? JSON.parse(other) : other;
+
+	// Compare two items
+	var compare = function (item1, item2) {
+
+		// Get the object type
+		var itemType = Object.prototype.toString.call(item1);
+
+		// If an object or array, compare recursively
+		if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
+			if ('string' == typeof getChangedKey(item1, item2)) {
+				return false;
+			}
+		}
+
+		// Otherwise, do a simple comparison
+		else {
+
+			// If the two items are not the same type, return false
+			if (itemType !== Object.prototype.toString.call(item2)) return false;
+
+			// Else if it's a function, convert to a string and compare
+			// Otherwise, just compare
+			if (itemType === '[object Function]') {
+				if (item1.toString() !== item2.toString()) return false;
+			} else {
+				if (item1 !== item2) return false;
+			}
+
+		}
+	};
+
+	for (var key in value) {
+		if (value.hasOwnProperty(key)) {
+			if (compare(value[key], other[key]) === false) return key;
 		}
 	}
 
-	// Remove old.
-	jQuery('style#' + control).remove();
+	// If nothing failed, return true
+	return true;
 
-	// Concat and append new <style>.
-	jQuery('head').append(
-		'<style id="' + control + '">'
-		+ selector + '	{ ' + css_property + ': ' + value + ' }'
-		+ '</style>'
-	);
 }
+
+function isJsonString( str ) {
+
+	try {
+		JSON.parse(str);
+	} catch (e) {
+		return false;
+	}
+	return true;
+} 
 
 ( function( $ ) {
 
@@ -1006,190 +1213,36 @@ function astra_generate_css( control, selector, css_property, value, unit ) {
 		} );
 	} );
 
-	function astra_apply_responsive_color_property( addon, control, cssProperty, selector, value ) {
-
-		control = control.replace( '[', '-' );
-		control = control.replace( ']', '' );
-		jQuery( 'style#' + control + '-' + addon ).remove();
-
-		var DeskVal = '',
-			TabletFontVal = '',
-			MobileVal = '';
-
-		if ( '' != value.desktop ) {
-			DeskVal = cssProperty + ': ' + value.desktop;
-		}
-		if ( '' != value.tablet ) {
-			TabletFontVal = cssProperty + ': ' + value.tablet;
-		}
-		if ( '' != value.mobile ) {
-			MobileVal = cssProperty + ': ' + value.mobile;
-		}
-
-		// Concat and append new <style>.
-		jQuery( 'head' ).append(
-			'<style id="' + control + '-' + addon + '">'
-			+ selector + '	{ ' + DeskVal + ' }'
-			+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
-			+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
-			+ '</style>'
-		);
-	}
-
-	function astra_apply_responsive_font_size( control, selector, value ) {
-
-		var control = control.replace( '[', '-' );
-			control = control.replace( ']', '' );
-			jQuery( 'style#' + control ).remove();
-
-		var fontSize = '',
-			TabletFontSize = '',
-			MobileFontSize = '';
-
-		console.log( value.desktop );
-		if ( '' != value.desktop ) {
-			fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
-		}
-		if ( '' != value.tablet ) {
-			TabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
-		}
-		if ( '' != value.mobile ) {
-			MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
-		}
-
-		if( value['desktop-unit'] == 'px' ) {
-			fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
-		}
-
-		console.log( fontSize );
-
-		// Concat and append new <style>.
-		jQuery( 'head' ).append(
-			'<style id="' + control + '">'
-			+ selector + '	{ ' + fontSize + ' }'
-			+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
-			+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileFontSize + ' } }'
-			+ '</style>'
-		);
-	}
-
-	wp.customize('astra-settings[site-title-typography]', function (control) {
-
-		control.bind(function ( value, oldValue ) {
-
-			var option_value = JSON.parse(value);
-			var changed_key  = getChangedKey( value, oldValue );
-
-			switch ( changed_key ) {
-
-				case "font-family-site-title" :
-				case "font-weight-site-title":
-					wp.customize.preview.send('refresh');
-				break;
-
-				case "text-transform-site-title":
-
-					var css_property = 'text-transform';
-					var selector = '.site-branding .site-title a';
-
-					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
-					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
-					
-				break;
-
-				case "font-size-site-title":
-					astra_apply_responsive_font_size( changed_key, '.site-branding .site-title', option_value[changed_key] );
-				break;
-			}
-
-		});
-	});
-
-	wp.customize('astra-settings[site-tagline-typography]', function (control) {
-
-		control.bind(function ( value, oldValue ) {
-
-			var option_value = JSON.parse(value);
-			var changed_key  = getChangedKey( value, oldValue );
-
-			switch ( changed_key ) {
-
-				case "font-family-site-tagline" :
-				case "font-weight-site-tagline":
-					wp.customize.preview.send('refresh');
-				break;
-
-				case "text-transform-site-tagline":
-
-					var css_property = 'text-transform';
-					var selector = '.site-tagline a';
-
-					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
-					
-				break;
-
-				case "font-size-site-tagline": 
-					astra_apply_responsive_font_size( changed_key, '.site-tagline', option_value[changed_key] );
-				break;
-			}
-
-		});
-	});
-
-	var getChangedKey = function ( value, other ) {
-
-		value = isJsonString( value ) ? JSON.parse( value ) : value;
-		other = isJsonString( other ) ? JSON.parse( other ) : other;
-
-		// Compare two items
-		var compare = function ( item1, item2 ) {
-
-			// Get the object type
-			var itemType = Object.prototype.toString.call( item1 );
-
-			// If an object or array, compare recursively
-			if ( ['[object Array]', '[object Object]'].indexOf( itemType ) >= 0 ) {
-				if ( 'string' == typeof getChangedKey( item1, item2 ) ) {
-					return false;
-				}
-			}
-
-			// Otherwise, do a simple comparison
-			else {
-
-				// If the two items are not the same type, return false
-				if ( itemType !== Object.prototype.toString.call( item2 ) ) return false;
-
-				// Else if it's a function, convert to a string and compare
-				// Otherwise, just compare
-				if ( itemType === '[object Function]' ) {
-					if ( item1.toString() !== item2.toString() ) return false;
-				} else {
-					if ( item1 !== item2 ) return false;
-				}
-
-			}
-		};
-
-		for ( var key in value ) {
-			if ( value.hasOwnProperty(key) ) {
-				if ( compare( value[key], other[key] ) === false ) return key;
-			}
-		}
 	
-		// If nothing failed, return true
-		return true;
+	// Site Title - Font family
+	astra_generate_font_family_css( 'astra-settings[site-title-typography]', 'font-family-site-title', '.site-title, .site-title a' );
 
-	};
+	// Site Title - Font Weight
+	astra_generate_css( 'astra-settings[site-title-typography]', 'font-weight-site-title', '.site-title, .site-title a', 'font-weight' );
 
-	var isJsonString = function( str ) {
+	// Site Title - Font Size
+	astra_apply_responsive_font_size( 'astra-settings[site-title-typography]', 'font-size-site-title', '.site-title, .site-title a' );
+	
+	// Site Title - Line Height
+	astra_generate_css( 'astra-settings[site-title-typography]', 'line-height-site-title', '.site-title, .site-title a', 'line-height' );
+	
+	// Site Title - Text Transform
+	astra_generate_css( 'astra-settings[site-title-typography]', 'text-transform-site-title', '.site-title, .site-title a', 'text-transform' );
 
-		try {
-			JSON.parse(str);
-		} catch (e) {
-			return false;
-		}
-		return true;
-	} 
+
+	// Site tagline - Font family
+	astra_generate_font_family_css( 'astra-settings[site-tagline-typography]', 'font-family-site-tagline', '.site-header .site-description' );
+	
+	// Site Tagline - Font Weight
+	astra_generate_css( 'astra-settings[site-tagline-typography]', 'font-weight-site-tagline', '.site-header .site-description', 'font-weight' );
+
+	// Site Tagline - Font Size
+	astra_apply_responsive_font_size( 'astra-settings[site-tagline-typography]', 'font-size-site-tagline', '.site-header .site-description' );
+
+	// Site Tagline - Line Height
+	astra_generate_css( 'astra-settings[site-tagline-typography]', 'line-height-site-tagline', '.site-header .site-description', 'line-height' );
+
+	// Site Tagline - Text Transform
+	astra_generate_css( 'astra-settings[site-tagline-typography]', 'text-transform-site-tagline', '.site-header .site-description', 'text-transform' );
 
 } )( jQuery );
