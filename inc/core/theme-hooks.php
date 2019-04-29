@@ -480,3 +480,14 @@ function astra_primary_content_bottom() {
 function astra_404_content_template() {
 	do_action( 'astra_404_content_template' );
 }
+
+/**
+ * Fire the wp_body_open action.
+ *
+ * @since 5.2.0
+ */
+if ( ! function_exists( 'wp_body_open' ) ) {
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
+}
