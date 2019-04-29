@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
-			
+
 			$_configs = array(
 
 				/**

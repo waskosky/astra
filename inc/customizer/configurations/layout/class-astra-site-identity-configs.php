@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'title'       => __( 'Site Icon', 'astra' ),
+					'title'    => __( 'Site Icon', 'astra' ),
 					'section'  => 'title_tagline',
 					'priority' => 5,
 					'settings' => array(),
@@ -187,11 +187,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-icon-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'title'     => __( 'Site Title', 'astra' ),
+					'title'    => __( 'Site Title', 'astra' ),
 					'section'  => 'title_tagline',
 					'priority' => 6,
 					'settings' => array(),
-				),				
+				),
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
 					'default'   => astra_get_option( 'site-title-typography' ),
@@ -224,7 +224,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 12,
 				),
-				
+
 				// Option: Site Title Color.
 				array(
 					'type'      => 'control',
