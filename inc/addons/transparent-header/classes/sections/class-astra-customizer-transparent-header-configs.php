@@ -58,17 +58,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'  => 'checkbox',
 				),
 
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
-					'default'   => astra_get_option( 'transparent-header-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Color and Background Settings', 'astra' ),
-					'section'   => 'section-transparent-header',
-					'transport' => 'postMessage',
-					'priority'  => 21,
-				),
-
 				/**
 				 * Option: Disable Transparent Header on Archive Pages
 				 */
@@ -289,6 +278,29 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => 'section-transparent-header',
 					'priority'  => 30,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
+				),
+				
+				/**
+				 * Option: Transparent Header Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-sec-transparent-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 35,
+					'settings' => array(),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
+					'default'   => astra_get_option( 'transparent-header-colors' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Color & Background', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
 				),
 			);
 
