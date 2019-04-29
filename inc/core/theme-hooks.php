@@ -483,8 +483,9 @@ function astra_404_content_template() {
 
 /**
  * Fire the wp_body_open action.
+ * Adds backward compatibility for WordPress versions < 5.2
  *
- * @since 5.2.0
+ * @since x.x.x
  */
 if ( ! function_exists( 'wp_body_open' ) ) {
     function wp_body_open() {
