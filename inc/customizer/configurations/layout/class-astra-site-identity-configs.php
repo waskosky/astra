@@ -201,6 +201,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 7,
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'==',
+						true,
+					),
 				),
 				/**
 				 * Option: Divider
@@ -223,6 +228,11 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
 					'priority'  => 12,
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+						'==',
+						true,
+					),
 				),
 
 				// Option: Site Title Color.
