@@ -474,7 +474,7 @@ function astra_generate_css( group, subControl, selector, cssProperty )	 {
 /*
 * Generate Font Family CSS
 */
-function astra_generate_font_family_css( group, subControl, selector )	 {
+function astra_generate_font_family_css( group, subControl, selector ) {
 
 	wp.customize( group, function (control) {
 
