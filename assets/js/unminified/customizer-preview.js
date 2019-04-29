@@ -471,6 +471,53 @@ function astra_generate_css( group, subControl, selector, cssProperty )	 {
 	});
 }
 
+/*
+* Generate Font Family CSS
+*/
+function astra_generate_font_family_css( group, subControl, selector ) {
+
+	wp.customize( group, function (control) {
+
+		control.bind( function ( value, oldValue ) {
+			
+			var optionValue = JSON.parse(value);
+			var cssProperty = 'font-family';
+			var changedKey  = getChangedKey( value, oldValue );
+			var link = '';
+
+			if ( subControl != changedKey) {
+				return;
+			}
+			
+			value = optionValue[changedKey];
+			var control = changedKey;
+			
+			var fontName = value.split(",")[0];
+			fontName = fontName.replace(/'/g, '')
+			
+			// Remove old.
+			jQuery('style#' + control).remove();
+			
+			if ( fontName in astraCustomizer.googleFonts ) {
+				// Remove old.
+
+				var fontName = fontName.split(' ').join('+');
+
+				jQuery('link#' + control).remove();
+				link = '<link id="' + control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+			}
+		
+			// Concat and append new <style> and <link>.
+			jQuery('head').append(
+				'<style id="' + control + '">'
+				+ selector + '	{ ' + cssProperty + ': ' + value + ' }'
+				+ '</style>'
+				+ link
+			);
+		});
+	});
+}
+
 function getChangedKey( value, other ) {
 
 	value = isJsonString(value) ? JSON.parse(value) : value;
@@ -1166,41 +1213,36 @@ function isJsonString( str ) {
 		} );
 	} );
 
-	wp.customize('astra-settings[site-identity-typography]', function (control) {
+	
+	// Site Title - Font family
+	astra_generate_font_family_css( 'astra-settings[site-title-typography]', 'font-family-site-title', '.site-title, .site-title a' );
 
-		control.bind(function ( value, oldValue ) {
+	// Site Title - Font Weight
+	astra_generate_css( 'astra-settings[site-title-typography]', 'font-weight-site-title', '.site-title, .site-title a', 'font-weight' );
 
-			var option_value = JSON.parse(value);
-			var changed_key  = getChangedKey( value, oldValue );
+	// Site Title - Font Size
+	astra_apply_responsive_font_size( 'astra-settings[site-title-typography]', 'font-size-site-title', '.site-title, .site-title a' );
+	
+	// Site Title - Line Height
+	astra_generate_css( 'astra-settings[site-title-typography]', 'line-height-site-title', '.site-title, .site-title a', 'line-height' );
+	
+	// Site Title - Text Transform
+	astra_generate_css( 'astra-settings[site-title-typography]', 'text-transform-site-title', '.site-title, .site-title a', 'text-transform' );
 
-			switch ( changed_key ) {
 
-				case "font-family-site-title" :
-				case "font-weight-site-title":
-					wp.customize.preview.send('refresh');
-				break;
+	// Site tagline - Font family
+	astra_generate_font_family_css( 'astra-settings[site-tagline-typography]', 'font-family-site-tagline', '.site-header .site-description' );
+	
+	// Site Tagline - Font Weight
+	astra_generate_css( 'astra-settings[site-tagline-typography]', 'font-weight-site-tagline', '.site-header .site-description', 'font-weight' );
 
-				case "text-transform-site-title":
+	// Site Tagline - Font Size
+	astra_apply_responsive_font_size( 'astra-settings[site-tagline-typography]', 'font-size-site-tagline', '.site-header .site-description' );
 
-					var css_property = 'text-transform';
-					var selector = '.site-title a';
+	// Site Tagline - Line Height
+	astra_generate_css( 'astra-settings[site-tagline-typography]', 'line-height-site-tagline', '.site-header .site-description', 'line-height' );
 
-					astra_generate_css( changed_key, selector, css_property, option_value[changed_key] );
-					
-				break;
-
-				case "font-size-site-title": 
-					astra_apply_responsive_font_size( changed_key, '.site-title', option_value[changed_key] );
-				break;
-
-				case "font-size-site-tagline":
-
-					astra_apply_responsive_font_size( changed_key, '.site-header .site-description', option_value[changed_key] );
-				break;
-			}
-
-		});
-	});
-
+	// Site Tagline - Text Transform
+	astra_generate_css( 'astra-settings[site-tagline-typography]', 'text-transform-site-tagline', '.site-header .site-description', 'text-transform' );
 
 } )( jQuery );
