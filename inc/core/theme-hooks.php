@@ -481,14 +481,16 @@ function astra_404_content_template() {
 	do_action( 'astra_404_content_template' );
 }
 
-/**
- * Fire the wp_body_open action.
- * Adds backward compatibility for WordPress versions < 5.2
- *
- * @since x.x.x
- */
 if ( ! function_exists( 'wp_body_open' ) ) {
-    function wp_body_open() {
-        do_action( 'wp_body_open' );
-    }
+
+	/**
+	 * Fire the wp_body_open action.
+	 * Adds backward compatibility for WordPress versions < 5.2
+	 *
+	 * @since x.x.x
+	 */
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+	
 }
