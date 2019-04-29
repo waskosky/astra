@@ -200,7 +200,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'title'     => __( 'Typography', 'astra' ),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
-					'priority'  => 7,					
+					'priority'  => 7,
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[display-site-title]',
 						'==',
@@ -227,7 +227,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'title'     => __( 'Typography', 'astra' ),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
-					'priority'  => 12,					
+					'priority'  => 12,
 					'required'  => array(
 						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
 						'==',
