@@ -279,7 +279,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'priority'  => 30,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
 				),
-				
+
 				/**
 				 * Option: Transparent Header Styling
 				 */
