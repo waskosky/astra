@@ -316,17 +316,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-submenu]',
-					'default'   => astra_get_option( 'transparent-header-colors-submenu' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Submenu', 'astra' ),
-					'section'   => 'section-transparent-header',
-					'transport' => 'postMessage',
-					'priority'  => 35,
-				),
-
-				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
 					'default'   => astra_get_option( 'transparent-header-colors-content' ),
 					'type'      => 'control',
