@@ -101,10 +101,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$highlight_theme_color  = astra_get_foreground_color( $theme_color );
 
 			// Footer Bar Colors.
-			$footer_bg_obj       = astra_get_option( 'footer-bg-obj' );
-			$footer_color        = astra_get_option( 'footer-color' );
-			$footer_link_color   = astra_get_option( 'footer-link-color' );
-			$footer_link_h_color = astra_get_option( 'footer-link-h-color' );
+			$footer_bg_obj       = astra_get_option_by_group( 'footer-bg-obj', 'footer-bar-color-background-group' );
+			$footer_color        = astra_get_option_by_group( 'footer-color', 'footer-bar-color-background-group' );
+			$footer_link_color   = astra_get_option_by_group( 'footer-link-color', 'footer-bar-color-background-group' );
+			$footer_link_h_color = astra_get_option_by_group( 'footer-link-h-color', 'footer-bar-color-background-group' );
 
 			// Color.
 			$footer_adv_bg_obj             = astra_get_option( 'footer-adv-bg-obj' );

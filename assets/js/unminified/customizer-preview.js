@@ -891,9 +891,9 @@ function isJsonString( str ) {
 
 
 	// Footer Bar.
-	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
-	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
-	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
+	astra_generate_css( 'astra-settings[footer-bar-color-background-group]', 'footer-color', '.ast-small-footer', 'color' );
+	astra_generate_css( 'astra-settings[footer-bar-color-background-group]', 'footer-link-color', '.ast-small-footer a', 'color' );
+	astra_generate_css( 'astra-settings[footer-bar-color-background-group]', 'footer-link-h-color', '.ast-small-footer a:hover', 'color' );
 
 	wp.customize( 'astra-settings[footer-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {

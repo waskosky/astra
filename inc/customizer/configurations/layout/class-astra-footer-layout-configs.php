@@ -209,6 +209,22 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Footer Bar Color & Background Group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-color-background-group]',
+					'default'   => astra_get_option( 'footer-bar-color-background-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Color & Background Settings', 'astra' ),
+					'section'   => 'section-footer-small',
+					'transport' => 'postMessage',
+					'priority'  => 46,
+					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+				),
+
+
+				/**
 				 * Option: Header Width
 				 */
 
