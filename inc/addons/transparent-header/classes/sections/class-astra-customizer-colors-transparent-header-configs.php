@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 			$_configs = array(
 
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
+					'name'       => 'transparent-header-bg-color-responsive',
 					'default'    => $defaults['transparent-header-bg-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 1,
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Site Title Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
+					'name'       => 'transparent-header-color-site-title-responsive',
 					'default'    => $defaults['transparent-header-color-site-title-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 1,
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Menu Hover Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-menu-h-color-responsive]',
+					'name'       => 'transparent-menu-h-color-responsive',
 					'default'    => $defaults['transparent-menu-h-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 2,
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Sub menu background color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-submenu-bg-color-responsive]',
+					'name'       => 'transparent-submenu-bg-color-responsive',
 					'default'    => $defaults['transparent-submenu-bg-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 3,
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Sub menu text color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-submenu-color-responsive]',
+					'name'       => 'transparent-submenu-color-responsive',
 					'default'    => $defaults['transparent-submenu-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 3,
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Sub menu active hover color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-submenu-h-color-responsive]',
+					'name'       => 'transparent-submenu-h-color-responsive',
 					'default'    => $defaults['transparent-submenu-h-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 3,
@@ -202,7 +202,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				* Option: Content Section Text color.
 				*/
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-text-color-responsive]',
+					'name'       => 'transparent-content-section-text-color-responsive',
 					'default'    => $defaults['transparent-content-section-text-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 4,
@@ -218,7 +218,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Content Section Link color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-link-color-responsive]',
+					'name'       => 'transparent-content-section-link-color-responsive',
 					'default'    => $defaults['transparent-content-section-link-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 4,
@@ -235,7 +235,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Content Section Link Hover color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-link-h-color-responsive]',
+					'name'       => 'transparent-content-section-link-h-color-responsive',
 					'default'    => $defaults['transparent-content-section-link-h-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 4,
