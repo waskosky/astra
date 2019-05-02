@@ -320,7 +320,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'   => astra_get_option( 'transparent-header-colors-content' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content Section', 'astra' ),
+					'title'     => __( 'Content', 'astra' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
