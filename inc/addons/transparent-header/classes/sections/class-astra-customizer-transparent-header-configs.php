@@ -298,7 +298,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'   => astra_get_option( 'transparent-header-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Site Identity & Background', 'astra' ),
+					'title'     => __( 'Header', 'astra' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
