@@ -348,7 +348,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 /*
 * Generate Responsive Color CSS
 */
-function astra_apply_responsive_color_property( group, subControl, selector, cssProperty, addon = '' ) {
+function astra_apply_responsive_color_property( group, subControl, selector, cssProperty, addon ) {
 	wp.customize( group, function( control ) {
 		control.bind(function (value, oldValue) {
 
@@ -359,8 +359,7 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 				var control = subControl.replace( '[', '-' );
 					control = control.replace( ']', '' );
 
-				console.log( addon );
-				console.log( 'style#' + control + '-' + addon + '-' + cssProperty );
+				addon = ( addon ) ? addon : 'theme';
 				
 				jQuery( 'style#' + control + '-' + addon + '-' + cssProperty ).remove();
 

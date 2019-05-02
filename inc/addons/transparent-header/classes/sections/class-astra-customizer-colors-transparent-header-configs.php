@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-menu-divider',
 					'type'     => 'sub-control',
-					'tab'       => __( 'Normal', 'astra-addon' ),
+					'tab'      => __( 'Normal', 'astra-addon' ),
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 2,
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-menu-divider',
 					'type'     => 'sub-control',
-					'tab'       => __( 'Hover', 'astra-addon' ),
+					'tab'      => __( 'Hover', 'astra-addon' ),
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 2,
@@ -184,7 +184,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-submenu-divider',
 					'type'     => 'sub-control',
-					'tab'       => __( 'Normal', 'astra-addon' ),
+					'tab'      => __( 'Normal', 'astra-addon' ),
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 3,
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-submenu-divider',
 					'type'     => 'sub-control',
-					'tab'       => __( 'Hover', 'astra-addon' ),
+					'tab'      => __( 'Hover', 'astra-addon' ),
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 3,
