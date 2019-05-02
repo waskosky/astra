@@ -359,9 +359,10 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 				var control = subControl.replace( '[', '-' );
 					control = control.replace( ']', '' );
 
-				addon = ( addon ) ? '-' + addon : '';
+				console.log( addon );
+				console.log( 'style#' + control + '-' + addon + '-' + cssProperty );
 				
-				jQuery( 'style#' + control + addon + '-' + cssProperty ).remove();
+				jQuery( 'style#' + control + '-' + addon + '-' + cssProperty ).remove();
 
 				var DeskVal = '',
 					TabletFontVal = '',
@@ -379,7 +380,7 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + addon + '-' + cssProperty + '">'
+					'<style id="' + control + '-' + addon + '-' + cssProperty + '">'
 					+ selector + '	{ ' + DeskVal + ' }'
 					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
 					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
