@@ -45,21 +45,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 
 			$_configs = array(
 
-				array(
-					'name'       => 'transparent-header-bg-color-responsive',
-					'default'    => $defaults['transparent-header-bg-color-responsive'],
-					'type'       => 'sub-control',
-					'priority'   => 1,
-					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Overlay Color', 'astra' ),
-					'tab'        => __( 'Normal', 'astra' ),
-					'section'    => 'section-colors-transparent-header',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-
 				/**
 				 * Option: Site Title Color
 				 */
@@ -72,6 +57,21 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'title'      => __( 'Site Title Color', 'astra' ),
+					'tab'        => __( 'Normal', 'astra' ),
+					'section'    => 'section-colors-transparent-header',
+					'responsive' => true,
+					'rgba'       => true,
+				),
+
+				array(
+					'name'       => 'transparent-header-bg-color-responsive',
+					'default'    => $defaults['transparent-header-bg-color-responsive'],
+					'type'       => 'sub-control',
+					'priority'   => 1,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Background Overlay Color', 'astra' ),
 					'tab'        => __( 'Normal', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
