@@ -33,6 +33,19 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-site-identity-logo]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'title_tagline',
+					'title'    => __( 'Site Logo', 'astra-addon' ),
+					'priority' => 2,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Different retina logo
 				 */
 				array(
@@ -116,7 +129,8 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
+					'title'    => __( 'Site Icon', 'astra' ),
 					'section'  => 'title_tagline',
 					'priority' => 5,
 					'settings' => array(),
@@ -163,7 +177,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
 					'title'    => __( 'Inline Logo & Site Title', 'astra' ),
-					'priority' => 10,
+					'priority' => 7,
 				),
 
 				/**
@@ -172,22 +186,54 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-icon-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
+					'title'    => __( 'Site Title', 'astra' ),
 					'section'  => 'title_tagline',
-					'priority' => 50,
+					'priority' => 6,
 					'settings' => array(),
 				),
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-identity-typography]',
-					'default'   => astra_get_option( 'site-identity-typography' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
+					'default'   => astra_get_option( 'site-title-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Typography', 'astra' ),
 					'section'   => 'title_tagline',
 					'transport' => 'postMessage',
-					'priority'  => 11,
+					'priority'  => 7,
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[display-site-title]',
+						'==',
+						true,
+					),
 				),
-
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-title-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'title_tagline',
+					'title'    => __( 'Site Tagline', 'astra' ),
+					'priority' => 9,
+					'settings' => array(),
+				),
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
+					'default'   => astra_get_option( 'site-tagline-typography' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Typography', 'astra' ),
+					'section'   => 'title_tagline',
+					'transport' => 'postMessage',
+					'priority'  => 12,
+					'required'  => array(
+						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+						'==',
+						true,
+					),
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

@@ -673,7 +673,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				foreach ( $this->control_types as $control ) {
 
-					if( defined( 'ASTRA_EXT_URI' ) ) {
+					if ( defined( 'ASTRA_EXT_URI' ) ) {
 						$control_clean_name = str_replace( 'ast-', '', $control );
 						$uri                = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_clean_name . '/';
 
@@ -781,6 +781,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$localize_array = array(
 				'headerBreakpoint'            => astra_header_break_point(),
 				'includeAnchorsInHeadindsCss' => Astra_Dynamic_CSS::anchors_in_css_selectors_heading(),
+				'googleFonts'                 => Astra_Font_Families::get_google_fonts(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );

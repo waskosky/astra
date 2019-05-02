@@ -355,7 +355,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             change: function (event, ui) {
 
-                if( 'undefined' != typeof event.originalEvent ) {
+                if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha) {
                 
                     var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
                     jQuery(element).val( ui.color.toString() );
@@ -371,7 +371,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
 
                 jQuery(element).val('');
-                control.container.trigger('ast_settings_changed', [control, jQuery(element), '' ] );
+                control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '' ] );
             }
         });
     },
@@ -385,7 +385,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             change: function(event, ui) {
 
-                if ( 'undefined' != typeof event.originalEvent ) {
+                if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha) {
                     if ( jQuery('html').hasClass('responsive-background-color-ready') ) {
 
                         var option_name = jQuery(this).data('name');
@@ -542,9 +542,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         var control_name     = control_atts.name;
         var controlContainer = control.container.find( "#customize-control-" + control_name );
 
-        console.log( value );
-        
-
         // Hide unnecessary controls if the value doesn't have an image.
         if (_.isUndefined(value['desktop']['background-image']) || '' === value['desktop']['background-image']) {   
             controlContainer.find('.background-wrapper > .background-container.desktop > .background-repeat').hide();
@@ -569,11 +566,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         picker.wpColorPicker({
             change: function (event, ui) {
 
-                if ( 'undefined' != typeof event.originalEvent ) {
+                if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha ) {
                     var device = jQuery(this).data('id');
-                    if (jQuery('html').hasClass('responsive-background-img-ready')) {
-                        control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
-                    }
+                    control.saveValue( device, 'background-color', ui.color.toString(), jQuery(this) );
                 }
             },
 
@@ -585,8 +580,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0],
                     responsive_input = jQuery(this),
                     screen = responsive_input.closest('.wp-picker-input-wrap').find('.wp-color-picker').data('id');
-                if (element) {
-                    control.saveValue(screen, 'background-color', '', jQuery(this) );
+
+                if ( element ) {
+                    control.saveValue( screen, 'background-color', '', jQuery( element ) );
                 }
             }
         });
@@ -597,7 +593,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
 
-            control.saveValue(screen, 'background-repeat', item_value, jQuery(this) );
+            control.saveValue( screen, 'background-repeat', item_value, jQuery(this) );
         });
 
         // Background-Size.
@@ -606,8 +602,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
 
-
-            control.saveValue(screen, 'background-size', item_value, jQuery(this) );
+            control.saveValue(screen, 'background-size', item_value, responsive_input );
         });
 
         // Background-Position.
@@ -615,7 +610,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
-            control.saveValue(screen, 'background-position', item_value, jQuery(this) );
+            control.saveValue(screen, 'background-position', item_value, responsive_input );
         });
 
         // Background-Attachment.
@@ -624,7 +619,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
 
-            control.saveValue(screen, 'background-attachment', item_value, jQuery(this) );
+            control.saveValue(screen, 'background-attachment', item_value, responsive_input );
         });
 
         // Background-Image.
@@ -656,18 +651,18 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 imageHeight = uploadedImage.toJSON().height;
 
                 // Show extra controls if the value has an image.
-                if ('' !== imageUrl) {
+                if ( '' !== imageUrl ) {
                     controlContainer.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
                 }
 
-                control.saveValue(screen, 'background-image', imageUrl, jQuery(this) );
-                preview = controlContainer.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
+                control.saveValue( screen, 'background-image', imageUrl, responsive_input );
+                preview = controlContainer.find( '.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail' );
                 removeButton = controlContainer.find('.background-container.' + screen + ' .background-image-upload-remove-button');
 
-                if (preview.length) {
+                if ( preview.length ) {
                     preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
                 }
-                if (removeButton.length) {
+                if ( removeButton.length ) {
                     removeButton.show();
                 }
             });
@@ -727,6 +722,29 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 $(this).find('.icon').html('↓');
             }
         });
+
+
+        controlContainer.find('.ast-responsive-btns button').on('click', function (event) {
+
+            var device = jQuery(this).attr('data-device');
+            if ('desktop' == device) {
+                device = 'tablet';
+            } else if ('tablet' == device) {
+                device = 'mobile';
+            } else {
+                device = 'desktop';
+            }
+
+            jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
+        });
+
+        jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
+
+            var device = jQuery(this).attr('data-device');
+
+            jQuery('.customize-control-ast-responsive-background .background-container, .customize-control .ast-responsive-btns > li').removeClass('active');
+            jQuery('.customize-control-ast-responsive-background .background-container.' + device + ', .customize-control .ast-responsive-btns > li.' + device).addClass('active');
+        });
     },
 
     saveValue: function ( screen, property, value, element ) {
@@ -739,6 +757,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         jQuery(input).attr( 'value', JSON.stringify(val) ).trigger( 'change' );
 
-        control.container.trigger('ast_settings_changed', [control, element, val ] );
+        control.container.trigger( 'ast_settings_changed', [control, element, val ] );
     }
 });
