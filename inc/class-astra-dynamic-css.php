@@ -452,7 +452,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Blockquote Text Color.
-				'blockquote, blockquote a'                => array(
+				'blockquote'                              => array(
 					'color' => astra_adjust_brightness( $text_color, 75, 'darken' ),
 				),
 
@@ -922,6 +922,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
 					$astra_fonts     .= 'font-weight: normal;';
 					$astra_fonts     .= 'font-style: normal;';
+					$astra_fonts     .= 'font-display: fallback;';
 				$astra_fonts         .= '}';
 				$parse_css           .= $astra_fonts;
 			}
