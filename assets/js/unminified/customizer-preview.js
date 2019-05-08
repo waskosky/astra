@@ -348,7 +348,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 /*
 * Generate Responsive Color CSS
 */
-function astra_apply_responsive_color_property( group, subControl, selector, cssProperty  ) {
+function astra_apply_responsive_color_property( group, subControl, selector, cssProperty, addon ) {
 	wp.customize( group, function( control ) {
 		control.bind(function (value, oldValue) {
 
@@ -358,8 +358,11 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 				var changedValue = optionValue[changedKey];
 				var control = subControl.replace( '[', '-' );
 					control = control.replace( ']', '' );
+
+				addon = ( addon ) ? addon : 'theme';
 				
-				jQuery( 'style#' + control + '-' + cssProperty ).remove();
+				jQuery( 'style#' + control + '-' + addon + '-' + cssProperty ).remove();
+
 				var DeskVal = '',
 					TabletFontVal = '',
 					MobileVal = '';
@@ -373,10 +376,10 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 				if ( '' != changedValue.mobile ) {
 					MobileVal = cssProperty + ': ' + changedValue.mobile;
 				}
-			
+
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '-' + cssProperty + '">'
+					'<style id="' + control + '-' + addon + '-' + cssProperty + '">'
 					+ selector + '	{ ' + DeskVal + ' }'
 					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
 					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
