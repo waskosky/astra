@@ -359,6 +359,8 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 				var control = subControl.replace( '[', '-' );
 					control = control.replace( ']', '' );
 
+				addon = addon || '';
+
 				addon = ( addon ) ? addon : 'theme';
 				
 				jQuery( 'style#' + control + '-' + addon + '-' + cssProperty ).remove();
