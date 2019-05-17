@@ -47,6 +47,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             $this.toggleClass('open');
 
         });
+
+        control.container.on( "click", ".ast-toggle-desc-wrap > .customizer-text", function( e ) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            jQuery(this).find( '.ast-adv-toggle-icon' ).trigger('click');
+        });
     },
 
     ast_render_field: function( wrap, fields, control_elem ) {
