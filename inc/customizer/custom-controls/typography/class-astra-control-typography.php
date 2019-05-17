@@ -209,6 +209,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			echo ' data-connected-variant="' . esc_attr( $this->variant ) . '"';
 			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
 		}
+
+		echo ' data-value="' . esc_attr( $this->value() ) . '">';
 	}
 
 	/**

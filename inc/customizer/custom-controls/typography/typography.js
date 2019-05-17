@@ -38,6 +38,19 @@
 		 */
 		_initFonts: function()
 		{
+			$( '.customize-control-ast-font-family select' ).each( function(e) {
+
+				if( 'undefined' != typeof astra.customizer ) {
+					var fonts = astra.customizer.settings.google_fonts;
+
+					$(this).html( fonts );
+
+					var font_val = $(this).data('value');
+
+					$(this).val( font_val );
+				}
+			});
+
 			$( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
 			// Added select2 for all font family & font variant.
 			$('.customize-control-ast-font-family select, .customize-control-ast-font-variant select').selectWoo();
