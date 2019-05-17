@@ -514,13 +514,16 @@ function astra_generate_font_family_css( group, subControl, selector ) {
 	wp.customize( group, function (control) {
 
 		control.bind( function ( value, oldValue ) {
-			
+
+			console.log( value);
+			console.log(oldValue );
+				
 			var optionValue = JSON.parse(value);
 			var cssProperty = 'font-family';
 			var changedKey  = getChangedKey( value, oldValue );
 			var link = '';
 
-			if ( subControl != changedKey) {
+			if ( subControl != changedKey ) {
 				return;
 			}
 			
@@ -559,7 +562,7 @@ function getChangedKey( value, other ) {
 	other = isJsonString(other) ? JSON.parse(other) : other;
 
 	// Compare two items
-	var compare = function (item1, item2) {
+	var compare = function ( item1, item2 ) {
 
 		// Get the object type
 		var itemType = Object.prototype.toString.call(item1);
@@ -588,9 +591,11 @@ function getChangedKey( value, other ) {
 		}
 	};
 
-	for (var key in value) {
-		if (value.hasOwnProperty(key)) {
-			if (compare(value[key], other[key]) === false) return key;
+	for ( var key in value ) {
+		if ( other.hasOwnProperty(key) && value.hasOwnProperty(key) ) {
+			if ( compare( value[key], other[key] ) === false ) return key;
+		} else {
+			return key;
 		}
 	}
 
