@@ -940,7 +940,7 @@ function isJsonString( str ) {
 
 			var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { {{css}} }';
 			
-			astra_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
+			astra_responsive_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
 		} );
 	} );
 
