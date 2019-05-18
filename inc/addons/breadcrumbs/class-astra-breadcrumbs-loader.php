@@ -67,6 +67,22 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		function theme_defaults( $defaults ) {
 
 			/**
+			 * Breadcrumb Typography
+			 */
+			$defaults['breadcrumb-font-family']    = 'inherit';
+			$defaults['breadcrumb-font-weight']    = 'inherit';
+			$defaults['breadcrumb-text-transform'] = 'inherit';
+			$defaults['font-size-site-title']      = array(
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+			$defaults['line-height-site-title']    = '';
+
+			/**
 			 * Breadcrumb Responsive Colors
 			 */
 			$defaults['breadcrumb-text-color-responsive'] = array(

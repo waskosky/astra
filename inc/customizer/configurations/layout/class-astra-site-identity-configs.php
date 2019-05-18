@@ -234,23 +234,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						true,
 					),
 				),
-
-				// Option: Site Title Color.
-				array(
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'default'   => '',
-					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[header-color-site-title]',
-					'title'     => __( 'Site Title Color', 'astra-addon' ),
-					'section'   => 'title_tagline',
-					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
-						'==',
-						true,
-					),
-					'priority'  => 20,
-				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

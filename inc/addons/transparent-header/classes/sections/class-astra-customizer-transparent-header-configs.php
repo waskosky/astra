@@ -58,17 +58,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'  => 'checkbox',
 				),
 
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
-					'default'   => astra_get_option( 'transparent-header-colors' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Color and Background Settings', 'astra' ),
-					'section'   => 'section-transparent-header',
-					'transport' => 'postMessage',
-					'priority'  => 21,
-				),
-
 				/**
 				 * Option: Disable Transparent Header on Archive Pages
 				 */
@@ -289,6 +278,52 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => 'section-transparent-header',
 					'priority'  => 30,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Transparent Header Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-sec-transparent-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Colors & Background', 'astra-addon' ),
+					'priority' => 35,
+					'settings' => array(),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
+					'default'   => astra_get_option( 'transparent-header-colors' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Header', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
+					'default'   => astra_get_option( 'transparent-header-colors-menu' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Menu', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
+					'default'   => astra_get_option( 'transparent-header-colors-content' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Content', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
 				),
 			);
 

@@ -348,7 +348,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 /*
 * Generate Responsive Color CSS
 */
-function astra_apply_responsive_color_property( group, subControl, selector, cssProperty  ) {
+function astra_apply_responsive_color_property( group, subControl, selector, cssProperty, addon, device ) {
 	wp.customize( group, function( control ) {
 		control.bind(function (value, oldValue) {
 
@@ -358,30 +358,65 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 				var changedValue = optionValue[changedKey];
 				var control = subControl.replace( '[', '-' );
 					control = control.replace( ']', '' );
+
+				addon = addon || '';
+
+				addon = ( addon ) ? addon : 'theme';
 				
-				jQuery( 'style#' + control + '-' + cssProperty ).remove();
+				jQuery( 'style#' + control + '-' + addon + '-' + cssProperty ).remove();
+
 				var DeskVal = '',
-					TabletFontVal = '',
+					TabletVal = '',
 					MobileVal = '';
 			
 				if ( '' != changedValue.desktop ) {
 					DeskVal = cssProperty + ': ' + changedValue.desktop;
 				}
 				if ( '' != changedValue.tablet ) {
-					TabletFontVal = cssProperty + ': ' + changedValue.tablet;
+					TabletVal = cssProperty + ': ' + changedValue.tablet;
 				}
 				if ( '' != changedValue.mobile ) {
 					MobileVal = cssProperty + ': ' + changedValue.mobile;
 				}
-			
-				// Concat and append new <style>.
-				jQuery( 'head' ).append(
-					'<style id="' + control + '-' + cssProperty + '">'
-					+ selector + '	{ ' + DeskVal + ' }'
-					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontVal + ' } }'
-					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
-					+ '</style>'
-				);
+
+				if ( 'desktop' === device ) {
+
+					var dynamicStyle = '<style id="' + control + '-' + addon + '-' + cssProperty + '-' + device + '">' + selector + '	{ ' + DeskVal + ' }'
+						+ '</style>';
+				}
+
+				if ( 'tablet' === device ) {
+
+					var dynamicStyle = '<style id="' + control + '-' + addon + '-' + cssProperty + '-' + device + '">'
+						+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletVal + ' }'
+						+ '</style>';
+				}
+
+				if ( 'mobile' === device ) {
+
+					var dynamicStyle = '<style id="' + control + '-' + addon + '-' + cssProperty + '-' + device + '">'
+						+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' }'
+						+ '</style>';
+				}
+
+				if( 'undefined' != typeof device ) {
+
+					// Concat and append new <style>.
+					jQuery('head').append(
+						dynamicStyle
+					);
+
+				} else {
+
+					// Concat and append new <style>.
+					jQuery('head').append(
+						'<style id="' + control + '-' + addon + '-' + cssProperty + '">'
+						+ selector + '	{ ' + DeskVal + ' }'
+						+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletVal + ' } }'
+						+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileVal + ' } }'
+						+ '</style>'
+					);
+				}
 			}
 		});
 	});
@@ -479,13 +514,16 @@ function astra_generate_font_family_css( group, subControl, selector ) {
 	wp.customize( group, function (control) {
 
 		control.bind( function ( value, oldValue ) {
-			
+
+			console.log( value);
+			console.log(oldValue );
+				
 			var optionValue = JSON.parse(value);
 			var cssProperty = 'font-family';
 			var changedKey  = getChangedKey( value, oldValue );
 			var link = '';
 
-			if ( subControl != changedKey) {
+			if ( subControl != changedKey ) {
 				return;
 			}
 			
@@ -524,7 +562,7 @@ function getChangedKey( value, other ) {
 	other = isJsonString(other) ? JSON.parse(other) : other;
 
 	// Compare two items
-	var compare = function (item1, item2) {
+	var compare = function ( item1, item2 ) {
 
 		// Get the object type
 		var itemType = Object.prototype.toString.call(item1);
@@ -553,9 +591,11 @@ function getChangedKey( value, other ) {
 		}
 	};
 
-	for (var key in value) {
-		if (value.hasOwnProperty(key)) {
-			if (compare(value[key], other[key]) === false) return key;
+	for ( var key in value ) {
+		if ( other.hasOwnProperty(key) && value.hasOwnProperty(key) ) {
+			if ( compare( value[key], other[key] ) === false ) return key;
+		} else {
+			return key;
 		}
 	}
 

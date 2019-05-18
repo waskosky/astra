@@ -45,28 +45,34 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 
 			$_configs = array(
 
+				/**
+				 * Option: Site Title Color
+				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-bg-color-responsive]',
-					'default'    => $defaults['transparent-header-bg-color-responsive'],
-					'type'       => 'control',
-					'transport'  => 'postMessage',
+					'name'       => 'transparent-header-color-site-title-responsive',
+					'default'    => $defaults['transparent-header-color-site-title-responsive'],
+					'type'       => 'sub-control',
+					'priority'   => 1,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Overlay Color', 'astra' ),
+					'transport'  => 'postMessage',
+					'title'      => __( 'Site Title Color', 'astra' ),
+					'tab'        => __( 'Normal', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
 					'rgba'       => true,
 				),
 
-				/**
-				 * Option: Site Title Color
-				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-color-site-title-responsive]',
-					'default'    => $defaults['transparent-header-color-site-title-responsive'],
-					'type'       => 'control',
-					'control'    => 'ast-responsive-color',
+					'name'       => 'transparent-header-bg-color-responsive',
+					'default'    => $defaults['transparent-header-bg-color-responsive'],
+					'type'       => 'sub-control',
+					'priority'   => 1,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
 					'transport'  => 'postMessage',
-					'label'      => __( 'Site Title Color', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Background Overlay Color', 'astra' ),
+					'tab'        => __( 'Normal', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
 					'rgba'       => true,
@@ -83,7 +89,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'label'      => __( 'Site Title Hover Color', 'astra' ),
+					'title'      => __( 'Site Title Hover Color', 'astra' ),
+					'tab'        => __( 'Hover', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
 					'rgba'       => true,
@@ -93,11 +100,27 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-transparent-menu-responsive]',
-					'title'    => __( 'Menu', 'astra' ),
-					'section'  => 'section-colors-transparent-header',
-					'type'     => 'control',
+					'name'     => 'transparent-header-colors-menu-divider',
+					'type'     => 'sub-control',
+					'tab'      => __( 'Normal', 'astra-addon' ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
+					'priority' => 2,
+					'title'    => __( 'Menu', 'astra' ),
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => 'transparent-header-colors-menu-divider',
+					'type'     => 'sub-control',
+					'tab'      => __( 'Hover', 'astra-addon' ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
+					'control'  => 'ast-divider',
+					'priority' => 2,
+					'title'    => __( 'Menu', 'astra' ),
 					'settings' => array(),
 				),
 
@@ -109,10 +132,11 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'default'    => $defaults['transparent-menu-bg-color-responsive'],
 					'type'       => 'sub-control',
 					'priority'   => 2,
-					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'label'      => __( 'Background Color', 'astra' ),
+					'tab'        => __( 'Normal', 'astra' ),
+					'title'      => __( 'Background Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
 					'rgba'       => true,
@@ -125,11 +149,12 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'name'       => 'transparent-menu-color-responsive',
 					'default'    => $defaults['transparent-menu-color-responsive'],
 					'type'       => 'sub-control',
-					'priority'   => 3,
-					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
+					'priority'   => 2,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'label'      => __( 'Link / Text Color', 'astra' ),
+					'tab'        => __( 'Normal', 'astra' ),
+					'title'      => __( 'Link / Text Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
 					'rgba'       => true,
@@ -139,11 +164,14 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Menu Hover Color
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-menu-h-color-responsive]',
+					'name'       => 'transparent-menu-h-color-responsive',
 					'default'    => $defaults['transparent-menu-h-color-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'priority'   => 3,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
+					'tab'        => __( 'Hover', 'astra' ),
 					'title'      => __( 'Link Active / Hover Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
@@ -154,11 +182,27 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-transparent-sub-menu-responsive]',
-					'title'    => __( 'Submenu', 'astra' ),
-					'section'  => 'section-colors-transparent-header',
-					'type'     => 'control',
+					'name'     => 'transparent-header-colors-submenu-divider',
+					'type'     => 'sub-control',
+					'tab'      => __( 'Normal', 'astra-addon' ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
+					'priority' => 3,
+					'title'    => __( 'Submenu', 'astra' ),
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => 'transparent-header-colors-submenu-divider',
+					'type'     => 'sub-control',
+					'tab'      => __( 'Hover', 'astra-addon' ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
+					'control'  => 'ast-divider',
+					'priority' => 3,
+					'title'    => __( 'Submenu', 'astra' ),
 					'settings' => array(),
 				),
 
@@ -166,11 +210,14 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Sub menu background color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-submenu-bg-color-responsive]',
+					'name'       => 'transparent-submenu-bg-color-responsive',
 					'default'    => $defaults['transparent-submenu-bg-color-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'priority'   => 3,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
 					'title'      => __( 'Background Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
@@ -181,11 +228,14 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Sub menu text color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-submenu-color-responsive]',
+					'name'       => 'transparent-submenu-color-responsive',
 					'default'    => $defaults['transparent-submenu-color-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'priority'   => 3,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
 					'title'      => __( 'Link / Text Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
@@ -196,11 +246,14 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Sub menu active hover color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-submenu-h-color-responsive]',
+					'name'       => 'transparent-submenu-h-color-responsive',
 					'default'    => $defaults['transparent-submenu-h-color-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'priority'   => 3,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
+					'tab'        => __( 'Hover', 'astra' ),
 					'title'      => __( 'Link Active / Hover Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
@@ -208,25 +261,17 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
-				* Option: Divider
-				*/
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-transparent-content-section]',
-					'title'    => __( 'Content Section', 'astra' ),
-					'section'  => 'section-colors-transparent-header',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'settings' => array(),
-				),
-				/**
 				* Option: Content Section Text color.
 				*/
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-text-color-responsive]',
+					'name'       => 'transparent-content-section-text-color-responsive',
 					'default'    => $defaults['transparent-content-section-text-color-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'priority'   => 4,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
+					'tab'        => __( 'Normal', 'astra' ),
 					'title'      => __( 'Text Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
@@ -236,11 +281,14 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Content Section Link color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-link-color-responsive]',
+					'name'       => 'transparent-content-section-link-color-responsive',
 					'default'    => $defaults['transparent-content-section-link-color-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'priority'   => 4,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
+					'tab'        => __( 'Normal', 'astra' ),
 					'title'      => __( 'Link Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
@@ -251,11 +299,14 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				 * Option: Content Section Link Hover color.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[transparent-content-section-link-h-color-responsive]',
+					'name'       => 'transparent-content-section-link-h-color-responsive',
 					'default'    => $defaults['transparent-content-section-link-h-color-responsive'],
-					'type'       => 'control',
+					'type'       => 'sub-control',
+					'priority'   => 4,
+					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
+					'tab'        => __( 'Hover', 'astra' ),
 					'title'      => __( 'Link Hover Color', 'astra' ),
 					'section'    => 'section-colors-transparent-header',
 					'responsive' => true,
