@@ -823,6 +823,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         // Background-Image.
         controlContainer.on( 'click', '.background-image-upload-button', function( e ) {
+            var upload_img_btn = jQuery(this);
             var image = wp.media({ multiple: false }).open().on( 'select', function() {
 
                 // This will return the selected image from the Media Uploader, the result is an object.
@@ -851,7 +852,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     controlContainer.find( '.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment' ).show();
                 }
 
-                control.saveBgValue( 'background-image', imageUrl, jQuery( this ) );
+                control.saveBgValue( 'background-image', imageUrl, upload_img_btn );
                 preview      = controlContainer.find( '.placeholder, .thumbnail' );
                 removeButton = controlContainer.find( '.background-image-upload-remove-button' );
 
@@ -936,8 +937,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         var control = this,
             input   = jQuery( '#customize-control-' + control.id.replace( '[', '-' ).replace( ']', '' ) + ' .background-hidden-value' );
-
-        console.log(element);
 
         var val = JSON.parse( input.val() );
 
