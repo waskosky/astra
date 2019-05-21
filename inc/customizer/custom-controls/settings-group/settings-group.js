@@ -780,8 +780,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         picker.wpColorPicker({
             change: function() {
                 if ( jQuery('html').hasClass('background-colorpicker-ready') ) {
+                    var $this = jQuery(this);
                     setTimeout( function() {
-                        control.saveBgValue( 'background-color', picker.val(), jQuery(this) );
+                        control.saveBgValue( 'background-color', picker.val(), $this );
                     }, 100 );
                 }
             },
@@ -936,7 +937,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         var control = this,
             input   = jQuery( '#customize-control-' + control.id.replace( '[', '-' ).replace( ']', '' ) + ' .background-hidden-value' );
 
-        console.log(input);
+        console.log(element);
 
         var val = JSON.parse( input.val() );
 
