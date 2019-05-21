@@ -209,6 +209,49 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Footer Bar Color & Background Section heading
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-bar-color-background-heading-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-footer-small',
+					'title'    => __( 'Colors & Background', 'astra-addon' ),
+					'priority' => 46,
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Footer Bar Content Group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
+					'default'   => astra_get_option( 'footer-bar-background-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Background', 'astra' ),
+					'section'   => 'section-footer-small',
+					'transport' => 'postMessage',
+					'priority'  => 47,
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+				),
+
+				/**
+				 * Option: Footer Bar Content Group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
+					'default'   => astra_get_option( 'footer-bar-content-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Content', 'astra' ),
+					'section'   => 'section-footer-small',
+					'transport' => 'postMessage',
+					'priority'  => 47,
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+				),
+
+				/**
 				 * Option: Header Width
 				 */
 

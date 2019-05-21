@@ -931,19 +931,10 @@ function isJsonString( str ) {
 
 
 	// Footer Bar.
-	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
-	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
-	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
-
-	wp.customize( 'astra-settings[footer-bg-obj]', function( value ) {
-		value.bind( function( bg_obj ) {
-
-			var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { {{css}} }';
-			
-			astra_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
-		} );
-	} );
-
+	astra_generate_css( 'astra-settings[footer-bar-content-group]', 'footer-color', '.ast-small-footer', 'color' );
+	astra_generate_css( 'astra-settings[footer-bar-content-group]', 'footer-link-color', '.ast-small-footer a', 'color' );
+	astra_generate_css( 'astra-settings[footer-bar-content-group]', 'footer-link-h-color', '.ast-small-footer a:hover', 'color' );
+	astra_apply_background_css( 'astra-settings[footer-bar-background-group]', 'footer-bg-obj', ' .ast-small-footer > .ast-footer-overlay ' );
 	// Footer Widgets.
 	astra_css( 'astra-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
 	astra_css( 'astra-settings[footer-adv-text-color]', 'color', '.footer-adv' );
@@ -1284,5 +1275,53 @@ function isJsonString( str ) {
 
 	// Site Tagline - Text Transform
 	astra_generate_css( 'astra-settings[site-tagline-typography]', 'text-transform-site-tagline', '.site-header .site-description', 'text-transform' );
+  
+    /**
+	 * Apply CSS for the element
+	 */
+	function astra_apply_background_css(group, subControl, selector ) {
+		wp.customize(group, function (control) {
+			control.bind(function (value, oldValue) {
+				var parse_bg_obj = JSON.parse(value);
 
+ 				bg_obj = parse_bg_obj[subControl];
+				if ( '' === bg_obj || undefined === bg_obj ) {
+					return;
+				}
+
+				jQuery( 'style#' + subControl ).remove();
+
+				var gen_bg_css = '';
+				var bg_img = bg_obj['background-image'];
+				var bg_color = bg_obj['background-color'];
+				if ('' !== bg_img && '' !== bg_color) {
+					if (undefined !== bg_color) {
+						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+					}
+				} else if ('' !== bg_img) {
+					gen_bg_css = 'background-image: url(' + bg_img + ');';
+				} else if ('' !== bg_color) {
+					gen_bg_css = 'background-color: ' + bg_color + ';';
+				}
+
+				if ('' == bg_img) {
+					gen_bg_css += 'background-image: none;';
+				} else {
+					gen_bg_css += 'background-repeat: ' + bg_obj['background-repeat'] + ';';
+					gen_bg_css += 'background-position: ' + bg_obj['background-position'] + ';';
+					gen_bg_css += 'background-size: ' + bg_obj['background-size'] + ';';
+					gen_bg_css += 'background-attachment: ' + bg_obj['background-attachment'] + ';';
+				}
+
+				var dynamicStyle = '<style id="' + subControl + '">'
+					+ selector + '	{ ' + gen_bg_css + ' }'
+					+ '</style>'
+
+				// Concat and append new <style>.
+				jQuery('head').append(
+					dynamicStyle
+				);
+			});
+		});
+	}
 } )( jQuery );
