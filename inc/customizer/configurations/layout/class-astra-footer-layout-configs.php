@@ -233,7 +233,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
 				/**
@@ -248,9 +248,8 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
-
 
 				/**
 				 * Option: Header Width
