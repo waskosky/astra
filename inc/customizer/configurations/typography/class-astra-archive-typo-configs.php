@@ -33,6 +33,44 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Blog Typography
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-typography-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-blog',
+					'title'    => __( 'Typography', 'astra-addon' ),
+					'priority' => 122,
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Blog / Archive Typography
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+					'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Blog Post Title', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 122,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
+					'default'   => astra_get_option( 'blog-content-archive-summary-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Archive Summary Box Title', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 123,
+				),
+
+				/**
 				 * Option: Blog - Post Title Font Size
 				 */
 				array(
