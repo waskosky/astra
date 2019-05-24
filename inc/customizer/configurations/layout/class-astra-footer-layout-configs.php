@@ -252,6 +252,21 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Footer Bar Typography Group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-typography-group]',
+					'default'   => astra_get_option( 'footer-bar-typography-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Typography', 'astra' ),
+					'section'   => 'section-footer-small',
+					'transport' => 'postMessage',
+					'priority'  => 47,
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+				),
+
+				/**
 				 * Option: Header Width
 				 */
 
