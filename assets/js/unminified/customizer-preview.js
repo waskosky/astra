@@ -471,6 +471,7 @@ function astra_apply_responsive_font_size( group, subControl, selector ) {
 * Generate CSS
 */
 function astra_generate_css( group, subControl, selector, cssProperty )	 {
+	console.log("here");
 	wp.customize( group, function (control) {
 		control.bind(function ( value, oldValue ) {
 			
@@ -1165,20 +1166,22 @@ function isJsonString( str ) {
 		} );
 	} );
 
-	astra_css( 'astra-settings[header-main-rt-section-button-text-color]', 'color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
-	astra_css( 'astra-settings[header-main-rt-section-button-back-color]', 'background-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
-	astra_css( 'astra-settings[header-main-rt-section-button-text-h-color]', 'color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
-	astra_css( 'astra-settings[header-main-rt-section-button-back-h-color]', 'background-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
+	astra_generate_css( 'astra-settings[primary-header-button-color-group]', 'header-main-rt-section-button-text-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'color' );
+	astra_generate_css( 'astra-settings[primary-header-button-color-group]', 'header-main-rt-section-button-back-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'background-color' );
+	astra_generate_css( 'astra-settings[primary-header-button-color-group]', 'header-main-rt-section-button-text-h-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover', 'color' );
+	astra_generate_css( 'astra-settings[primary-header-button-color-group]', 'header-main-rt-section-button-back-h-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover', 'background-color' );
 	astra_responsive_spacing( 'astra-settings[header-main-rt-section-button-padding]','.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'padding', ['top', 'right', 'bottom', 'left' ] );
-	astra_css( 'astra-settings[header-main-rt-section-button-border-radius]', 'border-radius', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'px' );
-	astra_css( 'astra-settings[header-main-rt-section-button-border-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
-	astra_css( 'astra-settings[header-main-rt-section-button-border-h-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
+	astra_generate_css( 'astra-settings[primary-header-button-border-group]', 'header-main-rt-section-button-border-radius', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'border-radius', 'px' );
+	astra_generate_css( 'astra-settings[primary-header-button-border-group]', 'header-main-rt-section-button-border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'border-color' );
+	astra_generate_css( 'astra-settings[primary-header-button-border-group]', 'header-main-rt-section-button-border-h-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover', 'border-color' );
 
 	/**
 	 * Button border
 	 */
-	wp.customize( 'astra-settings[header-main-rt-section-button-border-size]', function( value ) {
+	wp.customize( 'astra-settings[primary-header-button-border-group]', function( value ) {
 		value.bind( function( border ) {
+
+			console.log(border);
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 				var dynamicStyle = '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button';
 					dynamicStyle += '{';
@@ -1189,10 +1192,8 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'header-custom-button-border', dynamicStyle );
-			} else {
-				wp.customize.preview.send( 'refresh' );
-			}
+				astra_add_dynamic_css( 'header-main-rt-section-button-border-size', dynamicStyle );
+			} 
 		} );
 	} );
 
