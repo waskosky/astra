@@ -563,9 +563,6 @@ function astra_generate_font_family_css( group, subControl, selector ) {
 	wp.customize( group, function (control) {
 
 		control.bind( function ( value, oldValue ) {
-
-			console.log( value);
-			console.log(oldValue );
 				
 			var optionValue = JSON.parse(value);
 			var cssProperty = 'font-family';
@@ -932,9 +929,10 @@ function isJsonString( str ) {
 
 	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );
 	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title' );
-	astra_responsive_font_size( 'astra-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
-	astra_responsive_font_size( 'astra-settings[font-size-archive-summary-title]', '.ast-archive-description .ast-archive-title' );
-	astra_responsive_font_size( 'astra-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
+
+	astra_apply_responsive_font_size( 'astra-settings[blog-single-title-typo]', 'font-size-entry-title', '.ast-single-post .entry-title, .page-title' );
+	astra_apply_responsive_font_size( 'astra-settings[blog-content-archive-summary-typo]', 'font-size-archive-summary-title', '.ast-archive-description .ast-archive-title' );
+	astra_apply_responsive_font_size( 'astra-settings[blog-content-blog-post-title-typo]', 'font-size-page-title', 'body:not(.ast-single-post) .entry-title' );
 
 	// Check if anchors should be loaded in the CSS for headings.	
 	if (true == astraCustomizer.includeAnchorsInHeadindsCss) {

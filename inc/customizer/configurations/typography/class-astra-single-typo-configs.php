@@ -35,24 +35,11 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[divider-section-header-single-title]',
-					'type'      => 'control',
-					'control'   => 'ast-divider',
-					'section'   => 'section-single-typo',
-					'priority'  => 5,
-					'title'     => __( 'Single Post / Page Title', 'astra' ),
-					'settings'  => array(),
-					'separator' => false,
-				),
-
-				/**
 				 * Option: Single Post / Page Title Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
+					'name'        => 'font-size-entry-title',
+					'parent'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-single-typo',
@@ -81,7 +68,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					 * Option: Divider
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-divider]',
+						'name'     => '[ast-sngle-blog-typography-more-feature-divider',
+						'parent'   => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-single-typo',
@@ -93,7 +81,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					 * Option: Learn More about Typography
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]',
+						'name'     => '[ast-sngle-blog-typography-more-feature-description',
+						'parent'   => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-single-typo',

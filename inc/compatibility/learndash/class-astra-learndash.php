@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
 			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 
-			$archive_post_title_font_size = astra_get_option( 'font-size-page-title' );
+			$archive_post_title_font_size = astra_get_option_by_group( 'font-size-page-title', 'blog-content-blog-post-title-typo' );
 
 			$css_output = array(
 				'body #learndash_lessons a, body #learndash_quizzes a, body .expand_collapse a, body .learndash_topic_dots a, body .learndash_topic_dots a > span, body #learndash_lesson_topics_list span a, body #learndash_profile a, body #learndash_profile a span' => array(
