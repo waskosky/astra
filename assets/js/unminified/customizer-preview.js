@@ -471,7 +471,7 @@ function astra_apply_responsive_font_size( group, subControl, selector ) {
 * Generate CSS
 */
 function astra_generate_css( group, subControl, selector, cssProperty )	 {
-	console.log("here");
+	
 	wp.customize( group, function (control) {
 		control.bind(function ( value, oldValue ) {
 			
