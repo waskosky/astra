@@ -94,9 +94,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$heading_h6_font_size            = astra_get_option( 'font-size-h6' );
 
 			// Button Styling.
-			$btn_border_radius      = astra_get_option( 'button-radius' );
-			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
-			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
+			$btn_border_radius      = astra_get_option_by_group( 'button-radius', 'theme-button-border-group' );
+			$btn_vertical_padding   = astra_get_option_by_group( 'button-v-padding', 'theme-button-border-group' );
+			$btn_horizontal_padding = astra_get_option_by_group( 'button-h-padding', 'theme-button-border-group' );
 			$highlight_link_color   = astra_get_foreground_color( $link_color );
 			$highlight_theme_color  = astra_get_foreground_color( $theme_color );
 
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Apply text color depends on link color
 			 */
-			$btn_text_color = astra_get_option( 'button-color' );
+			$btn_text_color = astra_get_option_by_group( 'button-color', 'theme-button-color-group' );
 			if ( empty( $btn_text_color ) ) {
 				$btn_text_color = astra_get_foreground_color( $theme_color );
 			}
@@ -159,11 +159,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Apply text hover color depends on link hover color
 			 */
-			$btn_text_hover_color = astra_get_option( 'button-h-color' );
+			$btn_text_hover_color = astra_get_option_by_group( 'button-h-color', 'theme-button-color-group' );
 			if ( empty( $btn_text_hover_color ) ) {
 				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
-			$btn_bg_color       = astra_get_option( 'button-bg-color', $theme_color );
+			$btn_bg_color       = astra_get_option_by_group( 'button-bg-color', 'theme-button-color-group', $theme_color );
 			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 
 			// Spacing of Big Footer.
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( false == $btn_style_color ) {
 				// button text color.
-				$menu_btn_color = esc_attr( astra_get_option( 'button-color' ) );
+				$menu_btn_color = esc_attr( astra_get_option_by_group( 'button-color', 'theme-button-color-group' ) );
 			} else {
 				// toggle button color.
 				$menu_btn_color = astra_get_foreground_color( $btn_style_color );
