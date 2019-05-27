@@ -39,14 +39,56 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Theme Button Colors Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-header',
+					'title'    => __( 'Theme Button', 'astra-addon' ),
+					'settings' => array(),
+					'priority' => 17,
+				),
+
+				/**
+				 * Group: Theme Button Colors Group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'default'   => astra_get_option( 'theme-button-color-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Colors', 'astra' ),
+					'section'   => 'section-header',
+					'transport' => 'postMessage',
+					'priority'  => 18,
+				),
+
+				/**
+				 * Group: Theme Button Border Group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'default'   => astra_get_option( 'theme-button-border-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Border', 'astra' ),
+					'section'   => 'section-header',
+					'transport' => 'postMessage',
+					'priority'  => 19,
+				),
+
+				/**
 				 * Option: Button Color
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[button-color]',
+					'name'    => 'button-color',
 					'default' => '',
-					'type'    => 'control',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'tab'     => __( 'Normal', 'astra' ),
 					'control' => 'ast-color',
-					'section' => 'section-theme-button',
 					'title'   => __( 'Button Text Color', 'astra' ),
 				),
 
@@ -54,10 +96,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Button Hover Color
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[button-h-color]',
+					'name'    => 'button-h-color',
 					'default' => '',
-					'section' => 'section-theme-button',
-					'type'    => 'control',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'tab'     => __( 'Hover', 'astra' ),
 					'control' => 'ast-color',
 					'title'   => __( 'Button Text Hover Color', 'astra' ),
 				),
@@ -66,10 +109,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Button Background Color
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[button-bg-color]',
+					'name'    => 'button-bg-color',
 					'default' => '',
-					'section' => 'section-theme-button',
-					'type'    => 'control',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'tab'     => __( 'Normal', 'astra' ),
 					'control' => 'ast-color',
 					'title'   => __( 'Button Background Color', 'astra' ),
 				),
@@ -78,10 +122,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Button Background Hover Color
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[button-bg-h-color]',
-					'section' => 'section-theme-button',
+					'name'    => 'button-bg-h-color',
 					'default' => '',
-					'type'    => 'control',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'tab'     => __( 'Hover', 'astra' ),
 					'control' => 'ast-color',
 					'title'   => __( 'Button Background Hover Color', 'astra' ),
 				),
@@ -90,11 +135,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Button Radius
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[button-radius]',
-					'section'     => 'section-theme-button',
+					'name'        => 'button-radius',
 					'default'     => astra_get_option( 'button-radius' ),
-					'type'        => 'control',
-					'control'     => 'number',
+					'type'        => 'sub-control',
+					'parent'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'control'     => 'ast-slider',
 					'title'       => __( 'Button Radius', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
@@ -107,12 +152,12 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Vertical Padding
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[button-v-padding]',
-					'section'     => 'section-theme-button',
+					'name'        => 'button-v-padding',
 					'default'     => astra_get_option( 'button-v-padding' ),
 					'title'       => __( 'Vertical Padding', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'number',
+					'type'        => 'sub-control',
+					'parent'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'control'     => 'ast-slider',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
@@ -124,12 +169,12 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 * Option: Horizontal Padding
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[button-h-padding]',
-					'section'     => 'section-theme-button',
+					'name'        => 'button-h-padding',
 					'default'     => astra_get_option( 'button-h-padding' ),
 					'title'       => __( 'Horizontal Padding', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'number',
+					'type'        => 'sub-control',
+					'parent'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'control'     => 'ast-slider',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
