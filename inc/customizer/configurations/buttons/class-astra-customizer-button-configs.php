@@ -49,6 +49,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'    => __( 'Theme Button', 'astra-addon' ),
 					'settings' => array(),
 					'priority' => 17,
+					'required' => array(
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '==', 'button' ),
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
+					),
 				),
 
 				/**
@@ -63,6 +67,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-header',
 					'transport' => 'postMessage',
 					'priority'  => 18,
+					'required'  => array(
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '==', 'button' ),
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
+					),
 				),
 
 				/**
@@ -77,6 +85,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-header',
 					'transport' => 'postMessage',
 					'priority'  => 19,
+					'required'  => array(
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '==', 'button' ),
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
+					),
 				),
 
 				/**
