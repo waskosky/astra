@@ -107,11 +107,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$footer_link_h_color = astra_get_option_by_group( 'footer-link-h-color', 'footer-bar-content-group' );
 
 			// Color.
-			$footer_adv_bg_obj             = astra_get_option( 'footer-adv-bg-obj' );
-			$footer_adv_text_color         = astra_get_option( 'footer-adv-text-color' );
-			$footer_adv_widget_title_color = astra_get_option( 'footer-adv-wgt-title-color' );
-			$footer_adv_link_color         = astra_get_option( 'footer-adv-link-color' );
-			$footer_adv_link_h_color       = astra_get_option( 'footer-adv-link-h-color' );
+			$footer_adv_bg_obj             = astra_get_option_by_group( 'footer-adv-bg-obj', 'footer-widget-background-group' );
+			$footer_adv_text_color         = astra_get_option_by_group( 'footer-adv-text-color', 'footer-widget-content-group' );
+			$footer_adv_widget_title_color = astra_get_option_by_group( 'footer-adv-wgt-title-color', 'footer-widget-content-group' );
+			$footer_adv_link_color         = astra_get_option_by_group( 'footer-adv-link-color', 'footer-widget-content-group' );
+			$footer_adv_link_h_color       = astra_get_option_by_group( 'footer-adv-link-h-color', 'footer-widget-content-group' );
 
 			// Header Break Point.
 			$header_break_point = astra_header_break_point();
