@@ -365,7 +365,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-adv-border-color]',
 					'section'   => 'section-footer-adv',
-					'title'       => __( 'Footer Widgets Border Border', 'astra' ),
+					'title'     => __( 'Footer Widgets Border Border', 'astra' ),
 					'type'      => 'control',
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',

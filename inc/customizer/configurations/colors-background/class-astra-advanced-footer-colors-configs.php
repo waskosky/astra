@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 46,
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 				),
 
 				/**
@@ -72,71 +72,71 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 46,
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 				),
 
 				/**
 				 * Option: Widget Title Color
 				 */
 				array(
-					'name'     => 'footer-adv-wgt-title-color',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
-					'tab'      => __( 'Normal', 'astra-addon' ),
-					'control'  => 'ast-color',
-					'title'    => __( 'Widget Title Color', 'astra' ),
-					'default'  => '',
+					'name'    => 'footer-adv-wgt-title-color',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'tab'     => __( 'Normal', 'astra-addon' ),
+					'control' => 'ast-color',
+					'title'   => __( 'Widget Title Color', 'astra' ),
+					'default' => '',
 				),
 
 				/**
 				 * Option: Text Color
 				 */
 				array(
-					'name'     => 'footer-adv-text-color',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
-					'tab'      => __( 'Normal', 'astra-addon' ),
-					'control'  => 'ast-color',
-					'title'    => __( 'Text Color', 'astra' ),
-					'default'  => '',
+					'name'    => 'footer-adv-text-color',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'tab'     => __( 'Normal', 'astra-addon' ),
+					'control' => 'ast-color',
+					'title'   => __( 'Text Color', 'astra' ),
+					'default' => '',
 				),
 
 				/**
 				 * Option: Link Color
 				 */
 				array(
-					'name'     => 'footer-adv-link-color',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
-					'tab'      => __( 'Normal', 'astra-addon' ),
-					'control'  => 'ast-color',
-					'title'    => __( 'Link Color', 'astra' ),
-					'default'  => '',
+					'name'    => 'footer-adv-link-color',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'tab'     => __( 'Normal', 'astra-addon' ),
+					'control' => 'ast-color',
+					'title'   => __( 'Link Color', 'astra' ),
+					'default' => '',
 				),
 
 				/**
 				 * Option: Link Hover Color
 				 */
 				array(
-					'name'     => 'footer-adv-link-h-color',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
-					'tab'      => __( 'Hover', 'astra-addon' ),
-					'control'  => 'ast-color',
-					'title'    => __( 'Link Hover Color', 'astra' ),
-					'default'  => '',
+					'name'    => 'footer-adv-link-h-color',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'tab'     => __( 'Hover', 'astra-addon' ),
+					'control' => 'ast-color',
+					'title'   => __( 'Link Hover Color', 'astra' ),
+					'default' => '',
 				),
 
 				/**
 				 * Option: Footer widget Background
 				 */
 				array(
-					'name'     => 'footer-adv-bg-obj',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
-					'control'  => 'ast-background',
-					'default'  => astra_get_option( 'footer-adv-bg-obj' ),
-					'title'    => __( 'Background', 'astra' ),
+					'name'    => 'footer-adv-bg-obj',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
+					'control' => 'ast-background',
+					'default' => astra_get_option( 'footer-adv-bg-obj' ),
+					'title'   => __( 'Background', 'astra' ),
 				),
 
 			);
