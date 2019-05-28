@@ -987,17 +987,11 @@ function isJsonString( str ) {
 	astra_generate_css( 'astra-settings[footer-bar-content-group]', 'footer-link-h-color', '.ast-small-footer a:hover', 'color' );
 	astra_apply_background_css( 'astra-settings[footer-bar-background-group]', 'footer-bg-obj', ' .ast-small-footer > .ast-footer-overlay ' );
 	// Footer Widgets.
-	astra_css( 'astra-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
-	astra_css( 'astra-settings[footer-adv-text-color]', 'color', '.footer-adv' );
-
-	wp.customize( 'astra-settings[footer-adv-bg-obj]', function( value ) {
-		value.bind( function( bg_obj ) {
-			
-			var dynamicStyle = ' .footer-adv-overlay { {{css}} }';
-			
-			astra_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
-		} );
-	} );
+	astra_generate_css( 'astra-settings[footer-widget-content-group]', 'footer-adv-wgt-title-color', '.footer-adv .widget-title, .footer-adv .widget-title a', 'color' );
+	astra_generate_css( 'astra-settings[footer-widget-content-group]', 'footer-adv-text-color', '.footer-adv', 'color' );
+	astra_generate_css( 'astra-settings[footer-widget-content-group]', 'footer-adv-link-color', '.footer-adv a', 'color' );
+	astra_generate_css( 'astra-settings[footer-widget-content-group]', 'footer-adv-link-h-color', '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus', 'color' );
+	astra_apply_background_css( 'astra-settings[footer-widget-background-group]', 'footer-adv-bg-obj', '.footer-adv-overlay' );
 
 	/*
 	 * Woocommerce Shop Archive Custom Width
