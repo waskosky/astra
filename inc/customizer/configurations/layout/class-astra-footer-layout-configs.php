@@ -252,6 +252,19 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Footer Bar typo Section heading
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-bar-typography-heading-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-footer-small',
+					'title'    => __( 'Typography', 'astra-addon' ),
+					'priority' => 47,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Footer Bar Typography Group
 				 */
 				array(
