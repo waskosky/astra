@@ -136,27 +136,13 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority' => 5,
 				),
 
-				/**
-				 * Option: Last Item in Menu
-				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
 					'default'  => astra_get_option( 'header-main-rt-section' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-header',
-					'priority' => 5,
-					'title'    => __( 'Last Item in Menu', 'astra' ),
-					'choices'  => $header_rt_sections,
-				),
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
-					'default'  => astra_get_option( 'header-main-rt-section' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-header',
-					'priority' => 5,
+					'priority' => 7,
 					'title'    => __( 'Last Item in Menu', 'astra' ),
 					'choices'  => apply_filters(
 						'astra_header_section_elements',
