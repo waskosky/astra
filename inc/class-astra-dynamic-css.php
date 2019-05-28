@@ -83,9 +83,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$site_title_font_size    = astra_get_option_by_group( 'font-size-site-title', 'site-title-typography' );
 			$site_tagline_font_size  = astra_get_option_by_group( 'font-size-site-tagline', 'site-tagline-typography' );
 
-			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
-			$archive_summary_title_font_size = astra_get_option( 'font-size-archive-summary-title' );
-			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
+			$single_post_title_font_size     = astra_get_option_by_group( 'font-size-entry-title', 'blog-single-title-typo' );
+			$archive_summary_title_font_size = astra_get_option_by_group( 'font-size-archive-summary-title', 'blog-content-archive-summary-typo' );
+			$archive_post_title_font_size    = astra_get_option_by_group( 'font-size-page-title', 'blog-content-blog-post-title-typo' );
 			$heading_h1_font_size            = astra_get_option( 'font-size-h1' );
 			$heading_h2_font_size            = astra_get_option( 'font-size-h2' );
 			$heading_h3_font_size            = astra_get_option( 'font-size-h3' );

@@ -38,24 +38,33 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[divider-section-header-single-title]',
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-single-post-typo]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-blog-single',
+					'priority' => 25,
+					'title'    => __( 'Typography', 'astra-addon' ),
+					'settings' => array(),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 					'type'      => 'control',
-					'control'   => 'ast-divider',
-					'section'   => 'section-single-typo',
-					'priority'  => 5,
-					'title'     => __( 'Single Post / Page Title', 'astra' ),
-					'settings'  => array(),
-					'separator' => false,
+					'priority'  => 25,
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Single Post / Page Title', 'astra-addon' ),
+					'section'   => 'section-blog-single',
+					'transport' => 'postMessage',
 				),
 
 				/**
 				 * Option: Single Post / Page Title Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
+					'name'        => 'font-size-entry-title',
+					'parent'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
-					'section'     => 'section-single-typo',
 					'default'     => astra_get_option( 'font-size-entry-title' ),
 					'transport'   => 'postMessage',
 					'priority'    => 10,
@@ -84,7 +93,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-divider]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
-						'section'  => 'section-single-typo',
+						'section'  => 'section-blog-single',
 						'priority' => 999,
 						'settings' => array(),
 					),
@@ -96,7 +105,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
-						'section'  => 'section-single-typo',
+						'section'  => 'section-blog-single',
 						'priority' => 999,
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available for Typography in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',

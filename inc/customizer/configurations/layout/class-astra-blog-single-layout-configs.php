@@ -118,6 +118,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'max'  => 1920,
 					),
 				),
+
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -135,7 +136,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-blog-single',
-						'priority' => 999,
+						'priority' => 24,
 						'settings' => array(),
 					),
 
@@ -147,7 +148,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-blog-single',
-						'priority' => 999,
+						'priority' => 24,
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available for Single Post in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
