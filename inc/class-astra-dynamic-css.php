@@ -922,7 +922,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
 					$astra_fonts     .= 'font-weight: normal;';
 					$astra_fonts     .= 'font-style: normal;';
-					$astra_fonts     .= 'font-display: ' . apply_filters( 'astra_fonts_display_property', 'fallback' ) . ';';
+					$astra_fonts     .= 'font-display: ' . astra_get_fonts_display_property() . ';';
 				$astra_fonts         .= '}';
 				$parse_css           .= $astra_fonts;
 			}

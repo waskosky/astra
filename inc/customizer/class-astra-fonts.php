@@ -169,7 +169,7 @@ final class Astra_Fonts {
 				$font_args['subset'] = urlencode( trim( $subsets ) );
 			}
 
-			$font_args['display'] = apply_filters( 'astra_fonts_display_property', 'fallback' );
+			$font_args['display'] = astra_get_fonts_display_property();
 
 			return add_query_arg( $font_args, $base_url );
 		}
