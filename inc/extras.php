@@ -245,9 +245,15 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$site_tagline_markup = apply_filters(
 				'astra_site_description_markup',
 				sprintf(
-					'<p class="site-description" itemprop="description">
-					%1$s
-				</p>',
+					'<%1$s class="site-description" itemprop="description">
+					%2$s
+				</%1$s>',
+					/**
+					* Filters the tags for site tagline.
+					*
+					* @since x.x.x
+					*/
+					apply_filters( 'astra_site_tagline_tag', 'p' ),
 					/**
 					* Filters the site description.
 					*
