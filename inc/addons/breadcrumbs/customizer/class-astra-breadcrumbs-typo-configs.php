@@ -45,6 +45,21 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 
 			$_configs = array(
 
+				/**
+				 * Option: Divider
+				 * Option: breadcrumb Typography Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typography-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-breadcrumb',
+					'title'    => __( 'Typography', 'astra-addon' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'priority' => 73,
+					'settings' => array(),
+				),
+
 				/*
 				 * Breadcrumb Typography
 				 */
@@ -54,10 +69,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'type'      => 'control',
 					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Typography', 'astra' ),
+					'title'     => __( 'Content', 'astra' ),
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
-					'priority'  => 60,
+					'priority'  => 73,
 				),
 
 				/**
@@ -87,6 +102,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra' ),
 					'connect'           => 'breadcrumb-font-family',
 					'priority'          => 10,
+				),
+
+				/**
+				 * Option: Text Transform
+				 */
+				array(
+					'name'      => 'breadcrumb-text-transform',
+					'control'   => 'ast-select',
+					'parent'    => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
+					'default'   => astra_get_option( 'breadcrumb-text-transform' ),
+					'title'     => __( 'Text Transform', 'astra' ),
+					'transport' => 'postMessage',
+					'priority'  => 13,
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Capitalize', 'astra' ),
+						'uppercase'  => __( 'Uppercase', 'astra' ),
+						'lowercase'  => __( 'Lowercase', 'astra' ),
+					),
 				),
 
 				/**
@@ -126,26 +161,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 						'min'  => 1,
 						'step' => 0.01,
 						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Text Transform
-				 */
-				array(
-					'name'      => 'breadcrumb-text-transform',
-					'control'   => 'ast-select',
-					'parent'    => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
-					'default'   => astra_get_option( 'breadcrumb-text-transform' ),
-					'title'     => __( 'Text Transform', 'astra' ),
-					'transport' => 'postMessage',
-					'priority'  => 25,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
 				),
 
