@@ -74,18 +74,6 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-footer-image]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-					'section'  => 'section-colors-footer',
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Footer Background
 				 */
 				array(
