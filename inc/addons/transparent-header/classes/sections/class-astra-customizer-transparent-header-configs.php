@@ -294,6 +294,17 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-background-colors]',
+					'default'   => astra_get_option( 'transparent-header-background-colors' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Background', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
 					'default'   => astra_get_option( 'transparent-header-colors' ),
 					'type'      => 'control',
