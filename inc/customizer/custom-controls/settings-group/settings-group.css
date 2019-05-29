@@ -74,6 +74,10 @@
     padding: 20px 5px 20px;
 }
 
+.ast-group-tabs .ui-widget-content.iris-slider-offset-alpha {
+    overflow: inherit;
+}
+
 .ast-fields-wrap{
     overflow: hidden;
     padding: 10px;
