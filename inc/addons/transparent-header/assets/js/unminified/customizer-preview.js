@@ -64,7 +64,7 @@
 
 
 	/* Transparent Header Colors */                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors]', 'transparent-header-bg-color-responsive', '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar', 'background-color', 'transparent-primary-header' );
+	astra_apply_responsive_color_property( 'astra-settings[transparent-header-background-colors]', 'transparent-header-bg-color-responsive', '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar', 'background-color', 'transparent-primary-header' );
 	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors]', 'transparent-header-color-site-title-responsive', '.ast-theme-transparent-header .site-title a, .ast-theme-transparent-header .site-title a:focus, .ast-theme-transparent-header .site-title a:hover, .ast-theme-transparent-header .site-title a:visited, .ast-theme-transparent-header .site-header .site-description', 'color', 'transparent-primary-header' );
 	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors]', 'transparent-header-color-h-site-title-responsive', '.ast-theme-transparent-header .site-header .site-title a:hover', 'color', 'transparent-primary-header' );
 	
@@ -88,7 +88,7 @@
 
 
 	// Above Header Menu
-	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors]', 'transparent-header-bg-color-responsive', '.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header', 'background-color', 'transparent-above-header' );
+	astra_apply_responsive_color_property( 'astra-settings[transparent-header-background-colors]', 'transparent-header-bg-color-responsive', '.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header', 'background-color', 'transparent-above-header' );
 
 	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors-menu]', 'transparent-menu-bg-color-responsive', '.ast-theme-transparent-header .ast-above-header-menu, .ast-theme-transparent-header.ast-header-break-point .ast-above-header-section-separated .ast-above-header-navigation ul.ast-above-header-menu', 'background-color', 'transparent-above-header' );
 	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors-menu]', 'transparent-menu-color-responsive', '.ast-theme-transparent-header .ast-above-header-navigation a', 'color', 'transparent-above-header' );
@@ -108,7 +108,7 @@
 
 
 	// below Header Menu
-	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors]', 'transparent-header-bg-color-responsive', '.ast-theme-transparent-header .ast-below-header-wrap .ast-below-header', 'background-color', 'transparent-below-header' );
+	astra_apply_responsive_color_property( 'astra-settings[transparent-header-background-colors]', 'transparent-header-bg-color-responsive', '.ast-theme-transparent-header .ast-below-header-wrap .ast-below-header', 'background-color', 'transparent-below-header' );
 
 	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors-menu]', 'transparent-menu-bg-color-responsive', '.ast-theme-transparent-header.ast-no-toggle-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap, .ast-theme-transparent-header .ast-below-header-actual-nav, .ast-theme-transparent-header.ast-header-break-point .ast-below-header-actual-nav', 'background-color', 'transparent-below-header' );
 	astra_apply_responsive_color_property( 'astra-settings[transparent-header-colors-menu]', 'transparent-menu-color-responsive', '.ast-theme-transparent-header .ast-below-header-menu, .ast-theme-transparent-header .ast-below-header-menu a', 'color', 'transparent-below-header' );
