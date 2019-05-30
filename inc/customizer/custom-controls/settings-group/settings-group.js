@@ -12,7 +12,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         control.registerToggleEvents();
         this.container.on( 'ast_settings_changed', control.onOptionChange );
     },
-    
+
     registerToggleEvents: function() {
 
         var control = this;
@@ -42,8 +42,23 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     control.ast_render_field( parent_wrap, fields, control );
 
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
+
+                    device = jQuery("#customize-footer-actions .active").attr('data-device');
+
+                    if( 'mobile' == device ) {
+                        jQuery('.ast-responsive-btns .mobile').addClass('active');
+                        jQuery('.ast-responsive-btns .preview-mobile').addClass('active');
+                    } else if( 'tablet' == device ) {
+                        jQuery('.ast-responsive-btns .tablet').addClass('active');
+                        jQuery('.ast-responsive-btns .preview-tablet').addClass('active');
+                    } else {
+                        jQuery('.ast-responsive-btns .desktop').addClass('active');
+                        jQuery('.ast-responsive-btns .preview-desktop').addClass('active');
+                    }
                 }
             }
+
+
             $this.toggleClass('open');
 
             $( '.control-section-ast_section' ).click( function() {

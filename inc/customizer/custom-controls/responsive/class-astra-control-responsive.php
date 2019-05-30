@@ -120,8 +120,8 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 
 				<# if ( data.responsive ) { #>
 				<ul class="ast-responsive-btns">
-					<li class="desktop active">
-						<button type="button" class="preview-desktop active" data-device="desktop">
+					<li class="desktop">
+						<button type="button" class="preview-desktop" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
 						</button>
 					</li>
