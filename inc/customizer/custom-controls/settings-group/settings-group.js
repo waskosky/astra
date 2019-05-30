@@ -46,6 +46,13 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             }
             $this.toggleClass('open');
 
+            $( '.control-section-ast_section' ).click( function() {
+                var html = jQuery( this );
+                html = html.find( '.customize-control-ast-settings-group' );
+                html.find( '.ast-adv-toggle-icon' ).removeClass( 'open' );
+                html.find( '.ast-field-settings-wrap .ast-field-settings-modal' ).hide();
+            } );
+
         });
 
         control.container.on( "click", ".ast-toggle-desc-wrap > .customizer-text", function( e ) {
