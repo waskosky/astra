@@ -125,7 +125,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Settings Group
 		 *
-		 * @param  string $value Customizer settings value.
+		 * @param  string $val Customizer settings value.
 		 * @return array        Return array.
 		 * @since  x.x.x
 		 */
@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 				foreach ( $val as $key => $value ) {
 
-					if( is_array( $value ) ) {
+					if ( is_array( $value ) ) {
 						$val[ $key ] = self::sanitize_customizer_settings_group_recursive( $value );
 					} else {
 						$val[ $key ] = sanitize_text_field( $value );
@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		/**
 		 * Sanitize Settings Group Recursive function
 		 *
-		 * @param  array $value Customizer settings value.
+		 * @param  array $val Customizer settings value.
 		 * @return array        Return array.
 		 * @since  x.x.x
 		 */
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 			foreach ( $val as $key => $value ) {
 
-				if( is_array( $value ) ) {
+				if ( is_array( $value ) ) {
 					$val[ $key ] = self::sanitize_customizer_settings_group_recursive( $value );
 				} else {
 					$val[ $key ] = sanitize_text_field( $value );
