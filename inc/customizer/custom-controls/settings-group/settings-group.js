@@ -66,7 +66,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 html = html.find( '.customize-control-ast-settings-group' );
                 html.find( '.ast-adv-toggle-icon' ).removeClass( 'open' );
                 html.find( '.ast-field-settings-wrap .ast-field-settings-modal' ).hide();
-            } ).on('click', '.ast-responsive-btns', function(e) {
+            } ).on('click', '.ast-responsive-btns, .ui-state-default', function(e) {
                 e.stopPropagation();
             });
 
