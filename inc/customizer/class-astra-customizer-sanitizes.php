@@ -132,18 +132,8 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		public static function sanitize_customizer_settings_group( $val ) {
 
 			$val = json_decode( $val, true );
+			self::sanitize_customizer_settings_group_recursive( $val );
 
-			if ( is_array( $val ) ) {
-
-				foreach ( $val as $key => $value ) {
-
-					if ( is_array( $value ) ) {
-						$val[ $key ] = self::sanitize_customizer_settings_group_recursive( $value );
-					} else {
-						$val[ $key ] = sanitize_text_field( $value );
-					}
-				}
-			}
 			return $val;
 		}
 
