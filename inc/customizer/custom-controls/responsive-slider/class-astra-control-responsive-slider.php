@@ -102,8 +102,8 @@ class Astra_Control_Responsive_Slider extends WP_Customize_Control {
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 				<ul class="ast-responsive-slider-btns">
-					<li class="desktop active">
-						<button type="button" class="preview-desktop active" data-device="desktop">
+					<li class="desktop">
+						<button type="button" class="preview-desktop" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
 						</button>
 					</li>
