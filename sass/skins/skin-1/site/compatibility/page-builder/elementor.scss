@@ -1,0 +1,20 @@
+/**
+ * Astra Theme compatibility with Elementor
+ */
+
+.ast-left-sidebar,
+.ast-right-sidebar {
+	.elementor-section.elementor-section-stretched {
+		max-width: 100%;
+		left: 0 !important;
+	}
+}
+
+// Add Default elementor styling to the post article when elementor prodct widget is used.
+.elementor-post {
+	&.elementor-grid-item{
+		&.hentry{
+			margin-bottom: 0;
+		}
+	}
+}
