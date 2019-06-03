@@ -63,7 +63,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             $(document).on( 'click', '.control-section-ast_section', function(e) {
 
-                if( ! $( e.currentTarget ).hasClass( 'control-section-ast_section' ) ) {
+                if( ! $( e.target ).hasClass( 'customize-section-back' ) ) {
                     return;
                 }
 
