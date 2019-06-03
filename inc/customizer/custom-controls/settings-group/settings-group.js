@@ -61,14 +61,17 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
             $this.toggleClass('open');
 
-            $( '.control-section-ast_section' ).click( function() {
+            $(document).on( 'click', '.control-section-ast_section', function(e) {
+
+                if( ! $( e.target ).hasClass( 'customize-section-back' ) ) {
+                    return;
+                }
+
                 var html = jQuery( this );
                 html = html.find( '.customize-control-ast-settings-group' );
                 html.find( '.ast-adv-toggle-icon' ).removeClass( 'open' );
                 html.find( '.ast-field-settings-wrap .ast-field-settings-modal' ).hide();
-            } ).on('click', '.ast-responsive-btns, .ui-state-default', function(e) {
-                e.stopPropagation();
-            });
+            } );
 
         });
 
