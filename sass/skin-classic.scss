@@ -1,0 +1,17 @@
+/*----------  Classic Layout  ----------*/
+@import "site/blog/blog-layouts/archive";
+
+/*----------  Classic Single Post Comment Form Stylesheet  ----------*/
+@import "site/blog/single-post-layouts/comment-form";
+
+/*----------  Classic Single Post Common Stylesheet  ----------*/
+@import "site/blog/single-post-layouts/single-post-common";
+
+/*----------  Classic Layout  ----------*/
+@import "site/layout/layout";
+
+/*----------  Classic Widgets  ----------*/
+@import "site/secondary/widgets";
+
+/*----------  Classic Structure  ----------*/
+@import "variables-site/structure";
