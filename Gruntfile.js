@@ -133,13 +133,6 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '.css'
                         },
-                        {
-                            expand: true,
-                            cwd: 'sass/',
-                            src: ['skin-1-style.scss'],
-                            dest: 'assets/css/unminified',
-                            ext: '.css'
-                        },
                     ]
                 }
             },
@@ -240,10 +233,6 @@ module.exports = function (grunt) {
                     	{
                     		src: 'assets/css/unminified/style-rtl.css',
 	                        dest: 'assets/css/minified/style.min-rtl.css',
-                        },
-                        {
-                    		src: 'assets/css/unminified/skin-1-style-rtl.css',
-	                        dest: 'assets/css/minified/skin-1-style.min-rtl.css',
 	                    },
 
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
@@ -530,4 +519,3 @@ module.exports = function (grunt) {
 
     grunt.util.linefeed = '\n';
 };
-
