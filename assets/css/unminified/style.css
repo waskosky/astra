@@ -5640,6 +5640,13 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
+.elementor-page .elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
+  width: auto;
+  padding: 0;
+  margin: 0;
+  float: none;
+}
+
 /**
  * Flexbox Framework
  *
