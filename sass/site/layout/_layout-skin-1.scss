@@ -240,20 +240,20 @@ body{
 	// Right Sidebar - Spacing Between Primary & Secondary
 	.ast-right-sidebar {
 		#primary {
-			padding-right: $space-between-primary-seconday * 2;
+			padding-right: 20px * 2;
 		}
 		#secondary {
-			padding-left: $space-between-primary-seconday * 2;
+			padding-left: 20px * 2;
 		}
 	}
 
 	// Left Sidebar - Spacing Between Primary & Secondary
 	.ast-left-sidebar {
 		#primary {
-			padding-left: $space-between-primary-seconday * 2;
+			padding-left: 20px * 2;
 		}
 		#secondary {
-			padding-right: $space-between-primary-seconday * 2;
+			padding-right: 20px * 2;
 		}
 	}
 }
@@ -270,20 +270,20 @@ body{
 	// Right Sidebar - Spacing Between Primary & Secondary
 	.ast-right-sidebar {
 		#primary {
-			padding-right: $space-between-primary-seconday;
+			padding-right: 20px;
 		}
 		#secondary {
-			padding-left: $space-between-primary-seconday;
+			padding-left: 20px;
 		}
 	}
 
 	// Left Sidebar - Spacing Between Primary & Secondary
 	.ast-left-sidebar {
 		#primary {
-			padding-left: $space-between-primary-seconday;
+			padding-left: 20px;
 		}
 		#secondary {
-			padding-right: $space-between-primary-seconday;
+			padding-right: 20px;
 		}
 	}
 }
@@ -357,13 +357,13 @@ body{
 		&.ast-two-container{
 			&.ast-right-sidebar {
 				#secondary {
-					padding-left: $space-between-primary-seconday;
+					padding-left: 20px;
 					padding-right: 0;
 				}
 			}
 			&.ast-left-sidebar {
 				#secondary {
-					padding-right: $space-between-primary-seconday;
+					padding-right: 20px;
 					padding-left: 0;
 				}
 			}
