@@ -245,9 +245,15 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$site_tagline_markup = apply_filters(
 				'astra_site_description_markup',
 				sprintf(
-					'<p class="site-description" itemprop="description">
-					%1$s
-				</p>',
+					'<%1$s class="site-description" itemprop="description">
+					%2$s
+				</%1$s>',
+					/**
+					* Filters the tags for site tagline.
+					*
+					* @since 1.8.5
+					*/
+					apply_filters( 'astra_site_tagline_tag', 'p' ),
 					/**
 					* Filters the site description.
 					*
@@ -1434,9 +1440,11 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 
 		$is_ie = false;
 
-		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-		if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
-			$is_ie = true;
+		if ( ! empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
+			if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
+				$is_ie = true;
+			}
 		}
 
 		return apply_filters( 'astra_check_is_ie', $is_ie );
