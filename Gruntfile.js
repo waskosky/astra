@@ -118,6 +118,24 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified',
                             ext: '.css'
                         },
+
+                        /* CLasic Skin */
+                        {
+                            expand: true,
+                            cwd: 'sass/',
+                            src: ['skin-classic.scss'],
+                            dest: 'assets/css/unminified',
+                            ext: '.css'
+                        },
+                        /* Skin 1 */
+                        {
+                            expand: true,
+                            cwd: 'sass/',
+                            src: ['skin-1.scss'],
+                            dest: 'assets/css/unminified',
+                            ext: '.css'
+                        },
+
                          /* Compatibility */
                         {
                             expand: true,
@@ -233,6 +251,17 @@ module.exports = function (grunt) {
                     	{
                     		src: 'assets/css/unminified/style-rtl.css',
 	                        dest: 'assets/css/minified/style.min-rtl.css',
+                        },
+                        
+                        // Generating RTL files from '/unminified/' skins into '/minified/' skins
+	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css' 
+                        {
+                    		src: 'assets/css/unminified/skin-classic-rtl.css',
+	                        dest: 'assets/css/minified/skin-classic.min-rtl.css',
+                        },
+                        {
+                    		src: 'assets/css/unminified/skin-1-rtl.css',
+	                        dest: 'assets/css/minified/skin-1.min-rtl.css',
 	                    },
 
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'

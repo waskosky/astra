@@ -1,0 +1,247 @@
+/*----------  Media Query min-width Structure   ----------*/
+
+$col-xl: 1201px;
+$col-lg: 993px;
+$col-md: 769px;
+$col-sm: 545px;
+$col-xs: 421px;
+
+/*----------  Media Query max-width Structure   ----------*/
+
+$mx-col-xl: 1200px;
+$mx-col-lg: 992px;
+$mx-col-md: 768px;
+$mx-col-sm: 544px;
+$mx-col-xs: 420px;
+
+/*----------  Break-point min-width Structure   ----------*/
+$break-point: 921px;
+
+/*----------  Break-point max-width Structure   ----------*/
+$mx-break-point: 920px;
+
+$color-background-body: 			#ffffff;		// Background color for body
+$color-background-screen: 			#f1f1f1;		// Background color for screen reader
+$color-background-hr: 				#ccc;			// Background color for horizontal line
+$color-background-button: 			#e6e6e6;		// Background color for button
+$color-background-pre: 				#eee;			// Background color for preformatted text
+$color-background-ins:              transparent; // Background color for text inserted into document
+$color-background-top-footer:		#333;			// Top footer background color
+$color-background-bottom-footer:	#111;			// Bottom footer background color
+
+$color-text-screen: 				#21759b;		// Screen reader text color
+$color-text-input: 					#666;			// Input box text color
+$color-text-input-focus: 			#111;			// Input box text color on focus event
+$color-link: 						royalblue;		// Link Color
+$color-link-visited: 				purple;			// Link Visited Color
+$color-link-hover: 					midnightblue;	// Link Hover Color
+$color-text-main: 					#808285;		// Text color
+
+$color-border-button: 				#eaeaea;		// Button border color
+$color-border-button-hover: 		#eaeaea;		// Button border color for hover event
+$color-border-button-focus: 		#eaeaea;		// Button border color for focus & active event
+$color-border-input: 				#ccc;			// Input box, textarea border color
+$color-border-abbr: 				#666;			// Abbreviation tag bottom border color
+
+
+$color-site-tagline               : #999;					// Tagline text color
+$color-text-screen                : #21759b;				// Screen reader text color
+$color-text-input                 : #666;					// Input box text color
+$color-text-input-focus           : #111;					// Input box text color on focus event
+$color-text-main                  : #3a3a3a;				// Text color
+$color-text-pagination            : #000;					// Pagination text color
+$color-link                       : #0274be;				// Link Color
+$color-link-visited               : #0274be;				// Link Visited Color
+$color-link-hover                 : #3a3a3a;				// Link Hover Color
+$color-title-bar-divider          : #A9A9A9;				// Title Bar divider color
+$color-widget-active              :	#414042;				// Widget active link color
+$color-widget-calendar-months     :	#AEAEAE;				// Calender Widget months color
+
+$color-border-submenu             : #eaeaea;				// Submenu border color
+$color-border-button              : #eaeaea;				// Button border color
+$color-border-button-hover        : #eaeaea;				// Button border color for hover event
+$color-border-button-focus        : #eaeaea;				// Button border color for focus & active event
+$color-border-input               : #eaeaea;				// Input box, textarea border color
+$color-border-abbr                : #666;					// Abbreviation tag bottom border color
+$color-border-toggle-menu         :	#4C4A4A;				// Toggle menu border color
+$color-border-widget              :	#eaeaea;				// Widget border color
+$color-border-dotted-widget       :	#e2e2e2;				// Widget dotted border color
+$color-border-pagination          :	#eaeaea;				// Pagination background hover color
+$color-border-gallery             :	#eaeaea;				// Pagination background hover color
+$color-border-content      		  :	#eeeeee;				// Content boder bottom color
+
+$footer-background-color          : #3a3a3a;
+$footer-text-color                : #fff;
+$footer-link-color                : #eaeaea;
+$footer-link-hover-color          : #fff;
+$footer-widget-title-color        : #fff;
+
+
+$color-box-shadow-sticky-header   : rgb(220, 221, 222);		// Box Shadow color for sticky header
+
+$color-background-body            : #ffffff;				// Background color for body
+$color-background-sep-content-body:	#f5f5f5;				// Background color for separate container body
+$color-background-page-header	  : #eee;					// Background color for separate container body
+$color-background-screen          : #f1f1f1;				// Background color for screen reader
+$color-background-hr              : #ccc;					// Background color for horizontal line
+$color-background-button          : #e6e6e6;				// Background color for button
+$color-background-pre             : #eee;					// Background color for preformatted text
+$color-background-ins             : transparent;				// Background color for text inserted into document
+$color-background-top-footer      :	#333;					// Top footer background color
+$color-background-bottom-footer   :	#111;					// Bottom footer background color
+$color-background-header          : #fff;					// Site Header and Navigation Color
+$color-background-content         : #fff;					// Site Contant background Color
+$color-background-pagination      :	transparent;			// Pagination background color
+$color-background-pagination-hover:	#0274be;				// Pagination background hover color
+$color-background-header-submenu  : #ffffff;				// Site Header and Navigation Color
+$color-background-toggle-menu     :	#303030;				// Toggle menu background color
+$color-background-active          : #0274be;				// Active element background color
+$color-background-nav-mobile      : #f9f9f9;				// Mobile Navigation background color
+
+$color-site-title                 : #222;					// Site Title color
+$color-site-tagline               : #999;					// Tagline text color
+$color-text-screen                : #21759b;				// Screen reader text color
+$color-text-input                 : #666;					// Input box text color
+$color-text-input-focus           : #111;					// Input box text color on focus event
+$color-text-main                  : #3a3a3a;				// Text color
+$color-text-pagination            : #000;					// Pagination text color
+$color-link                       : #0274be;				// Link Color
+$color-link-visited               : #0274be;				// Link Visited Color
+$color-link-hover                 : #3a3a3a;				// Link Hover Color
+$color-title-bar-divider          : #A9A9A9;				// Title Bar divider color
+$color-widget-active              :	#414042;				// Widget active link color
+$color-widget-calendar-months     :	#AEAEAE;				// Calender Widget months color
+
+$color-border-submenu             : #eaeaea;				// Submenu border color
+$color-border-button              : #eaeaea;				// Button border color
+$color-border-button-hover        : #eaeaea;				// Button border color for hover event
+$color-border-button-focus        : #eaeaea;				// Button border color for focus & active event
+$color-border-input               : #eaeaea;				// Input box, textarea border color
+$color-border-abbr                : #666;					// Abbreviation tag bottom border color
+$color-border-toggle-menu         :	#4C4A4A;				// Toggle menu border color
+$color-border-widget              :	#eaeaea;				// Widget border color
+$color-border-dotted-widget       :	#e2e2e2;				// Widget dotted border color
+$color-border-pagination          :	#eaeaea;				// Pagination background hover color
+$color-border-gallery             :	#eaeaea;				// Pagination background hover color
+$color-border-content      		  :	#eeeeee;				// Content boder bottom color
+
+$footer-background-color          : #3a3a3a;
+$footer-text-color                : #fff;
+$footer-link-color                : #eaeaea;
+$footer-link-hover-color          : #fff;
+$footer-widget-title-color        : #fff;
+
+
+/*----------  Site Basic Structure  ----------*/
+
+$width-site-main: 					100%;
+$width-site-content: 				960px;
+$width-site-primary: 				75%;
+$width-site-secondary: 				25%;
+$space-between-primary-seconday: 	30px;
+$left-right-content-padding:	 	100px;
+$top-left-content-padding:	 		80px;
+
+
+
+/*----------  z-index Structure   ----------*/
+
+$zindex-navbar:            1000 !default;
+$zindex-dropdown:          1000 !default;
+$zindex-popover:           1060 !default;
+$zindex-tooltip:           1070 !default;
+$zindex-navbar-fixed:      1030 !default;
+$zindex-navbar-sticky:     1030 !default;
+$zindex-modal-bg:          1040 !default;
+$zindex-modal:             1050 !default;
+
+
+// Variables
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+// the Bootstrap defaults without modifying key, versioned files.
+
+
+// Table of Contents
+//
+// Grid breakpoints
+// Grid containers
+// Grid columns
+// Fonts
+// Components
+
+// General variable structure
+//
+// Variable format should follow the `$component-modifier-state-property` order.
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-flex:               false !default;
+$enable-rounded:            true !default;
+$enable-grid-classes:       true !default;
+
+
+// Grid breakpoints
+//
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 544px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+) !default;
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 100%,
+  md: 100%,
+  lg: 100%,
+  xl: 100%
+) !default;
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:               12 !default;
+$grid-gutter-width:          40px !default;
+
+@mixin ast-transition( $property: all, $transition-time: 0.2s, $transition-function: linear ) {
+    transition: $property $transition-time $transition-function;
+}
+
+@mixin ast-has-child-menu-item() {
+    content: "\e900";
+    display: inline-block;
+    font-family: 'Astra';
+    font-size: 9px;
+    font-size: .6rem;
+    font-weight: bold;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: 10px;
+
+}
+
+@mixin ast-border-radius( $size: 2px ) {
+    border-radius: $size;
+}
+
+$font-family-astra:	'Astra';
