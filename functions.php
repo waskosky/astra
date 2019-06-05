@@ -78,13 +78,13 @@ require_once ASTRA_THEME_DIR . 'inc/class-astra-after-setup-theme.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-helper.php';
 
 if ( is_admin() ) {
-	
+
 	/**
 	 * Admin Menu Settings
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
 	require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
-	
+
 	/**
 	 * Metabox additions.
 	 */

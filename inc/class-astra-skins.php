@@ -24,11 +24,11 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 	 */
 	class Astra_Skins {
 
-        /**
+		/**
 		 * Constructor
 		 */
 		public function __construct() {
-            add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
+			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
 		}
 
 		/**
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			$theme_options = get_option( ASTRA_THEME_SETTINGS );
 			$option        = 'site-content-skin';
 			$default       = 'modern-skin';
-			$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
+			$value         = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
 			return $value;
 		}
 	}

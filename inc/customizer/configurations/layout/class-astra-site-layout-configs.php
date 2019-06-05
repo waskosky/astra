@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'priority' => 5,
 					'title'    => __( 'Select Skin', 'astra' ),
 					'choices'  => array(
-						'modern-skin' => __( 'Modern', 'astra' ),
+						'modern-skin'  => __( 'Modern', 'astra' ),
 						'classic-skin' => __( 'Classic', 'astra' ),
 					),
 				),
