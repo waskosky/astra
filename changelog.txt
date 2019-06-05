@@ -1,10 +1,10 @@
 v1.8.5
-New: Introduced astra_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpastra.com/docs/modify-font-display-property-value/ )
-New: Filter to add a title tag to Header background image as an alt text alternative. ( https://wpastra.com/docs/title-tag-in-header-background-image/ )
-New: Filter to change tag of Site Tagline Markup. ( https://wpastra.com/docs/change-html-tag-for-site-tagline/ )
-Fix: Elementor Products widget grid layout responsive design compatibility.
-Fix: Notice for HTTP_USER_AGENT when it is not set or filtered from firewall.
-Fix: Display rating notice only to users with permission to install plugins.
+- New: Introduced astra_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpastra.com/docs/modify-font-display-property-value/ )
+- New: Filter to add a title tag to Header background image as an alt text alternative. ( https://wpastra.com/docs/title-tag-in-header-background-image/ )
+- New: Filter to change tag of Site Tagline Markup. ( https://wpastra.com/docs/change-html-tag-for-site-tagline/ )
+- Fix: Elementor Products widget grid layout responsive design compatibility.
+- Fix: Notice for HTTP_USER_AGENT when it is not set or filtered from firewall.
+- Fix: Display rating notice only to users with permission to install plugins.
 
 v1.8.4
 - New: Introduced astra_the_title filter to allow users to modify the title.
