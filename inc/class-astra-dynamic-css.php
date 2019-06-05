@@ -642,16 +642,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Width for Comments for Full Width / Stretched Template */
-			$page_builder_comment = array(
-				'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
-					'max-width'    => astra_get_css_value( $site_content_width + 40, 'px' ),
-					'margin-left'  => 'auto',
-					'margin-right' => 'auto',
-				),
-			);
-
-			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $page_builder_comment, '545' );
+			if ( 'classic-skin' === Astra_Skins::astra_get_selected_skin() ) {
+				$page_builder_comment = array(
+					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
+						'max-width'    => astra_get_css_value( $site_content_width + 40, 'px' ),
+						'margin-left'  => 'auto',
+						'margin-right' => 'auto',
+					),
+				);
+				/* Parse CSS from array()*/
+				$parse_css .= astra_parse_css( $page_builder_comment, '545' );
+			}
 
 			$separate_container_css = array(
 				'body, .ast-separate-container' => astra_get_background_obj( $box_bg_obj ),

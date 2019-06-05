@@ -195,6 +195,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_1();
 			}
 
+			if ( version_compare( $saved_version, '1.8.5', '<' ) ) {
+				self::v_1_8_5();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 

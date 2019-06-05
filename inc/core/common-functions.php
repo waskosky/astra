@@ -830,6 +830,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			if ( is_author() ) { ?>
 
 				<section class="ast-author-box ast-archive-description">
+				<?php if ( 'classic-skin' === Astra_Skins::astra_get_selected_skin() ) { ?>
 					<div class="ast-author-bio">
 						<?php do_action( 'astra_before_archive_title' ); ?>
 						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
@@ -840,6 +841,18 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<div class="ast-author-avatar">
 						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
 					</div>
+				<?php } else { ?>
+					<div class="ast-author-avatar">
+						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
+					</div>
+					<div class="ast-author-bio">
+						<?php do_action( 'astra_before_archive_title' ); ?>
+						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
+						<?php do_action( 'astra_after_archive_title' ); ?>
+						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
+						<?php do_action( 'astra_after_archive_description' ); ?>
+					</div>
+				<?php } ?>
 				</section>
 
 				<?php

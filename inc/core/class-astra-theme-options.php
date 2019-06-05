@@ -342,7 +342,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// Sidebar.
 					'site-sidebar-layout'                 => 'right-sidebar',
-					'site-sidebar-width'                  => 30,
+					'site-sidebar-width'                  => ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? 29 : 30 ),
 					'single-page-sidebar-layout'          => 'default',
 					'single-post-sidebar-layout'          => 'default',
 					'archive-post-sidebar-layout'         => 'default',
