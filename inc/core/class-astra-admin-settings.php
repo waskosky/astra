@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( false === get_option( 'astra-theme-old-setup' ) ) {
 				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
 				update_option( 'astra-theme-old-setup', true );
-			} elseif ( false === get_transient( 'astra-theme-first-rating' ) ) {
+			} elseif ( false === get_transient( 'astra-theme-first-rating' ) && current_user_can( 'install_plugins' ) ) {
 				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				Astra_Notices::add_notice(
 					array(
