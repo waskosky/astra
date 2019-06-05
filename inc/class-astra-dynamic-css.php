@@ -1084,10 +1084,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( 'no-sidebar' !== astra_page_layout() ) :
 
 				$meta_style = array(
-					'#primary'   => array(
+					'.ast-container #primary'   => array(
 						'width' => astra_get_css_value( $primary_width, '%' ),
 					),
-					'#secondary' => array(
+					'.ast-container #secondary' => array(
 						'width' => astra_get_css_value( $secondary_width, '%' ),
 					),
 				);

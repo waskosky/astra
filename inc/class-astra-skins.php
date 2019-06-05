@@ -7,7 +7,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,13 +24,11 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 	 */
 	class Astra_Skins {
 
-
-
         /**
 		 * Constructor
 		 */
 		public function __construct() {
-            add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 50 );
+            add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
 		}
 
 		/**
@@ -38,7 +36,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 *
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
-		 * @since 1.0.0
+		 * @since x.x.x
 		 */
 		function add_styles( $assets ) {
 			if ( 'modern-skin' === self::astra_get_selected_skin() ) {
