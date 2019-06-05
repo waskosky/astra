@@ -251,7 +251,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 					/**
 					* Filters the tags for site tagline.
 					*
-					* @since x.x.x
+					* @since 1.8.5
 					*/
 					apply_filters( 'astra_site_tagline_tag', 'p' ),
 					/**
