@@ -64,13 +64,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Colors', 'astra' ),
-					'section'   => 'section-header',
+					'section'	=> 'section-theme-button',
 					'transport' => 'postMessage',
 					'priority'  => 18,
-					'required'  => array(
-						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '==', 'button' ),
-						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
-					),
 				),
 
 				/**
@@ -82,13 +78,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Border', 'astra' ),
-					'section'   => 'section-header',
+					'section'	=> 'section-theme-button',
 					'transport' => 'postMessage',
 					'priority'  => 19,
-					'required'  => array(
-						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '==', 'button' ),
-						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
-					),
 				),
 
 				/**
