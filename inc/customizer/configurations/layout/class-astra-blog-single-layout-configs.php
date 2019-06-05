@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-blog-single',
 					'default'  => astra_get_option( 'blog-single-width' ),
-					'priority' => 15,
+					'priority' => 17,
 					'title'    => __( 'Single Post Content Width', 'astra' ),
 					'choices'  => array(
 						'default' => __( 'Default', 'astra' ),
