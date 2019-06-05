@@ -38,6 +38,15 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 			$_configs = array(
 
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[button-color-styling-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-theme-button',
+					'title'    => __( 'Colors and Border', 'astra-addon' ),
+					'priority' => 17,
+					'settings' => array(),
+				),
 				/**
 				 * Group: Theme Button Colors Group
 				 */
@@ -46,7 +55,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default'   => astra_get_option( 'theme-button-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Colors', 'astra' ),
+					'title'     => __( 'Color', 'astra' ),
 					'section'	=> 'section-theme-button',
 					'transport' => 'postMessage',
 					'priority'  => 18,
