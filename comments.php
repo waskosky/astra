@@ -21,7 +21,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area <?php echo esc_attr( have_comments() ? '' : 'ast-no-comments' ); ?>">
 
 	<?php astra_comments_before(); ?>
 
@@ -31,12 +31,16 @@ if ( post_password_required() ) {
 				<?php
 				$comments_title = apply_filters(
 					'astra_comment_form_title',
-					sprintf( // WPCS: XSS OK.
+					( 'modern-skin' === astra_addon_get_selected_skin() ? sprintf( // WPCS: XSS OK.
+						/* translators: 1: number of comments */
+						esc_html( _nx( 'This post has %1$s comments', 'This post has %1$s comments', get_comments_number(), 'comments title', 'astra' ) ),
+						number_format_i18n( get_comments_number() )
+					) : sprintf( // WPCS: XSS OK.
 						/* translators: 1: number of comments */
 						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'astra' ) ),
 						number_format_i18n( get_comments_number() ),
 						get_the_title()
-					)
+					) )
 				);
 
 				echo esc_html( $comments_title );
