@@ -219,6 +219,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'    => __( 'Colors & Background', 'astra-addon' ),
 					'priority' => 46,
 					'settings' => array(),
+					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
 				/**
@@ -262,6 +263,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'    => __( 'Typography', 'astra-addon' ),
 					'priority' => 47,
 					'settings' => array(),
+					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
 				/**
