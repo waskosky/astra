@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		static public function init() {
 
 			do_action( 'astra_update_before' );
-
+			
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
@@ -195,8 +195,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_1();
 			}
 
-			if ( version_compare( $saved_version, '1.8.5', '<' ) ) {
-				self::v_1_8_5();
+			if ( version_compare( $saved_version, '1.9.0', '<' ) ) {
+				self::v_1_9_0();
 			}
 
 			// Not have stored?
@@ -1004,6 +1004,20 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			update_option( 'astra-settings', $theme_options );
+		}
+
+		/**
+		 * Set 'classic-skin' as default option for Skin for backward compatibility.
+		 *
+		 * @return void
+		 */
+		public static function v_1_9_0() {
+			$theme_options = get_option( 'astra-settings' );
+			// Set flag to use anchors CSS selectors in the CSS for headings.
+			if ( ! isset( $theme_options['site-content-skin'] ) ) {
+				$theme_options['site-content-skin'] = 'classic-skin';
+				update_option( 'astra-settings', $theme_options );
+			}
 		}
 
 	}
