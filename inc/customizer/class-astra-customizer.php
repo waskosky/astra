@@ -675,44 +675,43 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				foreach ( $this->control_types as $control ) {
 
-					$uri 					 = '';
-					$control_data 			 = $control_types_data[$control];
-					$control_data_css 		 = $control_data['css'];
-					$control_data_js 		 = $control_data['js'];
+					$uri                     = '';
+					$control_data            = $control_types_data[ $control ];
+					$control_data_css        = $control_data['css'];
+					$control_data_js         = $control_data['js'];
 					$control_data_dependency = $control_data['dependency'];
 
-					if( isset( $control_data['type'] ) && 'addon' == $control_data['type'] && defined( 'ASTRA_EXT_URI' ) ) {
+					if ( isset( $control_data['type'] ) && 'addon' == $control_data['type'] && defined( 'ASTRA_EXT_URI' ) ) {
 						$uri = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_data_css . '/';
 					} else {
 						$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $control_data_css . '/';
 					}
 
-					if( is_array( $control_data_css ) ) {
+					if ( is_array( $control_data_css ) ) {
 						foreach ( $control_data_css as $control_slug ) {
 
-							$slug = ( isset( $control_data['slug']['css'][$control_slug] ) ) ? $control_data['slug']['css'][$control_slug] : $control_slug;
+							$slug  = ( isset( $control_data['slug']['css'][ $control_slug ] ) ) ? $control_data['slug']['css'][ $control_slug ] : $control_slug;
 							$title = ( isset( $control_data['title'] ) ) ? $control_data['title'] : $control_data_css;
-							$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $title . '/';
+							$uri   = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $title . '/';
 
 							wp_enqueue_style( $slug, $uri . $slug . '.css', null, ASTRA_THEME_VERSION );
 						}
-					} elseif( '' !== $control_data_css ) {
+					} elseif ( '' !== $control_data_css ) {
 						wp_enqueue_style( $control, $uri . $control_data_css . '.css', null, ASTRA_THEME_VERSION );
 					}
 
-					if( is_array( $control_data_js ) ) {
+					if ( is_array( $control_data_js ) ) {
 						foreach ( $control_data_js as $control_slug ) {
-							
-							$slug = ( isset( $control_data['slug']['js'][$control_slug] ) ) ? $control_data['slug']['js'][$control_slug] : $control_slug;
+
+							$slug  = ( isset( $control_data['slug']['js'][ $control_slug ] ) ) ? $control_data['slug']['js'][ $control_slug ] : $control_slug;
 							$title = ( isset( $control_data['title'] ) ) ? $control_data['title'] : $control_data_js;
-							$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $title . '/';
+							$uri   = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $title . '/';
 
 							wp_enqueue_script( $slug, $uri . $slug . '.js', $control_data_dependency, ASTRA_THEME_VERSION, true );
 						}
-					} elseif( '' !== $control_data_js ) {
+					} elseif ( '' !== $control_data_js ) {
 						wp_enqueue_script( $control_data_js, $uri . $control_data_js . '.js', $control_data_dependency, ASTRA_THEME_VERSION, true );
 					}
-
 				}
 			}
 
@@ -768,112 +767,112 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public static function get_controls_data() {
 
 			$control = array(
-				'ast-background' => array(
-					'css'			=> 'background',
-					'js'			=> 'background',
-					'dependency'	=> array(),
+				'ast-background'            => array(
+					'css'        => 'background',
+					'js'         => 'background',
+					'dependency' => array(),
 				),
-				'ast-border' => array(
-					'css'			=> 'border',
-					'js'			=> 'border',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-border'                => array(
+					'css'        => 'border',
+					'js'         => 'border',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-color' => array(
-					'css'			=> 'color',
-					'js'			=> 'color',
-					'dependency'	=> array( 'astra-color-alpha' ),
+				'ast-color'                 => array(
+					'css'        => 'color',
+					'js'         => 'color',
+					'dependency' => array( 'astra-color-alpha' ),
 				),
-				'ast-customizer-link' => array(
-					'css'			=> 'customizer-link',
-					'js'			=> 'customizer-link',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-customizer-link'       => array(
+					'css'        => 'customizer-link',
+					'js'         => 'customizer-link',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-description' => array(
-					'css'			=> 'description',
-					'js'			=> '',
-					'dependency'	=> array(),
+				'ast-description'           => array(
+					'css'        => 'description',
+					'js'         => '',
+					'dependency' => array(),
 				),
-				'ast-divider' => array(
-					'css'			=> 'divider',
-					'js'			=> '',
-					'dependency'	=> array(),
+				'ast-divider'               => array(
+					'css'        => 'divider',
+					'js'         => '',
+					'dependency' => array(),
 				),
-				'ast-heading' => array(
-					'css'			=> 'heading',
-					'js'			=> '',
-					'dependency'	=> array(),
+				'ast-heading'               => array(
+					'css'        => 'heading',
+					'js'         => '',
+					'dependency' => array(),
 				),
-				'ast-radio-image' => array(
-					'css'			=> 'radio-image',
-					'js'			=> 'radio-image',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-radio-image'           => array(
+					'css'        => 'radio-image',
+					'js'         => 'radio-image',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-responsive' => array(
-					'css'			=> 'responsive',
-					'js'			=> 'responsive',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-responsive'            => array(
+					'css'        => 'responsive',
+					'js'         => 'responsive',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-responsive-color' => array(
-					'css'			=> 'responsive-color',
-					'js'			=> 'responsive-color',
-					'dependency'	=> array( 'astra-color-alpha' ),
+				'ast-responsive-color'      => array(
+					'css'        => 'responsive-color',
+					'js'         => 'responsive-color',
+					'dependency' => array( 'astra-color-alpha' ),
 				),
-				'ast-responsive-slider' => array(
-					'css'			=> 'responsive-slider',
-					'js'			=> 'responsive-slider',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-responsive-slider'     => array(
+					'css'        => 'responsive-slider',
+					'js'         => 'responsive-slider',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-responsive-spacing' => array(
-					'css'			=> 'responsive-spacing',
-					'js'			=> 'responsive-spacing',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-responsive-spacing'    => array(
+					'css'        => 'responsive-spacing',
+					'js'         => 'responsive-spacing',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-select' => array(
-					'css'			=> '',
-					'js'			=> '',
-					'dependency'	=> array(),
+				'ast-select'                => array(
+					'css'        => '',
+					'js'         => '',
+					'dependency' => array(),
 				),
-				'ast-settings-group' => array(
-					'css'			=> 'settings-group',
-					'js'			=> 'settings-group',
-					'dependency'	=> array( 'jquery', 'jquery-ui-tabs', 'customize-base' ),
+				'ast-settings-group'        => array(
+					'css'        => 'settings-group',
+					'js'         => 'settings-group',
+					'dependency' => array( 'jquery', 'jquery-ui-tabs', 'customize-base' ),
 				),
-				'ast-slider' => array(
-					'css'			=> 'slider',
-					'js'			=> 'slider',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-slider'                => array(
+					'css'        => 'slider',
+					'js'         => 'slider',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-sortable' => array(
-					'css'			=> 'sortable',
-					'js'			=> 'sortable',
-					'dependency'	=> array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ),
+				'ast-sortable'              => array(
+					'css'        => 'sortable',
+					'js'         => 'sortable',
+					'dependency' => array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ),
 				),
-				'ast-spacing' => array(
-					'css'			=> 'spacing',
-					'js'			=> 'spacing',
-					'dependency'	=> array( 'jquery', 'customize-base' ),
+				'ast-spacing'               => array(
+					'css'        => 'spacing',
+					'js'         => 'spacing',
+					'dependency' => array( 'jquery', 'customize-base' ),
 				),
-				'ast-font' => array(
-					'css'			=> array( 'selectWoo', 'typography' ),
-					'js'			=> array( 'selectWoo', 'typography' ),
-					'dependency'	=> array( 'jquery', 'customize-base' ),
-					'title'			=> 'typography',
-					'slug'			=> array(
-						'css'	=> array(
-							'selectWoo'   => 'astra-select-woo-style',
-							'typography'  => 'astra-typography-style'
+				'ast-font'                  => array(
+					'css'        => array( 'selectWoo', 'typography' ),
+					'js'         => array( 'selectWoo', 'typography' ),
+					'dependency' => array( 'jquery', 'customize-base' ),
+					'title'      => 'typography',
+					'slug'       => array(
+						'css' => array(
+							'selectWoo'  => 'astra-select-woo-style',
+							'typography' => 'astra-typography-style',
 						),
-						'js'	=> array(
-							'selectWoo'   => 'astra-select-woo-script',
-							'typography'  => 'astra-typography'
+						'js'  => array(
+							'selectWoo'  => 'astra-select-woo-script',
+							'typography' => 'astra-typography',
 						),
 					),
 				),
 				'ast-responsive-background' => array(
-					'css'			=> 'responsive-background',
-					'js'			=> 'responsive-background',
-					'dependency'	=> array( 'astra-color-alpha' ),
-					'type'			=> 'addon',	
+					'css'        => 'responsive-background',
+					'js'         => 'responsive-background',
+					'dependency' => array( 'astra-color-alpha' ),
+					'type'       => 'addon',
 				),
 			);
 
