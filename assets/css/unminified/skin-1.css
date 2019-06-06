@@ -220,11 +220,11 @@
   clear: right;
 }
 
-.ast-comment-content {
+.ast-comment-data-wrap .ast-comment-content {
   clear: both;
 }
 
-.ast-comment-content p {
+.ast-comment-data-wrap .ast-comment-content.comment p:last-of-type {
   margin-bottom: 0em;
 }
 

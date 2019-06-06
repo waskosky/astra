@@ -110,10 +110,14 @@
     clear: right;
 }
 
-.ast-comment-content{
-    clear: both;
-    p {
-        margin-bottom: 0em;
+.ast-comment-data-wrap {
+    .ast-comment-content{
+        clear: both;
+        &.comment {
+            p:last-of-type {
+                margin-bottom: 0em;
+            }
+        }
     }
 }
 
