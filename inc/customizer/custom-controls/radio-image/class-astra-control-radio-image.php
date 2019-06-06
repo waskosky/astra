@@ -59,7 +59,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 
 			$this->json['choices'][ $key ]        = esc_url( $value['path'] );
 			$this->json['choices_titles'][ $key ] = $value['label'];
-			$this->json['width'][ $key ] = $width;
+			$this->json['width'][ $key ]          = $width;
 		}
 
 		$this->json['link'] = $this->get_link();
