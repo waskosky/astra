@@ -142,7 +142,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 						<div class='ast-comment-avatar-wrap'><?php echo ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? get_avatar( $comment, 72 ) : get_avatar( $comment, 50 ) ); ?></div><!-- Remove 1px Space
 						--><div class="ast-comment-data-wrap">
 							<div class="ast-comment-meta-wrap">
-								<header class="ast-comment-meta ast-row ast-comment-author vcard capitalize">
+								<header class="ast-comment-meta ast-row ast-comment-author vcard <?php echo ( 'modern-skin' === astra_addon_get_selected_skin() ) ? '' : 'capitalize'; ?>">
 
 									<?php
 
