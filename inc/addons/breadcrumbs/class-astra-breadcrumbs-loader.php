@@ -53,8 +53,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 * @return void
 		 */
 		public function add_fonts() {
-			$breadcrumb_font_family    = astra_get_option_by_group( 'breadcrumb-font-family', 'section-breadcrumb-typo' );
-			$breadcrumb_font_weight    = astra_get_option_by_group( 'breadcrumb-font-weight', 'section-breadcrumb-typo' );
+			$breadcrumb_font_family = astra_get_option_by_group( 'breadcrumb-font-family', 'section-breadcrumb-typo' );
+			$breadcrumb_font_weight = astra_get_option_by_group( 'breadcrumb-font-weight', 'section-breadcrumb-typo' );
 			Astra_Fonts::add_font( $breadcrumb_font_family, $breadcrumb_font_weight );
 		}
 
