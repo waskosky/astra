@@ -19,6 +19,10 @@
 		&:checked + label img {
 			border: 1px solid #80868c;
 		}
+
+		&:checked + label .disable {
+			border: 1px solid #80868c;
+		}
 		
 		& + label .image-clickable {
 			position: absolute;
@@ -28,6 +32,23 @@
 			right: 0;
 			width: 100%;
 			height: 100%;
+
+			&.disable {
+			    width: 115px;
+			    height: 46px;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 15px;
+			    font-weight: 500;
+			    position: relative;
+			    background: #fff;
+			    border: 1px solid #d4d5d6;
+			    top: -2px;
+			}
+			&.small-size {
+			    width: 76px;
+			}
 		}
 	}
 }

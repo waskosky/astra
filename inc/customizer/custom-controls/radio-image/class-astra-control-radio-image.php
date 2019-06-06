@@ -55,8 +55,11 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		$this->json['value'] = $this->value();
 
 		foreach ( $this->choices as $key => $value ) {
+			$width = ( isset( $value['width'] ) ) ? $value['width'] : '';
+
 			$this->json['choices'][ $key ]        = esc_url( $value['path'] );
 			$this->json['choices_titles'][ $key ] = $value['label'];
+			$this->json['width'][ $key ] = $width;
 		}
 
 		$this->json['link'] = $this->get_link();
@@ -98,8 +101,14 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 			<# for ( key in data.choices ) { #>
 				<input {{{ data.inputAttrs }}} class="image-select" type="radio" value="{{ key }}" name="_customize-radio-{{ data.id }}" id="{{ data.id }}{{ key }}" {{{ data.link }}}<# if ( data.value === key ) { #> checked="checked"<# } #>>
 					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}}>
+					<# if ( "Disabled" !== data.choices_titles[ key ] ) { #>
 						<img class="wp-ui-highlight" src="{{ data.choices[ key ] }}">
-						<span class="image-clickable" title="{{ data.choices_titles[ key ] }}" ></span>
+					<# } #>
+						<span class="image-clickable {{ ( 'Disabled' === data.choices_titles[ key ] ) ? 'disable' : '' }} {{ ( '76' === data.width[ key ] ) ? 'small-size' : '' }}" title="{{ data.choices_titles[ key ] }}" >
+							<# if( "Disabled" === data.choices_titles[ key ] ) { #>
+								<?php echo __( 'Disable', 'astra' ); ?>
+							<# } #>
+						</span>
 					</label>
 				</input>
 			<# } #>
