@@ -203,6 +203,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			} else {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
+			$para_margin_btm_skin = ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) ? 'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' : 'p, .entry-content p';
 
 			$css_output = array(
 
@@ -226,7 +227,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'blockquote'                              => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
-				'p, .entry-content p'                     => array(
+				$para_margin_btm_skin                     => array(
 					'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 				),
 
