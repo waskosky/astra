@@ -35,8 +35,8 @@
 }
 
 .customize-control-ast-radio-image input + label .image-clickable.disable {
-  width: 115px;
-  height: 46px;
+  min-width: 115px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,8 +46,14 @@
   background: #fff;
   border: 1px solid #d4d5d6;
   top: -2px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .customize-control-ast-radio-image input + label .image-clickable.small-size {
-  width: 76px;
+  min-width: 76px;
+}
+
+.customize-control-ast-radio-image input:checked + label .image-clickable.disable {
+  border: 2px solid #80868c;
 }
