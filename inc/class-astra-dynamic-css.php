@@ -205,7 +205,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
-				$css_output = array(
+				$skin_css_output = array(
 					'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
@@ -220,20 +220,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 			} else {
-				$css_output = array(
+				$skin_css_output = array(
 					'p, .entry-content p' => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
-					'.comment-reply-title'                    => array(
+					'.comment-reply-title' => array(
 						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.66666 ),
 					),
 					'.ast-comment-list #cancel-comment-reply-link' => array(
 						'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 					),
 				);
+				/* Width for Comments for Full Width / Stretched Template */
+				if ( 'classic-skin' === Astra_Skins::astra_get_selected_skin() ) {
+					$page_builder_comment = array(
+						'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
+							'max-width'    => astra_get_css_value( $site_content_width + 40, 'px' ),
+							'margin-left'  => 'auto',
+							'margin-right' => 'auto',
+						),
+					);
+					/* Parse CSS from array()*/
+					$parse_css .= astra_parse_css( $page_builder_comment, '545' );
+				}
 			}
 
-			$parse_css = astra_parse_css( $css_output );
+			$parse_css = astra_parse_css( $skin_css_output );
 
 			$css_output = array(
 
@@ -661,19 +673,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				/* Parse CSS from array()*/
 				$parse_css .= astra_parse_css( $genral_global_responsive, '769' );
-			}
-
-			/* Width for Comments for Full Width / Stretched Template */
-			if ( 'classic-skin' === Astra_Skins::astra_get_selected_skin() ) {
-				$page_builder_comment = array(
-					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
-						'max-width'    => astra_get_css_value( $site_content_width + 40, 'px' ),
-						'margin-left'  => 'auto',
-						'margin-right' => 'auto',
-					),
-				);
-				/* Parse CSS from array()*/
-				$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 			}
 
 			$separate_container_css = array(
