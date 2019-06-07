@@ -1229,3 +1229,13 @@ if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 	}
 
 endif;
+
+/**
+ * Get the value for font-display property.
+ *
+ * @since x.x.x
+ * @return string
+ */
+function astra_get_fonts_display_property() {
+	return apply_filters( 'astra_fonts_display_property', 'fallback' );
+}
