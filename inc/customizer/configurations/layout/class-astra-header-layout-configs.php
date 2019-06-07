@@ -207,7 +207,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 					'choices'  => array(
 						'theme-button'  => __( 'Theme Button', 'astra' ),
-						'custom-button' => __( 'Custom Button', 'astra' ),
+						'custom-button' => __( 'Header Button', 'astra' ),
 					),
 					'title'    => __( 'Button Style', 'astra' ),
 				),
@@ -221,7 +221,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-customizer-link',
 					'section'   => 'section-header',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+					'required'  => array(
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
+					),
 					'priority'  => 10,
 					'link_type' => 'section',
 					'linked'    => 'section-buttons',
