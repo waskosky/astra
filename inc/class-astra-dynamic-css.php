@@ -248,6 +248,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 			}
 
+			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
+				$skin_input_focus = array(
+					'border-color'  => '#bbb',
+					'box-shadow'    => 'inset 0 2px 4px 0 rgba(195, 209, 218, 0.16)',
+					'outline-width' => '0',
+				);
+			} else {
+				$skin_input_focus = array(
+					'border-color' => esc_attr( $link_color ),
+				);
+			}
+
 			$css_output = array(
 
 				// HTML.
@@ -387,9 +399,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Input tags.
-				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
-					'border-color' => esc_attr( $link_color ),
-				),
+				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => $skin_input_focus,
+
 				'input[type="radio"]:checked, input[type=reset], input[type="checkbox"]:checked, input[type="checkbox"]:hover:checked, input[type="checkbox"]:focus:checked, input[type=range]::-webkit-slider-thumb' => array(
 					'border-color'     => esc_attr( $link_color ),
 					'background-color' => esc_attr( $link_color ),
