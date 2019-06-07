@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 					'astra_comment_form_title',
 					( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? sprintf( // WPCS: XSS OK.
 						/* translators: 1: number of comments */
-						esc_html( _nx( 'This post has %1$s comments', 'This post has %1$s comments', get_comments_number(), 'comments title', 'astra' ) ),
+						esc_html( _nx( 'This post has %1$s comment', 'This post has %1$s comments', get_comments_number(), 'comments title', 'astra' ) ),
 						number_format_i18n( get_comments_number() )
 					) : sprintf( // WPCS: XSS OK.
 						/* translators: 1: number of comments */
