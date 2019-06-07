@@ -203,7 +203,37 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			} else {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
-			$para_margin_btm_skin = ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) ? 'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' : 'p, .entry-content p';
+
+			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
+				$css_output = array(
+					'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
+						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
+					),
+					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
+						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 0.8 ),
+					),
+					'.ast-comment-list #cancel-comment-reply-link, .ast-comment-content .ast-comment-edit-reply-wrap' => array(
+						'font-size' => astra_responsive_font( (int) $body_font_size_desktop * 0.8, 'desktop' ),
+					),
+					'.ast-comment-edit-reply-wrap .ast-edit-link, .ast-comment-edit-reply-wrap .ast-reply-link' => array(
+						'margin-top' => astra_get_css_value( (int) $body_font_size_desktop * 2.25, 'px' ),
+					),
+				);
+			} else {
+				$css_output = array(
+					'p, .entry-content p' => array(
+						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
+					),
+					'.comment-reply-title'                    => array(
+						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.66666 ),
+					),
+					'.ast-comment-list #cancel-comment-reply-link' => array(
+						'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
+					),
+				);
+			}
+
+			$parse_css = astra_parse_css( $css_output );
 
 			$css_output = array(
 
@@ -226,9 +256,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'blockquote'                              => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
-				),
-				$para_margin_btm_skin                     => array(
-					'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -258,12 +285,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.entry-title'                            => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'desktop' ),
-				),
-				'.comment-reply-title'                    => array(
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.66666 ),
-				),
-				'.ast-comment-list #cancel-comment-reply-link' => array(
-					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -516,7 +537,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array() */
-			$parse_css = astra_parse_css( $css_output );
+			$parse_css .= astra_parse_css( $css_output );
 
 			if ( 'custom-button' === $header_custom_button_style ) {
 				$css_output = array(
