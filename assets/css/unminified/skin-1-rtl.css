@@ -657,6 +657,14 @@
   margin-bottom: .6em;
 }
 
+.ast-comment-content ul li {
+  list-style: disc;
+}
+
+.ast-comment-content ol li {
+  list-style: decimal;
+}
+
 /*----------  Classic Layout  ----------*/
 .hidden {
   display: none !important;

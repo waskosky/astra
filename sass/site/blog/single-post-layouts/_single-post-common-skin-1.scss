@@ -171,4 +171,14 @@
 	p {
 		margin-bottom: .6em;
 	}
+	ul {
+		li {
+			list-style: disc;	
+		}
+	}
+	ol {
+		li {
+			list-style: decimal;	
+		}
+	}
 }
