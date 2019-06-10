@@ -228,6 +228,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     control.container.on( 'change', '.ast-select-input', function() {
 
                         var value = jQuery( this ).val();   
+
                         control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value ] );
                     });
 
@@ -261,6 +262,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                         var value = jQuery(this).val();
                         jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
+ 
                         control.container.trigger('ast_settings_changed', [control, jQuery(this), value]);
                     });
 
@@ -277,12 +279,70 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     control.initAstBgControl( control_elem, control_type );
 
                 break;
+
+                case "ast-border":
+
+                    control.initAstBorderControl( control_elem, control_type );
+
+                break;
             }
 
         });
 
         wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
         
+    },
+
+    initAstBorderControl: function( control_elem, control_type ) {
+
+        var control = this,
+            value            = control.setting._value,
+            control_name     = control_type.name;
+        
+        // Save the value.
+        this.container.on( 'change keyup paste', 'input.ast-border-input', function() {
+
+            // Update value on change.
+            control.saveBorderValue( 'border', jQuery( this ).val(), jQuery( this ) );
+
+        });
+
+        // Connected button
+        jQuery( '.ast-border-connected' ).on( 'click', function() {
+
+            // Remove connected class
+            jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
+            
+            // Remove class
+            jQuery(this).parent( '.ast-border-input-item-link' ).removeClass( 'disconnected' );
+
+        } );
+
+        // Disconnected button
+        jQuery( '.ast-border-disconnected' ).on( 'click', function() {
+
+            // Set up variables
+            var elements    = jQuery(this).data( 'element-connect' );
+            
+            // Add connected class
+            jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
+
+            // Add class
+            jQuery(this).parent( '.ast-border-input-item-link' ).addClass( 'disconnected' );
+
+        } );
+
+        // Values connected inputs
+        jQuery( '.ast-border-input-item' ).on( 'input', '.connected', function() {
+
+            var dataElement       = jQuery(this).attr( 'data-element-connect' ),
+                currentFieldValue = jQuery( this ).val();
+
+            jQuery(this).parent().parent( '.ast-border-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
+                jQuery(this).val( currentFieldValue ).change();
+            } );
+
+        } );
     },
 
     generateFieldHtml: function ( fields_data, field_values ) {    
@@ -517,6 +577,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
     onOptionChange:function ( e, control, element, value ) {
 
+        
         var control_id = element.closest( '.ast-fields-wrap' ).attr( 'data-control' ),
             hidden_data_input = $( ".ast-hidden-input[data-name='"+ control_id +"']");
 
@@ -525,6 +586,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         } else {
             var option_data = control.isJsonString( hidden_data_input.val() ) ? JSON.parse( hidden_data_input.val() ) : {};
         }
+
 
         var input_name  = element.attr( 'data-name' );
         option_data[input_name] = value;
@@ -972,5 +1034,34 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         jQuery( input ).attr( 'value', JSON.stringify( val ) ).trigger( 'change' );
         
         control.container.trigger( 'ast_settings_changed', [control, element, val ] );
+    },
+
+    /**
+     * Saves the value.
+     */
+    saveBorderValue: function( property, value, element ) {
+
+        var control = this,
+            newValue = {
+                'top'   : '',
+                'right' : '',
+                'bottom' : '',
+                'left'   : '',
+            };
+
+
+        control.container.find( 'input.ast-border-desktop' ).each( function() {
+            var spacing_input = jQuery( this ),
+                item          = spacing_input.data( 'id' );
+
+            item_value = spacing_input.val();
+            newValue[ item ] = item_value;
+            
+            spacing_input.attr( 'value', item_value );
+
+        });
+
+        
+        control.container.trigger( 'ast_settings_changed', [control, element, newValue ] );
     }
 });

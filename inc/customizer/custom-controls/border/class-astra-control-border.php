@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 						}
 						_.each( data.choices, function( choiceLabel, choiceID ) {
 						#><li {{{ data.inputAttrs }}} class='ast-border-input-item'>
-							<input type='number' class='ast-border-input ast-border-desktop' data-id= '{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
+							<input type='number' class='ast-border-input ast-border-desktop' data-id= '{{ choiceID }}' data-name="{{ data.name }}" value='{{ data.value[ choiceID ] }}'>
 							<span class="ast-border-title">{{{ data.choices[ choiceID ] }}}</span>
 						</li><#
 						}); #>
