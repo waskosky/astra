@@ -570,6 +570,10 @@
   }
 }
 
+.single .entry-content p {
+  margin-bottom: 1.5em;
+}
+
 /* 2 - Single Post Article Header */
 .single .entry-header .ast-single-post-order + .post-thumb img {
   margin-top: 2em;
