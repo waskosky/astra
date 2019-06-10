@@ -653,6 +653,10 @@
   padding: 0 1.2em;
 }
 
+.ast-comment-content p {
+  margin-bottom: .6em;
+}
+
 /*----------  Classic Layout  ----------*/
 .hidden {
   display: none !important;
