@@ -639,6 +639,15 @@
   max-width: 100%;
 }
 
+.ast-comment-content h1,
+.ast-comment-content h2,
+.ast-comment-content h3,
+.ast-comment-content h4,
+.ast-comment-content h5,
+.ast-comment-content h6 {
+  margin-bottom: 20px;
+}
+
 /*----------  Classic Layout  ----------*/
 .hidden {
   display: none !important;
