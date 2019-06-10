@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_custom_button_border_color   = astra_get_option_by_group( 'header-main-rt-section-button-border-color', 'primary-header-button-border-group' );
 			$header_custom_button_border_h_color = astra_get_option_by_group( 'header-main-rt-section-button-border-h-color', 'primary-header-button-border-group' );
 			$header_custom_button_border_size    = astra_get_option_by_group( 'header-main-rt-section-button-border-size', 'primary-header-button-border-group' );
-			
+
 			$header_custom_trans_button_text_color     = astra_get_option_by_group( 'header-main-rt-trans-section-button-text-color', 'transparent-header-button-color-group' );
 			$header_custom_trans_button_text_h_color   = astra_get_option_by_group( 'header-main-rt-trans-section-button-text-h-color', 'transparent-header-button-color-group' );
 			$header_custom_trans_button_back_color     = astra_get_option_by_group( 'header-main-rt-trans-section-button-back-color', 'transparent-header-button-color-group' );
