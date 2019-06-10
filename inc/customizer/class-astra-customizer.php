@@ -681,10 +681,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$control_data_js         = $control_data['js'];
 					$control_data_dependency = $control_data['dependency'];
 
-					if ( isset( $control_data['type'] ) && 'addon' == $control_data['type'] && defined( 'ASTRA_EXT_URI' ) ) {
-						$uri = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_data_css . '/';
-					} else {
-						$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $control_data_css . '/';
+					if ( ! is_array( $control_data_css ) ) {
+						if ( isset( $control_data['type'] ) && 'addon' == $control_data['type'] && defined( 'ASTRA_EXT_URI' ) ) {
+							$uri = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_data_css . '/';
+						} else {
+							$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $control_data_css . '/';
+						}
 					}
 
 					if ( is_array( $control_data_css ) ) {

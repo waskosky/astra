@@ -55,6 +55,12 @@
   color: #fff;
 }
 
+.customize-control-ast-background .background-attachment .buttonset .switch-input[checked="checked"] + .switch-label,
+.customize-control-ast-background .background-size .buttonset .switch-input[checked="checked"] + .switch-label {
+  background-color: #298cbe;
+  color: #fff;
+}
+
 .customize-control-ast-background .more-settings {
   margin-top: 12px;
   display: inline-block;
