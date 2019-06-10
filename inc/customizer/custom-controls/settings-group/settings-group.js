@@ -835,6 +835,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         // Background-Size.
         controlContainer.on( 'change click', '.background-size input', function() {
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
             control.saveBgValue( 'background-size', jQuery( this ).val(), jQuery( this ) );
         });
 
@@ -845,6 +847,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         // Background-Attachment.
         controlContainer.on( 'change click', '.background-attachment input', function() {
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
             control.saveBgValue( 'background-attachment', jQuery( this ).val(), jQuery( this ) );
         });
 
