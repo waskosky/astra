@@ -213,7 +213,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 0.8 ),
 					),
 					'.ast-comment-list #cancel-comment-reply-link, .ast-comment-content .ast-comment-edit-reply-wrap' => array(
-						'font-size' => astra_responsive_font( (int) $body_font_size_desktop * 0.8, 'desktop' ),
+						'font-size' => astra_responsive_font( (int) $body_font_size_desktop * 0.867, 'desktop' ),
 					),
 					'.ast-comment-edit-reply-wrap .ast-edit-link, .ast-comment-edit-reply-wrap .ast-reply-link' => array(
 						'margin-top' => astra_get_css_value( (int) $body_font_size_desktop * 2.25, 'px' ),
