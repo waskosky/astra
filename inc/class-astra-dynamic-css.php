@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
 					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
-						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 0.8 ),
+						'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 0.867 ),
 					),
 					'.ast-comment-list #cancel-comment-reply-link, .ast-comment-content .ast-comment-edit-reply-wrap' => array(
 						'font-size' => astra_responsive_font( (int) $body_font_size_desktop * 0.867, 'desktop' ),
