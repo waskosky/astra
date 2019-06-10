@@ -284,7 +284,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                => array(
-						'desktop'      => 40,
+						'desktop'      => ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? 26 : 40 ),
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
