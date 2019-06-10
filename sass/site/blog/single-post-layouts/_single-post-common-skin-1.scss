@@ -181,4 +181,9 @@
 			list-style: decimal;	
 		}
 	}
+	br {
+		content: "";
+		display: block;
+		margin-bottom: .35em;
+	}	
 }

@@ -665,6 +665,12 @@
   list-style: decimal;
 }
 
+.ast-comment-content br {
+  content: "";
+  display: block;
+  margin-bottom: .35em;
+}
+
 /*----------  Classic Layout  ----------*/
 .hidden {
   display: none !important;
