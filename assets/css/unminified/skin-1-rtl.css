@@ -580,6 +580,10 @@
   margin-bottom: .35em;
 }
 
+.single .entry-title {
+  margin-bottom: .5em;
+}
+
 /* 2 - Single Post Article Header */
 .single .entry-header .ast-single-post-order + .post-thumb img {
   margin-top: 2em;
