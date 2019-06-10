@@ -326,32 +326,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'priority' => 35,
 				),
 
-				array(
-					'name'     => 'section-blog-typo-group',
-					'type'     => 'section',
-					'priority' => 40,
-					'title'    => __( 'Blog', 'astra' ),
-					'panel'    => 'panel-typography',
-				),
-
-				array(
-					'name'     => 'section-archive-typo',
-					'type'     => 'section',
-					'priority' => 5,
-					'title'    => __( 'Blog / Archive', 'astra' ),
-					'panel'    => 'panel-typography',
-					'section'  => 'section-blog-typo-group',
-				),
-
-				array(
-					'name'     => 'section-single-typo',
-					'type'     => 'section',
-					'priority' => 10,
-					'title'    => __( 'Single Post', 'astra' ),
-					'panel'    => 'panel-typography',
-					'section'  => 'section-blog-typo-group',
-				),
-
 				/**
 				 * Buttons Section
 				 */
