@@ -173,7 +173,7 @@
 .comments-area {
     border-top: 1px solid $color-border-content;
     margin-top: 1.35em;
-    padding: 4em;
+    padding: 3em;
     @media(max-width: $mx-col-xl) {
         padding: 3.34em 2.4em;
     }
@@ -328,17 +328,17 @@
         }
     }
     .comments-area {
-        padding: 4em 0em 0em 0em;
+        padding: 3em 0em 0em 0em;
     }
 }
 
 .ast-page-builder-template {
     .comments-area {
-        padding: 4em 1.3em 0em 1.3em;
+        padding: 3em 1.3em 0em 1.3em;
     }
     @media (max-width: $mx-col-sm) {
         .comments-area {
-            padding: 4em 0em;
+            padding: 3em 0em;
         }
     }
 }

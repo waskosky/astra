@@ -43,7 +43,7 @@ body{
 
 .ast-article-post,
 .ast-article-single{
-	padding-bottom: 4em;
+	padding-bottom: 3em;
 }
 
 //separate container content layout
@@ -62,7 +62,7 @@ body{
 	.ast-article-single{
 		background-color: $color-background-content;
 		margin: 0;
-		padding: 4em;
+		padding: 3em;
 	}
 	.ast-article-post{
 		border-bottom: 1px solid $color-border-content;
@@ -223,7 +223,7 @@ body{
 	}
 
 	.comments-area {
-		margin-bottom: 4em;
+		margin-bottom: 3em;
 	}
 }
 

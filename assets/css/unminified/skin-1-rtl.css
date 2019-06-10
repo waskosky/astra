@@ -277,7 +277,7 @@
 .comments-area {
   border-top: 1px solid #eeeeee;
   margin-top: 1.35em;
-  padding: 4em;
+  padding: 3em;
   /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
   /*  4 - Comment List Styles  */
@@ -452,16 +452,16 @@
 
 .ast-plain-container .comments-area,
 .ast-page-builder-template .comments-area {
-  padding: 4em 0em 0em 0em;
+  padding: 3em 0em 0em 0em;
 }
 
 .ast-page-builder-template .comments-area {
-  padding: 4em 1.3em 0em 1.3em;
+  padding: 3em 1.3em 0em 1.3em;
 }
 
 @media (max-width: 544px) {
   .ast-page-builder-template .comments-area {
-    padding: 4em 0em;
+    padding: 3em 0em;
   }
 }
 
@@ -738,7 +738,7 @@ body {
 
 .ast-article-post,
 .ast-article-single {
-  padding-bottom: 4em;
+  padding-bottom: 3em;
 }
 
 .ast-separate-container {
@@ -760,7 +760,7 @@ body {
 .ast-separate-container .ast-article-single {
   background-color: #fff;
   margin: 0;
-  padding: 4em;
+  padding: 3em;
 }
 
 .ast-separate-container .ast-article-post {
@@ -922,7 +922,7 @@ body {
 }
 
 .ast-page-builder-template .comments-area {
-  margin-bottom: 4em;
+  margin-bottom: 3em;
 }
 
 @media (min-width: 993px) {
