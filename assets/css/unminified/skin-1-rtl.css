@@ -713,11 +713,11 @@ body {
 }
 
 #primary {
-  margin: 4em 0;
+  margin: 3em 0;
 }
 
 #secondary {
-  margin: 4em 0 2.5em;
+  margin: 3em 0 2.5em;
   word-break: break-word;
   line-height: 2;
 }
@@ -746,7 +746,7 @@ body {
 }
 
 .ast-separate-container #primary {
-  padding: 4em 0;
+  padding: 3em 0;
   margin: 0;
   border: 0;
 }
@@ -855,7 +855,7 @@ body {
 
 .ast-page-builder-template .no-results {
   text-align: center;
-  margin: 4em auto;
+  margin: 3em auto;
 }
 
 .ast-page-builder-template .ast-pagination {
@@ -863,7 +863,7 @@ body {
 }
 
 .ast-page-builder-template .entry-header {
-  margin-top: 4em;
+  margin-top: 3em;
   margin-right: auto;
   margin-left: auto;
 }
@@ -914,7 +914,7 @@ body {
 }
 
 .ast-page-builder-template .ast-archive-description {
-  margin-top: 4em;
+  margin-top: 3em;
   margin-right: auto;
   margin-left: auto;
   padding-right: 20px;
@@ -929,7 +929,7 @@ body {
   .ast-separate-container.ast-right-sidebar #primary,
   .ast-separate-container.ast-left-sidebar #primary,
   .ast-separate-container #primary {
-    margin: 4em 0;
+    margin: 3em 0;
     padding: 0;
   }
   .ast-right-sidebar #primary {
