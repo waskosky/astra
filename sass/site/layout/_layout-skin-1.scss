@@ -18,11 +18,11 @@ body{
 	width: $width-site-main;
 }
 #primary{
-	margin: 4em 0;
+	margin: 3em 0;
 }
 
 #secondary{
-	margin: 4em 0 2.5em;
+	margin: 3em 0 2.5em;
 	word-break: break-word;
 	line-height: 2;
 
@@ -50,7 +50,7 @@ body{
 .ast-separate-container{
 	background-color: $color-background-sep-content-body;
 	#primary{
-		padding: 4em 0;
+		padding: 3em 0;
 		margin: 0;
 		border: 0;
 	}
@@ -159,7 +159,7 @@ body{
 	}
 	.no-results {
 	    text-align: center;
-		margin: 4em auto;
+		margin: 3em auto;
 	}
 
 	.ast-pagination {
@@ -170,7 +170,7 @@ body{
 		&.ast-no-title.ast-no-thumbnail{
 			margin-top: 0;
 		}
-		margin-top: 4em;
+		margin-top: 3em;
 		margin-left: auto;
 		margin-right: auto;
 
@@ -215,7 +215,7 @@ body{
 	}
 
 	.ast-archive-description {
-		margin-top: 4em;
+		margin-top: 3em;
 		margin-left: auto;
 		margin-right: auto;
 		padding-left: ($grid-gutter-width / 2);
@@ -234,7 +234,7 @@ body{
 		&.ast-right-sidebar #primary,
 		&.ast-left-sidebar #primary,
 		#primary {
-		    margin: 4em 0 ;
+		    margin: 3em 0 ;
 		    padding: 0;
 		}
 	}
