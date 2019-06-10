@@ -68,6 +68,11 @@
 		p {
 			margin-bottom: 1.5em;
 		}
+		br {
+			content: "";
+			display: block;
+			margin-bottom: .35em;
+		}
 	}
 }
 /* 2 - Single Post Article Header */

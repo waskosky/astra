@@ -574,6 +574,12 @@
   margin-bottom: 1.5em;
 }
 
+.single .entry-content br {
+  content: "";
+  display: block;
+  margin-bottom: .35em;
+}
+
 /* 2 - Single Post Article Header */
 .single .entry-header .ast-single-post-order + .post-thumb img {
   margin-top: 2em;
