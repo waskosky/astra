@@ -648,6 +648,10 @@
   margin-bottom: 20px;
 }
 
+.ast-comment-content blockquote {
+  border-left: 4px solid rgba(0, 0, 0, 0.05);
+}
+
 /*----------  Classic Layout  ----------*/
 .hidden {
   display: none !important;
