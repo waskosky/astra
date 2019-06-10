@@ -643,6 +643,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
 
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
+
             control.saveValue( screen, 'background-size', item_value, responsive_input );
         });
 
@@ -659,6 +662,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id'),
                 item_value = responsive_input.val();
+
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
 
             control.saveValue( screen, 'background-attachment', item_value, responsive_input );
         });
