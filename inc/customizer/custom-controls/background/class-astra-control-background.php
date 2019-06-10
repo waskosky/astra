@@ -154,14 +154,14 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 				<div class="background-size">
 					<h4><?php esc_attr_e( 'Background Size', 'astra' ); ?></h4>
 					<div class="buttonset">
-						<input data-name="{{ data.name }}" {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="cover" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.id }}cover" <# if ( 'cover' === data.value['background-size'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'cover' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}cover"><?php esc_attr_e( 'Cover', 'astra' ); ?></label>
+						<input data-name="{{ data.name }}" {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="cover" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.name }}-cover" <# if ( 'cover' === data.value['background-size'] ) { #> checked="checked" <# } #>>
+							<label class="switch-label switch-label-<# if ( 'cover' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-cover"><?php esc_attr_e( 'Cover', 'astra' ); ?></label>
 						</input>
-						<input data-name="{{ data.name }}" {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.id }}contain" <# if ( 'contain' === data.value['background-size'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'contain' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}contain"><?php esc_attr_e( 'Contain', 'astra' ); ?></label>
+						<input data-name="{{ data.name }}" {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.name }}-contain" <# if ( 'contain' === data.value['background-size'] ) { #> checked="checked" <# } #>>
+							<label class="switch-label switch-label-<# if ( 'contain' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-contain"><?php esc_attr_e( 'Contain', 'astra' ); ?></label>
 						</input>
-						<input data-name="{{ data.name }}" {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.id }}auto" <# if ( 'auto' === data.value['background-size'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'auto' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}auto"><?php esc_attr_e( 'Auto', 'astra' ); ?></label>
+						<input data-name="{{ data.name }}" {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.name }}-auto" <# if ( 'auto' === data.value['background-size'] ) { #> checked="checked" <# } #>>
+							<label class="switch-label switch-label-<# if ( 'auto' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-auto"><?php esc_attr_e( 'Auto', 'astra' ); ?></label>
 						</input>
 					</div>
 				</div>
@@ -170,14 +170,14 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 				<div class="background-attachment">
 					<h4><?php esc_attr_e( 'Background Attachment', 'astra' ); ?></h4>
 					<div class="buttonset">
-						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}inherit" <# if ( 'inherit' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'inherit' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}inherit"><?php esc_attr_e( 'Inherit', 'astra' ); ?></label>
+						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.name }}-inherit" <# if ( 'inherit' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
+							<label class="switch-label switch-label-<# if ( 'inherit' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-inherit"><?php esc_attr_e( 'Inherit', 'astra' ); ?></label>
 						</input>
-						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}scroll" <# if ( 'scroll' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'scroll' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}scroll"><?php esc_attr_e( 'Scroll', 'astra' ); ?></label>
+						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.name }}-scroll" <# if ( 'scroll' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
+							<label class="switch-label switch-label-<# if ( 'scroll' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-scroll"><?php esc_attr_e( 'Scroll', 'astra' ); ?></label>
 						</input>
-						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}fixed" <# if ( 'fixed' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'fixed' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}fixed"><?php esc_attr_e( 'Fixed', 'astra' ); ?></label>
+						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.name }}-fixed" <# if ( 'fixed' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
+							<label class="switch-label switch-label-<# if ( 'fixed' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.name }}-fixed"><?php esc_attr_e( 'Fixed', 'astra' ); ?></label>
 						</input>
 					</div>
 				</div>
