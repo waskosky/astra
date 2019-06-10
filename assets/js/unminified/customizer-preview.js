@@ -1208,7 +1208,11 @@ function isJsonString( str ) {
 	 * Button border
 	 */
 	wp.customize( 'astra-settings[astra_get_option_by_group]', function( value ) {
-		value.bind( function( border ) {
+		value.bind( function( value ) {
+
+			var optionValue = JSON.parse(value);
+			var border =  optionValue['header-main-rt-trans-section-button-border-size'];
+			
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 				var dynamicStyle = '.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button';
 					dynamicStyle += '{';

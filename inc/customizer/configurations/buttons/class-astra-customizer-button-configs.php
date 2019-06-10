@@ -521,7 +521,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default'   => astra_get_option( 'header-main-rt-trans-section-button-border-color' ),
 					'type'      => 'sub-control',
 					'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
-					'tab'       => __( 'Normal', 'astra' ),
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'priority'  => 12,
