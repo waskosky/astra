@@ -56,12 +56,12 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 */
 		public static function astra_get_selected_skin() {
 			// If Addon is not updated to version 1.9.0 then fallback to Classic Skin.
-			if ( class_exists( 'Astra_Addon_Update' ) ) {
-				$saved_version = Astra_Addon_Update::astra_addon_stored_version();
-				if ( version_compare( $saved_version, '1.9.0', '<' ) ) {
-					return 'classic-skin';
-				}
-			}
+			// if ( class_exists( 'Astra_Addon_Update' ) ) {
+			// 	$saved_version = Astra_Addon_Update::astra_addon_stored_version();
+			// 	if ( version_compare( $saved_version, '1.9.0', '<' ) ) {
+			// 		return 'classic-skin';
+			// 	}
+			// }
 
 			$theme_options = get_option( ASTRA_THEME_SETTINGS );
 			$option        = 'site-content-skin';
