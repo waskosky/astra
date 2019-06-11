@@ -204,6 +204,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_1();
 			}
 
+			if ( version_compare( $saved_version, '2.0.0', '<' ) ) {
+				self::v_2_0_0();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -1028,7 +1032,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$json_array = json_decode( $json, true );
 
-			foreach ( $json_array as $group => $sub_control) {
+			foreach ( $json_decode as $group => $sub_control) {
 
 				if( is_array( $sub_control ) ) {
 					foreach ($sub_control as $key => $value ) {
