@@ -765,7 +765,11 @@ body {
 
 .ast-separate-container .ast-article-post {
   border-bottom: 1px solid #eeeeee;
+}
+
+.ast-separate-container.ast-two-container .ast-article-post {
   margin-bottom: 20px;
+  border-bottom: 0;
 }
 
 .ast-separate-container .blog-layout-1 {
