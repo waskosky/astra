@@ -1035,30 +1035,29 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 						if( array_key_exists( $value, $theme_options ) ) {
 							$new_value = $theme_options[$value];
 							$arr[$group][$value] = $new_value;
+							if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
+								unset( $theme_options[$value] );
+							}
 						}
 					}
 
 					if( array_key_exists( $group, $arr ) ) {
-
 						$arr[$group] = json_encode( $arr[$group] );
-						// echo "<pre>";
-						// print_r( $arr[$group] );
-						// echo "</pre>";
 					}
 				} else {
 				
-					if( array_key_exists( $sub_control, $json_array ) ) {
-						$new_value = $json_array[$sub_control];
+					if( array_key_exists( $sub_control, $theme_options ) ) {
+						$new_value = $theme_options[$sub_control];
 						$arr[$group][$sub_control] = $new_value;
+
+						if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
+							unset( $theme_options[$sub_control] );
+						}
 					}
 				}
 			}
 
 			$theme_options = array_merge( $theme_options, $arr);
-
-			// echo "<pre>";
-			// print_r( $theme_options );
-			// echo "</pre>";
 
 			update_option( 'astra-settings', $theme_options );
 		}
