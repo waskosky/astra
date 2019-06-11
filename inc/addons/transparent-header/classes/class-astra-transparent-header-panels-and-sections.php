@@ -59,15 +59,6 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 					'panel'    => 'panel-colors-background',
 					'priority' => 20,
 				),
-
-				array(
-					'name'     => 'section-colors-transparent-header',
-					'title'    => __( 'Transparent Header', 'astra' ),
-					'type'     => 'section',
-					'panel'    => 'panel-colors-background',
-					'section'  => 'section-colors-header-group',
-					'priority' => 32,
-				),
 			);
 
 			return array_merge( $configurations, $_configs );
