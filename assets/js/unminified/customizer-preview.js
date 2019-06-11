@@ -1207,7 +1207,7 @@ function isJsonString( str ) {
 	/**
 	 * Button border
 	 */
-	wp.customize( 'astra-settings[astra_get_option_by_group]', function( value ) {
+	wp.customize( 'astra-settings[transparent-header-button-border-group]', function( value ) {
 		value.bind( function( value ) {
 
 			var optionValue = JSON.parse(value);
