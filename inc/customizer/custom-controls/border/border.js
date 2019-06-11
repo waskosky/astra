@@ -52,7 +52,6 @@
 				newValue[item] = item_value;
 			});
 
-
 			control.setting.set( newValue );
 		},
 

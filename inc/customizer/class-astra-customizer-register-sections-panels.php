@@ -379,17 +379,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				/**
-				 * Theme Buttons
-				 */
-				array(
-					'name'     => 'section-theme-button',
-					'type'     => 'section',
-					'priority' => 10,
-					'title'    => __( 'Theme Button', 'astra' ),
-					'section'  => 'section-buttons',
-				),
-
-				/**
 				 * Header Buttons
 				 */
 				array(
