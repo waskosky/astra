@@ -4432,7 +4432,7 @@ input[type="color"]::-webkit-color-swatch {
 .blog-layout-1 {
   width: 100%;
   display: inline-block;
-  padding-bottom: 2em;
+  padding-bottom: 3em;
   vertical-align: middle;
   border-bottom: 1px solid #eeeeee;
 }
