@@ -1032,7 +1032,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$json_array = json_decode( $json, true );
 
-			foreach ( $json_decode as $group => $sub_control) {
+			foreach ( $json_array as $group => $sub_control) {
 
 				if( is_array( $sub_control ) ) {
 					foreach ($sub_control as $key => $value ) {
