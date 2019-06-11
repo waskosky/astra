@@ -857,7 +857,7 @@ body {
 
 .ast-page-builder-template .site-content #primary {
   padding: 0;
-  margin: 0;
+  margin: 3em 0 0 0;
 }
 
 .ast-page-builder-template .no-results {
