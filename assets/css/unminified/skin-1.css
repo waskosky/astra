@@ -41,6 +41,9 @@
   .ast-author-bio {
     flex: 1;
   }
+  .ast-author-bio p {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 768px) {
