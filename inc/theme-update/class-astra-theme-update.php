@@ -1019,7 +1019,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_2_0_0() {
+			
 			$theme_options = get_option( 'astra-settings', array() );
+
+			$arr = array();
 
 			$json = self::astra_new_controls();
 
@@ -1029,27 +1032,37 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 				if( is_array( $sub_control ) ) {
 					foreach ($sub_control as $key => $value ) {
-						if( array_key_exists( $value , $theme_options ) ) {
+						if( array_key_exists( $value, $theme_options ) ) {
 							$new_value = $theme_options[$value];
-							$theme_options[$group][$value] = $new_value;
+							$arr[$group][$value] = $new_value;
 						}
+					}
+
+					if( array_key_exists( $group, $arr ) ) {
+
+						$arr[$group] = json_encode( $arr[$group] );
+						// echo "<pre>";
+						// print_r( $arr[$group] );
+						// echo "</pre>";
 					}
 				} else {
 				
 					if( array_key_exists( $sub_control, $json_array ) ) {
 						$new_value = $json_array[$sub_control];
-						$theme_options[$group][$sub_control] = $new_value;
+						$arr[$group][$sub_control] = $new_value;
 					}
 				}
 			}
 
-			print_r( $theme_options );
+			$theme_options = array_merge( $theme_options, $arr);
+
+			// echo "<pre>";
+			// print_r( $theme_options );
+			// echo "</pre>";
+
 			update_option( 'astra-settings', $theme_options );
-
 		}
-
 	}
-
 }
 
 /**
