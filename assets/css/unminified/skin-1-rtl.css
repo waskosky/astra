@@ -925,13 +925,6 @@ body {
   }
 }
 
-@media (max-width: 544px) {
-  .ast-page-builder-template.ast-right-sidebar #secondary {
-    padding-right: 2em;
-    padding-left: 2em;
-  }
-}
-
 .ast-page-builder-template .ast-archive-description {
   margin-top: 3em;
   margin-right: auto;
@@ -1070,6 +1063,11 @@ body {
   .ast-page-builder-template .ast-article-post,
   .ast-page-builder-template .ast-article-single {
     padding: 0;
+  }
+  .ast-plain-container #secondary,
+  .ast-page-builder-template #secondary {
+    padding-right: 2em;
+    padding-left: 2em;
   }
 }
 

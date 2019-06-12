@@ -222,10 +222,6 @@ body{
 			@media (max-width: $mx-col-md) {
 				padding-left: ($grid-gutter-width / 2);
 			}
-			@media (max-width: $mx-col-sm) {
-				padding-left: 2em;
-				padding-right: 2em;
-			}
 		}
 	}
 
@@ -409,6 +405,10 @@ body{
 		}
 		.ast-article-post, .ast-article-single {
 			padding: 0;
+		}
+		#secondary {
+			padding-left: 2em;
+			padding-right: 2em;
 		}
 	}
 }
