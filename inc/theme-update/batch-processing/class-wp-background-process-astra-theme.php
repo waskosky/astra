@@ -44,12 +44,11 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 * @param object $process Queue item object.
 		 * @return mixed
 		 */
-		protected function task( $group ) {
+		protected function task( $process ) {
 
 			// Enable this function if we need to halt the process for few seconds between tasks.
-			// $this->really_long_running_task();
-
-			$new_options_data = Astra_Theme_Update::individual_queued_item_operations( $group );
+			// $this->really_long_running_task(); .
+			$new_options_data = Astra_Theme_Update::individual_queued_item_operations( $process );
 
 			Astra_Theme_Update::individual_queued_item_update( $new_options_data );
 
