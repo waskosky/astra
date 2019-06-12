@@ -48,7 +48,9 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 
 			// $this->really_long_running_task();
 
-			Astra_Theme_Update::new_function( $group );
+			$new_data = Astra_Theme_Update::new_function( $group );
+
+			Astra_Theme_Update::v_2_0_0_update( $new_data );
 
 			error_log( $group );
 

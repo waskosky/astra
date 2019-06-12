@@ -1049,15 +1049,18 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				// Add database migration in queue.
 				self::$process_all->push_to_queue( $group );
 			}
+			
+			// Dispatch Queue.
+			self::$process_all->save()->dispatch();
+		}
 
-			var_dump( $theme_options );
+		public static function v_2_0_0_update( $arr ) {
+
+			$theme_options = get_option( 'astra-settings', array() );
 
 			$theme_options = array_merge( $theme_options, $arr);
 
 			update_option( 'astra-settings', $theme_options );
-			
-			// Dispatch Queue.
-			self::$process_all->save()->dispatch();
 		}
 
 		/**
@@ -1088,6 +1091,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				foreach ($sub_control as $key => $value ) {
 				// Check if sub_control key exists in the theme options.
 					if( array_key_exists( $value, $theme_options ) ) {
+						error_log( $value );
 						$new_value = $theme_options[$value];
 						$arr[$group][$value] = $new_value;
 						if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
@@ -1109,6 +1113,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					}
 				}
 			}
+
+			return $arr;
 		}
 	}
 }
