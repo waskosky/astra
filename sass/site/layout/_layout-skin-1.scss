@@ -72,6 +72,15 @@ body{
 			margin-bottom: 20px;
 			border-bottom: 0;
 		}
+		@media (max-width: $mx-col-sm) {
+			#primary,
+			#secondary {
+				padding-top: 0;
+			}
+			.ast-container {
+				padding-top: 10px;
+			}
+		}
 	}
 	.blog-layout-1{
         padding: 0;
