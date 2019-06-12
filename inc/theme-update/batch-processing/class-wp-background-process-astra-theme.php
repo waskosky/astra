@@ -28,7 +28,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 * @return int
 		 */
 		public function really_long_running_task() {
-			return sleep( 1 );
+			return sleep( 5 );
 		}
 
 		/**
@@ -46,11 +46,12 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 */
 		protected function task( $group ) {
 
+			// Enable this function if we need to halt the process for few seconds between tasks.
 			// $this->really_long_running_task();
 
-			$new_data = Astra_Theme_Update::new_function( $group );
+			$new_options_data = Astra_Theme_Update::individual_queued_item_operations( $group );
 
-			Astra_Theme_Update::v_2_0_0_update( $new_data );
+			Astra_Theme_Update::individual_queued_item_update( $new_options_data );
 
 			return false;
 		}
@@ -65,7 +66,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 */
 		protected function complete() {
 
-			error_log( 'Batch Process Complete!' );
+			error_log( 'Batch Process Completed!' );
 
 			do_action( 'astra_database_migration_complete' );
 

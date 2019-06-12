@@ -1030,7 +1030,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
-		 * customizer version 2 database migration.
+		 * Customizer Version 2 categorization database opertions using batch processing
 		 *
 		 * @return void
 		 */
@@ -1051,29 +1051,35 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
-		 * customizer version 2 upadte data in database.
+		 * Update queued item values in database.
 		 *
+		 * @since x.x.x
+		 *
+		 * @param array $new_options New options data.
 		 * @return void
 		 */
-		public static function v_2_0_0_update( $arr ) {
+		public static function individual_queued_item_update( $new_options ) {
 
 			$theme_options = get_option( 'astra-settings', array() );
 
-			$theme_options = array_merge( $theme_options, $arr );
+			$theme_options = array_merge( $theme_options, $new_options );
 
 			update_option( 'astra-settings', $theme_options );
 		}
 
 		/**
-		 * customizer version 2 individual control migration.
+		 * Perform database operations on indivitual queued items
 		 *
-		 * @return void
+		 * @since x.x.x
+		 *
+		 * @param string $group Queue item.
+		 * @return array
 		 */
-		public static function new_function( $group ) {
+		public static function individual_queued_item_operations( $group ) {
 
 			$theme_options = get_option( 'astra-settings', array() );
 
-			$arr = array();
+			$new_options = array();
 
 			$json = self::astra_new_controls();
 
@@ -1088,21 +1094,21 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				// Check if sub_control key exists in the theme options.
 					if( array_key_exists( $value, $theme_options ) ) {
 						$new_value = $theme_options[$value];
-						$arr[$group][$value] = $new_value;
+						$new_options[$group][$value] = $new_value;
 					}
 				}
-				if( array_key_exists( $group, $arr ) ) {
-					$arr[$group] = json_encode( $arr[$group] );
+				if( array_key_exists( $group, $new_options ) ) {
+					$new_options[$group] = json_encode( $new_options[$group] );
 				}
 			} else {
 				// Check if sub_control key exists in the theme options.
 				if( array_key_exists( $sub_control, $theme_options ) ) {
 					$new_value = $theme_options[$sub_control];
-					$arr[$group][$sub_control] = $new_value;
+					$new_options[$group][$sub_control] = $new_value;
 				}
 			}
 
-			return $arr;
+			return $new_options;
 		}
 	}
 }
