@@ -775,6 +775,12 @@ body {
   border-bottom: 0;
 }
 
+@media (max-width: 544px) {
+  .ast-separate-container.ast-two-container .ast-article-post:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .ast-separate-container .blog-layout-1 {
   padding: 0;
   /*background-color: $color-background-content;*/
