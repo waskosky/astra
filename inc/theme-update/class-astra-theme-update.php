@@ -1057,6 +1057,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_2_0_0_update( $arr ) {
 
+			error_log( $arr );
+
 			$theme_options = get_option( 'astra-settings', array() );
 
 			$theme_options = array_merge( $theme_options, $arr );
