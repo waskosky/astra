@@ -1036,10 +1036,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_2_0_0() {
 
-			$theme_options = get_option( 'astra-settings', array() );
-
-			$arr = array();
-
 			$json = self::astra_new_controls();
 
 			$json_array = json_decode( $json, true );
@@ -1054,6 +1050,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			self::$process_all->save()->dispatch();
 		}
 
+		/**
+		 * customizer version 2 upadte data in database.
+		 *
+		 * @return void
+		 */
 		public static function v_2_0_0_update( $arr ) {
 
 			$theme_options = get_option( 'astra-settings', array() );
@@ -1080,11 +1081,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$sub_control = $json_array[$group];
 
-			if( array_key_exists( $group, $theme_options ) ) {
-				// group key does not exists in astra_settings.
-				return;
-			}
-
 			// Check if sub_control key exists in the theme options.
 			if( is_array( $sub_control ) ) {
 
@@ -1094,9 +1090,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 						error_log( $value );
 						$new_value = $theme_options[$value];
 						$arr[$group][$value] = $new_value;
-						if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
-							unset( $theme_options[$value] );
-						}
+						// if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
+						// 	unset( $theme_options[$value] );
+						// }
 					}
 				}
 				if( array_key_exists( $group, $arr ) ) {
@@ -1108,9 +1104,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					$new_value = $theme_options[$sub_control];
 					$arr[$group][$sub_control] = $new_value;
 
-					if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
-						unset( $theme_options[$sub_control] );
-					}
+					// if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
+					// 	unset( $theme_options[$sub_control] );
+					// }
 				}
 			}
 
