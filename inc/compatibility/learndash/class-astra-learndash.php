@@ -185,6 +185,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		function customize_register( $wp_customize ) {
 
+			$active_ld_theme = $this->get_learndash_theme();
+
 			/**
 			 * Register Sections & Panels
 			 */
@@ -195,7 +197,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			 */
 			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-astra-learndash-container-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-astra-learndash-sidebar-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/class-astra-learndash-general-configs.php';
+
+			if ( 'ld30' !== $active_ld_theme ) {
+				require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/class-astra-learndash-general-configs.php';
+			}
 		}
 
 		/**
@@ -301,6 +306,20 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			}
 
 			return $layout;
+		}
+
+		/**
+		 * Get learndash theme.
+		 *
+		 * @since x.x.x
+		 * @return string $active_theme Active theme.
+		 */
+		function get_learndash_theme() {
+
+			$themes       = get_option( 'learndash_settings_courses_themes' );
+			$active_theme = isset( $themes['active_theme'] ) ? $themes['active_theme'] : '';
+
+			return $active_theme;
 		}
 	}
 
