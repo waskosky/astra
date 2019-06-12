@@ -380,3 +380,14 @@ body{
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+@media (max-width: $mx-col-sm) {
+	.ast-plain-container {
+		.blog-layout-1 {
+			padding: 2em;
+		}
+		.ast-article-post, .ast-article-single {
+			    padding-bottom: 0;
+		}
+	}
+}

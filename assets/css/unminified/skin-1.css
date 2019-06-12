@@ -1036,6 +1036,15 @@ body {
   padding-right: 10px;
 }
 
+@media (max-width: 544px) {
+  .ast-plain-container .blog-layout-1 {
+    padding: 2em;
+  }
+  .ast-plain-container .ast-article-post, .ast-plain-container .ast-article-single {
+    padding-bottom: 0;
+  }
+}
+
 /*----------  Classic Widgets  ----------*/
 .widget-title {
   font-weight: normal;
