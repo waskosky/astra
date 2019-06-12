@@ -195,6 +195,7 @@ body{
 	@media (max-width: $mx-col-sm) {
 		.site-content #primary{
 			margin: 0;
+			padding: 0;
 		}
 	}
 
@@ -228,6 +229,11 @@ body{
 
 	.comments-area {
 		margin-bottom: 3em;
+	}
+	@media (max-width: $mx-col-md) {
+		.entry-header {
+			margin-top: 0;
+		}
 	}
 }
 
@@ -382,12 +388,17 @@ body{
 }
 
 @media (max-width: $mx-col-sm) {
-	.ast-plain-container {
+	.ast-plain-container,
+	.ast-page-builder-template {
 		.blog-layout-1 {
 			padding: 2em;
 		}
+		.ast-row {
+			margin-right: 0;
+			margin-left: 0;
+		}
 		.ast-article-post, .ast-article-single {
-			    padding-bottom: 0;
+			padding: 0;
 		}
 	}
 }
