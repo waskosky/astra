@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		/**
 		 * Process All
 		 *
-		 * @since x.x.x
+		 * @since 2.0.0
 		 * @var object Class object.
 		 * @access public
 		 */
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		/**
 		 * Added a static json object for changes in customizer version 2 database migration.
 		 *
-		 * @since x.x.x
+		 * @since 2.0.0
 		 * @return array
 		 */
 		public static function astra_new_controls() {
@@ -1058,7 +1058,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		/**
 		 * Update queued item values in database.
 		 *
-		 * @since x.x.x
+		 * @since 2.0.0
 		 *
 		 * @param array $new_options New options data.
 		 * @return void
@@ -1075,7 +1075,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		/**
 		 * Perform database operations on indivitual queued items
 		 *
-		 * @since x.x.x
+		 * @since 2.0.0
 		 *
 		 * @param string $group Queue item.
 		 * @return array
