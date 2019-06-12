@@ -826,6 +826,13 @@ body {
   .ast-separate-container .ast-container {
     padding-top: 10px;
   }
+  .ast-separate-container.ast-left-sidebar #secondary, .ast-separate-container.ast-right-sidebar #secondary {
+    padding-right: 2em;
+    padding-left: 2em;
+  }
+  .ast-separate-container .ast-pagination {
+    padding: 2em;
+  }
 }
 
 .ast-plain-container .hentry {
