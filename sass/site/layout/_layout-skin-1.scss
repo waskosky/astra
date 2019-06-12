@@ -139,6 +139,9 @@ body{
 			padding-left: 0;
 			padding-right: 0;
 		}
+		.ast-pagination {
+			padding: 2em;
+		}
 	}
 }
 
@@ -197,6 +200,9 @@ body{
 			margin: 0;
 			padding: 0;
 		}
+		#secondary {
+			margin-top: 0;
+		}
 	}
 
 	&.ast-left-sidebar {
@@ -216,6 +222,10 @@ body{
 			@media (max-width: $mx-col-md) {
 				padding-left: ($grid-gutter-width / 2);
 			}
+			@media (max-width: $mx-col-sm) {
+				padding-left: 2em;
+				padding-right: 2em;
+			}
 		}
 	}
 
@@ -230,7 +240,7 @@ body{
 	.comments-area {
 		margin-bottom: 3em;
 	}
-	@media (max-width: $mx-col-md) {
+	@media (max-width: $mx-col-sm) {
 		.entry-header {
 			margin-top: 0;
 		}

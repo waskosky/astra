@@ -837,6 +837,9 @@ body {
     padding-right: 0;
     padding-left: 0;
   }
+  .ast-plain-container .ast-pagination {
+    padding: 2em;
+  }
 }
 
 .ast-page-builder-template .hentry {
@@ -897,6 +900,9 @@ body {
     margin: 0;
     padding: 0;
   }
+  .ast-page-builder-template #secondary {
+    margin-top: 0;
+  }
 }
 
 .ast-page-builder-template.ast-left-sidebar #secondary {
@@ -919,6 +925,13 @@ body {
   }
 }
 
+@media (max-width: 544px) {
+  .ast-page-builder-template.ast-right-sidebar #secondary {
+    padding-right: 2em;
+    padding-left: 2em;
+  }
+}
+
 .ast-page-builder-template .ast-archive-description {
   margin-top: 3em;
   margin-right: auto;
@@ -931,7 +944,7 @@ body {
   margin-bottom: 3em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 544px) {
   .ast-page-builder-template .entry-header {
     margin-top: 0;
   }
