@@ -52,8 +52,6 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 
 			Astra_Theme_Update::v_2_0_0_update( $new_data );
 
-			error_log( $group );
-
 			return false;
 		}
 

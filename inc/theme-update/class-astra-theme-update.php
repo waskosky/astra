@@ -1059,7 +1059,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$theme_options = get_option( 'astra-settings', array() );
 
-			$theme_options = array_merge( $theme_options, $arr);
+			$theme_options = array_merge( $theme_options, $arr );
 
 			update_option( 'astra-settings', $theme_options );
 		}
@@ -1087,9 +1087,17 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				foreach ($sub_control as $key => $value ) {
 				// Check if sub_control key exists in the theme options.
 					if( array_key_exists( $value, $theme_options ) ) {
+						
+						error_log( 'changes start' );
+						error_log( 'control:' );
 						error_log( $value );
+						error_log( 'group:' );
+						error_log( $group );
+						error_log( 'changes end' );
+
 						$new_value = $theme_options[$value];
 						$arr[$group][$value] = $new_value;
+
 						// if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
 						// 	unset( $theme_options[$value] );
 						// }
@@ -1101,6 +1109,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			} else {
 				// Check if sub_control key exists in the theme options.
 				if( array_key_exists( $sub_control, $theme_options ) ) {
+
 					$new_value = $theme_options[$sub_control];
 					$arr[$group][$sub_control] = $new_value;
 
