@@ -46,14 +46,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     device = jQuery("#customize-footer-actions .active").attr('data-device');
 
                     if( 'mobile' == device ) {
-                        jQuery('.ast-responsive-btns .mobile').addClass('active');
-                        jQuery('.ast-responsive-btns .preview-mobile').addClass('active');
+                        jQuery('.ast-responsive-btns .mobile, .ast-responsive-slider-btns .mobile').addClass('active');
+                        jQuery('.ast-responsive-btns .preview-mobile, .ast-responsive-slider-btns .preview-mobile').addClass('active');
                     } else if( 'tablet' == device ) {
-                        jQuery('.ast-responsive-btns .tablet').addClass('active');
-                        jQuery('.ast-responsive-btns .preview-tablet').addClass('active');
+                        jQuery('.ast-responsive-btns .tablet, .ast-responsive-slider-btns .tablet').addClass('active');
+                        jQuery('.ast-responsive-btns .preview-tablet, .ast-responsive-slider-btns .preview-tablet').addClass('active');
                     } else {
-                        jQuery('.ast-responsive-btns .desktop').addClass('active');
-                        jQuery('.ast-responsive-btns .preview-desktop').addClass('active');
+                        jQuery('.ast-responsive-btns .desktop, .ast-responsive-slider-btns .desktop').addClass('active');
+                        jQuery('.ast-responsive-btns .preview-desktop, .ast-responsive-slider-btns .preview-desktop').addClass('active');
                     }
                 }
             }
