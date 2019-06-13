@@ -1093,6 +1093,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$sub_control = $json_array[ $group ];
 
 			// Check if sub_control key exists in the theme options.
+			if ( array_key_exists( $group, $theme_options ) ) {
+				return $new_options;
+			}
+
+			// Check if sub_control key exists in the theme options.
 			if ( is_array( $sub_control ) ) {
 
 				foreach ( $sub_control as $key => $value ) {
@@ -1100,6 +1105,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 					if ( array_key_exists( $value, $theme_options ) ) {
 						$new_value                       = $theme_options[ $value ];
 						$new_options[ $group ][ $value ] = $new_value;
+						if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
+							unset( $theme_options[ $value ] );
+						}
 					}
 				}
 				if ( array_key_exists( $group, $new_options ) ) {
@@ -1110,6 +1118,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				if ( array_key_exists( $sub_control, $theme_options ) ) {
 					$new_value                             = $theme_options[ $sub_control ];
 					$new_options[ $group ][ $sub_control ] = $new_value;
+					if( apply_filters( 'astra_customizer_v2_delete_old_values', false ) ) {
+						unset( $theme_options[ $sub_control ] );
+					}
 				}
 			}
 
