@@ -832,10 +832,6 @@ body {
   .ast-separate-container .ast-container {
     padding-top: 10px;
   }
-  .ast-separate-container.ast-left-sidebar #secondary, .ast-separate-container.ast-right-sidebar #secondary {
-    padding-right: 2em;
-    padding-left: 2em;
-  }
   .ast-separate-container .ast-pagination {
     padding: 2em;
   }
@@ -1302,8 +1298,6 @@ body {
 
 @media (max-width: 544px) {
   .ast-separate-container.ast-two-container #secondary .widget {
-    padding-right: 1em;
-    padding-left: 1em;
     margin-bottom: 1.5em;
   }
 }
