@@ -336,10 +336,9 @@
 .ast-page-builder-template {
     .comments-area {
         padding: 3em 0em 0em 0em;
-    }
-    @media (max-width: $mx-col-sm) {
-        .comments-area {
-            padding: 3em 0em;
+        margin-bottom: 3em;
+        @media (max-width: $mx-col-sm) {
+            margin: 0;
         }
     }
 }

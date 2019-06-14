@@ -461,11 +461,12 @@
 
 .ast-page-builder-template .comments-area {
   padding: 3em 0em 0em 0em;
+  margin-bottom: 3em;
 }
 
 @media (max-width: 544px) {
   .ast-page-builder-template .comments-area {
-    padding: 3em 0em;
+    margin: 0;
   }
 }
 
@@ -945,10 +946,6 @@ body {
   padding-right: 20px;
 }
 
-.ast-page-builder-template .comments-area {
-  margin-bottom: 3em;
-}
-
 @media (max-width: 544px) {
   .ast-page-builder-template .entry-header {
     margin-top: 0;
@@ -1080,6 +1077,10 @@ body {
   .ast-page-builder-template #secondary {
     padding-left: 2em;
     padding-right: 2em;
+  }
+  .ast-plain-container.single #primary,
+  .ast-page-builder-template.single #primary {
+    padding: 2em;
   }
 }
 

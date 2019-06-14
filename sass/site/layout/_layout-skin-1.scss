@@ -242,10 +242,7 @@ body{
 		padding-left: ($grid-gutter-width / 2);
 		padding-right: ($grid-gutter-width / 2);
 	}
-
-	.comments-area {
-		margin-bottom: 3em;
-	}
+	
 	@media (max-width: $mx-col-sm) {
 		.entry-header {
 			margin-top: 0;
@@ -419,6 +416,11 @@ body{
 		#secondary {
 			padding-left: 2em;
 			padding-right: 2em;
+		}
+		&.single {
+			#primary {
+				padding: 2em;
+			}
 		}
 	}
 }
