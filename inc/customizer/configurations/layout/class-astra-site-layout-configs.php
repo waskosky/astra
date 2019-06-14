@@ -32,36 +32,6 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 
 			$_configs = array(
 
-				/**
-				 * Option: Select Skin for Blog Design.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-content-skin]',
-					'type'     => 'control',
-					'default'  => astra_get_option( 'site-content-skin' ),
-					'control'  => 'select',
-					'section'  => 'section-container-layout',
-					'priority' => 5,
-					'title'    => __( 'Select Skin', 'astra' ),
-					'choices'  => array(
-						'modern-skin'  => __( 'Modern', 'astra' ),
-						'classic-skin' => __( 'Classic', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-content-skin-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-container-layout',
-					'priority' => 8,
-					'settings' => array(),
-				),
-
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[site-content-width]',
 					'type'        => 'control',
