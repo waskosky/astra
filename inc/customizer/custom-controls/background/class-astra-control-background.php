@@ -100,13 +100,13 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 
 				<!-- background-color -->
 				<div class="background-color">
-					<h4><?php esc_attr_e( 'Background Color', 'astra' ); ?></h4>
+					<span class="customize-control-title" ><?php esc_attr_e( 'Background Color', 'astra' ); ?></span>
 					<input data-name="{{ data.name }}" type="text" data-default-color="{{ data.default['background-color'] }}" data-alpha="true" value="{{ data.value['background-color'] }}" class="ast-color-control"/>
 				</div>
 
 				<!-- background-image -->
 				<div class="background-image">
-					<h4><?php esc_attr_e( 'Background Image', 'astra' ); ?></h4>
+					<span class="customize-control-title" ><?php esc_attr_e( 'Background Image', 'astra' ); ?></span>
 					<div class="attachment-media-view background-image-upload">
 						<# if ( data.value['background-image'] ) { #>
 							<div class="thumbnail thumbnail-image"><img src="{{ data.value['background-image'] }}" alt="" /></div>

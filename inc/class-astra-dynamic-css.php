@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
 			$btn_bg_color       = astra_get_option_by_group( 'button-bg-color', 'theme-button-color-group', $theme_color );
-			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
+			$btn_bg_hover_color = astra_get_option_by_group( 'button-bg-h-color', 'theme-button-color-group', $link_hover_color );
 
 			// Spacing of Big Footer.
 			$small_footer_divider_color = astra_get_option( 'footer-sml-divider-color' );
