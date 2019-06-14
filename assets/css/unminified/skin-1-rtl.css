@@ -1063,8 +1063,8 @@ body {
   .ast-page-builder-template .blog-layout-1 {
     padding: 2em;
   }
-  .ast-plain-container .ast-row,
-  .ast-page-builder-template .ast-row {
+  .ast-plain-container.blog .ast-row,
+  .ast-page-builder-template.blog .ast-row {
     margin-left: 0;
     margin-right: 0;
   }
