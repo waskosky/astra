@@ -125,15 +125,17 @@ body{
 		.ast-article-single{
 		    padding: 2em;
 		}
-		#primary,
-		#secondary{
+		#primary{
 			padding-top: 0;
+		}
+		#secondary{
+			padding-top: 1em;
 		}
 		.ast-container {
 			padding-top: 10px;
 		}
 		.ast-pagination {
-			padding: 2em;
+			padding: 2em 2em 1em 2em;
 		}
 	}
 }

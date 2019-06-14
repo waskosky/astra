@@ -302,6 +302,7 @@
 @media (max-width: 544px) {
   .comments-area {
     padding: 2em;
+    margin-bottom: 1em;
   }
 }
 
@@ -825,15 +826,17 @@ body {
   .ast-separate-container .ast-article-single {
     padding: 2em;
   }
-  .ast-separate-container #primary,
-  .ast-separate-container #secondary {
+  .ast-separate-container #primary {
     padding-top: 0;
+  }
+  .ast-separate-container #secondary {
+    padding-top: 1em;
   }
   .ast-separate-container .ast-container {
     padding-top: 10px;
   }
   .ast-separate-container .ast-pagination {
-    padding: 2em;
+    padding: 2em 2em 1em 2em;
   }
 }
 
