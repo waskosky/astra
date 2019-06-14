@@ -216,7 +216,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'mobile-header-logo'                  => '',
 					'mobile-header-logo-width'            => '',
 					// Site Layout.
-					'site-content-skin'                   => 'modern-skin',
 					'site-layout'                         => 'ast-full-width-layout',
 					'site-content-width'                  => 1200,
 					'site-layout-outside-bg-obj'          => array(
