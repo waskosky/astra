@@ -254,7 +254,12 @@
 
 .ast-comment-meta {
   margin-bottom: 1.2em;
-  margin-top: 1.2em;
+}
+
+@media (max-width: 544px) {
+  .ast-comment-meta {
+    margin-top: 1.2em;
+  }
 }
 
 .ast-comment-time .timendate {
