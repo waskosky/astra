@@ -244,8 +244,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 					);
 					/* Parse CSS from array()*/
+					$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 				}
-				$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 			}
 
 			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {

@@ -66,8 +66,8 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			$theme_options = get_option( ASTRA_THEME_SETTINGS );
 			$option        = 'site-content-skin';
 			$default       = 'modern-skin';
-			$value         = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-			return $value;
+			$skin          = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
+			return apply_filters( 'astra_skin_switch', $skin );
 		}
 	}
 }
