@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Customizer controls data.
 		 *
 		 * @access Public
-		 * @since x.x.x
+		 * @since 2.0.0-beta.1
 		 * @var Array
 		 */
 		public $control_types = array();
@@ -183,7 +183,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @param string $string main string.
 		 * @param string $start_string string to search.
-		 * @since x.x.x
+		 * @since 2.0.0-beta.1
 		 * @return bool.
 		 */
 		function starts_with( $string, $start_string ) {
