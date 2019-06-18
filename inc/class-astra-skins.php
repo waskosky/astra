@@ -103,11 +103,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			// 	}
 			// }
 
-			$theme_options = get_option( ASTRA_THEME_SETTINGS );
-			$option        = 'site-content-skin';
-			$default       = 'modern-skin';
-			$skin          = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-			return apply_filters( 'astra_skin_switch', $skin );
+			return apply_filters( 'astra_skin_switch', astra_get_option( 'site-content-skin', 'modern-skin' ) );
 		}
 	}
 }
