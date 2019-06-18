@@ -49,6 +49,15 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			return $assets;
 		}
 
+		/**
+		 * Add HTML attributes to comment markup.
+		 * 
+		 * Conditionally add capitialize class to the comment markup.
+		 *
+		 * @since x.x.x
+		 * @param Array $attr HTML attributes for the comments markup.
+		 * @return void
+		 */
 		public function comment_meta_attributes( $attr ) {
 			// Capitilize the Author name for the classic skin.
 			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
