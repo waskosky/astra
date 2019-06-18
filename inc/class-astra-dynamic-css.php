@@ -222,7 +222,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css       = astra_parse_css( $skin_css_output );
 			} else {
 				$skin_css_output = array(
-					'p, .entry-content p' => array(
+					'p, .entry-content p'  => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
 					'.comment-reply-title' => array(
