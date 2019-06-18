@@ -106,7 +106,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'name'    => 'button-bg-color',
-					'default' => astra_get_option( 'theme-color' ),
+					'default' => '',
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
 					'tab'     => __( 'Normal', 'astra' ),
