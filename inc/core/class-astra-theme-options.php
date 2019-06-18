@@ -267,7 +267,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-entry-title'               => array(
-						'desktop'      => ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? 32 : 30 ),
+						'desktop'      => 32,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -275,7 +275,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-archive-summary-title'     => array(
-						'desktop'      => ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? 26 : 40 ),
+						'desktop'      => 26,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -283,7 +283,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                => array(
-						'desktop'      => ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? 26 : 40 ),
+						'desktop'      => 26,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -341,7 +341,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// Sidebar.
 					'site-sidebar-layout'                 => 'right-sidebar',
-					'site-sidebar-width'                  => ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? 29 : 30 ),
+					'site-sidebar-width'                  => 29,
 					'single-page-sidebar-layout'          => 'default',
 					'single-post-sidebar-layout'          => 'default',
 					'archive-post-sidebar-layout'         => 'default',

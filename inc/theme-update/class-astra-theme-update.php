@@ -1018,6 +1018,34 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['site-content-skin'] = 'classic-skin';
 				update_option( 'astra-settings', $theme_options );
 			}
+
+			// If user was using a default value for Post Title, Set the default in the option.
+			if ( ! isset( $theme_options['font-size-entry-title'] ) ) {
+				$theme_options['font-size-entry-title'] = array(
+					'desktop'      => '30'
+				);
+			}
+
+			// If user was using a default value for Post Arcihve Title, Set the default in the option.
+			if ( ! isset( $theme_options['font-size-archive-summary-title'] ) ) {
+				$theme_options['font-size-archive-summary-title'] = array(
+					'desktop'      => '40'
+				);
+			}
+
+			// If user was using a default value for Page title, Set the default in the option.
+			if ( ! isset( $theme_options['font-size-page-title'] ) ) {
+				$theme_options['font-size-page-title'] = array(
+					'desktop'      => '40'
+				);
+			}
+
+			// If user was using a default value for Sidebar Width, Set the default in the option.
+			if ( ! isset( $theme_options['site-sidebar-width'] ) ) {
+				$theme_options['site-sidebar-width'] = array(
+					'desktop'      => '30'
+				);
+			}
 		}
 
 	}
