@@ -31,16 +31,11 @@ if ( post_password_required() ) {
 				<?php
 				$comments_title = apply_filters(
 					'astra_comment_form_title',
-					( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? sprintf( // WPCS: XSS OK.
+					sprintf(
 						/* translators: 1: number of comments */
-						esc_html( _nx( 'This Post Has %1$s Comment', 'This Post Has %1$s Comments', get_comments_number(), 'comments title', 'astra' ) ),
+							esc_html( _nx( 'This Post Has %1$s Comment', 'This Post Has %1$s Comments', get_comments_number(), 'comments title', 'astra' ) ),
 						number_format_i18n( get_comments_number() )
-					) : sprintf( // WPCS: XSS OK.
-						/* translators: 1: number of comments */
-						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'astra' ) ),
-						number_format_i18n( get_comments_number() ),
-						get_the_title()
-					) )
+					)
 				);
 
 				echo esc_html( $comments_title );

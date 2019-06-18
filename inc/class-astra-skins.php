@@ -29,6 +29,10 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
+			add_filter( 'astra_attr_ast-comment-meta', array( $this, 'comment_meta_attributes' ) );
+			add_filter( 'astra_comment_avatar_size', array( $this, 'comment_avatar_size' ) );
+			add_filter( 'astra_theme_defaults', array( $this, 'skin_defaults' ) );
+			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );
 		}
 
 		/**
@@ -38,14 +42,91 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 * @return array List of updated assets.
 		 * @since x.x.x
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			if ( 'modern-skin' === self::astra_get_selected_skin() ) {
 				$assets['css']['astra-modern-skin'] = 'skin-1';
-				return $assets;
 			}
 
-			$assets['css']['astra-classic-skin'] = 'skin-classic';
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$assets['css']['astra-classic-skin'] = 'skin-classic';
+			}
+
 			return $assets;
+		}
+
+		/**
+		 * Add HTML attributes to comment markup.
+		 *
+		 * Conditionally add capitialize class to the comment markup.
+		 *
+		 * @since x.x.x
+		 * @param Array $attr HTML attributes for the comments markup.
+		 * @return string
+		 */
+		public function comment_meta_attributes( $attr ) {
+			// Capitilize the Author name for the classic skin.
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$attr['class'] .= ' capitalize';
+			}
+
+			return $attr;
+		}
+
+		/**
+		 * Change comment avatar size based on the skin that is selected.
+		 *
+		 * Classic skin uses smaller avatar, size 50.
+		 *
+		 * @since x.x.x
+		 * @param int $size Avatar size.
+		 * @return int
+		 */
+		public function comment_avatar_size( $size ) {
+			// Reduce the avatar size when classic skin is used.
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$size = 50;
+			}
+
+			return $size;
+		}
+
+		/**
+		 * Set default skin for the ocntent layout.
+		 *
+		 * @since x.x.x
+		 * @param Array $defaults Array of default customizer settings.
+		 * @return Array
+		 */
+		public function skin_defaults( $defaults ) {
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$defaults['font-size-entry-title']['desktop']           = 30;
+				$defaults['font-size-archive-summary-title']['desktop'] = 40;
+				$defaults['font-size-archive-summary-title']['desktop'] = 40;
+				$defaults['site-sidebar-width']                         = 30;
+			}
+
+			return $defaults;
+		}
+
+		/**
+		 * Change comment form title in case of Classic Skin.
+		 *
+		 * @since x.x.x
+		 * @param String $form_title HTML markup for the Comments Form title.
+		 * @return String
+		 */
+		public function comment_form_title( $form_title ) {
+			// Reduce the avatar size when classic skin is used.
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$form_title = sprintf( // WPCS: XSS OK.
+					/* translators: 1: number of comments */
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'astra' ) ),
+					number_format_i18n( get_comments_number() ),
+					get_the_title()
+				);
+			}
+
+			return $form_title;
 		}
 
 		/**
@@ -63,11 +144,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 				}
 			}
 
-			$theme_options = get_option( ASTRA_THEME_SETTINGS );
-			$option        = 'site-content-skin';
-			$default       = 'modern-skin';
-			$skin          = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-			return apply_filters( 'astra_skin_switch', $skin );
+			return apply_filters( 'astra_skin_switch', Astra_Theme_Options::astra_get_db_option( 'site-content-skin', 'modern-skin' ) );
 		}
 	}
 }
