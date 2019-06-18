@@ -1221,12 +1221,10 @@ if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 		$group_option = ! is_array( $group_option ) ? json_decode( $group_option, true ) : $group_option;
 
 		if ( isset( $group_option[ $option ] ) && '' != $group_option[ $option ] ) {
-			return $group_option[ $option ];
+			return apply_filters( "astra_get_option_{$option}", $group_option[ $option ], $option, $default );
 		}
 
-		$default = astra_get_option( $option, $default );
-
-		return $default;
+		return astra_get_option( $option, $default );
 	}
 
 endif;
