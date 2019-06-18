@@ -195,8 +195,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_1();
 			}
 
-			if ( version_compare( $saved_version, '1.9.0', '<' ) ) {
-				self::v_1_9_0();
+			if ( version_compare( $saved_version, '1.9.0-beta.1', '<' ) ) {
+				self::v_1_9_0_beta_1();
 			}
 
 			// Not have stored?
@@ -1011,7 +1011,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @return void
 		 */
-		public static function v_1_9_0() {
+		public static function v_1_9_0_beta_1() {
 			$theme_options = get_option( 'astra-settings' );
 			// Set flag to use anchors CSS selectors in the CSS for headings.
 			if ( ! isset( $theme_options['site-content-skin'] ) ) {
