@@ -30,6 +30,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		public function __construct() {
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
 			add_filter( 'astra_attr_ast-comment-meta', array( $this, 'comment_meta_attributes' ) );
+			add_filter( 'astra_comment_avatar_size', array( $this, 'comment_avatar_size' ) );
 		}
 
 		/**
@@ -67,6 +68,24 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			}
 
 			return $attr;
+		}
+
+		/**
+		 * Change comment avatar size based on the skin that is selected.
+		 * 
+		 * Classic skin uses smaller avatar, size 50.
+		 *
+		 * @since x.x.x
+		 * @param int $size Avatar size.
+		 * @return void
+		 */
+		public function comment_avatar_size( $size ) {
+			// Reduce the avatar size when classic skin is used.
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$size = 50;
+			}
+
+			return $size;
 		}
 
 		/**
