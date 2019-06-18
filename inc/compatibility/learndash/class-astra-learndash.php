@@ -316,8 +316,11 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		function get_learndash_theme() {
 
-			$themes       = get_option( 'learndash_settings_courses_themes' );
-			$active_theme = isset( $themes['active_theme'] ) ? $themes['active_theme'] : '';
+			$active_theme = '';
+			
+			if( class_exists( 'LearnDash_Theme_Register' ) ) {
+				$active_theme = LearnDash_Theme_Register::get_active_theme_key();
+			}
 
 			return $active_theme;
 		}
