@@ -42,10 +42,12 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		public function add_styles( $assets ) {
 			if ( 'modern-skin' === self::astra_get_selected_skin() ) {
 				$assets['css']['astra-modern-skin'] = 'skin-1';
-				return $assets;
 			}
 
-			$assets['css']['astra-classic-skin'] = 'skin-classic';
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$assets['css']['astra-classic-skin'] = 'skin-classic';
+			}
+
 			return $assets;
 		}
 
