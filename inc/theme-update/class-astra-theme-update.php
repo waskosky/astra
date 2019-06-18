@@ -1042,9 +1042,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// If user was using a default value for Sidebar Width, Set the default in the option.
 			if ( ! isset( $theme_options['site-sidebar-width'] ) ) {
-				$theme_options['site-sidebar-width'] = array(
-					'desktop'      => '30'
-				);
+				$theme_options['site-sidebar-width'] = 30;
 			}
 		}
 
