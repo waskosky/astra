@@ -29,6 +29,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
+			add_filter( 'astra_attr_ast-comment-meta', array( $this, 'comment_meta_attributes' ) );
 		}
 
 		/**
@@ -38,7 +39,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 * @return array List of updated assets.
 		 * @since x.x.x
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			if ( 'modern-skin' === self::astra_get_selected_skin() ) {
 				$assets['css']['astra-modern-skin'] = 'skin-1';
 				return $assets;
@@ -46,6 +47,15 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 
 			$assets['css']['astra-classic-skin'] = 'skin-classic';
 			return $assets;
+		}
+
+		public function comment_meta_attributes( $attr ) {
+			// Capitilize the Author name for the classic skin.
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$attr['class'] .= ' capitalize';
+			}
+
+			return $attr;
 		}
 
 		/**
