@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 *
 		 * @since x.x.x
 		 * @param Array $attr HTML attributes for the comments markup.
-		 * @return void
+		 * @return string
 		 */
 		public function comment_meta_attributes( $attr ) {
 			// Capitilize the Author name for the classic skin.
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 *
 		 * @since x.x.x
 		 * @param int $size Avatar size.
-		 * @return void
+		 * @return int
 		 */
 		public function comment_avatar_size( $size ) {
 			// Reduce the avatar size when classic skin is used.
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 * Set default skin for the ocntent layout.
 		 *
 		 * @since x.x.x
-		 * @param Array $defaults Array of default customizer settings
+		 * @param Array $defaults Array of default customizer settings.
 		 * @return Array
 		 */
 		public function skin_defaults( $defaults ) {
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 				}
 			}
 
-			return apply_filters( 'astra_skin_switch', astra_get_option( 'site-content-skin', 'modern-skin' ) );
+			return apply_filters( 'astra_skin_switch', Astra_Theme_Options::astra_get_db_option( 'site-content-skin', 'modern-skin' ) );
 		}
 	}
 }

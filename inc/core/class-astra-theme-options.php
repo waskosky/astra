@@ -377,6 +377,30 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				self::defaults()
 			);
 		}
+		/**
+		 * Get option value directly from DB.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param mixed $option Option to get value from DB.
+		 * @param mixed $default Pass default value if it is not present in the DB.
+		 * @return mixed
+		 */
+		public static function astra_get_db_option( $option, $default = '' ) {
+
+			$db_theme_options = get_option( ASTRA_THEME_SETTINGS );
+
+			$value = ( isset( $db_theme_options[ $option ] ) && '' !== $db_theme_options[ $option ] ) ? $db_theme_options[ $option ] : $default;
+
+			/**
+			 * Dynamic filter astra_get_db_option_$option.
+			 * $option is the name of the Astra Setting.
+			 *
+			 * @since x.x.x
+			 * @var Mixed.
+			 */
+			return apply_filters( "astra_get_db_option_{$option}", $value, $option, $default );
+		}
 	}
 }
 /**
