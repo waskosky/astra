@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		static public function init() {
 
 			do_action( 'astra_update_before' );
-			
+
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 

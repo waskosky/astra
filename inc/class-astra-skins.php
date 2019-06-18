@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
 			add_filter( 'astra_attr_ast-comment-meta', array( $this, 'comment_meta_attributes' ) );
 			add_filter( 'astra_comment_avatar_size', array( $this, 'comment_avatar_size' ) );
-			add_filter( 'astra_theme_defaults', array( $this, 'set_default_skin' ) );
+			add_filter( 'astra_theme_defaults', array( $this, 'skin_defaults' ) );
 			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );
 		}
 
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 *
 		 * @since x.x.x
 		 * @param Array $attr HTML attributes for the comments markup.
-		 * @return void
+		 * @return string
 		 */
 		public function comment_meta_attributes( $attr ) {
 			// Capitilize the Author name for the classic skin.
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 *
 		 * @since x.x.x
 		 * @param int $size Avatar size.
-		 * @return void
+		 * @return int
 		 */
 		public function comment_avatar_size( $size ) {
 			// Reduce the avatar size when classic skin is used.
@@ -94,18 +94,23 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 * Set default skin for the ocntent layout.
 		 *
 		 * @since x.x.x
-		 * @param Array $defaults Array of default customizer settings
+		 * @param Array $defaults Array of default customizer settings.
 		 * @return Array
 		 */
-		public function set_default_skin( $defaults ) {
-			$defaults['site-content-skin'] = 'modern-skin';
+		public function skin_defaults( $defaults ) {
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$defaults['font-size-entry-title']['desktop']           = 30;
+				$defaults['font-size-archive-summary-title']['desktop'] = 40;
+				$defaults['font-size-archive-summary-title']['desktop'] = 40;
+				$defaults['site-sidebar-width']                         = 30;
+			}
 
 			return $defaults;
 		}
 
 		/**
 		 * Change comment form title in case of Classic Skin.
-		 * 
+		 *
 		 * @since x.x.x
 		 * @param String $form_title HTML markup for the Comments Form title.
 		 * @return String
@@ -139,7 +144,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 				}
 			}
 
-			return apply_filters( 'astra_skin_switch', astra_get_option( 'site-content-skin' ) );
+			return apply_filters( 'astra_skin_switch', Astra_Theme_Options::astra_get_db_option( 'site-content-skin', 'modern-skin' ) );
 		}
 	}
 }

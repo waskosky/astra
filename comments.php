@@ -31,11 +31,11 @@ if ( post_password_required() ) {
 				<?php
 				$comments_title = apply_filters(
 					'astra_comment_form_title',
-						sprintf(
-							/* translators: 1: number of comments */
+					sprintf(
+						/* translators: 1: number of comments */
 							esc_html( _nx( 'This Post Has %1$s Comment', 'This Post Has %1$s Comments', get_comments_number(), 'comments title', 'astra' ) ),
-							number_format_i18n( get_comments_number() )
-						)
+						number_format_i18n( get_comments_number() )
+					)
 				);
 
 				echo esc_html( $comments_title );
