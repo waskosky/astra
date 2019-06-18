@@ -31,6 +31,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
 			add_filter( 'astra_attr_ast-comment-meta', array( $this, 'comment_meta_attributes' ) );
 			add_filter( 'astra_comment_avatar_size', array( $this, 'comment_avatar_size' ) );
+			add_filter( 'astra_theme_defaults', array( $this, 'set_default_skin' ) );
 		}
 
 		/**
@@ -89,6 +90,19 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		}
 
 		/**
+		 * Set default skin for the ocntent layout.
+		 *
+		 * @since x.x.x
+		 * @param Array $defaults Array of default customizer settings
+		 * @return Array
+		 */
+		public function set_default_skin( $defaults ) {
+			$defaults['site-content-skin'] = 'modern-skin';
+
+			return $defaults;
+		}
+
+		/**
 		 * Get the skin selected from customizer for the site.
 		 *
 		 * @since x.x.x
@@ -103,7 +117,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			// 	}
 			// }
 
-			return apply_filters( 'astra_skin_switch', astra_get_option( 'site-content-skin', 'modern-skin' ) );
+			return apply_filters( 'astra_skin_switch', astra_get_option( 'site-content-skin' ) );
 		}
 	}
 }
