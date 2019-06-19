@@ -69,7 +69,8 @@ body{
 	}
 	&.ast-two-container{
 		.ast-article-post{
-			margin-bottom: 20px;
+			margin-bottom: 10px;
+			margin-top: 10px;
 			border-bottom: 0;
 		}
 		@media (max-width: $mx-col-sm) {
