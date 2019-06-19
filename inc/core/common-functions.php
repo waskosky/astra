@@ -801,6 +801,8 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 			}
 		}
 
+		$title = apply_filters( 'astra_the_title', $title, $post_id );
+
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
 			echo $title;
@@ -1203,3 +1205,13 @@ if ( ! function_exists( 'astra_is_white_labelled' ) ) :
 	}
 
 endif;
+
+/**
+ * Get the value for font-display property.
+ *
+ * @since x.x.x
+ * @return string
+ */
+function astra_get_fonts_display_property() {
+	return apply_filters( 'astra_fonts_display_property', 'fallback' );
+}
