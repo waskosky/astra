@@ -1305,6 +1305,7 @@ body {
 
 @media (max-width: 544px) {
   .ast-separate-container.ast-two-container #secondary .widget {
-    margin-bottom: 1.5em;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }
