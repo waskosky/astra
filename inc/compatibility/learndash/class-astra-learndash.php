@@ -65,6 +65,16 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		function add_dynamic_styles() {
 
+			$active_ld_theme = '';
+
+			if ( is_callable( 'LearnDash_Theme_Register::get_active_theme_key' ) ) {
+				$active_ld_theme = LearnDash_Theme_Register::get_active_theme_key();
+			}
+
+			if ( 'ld30' === $active_ld_theme ) {
+				return;
+			}
+
 			/**
 			 * - Variable Declaration
 			 */
@@ -185,7 +195,11 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		function customize_register( $wp_customize ) {
 
-			$active_ld_theme = $this->get_learndash_theme();
+			$active_ld_theme = '';
+
+			if ( is_callable( 'LearnDash_Theme_Register::get_active_theme_key' ) ) {
+				$active_ld_theme = LearnDash_Theme_Register::get_active_theme_key();
+			}
 
 			/**
 			 * Register Sections & Panels
@@ -306,23 +320,6 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			}
 
 			return $layout;
-		}
-
-		/**
-		 * Get learndash theme.
-		 *
-		 * @since x.x.x
-		 * @return string $active_theme Active theme.
-		 */
-		function get_learndash_theme() {
-
-			$active_theme = '';
-			
-			if( class_exists( 'LearnDash_Theme_Register' ) ) {
-				$active_theme = LearnDash_Theme_Register::get_active_theme_key();
-			}
-
-			return $active_theme;
 		}
 	}
 
