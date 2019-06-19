@@ -1,3 +1,25 @@
+v1.8.5
+- New: Introduced astra_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpastra.com/docs/modify-font-display-property-value/ )
+- New: Filter to add a title tag to Header background image as an alt text alternative. ( https://wpastra.com/docs/title-tag-in-header-background-image/ )
+- New: Filter to change tag of Site Tagline Markup. ( https://wpastra.com/docs/change-html-tag-for-site-tagline/ )
+- Fix: Elementor Products widget grid layout responsive design compatibility.
+- Fix: Notice for HTTP_USER_AGENT when it is not set or filtered from firewall.
+- Fix: Display rating notice only to users with permission to install plugins.
+
+v1.8.4
+- New: Introduced astra_the_title filter to allow users to modify the title.
+- Improvement: Add a font-display property for the Google Fonts.
+- Fix: Missing Inherit option added for breadcrumb typography.
+- Fix: WooCommerce Shop Page row column compatibility with Elementor.
+- Fix: Breadcrumb NavXT plugin schema data not correctly visible.
+
+v1.8.3
+- Improvement: Add a font-display property for the Astra Fonts.
+- Fix: Gutenberg separator visibility issue.
+- Fix: WCAG 2.0 Search icon link accessibility fix.
+- Fix: Breadcrumb schema last item id error.
+- Fix: PHP notice appearing when submenu border width set as default.
+
 v1.8.2
 - Fix: Hide "Cart" text appearing in the WooCommerce cart in the header.
 - Fix: Anchors inside blockquote inheriting blockquote text color, hence challenging to distinguish them as links.
