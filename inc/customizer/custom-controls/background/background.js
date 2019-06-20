@@ -60,6 +60,8 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		// Background-Size.
 		control.container.on( 'change click', '.background-size input', function() {
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
 			control.saveValue( 'background-size', jQuery( this ).val() );
 		});
 
@@ -70,6 +72,8 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		// Background-Attachment.
 		control.container.on( 'change click', '.background-attachment input', function() {
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
 			control.saveValue( 'background-attachment', jQuery( this ).val() );
 		});
 
