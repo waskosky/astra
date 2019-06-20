@@ -473,6 +473,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                 jQuery(element).val('');
                 control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '' ] );
+                wp.customize.previewer.refresh();
             }
         });
     },
@@ -554,6 +555,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     jQuery(element).val( '' );
                     control.container.trigger( 'ast_settings_changed', [ control, jQuery(element), newValue ] );
                 }
+                wp.customize.previewer.refresh();
             }
         });
 
@@ -687,6 +689,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 if ( element ) {
                     control.saveValue( screen, 'background-color', '', jQuery( element ) );
                 }
+                wp.customize.previewer.refresh();
             }
         });
 
@@ -893,6 +896,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 if (element) {
                     control.saveBgValue( 'background-color', '', jQuery(element) );
                 }
+                wp.customize.previewer.refresh();
             }
         });
 
