@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 				<div class="background-attachment">
 					<h4><?php esc_attr_e( 'Background Attachment', 'astra' ); ?></h4>
 					<div class="buttonset">
-						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{ data.id }}}-attachment" id="{{ data.id }}-{{ data.name }}-inherit" <# if ( 'inherit' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
+						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{ data.id }}}-attachment" id="{{ data.id }}{{ data.name }}-inherit" <# if ( 'inherit' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
 							<label class="switch-label switch-label-<# if ( 'inherit' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}{{ data.name }}-inherit"><?php esc_attr_e( 'Inherit', 'astra' ); ?></label>
 						</input>
 						<input {{{ data.inputAttrs }}} data-name="{{ data.name }}" class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}{{ data.name }}-scroll" <# if ( 'scroll' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
