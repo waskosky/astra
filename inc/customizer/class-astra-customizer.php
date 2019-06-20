@@ -580,7 +580,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-settings-group',
 				array(
 					'callback'          => 'Astra_Control_Settings_Group',
-					'sanitize_callback' => '',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_settings_group' ),
 				)
 			);
 
