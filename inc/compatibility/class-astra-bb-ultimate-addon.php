@@ -182,7 +182,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Background Color
 		 */
 		function button_bg_hover_color() {
-			return astra_get_option( 'button-bg-h-color' );
+			return astra_get_option_by_group( 'button-bg-h-color', 'theme-button-color-group' );
 		}
 
 		/**

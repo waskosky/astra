@@ -3,8 +3,18 @@
 		margin: 0px 0 15px 0;
 	}
 }
+.accordion-section-content {
+	&.open {
+		.customize-control-ast-heading:nth-child(2) {
+			margin-top: 0;
+		}
+		.customize-control-ast-heading:nth-child(3) {
+			margin-top: 0;
+		}
+	}
+}
 .customize-control-ast-heading {
-	margin: 20px 0;
+	margin-bottom: 15px;
 	.ast-heading-wrapper{
 		margin: 0 -12px;
 		padding-left: 4px;

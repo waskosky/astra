@@ -130,20 +130,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_custom_button_back_color     = astra_get_option_by_group( 'header-main-rt-section-button-back-color', 'primary-header-button-color-group' );
 			$header_custom_button_back_h_color   = astra_get_option_by_group( 'header-main-rt-section-button-back-h-color', 'primary-header-button-color-group' );
 			$header_custom_button_spacing        = astra_get_option( 'header-main-rt-section-button-padding' );
-			$header_custom_button_radius         = astra_get_option( 'header-main-rt-section-button-border-radius' );
+			$header_custom_button_radius         = astra_get_option_by_group( 'header-main-rt-section-button-border-radius', 'primary-header-button-border-group' );
 			$header_custom_button_border_color   = astra_get_option_by_group( 'header-main-rt-section-button-border-color', 'primary-header-button-border-group' );
 			$header_custom_button_border_h_color = astra_get_option_by_group( 'header-main-rt-section-button-border-h-color', 'primary-header-button-border-group' );
-			$header_custom_button_border_size    = astra_get_option( 'header-main-rt-section-button-border-size' );
+			$header_custom_button_border_size    = astra_get_option_by_group( 'header-main-rt-section-button-border-size', 'primary-header-button-border-group' );
 
 			$header_custom_trans_button_text_color     = astra_get_option_by_group( 'header-main-rt-trans-section-button-text-color', 'transparent-header-button-color-group' );
 			$header_custom_trans_button_text_h_color   = astra_get_option_by_group( 'header-main-rt-trans-section-button-text-h-color', 'transparent-header-button-color-group' );
 			$header_custom_trans_button_back_color     = astra_get_option_by_group( 'header-main-rt-trans-section-button-back-color', 'transparent-header-button-color-group' );
 			$header_custom_trans_button_back_h_color   = astra_get_option_by_group( 'header-main-rt-trans-section-button-back-h-color', 'transparent-header-button-color-group' );
 			$header_custom_trans_button_spacing        = astra_get_option( 'header-main-rt-trans-section-button-padding' );
-			$header_custom_trans_button_radius         = astra_get_option( 'header-main-rt-trans-section-button-border-radius' );
+			$header_custom_trans_button_radius         = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-radius', 'transparent-header-button-border-group' );
 			$header_custom_trans_button_border_color   = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-color', 'transparent-header-button-border-group' );
 			$header_custom_trans_button_border_h_color = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-h-color', 'transparent-header-button-border-group' );
-			$header_custom_trans_button_border_size    = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
+			$header_custom_trans_button_border_size    = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-size', 'transparent-header-button-border-group' );
 
 			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
 			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
 			$btn_bg_color       = astra_get_option_by_group( 'button-bg-color', 'theme-button-color-group', $theme_color );
-			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
+			$btn_bg_hover_color = astra_get_option_by_group( 'button-bg-h-color', 'theme-button-color-group', $link_hover_color );
 
 			// Spacing of Big Footer.
 			$small_footer_divider_color = astra_get_option( 'footer-sml-divider-color' );
@@ -923,7 +923,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
 					$astra_fonts     .= 'font-weight: normal;';
 					$astra_fonts     .= 'font-style: normal;';
-					$astra_fonts     .= 'font-display: fallback;';
+					$astra_fonts     .= 'font-display: ' . astra_get_fonts_display_property() . ';';
 				$astra_fonts         .= '}';
 				$parse_css           .= $astra_fonts;
 			}

@@ -50,6 +50,11 @@
                 background-color: #298cbe;
                 color: #fff;
             }
+
+            .switch-input[checked="checked"] + .switch-label {
+                background-color: #298cbe;
+                color: #fff;
+            }
         }
     }
 

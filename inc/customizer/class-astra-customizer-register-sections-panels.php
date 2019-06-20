@@ -279,15 +279,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				array(
-					'name'               => 'section-colors-footer',
-					'type'               => 'section',
-					'title'              => __( 'Footer Bar', 'astra' ),
-					'panel'              => 'panel-colors-background',
-					'priority'           => 60,
-					'description_hidden' => true,
-				),
-
-				array(
 					'name'     => 'section-footer-adv-color-bg',
 					'type'     => 'section',
 					'title'    => __( 'Footer Widgets', 'astra' ),
@@ -334,39 +325,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'panel'    => 'panel-typography',
 					'priority' => 35,
 				),
-				array(
-					'name'     => 'section-primary-header-typo',
-					'type'     => 'section',
-					'title'    => __( 'Primary Header', 'astra' ),
-					'panel'    => 'panel-typography',
-					'priority' => 21,
-				),
-
-				array(
-					'name'     => 'section-blog-typo-group',
-					'type'     => 'section',
-					'priority' => 40,
-					'title'    => __( 'Blog', 'astra' ),
-					'panel'    => 'panel-typography',
-				),
-
-				array(
-					'name'     => 'section-archive-typo',
-					'type'     => 'section',
-					'priority' => 5,
-					'title'    => __( 'Blog / Archive', 'astra' ),
-					'panel'    => 'panel-typography',
-					'section'  => 'section-blog-typo-group',
-				),
-
-				array(
-					'name'     => 'section-single-typo',
-					'type'     => 'section',
-					'priority' => 10,
-					'title'    => __( 'Single Post', 'astra' ),
-					'panel'    => 'panel-typography',
-					'section'  => 'section-blog-typo-group',
-				),
 
 				/**
 				 * Buttons Section
@@ -376,17 +334,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'     => 'section',
 					'priority' => 50,
 					'title'    => __( 'Buttons', 'astra' ),
-				),
-
-				/**
-				 * Theme Buttons
-				 */
-				array(
-					'name'     => 'section-theme-button',
-					'type'     => 'section',
-					'priority' => 10,
-					'title'    => __( 'Theme Button', 'astra' ),
-					'section'  => 'section-buttons',
 				),
 
 				/**
@@ -433,19 +380,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 			);
-
-			$typography_header = apply_filters(
-				'astra_customizer_primary_header_typo',
-				array(
-					'name'     => 'section-primary-header-typo',
-					'type'     => 'section',
-					'title'    => __( 'Primary Header', 'astra' ),
-					'panel'    => 'panel-typography',
-					'priority' => 21,
-				)
-			);
-
-			array_push( $configs, $typography_header );
 
 			return array_merge( $configurations, $configs );
 		}
