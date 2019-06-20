@@ -930,6 +930,21 @@ function isJsonString( str ) {
 		} );
 	} );
 
+	/**
+	 * Primary Toggle Button Color
+	 */
+	wp.customize( 'astra-settings[mobile-header-toggle-btn-style-color]', function( setting ) {
+		setting.bind( function( toggle_button_color ) {
+			if ( toggle_button_color != '' ) {
+				var dynamicStyle = '.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle { color: ' + toggle_button_color + '}';
+				astra_add_dynamic_css( 'primary-toggle-button-color', dynamicStyle );
+			}
+			else{
+				wp.customize.preview.send( 'refresh' );
+			}
+		});
+	});
+
 
 	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );
 	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title' );

@@ -489,13 +489,14 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				 * Option: Toggle Button Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]',
-					'default'  => astra_get_option( 'mobile-header-toggle-btn-style-color' ),
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'title'    => __( 'Toggle Button Color', 'astra' ),
-					'section'  => 'section-header',
-					'priority' => 41,
+					'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]',
+					'default'   => astra_get_option( 'mobile-header-toggle-btn-style-color' ),
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'title'     => __( 'Toggle Button Color', 'astra' ),
+					'section'   => 'section-header',
+					'transport' => 'postMessage',
+					'priority'  => 41,
 				),
 
 				/**
