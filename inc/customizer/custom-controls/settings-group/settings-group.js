@@ -789,8 +789,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 responsive_input = jQuery(this),
                 screen = responsive_input.data('id');
 
-            e.preventDefault();
-
             control.saveValue( screen, 'background-image', '', jQuery(this) );
 
             preview = controlContainer.find('.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail');
@@ -812,6 +810,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             if (removeButton.length) {
                 removeButton.hide();
             }
+
+            wp.customize.previewer.refresh();
+            e.preventDefault();
         });
 
         controlContainer.on('click', '.more-settings', function (e) {
