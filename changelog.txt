@@ -1,5 +1,5 @@
 v1.8.6
-- Compatible options for LearnDash Legacy theme. 
+- Improvement: Deprecated layout options for LearnDash 3.0 template.
 
 v1.8.5
 - New: Introduced astra_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpastra.com/docs/modify-font-display-property-value/ )
