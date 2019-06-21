@@ -781,6 +781,10 @@ body {
   border-bottom: 0;
 }
 
+.ast-separate-container.ast-two-container .ast-article-post:first-child {
+  margin-top: 0;
+}
+
 @media (max-width: 544px) {
   .ast-separate-container.ast-two-container .ast-article-post:last-child {
     margin-bottom: 0;
