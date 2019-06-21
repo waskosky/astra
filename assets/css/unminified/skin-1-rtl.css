@@ -824,6 +824,9 @@ body {
     padding-right: 0;
     padding-left: 0;
   }
+  .ast-separate-container .ast-container {
+    padding-top: 10px;
+  }
 }
 
 @media (max-width: 544px) {
