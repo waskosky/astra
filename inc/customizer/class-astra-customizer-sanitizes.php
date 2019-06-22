@@ -127,7 +127,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  string $val Customizer settings value.
 		 * @return array        Return array.
-		 * @since  x.x.x
+		 * @since  2.0.0-beta.1
 		 */
 		public static function sanitize_customizer_settings_group( $val ) {
 
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  array $val Customizer settings value.
 		 * @return array        Return array.
-		 * @since  x.x.x
+		 * @since  2.0.0-beta.1
 		 */
 		public static function sanitize_customizer_settings_group_recursive( $val ) {
 
