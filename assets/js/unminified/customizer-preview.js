@@ -497,8 +497,7 @@ function astra_generate_css( group, subControl, selector, cssProperty, unittype 
 			}
 			// Remove old.
 			jQuery( 'style#' + control + '-' + cssProperty ).remove();
-			console.log(unittype);
-			console.log(typeof unittype);
+		
 			// Concat and append new <style>.
 			jQuery('head').append(
 				'<style id="' + control + '-' + cssProperty + '">'

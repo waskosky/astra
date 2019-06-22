@@ -1232,7 +1232,7 @@ endif;
 /**
  * Get the value for font-display property.
  *
- * @since 2.0.0
+ * @since 1.8.6
  * @return string
  */
 function astra_get_fonts_display_property() {
