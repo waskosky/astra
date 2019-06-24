@@ -1394,7 +1394,7 @@ p.demo_store a,
 }
 
 .woocommerce ul.products li.product a img {
-  width: 100%;
+  width: auto;
   height: auto;
   display: block;
   margin: 0 0 1em;
