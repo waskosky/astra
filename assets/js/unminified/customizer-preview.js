@@ -605,6 +605,43 @@ function astra_generate_font_family_css( group, subControl, selector ) {
 	});
 }
 
+/*
+* Generate Font Family CSS
+*/
+function astra_generate_outside_font_family_css( control, controlName, selector ) {
+	wp.customize( control, function (value) {
+		value.bind( function ( value, oldValue ) {
+
+			var cssProperty = 'font-family';
+			var link = '';
+
+			var fontName = value.split(",")[0];
+			fontName = fontName.replace(/'/g, '');
+
+			console.log( 'style#' + controlName );
+			// Remove old.
+			jQuery('style#' + controlName).remove();
+
+			if ( fontName in astraCustomizer.googleFonts ) {
+				// Remove old.
+
+				var fontName = fontName.split(' ').join('+');
+
+				jQuery('link#' + controlName).remove();
+				link = '<link id="' + controlName + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+			}
+
+			// Concat and append new <style> and <link>.
+			jQuery('head').append(
+				'<style id="' + controlName + '">'
+				+ selector + '	{ ' + cssProperty + ': ' + value + ' }'
+				+ '</style>'
+				+ link
+			);
+		});
+	});
+}
+
 function getChangedKey( value, other ) {
 
 	value = isJsonString(value) ? JSON.parse(value) : value;
