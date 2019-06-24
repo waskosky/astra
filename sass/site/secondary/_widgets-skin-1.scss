@@ -196,6 +196,12 @@
 	#today {
 	    background: $color-background-active;
 	}
+	#prev {
+		text-align: left;
+	}
+	#next {
+		text-align: right;
+	}
 }
 
 //separate container content layout

@@ -1299,6 +1299,14 @@ body {
   background: #0274be;
 }
 
+.widget_calendar #prev {
+  text-align: left;
+}
+
+.widget_calendar #next {
+  text-align: right;
+}
+
 .ast-separate-container.ast-two-container #secondary .widget {
   background-color: #fff;
   padding: 2em;
