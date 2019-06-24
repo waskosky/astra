@@ -212,15 +212,14 @@
 			.widget{
 				background-color: $color-background-content;
 				padding: 2em;
-				margin-bottom: 1.35em;
+				margin-bottom: 0.675em;
 				@media (min-width: $col-md) {
 					&:last-child{
 						margin-bottom: 0;
 					}
 				}
-				@media (max-width: $mx-col-sm) {
-					margin-bottom: 10px;
-					margin-top: 10px;
+				@media (min-width: $col-lg) {
+					margin-bottom: 1.35em;
 				}
 			}
 		}

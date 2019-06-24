@@ -1310,7 +1310,7 @@ body {
 .ast-separate-container.ast-two-container #secondary .widget {
   background-color: #fff;
   padding: 2em;
-  margin-bottom: 1.35em;
+  margin-bottom: 0.675em;
 }
 
 @media (min-width: 769px) {
@@ -1319,9 +1319,8 @@ body {
   }
 }
 
-@media (max-width: 544px) {
+@media (min-width: 993px) {
   .ast-separate-container.ast-two-container #secondary .widget {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 1.35em;
   }
 }
