@@ -805,14 +805,14 @@ body {
   .ast-separate-container .ast-article-post,
   .ast-separate-container .ast-article-single {
     margin: 0;
-    padding: 3.34em 2.4em;
+    padding: 3em;
   }
 }
 
 @media (max-width: 768px) {
   .ast-separate-container .ast-article-post,
   .ast-separate-container .ast-article-single {
-    padding: 1.5em 2.14em;
+    padding: 3em;
   }
   .ast-separate-container #primary,
   .ast-separate-container #secondary {
