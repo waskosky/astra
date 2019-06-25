@@ -2453,7 +2453,7 @@ body {
   position: relative;
 }
 
-.main-header-menu a {
+.main-header-menu .menu-item {
   text-decoration: none;
   padding: 0 1em;
   display: inline-block;
@@ -2514,7 +2514,7 @@ body {
   }
 }
 
-.main-header-menu .sub-menu a {
+.main-header-menu .sub-menu .menu-item {
   padding: 0.9em 1em;
   display: block;
   word-wrap: break-word;
@@ -2537,7 +2537,7 @@ body {
   border-style: solid;
 }
 
-.submenu-with-border .sub-menu a {
+.submenu-with-border .sub-menu .menu-item {
   border-width: 0 0 1px;
   border-style: solid;
 }
@@ -2555,8 +2555,8 @@ body {
   padding-left: 0;
 }
 
-.ast-header-break-point .main-navigation ul li a,
-.ast-header-break-point .main-navigation ul .button-custom-menu-item a {
+.ast-header-break-point .main-navigation ul li .menu-item,
+.ast-header-break-point .main-navigation ul .button-custom-menu-item .menu-item {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
@@ -2565,13 +2565,13 @@ body {
   border-color: #eaeaea;
 }
 
-.ast-header-break-point .main-navigation ul.children li a,
-.ast-header-break-point .main-navigation ul.sub-menu li a {
+.ast-header-break-point .main-navigation ul.children li .menu-item,
+.ast-header-break-point .main-navigation ul.sub-menu li .menu-item {
   padding-left: 30px;
 }
 
-.ast-header-break-point .main-navigation ul.children li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li a:before {
+.ast-header-break-point .main-navigation ul.children li .menu-item:before,
+.ast-header-break-point .main-navigation ul.sub-menu li .menu-item:before {
   content: "\e900";
   font-family: 'Astra';
   font-size: .65em;
@@ -2581,18 +2581,18 @@ body {
   margin-right: 5px;
 }
 
-.ast-header-break-point .main-navigation ul.children li li a,
-.ast-header-break-point .main-navigation ul.sub-menu li li a {
+.ast-header-break-point .main-navigation ul.children li li .menu-item,
+.ast-header-break-point .main-navigation ul.sub-menu li li .menu-item {
   padding-left: 40px;
 }
 
-.ast-header-break-point .main-navigation ul.children li li li a,
-.ast-header-break-point .main-navigation ul.sub-menu li li li a {
+.ast-header-break-point .main-navigation ul.children li li li .menu-item,
+.ast-header-break-point .main-navigation ul.sub-menu li li li .menu-item {
   padding-left: 50px;
 }
 
-.ast-header-break-point .main-navigation ul.children li li li li a,
-.ast-header-break-point .main-navigation ul.sub-menu li li li li a {
+.ast-header-break-point .main-navigation ul.children li li li li .menu-item,
+.ast-header-break-point .main-navigation ul.sub-menu li li li li .menu-item {
   padding-left: 60px;
 }
 

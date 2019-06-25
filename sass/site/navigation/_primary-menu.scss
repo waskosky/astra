@@ -27,7 +27,7 @@
 
 .main-header-menu {
 
-	a {
+	.menu-item {
 		text-decoration: none;
 		padding: 0 1em;
 		display: inline-block;
@@ -100,7 +100,7 @@
 		}
 
 
-		a {
+		.menu-item {
 			padding: 0.9em 1em;
 			display: block;
 			word-wrap: break-word;
@@ -131,7 +131,7 @@
 		border-width: 1px;
 		border-style: solid;
 
-		a {
+		.menu-item {
 			border-width: 0 0 1px;
 			border-style: solid;
 		}
@@ -160,7 +160,7 @@
 		ul {
 			li,
 			.button-custom-menu-item {
-				a {
+				.menu-item {
 					padding: 0 20px;
 					display: inline-block;
 					width: 100%;
@@ -169,8 +169,8 @@
 					border-color: #eaeaea;
 				}
 			}
-			&.children li a,
-			&.sub-menu li a {
+			&.children li .menu-item,
+			&.sub-menu li .menu-item {
 			    padding-left: 30px;
 			    &:before{
 			    	content: "\e900";
@@ -182,16 +182,16 @@
     				margin-right: 5px;
 			    }
 			}
-			&.children li li a,
-			&.sub-menu li li a {
+			&.children li li .menu-item,
+			&.sub-menu li li .menu-item {
 			    padding-left: 40px;
 			}
-			&.children li li li a,
-			&.sub-menu li li li a {
+			&.children li li li .menu-item,
+			&.sub-menu li li li .menu-item {
 			    padding-left: 50px;
 			}
-			&.children li li li li a,
-			&.sub-menu li li li li a {
+			&.children li li li li .menu-item,
+			&.sub-menu li li li li .menu-item {
 			    padding-left: 60px;
 			}
 		}
