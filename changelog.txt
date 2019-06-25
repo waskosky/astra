@@ -1,7 +1,6 @@
 v1.8.7
 - New: Introduced wp_body_open action hook.
-- Improvement: Show notification when Dropdown Target selected as "Link". 
-- Fix: WooCommerce Shop page images width option not working.
+- Improvement: Show notification when Dropdown Target selected as "Link".
 - Fix: Product widget grid design conflict with Elementor editor mobile device view.
 - Fix: Padding added from Elementor product widget not working on the Front-end.
 
