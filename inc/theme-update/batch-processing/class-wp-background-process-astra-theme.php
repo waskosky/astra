@@ -48,11 +48,12 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 
 			// Enable this function if we need to halt the process for few seconds between tasks.
 			// $this->really_long_running_task(); .
-			// $new_options_data = Astra_Theme_Update::individual_queued_item_operations( $process );
 
-			// Astra_Theme_Update::individual_queued_item_update( $new_options_data );
+			do_action( 'astra_batch_process_task'. '-' .$process , $process );
 
-			call_user_func( array( 'Astra_Theme_Update', $process ) );
+			if( method_exists('Astra_Theme_Update', $process) ) {
+				call_user_func( array( 'Astra_Theme_Update', $process ) );
+			}
 
 			error_log( 'in task function' );
 

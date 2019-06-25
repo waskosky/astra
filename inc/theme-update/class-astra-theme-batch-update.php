@@ -37,17 +37,17 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.0.0' => array(
-				'astra_theme_update_v2_0_0',
+			'2.0.0-beta.1' => array(
+				'astra_theme_update_v2_0_0_beta_1',
 			),
-			'2.0.1' => array(
-				'astra_theme_update_v2_0_1',
+			'2.0.0-beta.2' => array(
+				'astra_theme_update_v2_0_0_beta_2',
 			),
-			'2.0.2' => array(
-				'astra_theme_update_v2_0_2',
+			'2.0.0-beta.3' => array(
+				'astra_theme_update_v2_0_0_beta_3',
 			),
 		);
-		
+
 		/**
 		 * Initiator
 		 */
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 */
 		public static function init() {
 			// Theme Updates.
-			// delete_option( 'my_testing' );
+			// delete_option( 'my_testing' );.
 			if ( is_admin() ) {
 				add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
 			} else {
@@ -92,8 +92,8 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * This function is hooked into admin_init and wp to affect admin and frontend both.
 		 */
 		public static function install_actions() {
-			if( 'yes' === get_option( 'my_testing', 'yes' ) ) {
-				error_log('called');
+			if ( 'yes' === get_option( 'my_testing', 'yes' ) ) {
+				error_log( 'called' );
 				update_option( 'my_testing', 'no' );
 				self::update();
 			}
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 */
 		private static function needs_db_update() {
 			$current_theme_version = get_option( 'theme-auto-version', null );
-			$updates            = self::get_db_update_callbacks();
+			$updates               = self::get_db_update_callbacks();
 
 			return ! is_null( $current_theme_version ) && version_compare( $current_theme_version, max( array_keys( $updates ) ), '<' );
 		}
@@ -163,9 +163,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 				if ( version_compare( $current_db_version, $version, '<' ) ) {
 					foreach ( $update_callbacks as $update_callback ) {
 						var_dump( $update_callback );
-						error_log( 
-							sprintf( 'Queuing %s - %s', $version, $update_callback ),
-						);
+						error_log( sprintf( 'Queuing %s - %s', $version, $update_callback ) );
 
 						self::$background_updater->push_to_queue( $update_callback );
 					}

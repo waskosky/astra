@@ -52,20 +52,27 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public function __construct() {
 
 			// Theme Updates.
-			// if ( is_admin() ) {
-			// 	add_action( 'admin_init', __CLASS__ . '::init', 5 );
-			// } else {
-			// 	add_action( 'wp', __CLASS__ . '::init', 5 );
-			// }
+			if ( is_admin() ) {
+			add_action( 'admin_init', __CLASS__ . '::init', 5 );
+			} else {
+			add_action( 'wp', __CLASS__ . '::init', 5 );
+			}
+			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
+			// Core Helpers - Batch Processing.
+			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-async-request.php';
+			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process.php';
+			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process-astra-theme.php';
+			self::$process_all = new WP_Background_Process_Astra_Theme();
 
-			// add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
+			add_action( 'astra_batch_process_task-astra_theme_update_v2_0_0_beta_1', array( $this, 'new_function' ), 10, 1 );
+		}
 
-			// // Core Helpers - Batch Processing.
-			// require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-async-request.php';
-			// require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process.php';
-			// require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process-astra-theme.php';
+		function new_function( $process ) {
+			error_log( 'inside this astra_batch_process_task-astra_theme_update_v2_0_0_beta_1 action' );
 
-			// self::$process_all = new WP_Background_Process_Astra_Theme();
+			$new_options_data = Astra_Theme_Update::individual_queued_item_operations( $process );
+
+			Astra_Theme_Update::individual_queued_item_update( $new_options_data );
 		}
 
 		/**
@@ -225,7 +232,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			if ( version_compare( $saved_version, '2.0.0', '<' ) ) {
-				// self::v_2_0_0();
+				self::v_2_0_0();
 			}
 
 			// Not have stored?
@@ -1041,18 +1048,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_2_0_0() {
 
-			$json = self::astra_new_controls();
 
-			$json_array = json_decode( $json, true );
-
-			foreach ( $json_array as $group => $sub_control ) {
-
-				// Add database migration in queue.
-				self::$process_all->push_to_queue( $group );
-			}
-
-			// Dispatch Queue.
-			self::$process_all->save()->dispatch();
 		}
 
 		/**
@@ -1121,19 +1117,34 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			return $new_options;
 		}
 
-		public static function astra_theme_update_v2_0_0() {
-			error_log( 'inside astra_theme_update_v2_0_0 funtion' );
-			return;
+		/**
+		 * Customizer Version 2 categorization database opertions using batch processing
+		 *
+		 * @return void
+		 */
+		public static function astra_theme_update_v2_0_0_beta_1() {
+			error_log( 'inside astra_theme_update_v2_0_0_beta_1 funtion' );
+
+			$json = self::astra_new_controls();
+
+			$json_array = json_decode( $json, true );
+
+			foreach ( $json_array as $group => $sub_control ) {
+
+				// Add database migration in queue.
+				self::$process_all->push_to_queue( $group );
+			}
+
+			// Dispatch Queue.
+			self::$process_all->save()->dispatch();
 		}
 
-		public static function astra_theme_update_v2_0_1() {
-			error_log( 'inside astra_theme_update_v2_0_1 funtion' );
-			return;
+		public static function astra_theme_update_v2_0_0_beta_2() {
+			error_log( 'inside astra_theme_update_v2_0_0_beta_2 funtion' );
 		}
 
-		public static function astra_theme_update_v2_0_2() {
-			error_log( 'inside astra_theme_update_v2_0_2 funtion' );
-			return;
+		public static function astra_theme_update_v2_0_0_beta_3() {
+			error_log( 'inside astra_theme_update_v2_0_0_beta_3 funtion' );
 		}
 	}
 }
