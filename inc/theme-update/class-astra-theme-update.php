@@ -1044,7 +1044,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 *
 		 * @return void
 		 */
-		public static function astra_theme_update_v2_0_0_beta_1() {
+		public static function astra_theme_update_v2_0_0_customizer_optimization() {
 
 			$json = self::astra_new_controls();
 
