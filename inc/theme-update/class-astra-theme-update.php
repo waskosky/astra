@@ -53,9 +53,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Theme Updates.
 			if ( is_admin() ) {
-			add_action( 'admin_init', __CLASS__ . '::init', 5 );
+				add_action( 'admin_init', __CLASS__ . '::init', 5 );
 			} else {
-			add_action( 'wp', __CLASS__ . '::init', 5 );
+				add_action( 'wp', __CLASS__ . '::init', 5 );
 			}
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
@@ -1017,10 +1017,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( is_array( $sub_control ) ) {
 
 				foreach ( $sub_control as $key => $value ) {
-					
+
 					// Check if sub_control key exists in the theme options.
 					if ( array_key_exists( $value, $theme_options ) ) {
-						$new_value                       = $theme_options[ $value ];
+						$new_value = $theme_options[ $value ];
 
 						$new_options[ $group ][ $value ] = $new_value;
 					}
