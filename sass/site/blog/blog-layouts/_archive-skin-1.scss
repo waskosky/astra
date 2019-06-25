@@ -58,6 +58,9 @@
 	&.ast-two-container {
 		.ast-archive-description {
 			margin-bottom: 20px;
+			@media (max-width: $mx-col-sm) {
+				margin-bottom: 10px;
+			}
 		}
 	}
 }

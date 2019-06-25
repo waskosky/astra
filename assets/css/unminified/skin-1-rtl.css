@@ -70,6 +70,12 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 544px) {
+  .ast-separate-container.ast-two-container .ast-archive-description {
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 1200px) {
   .ast-separate-container .ast-archive-description {
     margin: 0;
