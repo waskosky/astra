@@ -83,14 +83,6 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 			echo "function call start";
 			var_dump( self::needs_db_update() );
 			echo "function call end";
-
-			echo "astra_get_option start";
-			var_dump( astra_get_option( 'theme-auto-version' ) );
-			echo "astra_get_option end";
-
-			echo "get_option start";
-			var_dump( get_option( 'theme-auto-version' ) );
-			echo "get_option end";
 			echo "</pre>";
 			if ( self::needs_db_update() ) {
 				self::update();
@@ -157,6 +149,8 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 			}
 
 			self::$background_updater->save()->dispatch();
+
+			self::update_db_version();
 		}
 
 		/**
@@ -165,6 +159,8 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * @param string|null $version New Astra theme version or null.
 		 */
 		public static function update_db_version( $version = null ) {
+
+			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
@@ -197,6 +193,8 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 
 			// Update auto saved version number.
 			update_option( ASTRA_THEME_SETTINGS, $theme_options );
+
+			do_action( 'astra_update_after' );
 		}
 	}
 }
