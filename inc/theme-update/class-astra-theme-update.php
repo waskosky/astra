@@ -981,8 +981,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function individual_queued_item_update( $new_options ) {
 
-			error_log( 'individual_queued_item_update' );
-
 			$theme_options = get_option( 'astra-settings', array() );
 
 			$theme_options = array_merge( $theme_options, $new_options );

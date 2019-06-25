@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		/**
 		 * Install actions when a update button is clicked within the admin area.
 		 *
-		 * This function is hooked into admin_init and wp to affect admin and frontend both.
+		 * This function is hooked into admin_init to affect admin and wp to affect the frontend.
 		 */
 		public function install_actions() {
 			if ( self::needs_db_update() ) {
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		}
 
 		/**
-		 * Is this a brand new WC install?
+		 * Is this a brand new theme install?
 		 *
 		 * @since x.x.x
 		 * @return boolean
