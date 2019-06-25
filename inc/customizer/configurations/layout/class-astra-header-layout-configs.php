@@ -400,6 +400,21 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Notice to add # link to parent menu when Link option selected in Dropdown Target.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target-link-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-header',
+					'priority' => 41,
+					'title'    => '',
+					'required' => array( ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]', '==', 'link' ),
+					'help'     => __( 'The parent menu should have a # link for the submenu to open on a link.', 'astra' ),
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Mobile Menu Label
 				 */
 				array(

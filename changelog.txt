@@ -1,3 +1,6 @@
+v1.8.6
+- Improvement: Deprecated layout options for LearnDash 3.0 template.
+
 v1.8.5
 - New: Introduced astra_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpastra.com/docs/modify-font-display-property-value/ )
 - New: Filter to add a title tag to Header background image as an alt text alternative. ( https://wpastra.com/docs/title-tag-in-header-background-image/ )
