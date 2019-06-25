@@ -51,7 +51,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 
 			do_action( 'astra_batch_process_task'. '-' .$process , $process );
 
-			if( method_exists('Astra_Theme_Update', $process) ) {
+			if( method_exists( 'Astra_Theme_Update', $process ) ) {
 				call_user_func( array( 'Astra_Theme_Update', $process ) );
 			}
 

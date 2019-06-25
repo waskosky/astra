@@ -1021,7 +1021,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 		}
-		
+
 		/**
 		 * Update queued item values in database.
 		 *
@@ -1059,14 +1059,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$json_array = json_decode( $json, true );
 
-			error_log( array_key_exists( $group, $json_array ) );
-			error_log( $group );
-
-			if( array_key_exists( $group, $json_array ) ) {
-				$sub_control = $json_array[ $group ];
-			} else {
-				$sub_control = array();
-			}
+			$sub_control = $json_array[ $group ];
 
 			// Check if group key exists in the theme options.
 			if ( array_key_exists( $group, $theme_options ) ) {
@@ -1111,7 +1104,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			foreach ( $json_array as $group => $sub_control ) {
 
-				$new_options_data = self::individual_queued_item_operations( $process );
+				$new_options_data = self::individual_queued_item_operations( $group );
 
 				self::individual_queued_item_update( $new_options_data );
 			}
