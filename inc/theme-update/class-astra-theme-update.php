@@ -52,20 +52,20 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public function __construct() {
 
 			// Theme Updates.
-			if ( is_admin() ) {
-				add_action( 'admin_init', __CLASS__ . '::init', 5 );
-			} else {
-				add_action( 'wp', __CLASS__ . '::init', 5 );
-			}
+			// if ( is_admin() ) {
+			// 	add_action( 'admin_init', __CLASS__ . '::init', 5 );
+			// } else {
+			// 	add_action( 'wp', __CLASS__ . '::init', 5 );
+			// }
 
-			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
+			// add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 
-			// Core Helpers - Batch Processing.
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-async-request.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process-astra-theme.php';
+			// // Core Helpers - Batch Processing.
+			// require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-async-request.php';
+			// require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process.php';
+			// require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process-astra-theme.php';
 
-			self::$process_all = new WP_Background_Process_Astra_Theme();
+			// self::$process_all = new WP_Background_Process_Astra_Theme();
 		}
 
 		/**
@@ -225,7 +225,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			if ( version_compare( $saved_version, '2.0.0', '<' ) ) {
-				self::v_2_0_0();
+				// self::v_2_0_0();
 			}
 
 			// Not have stored?
@@ -1119,6 +1119,21 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			return $new_options;
+		}
+
+		public static function astra_theme_update_v2_0_0() {
+			error_log( 'inside astra_theme_update_v2_0_0 funtion' );
+			return;
+		}
+
+		public static function astra_theme_update_v2_0_1() {
+			error_log( 'inside astra_theme_update_v2_0_1 funtion' );
+			return;
+		}
+
+		public static function astra_theme_update_v2_0_2() {
+			error_log( 'inside astra_theme_update_v2_0_2 funtion' );
+			return;
 		}
 	}
 }
