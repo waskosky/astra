@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * Push all needed DB updates to the queue for processing.
 		 */
 		private static function update() {
-			$current_db_version = get_option( 'theme-auto-version' );
+			$current_db_version = astra_get_option( 'theme-auto-version' );
 
 			foreach ( self::get_db_update_callbacks() as $version => $update_callbacks ) {
 				if ( version_compare( $current_db_version, $version, '<' ) ) {
