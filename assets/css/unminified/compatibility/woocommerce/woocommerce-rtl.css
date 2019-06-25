@@ -1394,7 +1394,7 @@ p.demo_store a,
 }
 
 .woocommerce ul.products li.product a img {
-  width: 100%;
+  width: auto;
   height: auto;
   display: block;
   margin: 0 0 1em;
@@ -2770,7 +2770,7 @@ p.demo_store a,
   }
   .woocommerce ul.products a.button,
   .woocommerce-page ul.products a.button {
-    padding: .618em 1em;
+    padding: 0.5em 0.75em;
   }
   .woocommerce ul.products a.button.loading::after,
   .woocommerce-page ul.products a.button.loading::after {
