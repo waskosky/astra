@@ -55,6 +55,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 				call_user_func( array( 'Astra_Theme_Update', $process ) );
 			}
 
+			error_log( $process );
 			error_log( 'in task function' );
 
 			return false;

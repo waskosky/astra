@@ -58,22 +58,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			add_action( 'wp', __CLASS__ . '::init', 5 );
 			}
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
-			// Core Helpers - Batch Processing.
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-async-request.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process-astra-theme.php';
-			self::$process_all = new WP_Background_Process_Astra_Theme();
-
-			add_action( 'astra_batch_process_task-astra_theme_update_v2_0_0_beta_1', array( $this, 'new_function' ), 10, 1 );
-		}
-
-		function new_function( $process ) {
-			error_log( 'inside this astra_batch_process_task-astra_theme_update_v2_0_0_beta_1 action' );
-
-			$new_options_data = Astra_Theme_Update::individual_queued_item_operations( $process );
-
-			error_log( json_encode( $new_options_data ) );
-			Astra_Theme_Update::individual_queued_item_update( $new_options_data );
 		}
 
 		/**
@@ -230,10 +214,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			if ( version_compare( $saved_version, '1.6.1-alpha.3', '<' ) ) {
 				self::v_1_6_1();
-			}
-
-			if ( version_compare( $saved_version, '2.0.0', '<' ) ) {
-				self::v_2_0_0();
 			}
 
 			// Not have stored?
@@ -1041,17 +1021,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 		}
-
-		/**
-		 * Customizer Version 2 categorization database opertions using batch processing
-		 *
-		 * @return void
-		 */
-		public static function v_2_0_0() {
-
-
-		}
-
+		
 		/**
 		 * Update queued item values in database.
 		 *
@@ -1089,7 +1059,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$json_array = json_decode( $json, true );
 
-			if( array_key_exists($group, $json_array) ) {
+			error_log( array_key_exists( $group, $json_array ) );
+			error_log( $group );
+
+			if( array_key_exists( $group, $json_array ) ) {
 				$sub_control = $json_array[ $group ];
 			} else {
 				$sub_control = array();
@@ -1138,12 +1111,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			foreach ( $json_array as $group => $sub_control ) {
 
-				// Add database migration in queue.
-				self::$process_all->push_to_queue( $group );
-			}
+				$new_options_data = self::individual_queued_item_operations( $process );
 
-			// Dispatch Queue.
-			self::$process_all->save()->dispatch();
+				self::individual_queued_item_update( $new_options_data );
+			}
 		}
 
 		public static function astra_theme_update_v2_0_0_beta_2() {
