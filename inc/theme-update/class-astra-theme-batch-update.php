@@ -79,13 +79,9 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * This function is hooked into admin_init and wp to affect admin and frontend both.
 		 */
 		public function install_actions() {
-			echo "<pre>";
-			echo "function call start";
-			var_dump( self::needs_db_update() );
-			echo "function call end";
-			echo "</pre>";
 			if ( self::needs_db_update() ) {
 				self::update();
+				self::update_db_version();
 			} else {
 				self::update_db_version();
 			}
@@ -149,8 +145,6 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 			}
 
 			self::$background_updater->save()->dispatch();
-
-			self::update_db_version();
 		}
 
 		/**
