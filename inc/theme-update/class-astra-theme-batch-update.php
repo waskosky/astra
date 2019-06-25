@@ -40,12 +40,6 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 			'2.0.0-beta.1' => array(
 				'astra_theme_update_v2_0_0_beta_1',
 			),
-			'2.0.0-beta.2' => array(
-				'astra_theme_update_v2_0_0_beta_2',
-			),
-			'2.0.0-beta.3' => array(
-				'astra_theme_update_v2_0_0_beta_3',
-			),
 		);
 
 		/**
@@ -62,19 +56,12 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-			self::init();
-		}
 
-		/**
-		 * Hook in tabs.
-		 */
-		public static function init() {
 			// Theme Updates.
-			// delete_option( 'my_testing' );.
 			if ( is_admin() ) {
-				add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
+				add_action( 'admin_init', array( $this, 'install_actions' ) );
 			} else {
-				add_action( 'wp', array( __CLASS__, 'install_actions' ) );
+				add_action( 'wp', array( $this, 'install_actions' ) );
 			}
 
 			// Core Helpers - Batch Processing.
@@ -91,11 +78,24 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 *
 		 * This function is hooked into admin_init and wp to affect admin and frontend both.
 		 */
-		public static function install_actions() {
-			if ( 'yes' === get_option( 'my_testing', 'yes' ) ) {
-				error_log( 'called' );
-				update_option( 'my_testing', 'no' );
+		public function install_actions() {
+			echo "<pre>";
+			echo "function call start";
+			var_dump( self::needs_db_update() );
+			echo "function call end";
+
+			echo "astra_get_option start";
+			var_dump( astra_get_option( 'theme-auto-version' ) );
+			echo "astra_get_option end";
+
+			echo "get_option start";
+			var_dump( get_option( 'theme-auto-version' ) );
+			echo "get_option end";
+			echo "</pre>";
+			if ( self::needs_db_update() ) {
 				self::update();
+			} else {
+				self::update_db_version();
 			}
 		}
 
@@ -124,23 +124,10 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * @return boolean
 		 */
 		private static function needs_db_update() {
-			$current_theme_version = get_option( 'theme-auto-version', null );
+			$current_theme_version = astra_get_option( 'theme-auto-version', null );
 			$updates               = self::get_db_update_callbacks();
 
 			return ! is_null( $current_theme_version ) && version_compare( $current_theme_version, max( array_keys( $updates ) ), '<' );
-		}
-
-		/**
-		 * See if we need to show or run database updates during install.
-		 *
-		 * @since x.x.x
-		 */
-		private static function maybe_update_db_version() {
-			if ( self::needs_db_update() ) {
-				self::update();
-			} else {
-				self::update_db_version();
-			}
 		}
 
 		/**
@@ -162,7 +149,6 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 			foreach ( self::get_db_update_callbacks() as $version => $update_callbacks ) {
 				if ( version_compare( $current_db_version, $version, '<' ) ) {
 					foreach ( $update_callbacks as $update_callback ) {
-						var_dump( $update_callback );
 						error_log( sprintf( 'Queuing %s - %s', $version, $update_callback ) );
 
 						self::$background_updater->push_to_queue( $update_callback );

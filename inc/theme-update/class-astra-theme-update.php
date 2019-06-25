@@ -1070,9 +1070,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( is_array( $sub_control ) ) {
 
 				foreach ( $sub_control as $key => $value ) {
+					
 					// Check if sub_control key exists in the theme options.
 					if ( array_key_exists( $value, $theme_options ) ) {
 						$new_value                       = $theme_options[ $value ];
+
 						$new_options[ $group ][ $value ] = $new_value;
 					}
 				}
@@ -1096,7 +1098,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function astra_theme_update_v2_0_0_beta_1() {
-			error_log( 'inside astra_theme_update_v2_0_0_beta_1 funtion' );
 
 			$json = self::astra_new_controls();
 
@@ -1108,14 +1109,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 				self::individual_queued_item_update( $new_options_data );
 			}
-		}
-
-		public static function astra_theme_update_v2_0_0_beta_2() {
-			error_log( 'inside astra_theme_update_v2_0_0_beta_2 funtion' );
-		}
-
-		public static function astra_theme_update_v2_0_0_beta_3() {
-			error_log( 'inside astra_theme_update_v2_0_0_beta_3 funtion' );
 		}
 	}
 }
