@@ -72,6 +72,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$new_options_data = Astra_Theme_Update::individual_queued_item_operations( $process );
 
+			error_log( json_encode( $new_options_data ) );
 			Astra_Theme_Update::individual_queued_item_update( $new_options_data );
 		}
 
@@ -1061,6 +1062,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function individual_queued_item_update( $new_options ) {
 
+			error_log( 'individual_queued_item_update' );
+
 			$theme_options = get_option( 'astra-settings', array() );
 
 			$theme_options = array_merge( $theme_options, $new_options );
@@ -1086,7 +1089,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$json_array = json_decode( $json, true );
 
-			$sub_control = $json_array[ $group ];
+			if( array_key_exists($group, $json_array) ) {
+				$sub_control = $json_array[ $group ];
+			} else {
+				$sub_control = array();
+			}
 
 			// Check if group key exists in the theme options.
 			if ( array_key_exists( $group, $theme_options ) ) {
