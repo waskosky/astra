@@ -60,6 +60,10 @@
   border-bottom: 0;
 }
 
+.ast-separate-container.ast-two-container .ast-archive-description {
+  margin-bottom: 1.3em;
+}
+
 @media (max-width: 1200px) {
   .ast-separate-container .ast-archive-description {
     margin: 0;

@@ -47,10 +47,15 @@
 
 .ast-separate-container {
 	.ast-author-box,
-	.ast-archive-description{
+	.ast-archive-description {
 		background-color: $color-background-page-header;
 		padding-bottom: 0;
 		border-bottom: 0;
+	}
+	&.ast-two-container {
+		.ast-archive-description {
+			margin-bottom: 1.3em;
+		}
 	}
 }
 .ast-separate-container{
