@@ -567,16 +567,12 @@
   .single .post-navigation .ast-right-arrow {
     display: none;
   }
-  .single .post-navigation .nav-previous,
-  .single .post-navigation .nav-next {
-    width: 100%;
-  }
   .single .post-navigation .nav-previous a,
   .single .post-navigation .nav-next a {
     width: 100%;
   }
   .single .post-navigation .nav-previous {
-    margin-bottom: 1em;
+    margin-bottom: .3em;
   }
 }
 
@@ -697,6 +693,10 @@
 
 .ast-container .entry-title {
   margin-bottom: 0.4em;
+}
+
+.ast-no-reply-markup .ast-edit-link {
+  left: 0;
 }
 
 /*----------  Classic Layout  ----------*/

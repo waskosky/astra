@@ -52,15 +52,13 @@
 
 			.nav-previous,
 			.nav-next {
-				width: 100%;
-				
 				a {
 					width: 100%;
 				}				
 			}
 
 			.nav-previous {
-				margin-bottom: 1em;
+				margin-bottom: .3em;
 			}
 		}
 	}
@@ -205,4 +203,8 @@
 	.entry-title {
 		margin-bottom: 0.4em;
 	}
+}
+
+.ast-no-reply-markup .ast-edit-link {
+	right: 0;
 }
