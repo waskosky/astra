@@ -26,6 +26,12 @@
   font-weight: 300;
 }
 
+@media (max-width: 544px) {
+  .ast-archive-description .ast-archive-title {
+    font-size: 22px;
+  }
+}
+
 .ast-archive-description p {
   margin-bottom: 0;
   margin-top: 10px;
