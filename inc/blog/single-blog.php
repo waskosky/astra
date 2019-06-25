@@ -195,9 +195,8 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 											)
 										)
 									);
-									// var_dump($comment_reply_link);
 									if ( is_null( $comment_reply_link ) ) {
-										$no_reply_link = 'ast-no-reply-markup';
+										$no_reply_link = 'ast-no-reply-link';
 									}
 								?>
 								<div 
