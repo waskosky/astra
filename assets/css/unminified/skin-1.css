@@ -79,19 +79,19 @@
 @media (max-width: 1200px) {
   .ast-separate-container .ast-archive-description {
     margin: 0;
-    padding: 3.34em 2.4em;
+    padding: 3em;
   }
 }
 
 @media (max-width: 992px) {
   .ast-separate-container .ast-archive-description {
-    padding: 2.14em;
+    padding: 3em;
   }
 }
 
 @media (max-width: 544px) {
   .ast-separate-container .ast-archive-description {
-    padding: 1.5em 1em;
+    padding: 2em;
   }
 }
 
