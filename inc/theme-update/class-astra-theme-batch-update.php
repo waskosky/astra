@@ -62,6 +62,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		public function install_actions() {
 
+			var_dump( true === $this->is_new_install() );
 			if( true === $this->is_new_install() ) {
 				$this->update_db_version();
 			}
