@@ -181,7 +181,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 							<section class="ast-comment-content comment">
 							<?php comment_text(); ?>
 								<?php
-									$no_reply_link = '';
+									$no_reply_link      = '';
 									$comment_reply_link = get_comment_reply_link(
 										array_merge(
 											$args,
@@ -195,9 +195,9 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 											)
 										)
 									);
-									if ( is_null( $comment_reply_link ) ) {
-										$no_reply_link = 'ast-no-reply-link';
-									}
+								if ( is_null( $comment_reply_link ) ) {
+									$no_reply_link = 'ast-no-reply-link';
+								}
 								?>
 								<div 
 								<?php
