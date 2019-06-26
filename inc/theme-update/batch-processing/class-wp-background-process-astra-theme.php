@@ -52,7 +52,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 			do_action( 'astra_batch_process_task'. '-' .$process , $process );
 
 			if( function_exists( $process ) ) {
-				call_user_func( $process ) );
+				call_user_func( $process );
 			}
 
 			return false;
