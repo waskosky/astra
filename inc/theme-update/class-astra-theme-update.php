@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
-		
+
 
 		/**
 		 * Implement theme update logic.
@@ -961,7 +961,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( 'astra-settings', $theme_options );
 		}
 
-		
+
 	}
 }
 
