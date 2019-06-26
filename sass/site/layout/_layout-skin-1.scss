@@ -139,7 +139,7 @@ body{
 			padding-top: 1em;
 		}
 		.ast-container {
-			padding-top: 10px;
+			padding: 10px;
 		}
 		.ast-pagination {
 			padding: 2em 2em 1em 2em;
@@ -419,11 +419,6 @@ body{
 			}
 		}
 	}
-}
-
-.ast-container {
-	padding-left: 10px;
-	padding-right: 10px;
 }
 
 @media (max-width: $mx-col-sm) {
