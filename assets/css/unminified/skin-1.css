@@ -877,9 +877,14 @@ body {
   padding-bottom: 0;
 }
 
-.ast-plain-container .ast-article-post:first-child,
-.ast-plain-container .ast-article-single:first-child {
-  padding-top: 3em;
+@media (max-width: 768px) {
+  .ast-plain-container .ast-article-post:first-child,
+  .ast-plain-container .ast-article-single:first-child {
+    padding-top: 3em;
+  }
+  .ast-plain-container .ast-pagination {
+    padding-bottom: 1.5em;
+  }
 }
 
 @media (max-width: 544px) {
@@ -889,6 +894,10 @@ body {
   }
   .ast-plain-container .ast-pagination {
     padding: 2em;
+  }
+  .ast-plain-container .ast-article-post:first-child,
+  .ast-plain-container .ast-article-single:first-child {
+    padding-top: 0;
   }
 }
 
