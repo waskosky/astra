@@ -872,6 +872,11 @@ body {
   margin: 0;
 }
 
+.ast-plain-container .ast-article-post:last-child,
+.ast-plain-container .ast-article-single:last-child {
+  padding-bottom: 0;
+}
+
 @media (max-width: 544px) {
   .ast-plain-container .ast-container {
     padding-left: 0;

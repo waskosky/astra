@@ -151,6 +151,10 @@ body{
 	.hentry {
 		margin: 0;
 	}
+	.ast-article-post:last-child, 
+	.ast-article-single:last-child {
+		padding-bottom: 0;
+	}
 	@media (max-width: $mx-col-sm) {
 		.ast-container {
 			padding-left: 0;
