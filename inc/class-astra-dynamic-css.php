@@ -220,7 +220,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top' => astra_get_css_value( (int) $body_font_size_desktop * 2.25, 'px' ),
 					),
 				);
-				$parse_css                            = astra_parse_css( $skin_css_output );
+				$parse_css                          = astra_parse_css( $skin_css_output );
 			} else {
 				$archive_post_title_font_size_value = 30;
 				$skin_css_output                    = array(
@@ -234,7 +234,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 					),
 				);
-				$parse_css                           = astra_parse_css( $skin_css_output );
+				$parse_css                          = astra_parse_css( $skin_css_output );
 
 				/* Width for Comments for Full Width / Stretched Template */
 				if ( 'classic-skin' === Astra_Skins::astra_get_selected_skin() ) {
