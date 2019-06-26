@@ -155,6 +155,10 @@ body{
 	.ast-article-single:last-child {
 		padding-bottom: 0;
 	}
+	.ast-article-post:first-child, 
+	.ast-article-single:first-child {
+		padding-top: 3em;
+	}
 	@media (max-width: $mx-col-sm) {
 		.ast-container {
 			padding-left: 0;
