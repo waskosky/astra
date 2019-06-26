@@ -888,7 +888,7 @@ body {
 }
 
 @media (max-width: 544px) {
-  .ast-plain-container .ast-container {
+  .ast-plain-container .site-content .ast-container {
     padding-right: 0;
     padding-left: 0;
   }

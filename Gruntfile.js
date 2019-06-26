@@ -426,15 +426,15 @@ module.exports = function (grunt) {
                 },
                 classic_skin: {
                     src: [
+                        'assets/css/unminified/style.css',
                         'assets/css/unminified/skin-classic.css',
-                        'assets/css/unminified/style.css'
                     ],
                     dest: 'assets/css/unminified/style-classic.css',
                 },
                 modern_skin: {
                     src: [
+                        'assets/css/unminified/style.css',
                         'assets/css/unminified/skin-1.css',
-                        'assets/css/unminified/style.css'
                     ],
                     dest: 'assets/css/unminified/style-modern.css',
                 },
