@@ -165,9 +165,11 @@ body{
 		}
 	}
 	@media (max-width: $mx-col-sm) {
-		.ast-container {
-			padding-left: 0;
-			padding-right: 0;
+		.site-content {
+			.ast-container {
+				padding-left: 0;
+				padding-right: 0;
+			}
 		}
 		.ast-pagination {
 			padding: 2em;
