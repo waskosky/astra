@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		private function needs_db_update() {
 			$current_theme_version = astra_get_option( 'theme-auto-version', null );
-			$updates               = self::get_db_update_callbacks();
+			$updates               = $this->get_db_update_callbacks();
 
 			return ! is_null( $current_theme_version ) && version_compare( $current_theme_version, max( array_keys( $updates ) ), '<' );
 		}
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
 
-			foreach ( self::get_db_update_callbacks() as $version => $update_callbacks ) {
+			foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 				if ( version_compare( $current_db_version, $version, '<' ) ) {
 					foreach ( $update_callbacks as $update_callback ) {
 						error_log( sprintf( 'Queuing %s - %s', $version, $update_callback ) );
