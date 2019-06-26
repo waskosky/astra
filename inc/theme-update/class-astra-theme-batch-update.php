@@ -43,16 +43,6 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		);
 
 		/**
-		 * Initiator
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
-
-		/**
 		 *  Constructor
 		 */
 		public function __construct() {
@@ -195,6 +185,6 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 
 
 /**
- * Kicking this off by calling 'get_instance()' method
+ * Kicking this off by creating a new instance
  */
-Astra_Theme_Batch_Update::get_instance();
+new Astra_Theme_Batch_Update;
