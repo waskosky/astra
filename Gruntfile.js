@@ -262,6 +262,17 @@ module.exports = function (grunt) {
                         {
                     		src: 'assets/css/unminified/skin-1-rtl.css',
 	                        dest: 'assets/css/minified/skin-1.min-rtl.css',
+                        },
+                        
+                        // Generating RTL files from '/unminified/' skins into '/minified/' skins
+	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css' 
+                        {
+                    		src: 'assets/css/unminified/style-classic-rtl.css',
+	                        dest: 'assets/css/minified/style-classic.min-rtl.css',
+                        },
+                        {
+                    		src: 'assets/css/unminified/style-modern-rtl.css',
+	                        dest: 'assets/css/minified/style-modern.min-rtl.css',
 	                    },
 
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
@@ -409,12 +420,24 @@ module.exports = function (grunt) {
                 options: {
                     separator: '\n'
                 },
-                dist: {
-                    src: [
-                        'assets/js/unminified/navigation.js',
-                    ],
+                navi_js: {
+                    src: ['assets/js/unminified/navigation.js'],
                     dest: 'assets/js/unminified/style.js',
-                }
+                },
+                classic_skin: {
+                    src: [
+                        'assets/css/unminified/skin-classic.css',
+                        'assets/css/unminified/style.css'
+                    ],
+                    dest: 'assets/css/unminified/style-classic.css',
+                },
+                modern_skin: {
+                    src: [
+                        'assets/css/unminified/skin-1.css',
+                        'assets/css/unminified/style.css'
+                    ],
+                    dest: 'assets/css/unminified/style-modern.css',
+                },
             },
 
             bumpup: {
