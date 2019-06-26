@@ -960,8 +960,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 		}
-
-
 	}
 }
 
