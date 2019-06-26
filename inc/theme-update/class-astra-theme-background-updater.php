@@ -9,20 +9,12 @@
  * @since x.x.x.x
  */
 
-if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
+if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 	/**
-	 * Astra_Theme_Batch_Update Class.
+	 * Astra_Theme_Background_Updater Class.
 	 */
-	class Astra_Theme_Batch_Update {
-
-		/**
-		 * Class instance.
-		 *
-		 * @access private
-		 * @var $instance Class instance.
-		 */
-		private static $instance;
+	class Astra_Theme_Background_Updater {
 
 		/**
 		 * Background update class.
@@ -69,11 +61,14 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * This function is hooked into admin_init to affect admin and wp to affect the frontend.
 		 */
 		public function install_actions() {
-			if ( self::needs_db_update() ) {
-				self::update();
-				self::update_db_version();
-			} else {
-				self::update_db_version();
+
+			if ( truw === $this->is_new_install() ) {
+				$this->update_db_version();
+			}
+
+			if ( $this->needs_db_update() ) {
+				$this->update();
+				$this->update_db_version();
 			}
 		}
 
@@ -83,7 +78,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * @since x.x.x
 		 * @return boolean
 		 */
-		private static function is_new_install() {
+		private function is_new_install() {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
@@ -101,7 +96,7 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * @since x.x.x
 		 * @return boolean
 		 */
-		private static function needs_db_update() {
+		private function needs_db_update() {
 			$current_theme_version = astra_get_option( 'theme-auto-version', null );
 			$updates               = self::get_db_update_callbacks();
 
@@ -114,14 +109,14 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 * @since x.x.x
 		 * @return array
 		 */
-		public static function get_db_update_callbacks() {
+		public function get_db_update_callbacks() {
 			return self::$db_updates;
 		}
 
 		/**
 		 * Push all needed DB updates to the queue for processing.
 		 */
-		private static function update() {
+		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
 
 			foreach ( self::get_db_update_callbacks() as $version => $update_callbacks ) {
@@ -142,15 +137,29 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 		 *
 		 * @param string|null $version New Astra theme version or null.
 		 */
-		public static function update_db_version( $version = null ) {
+		public function update_db_version( $version = null ) {
 
 			do_action( 'astra_update_before' );
-
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
 			if ( false === $saved_version ) {
+				// Get all customizer options.
+				$customizer_options = get_option( ASTRA_THEME_SETTINGS );
+				// Get all customizer options.
+				$version_array = array(
+					'theme-auto-version' => ASTRA_THEME_VERSION,
+				);
 				$saved_version = ASTRA_THEME_VERSION;
+				// Merge customizer options with version.
+				$theme_options = wp_parse_args( $version_array, $customizer_options );
+				// Update auto saved version number.
+				update_option( ASTRA_THEME_SETTINGS, $theme_options );
+			}
+
+			// If equals then return.
+			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+				return;
 			}
 
 			// Not have stored?
@@ -187,4 +196,4 @@ if ( ! class_exists( 'Astra_Theme_Batch_Update' ) ) {
 /**
  * Kicking this off by creating a new instance
  */
-new Astra_Theme_Batch_Update;
+new Astra_Theme_Background_Updater;
