@@ -69,7 +69,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			if ( $this->needs_db_update() ) {
 				$this->update();
-				$this->update_db_version();
 			}
 		}
 
@@ -129,6 +128,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 			}
+
+			self::$background_updater->push_to_queue( $this->update_db_version() );
 
 			self::$background_updater->save()->dispatch();
 		}
