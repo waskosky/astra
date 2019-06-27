@@ -25,7 +25,14 @@ function astra_theme_update_v2_0_0_customizer_optimization() {
 	$json_array = json_decode( $json, true );
 
 	foreach ( $json_array as $group => $sub_control ) {
-		$new_options_data = group_item_operations( $group, $sub_control, $astra_settings );
+
+		// Check if group key exists in the theme options.
+		if ( array_key_exists( $group, $astra_settings ) ) {
+			$new_options_data = array();
+		} else {
+			$new_options_data = group_item_operations( $group, $sub_control, $astra_settings );
+		}
+
 		control_data_update( $new_options_data );
 	}
 }
@@ -71,11 +78,6 @@ function control_data_update( $new_options ) {
 function group_item_operations( $group, $sub_control, $astra_settings ) {
 
 	$new_options = array();
-
-	// Check if group key exists in the theme options.
-	if ( array_key_exists( $group, $astra_settings ) ) {
-		return $new_options;
-	}
 
 	// Check if sub_control key exists in the theme options.
 	if ( is_array( $sub_control ) ) {
