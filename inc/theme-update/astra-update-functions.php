@@ -40,7 +40,7 @@ function astra_theme_update_v2_0_0_customizer_optimization() {
 		$control_data = array_merge( $control_data, $new_options_data );
 	}
 
-	if( ! empty( $control_data ) ) {
+	if ( ! empty( $control_data ) ) {
 		// Update the new data in the database.
 		control_data_update( $control_data, $theme_options );
 	}
@@ -64,7 +64,7 @@ function astra_theme_update_v2_0_0_new_controls() {
  *
  * @since x.x.x
  *
- * @param array $new_options 	New options data.
+ * @param array $new_options    New options data.
  * @param array $theme_options  Theme options.
  * @return void
  */
@@ -72,7 +72,7 @@ function control_data_update( $new_options, $theme_options ) {
 
 	$theme_options = array_merge( $theme_options, $new_options );
 
-	update_option( 'astra-settings', $theme_options );	
+	update_option( 'astra-settings', $theme_options );
 }
 
 /**
@@ -80,9 +80,9 @@ function control_data_update( $new_options, $theme_options ) {
  *
  * @since x.x.x
  *
- * @param string 		$group 			Group item.
- * @param string|array  $sub_control 	Subcontrol array.
- * @param string 		$theme_options  Theme Options.
+ * @param string       $group          Group item.
+ * @param string|array $sub_control    Subcontrol array.
+ * @param string       $theme_options  Theme Options.
  * @return array
  */
 function group_item_operations( $group, $sub_control, $theme_options ) {
