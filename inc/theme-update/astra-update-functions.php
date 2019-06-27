@@ -23,7 +23,7 @@ function astra_theme_update_v2_0_0_customizer_optimization() {
 	$json_array = json_decode( $json, true );
 
 	foreach ( $json_array as $group => $sub_control ) {
-		$new_options_data = group_item_operations( $group );
+		$new_options_data = group_item_operations( $group, $sub_control );
 		control_data_update( $new_options_data );
 	}
 }
@@ -66,17 +66,13 @@ function control_data_update( $new_options ) {
  * @param string $group Queue item.
  * @return array
  */
-function group_item_operations( $group ) {
+function group_item_operations( $group, $sub_control ) {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
 	$new_options = array();
 
 	$json = astra_theme_update_v2_0_0_new_controls();
-
-	$json_array = json_decode( $json, true );
-
-	$sub_control = $json_array[ $group ];
 
 	// Check if group key exists in the theme options.
 	if ( array_key_exists( $group, $theme_options ) ) {
