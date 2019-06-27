@@ -5708,7 +5708,7 @@ body {
     padding-top: 1em;
   }
   .ast-separate-container .ast-container {
-    padding: .73em;
+    padding: 10px;
   }
   .ast-separate-container .ast-pagination {
     padding: 2em 2em 1em 2em;
@@ -5943,6 +5943,9 @@ body {
   .ast-separate-container.ast-two-container.ast-left-sidebar #secondary {
     padding-left: 20px;
     padding-right: 0;
+  }
+  .entry-meta, .entry-meta * {
+    line-height: 1.4;
   }
 }
 

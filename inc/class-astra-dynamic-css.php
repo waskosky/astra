@@ -492,7 +492,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *'              => array(
-					'line-height' => '1.6',
+					'line-height' => '1.4',
 					'color'       => esc_attr( $link_color ),
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
