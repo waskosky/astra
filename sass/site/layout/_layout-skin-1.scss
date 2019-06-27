@@ -123,8 +123,10 @@ body{
 				padding-right: 0;
 			}
 		}
-		.ast-container {
-			padding-top: 20px;
+		.site-content {
+			.ast-container {
+				padding-top: 20px;
+			}
 		}
 	}
 	@media (max-width: $mx-col-sm) {
@@ -138,8 +140,10 @@ body{
 		#secondary{
 			padding-top: 1em;
 		}
-		.ast-container {
-			padding: 10px;
+		.site-content {
+			.ast-container {
+				padding: 10px;
+			}
 		}
 		.ast-pagination {
 			padding: 2em 2em 1em 2em;

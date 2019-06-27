@@ -5691,7 +5691,7 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-  .ast-separate-container .ast-container {
+  .ast-separate-container .site-content .ast-container {
     padding-top: 20px;
   }
 }
@@ -5707,7 +5707,7 @@ body {
   .ast-separate-container #secondary {
     padding-top: 1em;
   }
-  .ast-separate-container .ast-container {
+  .ast-separate-container .site-content .ast-container {
     padding: 10px;
   }
   .ast-separate-container .ast-pagination {
