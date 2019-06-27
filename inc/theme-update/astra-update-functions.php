@@ -72,8 +72,6 @@ function group_item_operations( $group, $sub_control ) {
 
 	$new_options = array();
 
-	$json = astra_theme_update_v2_0_0_new_controls();
-
 	// Check if group key exists in the theme options.
 	if ( array_key_exists( $group, $theme_options ) ) {
 		return $new_options;
