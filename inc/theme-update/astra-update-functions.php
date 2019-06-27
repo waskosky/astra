@@ -18,12 +18,14 @@ defined( 'ABSPATH' ) || exit;
  */
 function astra_theme_update_v2_0_0_customizer_optimization() {
 
+	$astra_settings = get_option( 'astra-settings', array() );
+
 	$json = astra_theme_update_v2_0_0_new_controls();
 
 	$json_array = json_decode( $json, true );
 
 	foreach ( $json_array as $group => $sub_control ) {
-		$new_options_data = group_item_operations( $group, $sub_control );
+		$new_options_data = group_item_operations( $group, $sub_control, $astra_settings );
 		control_data_update( $new_options_data );
 	}
 }
@@ -66,14 +68,12 @@ function control_data_update( $new_options ) {
  * @param string $group Queue item.
  * @return array
  */
-function group_item_operations( $group, $sub_control ) {
-
-	$theme_options = get_option( 'astra-settings', array() );
+function group_item_operations( $group, $sub_control, $astra_settings ) {
 
 	$new_options = array();
 
 	// Check if group key exists in the theme options.
-	if ( array_key_exists( $group, $theme_options ) ) {
+	if ( array_key_exists( $group, $astra_settings ) ) {
 		return $new_options;
 	}
 
@@ -83,8 +83,8 @@ function group_item_operations( $group, $sub_control ) {
 		foreach ( $sub_control as $key => $value ) {
 
 			// Check if sub_control key exists in the theme options.
-			if ( array_key_exists( $value, $theme_options ) ) {
-				$new_value = $theme_options[ $value ];
+			if ( array_key_exists( $value, $astra_settings ) ) {
+				$new_value = $astra_settings[ $value ];
 
 				$new_options[ $group ][ $value ] = $new_value;
 			}
@@ -94,8 +94,8 @@ function group_item_operations( $group, $sub_control ) {
 		}
 	} else {
 		// Check if sub_control key exists in the theme options.
-		if ( array_key_exists( $sub_control, $theme_options ) ) {
-			$new_value                             = $theme_options[ $sub_control ];
+		if ( array_key_exists( $sub_control, $astra_settings ) ) {
+			$new_value                             = $astra_settings[ $sub_control ];
 			$new_options[ $group ][ $sub_control ] = $new_value;
 		}
 	}
