@@ -159,9 +159,14 @@ body{
 		.ast-article-post:first-child, 
 		.ast-article-single:first-child {
 			padding-top: 3em;
-		}
+		} 
 		.ast-pagination {
 			padding-bottom: 1.5em;
+		}
+		&.single {
+			#primary {
+				padding-bottom: 2em;
+			}
 		}
 	}
 	@media (max-width: $mx-col-sm) {

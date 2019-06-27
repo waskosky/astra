@@ -5732,6 +5732,9 @@ body {
   .ast-plain-container .ast-pagination {
     padding-bottom: 1.5em;
   }
+  .ast-plain-container.single #primary {
+    padding-bottom: 2.250em;
+  }
 }
 
 @media (max-width: 544px) {
@@ -5943,9 +5946,6 @@ body {
   .ast-separate-container.ast-two-container.ast-left-sidebar #secondary {
     padding-left: 20px;
     padding-right: 0;
-  }
-  .entry-meta, .entry-meta * {
-    line-height: 1.4;
   }
 }
 
