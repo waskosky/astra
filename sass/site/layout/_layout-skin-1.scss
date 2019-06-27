@@ -171,10 +171,18 @@ body{
 			#primary {
 				padding-bottom: 2em;
 			}
+			.ast-article-post,
+			.ast-article-single {
+				padding: 3em 0 0 0;
+			}
 		}
 		.ast-article-post,
 		.ast-article-single {
-			padding: 3em 1.3em 0 1.3em;
+			padding: 3em 1.5em 0 1.5em;
+		}
+		.ast-archive-description {
+			margin-bottom: 0;
+			padding-top: 3em;
 		}
 	}
 	@media (max-width: $mx-col-sm) {
@@ -218,13 +226,43 @@ body{
 	.hentry {
 		margin: 0;
 	}
+	.ast-article-post,
+	.ast-article-single {
+		padding-left: 10px;
+		padding-right: 10px;
+		@media (max-width: $mx-col-md) { 
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	.ast-article-post:last-child,
+	.ast-article-single:last-child {
+		padding-bottom: 0;
+	}
+	&.single {
+		.ast-article-post,
+		.ast-article-single {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.site-content #primary{
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+		
 	.site-content > .ast-container {
 		max-width: 100%;
 	    padding: 0;
 	}
-	.site-content #primary{
-		padding: 0 10px 0 10px;
+	#primary{
+		padding-left: 10px;
+		padding-right: 10px;
 		margin: 3em 0 0 0;
+		@media (max-width: $mx-col-md) { 
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 	.no-results {
 	    text-align: center;
@@ -250,15 +288,15 @@ body{
  		&.ast-no-title.ast-no-meta {
 			margin-bottom: 0;
 		}
-
-		@media (max-width: $mx-col-md) { 
-			margin-top: 1.5em;
-		}
 	}
 	
 	@media (max-width: $mx-col-md) {
 		#secondary {
 			margin-top: 1.5em;
+		}
+		.site-content > .ast-container .ast-row {
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 	
@@ -453,11 +491,7 @@ body{
 }
 
 @media (max-width: $mx-col-sm) {
-	.ast-plain-container,
-	.ast-page-builder-template {
-		/*.blog-layout-1 {
-			padding: 2em;
-		}*/
+	.ast-plain-container{
 		.ast-row {
 			margin-right: 0;
 			margin-left: 0;
@@ -470,10 +504,15 @@ body{
 			padding-left: 1em;
 			padding-right: 1em;
 		}
-		/*&.single {
-			#primary {
-				padding: 2em;
-			}
-		}*/
+	}
+	.ast-page-builder-template {
+		.ast-row {
+			margin-right: 0;
+			margin-left: 0;
+		}
+		#secondary {
+			padding-left: 1em;
+			padding-right: 1em;
+		}
 	}
 }
