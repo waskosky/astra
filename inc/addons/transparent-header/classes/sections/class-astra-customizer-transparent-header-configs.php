@@ -288,7 +288,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Colors & Background', 'astra-addon' ),
+					'title'    => __( 'Colors & Background', 'astra' ),
 					'priority' => 35,
 					'settings' => array(),
 				),

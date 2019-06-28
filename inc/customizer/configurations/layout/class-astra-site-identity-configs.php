@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
-					'title'    => __( 'Site Logo', 'astra-addon' ),
+					'title'    => __( 'Site Logo', 'astra' ),
 					'priority' => 2,
 					'settings' => array(),
 				),
