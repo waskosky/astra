@@ -101,7 +101,11 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-menu-divider',
 					'type'     => 'sub-control',
+<<<<<<< HEAD
 					'tab'      => __( 'Normal', 'astra-addon', 'astra' ),
+=======
+					'tab'      => __( 'Normal', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 2,
@@ -115,7 +119,11 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-menu-divider',
 					'type'     => 'sub-control',
+<<<<<<< HEAD
 					'tab'      => __( 'Hover', 'astra-addon', 'astra' ),
+=======
+					'tab'      => __( 'Hover', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 2,
@@ -180,7 +188,11 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-submenu-divider',
 					'type'     => 'sub-control',
+<<<<<<< HEAD
 					'tab'      => __( 'Normal', 'astra-addon', 'astra' ),
+=======
+					'tab'      => __( 'Normal', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 3,
@@ -194,7 +206,11 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				array(
 					'name'     => 'transparent-header-colors-submenu-divider',
 					'type'     => 'sub-control',
+<<<<<<< HEAD
 					'tab'      => __( 'Hover', 'astra-addon', 'astra' ),
+=======
+					'tab'      => __( 'Hover', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'parent'   => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
 					'control'  => 'ast-divider',
 					'priority' => 3,

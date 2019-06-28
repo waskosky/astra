@@ -1,3 +1,8 @@
+v2.0.0-beta.1
+- New: Introduced a Group Param for customizer Settings. 
+- Improvement: Live preview for Typography options.
+- Improvement: Customizer performance.
+
 v1.8.6
 - Improvement: Deprecated layout options for LearnDash 3.0 template.
 

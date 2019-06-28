@@ -43,7 +43,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-buttons',
+<<<<<<< HEAD
 					'title'    => __( 'Colors and Border', 'astra-addon', 'astra' ),
+=======
+					'title'    => __( 'Colors and Border', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'priority' => 17,
 					'settings' => array(),
 				),
@@ -186,7 +190,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-header',
+<<<<<<< HEAD
 					'title'    => __( 'Header Button', 'astra-addon', 'astra' ),
+=======
+					'title'    => __( 'Header Button', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'settings' => array(),
 					'priority' => 17,
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
@@ -376,7 +384,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-transparent-header',
+<<<<<<< HEAD
 					'title'    => __( 'Header Button', 'astra-addon', 'astra' ),
+=======
+					'title'    => __( 'Header Button', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'settings' => array(),
 					'priority' => 40,
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),

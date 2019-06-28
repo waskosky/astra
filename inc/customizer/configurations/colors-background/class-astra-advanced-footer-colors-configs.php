@@ -39,7 +39,11 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-footer-adv',
+<<<<<<< HEAD
 					'title'    => __( 'Colors & Background', 'astra-addon', 'astra' ),
+=======
+					'title'    => __( 'Colors & Background', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'priority' => 46,
 					'settings' => array(),
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
@@ -82,7 +86,11 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'name'    => 'footer-adv-wgt-title-color',
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+<<<<<<< HEAD
 					'tab'     => __( 'Normal', 'astra-addon', 'astra' ),
+=======
+					'tab'     => __( 'Normal', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'control' => 'ast-color',
 					'title'   => __( 'Widget Title Color', 'astra' ),
 					'default' => '',
@@ -95,7 +103,11 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'name'    => 'footer-adv-text-color',
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+<<<<<<< HEAD
 					'tab'     => __( 'Normal', 'astra-addon', 'astra' ),
+=======
+					'tab'     => __( 'Normal', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'control' => 'ast-color',
 					'title'   => __( 'Text Color', 'astra' ),
 					'default' => '',
@@ -108,7 +120,11 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'name'    => 'footer-adv-link-color',
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+<<<<<<< HEAD
 					'tab'     => __( 'Normal', 'astra-addon', 'astra' ),
+=======
+					'tab'     => __( 'Normal', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'control' => 'ast-color',
 					'title'   => __( 'Link Color', 'astra' ),
 					'default' => '',
@@ -121,7 +137,11 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'name'    => 'footer-adv-link-h-color',
 					'type'    => 'sub-control',
 					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+<<<<<<< HEAD
 					'tab'     => __( 'Hover', 'astra-addon', 'astra' ),
+=======
+					'tab'     => __( 'Hover', 'astra' ),
+>>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'control' => 'ast-color',
 					'title'   => __( 'Link Hover Color', 'astra' ),
 					'default' => '',
