@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 10,
 					'title'             => __( 'Font Variant', 'astra' ),
 					'variant'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
-					'transport'   		=> 'postMessage',
+					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -227,7 +227,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 35,
 					'title'             => __( 'Font Variant', 'astra' ),
 					'variant'           => ASTRA_THEME_SETTINGS . '[headings-font-family]',
-					'transport'   		=> 'postMessage',
+					'transport'         => 'postMessage',
 				),
 
 				/**
