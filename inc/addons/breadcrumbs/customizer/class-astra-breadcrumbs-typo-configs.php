@@ -54,11 +54,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-breadcrumb',
-<<<<<<< HEAD
-					'title'    => __( 'Typography', 'astra-addon', 'astra' ),
-=======
 					'title'    => __( 'Typography', 'astra' ),
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority' => 73,
 					'settings' => array(),

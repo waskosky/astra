@@ -37,11 +37,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => 'footer-color',
 					'type'     => 'sub-control',
-<<<<<<< HEAD
-					'tab'      => __( 'Normal', 'astra-addon', 'astra' ),
-=======
 					'tab'      => __( 'Normal', 'astra' ),
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'priority' => 5,
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
 					'control'  => 'ast-color',
@@ -55,11 +51,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => 'footer-link-color',
 					'type'     => 'sub-control',
-<<<<<<< HEAD
-					'tab'      => __( 'Normal', 'astra-addon', 'astra' ),
-=======
 					'tab'      => __( 'Normal', 'astra' ),
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'priority' => 6,
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
 					'control'  => 'ast-color',
@@ -73,11 +65,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 				array(
 					'name'     => 'footer-link-h-color',
 					'type'     => 'sub-control',
-<<<<<<< HEAD
-					'tab'      => __( 'Hover', 'astra-addon', 'astra' ),
-=======
 					'tab'      => __( 'Hover', 'astra' ),
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'priority' => 5,
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
 					'control'  => 'ast-color',

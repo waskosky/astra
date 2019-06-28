@@ -2,15 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-<<<<<<< HEAD
 "Project-Id-Version: Astra 2.0.0-beta.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2019-06-28 10:31:34+00:00\n"
-=======
-"Project-Id-Version: Astra 2.0.0-beta.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2019-06-24 04:10:15+00:00\n"
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
+"POT-Creation-Date: 2019-06-28 10:54:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -233,13 +227,8 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:138
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:34
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:150
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:116
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:264
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:113
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:257
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 msgid "None"
 msgstr ""
 
@@ -372,80 +361,47 @@ msgid "Font Family"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:102
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:98
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:243
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:96
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:237
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 msgid "Font Weight"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:115
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:113
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:259
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:110
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:252
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 msgid "Text Transform"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:119
 #: inc/customizer/class-astra-customizer.php:893
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:263
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:256
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 #: inc/customizer/custom-controls/background/class-astra-control-background.php:174
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:111
 msgid "Inherit"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:121
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:117
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:265
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:114
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:258
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 msgid "Capitalize"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:122
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:118
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:266
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:115
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:259
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 msgid "Uppercase"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:123
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:119
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:267
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:116
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:260
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 msgid "Lowercase"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:136
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:84
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:105
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:134
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:130
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:60
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:94
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:128
@@ -459,11 +415,7 @@ msgid "Font Size"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:157
-<<<<<<< HEAD
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:155
-=======
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:151
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 msgid "Line Height"
 msgstr ""
 

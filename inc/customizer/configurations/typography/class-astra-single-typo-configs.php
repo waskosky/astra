@@ -43,11 +43,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-blog-single',
 					'priority' => 12,
-<<<<<<< HEAD
-					'title'    => __( 'Typography', 'astra-addon', 'astra' ),
-=======
 					'title'    => __( 'Typography', 'astra' ),
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'settings' => array(),
 				),
 
@@ -56,11 +52,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'type'      => 'control',
 					'priority'  => 12,
 					'control'   => 'ast-settings-group',
-<<<<<<< HEAD
-					'title'     => __( 'Single Post / Page Title', 'astra-addon', 'astra' ),
-=======
 					'title'     => __( 'Single Post / Page Title', 'astra' ),
->>>>>>> 304dcafadfa36f7cd63fc89a1b9417bb43e6b342
 					'section'   => 'section-blog-single',
 					'transport' => 'postMessage',
 				),
