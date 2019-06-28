@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astra 2.0.0-beta.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2019-06-28 10:54:33+00:00\n"
+"POT-Creation-Date: 2019-06-28 11:34:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1792,7 +1792,7 @@ msgstr ""
 
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:363
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:553
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:511
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:526
 msgid "Border Radius"
 msgstr ""
 
@@ -1865,7 +1865,7 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-blog-layout-configs.php:169
 #: inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php:153
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:408
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:552
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:567
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:166
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:145
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:269
@@ -2107,31 +2107,35 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:465
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:460
+msgid "The parent menu should have a # link for the submenu to open on a link."
+msgstr ""
+
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:480
 msgid "Menu Label on Small Devices"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:477
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:492
 msgid "Toggle Button Style"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:482
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:497
 msgid "Fill"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:483
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:498
 msgid "Outline"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:484
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:499
 msgid "Minimal"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:496
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:511
 msgid "Toggle Button Color"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:552
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:567
 msgid "More Options Available for Mobile Header in Astra Pro!"
 msgstr ""
 
