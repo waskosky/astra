@@ -5677,7 +5677,6 @@ body {
 
 .ast-separate-container .blog-layout-1 {
   padding: 0;
-  /*background-color: $color-background-content;*/
   border-bottom: 0;
 }
 
@@ -5746,12 +5745,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .ast-plain-container {
-    /*.ast-article-post:first-child, 
-		.ast-article-single:first-child {
-			padding-top: 3em;
-		} */
-  }
   .ast-plain-container .ast-pagination {
     padding-bottom: 1.5em;
   }
@@ -5773,18 +5766,6 @@ body {
 }
 
 @media (max-width: 544px) {
-  .ast-plain-container {
-    /*.site-content {
-			.ast-container {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}*/
-    /*.ast-article-post:first-child, 
-		.ast-article-single:first-child {
-			padding-top: 0;
-		}*/
-  }
   .ast-plain-container .ast-article-post,
   .ast-plain-container .ast-article-single {
     padding: 2em 2em 0 2em;
@@ -5802,40 +5783,30 @@ body {
   .ast-plain-container .ast-pagination {
     padding: 2em;
   }
+  .ast-plain-container .ast-row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .ast-plain-container.single .ast-article-post,
+  .ast-plain-container.single .ast-article-single {
+    padding: 2em;
+  }
+  .ast-plain-container #secondary {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .ast-page-builder-template .hentry {
   margin: 0;
 }
 
-.ast-page-builder-template .ast-article-post,
-.ast-page-builder-template .ast-article-single {
-  padding-left: 10px;
-  padding-right: 10px;
+.ast-page-builder-template .hentry:first-child {
+  margin-top: 3em;
 }
 
-@media (max-width: 768px) {
-  .ast-page-builder-template .ast-article-post,
-  .ast-page-builder-template .ast-article-single {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-.ast-page-builder-template .ast-article-post:last-child,
-.ast-page-builder-template .ast-article-single:last-child {
+.ast-page-builder-template .hentry:last-child {
   padding-bottom: 0;
-}
-
-.ast-page-builder-template.single .ast-article-post,
-.ast-page-builder-template.single .ast-article-single {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.ast-page-builder-template.single .site-content #primary {
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .ast-page-builder-template .site-content > .ast-container {
@@ -5843,17 +5814,9 @@ body {
   padding: 0;
 }
 
-.ast-page-builder-template #primary {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 3em 0 0 0;
-}
-
-@media (max-width: 768px) {
-  .ast-page-builder-template #primary {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.ast-page-builder-template .site-content #primary {
+  padding: 0;
+  margin: 0;
 }
 
 .ast-page-builder-template .no-results {
@@ -5868,6 +5831,8 @@ body {
 .ast-page-builder-template .entry-header {
   margin-left: auto;
   margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .ast-page-builder-template .entry-header.ast-no-title.ast-no-thumbnail {
@@ -5884,22 +5849,14 @@ body {
 }
 
 @media (max-width: 768px) {
-  .ast-page-builder-template #secondary {
-    margin-top: 1.5em;
-  }
-  .ast-page-builder-template .site-content > .ast-container .ast-row {
-    margin-left: 0;
-    margin-right: 0;
+  .ast-page-builder-template .entry-header {
+    margin-top: 0em;
   }
 }
 
-@media (max-width: 544px) {
-  .ast-page-builder-template .site-content #primary {
-    margin: 0;
-    padding: 0;
-  }
+@media (max-width: 768px) {
   .ast-page-builder-template #secondary {
-    margin-top: 0;
+    margin-top: 1.5em;
   }
 }
 
@@ -5923,18 +5880,16 @@ body {
   }
 }
 
+.ast-page-builder-template.single .post-navigation {
+  padding-bottom: 2em;
+}
+
 .ast-page-builder-template .ast-archive-description {
   margin-top: 3em;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
-}
-
-@media (max-width: 544px) {
-  .ast-page-builder-template .entry-header {
-    margin-top: 0;
-  }
 }
 
 @media (min-width: 993px) {
@@ -6035,29 +5990,6 @@ body {
   .ast-separate-container.ast-two-container.ast-left-sidebar #secondary {
     padding-right: 20px;
     padding-left: 0;
-  }
-}
-
-@media (max-width: 544px) {
-  .ast-plain-container .ast-row {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  .ast-plain-container.single .ast-article-post,
-  .ast-plain-container.single .ast-article-single {
-    padding: 2em;
-  }
-  .ast-plain-container #secondary {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  .ast-page-builder-template .ast-row {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  .ast-page-builder-template #secondary {
-    padding-left: 1em;
-    padding-right: 1em;
   }
 }
 
