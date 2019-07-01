@@ -142,8 +142,8 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						--><div class="ast-comment-data-wrap">
 							<div class="ast-comment-meta-wrap">
-								<header 
 								<?php
+								echo '<header ';
 								echo astra_attr(
 									'commen-meta-author',
 									array(
