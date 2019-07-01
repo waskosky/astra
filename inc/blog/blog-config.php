@@ -226,10 +226,41 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				?>
 
 				<!-- Comment Schema Meta -->
-				<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
-					<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
-					<meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
-				</span>
+				<?php
+				echo '<span ';
+					echo astra_attr(
+						'comments-interactioncounter',
+						array(
+							'itemprop'  => 'interactionStatistic',
+							'itemscope' => '',
+							'itemtype'  => 'https://schema.org/InteractionCounter',
+						)
+					);
+				echo '>';
+
+					echo '<meta ';
+						echo astra_attr(
+							'comments-interactioncounter-interactiontype',
+							array(
+								'itemprop' => 'interactionType',
+								'content'  => 'https://schema.org/CommentAction',
+							)
+						);
+					echo '/>';
+
+					echo '<meta ';
+						echo astra_attr(
+							'comments-interactioncounter-userinteractioncount',
+							array(
+								'itemprop' => 'userInteractionCount',
+								'content'  => absint( wp_count_comments( get_the_ID() )->approved ),
+							)
+						);
+
+					echo '/>';
+
+				echo '</span>';
+				?>
 			</span>
 
 			<?php
