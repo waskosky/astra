@@ -268,7 +268,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'font-size-entry-title'               => array(
 						'desktop'      => 32,
-						'tablet'       => 26,
+						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
@@ -277,15 +277,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'font-size-archive-summary-title'     => array(
 						'desktop'      => 26,
 						'tablet'       => 26,
-						'mobile'       => '',
+						'mobile'       => 22,
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                => array(
 						'desktop'      => 26,
-						'tablet'       => '',
-						'mobile'       => '',
+						'tablet'       => 26,
+						'mobile'       => 22,
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',

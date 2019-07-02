@@ -205,7 +205,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
-				$archive_post_title_font_size_value = 22;
 				$skin_css_output                    = array(
 					'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
@@ -222,7 +221,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 				$parse_css                          = astra_parse_css( $skin_css_output );
 			} else {
-				$archive_post_title_font_size_value = 30;
 				$skin_css_output                    = array(
 					'p, .entry-content p'  => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
@@ -832,13 +830,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'mobile' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),
+					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'mobile' ),
 				),
 				'.site-header .site-description'        => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'mobile' ),
 				),
 				'.entry-title'                          => array(
-					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'mobile', $archive_post_title_font_size_value ),
+					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'mobile' ),
 				),
 
 				// Conditionally select the css selectors with or without achors.

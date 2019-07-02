@@ -5708,9 +5708,6 @@ body {
   .ast-separate-container.ast-right-sidebar #secondary {
     padding-left: 1em;
   }
-  .ast-separate-container.ast-right-sidebar #secondary {
-    padding-right: 1em;
-  }
   .ast-separate-container.ast-two-container #secondary {
     padding-left: 0;
     padding-right: 0;
@@ -6295,8 +6292,8 @@ body {
   }
 }
 
-@media (min-width: 993px) {
+@media (min-width: 544px) {
   .ast-separate-container.ast-two-container #secondary .widget {
-    margin-bottom: 1.35em;
+    margin-bottom: 1.459em;
   }
 }

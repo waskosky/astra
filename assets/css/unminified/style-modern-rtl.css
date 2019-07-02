@@ -6222,7 +6222,6 @@ body {
 .widget_calendar th,
 .widget_calendar td {
   padding: 0;
-  text-align: center;
 }
 
 .widget_calendar table,
@@ -6262,7 +6261,6 @@ body {
 
 .widget_calendar tbody {
   line-height: 2.10em;
-  text-align: center;
 }
 
 .widget_calendar tbody > tr > td {
@@ -6297,8 +6295,8 @@ body {
   }
 }
 
-@media (min-width: 993px) {
+@media (min-width: 544px) {
   .ast-separate-container.ast-two-container #secondary .widget {
-    margin-bottom: 1.35em;
+    margin-bottom: 1.459em;
   }
 }
