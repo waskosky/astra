@@ -316,6 +316,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Base Typography', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 1,
+					'panel'    => 'panel-global'
 				),
 
 				array(
@@ -324,6 +325,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Content', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 35,
+					'panel'    => 'panel-global'
 				),
 
 				/**
