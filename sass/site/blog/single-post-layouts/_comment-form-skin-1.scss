@@ -390,3 +390,11 @@
         margin-top: 0;
     }
 }
+
+@media (max-width: $mx-col-sm) {
+.page {
+    .comments-area {
+            margin-top: .75em;
+        }
+    }
+}

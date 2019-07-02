@@ -541,6 +541,12 @@
   margin-top: 0;
 }
 
+@media (max-width: 544px) {
+  .page .comments-area {
+    margin-top: .75em;
+  }
+}
+
 /*----------  Classic Single Post Common Stylesheet  ----------*/
 /**
  *	Common Stylesheet of Single Post

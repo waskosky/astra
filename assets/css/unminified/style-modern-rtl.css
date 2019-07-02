@@ -4873,7 +4873,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 768px) {
   .ast-author-box img.avatar {
-    max-width: 5.5em;
+    max-width: 5.8em;
   }
 }
 
@@ -5396,6 +5396,12 @@ input[type="color"]::-webkit-color-swatch {
   padding: 0;
   border-top: 0;
   margin-top: 0;
+}
+
+@media (max-width: 544px) {
+  .page .comments-area {
+    margin-top: .6em;
+  }
 }
 
 /*----------  Classic Single Post Common Stylesheet  ----------*/
