@@ -1365,7 +1365,6 @@ body {
 .widget_calendar th,
 .widget_calendar td {
   padding: 0;
-  text-align: center;
 }
 
 .widget_calendar table,
@@ -1405,7 +1404,6 @@ body {
 
 .widget_calendar tbody {
   line-height: 2.10em;
-  text-align: center;
 }
 
 .widget_calendar tbody > tr > td {
