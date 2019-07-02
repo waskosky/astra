@@ -5708,9 +5708,6 @@ body {
   .ast-separate-container.ast-right-sidebar #secondary {
     padding-right: 1em;
   }
-  .ast-separate-container.ast-right-sidebar #secondary {
-    padding-left: 1em;
-  }
   .ast-separate-container.ast-two-container #secondary {
     padding-right: 0;
     padding-left: 0;

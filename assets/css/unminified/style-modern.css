@@ -4910,12 +4910,6 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
-@media (max-width: 768px) {
-  .ast-author-box img.avatar {
-    margin: 20px 0 0 0;
-  }
-}
-
 .ast-separate-container .ast-author-box,
 .ast-separate-container .ast-archive-description {
   background-color: #eee;
