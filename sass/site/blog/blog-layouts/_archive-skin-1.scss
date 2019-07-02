@@ -4,7 +4,10 @@
 .ast-author-box{
 	img.avatar {
 	    border-radius: 50%;
-	    margin: 0 20px 0 0;
+		margin: 0 20px 0 0;
+		@media (max-width: $mx-col-md) {
+			max-width: 5.8em;
+		}
 	}
 }
 
