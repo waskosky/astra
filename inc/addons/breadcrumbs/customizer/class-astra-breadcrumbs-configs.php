@@ -48,7 +48,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'               => 'section',
 					'priority'           => 20,
 					'title'              => __( 'Breadcrumb', 'astra' ),
-					'panel'              => 'panel-layout',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
