@@ -4166,6 +4166,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 3em;
 }
 
+.search-no-results .site-content .content-area .search-form {
+  margin-bottom: 0;
+}
+
 .blog-layout-1 {
   /* 2 - Blog Thumbnail Styles */
 }
@@ -5990,6 +5994,12 @@ body {
   .ast-separate-container.ast-two-container.ast-left-sidebar #secondary {
     padding-left: 20px;
     padding-right: 0;
+  }
+}
+
+@media (max-width: 544px) {
+  .entry-meta, .entry-meta * {
+    line-height: 1.6;
   }
 }
 

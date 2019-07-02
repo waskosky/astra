@@ -451,3 +451,10 @@ body{
 		}
 	}
 }
+
+.entry-meta, .entry-meta * {
+	line-height: 1.4;
+	@media (max-width: $mx-col-sm) {
+		line-height: 1.6;
+	}
+}
