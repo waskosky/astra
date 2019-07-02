@@ -101,8 +101,9 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		public function skin_defaults( $defaults ) {
 			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
 				$defaults['font-size-entry-title']['desktop']           = 30;
+				$defaults['font-size-entry-title']['tablet']            = 30;
 				$defaults['font-size-archive-summary-title']['desktop'] = 40;
-				$defaults['font-size-archive-summary-title']['desktop'] = 40;
+				$defaults['font-size-archive-summary-title']['tablet']  = 40;
 				$defaults['site-sidebar-width']                         = 30;
 			}
 

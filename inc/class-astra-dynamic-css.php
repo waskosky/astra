@@ -727,13 +727,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'tablet' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
+					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'tablet' ),
 				),
 				'.site-header .site-description'        => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'tablet' ),
 				),
 				'.entry-title'                          => array(
-					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'tablet', 30 ),
+					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'tablet' ),
 				),
 
 				// Conditionally select the css selectors with or without achors.

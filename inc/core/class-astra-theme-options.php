@@ -268,7 +268,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'font-size-entry-title'               => array(
 						'desktop'      => 32,
-						'tablet'       => '',
+						'tablet'       => 26,
 						'mobile'       => '',
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
@@ -276,7 +276,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'font-size-archive-summary-title'     => array(
 						'desktop'      => 26,
-						'tablet'       => '',
+						'tablet'       => 26,
 						'mobile'       => '',
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
