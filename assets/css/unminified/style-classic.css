@@ -4166,6 +4166,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 3em;
 }
 
+.search-no-results .site-content .content-area .search-form {
+  margin-bottom: 0;
+}
+
 .blog-layout-1 {
   /* 2 - Blog Thumbnail Styles */
 }
