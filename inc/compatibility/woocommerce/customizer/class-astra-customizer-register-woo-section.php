@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 					'name'     => 'section-woo-general',
 					'title'    => __( 'General', 'astra' ),
 					'type'     => 'section',
-					'priority' => 5,
+					'priority' => 20,
 					'panel'    => 'woocommerce',
 				),
 
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 					'name'     => 'section-woo-shop',
 					'title'    => __( 'Shop', 'astra' ),
 					'type'     => 'section',
-					'priority' => 10,
+					'priority' => 20,
 					'panel'    => 'woocommerce',
 				),
 
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 					'name'     => 'section-woo-shop-single',
 					'type'     => 'section',
 					'title'    => __( 'Single Product', 'astra' ),
-					'priority' => 15,
+					'priority' => 20,
 					'panel'    => 'woocommerce',
 				),
 
