@@ -332,7 +332,7 @@
     }
     @media (max-width: $mx-col-sm) {
         .comments-area {
-            padding: 2em;
+            padding: 1em;
             .ast-comment-cite-wrap,
             .ast-comment-time,
             .comment-form-textarea {
@@ -348,6 +348,7 @@
         margin-bottom: 3em;
         @media (max-width: $mx-col-sm) {
             margin: 0;
+            padding: 2em;
         }
     }
 }

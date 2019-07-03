@@ -169,6 +169,12 @@ body{
 				padding: 3em 0 3em 0;
 			}
 		}
+		&.page {
+			.ast-article-post,
+			.ast-article-single {
+				padding: 3em 0 2.5em 0;
+			}
+		}
 		.ast-article-post,
 		.ast-article-single {
 			padding: 3em 1.5em 0 1.5em;
@@ -179,9 +185,13 @@ body{
 		}
 	}
 	@media (max-width: $mx-col-sm) {
+		.ast-article-post:first-child,
+		.ast-article-single:first-child {
+			padding-top: 1em;
+		}
 		.ast-article-post,
 		.ast-article-single {
-			padding: 2em 2em 0 2em;
+			padding: 2em 1em 0 1em;
 		}
 		&.single {
 			.entry-header {
@@ -206,14 +216,19 @@ body{
 		}
 		&.single .ast-article-post, 
 		&.single .ast-article-single {
-			padding: 2em;
+			padding: 1em;
 		}
-		#secondary {
+		&.page .ast-article-post, 
+		&.page .ast-article-single {
+			padding: 1em;
+		}
+		&.ast-right-sidebar #secondary,
+		&.ast-left-sidebar #secondary {
 			padding-left: 1em;
 			padding-right: 1em;
 		}
 		.no-results {
-			margin: 2em 0 2em 0;
+			margin: 2em 1em 2em 1em;
 		}
 	}
 }
