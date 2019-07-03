@@ -5751,11 +5751,10 @@ body {
   padding-bottom: 0;
 }
 
-.ast-plain-container .no-results {
-  margin: 3em 0 3em 0;
-}
-
 @media (max-width: 768px) {
+  .ast-plain-container .no-results {
+    margin: 3em 0 3em 0;
+  }
   .ast-plain-container .ast-pagination {
     padding-bottom: 1.5em;
   }
@@ -5805,6 +5804,9 @@ body {
   .ast-plain-container #secondary {
     padding-right: 1em;
     padding-left: 1em;
+  }
+  .ast-plain-container .no-results {
+    margin: 2em 0 2em 0;
   }
 }
 
