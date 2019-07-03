@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'   => 'ast-divider',
 					'section'   => 'section-content-typo',
 					'priority'  => 4,
-					'title'     => __( 'Heading 1 (H1)', 'astra' ),
+					'title'     => __( 'Heading 1', 'astra' ),
 					'settings'  => array(),
 					'separator' => false,
 				),
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'section'  => 'section-content-typo',
 					'priority' => 9,
-					'title'    => __( 'Heading 2 (H2)', 'astra' ),
+					'title'    => __( 'Heading 2', 'astra' ),
 					'settings' => array(),
 				),
 
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'section'  => 'section-content-typo',
 					'priority' => 14,
-					'title'    => __( 'Heading 3 (H3)', 'astra' ),
+					'title'    => __( 'Heading 3', 'astra' ),
 					'settings' => array(),
 				),
 
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h4]',
 					'type'     => 'control',
-					'title'    => __( 'Heading 4 (H4)', 'astra' ),
+					'title'    => __( 'Heading 4', 'astra' ),
 					'section'  => 'section-content-typo',
 					'control'  => 'ast-divider',
 					'priority' => 19,
@@ -178,7 +178,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'section'  => 'section-content-typo',
 					'priority' => 24,
-					'title'    => __( 'Heading 5 (H5)', 'astra' ),
+					'title'    => __( 'Heading 5', 'astra' ),
 					'settings' => array(),
 				),
 
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h6]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
-					'title'    => __( 'Heading 6 (H6)', 'astra' ),
+					'title'    => __( 'Heading 6', 'astra' ),
 					'section'  => 'section-content-typo',
 					'priority' => 29,
 					'settings' => array(),
