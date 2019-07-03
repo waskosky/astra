@@ -5751,6 +5751,10 @@ body {
   padding-bottom: 0;
 }
 
+.ast-plain-container .no-results {
+  margin: 3em 0 3em 0;
+}
+
 @media (max-width: 768px) {
   .ast-plain-container .ast-pagination {
     padding-bottom: 1.5em;
@@ -5760,7 +5764,7 @@ body {
   }
   .ast-plain-container.single .ast-article-post,
   .ast-plain-container.single .ast-article-single {
-    padding: 3em 0 0 0;
+    padding: 3em 0 3em 0;
   }
   .ast-plain-container .ast-article-post,
   .ast-plain-container .ast-article-single {

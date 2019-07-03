@@ -154,6 +154,9 @@ body{
 		padding-bottom: 0;
 	}
 	@media (max-width: $mx-col-md) {
+		.no-results {
+			margin: 3em 0 3em 0;
+		}
 		.ast-pagination {
 			padding-bottom: 1.5em;
 		}
