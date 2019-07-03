@@ -305,8 +305,7 @@
     }
 }
 
-.ast-plain-container,
-.ast-page-builder-template {
+.ast-plain-container {
     .children {
         .ast-comment {
             margin: 2.250em 0 0 0;
@@ -343,12 +342,23 @@
 }
 
 .ast-page-builder-template {
-    .comments-area {
-        padding: 3em 0em 0em 0em;
-        margin-bottom: 3em;
-        @media (max-width: $mx-col-sm) {
-            margin: 0;
-            padding: 2em;
+    .children {
+        .ast-comment {
+            margin: 2.250em 0 0 0;
+        }
+    }
+    .depth-1 {
+        padding: 1.125em 0em;
+    }
+    .comment-reply-title{
+        padding-top:0;
+    }
+    .depth-1:last-child {
+        padding-bottom: 0em;
+    }
+    .ast-comment-list {
+        .comment-respond {
+            padding: 2.25em 0 0 0;
         }
     }
 }

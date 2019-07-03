@@ -185,9 +185,11 @@ body{
 		}
 	}
 	@media (max-width: $mx-col-sm) {
-		.ast-article-post:first-child,
-		.ast-article-single:first-child {
-			padding-top: 1em;
+		&.blog {
+			.ast-article-post:first-child,
+			.ast-article-single:first-child {
+				padding-top: 1em;
+			}
 		}
 		.ast-article-post,
 		.ast-article-single {
@@ -200,7 +202,7 @@ body{
 		}
 		.ast-archive-description {
 			margin-bottom: 0;
-			padding: 2em;
+			padding: 1em 1em 1.9em 1em;
 		}
 		.site-content {
 			.ast-container {
