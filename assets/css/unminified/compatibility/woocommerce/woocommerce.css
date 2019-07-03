@@ -4594,6 +4594,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-product-search .search-field {
   flex: auto;
+  width: 50%;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
