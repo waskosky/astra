@@ -166,3 +166,19 @@
 .ast-group-tabs .ui-tabs-nav {
     overflow: visible;
 }
+
+.ast-field-settings-modal .wp-picker-open+.wp-picker-input-wrap,
+.ast-field-settings-modal .wp-picker-input-wrap label{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker,
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker{
+    width: 65px !important;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear,
+.ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear{
+    margin-left: 6px;
+}
