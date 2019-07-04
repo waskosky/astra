@@ -167,6 +167,7 @@
     overflow: visible;
 }
 
+/* Color Picker */
 .ast-field-settings-modal .wp-picker-open+.wp-picker-input-wrap,
 .ast-field-settings-modal .wp-picker-input-wrap label{
     display: inline-block;
@@ -181,4 +182,9 @@
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear,
 .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear{
     margin-left: 6px;
+}
+
+/* Buttons */
+.wp-core-ui .ast-field-settings-modal .background-image-upload .button{
+    font-size: 11px;
 }
