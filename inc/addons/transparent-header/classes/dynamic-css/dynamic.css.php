@@ -35,8 +35,8 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$transparent_header_logo    = astra_get_option( 'transparent-header-logo' );
 
 	$transparent_bg_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'desktop' );
-	$transparent_bg_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'tablet' );
-	$transparent_bg_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'mobile' );
+	$transparent_bg_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'tablet', $transparent_bg_color_desktop );
+	$transparent_bg_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'mobile', ( $transparent_bg_color_tablet ) ? $transparent_bg_color_tablet : $transparent_bg_color_desktop );
 
 	$transparent_color_site_title_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'desktop' );
 	$transparent_color_site_title_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'tablet' );
