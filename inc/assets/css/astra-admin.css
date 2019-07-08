@@ -61,6 +61,10 @@
 	margin-bottom: 0;
 }
 
+.customize-control-ast-font-variant .select2 {
+	margin-bottom: 12px;
+}
+
 .customize-control .ast-control-tooltip {
     position: absolute;
     top: 6px;

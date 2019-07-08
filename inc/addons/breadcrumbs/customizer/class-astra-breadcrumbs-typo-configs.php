@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'breadcrumb-font-weight' ),
-					'title'             => __( 'Font Weight', 'astra' ),
+					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => 'breadcrumb-font-family',
 					'priority'          => 10,
 				),
