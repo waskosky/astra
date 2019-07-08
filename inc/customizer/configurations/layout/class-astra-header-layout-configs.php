@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority'  => 10,
 					'partial'   => array(
-						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-button',
+						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-button',
 						'container_inclusive' => false,
 						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_button_text' ),
 					),
