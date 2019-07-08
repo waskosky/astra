@@ -88,12 +88,12 @@
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     -webkit-border-radius: 3px;
-    margin: 8px auto 5px;
     background-color: #fff;
 }
 
 .ast-field-settings-wrap  .ast-field-settings-modal {
     border-radius: 3px;
+    margin-top: 8px;
 }
 
 .ast-field-settings-modal::before {
