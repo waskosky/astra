@@ -1221,10 +1221,10 @@ function isJsonString( str ) {
 	astra_generate_css( 'astra-settings[primary-header-button-color-group]', 'header-main-rt-section-button-back-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'background-color' );
 	astra_generate_css( 'astra-settings[primary-header-button-color-group]', 'header-main-rt-section-button-text-h-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover', 'color' );
 	astra_generate_css( 'astra-settings[primary-header-button-color-group]', 'header-main-rt-section-button-back-h-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover', 'background-color' );
-	astra_responsive_spacing( 'astra-settings[header-main-rt-section-button-padding]','.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'padding', ['top', 'right', 'bottom', 'left' ] );
 	astra_generate_css( 'astra-settings[primary-header-button-border-group]', 'header-main-rt-section-button-border-radius', '.main-header-bar .ast-container .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'border-radius', 'px' );
 	astra_generate_css( 'astra-settings[primary-header-button-border-group]', 'header-main-rt-section-button-border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'border-color' );
 	astra_generate_css( 'astra-settings[primary-header-button-border-group]', 'header-main-rt-section-button-border-h-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover', 'border-color' );
+	astra_responsive_spacing( 'astra-settings[header-main-rt-section-button-padding]','.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'padding', ['top', 'right', 'bottom', 'left' ] );
 
 	/**
 	 * Button border
