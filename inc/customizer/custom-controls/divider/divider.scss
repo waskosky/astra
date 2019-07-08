@@ -1,4 +1,9 @@
-.customize-control-ast-divider .customize-control-title {
-	font-size: 15px;
-	margin: 1em 0 0.2em;
-}
+.customize-control-ast-divider {
+	hr {
+		margin-top: 12px;
+	}
+	.customize-control-title {
+		font-size: 15px;
+		margin: 1em 0 0.2em;
+	}
+} 

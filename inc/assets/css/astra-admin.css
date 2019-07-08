@@ -51,6 +51,16 @@
 	padding-bottom: 0;
 }
 
+.customize-control-title {
+	display: inline-block;
+	line-height: 16px;
+	margin-bottom: 12px;
+}
+
+.customize-control-ast-settings-group .customize-control-title {
+	margin-bottom: 0;
+}
+
 .customize-control .ast-control-tooltip {
     position: absolute;
     top: 6px;

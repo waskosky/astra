@@ -54,6 +54,7 @@
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
+  margin-bottom: 0;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input {
