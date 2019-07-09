@@ -128,7 +128,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-background',
 					'default'  => astra_get_option( 'site-layout-outside-bg-obj' ),
-					'section'  => 'section-colors-background',
+					'section'  => 'section-colors-body',
 					'priority' => 25,
 					'title'    => __( 'Background', 'astra' ),
 				),
