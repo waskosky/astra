@@ -94,6 +94,10 @@
   padding-left: 11px;
 }
 
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper li .ast-spacing-connected {
+  color: #1e8cbe;
+}
+
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper.active {
   display: flex;
 }

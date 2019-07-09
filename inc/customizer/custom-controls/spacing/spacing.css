@@ -40,3 +40,7 @@
   border-color: #a4afb7;
   box-shadow: none;
 }
+
+.customize-control-ast-spacing .ast-spacing-connected {
+  color: #1e8cbe;
+}

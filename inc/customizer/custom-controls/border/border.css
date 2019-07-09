@@ -72,6 +72,10 @@
   padding-left: 11px;
 }
 
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
+  color: #1e8cbe;
+}
+
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li:last-child input.ast-border-input {
   border-right-width: 1px;
   border-radius: 0 3px 3px 0;
