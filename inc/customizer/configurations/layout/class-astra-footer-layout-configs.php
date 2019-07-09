@@ -87,9 +87,9 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'    => __( 'Section 1', 'astra' ),
 					'choices'  => array(
 						''       => __( 'None', 'astra' ),
-						'menu'   => __( 'Footer Menu', 'astra' ),
 						'custom' => __( 'Custom Text', 'astra' ),
 						'widget' => __( 'Widget', 'astra' ),
+						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
 				),
 				/**
@@ -111,9 +111,9 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'     => __( 'Section 1 Custom Text', 'astra' ),
 					'choices'   => array(
 						''       => __( 'None', 'astra' ),
-						'menu'   => __( 'Footer Menu', 'astra' ),
 						'custom' => __( 'Custom Text', 'astra' ),
 						'widget' => __( 'Widget', 'astra' ),
+						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
 					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-1',
@@ -136,9 +136,9 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'    => __( 'Section 2', 'astra' ),
 					'choices'  => array(
 						''       => __( 'None', 'astra' ),
-						'menu'   => __( 'Footer Menu', 'astra' ),
 						'custom' => __( 'Custom Text', 'astra' ),
 						'widget' => __( 'Widget', 'astra' ),
+						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
 				),
 
