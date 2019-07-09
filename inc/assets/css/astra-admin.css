@@ -53,6 +53,14 @@
 	box-sizing: border-box;
 }
 
+.ast-field-settings-modal .customize-control:first-child {
+	margin-top: 15px;
+}
+
+.ast-field-settings-modal .ui-tabs-nav .customize-control:first-child {
+	margin-top: 0;
+}
+
 .ast-field-settings-modal .customize-control:last-child {
 	padding-bottom: 15px
 }
