@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-container-layout',
 					'type'               => 'section',
-					'priority'           => 70,
+					'priority'           => 15,
 					'title'              => __( 'Container', 'astra' ),
 					'panel'              => 'panel-global',
 					'description_hidden' => true,
@@ -257,7 +257,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-colors-background',
 					'type'               => 'section',
-					'priority'           => 15,
+					'priority'           => 16,
 					'title'              => __( 'Colors', 'astra' ),
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
@@ -299,8 +299,8 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-typography',
 					'type'               => 'section',
-					'title'              => __( 'Fonts', 'astra' ),
-					'priority'           => 20,
+					'title'              => __( 'Typography', 'astra' ),
+					'priority'           => 15,
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
