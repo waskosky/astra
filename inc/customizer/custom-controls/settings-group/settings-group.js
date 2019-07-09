@@ -19,7 +19,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         /* Close popup when click outside anywhere outside of popup */
         $( 'body' ).click( function( e ) {
-            if ( ! $( e.target ).closest( '.ast-adv-toggle-icon.open' ).length ) {
+            if ( ! $( e.target ).closest( '.ast-field-settings-modal' ).length ) {
                 $( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
             }
         });

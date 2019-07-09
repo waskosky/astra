@@ -91,6 +91,7 @@
   border: 1px solid #a4afb7;
   border-right-width: 0;
   box-shadow: none;
+  padding-left: 11px;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper.active {
