@@ -330,7 +330,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-content-typo',
 					'type'     => 'section',
-					'title'    => __( 'Content', 'astra' ),
+					'title'    => __( 'Headings', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 35,
 					'panel'    => 'panel-global'

@@ -42,8 +42,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'section'   => 'section-content-typo',
 					'priority'  => 4,
 					'title'     => __( 'Heading 1', 'astra' ),
-					'settings'  => array(),
-					'separator' => false,
+					'settings'  => array()
 				),
 
 				/**
