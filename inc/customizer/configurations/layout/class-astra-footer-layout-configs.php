@@ -252,34 +252,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
-				/**
-				 * Option: Footer Bar typo Section heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-bar-typography-heading-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-footer-small',
-					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 47,
-					'settings' => array(),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-				),
-
-				/**
-				 * Option: Footer Bar Typography Group
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-typography-group]',
-					'default'   => astra_get_option( 'footer-bar-typography-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
-					'section'   => 'section-footer-small',
-					'transport' => 'postMessage',
-					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-				),
+				
 
 				/**
 				 * Option: Header Width
