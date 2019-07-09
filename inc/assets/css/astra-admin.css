@@ -50,7 +50,7 @@
 .ast-field-settings-modal .customize-control {
 	padding-left: 15px;
     padding-right: 15px;
-    width: 89%;
+	box-sizing: border-box;
 }
 
 .ast-field-settings-modal .customize-control:last-child {
