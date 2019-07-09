@@ -53,12 +53,16 @@
 
 .customize-control-title {
 	display: inline-block;
-	line-height: 16px;
+	line-height: 26px;
 	margin-bottom: 12px;
 }
 
 .customize-control-ast-settings-group .customize-control-title {
 	margin-bottom: 0;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
+	margin-bottom: 12px;
 }
 
 .customize-control-ast-font-variant .select2 {

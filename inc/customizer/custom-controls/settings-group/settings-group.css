@@ -1,5 +1,6 @@
 
 .ast-adv-toggle-icon{
+    top: -1px;
     right: 2px;
     position: absolute;
     width: 18px;
@@ -22,7 +23,10 @@
 
 .ast-field-settings-modal{
     background: #FFF;
-    box-shadow: 1px 1px #88888859;
+}
+
+.ast-field-settings-modal .customize-control:first-child {
+    margin-top: 0;
 }
 
 .ast-field-settings-wrap{
@@ -79,7 +83,7 @@
 
 .ast-group-tabs .ui-widget-content{
     overflow: hidden;
-    padding: 20px 5px 20px;
+    padding-top: 12px;
 }
 
 .ast-group-tabs .ui-widget-content.iris-slider-offset-alpha {
@@ -88,7 +92,7 @@
 
 .ast-fields-wrap{
     overflow: hidden;
-    padding: 10px;
+    padding: 15px;
 }
 
 .ast-field-settings-wrap {
