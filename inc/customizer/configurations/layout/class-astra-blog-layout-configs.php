@@ -33,6 +33,55 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Blog Content Width
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-width]',
+					'default'  => astra_get_option( 'blog-width' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-blog',
+					'priority' => 50,
+					'title'    => __( 'Blog Content Width', 'astra' ),
+					'choices'  => array(
+						'default' => __( 'Default', 'astra' ),
+						'custom'  => __( 'Custom', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Enter Width
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-max-width]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-blog',
+					'default'     => 1200,
+					'priority'    => 52,
+					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
+					'title'       => __( 'Enter Width', 'astra' ),
+					'suffix'      => '',
+					'input_attrs' => array(
+						'min'  => 768,
+						'step' => 1,
+						'max'  => 1920,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-blog',
+					'priority' => 52,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Blog Post Content
 				 */
 				array(
@@ -42,7 +91,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'blog-post-content' ),
 					'type'     => 'control',
 					'control'  => 'select',
-					'priority' => 50,
+					'priority' => 54,
 					'choices'  => array(
 						'full-content' => __( 'Full Content', 'astra' ),
 						'excerpt'      => __( 'Excerpt', 'astra' ),
@@ -84,55 +133,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'author'   => __( 'Author', 'astra' ),
 						'date'     => __( 'Publish Date', 'astra' ),
 						'tag'      => __( 'Tag', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog',
-					'priority' => 110,
-					'settings' => array(),
-				),
-
-				/**
-				 * Option: Blog Content Width
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-width]',
-					'default'  => astra_get_option( 'blog-width' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-blog',
-					'priority' => 115,
-					'title'    => __( 'Blog Content Width', 'astra' ),
-					'choices'  => array(
-						'default' => __( 'Default', 'astra' ),
-						'custom'  => __( 'Custom', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Enter Width
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[blog-max-width]',
-					'type'        => 'control',
-					'control'     => 'ast-slider',
-					'section'     => 'section-blog',
-					'default'     => 1200,
-					'priority'    => 120,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
-					'title'       => __( 'Enter Width', 'astra' ),
-					'suffix'      => '',
-					'input_attrs' => array(
-						'min'  => 768,
-						'step' => 1,
-						'max'  => 1920,
 					),
 				),
 			);
