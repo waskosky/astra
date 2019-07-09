@@ -70,6 +70,7 @@
 			li:last-child {
 				input.ast-border-input{
 					border-right-width: 1px;
+					border-radius: 0 3px 3px 0;
 				}
 			}
 			&.active {
