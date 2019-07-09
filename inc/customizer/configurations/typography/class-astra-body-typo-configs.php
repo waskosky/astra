@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'           => astra_get_option( 'body-font-weight' ),
 					'ast_inherit'       => __( 'Default', 'astra' ),
 					'section'           => 'section-body-typo',
-					'priority'          => 10,
+					'priority'          => 15,
 					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
 					'transport'         => 'postMessage',
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'   => 'select',
 					'section'   => 'section-body-typo',
 					'default'   => astra_get_option( 'body-text-transform' ),
-					'priority'  => 15,
+					'priority'  => 20,
 					'title'     => __( 'Text Transform', 'astra' ),
 					'choices'   => array(
 						''           => __( 'Default', 'astra' ),
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'section'     => 'section-body-typo',
 					'default'     => astra_get_option( 'font-size-body' ),
-					'priority'    => 20,
+					'priority'    => 10,
 					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,

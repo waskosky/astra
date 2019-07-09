@@ -67,8 +67,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'default'     => astra_get_option( 'font-size-entry-title' ),
 					'transport'   => 'postMessage',
-					'priority'    => 10,
-					'title'       => __( 'Font Size', 'astra' ),
+					'priority'    => 8,
+					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
