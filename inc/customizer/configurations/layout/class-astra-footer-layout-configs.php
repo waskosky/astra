@@ -252,8 +252,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
-				
-
 				/**
 				 * Option: Header Width
 				 */
@@ -378,7 +376,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'section'  => 'section-footer-adv',
 						'priority' => 999,
 						'label'    => '',
-						'help'     => '<p>' . __( 'More Options Available for Footer Widgets in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 

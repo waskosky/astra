@@ -45,15 +45,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Global', 'astra' ),
 				),
 
-				/*
-				array(
-				'name'     => 'section-site-layout',
-				'type'     => 'section',
-				'priority' => 5,
-				'title'    => __( 'Site Layout', 'astra' ),
-				'panel'    => 'panel-layout',
-				),*/
-
 				array(
 					'name'               => 'section-container-layout',
 					'type'               => 'section',
@@ -149,11 +140,11 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				array(
-					'name'               => 'section-primary-menu',
-					'type'               => 'section',
-					'priority'           => 15,
-					'title'              => __( 'Primary Menu', 'astra' ),
-					'panel'              => 'panel-header-group'
+					'name'     => 'section-primary-menu',
+					'type'     => 'section',
+					'priority' => 15,
+					'title'    => __( 'Primary Menu', 'astra' ),
+					'panel'    => 'panel-header-group',
 				),
 
 				/*
@@ -276,15 +267,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'panel'              => 'panel-global',
 				),
 
-				/*
-				array(
-				'name'     => 'section-colors-body',
-				'type'     => 'section',
-				'title'    => __( 'Base Colors', 'astra' ),
-				'section'  => 'section-colors-background',
-				'priority' => 1,
-				),*/
-
 				array(
 					'name'     => 'section-footer-adv-color-bg',
 					'type'     => 'section',
@@ -324,7 +306,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Base Typography', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 1,
-					'panel'    => 'panel-global'
+					'panel'    => 'panel-global',
 				),
 
 				array(
@@ -333,7 +315,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Headings', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 35,
-					'panel'    => 'panel-global'
+					'panel'    => 'panel-global',
 				),
 
 				/**

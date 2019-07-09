@@ -36,13 +36,13 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				 * Option: Heading 1 (H1) Divider
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[divider-section-h1]',
-					'type'      => 'control',
-					'control'   => 'ast-divider',
-					'section'   => 'section-content-typo',
-					'priority'  => 4,
-					'title'     => __( 'Heading 1', 'astra' ),
-					'settings'  => array()
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h1]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-content-typo',
+					'priority' => 4,
+					'title'    => __( 'Heading 1', 'astra' ),
+					'settings' => array(),
 				),
 
 				/**
@@ -265,7 +265,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'section'  => 'section-content-typo',
 						'priority' => 999,
 						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available for Typography in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 				);

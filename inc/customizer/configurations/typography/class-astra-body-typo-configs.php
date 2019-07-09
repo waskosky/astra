@@ -186,14 +186,14 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Body & Content Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-headings-typo]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-content-typo',
-					'priority' => 3,
-					'title'    => __( 'Headings', 'astra' ),
-					'settings' => array(),
-					'separator' => false
+					'name'      => ASTRA_THEME_SETTINGS . '[divider-headings-typo]',
+					'type'      => 'control',
+					'control'   => 'ast-divider',
+					'section'   => 'section-content-typo',
+					'priority'  => 3,
+					'title'     => __( 'Headings', 'astra' ),
+					'settings'  => array(),
+					'separator' => false,
 				),
 
 				/**
