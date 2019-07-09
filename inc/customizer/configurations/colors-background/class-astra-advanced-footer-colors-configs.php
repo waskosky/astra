@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
 					'control' => 'ast-background',
 					'default' => astra_get_option( 'footer-adv-bg-obj' ),
-					'title'   => __( 'Background', 'astra' ),
+					'label'   => __( 'Background', 'astra' ),
 				),
 
 			);

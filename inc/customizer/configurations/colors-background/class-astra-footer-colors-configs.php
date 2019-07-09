@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
 					'control'  => 'ast-background',
 					'default'  => astra_get_option( 'footer-bg-obj' ),
-					'title'    => __( 'Background', 'astra' ),
+					'label'    => __( 'Background', 'astra' ),
 				),
 
 			);
