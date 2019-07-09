@@ -46,6 +46,18 @@
 	margin-top: 12px;
 }
 
+/* Popup params padding */
+.ast-field-settings-modal .customize-control {
+	padding-left: 15px;
+    padding-right: 15px;
+    width: 89%;
+}
+
+.ast-field-settings-modal .customize-control:last-child {
+	padding-bottom: 15px
+}
+
+
 .customize-control .customize-inside-control-row {
 	padding-top: 0;
 	padding-bottom: 0;

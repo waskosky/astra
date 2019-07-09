@@ -7,10 +7,14 @@
   margin: 1em 0 0.2em;
 }
 
+.ast-field-settings-modal .customize-control-ast-divider {
+  background-color: #EEEEEE;
+}
+
 .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
   font-weight: 500;
   letter-spacing: 1px;
-  font-size: 11.5px;
+  font-size: 14px;
   padding: 13px 9px;
   margin: 0;
 }

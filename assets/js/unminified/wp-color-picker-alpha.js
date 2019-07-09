@@ -142,7 +142,6 @@
 			 */
 			self.toggler.css({
 				'height': '24px',
-				'margin': '0 6px 6px 0',
 				'padding': '0 0 0 30px',
 				'font-size': '11px'
 			});
