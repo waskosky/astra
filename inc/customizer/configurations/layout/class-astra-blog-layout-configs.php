@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-blog',
 					'priority' => 50,
-					'title'    => __( 'Blog Content Width', 'astra' ),
+					'title'    => __( 'Content Width', 'astra' ),
 					'choices'  => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
