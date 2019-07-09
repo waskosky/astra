@@ -127,22 +127,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'   => __( 'Button Background Hover Color', 'astra' ),
 				),
 
-				/**
-				 * Option: Button Radius
-				 */
-				array(
-					'name'        => 'button-radius',
-					'default'     => astra_get_option( 'button-radius' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
-					'control'     => 'ast-slider',
-					'title'       => __( 'Button Radius', 'astra' ),
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 200,
-					),
-				),
 
 				/**
 				 * Option: Vertical Padding
@@ -178,6 +162,22 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Button Radius
+				 */
+				array(
+					'name'        => 'button-radius',
+					'default'     => astra_get_option( 'button-radius' ),
+					'type'        => 'sub-control',
+					'parent'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'control'     => 'ast-slider',
+					'title'       => __( 'Button Radius', 'astra' ),
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 200,
+					),
+				),
 				/**
 				 * Option: Primary Header Button Colors Divider
 				 */
