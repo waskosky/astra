@@ -24,7 +24,7 @@
     background: #FFF;
 }
 
-.ast-field-settings-modal .customize-control:first-child {
+.ast-field-settings-modal .customize-control-ast-divider:first-child {
     margin-top: 0;
 }
 
