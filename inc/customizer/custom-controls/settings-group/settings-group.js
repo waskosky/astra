@@ -16,6 +16,13 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     registerToggleEvents: function() {
 
         var control = this;
+
+        /* Close popup when click outside anywhere outside of popup */
+        $( 'body' ).click( function( e ) {
+            if ( ! $( e.target ).closest( '.ast-adv-toggle-icon.open' ).length ) {
+                $( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
+            }
+        });
         
         control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
             
@@ -31,6 +38,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
             } else {
+                /* Close popup when another popup is clicked to open */
                 var get_open_popup = $this.closest('.control-section-ast_section').find('.ast-adv-toggle-icon.open');
                 if( get_open_popup.length > 0 ) {
                     get_open_popup.trigger('click');
