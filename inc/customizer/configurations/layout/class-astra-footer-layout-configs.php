@@ -314,7 +314,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'    => 'control',
 					'control' => 'ast-radio-image',
 					'default' => astra_get_option( 'footer-adv' ),
-					'label'   => __( 'Footer Widgets Layout', 'astra' ),
+					'title'   => __( 'Footer Widgets Layout', 'astra' ),
 					'section' => 'section-footer-adv',
 					'choices' => array(
 						'disabled' => array(
