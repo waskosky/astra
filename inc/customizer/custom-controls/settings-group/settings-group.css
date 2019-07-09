@@ -13,6 +13,10 @@
     background: #fff;
 }
 
+.ast-adv-toggle-icon:hover {
+    color: #008ec2;
+}
+
 .ast-adv-toggle-icon:before{
     content: "\f464";
 }
@@ -93,7 +97,7 @@
 
 .ast-field-settings-wrap  .ast-field-settings-modal {
     border-radius: 3px;
-    margin-top: 16px;
+    margin-top: 8px;
 }
 
 .ast-field-settings-modal::before {
