@@ -512,6 +512,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'required'    => array( ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]', '!=', 'minimal' ),
 					'priority'    => 42,
 					'suffix'      => '',
+					'transport'	  => 'postMessage',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
