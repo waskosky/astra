@@ -31,6 +31,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		private static $db_updates = array(
 			'2.0.0-beta.1' => array(
 				'astra_theme_update_v2_0_0_customizer_optimization',
+				'astra_theme_update_v2_0_1_customizer_optimization',
+				'astra_theme_update_v2_0_2_customizer_optimization',
+				'astra_theme_update_v2_0_3_customizer_optimization',
+				'astra_theme_update_v2_0_4_customizer_optimization',
 			),
 		);
 

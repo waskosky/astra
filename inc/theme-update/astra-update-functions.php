@@ -10,6 +10,26 @@
 
 defined( 'ABSPATH' ) || exit;
 
+function astra_theme_update_v2_0_1_customizer_optimization() {
+	error_log( 'in function astra_theme_update_v2_0_1_customizer_optimization' );
+}
+
+
+function astra_theme_update_v2_0_2_customizer_optimization() {
+	error_log( 'in function astra_theme_update_v2_0_2_customizer_optimization' );
+}
+
+
+function astra_theme_update_v2_0_3_customizer_optimization() {
+	error_log( 'in function astra_theme_update_v2_0_3_customizer_optimization' );
+}
+
+
+function astra_theme_update_v2_0_4_customizer_optimization() {
+	error_log( 'in function astra_theme_update_v2_0_4_customizer_optimization' );
+}
+
+
 /**
  * Customizer Version 2 categorization database operations using batch processing
  *
