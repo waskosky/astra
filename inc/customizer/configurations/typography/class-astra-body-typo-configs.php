@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[divider-base-typo]',
 					'type'      => 'control',
-					'control'   => 'ast-divider',
+					'control'   => 'ast-heading',
 					'section'   => 'section-body-typo',
 					'priority'  => 4,
 					'title'     => __( 'Body & Content', 'astra' ),
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[divider-headings-typo]',
 					'type'      => 'control',
-					'control'   => 'ast-divider',
+					'control'   => 'ast-heading',
 					'section'   => 'section-content-typo',
 					'priority'  => 3,
 					'title'     => __( 'Headings', 'astra' ),
