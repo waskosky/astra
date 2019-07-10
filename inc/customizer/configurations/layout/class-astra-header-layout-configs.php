@@ -460,7 +460,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'priority' => 42,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[mobile-menu-style]', '!=', 'no-toggle' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[mobile-menu-style]', '!=', 'no-toggle' ),
 					'choices'  => array(
 						'fill'    => __( 'Fill', 'astra' ),
 						'outline' => __( 'Outline', 'astra' ),

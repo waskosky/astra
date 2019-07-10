@@ -273,7 +273,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Base Colors', 'astra' ),
 					'panel'    => 'panel-global',
 					'priority' => 1,
-					'section'  => 'section-colors-background'
+					'section'  => 'section-colors-background',
 				),
 
 				array(
