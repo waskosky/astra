@@ -72,6 +72,11 @@
   float: right;
 }
 
+.customize-control-ast-background .more-settings:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
 .customize-control-ast-background .arrow-icon {
   margin-left: 5px;
 }
