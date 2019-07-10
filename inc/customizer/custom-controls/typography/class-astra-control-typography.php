@@ -210,7 +210,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
 		}
 
-		echo ' data-value="' . esc_attr( $this->value() ) . '">';
+		echo ' data-value="' . esc_attr( $this->value() ) . '"';
 	}
 
 	/**
