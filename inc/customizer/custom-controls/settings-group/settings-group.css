@@ -105,7 +105,7 @@
     position: absolute;
     top: 22px;
     right: 8px;
-    border: 8px solid transparent;
+    border: 9px solid transparent;
     border-bottom-color: #fff;
     pointer-events: none;
 }
