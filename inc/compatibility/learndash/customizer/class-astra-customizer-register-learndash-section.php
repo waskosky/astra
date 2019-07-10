@@ -34,7 +34,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
 					'name'     => 'section-learndash',
 					'priority' => 65,
 					'title'    => __( 'LearnDash', 'astra' ),
-					'panel'    => 'panel-layout',
 				),
 			);
 

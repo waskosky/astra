@@ -46,9 +46,8 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 				array(
 					'name'     => 'section-transparent-header',
 					'title'    => __( 'Transparent Header', 'astra' ),
-					'panel'    => 'panel-layout',
+					'panel'    => 'panel-header-group',
 					'type'     => 'section',
-					'section'  => 'section-header-group',
 					'priority' => 33,
 				),
 
