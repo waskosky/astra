@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'section'  => 'section-content-typo',
 					'priority' => 15,
-					'title'    => __( 'Heading 3 (H3)', 'astra' ),
+					'title'    => __( 'Heading 3', 'astra' ),
 					'settings' => array(),
 				),
 
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'section'  => 'section-content-typo',
 					'priority' => 25,
-					'title'    => __( 'Heading 5 (H5)', 'astra' ),
+					'title'    => __( 'Heading 5', 'astra' ),
 					'settings' => array(),
 				),
 
