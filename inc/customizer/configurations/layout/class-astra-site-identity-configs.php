@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
-					'title'    => __( 'Different Logo for retina devices?', 'astra' ),
+					'title'    => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'default'  => false,
 					'priority' => 5,
 				),
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'  => 'checkbox',
 					'default'  => false,
 					'section'  => 'title_tagline',
-					'title'    => __( 'Different Logo for mobile devices?', 'astra' ),
+					'title'    => __( 'Different Logo For Mobile Devices?', 'astra' ),
 					'priority' => 5,
 				),
 

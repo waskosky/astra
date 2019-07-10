@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'type'      => 'control',
 					'priority'  => 12,
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Single Post / Page Title', 'astra' ),
+					'title'     => __( 'Post / Page Title', 'astra' ),
 					'section'   => 'section-blog-single',
 					'transport' => 'postMessage',
 				),
