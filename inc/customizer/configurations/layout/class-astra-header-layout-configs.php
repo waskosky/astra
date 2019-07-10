@@ -389,9 +389,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'checkbox',
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', 'none' ),
-					'section'  => 'section-header',
+					'section'  => 'section-primary-menu',
 					'title'    => __( 'Hide Last item in Menu on mobile', 'astra' ),
-					'priority' => 40,
+					'priority' => 7,
 				),
 
 				/**
