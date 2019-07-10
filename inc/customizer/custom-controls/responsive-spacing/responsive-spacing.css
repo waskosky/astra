@@ -11,6 +11,10 @@
   position: relative;
 }
 
+.customize-control-ast-responsive-spacing .ast-spacing-input-item {
+  margin-bottom: 0;
+}
+
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
   display: block;
   text-align: center;
