@@ -154,7 +154,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'default'     => 1200,
 					'priority'    => 225,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
-					'title'       => __( 'Enter Width', 'astra' ),
+					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,

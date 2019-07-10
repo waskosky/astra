@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'default'     => 1200,
 					'priority'    => 65,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
-					'title'       => __( 'Enter Width', 'astra' ),
+					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-content]',
 					'section'  => 'section-blog',
-					'title'    => __( 'Blog Post Content', 'astra' ),
+					'title'    => __( 'Post Content', 'astra' ),
 					'default'  => astra_get_option( 'blog-post-content' ),
 					'type'     => 'control',
 					'control'  => 'select',
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'control'  => 'ast-sortable',
 					'section'  => 'section-blog',
 					'priority' => 50,
-					'title'    => __( 'Blog Post Structure', 'astra' ),
+					'title'    => __( 'Post Structure', 'astra' ),
 					'choices'  => array(
 						'image'      => __( 'Featured Image', 'astra' ),
 						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'blog-meta' ),
 					'priority' => 50,
 					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
-					'title'    => __( 'Blog Meta', 'astra' ),
+					'title'    => __( 'Meta', 'astra' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'astra' ),
 						'category' => __( 'Category', 'astra' ),
@@ -165,20 +165,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'control'  => 'ast-divider',
 						'section'  => 'section-blog',
 						'priority' => 121,
-						'settings' => array(),
-					),
-
-					/**
-					 * Option: Learn More about Blog Pro
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-description]',
-						'type'     => 'control',
-						'control'  => 'ast-description',
-						'section'  => 'section-blog',
-						'priority' => 121,
-						'title'    => '',
-						'help'     => __( 'More Options Available for Blog in Astra Pro!', 'astra' ) . '<a href="' . astra_get_pro_url( 'https://wpastra.com/docs/blog-archive-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 				);

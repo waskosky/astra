@@ -298,7 +298,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
 					'tab'        => __( 'Hover', 'astra' ),
-					'title'      => __( 'Link Hover Color', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
