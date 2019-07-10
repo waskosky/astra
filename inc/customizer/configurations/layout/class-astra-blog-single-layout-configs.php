@@ -33,6 +33,55 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Single Post Content Width
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-width]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-blog-single',
+					'default'  => astra_get_option( 'blog-single-width' ),
+					'priority' => 5,
+					'title'    => __( 'Content Width', 'astra' ),
+					'choices'  => array(
+						'default' => __( 'Default', 'astra' ),
+						'custom'  => __( 'Custom', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Enter Width
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-blog-single',
+					'default'     => 1200,
+					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
+					'priority'    => 5,
+					'title'       => __( 'Custom Width', 'astra' ),
+					'suffix'      => '',
+					'input_attrs' => array(
+						'min'  => 768,
+						'step' => 1,
+						'max'  => 1920,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-single-width]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-blog-single',
+					'priority' => 5,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Display Post Structure
 				 */
 				array(
@@ -42,7 +91,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'section'  => 'section-blog-single',
 					'default'  => astra_get_option( 'blog-single-post-structure' ),
 					'priority' => 5,
-					'title'    => __( 'Single Post Structure', 'astra' ),
+					'title'    => __( 'Post Structure', 'astra' ),
 					'choices'  => array(
 						'single-image'      => __( 'Featured Image', 'astra' ),
 						'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
@@ -60,7 +109,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'required' => array( ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', 'contains', 'single-title-meta' ),
 					'section'  => 'section-blog-single',
 					'priority' => 5,
-					'title'    => __( 'Single Post Meta', 'astra' ),
+					'title'    => __( 'Post Meta', 'astra' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'astra' ),
 						'category' => __( 'Category', 'astra' ),
@@ -71,42 +120,16 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Single Post Content Width
+				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-width]',
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-divider',
 					'section'  => 'section-blog-single',
-					'default'  => astra_get_option( 'blog-single-width' ),
-					'priority' => 17,
-					'title'    => __( 'Single Post Content Width', 'astra' ),
-					'choices'  => array(
-						'default' => __( 'Default', 'astra' ),
-						'custom'  => __( 'Custom', 'astra' ),
-					),
+					'priority' => 10,
+					'settings' => array(),
 				),
-
-				/**
-				 * Option: Enter Width
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
-					'type'        => 'control',
-					'control'     => 'ast-slider',
-					'section'     => 'section-blog-single',
-					'default'     => 1200,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
-					'priority'    => 20,
-					'title'       => __( 'Enter Width', 'astra' ),
-					'suffix'      => '',
-					'input_attrs' => array(
-						'min'  => 768,
-						'step' => 1,
-						'max'  => 1920,
-					),
-				),
-
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

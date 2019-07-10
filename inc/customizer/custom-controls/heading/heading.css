@@ -47,3 +47,7 @@
 .customize-control-ast-heading .customize-control-description {
   margin-top: 10px;
 }
+
+.ast-heading-wrapper label {
+  cursor: context-menu;
+}
