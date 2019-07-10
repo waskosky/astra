@@ -33,16 +33,65 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Blog Content Width
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-width]',
+					'default'  => astra_get_option( 'blog-width' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-blog',
+					'priority' => 50,
+					'title'    => __( 'Content Width', 'astra' ),
+					'choices'  => array(
+						'default' => __( 'Default', 'astra' ),
+						'custom'  => __( 'Custom', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Enter Width
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-max-width]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-blog',
+					'default'     => 1200,
+					'priority'    => 52,
+					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
+					'title'       => __( 'Custom Width', 'astra' ),
+					'suffix'      => '',
+					'input_attrs' => array(
+						'min'  => 768,
+						'step' => 1,
+						'max'  => 1920,
+					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-blog',
+					'priority' => 52,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Blog Post Content
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-content]',
 					'section'  => 'section-blog',
-					'title'    => __( 'Blog Post Content', 'astra' ),
+					'title'    => __( 'Post Content', 'astra' ),
 					'default'  => astra_get_option( 'blog-post-content' ),
 					'type'     => 'control',
 					'control'  => 'select',
-					'priority' => 50,
+					'priority' => 54,
 					'choices'  => array(
 						'full-content' => __( 'Full Content', 'astra' ),
 						'excerpt'      => __( 'Excerpt', 'astra' ),
@@ -59,7 +108,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'control'  => 'ast-sortable',
 					'section'  => 'section-blog',
 					'priority' => 100,
-					'title'    => __( 'Blog Post Structure', 'astra' ),
+					'title'    => __( 'Post Structure', 'astra' ),
 					'choices'  => array(
 						'image'      => __( 'Featured Image', 'astra' ),
 						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
@@ -77,62 +126,13 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'blog-meta' ),
 					'priority' => 105,
 					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
-					'title'    => __( 'Blog Meta', 'astra' ),
+					'title'    => __( 'Meta', 'astra' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'astra' ),
 						'category' => __( 'Category', 'astra' ),
 						'author'   => __( 'Author', 'astra' ),
 						'date'     => __( 'Publish Date', 'astra' ),
 						'tag'      => __( 'Tag', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog',
-					'priority' => 110,
-					'settings' => array(),
-				),
-
-				/**
-				 * Option: Blog Content Width
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-width]',
-					'default'  => astra_get_option( 'blog-width' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-blog',
-					'priority' => 115,
-					'title'    => __( 'Blog Content Width', 'astra' ),
-					'choices'  => array(
-						'default' => __( 'Default', 'astra' ),
-						'custom'  => __( 'Custom', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Enter Width
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[blog-max-width]',
-					'type'        => 'control',
-					'control'     => 'ast-slider',
-					'section'     => 'section-blog',
-					'default'     => 1200,
-					'priority'    => 120,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
-					'title'       => __( 'Enter Width', 'astra' ),
-					'suffix'      => '',
-					'input_attrs' => array(
-						'min'  => 768,
-						'step' => 1,
-						'max'  => 1920,
 					),
 				),
 			);
@@ -153,20 +153,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'control'  => 'ast-divider',
 						'section'  => 'section-blog',
 						'priority' => 121,
-						'settings' => array(),
-					),
-
-					/**
-					 * Option: Learn More about Blog Pro
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-description]',
-						'type'     => 'control',
-						'control'  => 'ast-description',
-						'section'  => 'section-blog',
-						'priority' => 121,
-						'title'    => '',
-						'help'     => __( 'More Options Available for Blog in Astra Pro!', 'astra' ) . '<a href="' . astra_get_pro_url( 'https://wpastra.com/docs/blog-archive-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 				);

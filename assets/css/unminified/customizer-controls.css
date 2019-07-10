@@ -121,6 +121,14 @@
     padding-left: 5px;
 }
 
+.customize-pane-child > li[id="customize-control-astra-settings-headings-text-transform"] {
+	padding-top: 3px;
+}
+
+.customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
+	padding-top: 2px;
+}
+
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
     -js-display: flex;
@@ -184,4 +192,8 @@
 /* Primary Sub Menu Item Border */
 #customize-control-astra-settings-primary-submenu-item-border .ast-border-wrapper{
 	width: 100%;
+}
+
+.actions .button.upload-button {
+	text-transform: capitalize;
 }

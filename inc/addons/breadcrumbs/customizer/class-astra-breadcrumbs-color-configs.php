@@ -76,6 +76,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				),
 
 				array(
+					'name'       => 'breadcrumb-bg-color',
+					'default'    => astra_get_option( 'breadcrumb-bg-color' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Background Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 5,
+				),
+
+				array(
 					'name'       => 'breadcrumb-active-color-responsive',
 					'default'    => astra_get_option( 'breadcrumb-active-color-responsive' ),
 					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
@@ -85,7 +98,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'title'      => __( 'Text Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 5,
+					'priority'   => 10,
 				),
 
 				array(
@@ -98,7 +111,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'title'      => __( 'Link Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 10,
+					'priority'   => 15,
 				),
 
 				array(
@@ -108,10 +121,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Hover', 'astra' ),
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Link Hover Color', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 15,
+					'priority'   => 20,
 				),
 
 				array(
@@ -124,22 +137,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'title'      => __( 'Separator Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 20,
-				),
-
-				array(
-					'name'       => 'breadcrumb-bg-color',
-					'default'    => astra_get_option( 'breadcrumb-bg-color' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
-					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Color', 'astra' ),
-					'responsive' => true,
-					'rgba'       => true,
 					'priority'   => 25,
 				),
-
 			);
 
 			return array_merge( $configurations, $_configs );
