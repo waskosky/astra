@@ -127,7 +127,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'   => __( 'Button Background Hover Color', 'astra' ),
 				),
 
-
 				/**
 				 * Option: Vertical Padding
 				 */
