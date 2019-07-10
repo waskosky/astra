@@ -11,3 +11,6 @@
 .customize-control-ast-color .wp-picker-clear {
     margin-left: 2%;
 }
+.wp-picker-input-wrap label {
+    font-size: 0;
+}

@@ -193,3 +193,7 @@
 #customize-control-astra-settings-primary-submenu-item-border .ast-border-wrapper{
 	width: 100%;
 }
+
+.actions .button.upload-button {
+	text-transform: capitalize;
+}
