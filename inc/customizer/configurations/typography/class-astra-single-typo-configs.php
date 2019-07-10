@@ -67,8 +67,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'default'     => astra_get_option( 'font-size-entry-title' ),
 					'transport'   => 'postMessage',
-					'priority'    => 10,
-					'title'       => __( 'Font Size', 'astra' ),
+					'priority'    => 8,
+					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'section'  => 'section-blog-single',
 						'priority' => 999,
 						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available for Typography in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 

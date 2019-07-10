@@ -45,19 +45,10 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Global', 'astra' ),
 				),
 
-				/*
-				array(
-				'name'     => 'section-site-layout',
-				'type'     => 'section',
-				'priority' => 5,
-				'title'    => __( 'Site Layout', 'astra' ),
-				'panel'    => 'panel-layout',
-				),*/
-
 				array(
 					'name'               => 'section-container-layout',
 					'type'               => 'section',
-					'priority'           => 70,
+					'priority'           => 15,
 					'title'              => __( 'Container', 'astra' ),
 					'panel'              => 'panel-global',
 					'description_hidden' => true,
@@ -257,7 +248,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-colors-background',
 					'type'               => 'section',
-					'priority'           => 15,
+					'priority'           => 16,
 					'title'              => __( 'Colors', 'astra' ),
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
@@ -276,14 +267,14 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'panel'              => 'panel-global',
 				),
 
-				/*
 				array(
-				'name'     => 'section-colors-body',
-				'type'     => 'section',
-				'title'    => __( 'Base Colors', 'astra' ),
-				'section'  => 'section-colors-background',
-				'priority' => 1,
-				),*/
+					'name'     => 'section-colors-body',
+					'type'     => 'section',
+					'title'    => __( 'Base Colors', 'astra' ),
+					'panel'    => 'panel-global',
+					'priority' => 1,
+					'section'  => 'section-colors-background',
+				),
 
 				array(
 					'name'     => 'section-footer-adv-color-bg',
@@ -299,8 +290,8 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-typography',
 					'type'               => 'section',
-					'title'              => __( 'Fonts', 'astra' ),
-					'priority'           => 20,
+					'title'              => __( 'Typography', 'astra' ),
+					'priority'           => 15,
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
@@ -330,7 +321,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-content-typo',
 					'type'     => 'section',
-					'title'    => __( 'Content', 'astra' ),
+					'title'    => __( 'Headings', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 35,
 					'panel'    => 'panel-global',

@@ -120,54 +120,46 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
+				 * Option: Single Post Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]',
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-width]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'select',
 					'section'  => 'section-blog-single',
-					'priority' => 10,
-					'settings' => array(),
+					'default'  => astra_get_option( 'blog-single-width' ),
+					'priority' => 17,
+					'title'    => __( 'Single Post Content Width', 'astra' ),
+					'choices'  => array(
+						'default' => __( 'Default', 'astra' ),
+						'custom'  => __( 'Custom', 'astra' ),
+					),
 				),
+
+				/**
+				 * Option: Enter Width
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-blog-single',
+					'default'     => 1200,
+					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
+					'priority'    => 20,
+					'title'       => __( 'Enter Width', 'astra' ),
+					'suffix'      => '',
+					'input_attrs' => array(
+						'min'  => 768,
+						'step' => 1,
+						'max'  => 1920,
+					),
+				),
+
+>>>>>>> 7fc8d944f806f6c4d0d50ed925f7044360352818
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
-
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$config = array(
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-single-more-feature-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog-single',
-						'priority' => 24,
-						'settings' => array(),
-					),
-
-					/**
-					 * Option: Learn More about Single Blog Pro
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-single-more-feature-description]',
-						'type'     => 'control',
-						'control'  => 'ast-description',
-						'section'  => 'section-blog-single',
-						'priority' => 24,
-						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available for Single Post in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings' => array(),
-					),
-				);
-
-				$configurations = array_merge( $configurations, $config );
-			}
 
 			return $configurations;
 
