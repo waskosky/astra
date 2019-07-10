@@ -121,7 +121,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Hover', 'astra' ),
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Link Hover Color', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 20,

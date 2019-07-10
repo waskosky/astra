@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'default'     => 1200,
 					'priority'    => 52,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
-					'title'       => __( 'Enter Width', 'astra' ),
+					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-content]',
 					'section'  => 'section-blog',
-					'title'    => __( 'Blog Post Content', 'astra' ),
+					'title'    => __( 'Post Content', 'astra' ),
 					'default'  => astra_get_option( 'blog-post-content' ),
 					'type'     => 'control',
 					'control'  => 'select',
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'control'  => 'ast-sortable',
 					'section'  => 'section-blog',
 					'priority' => 100,
-					'title'    => __( 'Blog Post Structure', 'astra' ),
+					'title'    => __( 'Post Structure', 'astra' ),
 					'choices'  => array(
 						'image'      => __( 'Featured Image', 'astra' ),
 						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'blog-meta' ),
 					'priority' => 105,
 					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
-					'title'    => __( 'Blog Meta', 'astra' ),
+					'title'    => __( 'Meta', 'astra' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'astra' ),
 						'category' => __( 'Category', 'astra' ),

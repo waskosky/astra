@@ -149,11 +149,11 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				array(
-					'name'               => 'section-primary-menu',
-					'type'               => 'section',
-					'priority'           => 15,
-					'title'              => __( 'Primary Menu', 'astra' ),
-					'panel'              => 'panel-header-group'
+					'name'     => 'section-primary-menu',
+					'type'     => 'section',
+					'priority' => 15,
+					'title'    => __( 'Primary Menu', 'astra' ),
+					'panel'    => 'panel-header-group',
 				),
 
 				/*
@@ -324,7 +324,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Base Typography', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 1,
-					'panel'    => 'panel-global'
+					'panel'    => 'panel-global',
 				),
 
 				array(
@@ -333,7 +333,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Content', 'astra' ),
 					'section'  => 'section-typography',
 					'priority' => 35,
-					'panel'    => 'panel-global'
+					'panel'    => 'panel-global',
 				),
 
 				/**

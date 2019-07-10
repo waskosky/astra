@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 					'priority' => 5,
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
 					'control'  => 'ast-color',
-					'title'    => __( 'Link Hover Color', 'astra' ),
+					'title'    => __( 'Link Color', 'astra' ),
 					'default'  => '',
 				),
 
