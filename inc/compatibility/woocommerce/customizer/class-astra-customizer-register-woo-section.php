@@ -28,17 +28,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$configs = array(
-				/**
-				 * WooCommerce
-				 */
-				/*
-				array(
-				'name'     => 'section-woo-group',
-				'type'     => 'section',
-				'title'    => __( 'WooCommerce', 'astra' ),
-				'priority' => 60,
-				'panel'  => 'woocommerce'
-				),*/
 
 				array(
 					'name'     => 'section-woo-general',
@@ -47,7 +36,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 					'priority' => 20,
 					'panel'    => 'woocommerce',
 				),
-
 				array(
 					'name'     => 'section-woo-shop',
 					'title'    => __( 'Shop', 'astra' ),

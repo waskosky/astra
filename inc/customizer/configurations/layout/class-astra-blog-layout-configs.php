@@ -155,20 +155,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'priority' => 121,
 						'settings' => array(),
 					),
-
-					/**
-					 * Option: Learn More about Blog Pro
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-description]',
-						'type'     => 'control',
-						'control'  => 'ast-description',
-						'section'  => 'section-blog',
-						'priority' => 121,
-						'title'    => '',
-						'help'     => __( 'More Options Available for Blog in Astra Pro!', 'astra' ) . '<a href="' . astra_get_pro_url( 'https://wpastra.com/docs/blog-archive-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings' => array(),
-					),
 				);
 
 				$configurations = array_merge( $configurations, $config );

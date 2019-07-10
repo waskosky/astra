@@ -253,35 +253,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Footer Bar typo Section heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-bar-typography-heading-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-footer-small',
-					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 47,
-					'settings' => array(),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-				),
-
-				/**
-				 * Option: Footer Bar Typography Group
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-typography-group]',
-					'default'   => astra_get_option( 'footer-bar-typography-group' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
-					'section'   => 'section-footer-small',
-					'transport' => 'postMessage',
-					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
-				),
-
-				/**
 				 * Option: Header Width
 				 */
 
@@ -405,7 +376,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'section'  => 'section-footer-adv',
 						'priority' => 999,
 						'label'    => '',
-						'help'     => '<p>' . __( 'More Options Available for Footer Widgets in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 
