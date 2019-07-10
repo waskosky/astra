@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h1]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
 					'priority' => 4,
 					'title'    => __( 'Heading 1', 'astra' ),
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h2]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
 					'priority' => 9,
 					'title'    => __( 'Heading 2', 'astra' ),
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h3]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
 					'priority' => 15,
 					'title'    => __( 'Heading 3', 'astra' ),
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'type'     => 'control',
 					'title'    => __( 'Heading 4', 'astra' ),
 					'section'  => 'section-content-typo',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
 					'priority' => 20,
 					'settings' => array(),
 				),
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h5]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
 					'priority' => 25,
 					'title'    => __( 'Heading 5', 'astra' ),
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h6]',
 					'type'     => 'control',
-					'control'  => 'ast-divider',
+					'control'  => 'ast-heading',
 					'title'    => __( 'Heading 6', 'astra' ),
 					'section'  => 'section-content-typo',
 					'priority' => 30,
