@@ -107,6 +107,7 @@
     right: 8px;
     border: 8px solid transparent;
     border-bottom-color: #fff;
+    pointer-events: none;
 }
 
 .ast-group-tabs .ui-tabs-nav .ui-corner-top {
