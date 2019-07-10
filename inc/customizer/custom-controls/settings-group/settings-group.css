@@ -30,7 +30,7 @@
 }
 
 .ast-field-settings-modal .customize-control-ast-divider:first-child {
-    margin-top: 0;
+    margin-top: 15px;
 }
 
 .ast-field-settings-wrap{
@@ -77,7 +77,7 @@
 
 .ast-group-tabs .ui-widget-content{
     overflow: hidden;
-    padding-top: 12px;
+    /*padding-top: 15px;*/
 }
 
 .ast-group-tabs .ui-widget-content.iris-slider-offset-alpha {
