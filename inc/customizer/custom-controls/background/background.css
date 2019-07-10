@@ -66,10 +66,15 @@
 }
 
 .customize-control-ast-background .more-settings {
-  margin-top: 12px;
+  margin-top: 6px;
   display: inline-block;
   padding: 5px 0 5px 0;
   float: right;
+}
+
+.customize-control-ast-background .more-settings:focus {
+  outline: 0;
+  box-shadow: none;
 }
 
 .customize-control-ast-background .arrow-icon {
