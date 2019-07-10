@@ -16,6 +16,10 @@
   flex: auto;
 }
 
+.customize-control-ast-spacing .ast-spacing-input-item {
+  margin-bottom: 0;
+}
+
 .customize-control-ast-spacing span.ast-spacing-unit {
   position: absolute;
   top: -26px;

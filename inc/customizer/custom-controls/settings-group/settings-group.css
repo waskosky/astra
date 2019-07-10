@@ -97,16 +97,17 @@
 
 .ast-field-settings-wrap  .ast-field-settings-modal {
     border-radius: 3px;
-    margin-top: 8px;
+    margin-top: 9px;
 }
 
 .ast-field-settings-modal::before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: 22px;
     right: 8px;
     border: 8px solid transparent;
     border-bottom-color: #fff;
+    pointer-events: none;
 }
 
 .ast-group-tabs .ui-tabs-nav .ui-corner-top {
@@ -142,6 +143,7 @@
 
 .ast-group-tabs ul.ast-group-list .ui-corner-top.ui-state-active {
     background-color: #0185BA;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .ast-group-tabs ul.ast-group-list .ui-corner-top {
