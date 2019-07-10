@@ -146,19 +146,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Primary Menu', 'astra' ),
 					'panel'    => 'panel-header-group',
 				),
-
-				/*
-				 * Mobile Header section
-				 *
-				 * @since 1.4.0
-				 */
-				array(
-					'name'     => 'section-mobile-header',
-					'type'     => 'section',
-					'priority' => 40,
-					'title'    => __( 'Menu Breakpoint', 'astra' ),
-					'section'  => 'section-header-group',
-				),
 				array(
 					'name'     => 'section-footer-group',
 					'type'     => 'section',

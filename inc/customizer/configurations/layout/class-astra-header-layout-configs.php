@@ -408,6 +408,16 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority' => 7,
 				),
 
+				array(
+					'name'     => 'primary-menu-label-divider',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 39,
+					'title'    => __( 'Mobile Menu', 'astra' ),
+					'section'  => 'section-primary-menu',
+					'settings' => array(),
+				),
+
 				/**
 				 * Option: Mobile Header Breakpoint
 				 */
