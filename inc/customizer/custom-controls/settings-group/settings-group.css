@@ -97,13 +97,13 @@
 
 .ast-field-settings-wrap  .ast-field-settings-modal {
     border-radius: 3px;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .ast-field-settings-modal::before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: 22px;
     right: 8px;
     border: 8px solid transparent;
     border-bottom-color: #fff;
