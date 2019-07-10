@@ -1,6 +1,7 @@
+#customize-controls .customize-control-notifications-container {
+    margin: 0;
+}
 .customize-control-ast-background {
-    position: relative;
-
     .ast-color-control.wp-color-picker {
         width: 96px !important;
         line-height: 17px;
@@ -24,6 +25,9 @@
             margin-bottom: 5px;
             margin-top: 10px;
         }
+    }
+    .background-color {
+        margin-bottom: 12px;
     }
 
     .background-repeat {

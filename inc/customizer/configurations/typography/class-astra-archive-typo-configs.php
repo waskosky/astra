@@ -79,9 +79,9 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',
-					'priority'    => 4,
+					'priority'    => 2,
 					'default'     => astra_get_option( 'font-size-page-title' ),
-					'title'       => __( 'Font Size', 'astra' ),
+					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -101,8 +101,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'font-size-archive-summary-title' ),
-					'priority'    => 11,
-					'title'       => __( 'Font Size', 'astra' ),
+					'priority'    => 8,
+					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
