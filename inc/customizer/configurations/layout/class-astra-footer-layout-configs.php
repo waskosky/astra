@@ -300,19 +300,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-adv-border-style]',
-					'control'  => 'ast-divider',
-					'type'     => 'control',
-					'section'  => 'section-footer-adv',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
-					'priority' => 35,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Footer Top Border
 				 */
 				array(
@@ -324,7 +311,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'footer-adv-border-width' ),
 					'priority'    => 40,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
-					'title'       => __( 'Top Border Width', 'astra' ),
+					'title'       => __( 'Top Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -338,7 +325,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-adv-border-color]',
 					'section'   => 'section-footer-adv',
-					'title'     => __( 'Border Border', 'astra' ),
+					'title'     => __( 'Top Border Color', 'astra' ),
 					'type'      => 'control',
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
