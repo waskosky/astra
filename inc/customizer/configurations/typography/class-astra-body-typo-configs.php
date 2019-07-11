@@ -101,14 +101,14 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Body Text Transform
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[body-text-transform]',
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => 'section-body-typo',
-					'default'   => astra_get_option( 'body-text-transform' ),
-					'priority'  => 20,
-					'title'     => __( 'Text Transform', 'astra' ),
-					'choices'   => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[body-text-transform]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-body-typo',
+					'default'  => astra_get_option( 'body-text-transform' ),
+					'priority' => 20,
+					'title'    => __( 'Text Transform', 'astra' ),
+					'choices'  => array(
 						''           => __( 'Default', 'astra' ),
 						'none'       => __( 'None', 'astra' ),
 						'capitalize' => __( 'Capitalize', 'astra' ),
