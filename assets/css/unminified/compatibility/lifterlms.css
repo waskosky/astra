@@ -63,11 +63,13 @@
 }
 
 .widget .llms-progress .llms-progress-bar {
+  -webkit-border-radius: 20px;
   border-radius: 20px;
   height: 20px;
 }
 
 .widget .llms-progress .progress-bar-complete {
+  -webkit-border-radius: 20px;
   border-radius: 20px;
 }
 
@@ -434,7 +436,6 @@ body .course .llms-course-progress,
 body .llms-course-progress {
   max-width: 100%;
   margin: 0 auto;
-  -js-display: flex;
   display: flex;
   flex-direction: row-reverse;
   background: #f1f2f1;

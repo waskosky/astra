@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-container-layout',
 					'priority' => 50,
-					'title'    => __( 'Container Layout', 'astra' ),
+					'title'    => __( 'Layout', 'astra' ),
 					'choices'  => array(
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),

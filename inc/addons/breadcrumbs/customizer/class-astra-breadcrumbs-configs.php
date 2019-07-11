@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'default'     => astra_get_option( 'breadcrumb-disable-blog-posts-page' ),
 					'type'        => 'control',
 					'section'     => 'section-breadcrumb',
-					'description' => __( 'Latest Posts Page or when any page is selected as Blog Page', 'astra' ),
+					'description' => __( 'Latest posts page or when any page is selected as blog page', 'astra' ),
 					'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'       => __( 'Disable on Blog / Posts Page?', 'astra' ),
 					'priority'    => 25,
