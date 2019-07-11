@@ -34,9 +34,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
             
-            
             if( $this.hasClass('open') ) {
-                parent_wrap.find( '.ast-field-settings-modal' ).hide();
+                parent_wrap.find( '.ast-field-settings-modal' ).fadeOut(300);
             } else {
                 /* Close popup when another popup is clicked to open */
                 var get_open_popup = $this.closest('.control-section-ast_section').find('.ast-adv-toggle-icon.open');
@@ -44,29 +43,42 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     get_open_popup.trigger('click');
                 }
                 if( is_loaded ) {
-                    parent_wrap.find( '.ast-field-settings-modal' ).show();
+                    parent_wrap.find( '.ast-field-settings-modal' ).fadeIn(300);
                 } else {
-                    var fields = control.params.ast_fields;
-                    var $modal_wrap = $( astra.customizer.group_modal_tmpl );
 
-                    parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
-                    parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
-                    control.ast_render_field( parent_wrap, fields, control );
+                    var fields, $modal_wrap;
 
-                    parent_wrap.find( '.ast-field-settings-modal' ).show();
+                    parent_wrap.find( '.ast-field-settings-modal' ).fadeIn(300);
+                    
+                    setTimeout(function() {
+                        fields = control.params.ast_fields;
 
-                    device = jQuery("#customize-footer-actions .active").attr('data-device');
+                        $modal_wrap = $( astra.customizer.group_modal_tmpl );
 
-                    if( 'mobile' == device ) {
-                        jQuery('.ast-responsive-btns .mobile, .ast-responsive-slider-btns .mobile').addClass('active');
-                        jQuery('.ast-responsive-btns .preview-mobile, .ast-responsive-slider-btns .preview-mobile').addClass('active');
-                    } else if( 'tablet' == device ) {
-                        jQuery('.ast-responsive-btns .tablet, .ast-responsive-slider-btns .tablet').addClass('active');
-                        jQuery('.ast-responsive-btns .preview-tablet, .ast-responsive-slider-btns .preview-tablet').addClass('active');
-                    } else {
-                        jQuery('.ast-responsive-btns .desktop, .ast-responsive-slider-btns .desktop').addClass('active');
-                        jQuery('.ast-responsive-btns .preview-desktop, .ast-responsive-slider-btns .preview-desktop').addClass('active');
-                    }
+                        parent_wrap.find( '.ast-field-settings-modal' ).append($modal_wrap);
+
+                        parent_wrap.find( '.ast-fields-wrap' ).fadeIn(300);
+
+                        parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
+                        control.ast_render_field( parent_wrap, fields, control );
+                        
+                        device = jQuery("#customize-footer-actions .active").attr('data-device');
+                        
+                        if( 'mobile' == device ) {
+                            jQuery('.ast-responsive-btns .mobile, .ast-responsive-slider-btns .mobile').addClass('active');
+                            jQuery('.ast-responsive-btns .preview-mobile, .ast-responsive-slider-btns .preview-mobile').addClass('active');
+                        } else if( 'tablet' == device ) {
+                            jQuery('.ast-responsive-btns .tablet, .ast-responsive-slider-btns .tablet').addClass('active');
+                            jQuery('.ast-responsive-btns .preview-tablet, .ast-responsive-slider-btns .preview-tablet').addClass('active');
+                        } else {
+                            jQuery('.ast-responsive-btns .desktop, .ast-responsive-slider-btns .desktop').addClass('active');
+                            jQuery('.ast-responsive-btns .preview-desktop, .ast-responsive-slider-btns .preview-desktop').addClass('active');
+                        }
+    
+                        parent_wrap.find( '.ast-field-settings-modal' ).css('height', 'auto');
+
+                    }, 200);
+                    
                 }
             }
 

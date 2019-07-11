@@ -126,6 +126,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 			<input type="hidden" data-name="{{ data.name }}" class="ast-hidden-input" value="{{ data.value }}">
 		</div>
 		<div class="ast-field-settings-wrap">
+			<div class="ast-field-settings-modal"></div>
 		</div>
 			<?php
 		}

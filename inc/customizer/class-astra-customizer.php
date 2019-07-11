@@ -717,10 +717,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				}
 			}
 
-			$tmpl = '<div class="ast-field-settings-modal">
-					<ul class="ast-fields-wrap">
-					</ul>
-			</div>';
+			$tmpl = '<ul class="ast-fields-wrap">
+					</ul>';
 
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',

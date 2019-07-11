@@ -27,6 +27,12 @@
 
 .ast-field-settings-modal {
     background-color: #fff;
+    display: none;
+    height: 200px;
+}
+
+.ast-fields-wrap {
+    display: none;
 }
 
 .ast-field-settings-modal .customize-control-ast-divider:first-child {
