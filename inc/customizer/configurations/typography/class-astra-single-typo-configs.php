@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-blog-single',
-					'priority' => 12,
+					'priority' => 13,
 					'title'    => __( 'Typography', 'astra' ),
 					'settings' => array(),
 				),
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
 					'type'      => 'control',
-					'priority'  => 12,
+					'priority'  => 13,
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Post / Page Title', 'astra' ),
 					'section'   => 'section-blog-single',

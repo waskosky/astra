@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'     => 'number',
 					'section'     => 'section-header',
 					'priority'    => 4,
-					'title'       => __( 'Bottom Border Width', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
