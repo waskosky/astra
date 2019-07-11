@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'footer-sml-layout' ),
 					'section'  => 'section-footer-small',
 					'priority' => 5,
-					'title'    => __( 'Footer Bar Layout', 'astra' ),
+					'title'    => __( 'Layout', 'astra' ),
 					'choices'  => array(
 						'disabled'            => array(
 							'label' => __( 'Disabled', 'astra' ),
@@ -285,7 +285,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'    => 'control',
 					'control' => 'ast-radio-image',
 					'default' => astra_get_option( 'footer-adv' ),
-					'title'   => __( 'Footer Widgets Layout', 'astra' ),
+					'title'   => __( 'Layout', 'astra' ),
 					'section' => 'section-footer-adv',
 					'choices' => array(
 						'disabled' => array(
