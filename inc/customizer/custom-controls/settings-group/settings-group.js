@@ -745,57 +745,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             control.saveValue( screen, 'background-attachment', item_value, responsive_input );
         });
 
-        // Open image uploader on click of image.
-        controlContainer.on('click', '.thumbnail-image img', function (e) {
-            var responsive_input = jQuery(this),
-                screen = responsive_input.data('id');
-                name = responsive_input.data('name');
-
-            var image = wp.media({ multiple: false }).open().on('select', function () {
-
-               // This will return the selected image from the Media Uploader, the result is an object.
-               var uploadedImage = image.state().get('selection').first(),
-                   previewImage = uploadedImage.toJSON().sizes.full.url,
-                   imageUrl,
-                   imageID,
-                   imageWidth,
-                   imageHeight,
-                   preview,
-                   removeButton;
-
-               if (!_.isUndefined(uploadedImage.toJSON().sizes.medium)) {
-                   previewImage = uploadedImage.toJSON().sizes.medium.url;
-               } else if (!_.isUndefined(uploadedImage.toJSON().sizes.thumbnail)) {
-                   previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
-               }
-
-               imageUrl = uploadedImage.toJSON().sizes.full.url;
-               imageID = uploadedImage.toJSON().id;
-               imageWidth = uploadedImage.toJSON().width;
-               imageHeight = uploadedImage.toJSON().height;
-
-               // Show extra controls if the value has an image.
-               if ( '' !== imageUrl ) {
-                   controlContainer.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
-               }
-
-               control.saveValue( screen, 'background-image', imageUrl, responsive_input );
-               preview = controlContainer.find( '.background-container.' + screen + ' .placeholder, .background-container.' + screen + ' .thumbnail' );
-               removeButton = controlContainer.find('.background-container.' + screen + ' .background-image-upload-remove-button');
-
-               if ( preview.length ) {
-                   preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" data-id="'+screen+'" data-name="'+name+'" />');
-               }
-               if ( removeButton.length ) {
-                   removeButton.show();
-               }
-           });
-
-           e.preventDefault();
-        });
-
         // Background-Image.
-        controlContainer.on('click', '.background-image-upload-button', function (e) {
+        controlContainer.on('click', '.background-image-upload-button, .thumbnail-image img', function (e) {
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id');
                 name = responsive_input.data('name');
@@ -987,7 +938,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Image.
-        controlContainer.on( 'click', '.background-image-upload-button', function( e ) {
+        controlContainer.on( 'click', '.background-image-upload-button, .thumbnail-image img', function( e ) {
             var upload_img_btn = jQuery(this);
             var image = wp.media({ multiple: false }).open().on( 'select', function() {
 
