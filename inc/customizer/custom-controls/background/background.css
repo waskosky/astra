@@ -44,7 +44,7 @@
 
 .customize-control-ast-background .background-attachment .buttonset .switch-label,
 .customize-control-ast-background .background-size .buttonset .switch-label {
-  background: rgba(0, 0, 0, 0.05);
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #555;
   padding: 4px;
