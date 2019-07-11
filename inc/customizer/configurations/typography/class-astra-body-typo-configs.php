@@ -205,7 +205,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'  => 3,
 					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
 					'variant'   => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
-					'transport' => 'postMessage',
 				),
 
 				/**
@@ -223,7 +222,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 3,
 					'title'             => __( 'Variants', 'astra' ),
 					'variant'           => ASTRA_THEME_SETTINGS . '[headings-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -240,22 +238,20 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'           => 'section-content-typo',
 					'priority'          => 3,
 					'connect'           => ASTRA_THEME_SETTINGS . '[headings-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
 				 * Option: Headings Text Transform
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[headings-text-transform]',
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => 'section-content-typo',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra' ),
-					'default'   => astra_get_option( 'headings-text-transform' ),
-					'priority'  => 3,
-					'choices'   => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[headings-text-transform]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-content-typo',
+					'title'    => __( 'Text Transform', 'astra' ),
+					'default'  => astra_get_option( 'headings-text-transform' ),
+					'priority' => 3,
+					'choices'  => array(
 						''           => __( 'Inherit', 'astra' ),
 						'none'       => __( 'None', 'astra' ),
 						'capitalize' => __( 'Capitalize', 'astra' ),
