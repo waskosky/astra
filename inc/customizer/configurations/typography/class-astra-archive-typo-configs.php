@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-blog',
 					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 122,
+					'priority' => 135,
 					'settings' => array(),
 				),
 
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'title'     => __( 'Post Title', 'astra' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
-					'priority'  => 122,
+					'priority'  => 140,
 				),
 
 				array(
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'title'     => __( 'Archive Title', 'astra' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
-					'priority'  => 123,
+					'priority'  => 155,
 				),
 
 				/**
