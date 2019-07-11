@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 					'default'  => astra_get_option( 'edd-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 85,
-					'title'    => __( 'Container for Easy Digital Downloads', 'astra' ),
+					'title'    => __( 'Easy Digital Downloads Layout', 'astra' ),
 					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),

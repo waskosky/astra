@@ -38,6 +38,8 @@
   border: none;
   opacity: .75;
   outline: none;
+  width: 100%;
+  height: 100%;
 }
 
 .customize-control-ast-border .ast-border-btns button[type="button"] > i {

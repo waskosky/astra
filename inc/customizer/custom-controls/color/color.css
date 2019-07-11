@@ -5,7 +5,7 @@
 	height:22px !important;
 }
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-    width: 96px !important;
+    width: 65px !important;
     line-height: 17px;
 }
 .customize-control-ast-color .wp-picker-clear {
@@ -13,4 +13,13 @@
 }
 .wp-picker-input-wrap label {
     font-size: 0;
+}
+@media (max-width: 1755px) {
+    .iris-picker.iris-border {
+        width: 245px !important;
+    }
+    .iris-slider.iris-strip,
+    .iris-strip.iris-slider.iris-alpha-slider {
+        width: 13px !important;
+    }
 }

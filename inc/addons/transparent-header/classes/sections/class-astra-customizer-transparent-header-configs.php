@@ -248,6 +248,18 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Transparent Header Border Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-border-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Bottom Border Size
 				 */
 				array(
@@ -258,7 +270,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'     => 'number',
 					'section'     => 'section-transparent-header',
 					'priority'    => 30,
-					'title'       => __( 'Bottom Border Width', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
