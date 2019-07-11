@@ -139,7 +139,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 
-		$item_link_desc = __( 'Link values together', 'astra' );
+		$item_link_desc = __( 'Link Values Together', 'astra' );
 
 		?>
 		<label class='ast-spacing-responsive' for="" >

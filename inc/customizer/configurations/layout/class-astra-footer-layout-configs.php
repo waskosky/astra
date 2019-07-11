@@ -206,7 +206,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
 					'priority'  => 45,
 					'title'     => __( 'Border Width Color', 'astra' ),
-					'transport' => 'postMessage'
+					'transport' => 'postMessage',
 				),
 
 				/**

@@ -104,7 +104,7 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 		 */
 		protected function content_template() {
 
-			$item_link_desc = __( 'Link values together', 'astra' );
+			$item_link_desc = __( 'Link Values Together', 'astra' );
 			?>
 			<label class='ast-border' for="" >
 
