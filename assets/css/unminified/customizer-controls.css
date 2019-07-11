@@ -197,3 +197,7 @@
 .actions .button.upload-button {
 	text-transform: capitalize;
 }
+
+.wp-picker-container .iris-picker-inner {
+	z-index: 8;
+}
