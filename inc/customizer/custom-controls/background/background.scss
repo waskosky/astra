@@ -48,8 +48,11 @@
                 margin: 0;
                 text-align: center;
                 flex-grow: 1;
+                border-left-width: 0;
             }
-            
+            .switch-label:first-of-type {
+                border-left-width: 1px;
+            }
             .switch-input:checked + .switch-label {
                 background-color: #298cbe;
                 color: #fff;

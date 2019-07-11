@@ -51,6 +51,12 @@
   margin: 0;
   text-align: center;
   flex-grow: 1;
+  border-left-width: 0;
+}
+
+.customize-control-ast-background .background-attachment .buttonset .switch-label:first-of-type,
+.customize-control-ast-background .background-size .buttonset .switch-label:first-of-type {
+  border-left-width: 1px;
 }
 
 .customize-control-ast-background .background-attachment .buttonset .switch-input:checked + .switch-label,
