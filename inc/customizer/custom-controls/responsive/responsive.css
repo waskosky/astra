@@ -62,6 +62,10 @@
   display: inline-block;
 }
 
+#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
+  display: inline;
+}
+
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
   display: none;
 }
