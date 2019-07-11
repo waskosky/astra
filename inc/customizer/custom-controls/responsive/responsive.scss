@@ -67,3 +67,16 @@
 		}
 	}
 }
+
+#customize-control-astra-settings-font-size-body{
+	&.customize-control-ast-responsive {
+		.input-wrapper {
+			.ast-responsive-select {
+				display: none;
+			}
+			.ast-responsive-input {
+				width: 100%;
+			} 
+		} 
+	}
+}
