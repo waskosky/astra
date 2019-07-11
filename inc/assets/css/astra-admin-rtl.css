@@ -94,7 +94,7 @@
 
 .customize-control .ast-control-tooltip {
     position: absolute;
-    top: 6px;
+    top: 0;
     left: 0;
 }
 .customize-control.customize-control-ast-divider .ast-control-tooltip {
