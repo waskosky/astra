@@ -62,7 +62,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'       => __( 'Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
-					'transport'   => 'postMessage',
 				),
 				/**
 				 * Option: Font Variant
@@ -79,7 +78,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 10,
 					'title'             => __( 'Variants', 'astra' ),
 					'variant'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -97,7 +95,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 15,
 					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -118,7 +115,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
-					'transport' => 'postMessage',
 				),
 
 				/**
@@ -148,7 +144,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-slider',
 					'section'           => 'section-body-typo',
-					'transport'         => 'postMessage',
 					'default'           => '',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 25,
