@@ -108,6 +108,10 @@
     bottom: 3px;
     left: 0;
 }
+.ast-fields-wrap .customize-control .ast-control-tooltip {
+    left: 15px;
+    top: 5px;
+}
 .astra-review-notice-container {
 	display: flex;
 	align-items: center;
