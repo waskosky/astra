@@ -33,7 +33,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 					'name'     => 'section-woo-general',
 					'title'    => __( 'General', 'astra' ),
 					'type'     => 'section',
-					'priority' => 20,
+					'priority' => 10,
 					'panel'    => 'woocommerce',
 				),
 				array(
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 					'name'     => 'section-woo-shop-single',
 					'type'     => 'section',
 					'title'    => __( 'Single Product', 'astra' ),
-					'priority' => 20,
+					'priority' => 12,
 					'panel'    => 'woocommerce',
 				),
 
