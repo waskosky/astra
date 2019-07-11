@@ -80,7 +80,7 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 		});
 
 		// Background-Image.
-		control.container.on( 'click', '.background-image-upload-button', function( e ) {
+		control.container.on( 'click', '.background-image-upload-button, .thumbnail-image img', function( e ) {
 			var image = wp.media({ multiple: false }).open().on( 'select', function() {
 
 				// This will return the selected image from the Media Uploader, the result is an object.

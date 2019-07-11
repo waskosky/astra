@@ -75,7 +75,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-header',
 					'priority' => 4,
-					'title'    => __( 'Header Width', 'astra' ),
+					'title'    => __( 'Width', 'astra' ),
 					'choices'  => array(
 						'full'    => __( 'Full Width', 'astra' ),
 						'content' => __( 'Content Width', 'astra' ),
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'     => 'number',
 					'section'     => 'section-header',
 					'priority'    => 4,
-					'title'       => __( 'Header Bottom Border Width', 'astra' ),
+					'title'       => __( 'Bottom Border Width', 'astra' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'   => 'ast-color',
 					'section'   => 'section-header',
 					'priority'  => 4,
-					'title'     => __( 'Header Bottom Border Color', 'astra' ),
+					'title'     => __( 'Bottom Border Color', 'astra' ),
 				),
 
 				array(

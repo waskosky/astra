@@ -61,3 +61,11 @@
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-select {
   display: inline-block;
 }
+
+#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
+  display: none;
+}
+
+#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
+  width: 100%;
+}
