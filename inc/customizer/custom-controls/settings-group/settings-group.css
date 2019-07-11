@@ -25,8 +25,16 @@
     content: "\f158";   
 }
 
-.ast-field-settings-modal{
-    background: #FFF;
+.ast-field-settings-modal {
+    position: absolute;
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background-color: #fff;
 }
 
 .ast-field-settings-modal .customize-control-ast-divider:first-child {
@@ -103,7 +111,7 @@
 .ast-field-settings-modal::before {
     content: '';
     position: absolute;
-    top: 22px;
+    top: -17px;
     right: 8px;
     border: 9px solid transparent;
     border-bottom-color: #fff;
