@@ -26,6 +26,7 @@
 <body <?php astra_schema_body(); ?> <?php body_class(); ?>>
 
 <?php astra_body_top(); ?>
+<?php wp_body_open(); ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( astra_default_strings( 'string-header-skip-link', false ) ); ?></a>
 

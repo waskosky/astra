@@ -439,6 +439,39 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Toggle on click of button or link.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]',
+					'default'  => astra_get_option( 'mobile-header-toggle-target' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-header',
+					'priority' => 42,
+					'title'    => __( 'Dropdown Target', 'astra' ),
+					'suffix'   => '',
+					'choices'  => array(
+						'icon' => __( 'Icon', 'astra' ),
+						'link' => __( 'Link', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Notice to add # link to parent menu when Link option selected in Dropdown Target.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target-link-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-header',
+					'priority' => 41,
+					'title'    => '',
+					'required' => array( ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]', '==', 'link' ),
+					'help'     => __( 'The parent menu should have a # link for the submenu to open on a link.', 'astra' ),
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Mobile Menu Label
 				 */
 				array(
