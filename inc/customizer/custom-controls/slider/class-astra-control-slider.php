@@ -85,6 +85,7 @@ class Astra_Control_Slider extends WP_Customize_Control {
 	 * @access protected
 	 */
 	protected function content_template() {
+		$reset = __( 'Back to default', 'astra' );
 		?>
 		<label>
 			<# if ( data.label ) { #>
@@ -103,7 +104,7 @@ class Astra_Control_Slider extends WP_Customize_Control {
 					} #>
 				</div>
 				<div class="ast-slider-reset">
-					<span class="dashicons dashicons-image-rotate"></span>
+					<span class="dashicons dashicons-image-rotate ast-control-tooltip" title="<?php echo esc_html( $reset ); ?>" ></span>
 				</div>
 			</div>
 		</label>
