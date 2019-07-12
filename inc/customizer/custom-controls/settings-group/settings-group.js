@@ -23,8 +23,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 $( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
             }
         });
-        
-        control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
+
+        control.container.on( 'click', '.ast-toggle-desc-wrap, .ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
             
             e.preventDefault();
             e.stopPropagation();
@@ -85,13 +85,46 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             } );
 
         });
+        
+        control.container.on( 'hover', '.ast-toggle-desc-wrap, .ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var $this = jQuery(this);
+            
+            var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
+            var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
+            
+            if( ! is_loaded ) {
+                var fields = control.params.ast_fields;
+                var $modal_wrap = $( astra.customizer.group_modal_tmpl );
 
-        control.container.on( "click", ".ast-toggle-desc-wrap > .customizer-text", function( e ) {
+                parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
+                parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
+                control.ast_render_field( parent_wrap, fields, control );
+
+                device = jQuery("#customize-footer-actions .active").attr('data-device');
+
+                if( 'mobile' == device ) {
+                    jQuery('.ast-responsive-btns .mobile, .ast-responsive-slider-btns .mobile').addClass('active');
+                    jQuery('.ast-responsive-btns .preview-mobile, .ast-responsive-slider-btns .preview-mobile').addClass('active');
+                } else if( 'tablet' == device ) {
+                    jQuery('.ast-responsive-btns .tablet, .ast-responsive-slider-btns .tablet').addClass('active');
+                    jQuery('.ast-responsive-btns .preview-tablet, .ast-responsive-slider-btns .preview-tablet').addClass('active');
+                } else {
+                    jQuery('.ast-responsive-btns .desktop, .ast-responsive-slider-btns .desktop').addClass('active');
+                    jQuery('.ast-responsive-btns .preview-desktop, .ast-responsive-slider-btns .preview-desktop').addClass('active');
+                }
+            }
+        });
+
+        control.container.on( "hover", ".ast-toggle-desc-wrap > .customizer-text", function( e ) {
 
             e.preventDefault();
             e.stopPropagation();
 
-            jQuery(this).find( '.ast-adv-toggle-icon' ).trigger('click');
+            jQuery(this).find( '.ast-adv-toggle-icon' ).trigger('hover');
         });
     },
 

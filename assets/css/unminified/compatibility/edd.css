@@ -12,6 +12,7 @@
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
 .ast-edd-container {
+  -js-display: flex;
   display: flex;
   flex-wrap: wrap;
   clear: both;
@@ -353,6 +354,7 @@
 
 /* EDD Shortcodes */
 .edd_downloads_list {
+  -js-display: flex;
   display: flex;
   flex-wrap: wrap;
   clear: both;
@@ -853,6 +855,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  -js-display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -860,6 +863,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 .widget_edd_cart_widget .edd-remove-from-cart:after {
   content: '×';
+  -js-display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1208,6 +1212,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 #edd_checkout_form_wrap .edd-privacy-policy-agreement {
   margin-bottom: 0;
+  -js-display: flex;
   display: flex;
   align-items: center;
 }
@@ -1319,6 +1324,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 }
 
 .edd_download_purchase_form .edd_price_options li {
+  -js-display: flex;
   display: flex;
   padding: 5px 0 0;
   margin: 0;

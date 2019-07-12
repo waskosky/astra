@@ -108,6 +108,7 @@
     border-radius: 3px;
     margin-top: 9px;
     margin-bottom: 20px;
+    display: none;
 }
 
 .ast-field-settings-modal::before {

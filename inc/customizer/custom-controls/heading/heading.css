@@ -54,10 +54,13 @@
 
 .customize-control label {
   cursor: context-menu;
+<<<<<<< Updated upstream
 }
 
 .customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
   cursor: pointer;
+=======
+>>>>>>> Stashed changes
 }
 
 .customize-control.customize-control-ast-settings-group label {
