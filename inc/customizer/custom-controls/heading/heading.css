@@ -49,11 +49,11 @@
 }
 
 .ast-heading-wrapper label {
-  cursor: context-menu;
+  cursor: default;
 }
 
-.customize-control label {
-  cursor: context-menu;
+.customize-control > label {
+  cursor: default;
 }
 
 .customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {

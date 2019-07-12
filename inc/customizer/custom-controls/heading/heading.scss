@@ -49,13 +49,13 @@
 }
 .ast-heading-wrapper {
 	label {
-		cursor: context-menu;
+		cursor: default;
 	}
 }
 
 .customize-control {
-	label {
-		cursor: context-menu;
+	> label {
+		cursor: default;
 	}
 }
 
