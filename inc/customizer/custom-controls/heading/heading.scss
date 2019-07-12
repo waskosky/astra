@@ -63,4 +63,9 @@
 	.ast-spacing-input-item-link, .ast-border-input-item-link {
 		cursor: pointer;
 	}
+	&.customize-control-ast-settings-group {
+		label {
+			cursor: pointer;
+		}
+	}
 }

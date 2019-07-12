@@ -1781,10 +1781,6 @@ object {
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
 /*----------  Site Normalize  ----------*/
-::-moz-selection {
-  color: #fff;
-  background: #0274be;
-}
 ::selection {
   color: #fff;
   background: #0274be;
@@ -2368,7 +2364,6 @@ body {
     margin: 0;
   }
   .ast-left-sidebar #content > .ast-container {
-    -js-display: flex;
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
@@ -2441,7 +2436,6 @@ body {
 }
 
 .main-navigation {
-  -js-display: inline-flex;
   display: inline-flex;
   height: 100%;
 }
@@ -2850,7 +2844,6 @@ body {
 }
 
 .ast-header-custom-item-outside .header-main-layout-2 .main-header-container {
-  -js-display: flex;
   display: flex;
   justify-content: center;
 }
@@ -2960,7 +2953,6 @@ body {
 }
 
 .ast-header-break-point .header-main-layout-2 .ast-mobile-menu-buttons {
-  -js-display: flex;
   display: flex;
   justify-content: center;
 }
@@ -3001,7 +2993,6 @@ body {
  * 4 - Header Inline Logo & Site Title 
 */
 .ast-logo-title-inline .ast-site-identity {
-  -js-display: inline-flex;
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
@@ -3050,7 +3041,6 @@ body {
 
 .ast-header-break-point .ast-mobile-header-stack .main-header-container,
 .ast-header-break-point .ast-mobile-header-inline .main-header-container {
-  -js-display: flex;
   display: flex;
 }
 
@@ -3399,7 +3389,6 @@ body {
 }
 
 .ast-search-menu-icon.slide-search .search-form {
-  -webkit-backface-visibility: visible;
   backface-visibility: visible;
   visibility: hidden;
   opacity: 0;
@@ -3422,7 +3411,6 @@ body {
   padding: 0 3em 0 0;
   border-radius: 2px;
   display: inline-block;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: relative;
   color: inherit;
@@ -3430,7 +3418,6 @@ body {
 }
 
 .ast-search-menu-icon .astra-search-icon {
-  -js-display: flex;
   display: flex;
   line-height: normal;
 }
@@ -3564,7 +3551,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point .site-header .main-header-bar-wrap .site-branding {
-  -js-display: flex;
   display: flex;
   flex: 1;
   align-self: center;
@@ -3734,7 +3720,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline .site-branding,
 .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-inline .ast-mobile-menu-buttons {
-  -js-display: flex;
   display: flex;
 }
 
@@ -3788,7 +3773,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 /* 7 - Header Toggle Buttons */
 .ast-header-break-point .ast-mobile-menu-buttons {
   text-align: right;
-  -js-display: flex;
   display: flex;
   justify-content: flex-end;
 }
@@ -3978,6 +3962,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 @media (max-width: 782px) {
   .entry-content .wp-block-columns .wp-block-column {
+    -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     margin-left: 0;
   }
@@ -4768,7 +4753,6 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (min-width: 769px) {
   .ast-author-box {
-    -js-display: flex;
     display: flex;
   }
   .ast-author-bio {
@@ -4857,7 +4841,6 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (min-width: 421px) {
   .single .post-navigation .nav-links {
-    -js-display: flex;
     display: flex;
   }
   .single .post-navigation .nav-previous,
@@ -5024,7 +5007,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-list .ast-comment-edit-reply-wrap {
-  -js-display: flex;
   display: flex;
   justify-content: flex-end;
 }
@@ -5809,7 +5791,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-flex {
-  -js-display: flex;
   display: flex;
   flex-wrap: wrap;
 }
@@ -5835,7 +5816,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-inline-flex {
-  -js-display: inline-flex;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
