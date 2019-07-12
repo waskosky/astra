@@ -3,7 +3,7 @@
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 96px !important;
+  width: 65px !important;
   line-height: 17px;
 }
 
@@ -21,4 +21,8 @@
 
 .customize-control-ast-responsive-color .customize-control-content .wp-picker-container.active {
   display: block;
+}
+
+.wp-picker-container.wp-picker-active .wp-picker-open {
+  margin: 0px 3px 6px 0px;
 }

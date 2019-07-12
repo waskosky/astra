@@ -17,20 +17,32 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         var control = this;
 
+        /* Close popup when click outside anywhere outside of popup */
+        $( '.wp-full-overlay-sidebar-content, .wp-picker-container' ).click( function( e ) {
+            if ( ! $( e.target ).closest( '.ast-field-settings-modal' ).length ) {
+                $( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
+            }
+        });
+        
         control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
-
+            
             e.preventDefault();
             e.stopPropagation();
-
+            
             var $this = jQuery(this);
-
+            
             var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
-
+            
+            
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
             } else {
-                
+                /* Close popup when another popup is clicked to open */
+                var get_open_popup = $this.closest('.control-section-ast_section').find('.ast-adv-toggle-icon.open');
+                if( get_open_popup.length > 0 ) {
+                    get_open_popup.trigger('click');
+                }
                 if( is_loaded ) {
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
                 } else {
@@ -57,7 +69,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     }
                 }
             }
-
 
             $this.toggleClass('open');
 
@@ -735,9 +746,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Image.
-        controlContainer.on('click', '.background-image-upload-button', function (e) {
+        controlContainer.on('click', '.background-image-upload-button, .thumbnail-image img', function (e) {
             var responsive_input = jQuery(this),
                 screen = responsive_input.data('id');
+                name = responsive_input.data('name');
 
             var image = wp.media({ multiple: false }).open().on('select', function () {
 
@@ -772,7 +784,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 removeButton = controlContainer.find('.background-container.' + screen + ' .background-image-upload-remove-button');
 
                 if ( preview.length ) {
-                    preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
+                    preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" data-id="'+screen+'" data-name="'+name+'"/>');
                 }
                 if ( removeButton.length ) {
                     removeButton.show();
@@ -926,7 +938,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         // Background-Image.
-        controlContainer.on( 'click', '.background-image-upload-button', function( e ) {
+        controlContainer.on( 'click', '.background-image-upload-button, .thumbnail-image img', function( e ) {
             var upload_img_btn = jQuery(this);
             var image = wp.media({ multiple: false }).open().on( 'select', function() {
 

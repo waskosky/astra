@@ -1,7 +1,7 @@
 .customize-control-ast-radio-image label {
   position: relative;
   display: inline-block;
-  margin: 0 5px 5px 0;
+  margin-right: 5px;
 }
 
 .customize-control-ast-radio-image input {

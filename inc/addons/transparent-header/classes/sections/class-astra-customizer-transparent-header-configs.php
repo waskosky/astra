@@ -206,7 +206,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => false,
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Different Logo for retina devices?', 'astra' ),
+					'title'    => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'required' => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 					'priority' => 30,
 					'control'  => 'checkbox',
@@ -245,6 +245,18 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
+				),
+
+				/**
+				 * Option: Transparent Header Border Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-border-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 30,
+					'settings' => array(),
 				),
 
 				/**
@@ -309,7 +321,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'   => astra_get_option( 'transparent-header-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Header', 'astra' ),
+					'title'     => __( 'Site Title', 'astra' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
@@ -320,7 +332,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'   => astra_get_option( 'transparent-header-colors-menu' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Menu', 'astra' ),
+					'title'     => __( 'Menu / Submenu', 'astra' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,

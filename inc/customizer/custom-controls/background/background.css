@@ -1,9 +1,9 @@
-.customize-control-ast-background {
-  position: relative;
+#customize-controls .customize-control-notifications-container {
+  margin: 0;
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 96px !important;
+  width: 65px !important;
   line-height: 17px;
 }
 
@@ -28,6 +28,10 @@
   margin-top: 10px;
 }
 
+.customize-control-ast-background .background-color {
+  margin-bottom: 12px;
+}
+
 .customize-control-ast-background .background-repeat {
   margin: 15px 0 8px 0;
 }
@@ -40,13 +44,20 @@
 
 .customize-control-ast-background .background-attachment .buttonset .switch-label,
 .customize-control-ast-background .background-size .buttonset .switch-label {
-  background: rgba(0, 0, 0, 0.05);
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #555;
   padding: 4px;
   margin: 0;
   text-align: center;
   flex-grow: 1;
+  border-left-width: 0;
+  transition: background-color 140ms linear;
+}
+
+.customize-control-ast-background .background-attachment .buttonset .switch-label:first-of-type,
+.customize-control-ast-background .background-size .buttonset .switch-label:first-of-type {
+  border-left-width: 1px;
 }
 
 .customize-control-ast-background .background-attachment .buttonset .switch-input:checked + .switch-label,
@@ -68,6 +79,15 @@
   float: right;
 }
 
+.customize-control-ast-background .more-settings:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
 .customize-control-ast-background .arrow-icon {
   margin-left: 5px;
+}
+
+.ast-field-settings-modal .customize-control-ast-background .more-settings {
+  margin-top: 6px;
 }

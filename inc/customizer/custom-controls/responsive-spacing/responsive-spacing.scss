@@ -9,11 +9,17 @@
 		position: relative;
 	}
 
+	.ast-spacing-input-item {
+		margin-bottom: 0;
+	}
+
 	.ast-spacing-responsive-btns {
 	    display: block;
 	    text-align: center;
 		line-height: 2;
-    	border: 1px solid #ddd;
+		border: 1px solid #dddddd;
+		background-color: #ffffff;
+		border-radius: 0 3px 3px 0;
 
 		> li {
 			margin-bottom: 0;
@@ -32,6 +38,8 @@
 			border: none;
 			opacity: .75;
 			outline: none;
+			width: 100%;
+			height: 100%;
 
 			> i {
 				width: 15px;
@@ -61,6 +69,7 @@
 			&.active {
 				text-decoration: underline;
 				opacity: 1;
+				color: #000000;
 			}
 		}
 	}
@@ -75,6 +84,18 @@
 				flex: auto;
 				input.ast-spacing-input{
 					text-align: center;
+					display: block;
+					font-size: 12px;
+					padding: 4px 0;
+					width: 100%;
+					height: 28px;
+					border: 1px solid #dddddd;
+					border-right-width: 0;
+					box-shadow: none;
+					padding-left: 11px;
+				}
+				.ast-spacing-connected {
+					color: #1e8cbe;
 				}
 			}
 
@@ -104,7 +125,10 @@
 					height: 26px;
 					line-height: 26px;
 					font-size: 14px;
-					border: 1px solid #ddd;
+					border: 1px solid #dddddd;
+					background-color: #ffffff;
+					border-radius: 3px 0 0 3px;
+					border-right-width: 0;
 				}
 			}
 		}

@@ -109,6 +109,7 @@
 .customize-control-ast-responsive-slider .ast-responsive-slider-reset span {
 	font-size: 13px;
 	line-height: 24px;
+	transition: unset;
 }
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-reset:hover, .customize-control-ast-responsive-slider .ast-responsive-slider-reset:focus {
@@ -137,8 +138,7 @@
 /**
  * Responsive Icons
  */
-.ast-responsive-slider-btns,
-.customize-control-title {
+.ast-responsive-slider-btns {
 	display: inline-block;
 }
 

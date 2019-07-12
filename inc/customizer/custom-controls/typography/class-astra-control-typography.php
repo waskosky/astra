@@ -210,7 +210,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
 		}
 
-		echo ' data-value="' . esc_attr( $this->value() ) . '">';
+		echo ' data-value="' . esc_attr( $this->value() ) . '"';
 	}
 
 	/**
@@ -295,6 +295,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		}
 		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
 		echo '</select>';
+		echo '<span class="ast-variant-description"><i>Only selected Font Variants will be loaded from Google Fonts to use.</i></span>';
 	}
 
 	/**

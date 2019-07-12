@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-blog',
 					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 122,
+					'priority' => 135,
 					'settings' => array(),
 				),
 
@@ -49,25 +49,25 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				 * Option: Blog / Archive Typography
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
-					'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Blog Post Title', 'astra' ),
-					'section'   => 'section-blog',
-					'transport' => 'postMessage',
-					'priority'  => 122,
-				),
-
-				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
 					'default'   => astra_get_option( 'blog-content-archive-summary-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Archive Summary Box Title', 'astra' ),
+					'title'     => __( 'Archive Title', 'astra' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
-					'priority'  => 123,
+					'priority'  => 140,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+					'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Post Title', 'astra' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 140,
 				),
 
 				/**
@@ -79,9 +79,9 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',
-					'priority'    => 4,
+					'priority'    => 2,
 					'default'     => astra_get_option( 'font-size-page-title' ),
-					'title'       => __( 'Font Size', 'astra' ),
+					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -101,8 +101,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'font-size-archive-summary-title' ),
-					'priority'    => 11,
-					'title'       => __( 'Font Size', 'astra' ),
+					'priority'    => 8,
+					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'  => 'section-blog',
 						'priority' => 999,
 						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available for Typography in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 				);

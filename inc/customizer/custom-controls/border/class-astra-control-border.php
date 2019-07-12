@@ -90,7 +90,6 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
 			$this->json['inputAttrs'] = maybe_serialize( $this->input_attrs() );
-
 		}
 
 		/**
@@ -104,6 +103,8 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 		 * @access protected
 		 */
 		protected function content_template() {
+
+			$item_link_desc = __( 'Link Values Together', 'astra' );
 			?>
 			<label class='ast-border' for="" >
 
@@ -120,8 +121,8 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 					<ul class="ast-border-wrapper desktop active"><# 
 						if ( data.linked_choices ) { #>
 						<li class="ast-border-input-item-link">
-								<span class="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-								<span class="dashicons dashicons-editor-unlink ast-border-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+								<span class="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
+								<span class="dashicons dashicons-editor-unlink ast-border-disconnected" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
 							</li><#
 						}
 						_.each( data.choices, function( choiceLabel, choiceID ) {
