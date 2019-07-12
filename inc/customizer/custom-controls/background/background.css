@@ -52,6 +52,7 @@
   text-align: center;
   flex-grow: 1;
   border-left-width: 0;
+  transition: background-color 140ms linear;
 }
 
 .customize-control-ast-background .background-attachment .buttonset .switch-label:first-of-type,
