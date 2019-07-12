@@ -24,7 +24,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             }
         });
 
-        control.container.on( 'click', '.ast-toggle-desc-wrap, .ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
+        control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
             
             e.preventDefault();
             e.stopPropagation();
@@ -86,7 +86,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         });
         
-        control.container.on( 'hover', '.ast-toggle-desc-wrap, .ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
+        control.container.on( 'hover', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
             
             e.preventDefault();
             e.stopPropagation();
