@@ -52,10 +52,6 @@
   cursor: context-menu;
 }
 
-.customize-control label {
-  cursor: context-menu;
-}
-
 .customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
   cursor: pointer;
 }
