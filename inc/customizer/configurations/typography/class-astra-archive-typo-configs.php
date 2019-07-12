@@ -49,6 +49,17 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				 * Option: Blog / Archive Typography
 				 */
 				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
+					'default'   => astra_get_option( 'blog-content-archive-summary-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Archive Title', 'astra' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 140,
+				),
+
+				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
 					'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
 					'type'      => 'control',
@@ -57,17 +68,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 140,
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
-					'default'   => astra_get_option( 'blog-content-archive-summary-typo' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Archive Title', 'astra' ),
-					'section'   => 'section-blog',
-					'transport' => 'postMessage',
-					'priority'  => 155,
 				),
 
 				/**

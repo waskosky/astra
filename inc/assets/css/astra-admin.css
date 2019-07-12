@@ -85,7 +85,12 @@
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
-	margin-bottom: 12px;
+	margin-bottom: 10px;
+	font-size: 13px;
+}
+
+.ast-field-settings-modal .customize-control {
+	margin-top: 10px;
 }
 
 .customize-control-ast-font-variant .select2 {
@@ -102,6 +107,10 @@
     top: auto;
     bottom: 3px;
     right: 0;
+}
+.ast-fields-wrap .customize-control .ast-control-tooltip {
+    right: 15px;
+    top: 6px;
 }
 .astra-review-notice-container {
 	display: flex;

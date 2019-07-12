@@ -1005,9 +1005,6 @@ function isJsonString( str ) {
 		astra_responsive_font_size('astra-settings[font-size-h6]', 'h6, .entry-content h6');
 	}
 
-	astra_css( 'astra-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea' );
-	astra_generate_outside_font_family_css( 'astra-settings[body-font-family]', 'body, button, input, select, textarea' );
-	astra_css( 'astra-settings[body-font-weight]', 'font-weight', 'body, button, input, select, textarea' );
 	// paragraph margin bottom.
 	wp.customize( 'astra-settings[para-margin-bottom]', function( value ) {
 		value.bind( function( marginBottom ) {
@@ -1022,9 +1019,7 @@ function isJsonString( str ) {
 
 		} );
 	} );
-
-	astra_css( 'astra-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
-
+	
 	// Check if anchors should be loaded in the CSS for headings.
 	if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
 		astra_generate_outside_font_family_css('astra-settings[headings-font-family]', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');

@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'parent'     => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'title'      => __( 'Site Title Hover Color', 'astra' ),
+					'title'      => __( 'Site Title Color', 'astra' ),
 					'tab'        => __( 'Hover', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,

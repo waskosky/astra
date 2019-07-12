@@ -62,7 +62,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'       => __( 'Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
-					'transport'   => 'postMessage',
 				),
 				/**
 				 * Option: Font Variant
@@ -79,7 +78,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 10,
 					'title'             => __( 'Variants', 'astra' ),
 					'variant'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -97,28 +95,26 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 15,
 					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
 				 * Option: Body Text Transform
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[body-text-transform]',
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => 'section-body-typo',
-					'default'   => astra_get_option( 'body-text-transform' ),
-					'priority'  => 20,
-					'title'     => __( 'Text Transform', 'astra' ),
-					'choices'   => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[body-text-transform]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-body-typo',
+					'default'  => astra_get_option( 'body-text-transform' ),
+					'priority' => 20,
+					'title'    => __( 'Text Transform', 'astra' ),
+					'choices'  => array(
 						''           => __( 'Default', 'astra' ),
 						'none'       => __( 'None', 'astra' ),
 						'capitalize' => __( 'Capitalize', 'astra' ),
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
-					'transport' => 'postMessage',
 				),
 
 				/**
@@ -148,7 +144,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-slider',
 					'section'           => 'section-body-typo',
-					'transport'         => 'postMessage',
 					'default'           => '',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 25,
@@ -210,7 +205,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'  => 3,
 					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
 					'variant'   => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
-					'transport' => 'postMessage',
 				),
 
 				/**
@@ -228,7 +222,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 3,
 					'title'             => __( 'Variants', 'astra' ),
 					'variant'           => ASTRA_THEME_SETTINGS . '[headings-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -245,22 +238,20 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'           => 'section-content-typo',
 					'priority'          => 3,
 					'connect'           => ASTRA_THEME_SETTINGS . '[headings-font-family]',
-					'transport'         => 'postMessage',
 				),
 
 				/**
 				 * Option: Headings Text Transform
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[headings-text-transform]',
-					'type'      => 'control',
-					'control'   => 'select',
-					'section'   => 'section-content-typo',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra' ),
-					'default'   => astra_get_option( 'headings-text-transform' ),
-					'priority'  => 3,
-					'choices'   => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[headings-text-transform]',
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-content-typo',
+					'title'    => __( 'Text Transform', 'astra' ),
+					'default'  => astra_get_option( 'headings-text-transform' ),
+					'priority' => 3,
+					'choices'  => array(
 						''           => __( 'Inherit', 'astra' ),
 						'none'       => __( 'None', 'astra' ),
 						'capitalize' => __( 'Capitalize', 'astra' ),

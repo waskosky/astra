@@ -151,27 +151,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 
 			$configurations = array_merge( $configurations, $_configs );
 
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$config = array(
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog',
-						'priority' => 121,
-						'settings' => array(),
-					),
-				);
-
-				$configurations = array_merge( $configurations, $config );
-			}
-
 			return $configurations;
 
 		}
