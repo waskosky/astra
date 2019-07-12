@@ -35,13 +35,14 @@
 }
 
 .customize-control-ast-responsive .input-wrapper {
+	overflow: hidden;
 	input {
 		display: none;
-		width: calc(100% - 52px);
+		width: 82%;
 		float: left;
 
 		&.active {
-			display: inline-block;
+			display: block;
 		}
 	}
 
@@ -55,7 +56,8 @@
 
 	.ast-responsive-input.active {
 		+ .ast-responsive-select {
-			display: inline-block;
+			display: block;
+			width: 17%;
 		}
 	}
 
