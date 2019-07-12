@@ -69,7 +69,7 @@
 					padding-left: 11px;
 				}
 				.ast-border-connected {
-					color: #1e8cbe;
+					color: #ffffff;
 				}
 			}
 			li:last-child {
@@ -108,6 +108,9 @@
 					background-color: #ffffff;
 					border-radius: 3px 0 0 3px;
 					border-right-width: 0;
+				}
+				.ast-border-connected{
+					background-color: #1e8cbe;
 				}
 			}
 		}
