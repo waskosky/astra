@@ -100,10 +100,10 @@ class Astra_Control_Color extends WP_Customize_Control {
 		<# if ( data.label ) { #>
 			<label>
 				<span class="customize-control-title">{{{ data.label }}}</span>
+				<# if ( data.description ) { #>
+					<i class="ast-control-tooltip dashicons dashicons-editor-help" title="{{data.description}}"></i>
+				<# } #>
 			</label>
-		<# } #>
-		<# if ( data.description ) { #>
-			<span class="description customize-control-description">{{{ data.description }}}</span>
 		<# } #>
 		<div class="customize-control-content">
 			<input class="ast-color-picker-alpha color-picker-hex" data-name="{{data.name}}"  type="text" maxlength="7" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
