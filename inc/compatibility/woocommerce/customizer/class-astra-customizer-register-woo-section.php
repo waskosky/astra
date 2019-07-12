@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 				array(
 					'name'     => 'section-woo-shop-cart',
 					'type'     => 'section',
-					'title'    => __( 'Cart Page', 'astra' ),
+					'title'    => __( 'Cart', 'astra' ),
 					'priority' => 20,
 					'panel'    => 'woocommerce',
 				),
