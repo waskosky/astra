@@ -34,14 +34,18 @@
   font-size: 15px;
 }
 
+.customize-control-ast-responsive .input-wrapper {
+  overflow: hidden;
+}
+
 .customize-control-ast-responsive .input-wrapper input {
   display: none;
-  width: calc(100% - 52px);
+  width: 82%;
   float: left;
 }
 
 .customize-control-ast-responsive .input-wrapper input.active {
-  display: inline-block;
+  display: block;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-responsive-select {
@@ -53,7 +57,8 @@
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-  display: inline-block;
+  display: block;
+  width: 17%;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input, .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input.active {

@@ -49,6 +49,7 @@
                 text-align: center;
                 flex-grow: 1;
                 border-left-width: 0;
+                transition: background-color 140ms linear;
             }
             .switch-label:first-of-type {
                 border-left-width: 1px;

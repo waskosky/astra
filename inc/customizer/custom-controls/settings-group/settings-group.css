@@ -131,6 +131,7 @@
     margin: 0 0;
     padding: 0;
     border: 1px solid #ccc;
+    transition: background-color 140ms linear;
 }
 
 .ast-group-tabs .ui-tabs-nav .ui-corner-top .ui-tabs-anchor {
