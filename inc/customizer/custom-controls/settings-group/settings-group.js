@@ -18,7 +18,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         var control = this;
 
         /* Close popup when click outside anywhere outside of popup */
-        $( '.wp-full-overlay-sidebar-content' ).click( function( e ) {
+        $( '.wp-full-overlay-sidebar-content, .wp-picker-container' ).click( function( e ) {
             if ( ! $( e.target ).closest( '.ast-field-settings-modal' ).length ) {
                 $( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
             }
