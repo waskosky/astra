@@ -49,15 +49,11 @@
 }
 
 .ast-heading-wrapper label {
-  cursor: default;
+  cursor: context-menu;
 }
 
 .customize-control label {
-  cursor: default;
-}
-
-.customize-control.customize-control-ast-settings-group label {
-  cursor: pointer;
+  cursor: context-menu;
 }
 
 .customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
