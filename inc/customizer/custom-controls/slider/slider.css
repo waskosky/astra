@@ -107,6 +107,7 @@
 .customize-control-ast-slider .ast-slider-reset span {
   font-size: 16px;
   line-height: 22px;
+  transition: unset;
 }
 
 .customize-control-ast-slider .ast-slider-reset:hover, .customize-control-ast-slider .ast-slider-reset:focus {
