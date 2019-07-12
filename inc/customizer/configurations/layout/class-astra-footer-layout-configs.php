@@ -198,14 +198,15 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				 */
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]',
-					'section'  => 'section-footer-small',
-					'default'  => '#7a7a7a',
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
-					'priority' => 45,
-					'title'    => __( 'Border Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]',
+					'section'   => 'section-footer-small',
+					'default'   => '#7a7a7a',
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
+					'priority'  => 45,
+					'title'     => __( 'Border Color', 'astra' ),
+					'transport' => 'postMessage',
 				),
 
 				/**
