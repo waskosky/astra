@@ -1,12 +1,13 @@
 {
+    "name": "brainstormforce/astra",
+    "description": "A very lightweight and beautiful theme made to work with Page Builders",
     "require-dev": {
-          "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
-          "wp-coding-standards/wpcs": "dev-master",
-          "phpcompatibility/phpcompatibility-wp": "*"
-      },
-      "scripts": {
-          "format": "phpcbf",
-          "lint": "phpcs"
-      }
-  }
-  
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+        "wp-coding-standards/wpcs": "dev-master",
+        "phpcompatibility/phpcompatibility-wp": "*"
+    },
+    "scripts": {
+        "format": "phpcbf",
+        "lint": "phpcs"
+    }
+}
