@@ -74,6 +74,7 @@
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit.active {
   text-decoration: underline;
   opacity: 1;
+  color: #000000;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
