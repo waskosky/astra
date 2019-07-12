@@ -51,3 +51,13 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		)
 	);
 }
+
+/*
+ * Modify WooCommerce default section priorities
+*/
+$wp_customize->get_section( 'woocommerce_store_notice' )->priority    = 9;
+$wp_customize->get_section( 'woocommerce_product_catalog' )->priority = 11;
+$wp_customize->get_section( 'woocommerce_checkout' )->priority        = 21;
+
+
+
