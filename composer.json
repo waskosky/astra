@@ -4,7 +4,8 @@
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
         "wp-coding-standards/wpcs": "dev-master",
-        "phpcompatibility/phpcompatibility-wp": "*"
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "szepeviktor/phpstan-wordpress": "^0.1.3"
     },
     "scripts": {
         "format": "phpcbf",

@@ -29,4 +29,5 @@ script:
       vendor/bin/phpcs
     fi
   - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
+  - composer update --classmap-authoritative && vendor/bin/phpstan analyze
   
