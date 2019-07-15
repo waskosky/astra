@@ -201,3 +201,10 @@
 .wp-picker-container .iris-square-handle {
 	z-index: 8;
 }
+
+/* Site Identity */
+#customize-control-custom_logo .attachment-media-view .button-add-media,
+#customize-control-site_icon .attachment-media-view .button-add-media,
+#customize-control-astra-settings-transparent-header-logo .attachment-media-view .button-add-media {
+	text-transform: capitalize;
+}
