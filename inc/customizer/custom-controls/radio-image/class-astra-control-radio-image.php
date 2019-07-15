@@ -28,6 +28,14 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	public $type = 'ast-radio-image';
 
 	/**
+	 * The highlight color.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public static $higlight_color = '';
+
+	/**
 	 * Enqueue control related scripts/styles.
 	 *
 	 * @access public
@@ -39,7 +47,12 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		wp_enqueue_script( 'astra-radio-image', $js_uri . 'radio-image.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		wp_enqueue_style( 'astra-radio-image', $css_uri . 'radio-image.css', null, ASTRA_THEME_VERSION );
 
-		Astra_Control_Radio_Image::highlight_options();
+		if ( '' === Astra_Control_Radio_Image::$higlight_color ) {
+			Astra_Control_Radio_Image::get_highlight_color();
+			?>
+			<style type="text/css">.ast-radio-img-svg svg path { fill: <?php echo Astra_Control_Radio_Image::$higlight_color; ?> !important }</style>
+			<?php
+		}
 	}
 
 	/**
@@ -47,7 +60,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 *
 	 * @return void
 	 */
-	public static function highlight_options() {
+	public static function get_highlight_color() {
 		global $_wp_admin_css_colors;
 
 		$current_color = get_user_option( 'admin_color' );
@@ -55,10 +68,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		if ( empty( $current_color ) || ! isset( $_wp_admin_css_colors[ $current_color ] ) ) {
 			$current_color = 'fresh';
 		}
-		$svg_color = $_wp_admin_css_colors[ $current_color ]->colors[2];
-		?>
-		<style type="text/css">.ast-radio-img-svg svg path { fill: <?php echo $svg_color; ?> !important }</style>
-		<?php
+		Astra_Control_Radio_Image::$higlight_color = $_wp_admin_css_colors[ $current_color ]->colors[2];
 	}
 
 	/**
