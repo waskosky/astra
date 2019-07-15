@@ -39,16 +39,29 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		wp_enqueue_script( 'astra-radio-image', $js_uri . 'radio-image.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		wp_enqueue_style( 'astra-radio-image', $css_uri . 'radio-image.css', null, ASTRA_THEME_VERSION );
 
+		Astra_Control_Radio_Image::highlight_options();
+	}
+
+	/**
+	 * Highlight SVG options set from the Admin Color Scheme.
+	 *
+	 * @return void
+	 */
+	public static function highlight_options() {
 		global $_wp_admin_css_colors;
+
 		$current_color = get_user_option( 'admin_color' );
-		// if ( empty( $current_color ) || ! isset( $_wp_admin_css_colors[ $current_color ] ) ) {
-		// 	$current_color = 'fresh';
-		// }
-		// echo "<pre>";
-		// print_r($_wp_admin_css_colors);
-		// echo "</pre>";
+
+		if ( empty( $current_color ) || ! isset( $_wp_admin_css_colors[ $current_color ] ) ) {
+			$current_color = 'fresh';
+		}
+		foreach ( $_wp_admin_css_colors as $color => $color_info ) {
+			if ( $color == $current_color ) {
+				$svg_color = $color_info->colors[2];
+			}
+		}
 		?>
-		<style type="text/css">.ast-radio-img-svg svg path { fill: <?php echo $current_color; ?> !important }</style>
+		<style type="text/css">.ast-radio-img-svg svg path { fill: <?php echo $svg_color; ?> !important }</style>
 		<?php
 	}
 
