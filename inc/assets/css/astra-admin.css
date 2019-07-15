@@ -222,7 +222,8 @@
     width: 20px;
 }
 
-.control-section-ast-section-separator{
+#customize-theme-controls .control-section-ast-section-separator{
 	margin-top: 15px;
+	border-top: 1px solid #ddd;
 	display: block !important;
 }
