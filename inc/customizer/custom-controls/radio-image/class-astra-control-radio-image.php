@@ -28,6 +28,14 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	public $type = 'ast-radio-image';
 
 	/**
+	 * The highlight color.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public static $higlight_color = '';
+
+	/**
 	 * Enqueue control related scripts/styles.
 	 *
 	 * @access public
@@ -38,6 +46,29 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 
 		wp_enqueue_script( 'astra-radio-image', $js_uri . 'radio-image.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
 		wp_enqueue_style( 'astra-radio-image', $css_uri . 'radio-image.css', null, ASTRA_THEME_VERSION );
+
+		if ( '' === Astra_Control_Radio_Image::$higlight_color ) {
+			Astra_Control_Radio_Image::get_highlight_color();
+			?>
+			<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo Astra_Control_Radio_Image::$higlight_color; ?> !important }</style>
+			<?php
+		}
+	}
+
+	/**
+	 * Highlight SVG options set from the Admin Color Scheme.
+	 *
+	 * @return void
+	 */
+	public static function get_highlight_color() {
+		global $_wp_admin_css_colors;
+
+		$current_color = get_user_option( 'admin_color' );
+
+		if ( empty( $current_color ) || ! isset( $_wp_admin_css_colors[ $current_color ] ) ) {
+			$current_color = 'fresh';
+		}
+		Astra_Control_Radio_Image::$higlight_color = $_wp_admin_css_colors[ $current_color ]->colors[2];
 	}
 
 	/**
@@ -55,7 +86,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		$this->json['value'] = $this->value();
 
 		foreach ( $this->choices as $key => $value ) {
-			$this->json['choices'][ $key ]        = esc_url( $value['path'] );
+			$this->json['choices'][ $key ]        = $value['path'];
 			$this->json['choices_titles'][ $key ] = $value['label'];
 		}
 
@@ -97,11 +128,10 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		<div id="input_{{ data.id }}" class="image">
 			<# for ( key in data.choices ) { #>
 				<input {{{ data.inputAttrs }}} class="image-select" type="radio" value="{{ key }}" name="_customize-radio-{{ data.id }}" id="{{ data.id }}{{ key }}" {{{ data.link }}}<# if ( data.value === key ) { #> checked="checked"<# } #>>
-					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}}>
-						<img class="wp-ui-highlight" src="{{ data.choices[ key ] }}">
+					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}} class="ast-radio-img-svg">
+						{{{ data.choices[ key ] }}}
 						<span class="image-clickable" title="{{ data.choices_titles[ key ] }}" ></span>
 					</label>
-				</input>
 			<# } #>
 		</div>
 		<?php

@@ -33,6 +33,18 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-content-divider]',
+					'type'     => 'control',
+					'section'  => 'section-container-layout',
+					'control'  => 'ast-divider',
+					'priority' => 85,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Shop Page
 				 */
 				array(

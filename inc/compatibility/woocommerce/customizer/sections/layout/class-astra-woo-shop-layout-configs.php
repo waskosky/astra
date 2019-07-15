@@ -94,18 +94,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Woocommerce Shop Archive Content Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'woocommerce_product_catalog',
-					'priority' => 220,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Shop Archive Content Width
 				 */
 				array(
