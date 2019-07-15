@@ -153,6 +153,13 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'priority' => 55,
 				),
 
+				array(
+					'name'             => 'section-separator',
+					'type'             => 'section',
+					'priority'         => 70,
+					'section_callback' => 'Astra_WP_Customize_Separator',
+				),
+
 				/**
 				 * Footer Widgets Section
 				 */
