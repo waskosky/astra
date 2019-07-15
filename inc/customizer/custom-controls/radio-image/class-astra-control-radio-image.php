@@ -55,11 +55,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		if ( empty( $current_color ) || ! isset( $_wp_admin_css_colors[ $current_color ] ) ) {
 			$current_color = 'fresh';
 		}
-		foreach ( $_wp_admin_css_colors as $color => $color_info ) {
-			if ( $color == $current_color ) {
-				$svg_color = $color_info->colors[2];
-			}
-		}
+		$svg_color = $_wp_admin_css_colors[ $current_color ]->colors[2];
 		?>
 		<style type="text/css">.ast-radio-img-svg svg path { fill: <?php echo $svg_color; ?> !important }</style>
 		<?php

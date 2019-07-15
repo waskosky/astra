@@ -11,7 +11,7 @@
 .customize-control-ast-radio-image input:checked + label svg {
   background: #ffffff;
   border-radius: 3px;
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -26,6 +26,5 @@
 
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
   width: 73px;
-  height: 56px;
-  padding: 4px;
+  height: 49px;
 }
