@@ -607,7 +607,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         // option_data[input_name] = value;
         // option_data = JSON.stringify(option_data);
         
-        option_data_new = JSON.stringify(value);
+        option_data_new = value;
         var control_id_new = $( '.hidden-field-' + name );
 
         // hidden_data_input.val( option_data );
