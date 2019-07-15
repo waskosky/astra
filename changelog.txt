@@ -1,3 +1,9 @@
+v2.0.0-beta.4
+- Improvement: Control Sequence in WooCommerce Single Product Section in the Customizer.
+- Improvement: Distinguish Astra Sections from Default Sections in the Customizer. 
+- Improvement: Option Labels in the Customizer. 
+- Fix: PHP Warning in the Customizer while Woocommerce is not Active.
+
 v2.0.0-beta.3
 - New: Added Global Section for Site Options.
 - Improvement: Categorization for Customizer - Theme Sections Listed under Main Panel.
