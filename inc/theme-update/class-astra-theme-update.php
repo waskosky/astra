@@ -225,7 +225,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 
 			if ( version_compare( $saved_version, '2.0.0-beta.1', '<' ) ) {
-				self::v_2_0_0_beta_1();
+				// self::v_2_0_0_beta_1();
 			}
 
 			// Not have stored?

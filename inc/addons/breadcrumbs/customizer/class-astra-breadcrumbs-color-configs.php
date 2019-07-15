@@ -45,6 +45,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 
 			$_configs = array(
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[header-bg-obj-responsive]',
+					'type'      => 'control',
+					'control'   => 'ast-hidden',
+					'section'   => 'section-breadcrumb',
+					'transport' => 'postMessage',
+				),
+
 				/**
 				 * Option: Divider
 				 * Option: breadcrumb color Section divider
