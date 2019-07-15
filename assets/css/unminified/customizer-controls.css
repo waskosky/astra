@@ -204,7 +204,7 @@
 
 /* Site Identity */
 #customize-control-custom_logo .attachment-media-view .button-add-media,
-#customize-control-site_icon .attachment-media-view .button-add-media,
+#customize-control-site_icon .attachment-media-view .placeholder,
 #customize-control-astra-settings-transparent-header-logo .attachment-media-view .button-add-media {
 	text-transform: capitalize;
 }
