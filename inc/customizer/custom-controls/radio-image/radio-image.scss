@@ -6,19 +6,11 @@
 	}
 	input {
 		display: none;
-		
-		svg {
-			border: 1px solid transparent;
-		}
-		
-		& + label svg {
-			border: 1px solid #f1f1f1;
-		}
-
 
 		&:checked + label svg {
-			border: 1px solid #80868c;
 			background: #ffffff;
+			border-radius: 3px;
+			box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
 		}
 		
 		& + label .image-clickable {
@@ -32,8 +24,8 @@
 		}
 	}
 	.ast-radio-img-svg svg {
-		width: 75px;
-		margin-right: 15px;
-		height: 60px;
+		width: 73px;
+		height: 56px;
+		padding: 4px;
 	}
 }
