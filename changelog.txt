@@ -1,5 +1,5 @@
 v2.0.0-beta.4
-- Improvement: Layout graphics.  
+- Improvement: Graphical representation for layout.
 - Improvement: Control Sequence in WooCommerce Single Product Section in the Customizer.
 - Improvement: Distinguish Astra Sections from Default Sections in the Customizer. 
 - Improvement: Option Labels in the Customizer. 
