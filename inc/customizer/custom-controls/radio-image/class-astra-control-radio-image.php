@@ -55,7 +55,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		$this->json['value'] = $this->value();
 
 		foreach ( $this->choices as $key => $value ) {
-			$this->json['choices'][ $key ]        = esc_url( $value['path'] );
+			$this->json['choices'][ $key ]        = $value['path'];
 			$this->json['choices_titles'][ $key ] = $value['label'];
 		}
 
@@ -85,7 +85,9 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 * @access protected
 	 */
 	protected function content_template() {
+		$current_color = get_user_option( 'admin_color' );
 		?>
+		<style></style>
 		<label class="customizer-text">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
@@ -97,11 +99,11 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		<div id="input_{{ data.id }}" class="image">
 			<# for ( key in data.choices ) { #>
 				<input {{{ data.inputAttrs }}} class="image-select" type="radio" value="{{ key }}" name="_customize-radio-{{ data.id }}" id="{{ data.id }}{{ key }}" {{{ data.link }}}<# if ( data.value === key ) { #> checked="checked"<# } #>>
-					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}}>
-						<img class="wp-ui-highlight" src="{{ data.choices[ key ] }}">
+					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}} class="ast-radio-img-svg">
+						{{{ data.choices[ key ] }}}
+						<!-- <img class="wp-ui-highlight" src="{{ data.choices[ key ] }}"> -->
 						<span class="image-clickable" title="{{ data.choices_titles[ key ] }}" ></span>
 					</label>
-				</input>
 			<# } #>
 		</div>
 		<?php

@@ -8,16 +8,17 @@
   display: none;
 }
 
-.customize-control-ast-radio-image input img {
+.customize-control-ast-radio-image input svg {
   border: 1px solid transparent;
 }
 
-.customize-control-ast-radio-image input + label img {
+.customize-control-ast-radio-image input + label svg {
   border: 1px solid #f1f1f1;
 }
 
-.customize-control-ast-radio-image input:checked + label img {
+.customize-control-ast-radio-image input:checked + label svg {
   border: 1px solid #80868c;
+  background: #ffffff;
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -28,4 +29,10 @@
   right: 0;
   width: 100%;
   height: 100%;
+}
+
+.customize-control-ast-radio-image .ast-radio-img-svg svg {
+  width: 75px;
+  margin-right: 15px;
+  height: 60px;
 }
