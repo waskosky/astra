@@ -68,4 +68,14 @@
 			cursor: pointer;
 		}
 	}
+	&.customize-control-ast-slider {
+		label { 
+			cursor: pointer;
+			.wrapper { 
+				input[type=range]{
+					cursor: pointer;
+				}
+			}
+		}
+	}
 }

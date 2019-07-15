@@ -63,3 +63,11 @@
 .customize-control.customize-control-ast-settings-group label {
   cursor: pointer;
 }
+
+.customize-control.customize-control-ast-slider label {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-slider label .wrapper input[type=range] {
+  cursor: pointer;
+}
