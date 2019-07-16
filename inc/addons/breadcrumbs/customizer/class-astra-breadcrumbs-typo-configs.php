@@ -81,6 +81,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				array(
 					'name'      => 'breadcrumb-font-family',
 					'default'   => astra_get_option( 'breadcrumb-font-family' ),
+					'type'      => 'sub-control',
 					'parent'    => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
@@ -95,6 +96,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				array(
 					'name'        => 'breadcrumb-font-size',
 					'control'     => 'ast-responsive',
+					'type'        => 'sub-control',
 					'parent'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'default'     => astra_get_option( 'breadcrumb-font-size' ),
 					'transport'   => 'postMessage',
@@ -115,6 +117,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				array(
 					'name'              => 'breadcrumb-font-weight',
 					'control'           => 'ast-font',
+					'type'              => 'sub-control',
 					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
@@ -130,6 +133,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				array(
 					'name'      => 'breadcrumb-text-transform',
 					'control'   => 'ast-select',
+					'type'      => 'sub-control',
 					'parent'    => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'default'   => astra_get_option( 'breadcrumb-text-transform' ),
 					'title'     => __( 'Text Transform', 'astra' ),
@@ -151,6 +155,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'name'              => 'breadcrumb-line-height',
 					'control'           => 'ast-slider',
 					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
 					'default'           => '',
 					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),

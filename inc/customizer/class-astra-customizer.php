@@ -121,6 +121,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 						break;
 
+					case 'sub-control':
+						// Remove type from configuration.
+						unset( $config['type'] );
+
+						$this->register_sub_control_setting( $config, $wp_customize );
+
+						break;
+
 					case 'control':
 						// Remove type from configuration.
 						unset( $config['type'] );
@@ -262,6 +270,18 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$callback = astra_get_prop( $config, 'section_callback', 'Astra_WP_Customize_Section' );
 
 			$wp_customize->add_section( new $callback( $wp_customize, astra_get_prop( $config, 'name' ), $config ) );
+		}
+
+		/**
+		 * Register Customizer Control and Setting.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since 1.4.3
+		 * @return void
+		 */
+		private function register_sub_control_setting( $config, $wp_customize ) {
+
 		}
 
 		/**
