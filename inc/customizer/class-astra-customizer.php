@@ -283,8 +283,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private function register_sub_control_setting( $config, $wp_customize ) {
 
 			$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '['.astra_get_prop( $config, 'name' ).']', array(
-				'default'           => astra_get_option( ''.astra_get_prop( $config, 'name' ).'' ),
+				'default'           => json_encode( astra_get_option( astra_get_prop( $config, 'name' ) ) ),
 				'type'              => 'ast-hidden',
+				'transport'			=> 'postMessage',
 				'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
 			) );
 			$wp_customize->add_control( ASTRA_THEME_SETTINGS . '['.astra_get_prop( $config, 'name' ).']', array(

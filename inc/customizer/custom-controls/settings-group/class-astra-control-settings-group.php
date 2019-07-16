@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		 *
 		 * @see WP_Customize_Control::render_content()
 		 */
-		protected function render_content() {       }
+		protected function render_content() {}
 	}
 
 endif;

@@ -53,15 +53,12 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<# console.log( data ); #>
 		<#
-
 		var name = data.settings.default;
 		name = name.replace( '[', '-' );
 		name = name.replace( ']', '' );
-
 		#>
-		<input type='hidden' class='hidden-field-{{data.settings.default}}' data-name='{{name}}' value='<?php echo astra_get_option( 'header-bg-obj-responsive' ); ?>'>
+		<input type='hidden' class='hidden-field-{{name}}' data-name='{{name}}' value=''>
 		<?php
 	}
 }

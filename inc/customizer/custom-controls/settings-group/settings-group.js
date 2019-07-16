@@ -229,7 +229,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     control.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
         
                         // Update value on change.
-                        control.updateResonsiveValue( jQuery(this), name );
+                        control.updateResonsiveValue( jQuery(this), control_type.name );
                     });
 
                 break;
@@ -252,7 +252,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                             input_number = jQuery(this).closest('.wrapper').find('.astra_range_value .value');
 
                         input_number.val(value);
-                        control.container.trigger('ast_settings_changed', [control, input_number, value]);
+                        control.container.trigger('ast_settings_changed', [control, input_number, value, control_type.name]);
                     });
 
                     // Handle the reset button.
@@ -304,7 +304,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         
     },
 
-    initAstBorderControl: function( control_elem, control_type ) {
+    initAstBorderControl: function( control_elem, control_type, name ) {
 
         var control = this,
             value            = control.setting._value,
@@ -314,7 +314,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         this.container.on( 'change keyup paste', 'input.ast-border-input', function() {
 
             // Update value on change.
-            control.saveBorderValue( 'border', jQuery( this ).val(), jQuery( this ) );
+            control.saveBorderValue( 'border', jQuery( this ).val(), jQuery( this ), name );
 
         });
 
@@ -458,7 +458,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
     },
 
-    initColor: function (wrap, control_elem) {
+    initColor: function ( wrap, control_elem, name ) {
 
         var control = this;
         var picker = wrap.find('.customize-control-ast-color .ast-color-picker-alpha');
@@ -471,7 +471,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 
                     var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
                     jQuery(element).val( ui.color.toString() );
-                    control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString(), control_type.name ] );
+                    control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString(), name ] );
                 }
             },
 
@@ -483,7 +483,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
 
                 jQuery(element).val('');
-                control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '', control_type.name ] );
+                control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '', name ] );
                 wp.customize.previewer.refresh();
             }
         });
@@ -590,33 +590,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
     onOptionChange:function ( e, control, element, value, name ) {
 
-        console.log( value );
+        var control_id  = $( '.hidden-field-astra-settings-' + name );
 
-        var control_id_new = $( '.hidden-field-' + name );
-        
-        // var control_id = element.closest( '.ast-fields-wrap' ).attr( 'data-control' ),
-        //    hidden_data_input = $( ".ast-hidden-input[data-name='"+ control_id +"']");
-
-        // if( '""' == hidden_data_input.val() ) {
-        //     var option_data = {};
-        // } else {
-        //     var option_data = control.isJsonString( hidden_data_input.val() ) ? JSON.parse( hidden_data_input.val() ) : {};
-        // }
-
-        // var input_name  = element.attr( 'data-name' );
-        // option_data[input_name] = value;
-        // option_data = JSON.stringify(option_data);
-        
-        option_data_new = value;
-        var control_id_new = $( '.hidden-field-' + name );
-
-        // hidden_data_input.val( option_data );
-        control_id_new.val( option_data_new );
         console.log( name );
-        control_new =  wp.customize.control( "astra-settings[" + name + "]" );
-        console.log( control_new );
-        // control.setting.set( option_data );
-        control_new.setting.set( option_data_new );
+        control_id.val( JSON.Stringify(value) );
+        sub_control = wp.customize.control( "astra-settings[" + name + "]" );
+
+        console.log( sub_control );
+        sub_control.setting.set( value );
     },
 
     /**
@@ -882,7 +863,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
     },
 
-    initAstBgControl: function( control, control_atts ) {
+    initAstBgControl: function( control, control_atts, name ) {
 
         var value            = control.setting._value,
             control_name     = control_atts.name,
@@ -1076,7 +1057,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     /**
      * Saves the value.
      */
-    saveBorderValue: function( property, value, element ) {
+    saveBorderValue: function( property, value, element, name ) {
 
         var control = this,
             newValue = {
@@ -1099,6 +1080,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         });
 
         
-        control.container.trigger( 'ast_settings_changed', [control, element, newValue ] );
+        control.container.trigger( 'ast_settings_changed', [control, element, newValue, name ] );
     }
 });
