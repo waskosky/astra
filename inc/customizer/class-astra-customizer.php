@@ -48,6 +48,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public $control_types = array();
 
 		/**
+		 * Customizer controls data.
+		 *
+		 * @access Public
+		 * @since 2.0.0
+		 * @var Array
+		 */
+		public $control_types_options = array();
+
+		/**
 		 * Customizer Dependency Array.
 		 *
 		 * @access Private
@@ -125,6 +134,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						// Remove type from configuration.
 						unset( $config['type'] );
 
+						$this->control_types_options[] = $config['control'];
 						if ( 'ast-settings-group' == $config['control'] ) {
 
 							// Get Child controls for group control.
@@ -673,8 +683,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$control_types_data = self::get_controls_data();
 
-			if ( ! empty( $this->control_types ) ) {
-				foreach ( $this->control_types as $control ) {
+			if ( ! empty( $this->control_types_options ) ) {
+				foreach ( $this->control_types_options as $control ) {
 					$uri                     = '';
 					$control_data            = $control_types_data[ $control ];
 					$control_data_css        = $control_data['css'];
