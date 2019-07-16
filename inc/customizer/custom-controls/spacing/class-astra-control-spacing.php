@@ -26,7 +26,7 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $type = 'ast-spacing';
-	
+
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
