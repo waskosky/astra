@@ -582,8 +582,7 @@ body #learndash_profile .learndash-course-certificate {
 
 body #learndash_profile .learndash-course-status {
   padding: 0 .75em;
-  width: 55px;
-  width: calc( 55px + .75em);
+  width: calc( 100% - 170px - .75em);
 }
 
 body #learndash_profile .learndash-course-status a:before {
