@@ -35,6 +35,30 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		private static $controls;
 
 		/**
+		 *  Constructor
+		 */
+		public function __construct() {
+
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		}
+
+		/**
+		 * Enqueue Admin Scripts
+		 *
+		 * @since 1.4.3
+		 */
+		public function enqueue_scripts() {
+
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$file_rtl = ( is_rtl() ) ? '-rtl' : '';
+			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/'.$dir_name.'/';
+
+			wp_enqueue_style( 'custom-control-style'.$file_rtl, $css_uri . 'custom-controls'.$file_prefix.$file_rtl.'.css', null, ASTRA_THEME_VERSION );
+
+		}
+
+		/**
 		 * Add Control to self::$controls and Register control to WordPress Customizer.
 		 *
 		 * @param String $name Slug for the control.

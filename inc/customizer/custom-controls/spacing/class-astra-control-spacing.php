@@ -38,7 +38,7 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/spacing/';
 
 		wp_enqueue_script( 'astra-spacing', $js_uri . 'spacing.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-spacing', $css_uri . 'spacing.css', null, ASTRA_THEME_VERSION );
+		// wp_enqueue_style( 'astra-spacing', $css_uri . 'spacing.css', null, ASTRA_THEME_VERSION );
 
 	}
 

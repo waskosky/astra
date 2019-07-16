@@ -674,15 +674,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$control_types_data = self::get_controls_data();
 
 			if ( ! empty( $this->control_types ) ) {
-
 				foreach ( $this->control_types as $control ) {
-
 					$uri                     = '';
 					$control_data            = $control_types_data[ $control ];
 					$control_data_css        = $control_data['css'];
 					$control_data_js         = $control_data['js'];
 					$control_data_dependency = $control_data['dependency'];
-
 					if ( ! is_array( $control_data_css ) ) {
 						if ( isset( $control_data['type'] ) && 'addon' == $control_data['type'] && defined( 'ASTRA_EXT_URI' ) ) {
 							$uri = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_data_css . '/';
@@ -690,27 +687,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $control_data_css . '/';
 						}
 					}
-
-					if ( is_array( $control_data_css ) ) {
-						foreach ( $control_data_css as $control_slug ) {
-
-							$slug  = ( isset( $control_data['slug']['css'][ $control_slug ] ) ) ? $control_data['slug']['css'][ $control_slug ] : $control_slug;
-							$title = ( isset( $control_data['title'] ) ) ? $control_data['title'] : $control_data_css;
-							$uri   = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $title . '/';
-
-							wp_enqueue_style( $slug, $uri . $slug . '.css', null, ASTRA_THEME_VERSION );
-						}
-					} elseif ( '' !== $control_data_css ) {
-						wp_enqueue_style( $control, $uri . $control_data_css . '.css', null, ASTRA_THEME_VERSION );
-					}
-
 					if ( is_array( $control_data_js ) ) {
 						foreach ( $control_data_js as $control_slug ) {
-
 							$slug  = ( isset( $control_data['slug']['js'][ $control_slug ] ) ) ? $control_data['slug']['js'][ $control_slug ] : $control_slug;
 							$title = ( isset( $control_data['title'] ) ) ? $control_data['title'] : $control_data_js;
 							$uri   = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $title . '/';
-
 							wp_enqueue_script( $slug, $uri . $slug . '.js', $control_data_dependency, ASTRA_THEME_VERSION, true );
 						}
 					} elseif ( '' !== $control_data_js ) {

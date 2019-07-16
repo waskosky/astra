@@ -69,6 +69,16 @@ module.exports = function (grunt) {
                             dest: 'inc/assets/css',
                             ext: '-rtl.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'inc/customizer/custom-controls',
+                            src: [
+                                    '*.css',
+                                    '!*-rtl.css',
+                                ],
+                            dest: 'inc/customizer/custom-controls/assets/unminified',
+                            ext: '-rtl.css'
+                        },
                     ]
               	}
             },
@@ -95,18 +105,7 @@ module.exports = function (grunt) {
                         /* Editor Style */
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
-                            'inc/customizer/custom-controls/responsive/responsive.css': 'inc/customizer/custom-controls/responsive/responsive.scss',
-                            'inc/customizer/custom-controls/divider/divider.css': 'inc/customizer/custom-controls/divider/divider.scss',
-                            'inc/customizer/custom-controls/heading/heading.css': 'inc/customizer/custom-controls/heading/heading.scss',
-                            'inc/customizer/custom-controls/description/description.css': 'inc/customizer/custom-controls/description/description.scss',
-                            'inc/customizer/custom-controls/radio-image/radio-image.css': 'inc/customizer/custom-controls/radio-image/radio-image.scss',
-                            'inc/customizer/custom-controls/slider/slider.css': 'inc/customizer/custom-controls/slider/slider.scss',
-                            'inc/customizer/custom-controls/sortable/sortable.css': 'inc/customizer/custom-controls/sortable/sortable.scss',
-                            'inc/customizer/custom-controls/spacing/spacing.css': 'inc/customizer/custom-controls/spacing/spacing.scss',
-                            'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css': 'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss',
-                            'inc/customizer/custom-controls/background/background.css': 'inc/customizer/custom-controls/background/background.scss',
-                            'inc/customizer/custom-controls/border/border.css': 'inc/customizer/custom-controls/border/border.scss',
-                            'inc/customizer/custom-controls/customizer-link/customizer-link.css': 'inc/customizer/custom-controls/customizer-link/customizer-link.scss',
+                            'inc/customizer/custom-controls/assets/unminified/custom-controls.css': 'inc/customizer/custom-controls/custom-controls.scss',
                             'inc/assets/css/block-editor-styles.css': 'sass/admin/block-editor-styles.scss',
                         },
 
@@ -234,6 +233,16 @@ module.exports = function (grunt) {
                     		src: 'assets/css/unminified/style-rtl.css',
 	                        dest: 'assets/css/minified/style.min-rtl.css',
 	                    },
+
+                        {
+                            src: 'inc/customizer/custom-controls/assets/unminified/custom-controls.css',
+                            dest: 'inc/customizer/custom-controls/assets/minified/custom-controls.min.css',
+                        },
+                        
+                        {
+                            src: 'inc/customizer/custom-controls/assets/unminified/custom-controls-rtl.css',
+                            dest: 'inc/customizer/custom-controls/assets/minified/custom-controls.min-rtl.css',
+                        },
 
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
 	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
