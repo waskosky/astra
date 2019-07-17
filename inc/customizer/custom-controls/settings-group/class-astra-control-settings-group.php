@@ -121,9 +121,6 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 								<span class="ast-adv-toggle-icon dashicons" data-control="{{ data.name }}"></span>
 			</label>
 		</div>
-		<div class="customize-control-content">
-			<!-- <input type="hidden" data-name="{{ data.name }}" class="ast-hidden-input" value="{{ data.value }}"> -->
-		</div>
 		<div class="ast-field-settings-wrap">
 		</div>
 			<?php

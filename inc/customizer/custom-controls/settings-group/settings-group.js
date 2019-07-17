@@ -471,6 +471,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 
                     var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
                     jQuery(element).val( ui.color.toString() );
+                    name = jQuery(element).parents('.customize-control').attr('id');
+                    name = name.replace( 'customize-control-', '' );
                     control.container.trigger( 'ast_settings_changed', [control, jQuery( element ), ui.color.toString(), name ] );
                 }
             },
@@ -481,10 +483,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
              */
             clear: function (event) {
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
-
                 jQuery(element).val('');
-                control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '', name ] );
+
                 wp.customize.previewer.refresh();
+                name = jQuery(element).parents('.customize-control').attr('id');
+                name = name.replace( 'customize-control-', '' );
+                control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '', name ] );
             }
         });
     },
@@ -526,6 +530,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                         }
 
                         jQuery(element).val( ui.color.toString() );
+
+                        name = jQuery(element).parents('.customize-control').attr('id');
+                        name = name.replace( 'customize-control-', '' );
                         control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue, name ] );
                     }
                 }
@@ -552,6 +559,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     'mobile'  : stored['mobile'],
                 };
 
+                wp.customize.previewer.refresh();
+
                 if ( element ) {
                     if ( 'desktop' === device ) {
                         newValue['desktop'] = '';
@@ -566,7 +575,9 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     jQuery(element).val( '' );
                     control.container.trigger( 'ast_settings_changed', [ control, jQuery(element), newValue, name ] );
                 }
-                wp.customize.previewer.refresh();
+
+                name = jQuery(element).parents('.customize-control').attr('id');
+                name = name.replace( 'customize-control-', '' );
             }
         });
 
@@ -590,13 +601,19 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
     onOptionChange:function ( e, control, element, value, name ) {
 
+        // console.log( name );
+        // console.log( control );
+        // console.log( element );
+        // console.log( value );
+
         var control_id  = $( '.hidden-field-astra-settings-' + name );
 
-        console.log( name );
-        control_id.val( JSON.Stringify(value) );
+        // control_id.val( JSON.stringify(value) );
+        // sub_control = wp.customize.control( name );
+        control_id.val( value );
         sub_control = wp.customize.control( "astra-settings[" + name + "]" );
 
-        console.log( sub_control );
+        // console.log( sub_control );
         sub_control.setting.set( value );
     },
 

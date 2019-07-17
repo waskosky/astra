@@ -58,7 +58,7 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 		name = name.replace( '[', '-' );
 		name = name.replace( ']', '' );
 		#>
-		<input type='hidden' class='hidden-field-{{name}}' data-name='{{name}}' value=''>
+		<input type='hidden' class='hidden-field-{{name}}' data-name='{{name}}' value='{{data.value}}'>
 		<?php
 	}
 }

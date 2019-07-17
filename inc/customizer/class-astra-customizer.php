@@ -280,39 +280,66 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.4.3
 		 * @return void
 		 */
-		private function register_sub_control_setting( $config, $wp_customize ) {
+		private function register_sub_control_setting( $confi, $wp_customize ) {
 
-			$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '['.astra_get_prop( $config, 'name' ).']', array(
-				'default'           => json_encode( astra_get_option( astra_get_prop( $config, 'name' ) ) ),
-				'type'              => 'ast-hidden',
-				'transport'			=> 'postMessage',
-				'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
-			) );
-			$wp_customize->add_control( ASTRA_THEME_SETTINGS . '['.astra_get_prop( $config, 'name' ).']', array(
-				'section'     => 'section-colors-body',
-				'type'        => 'ast-hidden',
-			) );
+			$sub_control_name = ASTRA_THEME_SETTINGS . '['.astra_get_prop( $confi, 'name' )	.']';
 
-			// $wp_customize->add_setting(
-			// 	astra_get_prop( $config, 'name' ),
-			// 	array(
-			// 		'default'           => astra_get_prop( $config, 'default' ),
-			// 		'type'              => 'ast-hidden',
-			// 		'transport'         => 'postMessage',
-			// 		'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
-			// 	)
-			// );
+			$config = array(
+				"name" => $sub_control_name,
+				"datastore_type" => "option",
+				"transport" => "postMessage",  
+				"control" => "ast-hidden",  
+				"section" => "section-breadcrumb",
+				'sanitize_callback' => astra_get_prop( $confi, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $confi, 'control' ) ) ),
+			);
 
-			// $instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
+			// var_dump( $confi['name'] );
+			// var_dump( astra_get_prop( $confi, 'name' ) );
+			$wp_customize->add_setting(
+				astra_get_prop( $config, 'name' ),
+				array(
+					'default'           => astra_get_prop( $config, 'default' ),
+					'type'              => astra_get_prop( $config, 'datastore_type' ),
+					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
+					'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+				)
+			);
 
-			// if ( false !== $instance ) {
-			// 	$wp_customize->add_control(
-			// 		new $instance( $wp_customize, astra_get_prop( $config, 'name' ), $config )
-			// 	);
-			// } else {
-			// 	$wp_customize->add_control( astra_get_prop( $config, 'name' ), $config );
-			// }
+			$instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
 
+			if ( false !== $instance ) {
+				$wp_customize->add_control(
+					new $instance( $wp_customize, $sub_control_name, $config )
+				);
+			} else {
+				$wp_customize->add_control( $sub_control_name, $config );
+			}
+
+			if ( astra_get_prop( $config, 'partial', false ) ) {
+
+				if ( isset( $wp_customize->selective_refresh ) ) {
+					$wp_customize->selective_refresh->add_partial(
+						$sub_control_name,
+						array(
+							'selector'            => astra_get_prop( $config['partial'], 'selector' ),
+							'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
+							'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
+						)
+					);
+				}
+			}
+
+			if ( false !== astra_get_prop( $config, 'required', false ) ) {
+				$this->update_dependency_arr( $sub_control_name, astra_get_prop( $config, 'required' ) );
+			}
+
+			// array(
+			// 	'name'      => ASTRA_THEME_SETTINGS . '[header-bg-obj-responsive]',
+			// 	'type'      => 'control',
+			// 	'control'   => 'ast-hidden',
+			// 	'section'   => 'section-breadcrumb',
+			// 	'transport' => 'postMessage',
+			// ),
 		}
 
 		/**
@@ -324,6 +351,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		private function register_setting_control( $config, $wp_customize ) {
+
+			// echo "<pre>";
+			// var_dump( $config );
+			// echo "</pre>";
 
 			$wp_customize->add_setting(
 				astra_get_prop( $config, 'name' ),
