@@ -361,12 +361,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         var fields_html = '';
         var control_types = [];
 
+
         _.each(fields_data, function (attr, index) {
 
+            new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
             var control = attr.control;
             var template_id = "customize-control-" + control + "-content";
             var template = wp.template(template_id);
-            var value = wp.customize.control( 'astra-settings['+attr.name+']' ).params.value || attr.default;
+            var value = new_value || attr.default;
             attr.value = value;
             var dataAtts = '';
             var input_attrs = '';
