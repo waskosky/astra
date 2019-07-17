@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                         },
                         {
                             expand: true,
-                            cwd: 'inc/customizer/custom-controls',
+                            cwd: 'inc/customizer/custom-controls/assets/unminified',
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
