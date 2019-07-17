@@ -267,7 +267,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-main-sep' ),
 					'type'        => 'control',
 					'transport'   => 'postMessage',
-					'control'     => 'number',
+					'control'     => 'ast-slider',
 					'section'     => 'section-transparent-header',
 					'priority'    => 30,
 					'title'       => __( 'Bottom Border Size', 'astra' ),

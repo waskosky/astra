@@ -54,16 +54,6 @@ class Astra_Control_Select extends WP_Customize_Control {
 	}
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/select/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/select/';
-	}
-
-	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
 	 *
 	 * Class variables for this control class are available in the `data` JS object;

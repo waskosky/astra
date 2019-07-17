@@ -69,6 +69,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'section-blog',
+					'transport'   => 'postMessage',
 					'default'     => 1200,
 					'priority'    => 65,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),

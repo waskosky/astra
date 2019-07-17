@@ -71,18 +71,6 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		public $help = '';
 
 		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-			$assets_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/settings-group/';
-			wp_enqueue_style( 'astra-settings-group', $assets_uri . 'settings-group.css', null, ASTRA_THEME_VERSION );
-
-			wp_enqueue_script( 'astra-settings-group-script', $assets_uri . 'settings-group.js', array( 'jquery', 'jquery-ui-tabs', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		}
-
-		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.
 		 *
 		 * @see WP_Customize_Control::to_json()
