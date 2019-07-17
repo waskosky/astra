@@ -1126,3 +1126,14 @@ span.select2-container.select2-container--default.select2-container--open {
   border-color: #ddd;
   border-radius: 0;
 }
+
+/* Vetically align customizer footer device icons */
+.wp-full-overlay-footer {
+  .devices-wrapper {
+    .preview-desktop,
+    .preview-tablet,
+    .preview-mobile {
+      vertical-align: middle;
+    }
+  }
+}
