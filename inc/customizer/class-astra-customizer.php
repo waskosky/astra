@@ -693,6 +693,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					if ( ! is_array( $control_data_css ) ) {
 						if ( isset( $control_data['type'] ) && 'addon' == $control_data['type'] && defined( 'ASTRA_EXT_URI' ) ) {
 							$uri = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_data_css . '/';
+							wp_enqueue_style( $control, $uri . $control_data_css . '.css', null, ASTRA_THEME_VERSION );
 						} else {
 							$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $control_data_css . '/';
 						}
