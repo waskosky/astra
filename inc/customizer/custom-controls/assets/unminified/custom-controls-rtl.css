@@ -410,6 +410,10 @@
   font-size: 15px;
 }
 
+.ast-field-settings-modal .ast-responsive-btns {
+  margin-top: 6px;
+}
+
 .customize-control-ast-responsive .input-wrapper {
   overflow: hidden;
 }
