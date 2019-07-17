@@ -1257,3 +1257,10 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control-ast-hidden {
   margin-top: 0;
 }
+
+/* Vetically align customizer footer device icons */
+.wp-full-overlay-footer .devices-wrapper .preview-desktop,
+.wp-full-overlay-footer .devices-wrapper .preview-tablet,
+.wp-full-overlay-footer .devices-wrapper .preview-mobile {
+  vertical-align: middle;
+}

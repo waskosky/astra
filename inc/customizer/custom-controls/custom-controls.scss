@@ -1168,3 +1168,14 @@ span.select2-container.select2-container--default.select2-container--open {
 .customize-control-ast-hidden {
   margin-top: 0;
 }
+
+/* Vetically align customizer footer device icons */
+.wp-full-overlay-footer {
+  .devices-wrapper {
+    .preview-desktop,
+    .preview-tablet,
+    .preview-mobile {
+      vertical-align: middle;
+    }
+  }
+}
