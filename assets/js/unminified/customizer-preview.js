@@ -971,7 +971,6 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[mobile-header-toggle-btn-style-color]', function( setting ) {
 		setting.bind( function( toggle_button_color ) {
 			if ( toggle_button_color != '' ) {
-				console.log(jQuery( '.ast-mobile-menu-buttons-fill' ));
 				if( jQuery( '.menu-toggle' ).hasClass( 'ast-mobile-menu-buttons-fill' ) ) {
 					var dynamicStyle = '.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle { background: ' + toggle_button_color + '}';
 				}
