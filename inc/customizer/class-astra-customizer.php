@@ -289,7 +289,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'datastore_type'    => 'option',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
-				'section'           => astra_get_prop( $control_config, 'section' ),
+				'section'           => 'section-primary-menu',
+				'default'           => astra_get_prop( $control_config, 'default' ),
 				'sanitize_callback' => astra_get_prop( $control_config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $control_config, 'control' ) ) ),
 			);
 
