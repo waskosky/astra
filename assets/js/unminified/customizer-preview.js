@@ -342,7 +342,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	}
 }
 
-/*
+/* Delete this function soon
 * Generate Responsive Color CSS
 */
 function astra_apply_responsive_color_property( group, subControl, selector, cssProperty, addon, device ) {

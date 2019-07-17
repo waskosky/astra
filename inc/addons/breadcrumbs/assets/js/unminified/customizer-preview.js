@@ -39,43 +39,43 @@
 	);
 		
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Text Color */
-	astra_apply_responsive_color_property( 
-		'astra-settings[section-breadcrumb-color]',
-		'breadcrumb-active-color-responsive',
-		'.ast-breadcrumbs-wrapper .trail-items .trail-end, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last',
-		'color'
+	astra_color_responsive_css(
+		'breadcrumb', 
+		'astra-settings[breadcrumb-active-color-responsive]',
+		'color',
+		'.ast-breadcrumbs-wrapper .trail-items .trail-end, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last'
 	);
 	
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Link Color */
-	astra_apply_responsive_color_property(
-		'astra-settings[section-breadcrumb-color]',
-		'breadcrumb-text-color-responsive',
-		'.ast-breadcrumbs-wrapper .trail-items a, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper .breadcrumbs a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb a',
-		'color'
+	astra_color_responsive_css(
+		'breadcrumb',
+		'astra-settings[breadcrumb-text-color-responsive]',
+		'color',
+		'.ast-breadcrumbs-wrapper .trail-items a, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper .breadcrumbs a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb a'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Hover Color */
-	astra_apply_responsive_color_property(
-		'astra-settings[section-breadcrumb-color]',
-		'breadcrumb-hover-color-responsive',
-		'.ast-breadcrumbs-wrapper .trail-items a:hover, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a:hover, .ast-breadcrumbs-wrapper .breadcrumbs a:hover, .ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover',
-		'color'
+	astra_color_responsive_css(
+		'breadcrumb',
+		'astra-settings[breadcrumb-hover-color-responsive]',
+		'color',
+		'.ast-breadcrumbs-wrapper .trail-items a:hover, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a:hover, .ast-breadcrumbs-wrapper .breadcrumbs a:hover, .ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Separator Color */
-	astra_apply_responsive_color_property(
-		'astra-settings[section-breadcrumb-color]',
-		'breadcrumb-separator-color',
-		'.ast-breadcrumbs-wrapper .trail-items li::after, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator',
-		'color'
+	astra_color_responsive_css(
+		'breadcrumb',
+		'astra-settings[breadcrumb-separator-color]',
+		'color',
+		'.ast-breadcrumbs-wrapper .trail-items li::after, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Background Color */
-	astra_apply_responsive_color_property(
-		'astra-settings[section-breadcrumb-color]',
-		'breadcrumb-bg-color',
-		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb',
-		'background-color'
+	astra_color_responsive_css(
+		'breadcrumb',
+		'astra-settings[breadcrumb-bg-color]',
+		'background-color',
+		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Alignment */
