@@ -1208,7 +1208,7 @@ endif;
 
 if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 
-	/**
+	/** Delete this function soon
 	 * Get option value for defined group.
 	 *
 	 * @param string $option option name.
