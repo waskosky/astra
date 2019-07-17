@@ -690,10 +690,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$control_data_css        = $control_data['css'];
 					$control_data_js         = $control_data['js'];
 					$control_data_dependency = $control_data['dependency'];
+					$file_rtl                = ( is_rtl() ) ? '-rtl' : '';
 					if ( ! is_array( $control_data_css ) ) {
 						if ( isset( $control_data['type'] ) && 'addon' == $control_data['type'] && defined( 'ASTRA_EXT_URI' ) ) {
 							$uri = ASTRA_EXT_URI . 'classes/customizer/controls/' . $control_data_css . '/';
-							wp_enqueue_style( $control, $uri . $control_data_css . '.css', null, ASTRA_THEME_VERSION );
+							wp_enqueue_style( $control, $uri . $control_data_css . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
 						} else {
 							$uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $control_data_css . '/';
 						}
