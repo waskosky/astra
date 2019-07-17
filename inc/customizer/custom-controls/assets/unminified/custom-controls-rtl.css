@@ -338,7 +338,19 @@
   cursor: default;
 }
 
-.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link, .customize-control.customize-control-ast-settings-group label {
+.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-settings-group label {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-slider label {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-slider label .wrapper input[type=range] {
   cursor: pointer;
 }
 
@@ -383,7 +395,7 @@
   display: inline-block;
   float: left;
   line-height: 1;
-  margin-top: 42px;
+  margin-top: 6px;
 }
 
 .ast-responsive-btns > li {
@@ -421,7 +433,7 @@
 .customize-control-ast-responsive .input-wrapper input {
   display: none;
   width: 82%;
-  float: right;
+  float: none;
 }
 
 .customize-control-ast-responsive .input-wrapper input.active {
@@ -434,11 +446,13 @@
   display: none;
   padding: .1em;
   margin-right: 2px;
+  float: none;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
   display: block;
   width: 17%;
+  float: none;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
@@ -463,6 +477,15 @@
 
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
   width: 92%;
+}
+
+.input-wrapper.ast-responsive-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0;
+  align-items: flex-start;
+  flex: 0 1;
+  width: 100%;
 }
 
 /* Responsive Color*/
