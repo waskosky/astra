@@ -304,16 +304,36 @@
   }
 }
 
-.ast-heading-wrapper label {
-  cursor: default;
+.ast-heading-wrapper {
+  label {
+    cursor: default;
+  }
 }
 
 .customize-control {
   > label {
     cursor: default;
   }
-  .ast-spacing-input-item-link, .ast-border-input-item-link, &.customize-control-ast-settings-group label {
+}
+
+.customize-control {
+  .ast-spacing-input-item-link, .ast-border-input-item-link {
     cursor: pointer;
+  }
+  &.customize-control-ast-settings-group {
+    label {
+      cursor: pointer;
+    }
+  }
+  &.customize-control-ast-slider {
+    label { 
+      cursor: pointer;
+      .wrapper { 
+        input[type=range]{
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 
@@ -356,7 +376,7 @@
   display: inline-block;
   float: right;
   line-height: 1;
-  margin-top: 42px;
+  margin-top: 6px;
   > li {
     margin-bottom: 0;
     display: none;
@@ -379,12 +399,18 @@
   }
 }
 
+.ast-field-settings-modal {
+  .ast-responsive-btns {
+    margin-top: 6px;
+  }
+}
+
 .customize-control-ast-responsive .input-wrapper {
   overflow: hidden;
   input {
     display: none;
     width: 82%;
-    float: left;
+    float: none;
     &.active {
       display: block;
     }
@@ -395,10 +421,12 @@
     display: none;
     padding: .1em;
     margin-left: 2px;
+    float: none;
   }
   .ast-responsive-input.active + .ast-responsive-select {
     display: block;
     width: 17%;
+    float: none;
   }
   .ast-non-reponsive {
     &.ast-responsive-input {
@@ -422,6 +450,16 @@
     width: 92%;
   }
 }
+
+.input-wrapper.ast-responsive-wrapper {
+    display: inline-flex;
+    justify-content: space-between;
+    margin-right: 0;
+    align-items: flex-start;
+    flex: 0 1;
+    width: 100%;
+}
+
 
 /* Responsive Color*/
 .customize-control-ast-responsive-color {
@@ -1125,6 +1163,10 @@ span.select2-container.select2-container--default.select2-container--open {
 .select2-dropdown, .select2-container--default .select2-selection--multiple .select2-selection__choice {
   border-color: #ddd;
   border-radius: 0;
+}
+
+.customize-control-ast-hidden {
+  margin-top: 0;
 }
 
 /* Vetically align customizer footer device icons */
