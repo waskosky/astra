@@ -10,14 +10,13 @@
 
 ( function( $ ) {
 
-	/* Breadcrumb Typography */                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+	/* Breadcrumb Typography */
 	astra_responsive_font_size( 
 		'astra-settings[breadcrumb-font-size]',
 		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
 	);
-	astra_generate_font_family_css(
-		'astra-settings[section-breadcrumb-typo]',
-		'breadcrumb-font-family',
+	astra_generate_outside_font_family_css(
+		'astra-settings[breadcrumb-font-family]',
 		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
 	);
 	astra_css(

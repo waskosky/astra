@@ -555,7 +555,7 @@ function astra_apply_background_css(group, subControl, selector ) {
 	});
 }
 
-/*
+/* Delete this function soon
 * Generate Font Family CSS
 */
 function astra_generate_font_family_css( group, subControl, selector ) {
@@ -1246,7 +1246,7 @@ function isJsonString( str ) {
 	} );
 
 	// Site Title - Font family
-	astra_generate_font_family_css( 'astra-settings[site-title-typography]', 'font-family-site-title', '.site-title, .site-title a' );
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-site-title]', '.site-title, .site-title a' );
 
 	// Site Title - Font Weight
 	astra_css( 'astra-settings[font-weight-site-title]', 'font-weight', '.site-title, .site-title a' );
@@ -1262,7 +1262,7 @@ function isJsonString( str ) {
 
 
 	// Site tagline - Font family
-	astra_generate_font_family_css( 'astra-settings[site-tagline-typography]', 'font-family-site-tagline', '.site-header .site-description' );
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-site-tagline]', '.site-header .site-description' );
 	
 	// Site Tagline - Font Weight
 	astra_css( 'astra-settings[font-weight-site-tagline]', 'font-weight', '.site-header .site-description' );
