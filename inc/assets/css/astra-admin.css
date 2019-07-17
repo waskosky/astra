@@ -226,3 +226,9 @@
 	border-top: 1px solid #ddd;
 	display: block !important;
 }
+
+#menu-appearance a[href^="edit.php?post_type=astra_adv_header"]:before, #menu-appearance a[href^="edit.php?post_type=astra-advanced-hook"]:before {
+    content: "\21B3";
+    margin-right: 0.5em;
+    opacity: 0.5;
+}
