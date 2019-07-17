@@ -97,19 +97,6 @@ if ( ! class_exists( 'Astra_Control_Responsive_Color' ) && class_exists( 'WP_Cus
 		}
 
 		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-color/';
-			$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-color/';
-
-			wp_enqueue_script( 'responsive-color', $js_uri . 'responsive-color.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
-			wp_enqueue_style( 'responsive-color', $css_uri . 'responsive-color.css', null, ASTRA_THEME_VERSION );
-		}
-
-		/**
 		 * An Underscore (JS) template for this control's content (but not its container).
 		 *
 		 * Class variables for this control class are available in the `data` JS object;

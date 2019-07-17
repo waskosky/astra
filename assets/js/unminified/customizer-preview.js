@@ -971,7 +971,15 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[mobile-header-toggle-btn-style-color]', function( setting ) {
 		setting.bind( function( toggle_button_color ) {
 			if ( toggle_button_color != '' ) {
-				var dynamicStyle = '.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle { color: ' + toggle_button_color + '}';
+				if( jQuery( '.menu-toggle' ).hasClass( 'ast-mobile-menu-buttons-fill' ) ) {
+					var dynamicStyle = '.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle { background: ' + toggle_button_color + '}';
+				}
+				else if( jQuery( '.menu-toggle' ).hasClass( 'ast-mobile-menu-buttons-outline' ) ) {
+					var dynamicStyle = '.ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle { border: 1px solid ' + toggle_button_color + '; color: ' + toggle_button_color + '}';
+				}
+				else {	
+					var dynamicStyle = '.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle { color: ' + toggle_button_color + '}';
+				}
 				astra_add_dynamic_css( 'primary-toggle-button-color', dynamicStyle );
 			}
 			else{
