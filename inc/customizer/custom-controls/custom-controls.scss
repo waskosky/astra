@@ -304,16 +304,36 @@
   }
 }
 
-.ast-heading-wrapper label {
-  cursor: default;
+.ast-heading-wrapper {
+  label {
+    cursor: default;
+  }
 }
 
 .customize-control {
   > label {
     cursor: default;
   }
-  .ast-spacing-input-item-link, .ast-border-input-item-link, &.customize-control-ast-settings-group label {
+}
+
+.customize-control {
+  .ast-spacing-input-item-link, .ast-border-input-item-link {
     cursor: pointer;
+  }
+  &.customize-control-ast-settings-group {
+    label {
+      cursor: pointer;
+    }
+  }
+  &.customize-control-ast-slider {
+    label { 
+      cursor: pointer;
+      .wrapper { 
+        input[type=range]{
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 

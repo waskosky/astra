@@ -338,7 +338,19 @@
   cursor: default;
 }
 
-.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link, .customize-control.customize-control-ast-settings-group label {
+.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-settings-group label {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-slider label {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-slider label .wrapper input[type=range] {
   cursor: pointer;
 }
 
