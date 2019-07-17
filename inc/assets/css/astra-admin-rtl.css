@@ -227,7 +227,12 @@
 	display: block !important;
 }
 
-#menu-appearance a[href^="edit.php?post_type=astra_adv_header"]:before, #menu-appearance a[href^="edit.php?post_type=astra-advanced-hook"]:before {
+/* Add CSS for the Submenu for BSF plugins added in Appearance Menu */
+#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
+#menu-appearance a[href^="themes.php?page=astra-"]:before,
+#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
+#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
+#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before {
     content: "\21B3";
     margin-left: 0.5em;
     opacity: 0.5;
