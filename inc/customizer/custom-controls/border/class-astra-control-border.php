@@ -50,20 +50,6 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 		public $unit_choices = array( 'px' => 'px' );
 
 		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-
-			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/border/';
-			$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/border/';
-
-			wp_enqueue_script( 'astra-border', $js_uri . 'border.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-			wp_enqueue_style( 'astra-border', $css_uri . 'border.css', null, ASTRA_THEME_VERSION );
-		}
-
-		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.
 		 *
 		 * @see WP_Customize_Control::to_json()
