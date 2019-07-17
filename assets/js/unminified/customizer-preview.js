@@ -419,7 +419,7 @@ function astra_apply_responsive_color_property( group, subControl, selector, css
 	});
 }
 
-/*
+/* Need to delete this function
 * Generate Responsive Font CSS
 */
 function astra_apply_responsive_font_size( group, subControl, selector ) {
@@ -464,7 +464,7 @@ function astra_apply_responsive_font_size( group, subControl, selector ) {
 	});    
 }
 
-/*
+/* Need to delete this function
 * Generate CSS
 */
 function astra_generate_css( group, subControl, selector, cssProperty, unittype )	 {
