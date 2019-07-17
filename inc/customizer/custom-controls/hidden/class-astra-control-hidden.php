@@ -39,6 +39,7 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 		if ( isset( $this->default ) ) {
 			$this->json['default'] = $this->default;
 		}
+		$this->json['value'] = $this->value();
 	}
 
 	/**

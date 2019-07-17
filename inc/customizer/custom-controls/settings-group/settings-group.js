@@ -366,7 +366,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var control = attr.control;
             var template_id = "customize-control-" + control + "-content";
             var template = wp.template(template_id);
-            var value = field_values[attr.name] || attr.default;
+            var value = wp.customize.control( 'astra-settings['+attr.name+']' ).params.value || attr.default;
             attr.value = value;
             var dataAtts = '';
             var input_attrs = '';
@@ -485,10 +485,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
                 jQuery(element).val('');
 
-                wp.customize.previewer.refresh();
                 name = jQuery(element).parents('.customize-control').attr('id');
                 name = name.replace( 'customize-control-', '' );
                 control.container.trigger( 'ast_settings_changed', [control, jQuery(element), '', name ] );
+                wp.customize.previewer.refresh();
             }
         });
     },
@@ -601,19 +601,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
     onOptionChange:function ( e, control, element, value, name ) {
 
-        // console.log( name );
-        // console.log( control );
-        // console.log( element );
-        // console.log( value );
-
         var control_id  = $( '.hidden-field-astra-settings-' + name );
 
-        // control_id.val( JSON.stringify(value) );
-        // sub_control = wp.customize.control( name );
         control_id.val( value );
         sub_control = wp.customize.control( "astra-settings[" + name + "]" );
-
-        // console.log( sub_control );
         sub_control.setting.set( value );
     },
 

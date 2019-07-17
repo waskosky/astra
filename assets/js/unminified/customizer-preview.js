@@ -469,7 +469,7 @@ function astra_apply_responsive_font_size( group, subControl, selector ) {
 */
 function astra_generate_css( group, subControl, selector, cssProperty, unittype )	 {
 
-	wp.customize( group, function (control) {
+	wp.customize( subControl, function (control) {
 		control.bind(function ( value, oldValue ) {
 			
 			var optionValue = JSON.parse(value);
