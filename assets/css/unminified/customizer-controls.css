@@ -125,6 +125,10 @@
 	padding-top: 3px;
 }
 
+body.rtl .customize-pane-child > li[id="customize-control-astra-settings-headings-text-transform"] {
+	padding-top: 0;
+}
+
 .customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
 	padding-top: 2px;
 }
