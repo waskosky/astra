@@ -125,6 +125,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
+			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 		}
 
 		/**
@@ -246,6 +247,21 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
 				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
+			}
+		}
+
+		/**
+		 * Enqueue Astra Notices CSS.
+		 * 
+		 * @since x.x.x
+		 *
+		 * @return void
+		 */
+		public static function notice_assets() {
+			if ( is_rtl() ) {
+				wp_enqueue_style( 'astra-notices-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-notices-rtl.css', array(), ASTRA_THEME_VERSION );
+			} else {
+				wp_enqueue_style( 'astra-notices', ASTRA_THEME_URI . 'inc/assets/css/astra-notices.css', array(), ASTRA_THEME_VERSION );
 			}
 		}
 
