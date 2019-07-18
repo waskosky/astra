@@ -239,8 +239,11 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                     control.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
         
+                        name = $(this).parents( '.customize-control' ).attr( 'id' );
+                        name = name.replace( 'customize-control-', '' );
+
                         // Update value on change.
-                        control.updateResonsiveValue( jQuery(this), control_type.name );
+                        control.updateResonsiveValue( jQuery(this), name );
                     });
 
                 break;
@@ -249,9 +252,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                     control.container.on( 'change', '.ast-select-input', function() {
 
-                        var value = jQuery( this ).val();   
+                        var value = jQuery( this ).val();
 
-                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, control_type.name ] );
+                        name = $(this).parents( '.customize-control' ).attr( 'id' );
+                        name = name.replace( 'customize-control-', '' );  
+
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, name ] );
                     });
 
                 break;
@@ -263,7 +269,11 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                             input_number = jQuery(this).closest('.wrapper').find('.astra_range_value .value');
 
                         input_number.val(value);
-                        control.container.trigger('ast_settings_changed', [control, input_number, value, control_type.name]);
+
+                        name = $(this).parents( '.customize-control' ).attr( 'id' );
+                        name = name.replace( 'customize-control-', '' );
+
+                        control.container.trigger('ast_settings_changed', [control, input_number, value, name]);
                     });
 
                     // Handle the reset button.
@@ -276,7 +286,11 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                         input_range.val(default_value);
                         input_number.val(default_value);
-                        control.container.trigger('ast_settings_changed', [control, input_number, default_value, control_type.name]);
+
+                        name = $(this).parents( '.customize-control' ).attr( 'id' );
+                        name = name.replace( 'customize-control-', '' );
+
+                        control.container.trigger('ast_settings_changed', [control, input_number, default_value, name]);
                     });
 
                     // Save changes.
@@ -284,8 +298,11 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                         var value = jQuery(this).val();
                         jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
+
+                        name = $(this).parents( '.customize-control' ).attr( 'id' );
+                        name = name.replace( 'customize-control-', '' );
  
-                        control.container.trigger('ast_settings_changed', [control, jQuery(this), value, control_type.name]);
+                        control.container.trigger('ast_settings_changed', [control, jQuery(this), value, name]);
                     });
 
                 break;
