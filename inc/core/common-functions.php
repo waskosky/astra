@@ -359,10 +359,6 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 		if ( is_array( $css_output ) && count( $css_output ) > 0 ) {
 
 			foreach ( $css_output as $selector => $properties ) {
-
-				if( NULL == $properties ) {
-					break;
-				}
 				
 				if ( ! count( $properties ) ) {
 					continue; }
