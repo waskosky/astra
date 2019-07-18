@@ -324,24 +324,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			} else {
 				$wp_customize->add_control( $sub_control_name, $config );
 			}
-
-			if ( astra_get_prop( $config, 'partial', false ) ) {
-
-				if ( isset( $wp_customize->selective_refresh ) ) {
-					$wp_customize->selective_refresh->add_partial(
-						$sub_control_name,
-						array(
-							'selector'            => astra_get_prop( $config['partial'], 'selector' ),
-							'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
-							'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
-						)
-					);
-				}
-			}
-
-			if ( false !== astra_get_prop( $config, 'required', false ) ) {
-				$this->update_dependency_arr( $sub_control_name, astra_get_prop( $config, 'required' ) );
-			}
 		}
 
 		/**
