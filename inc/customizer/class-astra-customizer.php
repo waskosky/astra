@@ -685,9 +685,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			if ( ! empty( $this->control_types_options ) ) {
 				foreach ( $this->control_types_options as $control ) {
-					$uri                     = '';
+					$uri = '';
 
-					if(array_key_exists( $control , $control_types_data ) ) {
+					if ( array_key_exists( $control, $control_types_data ) ) {
 						$control_data            = $control_types_data[ $control ];
 						$control_data_css        = $control_data['css'];
 						$control_data_js         = $control_data['js'];
