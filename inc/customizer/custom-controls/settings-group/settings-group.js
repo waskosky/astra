@@ -210,7 +210,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                         control.generateDropdownHtml( weightObject, fontWeightContainer );
 
                         control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, control_type.name ] );
-                        control.container.trigger( 'ast_settings_changed', [ control, fontWeightContainer, fontWeightContainer.val(), control_type.name ] );
+
+                        name = fontWeightContainer.parents( '.customize-control' ).attr( 'id' );
+                        name = name.replace( 'customize-control-', '' );
+                        control.container.trigger( 'ast_settings_changed', [ control, fontWeightContainer, fontWeightContainer.val(), name ] );
                         
                     });
 
@@ -605,7 +608,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     onOptionChange:function ( e, control, element, value, name ) {
 
         var control_id  = $( '.hidden-field-astra-settings-' + name );
-
         control_id.val( value );
         sub_control = wp.customize.control( "astra-settings[" + name + "]" );
         sub_control.setting.set( value );
