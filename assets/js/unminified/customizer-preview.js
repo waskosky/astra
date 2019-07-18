@@ -273,11 +273,11 @@ function astra_css( control, css_property, selector, unit ) {
 				}
 
 				// Remove old.
-				jQuery( 'style#' + control ).remove();
+				jQuery( 'style#' + control + '-' + css_property ).remove();
 
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '">'
+					'<style id="' + control + '-' + css_property + '">'
 					+ selector + '	{ ' + css_property + ': ' + new_value + ' }'
 					+ '</style>'
 				);
@@ -1291,7 +1291,7 @@ function isJsonString( str ) {
 	astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 
 	// Theme Button - Border Color
-	astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+	astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 
 	// Theme Button - Text Hover Color
 	astra_css( 'astra-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
