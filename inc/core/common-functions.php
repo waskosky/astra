@@ -360,6 +360,10 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 			foreach ( $css_output as $selector => $properties ) {
 
+				if( NULL == $properties ) {
+					break;
+				}
+				
 				if ( ! count( $properties ) ) {
 					continue; }
 
