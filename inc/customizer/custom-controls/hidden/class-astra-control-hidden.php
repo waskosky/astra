@@ -62,4 +62,11 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 		<input type='hidden' class='hidden-field-{{name}}' data-name='{{name}}' value='{{data.value}}'>
 		<?php
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }
