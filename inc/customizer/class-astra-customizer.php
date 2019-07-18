@@ -295,7 +295,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
 
-			// var_dump( is_array( astra_get_prop( $control_config, 'default' ) ) );
 			$config = array(
 				'name'              => $sub_control_name,
 				'datastore_type'    => 'option',
