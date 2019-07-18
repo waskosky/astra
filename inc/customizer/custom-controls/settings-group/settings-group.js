@@ -535,6 +535,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                         name = jQuery(element).parents('.customize-control').attr('id');
                         name = name.replace( 'customize-control-', '' );
+
                         control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), newValue, name ] );
                     }
                 }

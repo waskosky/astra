@@ -134,6 +134,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						// Remove type from configuration.
 						unset( $config['type'] );
 
+						$this->control_types_options[] = $config['control'];
 						$this->register_sub_control_setting( $config, $wp_customize );
 
 						break;
