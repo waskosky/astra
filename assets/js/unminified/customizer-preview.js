@@ -95,21 +95,22 @@ function astra_responsive_font_size( control, selector ) {
 				// Remove <style> first!
 				control = control.replace( '[', '-' );
 				control = control.replace( ']', '' );
-				jQuery( 'style#' + control ).remove();
+				jQuery( 'style#' + control + '-' + selector ).remove();
 
 				var fontSize = '',
-					TabletFontSize = '',
-					MobileFontSize = '';
+					tabletFontSize = '',
+					mobileFontSize = '';
+					selector = 'font-size';
 
 
 				if ( '' != value.desktop ) {
 					fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
 				}
 				if ( '' != value.tablet ) {
-					TabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
+					tabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
 				}
 				if ( '' != value.mobile ) {
-					MobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
+					mobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
 				}
 
 				if( value['desktop-unit'] == 'px' ) {
@@ -118,10 +119,10 @@ function astra_responsive_font_size( control, selector ) {
 
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '">'
+					'<style id="' + control + '-' + selector + '">'
 					+ selector + '	{ ' + fontSize + ' }'
-					+ '@media (max-width: 768px) {' + selector + '	{ ' + TabletFontSize + ' } }'
-					+ '@media (max-width: 544px) {' + selector + '	{ ' + MobileFontSize + ' } }'
+					+ '@media (max-width: 768px) {' + selector + '	{ ' + tabletFontSize + ' } }'
+					+ '@media (max-width: 544px) {' + selector + '	{ ' + mobileFontSize + ' } }'
 					+ '</style>'
 				);
 
@@ -619,7 +620,7 @@ function astra_generate_outside_font_family_css( control, selector ) {
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
 
-			jQuery('style#' + control).remove();
+			jQuery('style#' + control + '-' + cssProperty ).remove();
 
 			if ( fontName in astraCustomizer.googleFonts ) {
 				// Remove old.
@@ -632,7 +633,7 @@ function astra_generate_outside_font_family_css( control, selector ) {
 
 			// Concat and append new <style> and <link>.
 			jQuery('head').append(
-				'<style id="' + control + '">'
+				'<style id="' + control + '-' + cssProperty + '">'
 				+ selector + '	{ ' + cssProperty + ': ' + value + ' }'
 				+ '</style>'
 				+ link

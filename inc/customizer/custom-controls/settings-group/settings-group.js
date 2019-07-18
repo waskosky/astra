@@ -209,18 +209,26 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
                         control.generateDropdownHtml( weightObject, fontWeightContainer );
 
-                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, control_type.name ] );
+                        var font_control = $(this).parents( '.customize-control' ).attr( 'id' );
+                        font_control = font_control.replace( 'customize-control-', '' );
 
-                        name = fontWeightContainer.parents( '.customize-control' ).attr( 'id' );
-                        name = name.replace( 'customize-control-', '' );
-                        control.container.trigger( 'ast_settings_changed', [ control, fontWeightContainer, fontWeightContainer.val(), name ] );
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, font_control ] );
+
+                        var font_weight_control = fontWeightContainer.parents( '.customize-control' ).attr( 'id' );
+                        font_weight_control = font_weight_control.replace( 'customize-control-', '' );
+
+                        control.container.trigger( 'ast_settings_changed', [ control, fontWeightContainer, fontWeightContainer.val(), font_weight_control ] );
                         
                     });
 
                     control.container.find( '.ast-font-weight' ).on( 'change', function() {
 
                         var value = $(this).val();
-                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, control_type.name ] );
+
+                        name = $(this).parents( '.customize-control' ).attr( 'id' );
+                        name = name.replace( 'customize-control-', '' );
+
+                        control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, name ] );
                     });
                     
                 break;  
