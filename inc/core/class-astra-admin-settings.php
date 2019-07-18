@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
 
-			add_action( 'admin_enqueue_scripts', __class__ . '::register_scripts' );
+			// add_action( 'admin_enqueue_scripts', __class__ . '::register_scripts' );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				self::save_settings();
 			}
 
-			add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
+			// add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
 
 			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
 
@@ -346,44 +346,20 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
 
-		/**
-		 * Enqueues the needed CSS/JS for Backend.
-		 *
-		 * @since 1.0
-		 */
-		public static function admin_scripts() {
+		// /**
+		//  * Enqueues the needed CSS/JS for Backend.
+		//  *
+		//  * @since 1.0
+		//  */
+		// public static function admin_scripts() {
 
 			// Styles.
-			if ( is_rtl() ) {
-				wp_enqueue_style( 'astra-admin-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-rtl.css', array(), ASTRA_THEME_VERSION );
-			} else {
-				wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), ASTRA_THEME_VERSION );
-			}
-
-			/* Directory and Extension */
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-
-			$assets_js_uri = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
-
-			/**
-			 * Filters the Admin JavaScript handles added
-			 *
-			 * @since v1.4.10
-			 *
-			 * @param array array of the javascript handles.
-			 */
-			$js_handle = apply_filters( 'astra_admin_script_handles', array( 'jquery', 'wp-color-picker' ) );
-			// Add customize-base handle only for the Customizer Preview Screen.
-			if ( true === is_customize_preview() ) {
-				$js_handle[] = 'customize-base';
-			}
-
-			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
-
-			wp_enqueue_script( 'thickbox' );
-			wp_enqueue_style( 'thickbox' );
-		}
+			// if ( is_rtl() ) {
+			// 	wp_enqueue_style( 'astra-admin-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-rtl.css', array(), ASTRA_THEME_VERSION );
+			// } else {
+			// 	wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), ASTRA_THEME_VERSION );
+			// }
+		// }
 
 		/**
 		 * Reegister Scripts and styles for Astra Admin.
@@ -391,22 +367,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.6.9
 		 * @return void
 		 */
-		public static function register_scripts() {
-			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
-
-			$localize = array(
-				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
-				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
-				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
-				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
-				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
-				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
-				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
-				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
-			);
-			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
-		}
+		// public static function register_scripts() {
+			
+		// }
 
 		/**
 		 * Enqueues the needed CSS/JS for the builder's admin settings page.
@@ -421,6 +384,21 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				wp_enqueue_style( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
 			}
+
+			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
+
+			$localize = array(
+				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
+				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
+				'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
+				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
+				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
+				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
+				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+			);
+			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
