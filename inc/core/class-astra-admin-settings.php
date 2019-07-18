@@ -90,8 +90,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
 
-			// add_action( 'admin_enqueue_scripts', __class__ . '::register_scripts' );
-
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
@@ -101,8 +99,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				self::save_settings();
 			}
-
-			// add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
 
 			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
 
@@ -345,31 +341,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$color_palettes = json_encode( astra_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
-
-		// /**
-		//  * Enqueues the needed CSS/JS for Backend.
-		//  *
-		//  * @since 1.0
-		//  */
-		// public static function admin_scripts() {
-
-			// Styles.
-			// if ( is_rtl() ) {
-			// 	wp_enqueue_style( 'astra-admin-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-rtl.css', array(), ASTRA_THEME_VERSION );
-			// } else {
-			// 	wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), ASTRA_THEME_VERSION );
-			// }
-		// }
-
-		/**
-		 * Reegister Scripts and styles for Astra Admin.
-		 *
-		 * @since 1.6.9
-		 * @return void
-		 */
-		// public static function register_scripts() {
-			
-		// }
 
 		/**
 		 * Enqueues the needed CSS/JS for the builder's admin settings page.
