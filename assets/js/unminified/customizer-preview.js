@@ -95,13 +95,12 @@ function astra_responsive_font_size( control, selector ) {
 				// Remove <style> first!
 				control = control.replace( '[', '-' );
 				control = control.replace( ']', '' );
-				jQuery( 'style#' + control + '-' + selector ).remove();
+				jQuery( 'style#' + control + '-' + css_property ).remove();
 
 				var fontSize = '',
 					tabletFontSize = '',
-					mobileFontSize = '';
-					selector = 'font-size';
-
+					mobileFontSize = '',
+					css_property = 'font-size';
 
 				if ( '' != value.desktop ) {
 					fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
@@ -119,7 +118,7 @@ function astra_responsive_font_size( control, selector ) {
 
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '-' + selector + '">'
+					'<style id="' + control + '-' + css_property + '">'
 					+ selector + '	{ ' + fontSize + ' }'
 					+ '@media (max-width: 768px) {' + selector + '	{ ' + tabletFontSize + ' } }'
 					+ '@media (max-width: 544px) {' + selector + '	{ ' + mobileFontSize + ' } }'
