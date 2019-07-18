@@ -76,6 +76,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-page-title',
 					'parent'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+					'section'     => 'section-blog',
 					'type'        => 'sub-control',
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',
@@ -97,6 +98,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-archive-summary-title',
 					'parent'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
+					'section'     => 'section-blog',
 					'type'        => 'sub-control',
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',

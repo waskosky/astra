@@ -1047,6 +1047,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
         jQuery(input).attr( 'value', JSON.stringify(val) ).trigger( 'change' );
 
+        name = jQuery(element).parents('.customize-control').attr('id');
+        name = name.replace( 'customize-control-', '' );
         control.container.trigger( 'ast_settings_changed', [control, element, val, name ] );
     },
 
@@ -1065,7 +1067,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
         jQuery( input ).attr( 'value', JSON.stringify( val ) ).trigger( 'change' );
 
         name = jQuery(element).parents('.customize-control').attr('id');
-        name = name.replace( 'customize-control-', '' );       
+        name = name.replace( 'customize-control-', '' );
         control.container.trigger( 'ast_settings_changed', [control, element, val, name ] );
     },
 

@@ -63,6 +63,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-entry-title',
 					'parent'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
+					'section'     => 'section-blog-single',
 					'type'        => 'sub-control',
 					'control'     => 'ast-responsive',
 					'default'     => astra_get_option( 'font-size-entry-title' ),
