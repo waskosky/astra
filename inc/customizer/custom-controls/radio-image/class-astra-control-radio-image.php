@@ -50,7 +50,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	}
 
 	/**
-	 * Function to custom CSS for Admin .
+	 * Function to add custom CSS for Admin .
 	 *
 	 * @since x.x.x
 	 * @return void
