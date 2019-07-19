@@ -295,12 +295,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
 
+			$section = ( astra_get_prop( $control_config, 'section' ) ) ? astra_get_prop( $control_config, 'section' ) : 'title_tagline';
+
 			$config = array(
 				'name'              => $sub_control_name,
 				'datastore_type'    => 'option',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
-				'section'           => 'section-primary-menu',
+				'section'           => $section,
 				'default'           => astra_get_prop( $control_config, 'default' ),
 				'sanitize_callback' => astra_get_prop( $control_config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $control_config, 'control' ) ) ),
 			);

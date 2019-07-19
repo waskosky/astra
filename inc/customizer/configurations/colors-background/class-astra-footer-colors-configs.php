@@ -84,6 +84,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 					'type'     => 'sub-control',
 					'priority' => 7,
 					'parent'   => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
+					'section'  => 'section-footer-small',
 					'control'  => 'ast-background',
 					'default'  => astra_get_option( 'footer-bg-obj' ),
 					'label'    => __( 'Background', 'astra' ),
