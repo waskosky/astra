@@ -119,7 +119,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'control'     => 'ast-slider',
 					'section'     => 'woocommerce_product_catalog',
 					'default'     => 1200,
-					'priority'    => 225,
+					'priority'    => 10,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'astra' ),
 					'suffix'      => '',
