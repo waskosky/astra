@@ -288,21 +288,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @param Array                $control_config Panel Configuration settings.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.4.3
+		 * @since x.x.x
 		 * @return void
 		 */
 		private function register_sub_control_setting( $control_config, $wp_customize ) {
 
 			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
 
-			$section = ( astra_get_prop( $control_config, 'section' ) ) ? astra_get_prop( $control_config, 'section' ) : 'title_tagline';
-
 			$config = array(
 				'name'              => $sub_control_name,
 				'datastore_type'    => 'option',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
-				'section'           => $section,
+				'section'           => astra_get_prop( $control_config, 'section', 'title_tagline' ),
 				'default'           => astra_get_prop( $control_config, 'default' ),
 				'sanitize_callback' => astra_get_prop( $control_config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $control_config, 'control' ) ) ),
 			);
