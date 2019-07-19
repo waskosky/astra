@@ -186,7 +186,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'priority'    => 40,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'title'       => __( 'Border Size', 'astra' ),
-					'transport' => 'postMessage',
+					'transport'   => 'postMessage',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,

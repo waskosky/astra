@@ -162,7 +162,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'priority'    => 225,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[edd-archive-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'astra' ),
-					'transport' => 'postMessage',
+					'transport'   => 'postMessage',
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,
