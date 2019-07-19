@@ -338,7 +338,19 @@
   cursor: default;
 }
 
-.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link, .customize-control.customize-control-ast-settings-group label {
+.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-settings-group label {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-slider label {
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-slider label .wrapper input[type=range] {
   cursor: pointer;
 }
 
@@ -390,7 +402,7 @@
   display: inline-block;
   float: left;
   line-height: 1;
-  margin-top: 42px;
+  margin-top: 6px;
 }
 
 .ast-responsive-btns > li {
@@ -417,6 +429,10 @@
   font-size: 15px;
 }
 
+.ast-field-settings-modal .ast-responsive-btns {
+  margin-top: 6px;
+}
+
 .customize-control-ast-responsive .input-wrapper {
   overflow: hidden;
 }
@@ -424,7 +440,7 @@
 .customize-control-ast-responsive .input-wrapper input {
   display: none;
   width: 82%;
-  float: right;
+  float: none;
 }
 
 .customize-control-ast-responsive .input-wrapper input.active {
@@ -437,11 +453,13 @@
   display: none;
   padding: .1em;
   margin-right: 2px;
+  float: none;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
   display: block;
   width: 17%;
+  float: none;
 }
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
@@ -466,6 +484,15 @@
 
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
   width: 92%;
+}
+
+.input-wrapper.ast-responsive-wrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  margin-left: 0;
+  align-items: flex-start;
+  flex: 0 1;
+  width: 100%;
 }
 
 /* Responsive Color*/
@@ -1232,4 +1259,15 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .select2-dropdown, .select2-container--default .select2-selection--multiple .select2-selection__choice {
   border-color: #ddd;
   border-radius: 0;
+}
+
+.customize-control-ast-hidden {
+  margin-top: 0;
+}
+
+/* Vetically align customizer footer device icons */
+.wp-full-overlay-footer .devices-wrapper .preview-desktop,
+.wp-full-overlay-footer .devices-wrapper .preview-tablet,
+.wp-full-overlay-footer .devices-wrapper .preview-mobile {
+  vertical-align: middle;
 }
