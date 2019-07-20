@@ -3,9 +3,26 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer    = require('autoprefixer');
     var flexibility     = require('postcss-flexibility');
+    var Astra_theme_Addons    = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'radio-image', 'responsive', 'responsive-color', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
+
     const sass = require('node-sass');
 
+    var sass_dist_files = [];
+    var rtlcss_dist_files = [];
+
     var pkgInfo = grunt.file.readJSON('package.json');
+
+    // Astra Addons.
+    for (var i = 0; i < Astra_theme_Addons.length; i++) {
+
+        sass_dist_files.push({
+            expand: true,
+            cwd: "inc/customizer/custom-controls/" + Astra_theme_Addons[i],
+            src: ["*.scss"],
+            dest: "inc/customizer/custom-controls/assets/css/unminified",
+            ext: ".css",
+        });
+    }
 
     grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
@@ -71,12 +88,12 @@ module.exports = function (grunt) {
                         },
                         {
                             expand: true,
-                            cwd: 'inc/customizer/custom-controls/assets/unminified',
+                            cwd: 'inc/customizer/custom-controls/assets/css/unminified',
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
                                 ],
-                            dest: 'inc/customizer/custom-controls/assets/unminified',
+                            dest: 'inc/customizer/custom-controls/assets/css/unminified',
                             ext: '-rtl.css'
                         },
                     ]
@@ -105,7 +122,7 @@ module.exports = function (grunt) {
                         /* Editor Style */
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
-                            'inc/customizer/custom-controls/assets/unminified/custom-controls.css': 'inc/customizer/custom-controls/custom-controls.scss',
+                            // 'inc/customizer/custom-controls/assets/unminified/custom-controls.css': 'inc/customizer/custom-controls/custom-controls.scss',
                             'inc/assets/css/block-editor-styles.css': 'sass/admin/block-editor-styles.scss',
                         },
 
@@ -132,6 +149,7 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '.css'
                         },
+                        sass_dist_files,
                     ]
                 }
             },
@@ -235,13 +253,13 @@ module.exports = function (grunt) {
 	                    },
 
                         {
-                            src: 'inc/customizer/custom-controls/assets/unminified/custom-controls.css',
-                            dest: 'inc/customizer/custom-controls/assets/minified/custom-controls.min.css',
+                            src: 'inc/customizer/custom-controls/assets/css/unminified/*.css',
+                            dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css',
                         },
                         
                         {
-                            src: 'inc/customizer/custom-controls/assets/unminified/custom-controls-rtl.css',
-                            dest: 'inc/customizer/custom-controls/assets/minified/custom-controls.min-rtl.css',
+                            src: 'inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
+                            dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min-rtl.css',
                         },
 
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
@@ -390,10 +408,45 @@ module.exports = function (grunt) {
                     separator: '\n'
                 },
                 dist: {
-                    src: [
-                        'assets/js/unminified/navigation.js',
-                    ],
-                    dest: 'assets/js/unminified/style.js',
+                        files: [
+                                {
+                                src: [
+                                    'assets/js/unminified/navigation.js',
+                                ],
+                                dest: 'assets/js/unminified/style.js',
+                                },
+                                {
+                                src: [
+                                    'inc/customizer/custom-controls/assets/css/unminified/background.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/border.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/color.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/customizer-link.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/description.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/divider.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/heading.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/hidden.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/radio-image.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/responsive.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/responsive-color.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/responsive-slider.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/responsive-spacing.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/select.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/settings-group.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/slider.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/sortable.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/spacing.css',
+                                    'inc/customizer/custom-controls/assets/css/unminified/typography.css'
+
+                                ],
+                                dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+                                },
+                                {
+                                src: [
+                                    'inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
+                                ],
+                                dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
+                                },
+                        ]
                 }
             },
 
