@@ -9,6 +9,7 @@ module.exports = function (grunt) {
 
     var sass_dist_files = [];
     var rtlcss_dist_files = [];
+    var uglify_js_files = [];
 
     var pkgInfo = grunt.file.readJSON('package.json');
 
@@ -21,6 +22,13 @@ module.exports = function (grunt) {
             src: ["*.scss"],
             dest: "inc/customizer/custom-controls/assets/css/unminified",
             ext: ".css",
+        });
+        uglify_js_files.push({
+            expand: true,
+            cwd: "inc/customizer/custom-controls/" + Astra_theme_Addons[i],
+            src: ["*.js"],
+            dest: "inc/customizer/custom-controls/assets/js/minified",
+            ext: ".min.js",
         });
     }
 
@@ -97,7 +105,7 @@ module.exports = function (grunt) {
                             ext: '-rtl.css'
                         },
                     ]
-              	}
+                }
             },
 
             sass: {
@@ -122,7 +130,6 @@ module.exports = function (grunt) {
                         /* Editor Style */
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
-                            // 'inc/customizer/custom-controls/assets/unminified/custom-controls.css': 'inc/customizer/custom-controls/custom-controls.scss',
                             'inc/assets/css/block-editor-styles.css': 'sass/admin/block-editor-styles.scss',
                         },
 
@@ -189,22 +196,22 @@ module.exports = function (grunt) {
             uglify: {
                 js: {
                     files: [
-                    	{ // all .js to min.js
-	                        expand: true,
-	                        src: [
-	                            '**.js',
-	                        ],
-	                        dest: 'assets/js/minified',
-	                        cwd: 'assets/js/unminified',
-	                        ext: '.min.js'
-	                    },
-	                    {
-		                    src: [
-		                    	'assets/js/minified/navigation.min.js',
+                        { // all .js to min.js
+                            expand: true,
+                            src: [
+                                '**.js',
+                            ],
+                            dest: 'assets/js/minified',
+                            cwd: 'assets/js/unminified',
+                            ext: '.min.js'
+                        },
+                        {
+                            src: [
+                                'assets/js/minified/navigation.min.js',
                                 'assets/js/minified/custom-events-polyfill.js'
-		                    ],
-		                    dest: 'assets/js/minified/style.min.js',
-		                },
+                            ],
+                            dest: 'assets/js/minified/style.min.js',
+                        },
                         {
                             src: [
                                 'inc/addons/breadcrumbs/assets/js/unminified/*.js',
@@ -217,7 +224,13 @@ module.exports = function (grunt) {
                             ],
                             dest: 'inc/addons/transparent-header/assets/js/minified/customizer-preview.min.js',
                         },
-	               	]
+                        {
+                            src: [
+                                'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
+                            ],
+                            dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
+                        },
+                    ]
                 }
             },
 
@@ -228,29 +241,29 @@ module.exports = function (grunt) {
                 css: {
                     files: [
 
-                    	// Generated '.min.css' files from '.css' files.
-                    	// NOTE: Avoided '-rtl.css' files.
-                    	{
-	                        expand: true,
-	                        src: [
-	                            '**/*.css',
-	                            '!**/*-rtl.css',
-	                        ],
-	                        dest: 'assets/css/minified',
-	                        cwd: 'assets/css/unminified',
-	                        ext: '.min.css'
-	                    },
+                        // Generated '.min.css' files from '.css' files.
+                        // NOTE: Avoided '-rtl.css' files.
+                        {
+                            expand: true,
+                            src: [
+                                '**/*.css',
+                                '!**/*-rtl.css',
+                            ],
+                            dest: 'assets/css/minified',
+                            cwd: 'assets/css/unminified',
+                            ext: '.min.css'
+                        },
 
-	                    // Generating RTL files from '/unminified/' into '/minified/'
-                    	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
-                    	{
-                    		src: 'assets/css/unminified/editor-style-rtl.css',
-	                        dest: 'assets/css/minified/editor-style.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/style-rtl.css',
-	                        dest: 'assets/css/minified/style.min-rtl.css',
-	                    },
+                        // Generating RTL files from '/unminified/' into '/minified/'
+                        // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                        {
+                            src: 'assets/css/unminified/editor-style-rtl.css',
+                            dest: 'assets/css/minified/editor-style.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/style-rtl.css',
+                            dest: 'assets/css/minified/style.min-rtl.css',
+                        },
 
                         {
                             src: 'inc/customizer/custom-controls/assets/css/unminified/*.css',
@@ -262,36 +275,36 @@ module.exports = function (grunt) {
                             dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min-rtl.css',
                         },
 
-	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
-	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
-                    	{
-                    		src: 'assets/css/unminified/compatibility/bne-flyout-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
-	                    },
-                    	{
+                        // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
+                        // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                        {
+                            src: 'assets/css/unminified/compatibility/bne-flyout-rtl.css',
+                            dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
+                            dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
+                            dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
+                        },
+                        {
                             src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
                             dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
                         },
                         {
-                    		src: 'assets/css/unminified/compatibility/learndash-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
-	                    },
+                            src: 'assets/css/unminified/compatibility/learndash-rtl.css',
+                            dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
+                            dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
+                            dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
+                        },
                         {
                             src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css',
                             dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css',
@@ -392,12 +405,12 @@ module.exports = function (grunt) {
                 target: {
                     files: {
                         src: [
-                        	'*.php',
-                        	'**/*.php',
-                        	'!node_modules/**',
-                        	'!php-tests/**',
-                        	'!bin/**',
-                        	'!admin/bsf-core/**'
+                            '*.php',
+                            '**/*.php',
+                            '!node_modules/**',
+                            '!php-tests/**',
+                            '!bin/**',
+                            '!admin/bsf-core/**'
                         ]
                     }
                 }
@@ -439,6 +452,31 @@ module.exports = function (grunt) {
 
                                 ],
                                 dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+                                },
+                                {
+                                src: [
+                                    'inc/customizer/custom-controls/background/background.js',
+                                    'inc/customizer/custom-controls/border/border.js',
+                                    'inc/customizer/custom-controls/color/color.js',
+                                    'inc/customizer/custom-controls/customizer-link/customizer-link.js',
+                                    'inc/customizer/custom-controls/description/description.js',
+                                    'inc/customizer/custom-controls/divider/divider.js',
+                                    'inc/customizer/custom-controls/heading/heading.js',
+                                    'inc/customizer/custom-controls/hidden/hidden.js',
+                                    'inc/customizer/custom-controls/radio-image/radio-image.js',
+                                    'inc/customizer/custom-controls/responsive/responsive.js',
+                                    'inc/customizer/custom-controls/responsive-color/responsive-color.js',
+                                    'inc/customizer/custom-controls/responsive-slider/responsive-slider.js',
+                                    'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js',
+                                    'inc/customizer/custom-controls/select/select.js',
+                                    'inc/customizer/custom-controls/settings-group/settings-group.js',
+                                    'inc/customizer/custom-controls/slider/slider.js',
+                                    'inc/customizer/custom-controls/sortable/sortable.js',
+                                    'inc/customizer/custom-controls/spacing/spacing.js',
+                                    'inc/customizer/custom-controls/typography/typography.js'
+
+                                ],
+                                dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                                 },
                                 {
                                 src: [
