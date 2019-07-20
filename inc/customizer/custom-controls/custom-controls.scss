@@ -12,6 +12,9 @@
   .wp-picker-clear {
     margin-left: 2%;
   }
+  .wp-picker-default {
+    margin-left: 2%;
+  }
   .screen-reader-text {
     top: initial;
   }
@@ -483,7 +486,7 @@
     margin-left: 1%;
   }
   button.button.wp-color-result.wp-picker-open {
-    margin: 0px 3px 6px 0px !important;
+    margin: 0px 6px 6px 0px !important;
   }
   .customize-control-content .wp-picker-container {
     display: none;
@@ -494,7 +497,7 @@
 }
 
 .wp-picker-container.wp-picker-active .wp-picker-open {
-  margin: 0px 3px 6px 0px;
+  margin: 0px 6px 6px 0px;
 }
 
 /* Responsive Slider */

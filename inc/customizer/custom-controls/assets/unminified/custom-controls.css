@@ -12,6 +12,10 @@
   margin-left: 2%;
 }
 
+.customize-control-ast-background .wp-picker-default {
+  margin-left: 2%;
+}
+
 .customize-control-ast-background .screen-reader-text {
   top: initial;
 }
@@ -510,7 +514,7 @@
 }
 
 .customize-control-ast-responsive-color button.button.wp-color-result.wp-picker-open {
-  margin: 0px 3px 6px 0px !important;
+  margin: 0px 6px 6px 0px !important;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .wp-picker-container {
@@ -522,7 +526,7 @@
 }
 
 .wp-picker-container.wp-picker-active .wp-picker-open {
-  margin: 0px 3px 6px 0px;
+  margin: 0px 6px 6px 0px;
 }
 
 /* Responsive Slider */
