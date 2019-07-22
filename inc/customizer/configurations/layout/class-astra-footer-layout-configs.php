@@ -307,7 +307,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[footer-adv-border-width]',
 					'type'        => 'control',
-					'control'     => 'number',
+					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
 					'section'     => 'section-footer-adv',
 					'default'     => astra_get_option( 'footer-adv-border-width' ),
