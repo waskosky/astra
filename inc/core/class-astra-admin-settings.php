@@ -90,6 +90,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
 
+			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
+
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
@@ -340,6 +342,42 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function customizer_scripts() {
 			$color_palettes = json_encode( astra_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
+		}
+
+		public static function register_scripts() {
+			$js_prefix  = '.min.js';
+			$css_prefix = '.min.css';
+			$dir        = 'minified';
+			if ( SCRIPT_DEBUG ) {
+				$js_prefix  = '.js';
+				$css_prefix = '.css';
+				$dir        = 'unminified';
+			}
+
+			if ( is_rtl() ) {
+				$css_prefix = '-rtl.min.css';
+				if ( SCRIPT_DEBUG ) {
+					$css_prefix = '-rtl.css';
+				}
+			}
+
+			/**
+			 * Filters the Admin JavaScript handles added
+			 *
+			 * @since v1.4.10
+			 *
+			 * @param array array of the javascript handles.
+			 */
+			$js_handle = apply_filters( 'astra_admin_script_handles', array( 'jquery', 'wp-color-picker' ) );
+			
+			// Add customize-base handle only for the Customizer Preview Screen.
+			if ( true === is_customize_preview() ) {
+				$js_handle[] = 'customize-base';
+			}
+
+			wp_register_script( 'astra-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
+
+			// wp_enqueue_script( 'astra-color-alpha' );
 		}
 
 		/**
