@@ -521,11 +521,13 @@
   margin: 0px 0px 6px 6px !important;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .wp-picker-container {
+.customize-control-ast-responsive-color .customize-control-content .wp-picker-container,
+.customize-control-ast-responsive-color .ast-responsive-color {
   display: none;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .wp-picker-container.active {
+.customize-control-ast-responsive-color .customize-control-content .wp-picker-container.active,
+.customize-control-ast-responsive-color .ast-responsive-color.active {
   display: block;
 }
 

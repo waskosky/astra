@@ -491,7 +491,8 @@
   button.button.wp-color-result.wp-picker-open {
     margin: 0px 6px 6px 0px !important;
   }
-  .customize-control-content .wp-picker-container {
+  .customize-control-content .wp-picker-container,
+  .ast-responsive-color {
     display: none;
     &.active {
       display: block;

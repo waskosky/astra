@@ -542,7 +542,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
     initResponsiveColor: function( wrap, control_elem, name ) {
 
         var control = this;
-        var picker = wrap.find( '.ast-responsive-color' );
+        var picker = wrap.find( '.ast-responsive-color.active' );
 
         picker.wpColorPicker({
 
@@ -640,6 +640,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             }
 
             jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
+
+            wrap.find( '.ast-responsive-color.active' ).removeClass('active');
+            wrap.find( '.ast-responsive-color.' + device ).addClass('active');
+            control.initResponsiveColor( wrap, control_elem, name );
+            wrap.find( '.wp-picker-container' ).removeClass( 'active' );
+            wrap.find( '.ast-responsive-color.active' ).parents( '.wp-picker-container' ).addClass( 'active' );
         });
 
         // Set desktop colorpicker active.
