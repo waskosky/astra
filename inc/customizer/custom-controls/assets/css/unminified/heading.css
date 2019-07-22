@@ -52,7 +52,7 @@
   cursor: default;
 }
 
-.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
+.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link, .customize-control .ast-spacing-responsive-units, .customize-control .ast-control-tooltip {
   cursor: pointer;
 }
 

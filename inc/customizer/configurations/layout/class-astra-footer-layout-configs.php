@@ -180,12 +180,13 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
 					'type'        => 'control',
-					'control'     => 'number',
+					'control'     => 'ast-slider',
 					'default'     => astra_get_option( 'footer-sml-divider' ),
 					'section'     => 'section-footer-small',
 					'priority'    => 40,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'title'       => __( 'Border Size', 'astra' ),
+					'transport'   => 'postMessage',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -306,7 +307,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[footer-adv-border-width]',
 					'type'        => 'control',
-					'control'     => 'number',
+					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
 					'section'     => 'section-footer-adv',
 					'default'     => astra_get_option( 'footer-adv-border-width' ),

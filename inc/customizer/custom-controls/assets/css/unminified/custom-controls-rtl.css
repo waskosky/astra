@@ -11,6 +11,10 @@
   margin-right: 2%;
 }
 
+.customize-control-ast-background .wp-picker-default {
+  margin-right: 2%;
+}
+
 .customize-control-ast-background .screen-reader-text {
   top: initial;
 }
@@ -239,6 +243,10 @@
 }
 
 .customize-control-ast-background .wp-picker-clear {
+  margin-right: 2%;
+}
+
+.customize-control-ast-background .wp-picker-default {
   margin-right: 2%;
 }
 
@@ -508,6 +516,10 @@
   text-transform: uppercase;
 }
 
+#customize-control-astra-settings-divider-section-transparent-border-styling {
+  margin-top: 3px;
+}
+
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
 }
@@ -562,7 +574,7 @@
   cursor: default;
 }
 
-.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
+.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link, .customize-control .ast-spacing-responsive-units, .customize-control .ast-control-tooltip {
   cursor: pointer;
 }
 
@@ -634,7 +646,7 @@
 }
 
 .customize-control-ast-responsive-color button.button.wp-color-result.wp-picker-open {
-  margin: 0px 0px 6px 3px !important;
+  margin: 0px 0px 6px 6px !important;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .wp-picker-container {
@@ -646,7 +658,7 @@
 }
 
 .wp-picker-container.wp-picker-active .wp-picker-open {
-  margin: 0px 0px 6px 3px;
+  margin: 0px 0px 6px 6px;
 }
 
 .customize-control-ast-responsive-slider .wrapper {
@@ -1533,6 +1545,10 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   text-transform: uppercase;
 }
 
+#customize-control-astra-settings-divider-section-transparent-border-styling {
+  margin-top: 3px;
+}
+
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
 }
@@ -1587,7 +1603,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   cursor: default;
 }
 
-.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link {
+.customize-control .ast-spacing-input-item-link, .customize-control .ast-border-input-item-link, .customize-control .ast-spacing-responsive-units, .customize-control .ast-control-tooltip {
   cursor: pointer;
 }
 
@@ -1659,7 +1675,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .customize-control-ast-responsive-color button.button.wp-color-result.wp-picker-open {
-  margin: 0px 0px 6px 3px !important;
+  margin: 0px 0px 6px 6px !important;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .wp-picker-container {
@@ -1671,7 +1687,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .wp-picker-container.wp-picker-active .wp-picker-open {
-  margin: 0px 0px 6px 3px;
+  margin: 0px 0px 6px 6px;
 }
 
 .ast-responsive-btns {
@@ -1782,6 +1798,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
 }
 
 .customize-control-ast-responsive-slider input[type=range] {
@@ -1902,7 +1919,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper.active {
-  display: flex;
+  display: inline-flex;
 }
 
 /**

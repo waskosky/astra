@@ -9,6 +9,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
 }
 
 .customize-control-ast-responsive-slider input[type=range] {
@@ -129,7 +130,7 @@
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper.active {
-  display: flex;
+  display: inline-flex;
 }
 
 /**

@@ -9,6 +9,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    width: 100%;
   }
   input[type=range] {
     -webkit-appearance: none;
@@ -115,7 +116,7 @@
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: none;
   &.active {
-    display: flex;
+    display: inline-flex;
   }
 }
 

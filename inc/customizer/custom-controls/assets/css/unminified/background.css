@@ -11,6 +11,10 @@
   margin-left: 2%;
 }
 
+.customize-control-ast-background .wp-picker-default {
+  margin-left: 2%;
+}
+
 .customize-control-ast-background .screen-reader-text {
   top: initial;
 }
