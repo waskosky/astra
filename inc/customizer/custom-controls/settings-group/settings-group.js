@@ -34,7 +34,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
             
-            
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
             } else {
@@ -46,7 +45,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 if( is_loaded ) {
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
                 } else {
-                    var fields = control.params.ast_fields;
+                    var fields = group_obj.data[control.id];
+
                     var $modal_wrap = $( astra.customizer.group_modal_tmpl );
 
                     parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
