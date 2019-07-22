@@ -417,25 +417,9 @@ module.exports = function (grunt) {
                     },
                     {
                         src: [
-                            'inc/customizer/custom-controls/assets/css/unminified/background.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/border.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/color.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/customizer-link.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/description.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/divider.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/heading.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/hidden.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/radio-image.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/responsive.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/responsive-color.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/responsive-slider.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/responsive-spacing.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/select.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/settings-group.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/slider.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/sortable.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/spacing.css',
-                            'inc/customizer/custom-controls/assets/css/unminified/typography.css'
+                            'inc/customizer/custom-controls/assets/css/unminified/*.css',
+                            '!inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
+                            '!inc/customizer/custom-controls/assets/css/unminified/custom-controls.css'
 
                         ],
                         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
