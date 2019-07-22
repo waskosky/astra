@@ -217,6 +217,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/addons/transparent-header/assets/js/minified/customizer-preview.min.js',
                     },
+                    {
+                        src: [
+                            'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
+                        ],
+                        dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
+                    }
                 ]
             }
         },
@@ -423,6 +429,31 @@ module.exports = function (grunt) {
 
                         ],
                         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+                    },
+                    {
+                        src: [
+                            'inc/customizer/custom-controls/background/background.js',
+                            'inc/customizer/custom-controls/border/border.js',
+                            'inc/customizer/custom-controls/color/color.js',
+                            'inc/customizer/custom-controls/customizer-link/customizer-link.js',
+                            'inc/customizer/custom-controls/description/description.js',
+                            'inc/customizer/custom-controls/divider/divider.js',
+                            'inc/customizer/custom-controls/heading/heading.js',
+                            'inc/customizer/custom-controls/hidden/hidden.js',
+                            'inc/customizer/custom-controls/radio-image/radio-image.js',
+                            'inc/customizer/custom-controls/responsive/responsive.js',
+                            'inc/customizer/custom-controls/responsive-color/responsive-color.js',
+                            'inc/customizer/custom-controls/responsive-slider/responsive-slider.js',
+                            'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js',
+                            'inc/customizer/custom-controls/select/select.js',
+                            'inc/customizer/custom-controls/settings-group/settings-group.js',
+                            'inc/customizer/custom-controls/slider/slider.js',
+                            'inc/customizer/custom-controls/sortable/sortable.js',
+                            'inc/customizer/custom-controls/spacing/spacing.js',
+                            'inc/customizer/custom-controls/typography/typography.js'
+
+                        ],
+                        dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                     },
                     {
                         src: [
