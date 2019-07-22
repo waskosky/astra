@@ -253,7 +253,10 @@ module.exports = function (grunt) {
                     },
 
                     {
-                        src: 'inc/customizer/custom-controls/assets/css/unminified/*.css',
+                        src:[
+                            'inc/customizer/custom-controls/assets/css/unminified/*.css',
+                            '!inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
+                        ],
                         dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css',
                     },
 
@@ -420,7 +423,6 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/assets/css/unminified/*.css',
                             '!inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
                             '!inc/customizer/custom-controls/assets/css/unminified/custom-controls.css'
-
                         ],
                         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                     },
