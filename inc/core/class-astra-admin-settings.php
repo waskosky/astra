@@ -250,7 +250,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		/**
 		 * Enqueue Astra Notices CSS.
-		 * 
+		 *
 		 * @since x.x.x
 		 *
 		 * @return void
@@ -344,6 +344,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
 
+		/**
+		 * Register admin scripts.
+		 *
+		 * @return x.x.x
+		 */
 		public static function register_scripts() {
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
@@ -369,15 +374,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			 * @param array array of the javascript handles.
 			 */
 			$js_handle = apply_filters( 'astra_admin_script_handles', array( 'jquery', 'wp-color-picker' ) );
-			
+
 			// Add customize-base handle only for the Customizer Preview Screen.
 			if ( true === is_customize_preview() ) {
 				$js_handle[] = 'customize-base';
 			}
 
 			wp_register_script( 'astra-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
-
-			// wp_enqueue_script( 'astra-color-alpha' );
 		}
 
 		/**

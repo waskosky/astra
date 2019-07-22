@@ -218,7 +218,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			wp_enqueue_script( 'astra-notices' );
 
-			do_action( "astra_notice_before_markup" );
+			do_action( 'astra_notice_before_markup' );
 
 			do_action( "astra_notice_before_markup_{$notice['id']}" );
 
@@ -233,7 +233,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			do_action( "astra_notice_after_markup_{$notice['id']}" );
 
-			do_action( "astra_notice_after_markup" );
+			do_action( 'astra_notice_after_markup' );
 
 		}
 
