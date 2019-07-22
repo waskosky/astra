@@ -708,7 +708,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			if ( is_rtl() ) {
-				$css_prefix = '-rtl.min.css';
+				$css_prefix = '.min-rtl.css';
 				if ( SCRIPT_DEBUG ) {
 					$css_prefix = '-rtl.css';
 				}
