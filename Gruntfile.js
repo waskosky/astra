@@ -251,7 +251,14 @@ module.exports = function (grunt) {
                         src: 'assets/css/unminified/style-rtl.css',
                         dest: 'assets/css/minified/style.min-rtl.css',
                     },
-
+                    {
+                        src: 'assets/css/unminified/extend-customizer-rtl.css',
+                        dest: 'assets/css/minified/extend-customizer.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/customizer-controls-rtl.css',
+                        dest: 'assets/css/minified/customizer-controls.min-rtl.css',
+                    },
                     {
                         src:[
                             'inc/customizer/custom-controls/assets/css/unminified/*.css',
