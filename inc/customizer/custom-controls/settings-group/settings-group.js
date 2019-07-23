@@ -54,7 +54,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                      * JS to fix sticky section heading not working.
                      */
                     if ( parent_section.outerHeight() < parent_section.prop('scrollHeight') ) {
-                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 20 );
+                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 250 );
                     }
                 } else {
                     var fields = control.params.ast_fields;
@@ -82,7 +82,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                      * JS to fix sticky section heading not working.
                      */
                     if ( parent_section.outerHeight() < parent_section.prop('scrollHeight') ) {
-                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 20 );
+                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 250 );
                     }
                 }
             }
