@@ -932,10 +932,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             
             var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
-            
+            var parent_section = parent_wrap.parents('.control-section-ast_section');
             
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
+                /**
+                 * Reset height of the section when popup is closed.
+                 */
+                parent_section.height('');
             } else {
                 /* Close popup when another popup is clicked to open */
                 var get_open_popup = $this.closest('.control-section-ast_section').find('.ast-adv-toggle-icon.open');
@@ -944,6 +948,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 }
                 if( is_loaded ) {
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
+                    /**
+                     * JS to fix sticky section heading not working.
+                     */
+                    if ( parent_section.outerHeight() < parent_section.prop('scrollHeight') ) {
+                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 20 );
+                    }
                 } else {
                     var fields = control.params.ast_fields;
                     var $modal_wrap = $( astra.customizer.group_modal_tmpl );
@@ -965,6 +975,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     } else {
                         jQuery('.ast-responsive-btns .desktop, .ast-responsive-slider-btns .desktop').addClass('active');
                         jQuery('.ast-responsive-btns .preview-desktop, .ast-responsive-slider-btns .preview-desktop').addClass('active');
+                    }
+                    /**
+                     * JS to fix sticky section heading not working.
+                     */
+                    if ( parent_section.outerHeight() < parent_section.prop('scrollHeight') ) {
+                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 20 );
                     }
                 }
             }
