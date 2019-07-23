@@ -458,6 +458,7 @@
   }
   .iris-slider.iris-strip, .iris-strip.iris-slider.iris-alpha-slider {
     width: 13px !important;
+    margin-right: 8px !important;
   }
 }
 
@@ -1170,10 +1171,6 @@
   border: 9px solid transparent;
   border-bottom-color: #fff;
   pointer-events: none;
-}
-
-#customize-theme-controls .control-section-ast_section.open {
-  height: 100%;
 }
 
 .ast-group-tabs .ui-tabs-nav {
@@ -2195,10 +2192,6 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   border: 9px solid transparent;
   border-bottom-color: #fff;
   pointer-events: none;
-}
-
-#customize-theme-controls .control-section-ast_section.open {
-  height: 100%;
 }
 
 .ast-group-tabs .ui-tabs-nav {
