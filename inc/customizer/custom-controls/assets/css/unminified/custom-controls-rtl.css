@@ -2196,10 +2196,6 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   pointer-events: none;
 }
 
-#customize-theme-controls .control-section-ast_section.open {
-  height: 100%;
-}
-
 .ast-group-tabs .ui-tabs-nav {
   display: flex;
   padding: 15px 15px 0 15px;
