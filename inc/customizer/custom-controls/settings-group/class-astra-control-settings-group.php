@@ -47,14 +47,6 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		public $name = '';
 
 		/**
-		 * The control value.
-		 *
-		 * @access public
-		 * @var string
-		 */
-		public $value = '';
-
-		/**
 		 * The fields for group.
 		 *
 		 * @access public

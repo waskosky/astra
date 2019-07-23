@@ -325,13 +325,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private function register_setting_control( $config, $wp_customize ) {
 
+			if( 'ast-settings-group' === $config['control'] ) {
+				$callback = false; 
+			} else {
+				$callback =  astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+			}
+
 			$wp_customize->add_setting(
 				astra_get_prop( $config, 'name' ),
 				array(
 					'default'           => astra_get_prop( $config, 'default' ),
 					'type'              => astra_get_prop( $config, 'datastore_type' ),
 					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
-					'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+					'sanitize_callback' => $callback,
 				)
 			);
 
@@ -640,8 +646,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			Astra_Customizer_Control_Base::add_control(
 				'ast-settings-group',
 				array(
-					'callback'          => 'Astra_Control_Settings_Group',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_settings_group' ),
+					'callback'          => 'Astra_Control_Settings_Group'
 				)
 			);
 
