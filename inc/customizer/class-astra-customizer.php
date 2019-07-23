@@ -39,6 +39,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		private static $configuration;
 
 		/**
+		 * All groups parent-child relation array data.
+		 *
+		 * @access Public
+		 * @since x.x.x
+		 * @var Array
+		 */
+		public static $group_configs = array();
+
+		/**
 		 * Customizer controls data.
 		 *
 		 * @access Public
@@ -132,52 +141,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					case 'control':
 						// Remove type from configuration.
 						unset( $config['type'] );
-
-						if ( 'ast-settings-group' == $config['control'] ) {
-
-							// Get Child controls for group control.
-							$config_obj = wp_filter_object_list(
-								$configurations,
-								array(
-									'parent' => astra_get_prop( $config, 'name' ),
-								)
-							);
-
-							$control_defaults = array();
-
-							foreach ( $config_obj as $sub_control ) {
-								if ( isset( $sub_control['default'] ) ) {
-									$control_defaults[ $sub_control['name'] ] = $sub_control['default'];
-
-									$control_type = $sub_control['control'];
-
-									if ( ! in_array( $control_type, $this->control_types ) && $this->starts_with( $control_type, 'ast-' ) ) {
-										$this->control_types[] = $control_type;
-									}
-								}
-							}
-
-							// Sort them according to priority.
-							$config_sorted = wp_list_sort( $config_obj, 'priority' );
-
-							$tabs_data = array();
-
-							foreach ( $config_sorted as $config_value ) {
-
-								if ( isset( $config_value['tab'] ) ) {
-									$tabs_data[ $config_value['tab'] ][] = $config_value;
-								}
-							}
-
-							if ( ! empty( $tabs_data ) ) {
-								$config_sorted         = array();
-								$config_sorted['tabs'] = $tabs_data;
-							}
-
-							$config['ast_fields'] = $config_sorted;
-							$config['default']    = $control_defaults;
-
-						}
 
 						$this->register_setting_control( $config, $wp_customize );
 
@@ -284,6 +247,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
 
+			$parent = astra_get_prop( $control_config, 'parent' );
+			$tab    = astra_get_prop( $control_config, 'tab' );
+
+			if ( empty( self::$group_configs[ $parent ] ) ) {
+				self::$group_configs[ $parent ] = array();
+			}
+
+			if ( array_key_exists( 'tab', $control_config ) ) {
+				self::$group_configs[ $parent ]['tabs'][ $tab ][] = $control_config;
+			} else {
+				self::$group_configs[ $parent ][] = $control_config;
+			}
+
 			$config = array(
 				'name'              => $sub_control_name,
 				'datastore_type'    => 'option',
@@ -325,13 +301,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private function register_setting_control( $config, $wp_customize ) {
 
+			if ( 'ast-settings-group' === $config['control'] ) {
+				$callback = false;
+			} else {
+				$callback = astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+			}
+
 			$wp_customize->add_setting(
 				astra_get_prop( $config, 'name' ),
 				array(
 					'default'           => astra_get_prop( $config, 'default' ),
 					'type'              => astra_get_prop( $config, 'datastore_type' ),
 					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
-					'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+					'sanitize_callback' => $callback,
 				)
 			);
 
@@ -640,8 +622,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			Astra_Customizer_Control_Base::add_control(
 				'ast-settings-group',
 				array(
-					'callback'          => 'Astra_Control_Settings_Group',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_settings_group' ),
+					'callback' => 'Astra_Control_Settings_Group',
 				)
 			);
 
