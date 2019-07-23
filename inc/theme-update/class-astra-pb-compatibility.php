@@ -40,6 +40,25 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
+			add_action( 'init', array( $this, 'maybe_run_pb_compatibility' ) );
+		}
+
+		/**
+		 * Page builder compatibility database migration was added in v1.0.14, This was 2 Years ago as of right now.
+		 * After version 1.8.7 we are stopping from running this to avoid execution of unnecessary database queries.
+		 * This code will be removed alltogether in newer versions as it is not working
+		 *
+		 * @since x.x.x
+		 *
+		 * @return void
+		 */
+		public function maybe_run_pb_compatibility() {
+			$theme_version = astra_get_option( 'theme-auto-version', '2.0.0-beta.1' );
+
+			// Check if current version is less greater than v2.0.0-beta.1.
+			if ( version_compare( '2.0.0-beta.1', $theme_version, '<' ) ) {
+				return;
+			}
 
 			// Theme Updates.
 			add_action( 'do_meta_boxes', array( $this, 'page_builder_compatibility' ) );
