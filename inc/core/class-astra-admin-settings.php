@@ -347,7 +347,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Register admin scripts.
 		 *
-		 * @return x.x.x
+		 * @return void
 		 */
 		public static function register_scripts() {
 			$js_prefix  = '.min.js';
