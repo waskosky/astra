@@ -55,6 +55,14 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		public $value = '';
 
 		/**
+		 * The control value.
+		 *
+		 * @access public
+		 * @var string
+		 */
+		public $tab = '';
+
+		/**
 		 * The fields for group.
 		 *
 		 * @access public
@@ -83,7 +91,22 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 			$this->json['help']  = $this->help;
 			$this->json['name']  = $this->name;
 
-			$this->json['ast_fields'] = Astra_Customizer::$group_configs[ $this->name ];
+			$a = '';
+			if( isset( Astra_Customizer::$group_configs[ $this->name ]['tabs'] ) ) {
+				$tab =  array_keys(Astra_Customizer::$group_configs[ $this->name ]['tabs']);
+
+				$tab_data = array();
+
+				foreach ( $tab as $key => $value ) {
+					$a = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ]['tabs'][$value], 'priority' );
+
+					$tab_data['tabs'][$value] = $a;
+				}
+			} else {
+				$tab_data = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ], 'priority' );
+			}
+
+			$this->json['ast_fields'] = $tab_data;
 		}
 
 		/**
