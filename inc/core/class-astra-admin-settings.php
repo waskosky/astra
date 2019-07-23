@@ -347,9 +347,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Register admin scripts.
 		 *
+		 * @param String $hook Screen name where the hook is fired.
 		 * @return void
 		 */
-		public static function register_scripts() {
+		public static function register_scripts( $hook ) {
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
 			$dir        = 'minified';
@@ -381,6 +382,34 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			wp_register_script( 'astra-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
+
+			if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
+				$post_types = get_post_types( array( 'public' => true ) );
+				$screen     = get_current_screen();
+				$post_type  = $screen->id;
+
+				if ( in_array( $post_type, (array) $post_types ) ) {
+					echo '<style class="astra-meta-box-style">
+						#side-sortables #astra_settings_meta_box select { min-width: 100%; }
+						#normal-sortables #astra_settings_meta_box select { min-width: 200px; }
+					</style>';
+				}
+			}
+			/* Add CSS for the Submenu for BSF plugins added in Appearance Menu */
+
+			if ( ! is_customize_preview() ) {
+				echo '<style class="astra-menu-appearance-style">
+					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
+					#menu-appearance a[href^="themes.php?page=astra-"]:before,
+					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
+					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
+					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before {
+					    content: "\21B3";
+					    margin-right: 0.5em;
+					    opacity: 0.5;
+					}
+				</style>';
+			}
 		}
 
 		/**
