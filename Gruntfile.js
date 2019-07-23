@@ -24,6 +24,14 @@ module.exports = function (grunt) {
         });
     }
 
+    sass_dist_files.push({
+        expand: true,
+        cwd: "inc/customizer/custom-controls/",
+        src: ["*.scss"],
+        dest: "inc/customizer/custom-controls/assets/css/unminified",
+        ext: ".css",
+    });
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -434,8 +442,7 @@ module.exports = function (grunt) {
                     {
                         src: [
                             'inc/customizer/custom-controls/assets/css/unminified/*.css',
-                            '!inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
-                            '!inc/customizer/custom-controls/assets/css/unminified/custom-controls.css'
+                            '!inc/customizer/custom-controls/assets/css/unminified/*-rtl.css'
                         ],
                         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                     },

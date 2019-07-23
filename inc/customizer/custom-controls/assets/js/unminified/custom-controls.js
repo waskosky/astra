@@ -957,6 +957,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     }
                 } else {
                     var fields = control.params.ast_fields;
+
                     var $modal_wrap = $( astra.customizer.group_modal_tmpl );
 
                     parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
