@@ -740,6 +740,7 @@
   font-size: 14px;
   padding: 0 5px 0 0;
   font-weight: 400;
+  display: inline-block;
   position: relative;
 }
 
@@ -771,6 +772,7 @@
   height: 22px;
   font-size: 12px;
   padding: 3px;
+  display: inline-block;
 }
 
 .astra_range_value .ast-range-unit {
@@ -782,7 +784,11 @@
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper.active {
-  display: flex;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-left: 0;
+  flex: 0 1;
+  width: 100%;
 }
 
 /**
@@ -1901,6 +1907,10 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 
 .customize-control-ast-responsive-slider .input-field-wrapper.active {
   display: flex;
+  justify-content: space-between;
+  margin-left: 0;
+  flex: 0 1;
+  width: 100%;
 }
 
 /**

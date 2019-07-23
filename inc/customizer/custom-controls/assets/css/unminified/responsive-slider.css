@@ -130,6 +130,10 @@
 
 .customize-control-ast-responsive-slider .input-field-wrapper.active {
   display: flex;
+  justify-content: space-between;
+  margin-right: 0;
+  flex: 0 1;
+  width: 100%;
 }
 
 /**
