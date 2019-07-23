@@ -747,15 +747,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							}
 						} elseif ( '' !== $control_data_js ) {
 							wp_enqueue_script( $control_data_js, $uri . $control_data_js . '.js', $control_data_dependency, ASTRA_THEME_VERSION, true );
-
-							wp_localize_script(
-								$control_data_js,
-								'group_obj',
-								array(
-									'data' => self::$group_configs,
-								)
-							);
-
 						}
 					}
 				}

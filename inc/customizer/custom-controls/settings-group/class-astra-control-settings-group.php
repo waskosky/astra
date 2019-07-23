@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 			$this->json['help']  = $this->help;
 			$this->json['name']  = $this->name;
 
-			$this->json['ast_fields'] = $this->ast_fields;
+			$this->json['ast_fields'] = Astra_Customizer::$group_configs[ $this->name ];
 		}
 
 		/**
@@ -96,7 +96,8 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		 *
 		 * @access protected
 		 */
-		protected function content_template() {             ?>
+		protected function content_template() {
+			?>
 
 		<div class="ast-toggle-desc-wrap">
 			<label class="customizer-text">
