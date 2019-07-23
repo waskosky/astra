@@ -810,6 +810,19 @@ function isJsonString( str ) {
 		} );
 	} );
 
+	/*
+	 * EDD Archive Custom Width
+	 */
+	wp.customize( 'astra-settings[edd-archive-max-width]', function( setting ) {
+		setting.bind( function( width ) {
+
+				var dynamicStyle = '.ast-edd-archive-page .site-content > .ast-container { max-width: ' + parseInt( width ) + 'px } ';
+
+				astra_add_dynamic_css( 'edd-archive-max-width', dynamicStyle );
+
+		} );
+	} );
+
 	/**
 	 * Primary Width Option
 	 */

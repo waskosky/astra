@@ -348,7 +348,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Register admin scripts.
 		 *
 		 * @param String $hook Screen name where the hook is fired.
-		 * @return void.
+		 * @return void
 		 */
 		public static function register_scripts( $hook ) {
 			$js_prefix  = '.min.js';
