@@ -33,7 +33,7 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             
             var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
             var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
-            var parent_section = parent_wrap.parents('.control-section-ast_section');
+            var parent_section = parent_wrap.parents('.control-section');
             
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
@@ -43,7 +43,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                 parent_section.height('');
             } else {
                 /* Close popup when another popup is clicked to open */
-                var get_open_popup = $this.closest('.control-section-ast_section').find('.ast-adv-toggle-icon.open');
+				var get_open_popup = parent_section.find('.ast-adv-toggle-icon.open');
+				// console.log(get_open_popup);
                 if( get_open_popup.length > 0 ) {
                     get_open_popup.trigger('click');
                 }
@@ -88,18 +89,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             }
 
             $this.toggleClass('open');
-
-            $(document).on( 'click', '.control-section-ast_section', function(e) {
-
-                if( ! $( e.target ).hasClass( 'customize-section-back' ) ) {
-                    return;
-                }
-
-                var html = jQuery( this );
-                html = html.find( '.customize-control-ast-settings-group' );
-                html.find( '.ast-adv-toggle-icon' ).removeClass( 'open' );
-                html.find( '.ast-field-settings-wrap .ast-field-settings-modal' ).hide();
-            } );
 
         });
 
