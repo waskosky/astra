@@ -53,16 +53,15 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		 * @return void
 		 */
 		public function maybe_run_pb_compatibility() {
-			$theme_version = astra_get_option( 'theme-auto-version', '2.0.0-beta.1' );
 
-			// Check if current version is less greater than v2.0.0-beta.1.
-			if ( version_compare( '2.0.0-beta.1', $theme_version, '<' ) ) {
-				return;
+			$is_compatibility_completed = astra_get_option( '_astra_pb_compatibility_completed', false );
+
+			if ( ! $is_compatibility_completed ) {
+
+				// Theme Updates.
+				add_action( 'do_meta_boxes', array( $this, 'page_builder_compatibility' ) );
+				add_action( 'wp', array( $this, 'page_builder_compatibility' ), 25 );
 			}
-
-			// Theme Updates.
-			add_action( 'do_meta_boxes', array( $this, 'page_builder_compatibility' ) );
-			add_action( 'wp', array( $this, 'page_builder_compatibility' ), 25 );
 		}
 
 		/**
@@ -77,6 +76,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 			$comp_time   = get_option( '_astra_pb_compatibility_time', false );
 
 			if ( ! $offset_comp || ! $comp_time ) {
+				astra_update_option( '_astra_pb_compatibility_completed', true );
 				return;
 			}
 
@@ -129,6 +129,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 			} else {
 				delete_option( '_astra_pb_compatibility_offset' );
 				delete_option( '_astra_pb_compatibility_time' );
+				astra_update_option( '_astra_pb_compatibility_completed', true );
 			}
 		}
 
