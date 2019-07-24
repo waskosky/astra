@@ -1,5 +1,37 @@
 
 
+/**
+ * JS to manage the sticky heading of an open section on scroll up.
+ */
+jQuery( document ).ready(function() {
+	var last_scroll_top = 0;
+	var parentSection   = jQuery( '.wp-full-overlay-sidebar-content' );
+	jQuery('#customize-controls .wp-full-overlay-sidebar-content .control-section').on( 'scroll', function (event) {
+		var $this = jQuery(this);
+		// Run sticky js for only open section.
+		if ( $this.hasClass( 'open' ) ) {
+			var section_title = $this.find( '.customize-section-title' );
+			var scroll_top    = $this.scrollTop();
+			if ( scroll_top > last_scroll_top ) {
+				// On scroll down, remove sticky section title.
+				section_title.removeClass( 'maybe-sticky' ).removeClass( 'is-in-view' ).removeClass( 'is-sticky' );
+				$this.css( 'padding-top', '' );
+			} else {
+				// On scroll up, add sticky section title.
+				var parent_width = $this.outerWidth();
+				section_title.addClass( 'maybe-sticky' ).addClass( 'is-in-view' ).addClass( 'is-sticky' ).width( parent_width - 5 ).css( 'top', parentSection.css( 'top' ) );
+				$this.css( 'padding-top', section_title.height() );
+				if( scroll_top === 0 ) {
+					// Remove sticky section heading when scrolled to the top.
+					section_title.removeClass( 'maybe-sticky' ).removeClass( 'is-in-view' ).removeClass( 'is-sticky' );
+					$this.css( 'padding-top', '' );
+				}
+			}
+			last_scroll_top = scroll_top;
+		}
+	});
+});
+
 wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.extend({
 
     ready : function() {
@@ -37,25 +69,14 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
             
             if( $this.hasClass('open') ) {
                 parent_wrap.find( '.ast-field-settings-modal' ).hide();
-                /**
-                 * Reset height of the section when popup is closed.
-                 */
-                parent_section.height('');
             } else {
                 /* Close popup when another popup is clicked to open */
 				var get_open_popup = parent_section.find('.ast-adv-toggle-icon.open');
-				// console.log(get_open_popup);
                 if( get_open_popup.length > 0 ) {
                     get_open_popup.trigger('click');
                 }
                 if( is_loaded ) {
                     parent_wrap.find( '.ast-field-settings-modal' ).show();
-                    /**
-                     * JS to fix sticky section heading not working.
-                     */
-                    if ( parent_section.outerHeight() < parent_section.prop('scrollHeight') ) {
-                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 20 );
-                    }
                 } else {
                     var fields = control.params.ast_fields;
 
@@ -78,12 +99,6 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                     } else {
                         jQuery('.ast-responsive-btns .desktop, .ast-responsive-slider-btns .desktop').addClass('active');
                         jQuery('.ast-responsive-btns .preview-desktop, .ast-responsive-slider-btns .preview-desktop').addClass('active');
-                    }
-                    /**
-                     * JS to fix sticky section heading not working.
-                     */
-                    if ( parent_section.outerHeight() < parent_section.prop('scrollHeight') ) {
-                        parent_section.height(parent_section.height() + ( parent_section.prop('scrollHeight') - parent_section.outerHeight(true) ) + 20 );
                     }
                 }
             }

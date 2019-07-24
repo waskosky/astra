@@ -56,3 +56,8 @@
     right: 15px;
     top: 6px;
 }
+
+/* CSS to show popups without scroll */
+#customize-theme-controls .control-section-ast_section.open {
+    height: 100%;
+}
