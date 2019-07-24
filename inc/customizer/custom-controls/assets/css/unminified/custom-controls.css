@@ -90,6 +90,10 @@
   position: relative;
 }
 
+.customize-control-ast-border .ast-border-wrapper {
+  display: flex;
+}
+
 .customize-control-ast-border .ast-border-btns {
   display: block;
   text-align: center;
@@ -706,10 +710,13 @@
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
-  width: 15px;
-  height: 15px;
   font-size: 15px;
   margin-top: 1px;
+  vertical-align: middle;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper.ast-spacing-responsive-wrapper {
+  display: inline-flex;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units {
