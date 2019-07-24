@@ -527,7 +527,8 @@
   top: 6px;
 }
 
-#customize-theme-controls .control-section-ast_section.open {
+/* CSS to show popups without scroll */
+#customize-theme-controls .control-section.open {
   height: 100%;
 }
 
@@ -1654,7 +1655,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 /* CSS to show popups without scroll */
-#customize-theme-controls .control-section-ast_section.open {
+#customize-theme-controls .control-section.open {
   height: 100%;
 }
 

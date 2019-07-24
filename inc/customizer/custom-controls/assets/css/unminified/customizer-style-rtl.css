@@ -59,6 +59,6 @@
 }
 
 /* CSS to show popups without scroll */
-#customize-theme-controls .control-section-ast_section.open {
+#customize-theme-controls .control-section.open {
   height: 100%;
 }
