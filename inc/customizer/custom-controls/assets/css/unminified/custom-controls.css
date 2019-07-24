@@ -300,6 +300,15 @@
   height: 100%;
 }
 
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
