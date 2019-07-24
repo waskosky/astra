@@ -237,3 +237,7 @@
     margin-left: 0.5em;
     opacity: 0.5;
 }
+
+#customize-theme-controls .control-section-ast_section.open {
+	height: 100%;
+}
