@@ -455,6 +455,28 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	}
 }
 
+if ( ! function_exists( 'astra_update_option' ) ) {
+
+	/**
+	 * Update Theme options.
+	 *
+	 * @param  string $option option key.
+	 * @param  Mixed  $value  option value.
+	 * @return void
+	 */
+	function astra_update_option( $option, $value ) {
+
+		do_action( "astra_before_update_option_{$option}", $value, $option );
+
+		$theme_options            = Astra_Theme_Options::get_options();
+		$theme_options[ $option ] = $value;
+
+		update_option( ASTRA_THEME_SETTINGS, $theme_options );
+
+		do_action( "astra_after_update_option_{$option}", $value, $option );
+	}
+}
+
 /**
  * Return Theme options from postmeta.
  */
