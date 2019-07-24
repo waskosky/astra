@@ -771,7 +771,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			?>
 
-			<option value="inherit"><?php _e( 'Inherit', 'astra' ); ?></option>
+			<option value="inherit"><?php _e( 'Default System Font', 'astra' ); ?></option>
 			<optgroup label="Other System Fonts">
 
 			<?php
