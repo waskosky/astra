@@ -1096,6 +1096,10 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
                         $(this).val( selectedValue );
 
                         var optionName = $(this).data('name');
+
+                        // Set inherit option text defined in control parameters.
+                        $("select[data-name='" + optionName + "'] option[value='inherit']").text( $(this).data('inherit') );
+
                         var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
                         var weightObject = AstTypography._getWeightObject( AstTypography._cleanGoogleFonts( selectedValue ) );
 
@@ -2235,8 +2239,12 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 
 				if( 'undefined' != typeof astra.customizer ) {
 					var fonts = astra.customizer.settings.google_fonts;
+					var optionName = $(this).data('name');
 
 					$(this).html( fonts );
+
+					// Set inherit option text defined in control parameters.
+					$("select[data-name='" + optionName + "'] option[value='inherit']").text( $(this).data('inherit') );
 
 					var font_val = $(this).data('value');
 
