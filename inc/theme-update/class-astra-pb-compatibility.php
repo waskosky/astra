@@ -40,10 +40,28 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
+			add_action( 'init', array( $this, 'maybe_run_pb_compatibility' ) );
+		}
 
-			// Theme Updates.
-			add_action( 'do_meta_boxes', array( $this, 'page_builder_compatibility' ) );
-			add_action( 'wp', array( $this, 'page_builder_compatibility' ), 25 );
+		/**
+		 * Page builder compatibility database migration was added in v1.0.14, This was 2 Years ago as of right now.
+		 * After version 1.8.7 we are stopping from running this to avoid execution of unnecessary database queries.
+		 * This code will be removed alltogether in newer versions as it is not working
+		 *
+		 * @since x.x.x
+		 *
+		 * @return void
+		 */
+		public function maybe_run_pb_compatibility() {
+
+			$is_compatibility_completed = astra_get_option( '_astra_pb_compatibility_completed', false );
+
+			if ( ! $is_compatibility_completed ) {
+
+				// Theme Updates.
+				add_action( 'do_meta_boxes', array( $this, 'page_builder_compatibility' ) );
+				add_action( 'wp', array( $this, 'page_builder_compatibility' ), 25 );
+			}
 		}
 
 		/**
@@ -58,6 +76,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 			$comp_time   = get_option( '_astra_pb_compatibility_time', false );
 
 			if ( ! $offset_comp || ! $comp_time ) {
+				astra_update_option( '_astra_pb_compatibility_completed', true );
 				return;
 			}
 
@@ -110,6 +129,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 			} else {
 				delete_option( '_astra_pb_compatibility_offset' );
 				delete_option( '_astra_pb_compatibility_time' );
+				astra_update_option( '_astra_pb_compatibility_completed', true );
 			}
 		}
 

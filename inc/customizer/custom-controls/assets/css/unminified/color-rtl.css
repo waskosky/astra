@@ -25,5 +25,6 @@
   }
   .iris-slider.iris-strip, .iris-strip.iris-slider.iris-alpha-slider {
     width: 13px !important;
+    margin-right: 8px !important;
   }
 }
