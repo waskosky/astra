@@ -798,9 +798,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$category = astra_get_prop( $single_font, '1' );
 
 				?>
-				<option value="<?php echo esc_attr( $name ) . esc_attr( $category ); ?>">
-				<?php echo esc_attr( $name ); ?>
-				</option>
+				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_attr( $name ); ?></option>
 
 				<?php
 			}
