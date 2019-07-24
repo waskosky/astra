@@ -554,7 +554,7 @@ module.exports = function (grunt) {
     grunt.registerTask('style', ['scss', 'postcss:style', 'rtl']);
 
     // min all
-    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css', 'concat']);
+    grunt.registerTask('minify', ['style', 'concat', 'uglify:js', 'cssmin:css']);
 
     // Update google Fonts
     grunt.registerTask('google-fonts', function () {
