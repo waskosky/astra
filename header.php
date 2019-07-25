@@ -31,7 +31,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php astra_body_top(); ?>
 <?php wp_body_open(); ?>
-<div id="page" class="hfeed site">
+<div 
+	<?php
+	echo astra_attr(
+		'site',
+		array(
+			'id'    => 'page',
+			'class' => 'hfeed site',
+		)
+	);
+	?>
+>
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( astra_default_strings( 'string-header-skip-link', false ) ); ?></a>
 
 	<?php astra_header_before(); ?>

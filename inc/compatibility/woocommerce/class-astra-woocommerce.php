@@ -294,6 +294,27 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Check if the current page is a Product Subcategory page or not.
+		 *
+		 * @param integer $category_id Current page Category ID.
+		 * @return boolean
+		 */
+		function astra_woo_is_subcategory( $category_id = null ) {
+			if ( is_tax( 'product_cat' ) ) {
+				if ( empty( $category_id ) ) {
+					$category_id = get_queried_object_id();
+				}
+				$category = get_term( get_queried_object_id(), 'product_cat' );
+				if ( empty( $category->parent ) ) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/**
 		 * Update Shop page grid
 		 *
 		 * @return int
@@ -301,6 +322,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function shop_no_of_products() {
 			$taxonomy_page_display = get_option( 'woocommerce_category_archive_display', false );
 			if ( is_product_taxonomy() && 'subcategories' === $taxonomy_page_display ) {
+				if ( $this->astra_woo_is_subcategory() ) {
+					$products = astra_get_option( 'shop-no-of-products' );
+					return $products;
+				}
 				$products = wp_count_posts( 'product' )->publish;
 			} else {
 				$products = astra_get_option( 'shop-no-of-products' );

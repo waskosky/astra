@@ -146,9 +146,15 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						--><div class="ast-comment-data-wrap">
 							<div class="ast-comment-meta-wrap">
-								<header class="ast-comment-meta ast-row ast-comment-author vcard capitalize">
-
-									<?php
+								<?php
+								echo '<header ';
+								echo astra_attr(
+									'commen-meta-author',
+									array(
+										'class' => 'ast-comment-meta ast-row ast-comment-author vcard capitalize',
+									)
+								);
+								echo '>';
 
 									printf(
 										'<div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
@@ -165,7 +171,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 										sprintf( esc_html__( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() )
 									);
 
-									?>
+								?>
 
 								</header> <!-- .ast-comment-meta -->
 							</div>
