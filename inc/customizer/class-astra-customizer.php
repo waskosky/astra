@@ -767,27 +767,43 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		function generate_font_dropdown() {
 
-			$string = '';
+			ob_start();
 
-			$string .= '<option value="inherit">' . __( 'Inherit', 'astra' ) . '</option>';
-			$string .= '<optgroup label="Other System Fonts">';
+			?>
+
+			<option value="inherit"><?php _e( 'Default System Font', 'astra' ); ?></option>
+			<optgroup label="Other System Fonts">
+
+			<?php
 
 			$system_fonts = Astra_Font_Families::get_system_fonts();
 			$google_fonts = Astra_Font_Families::get_google_fonts();
 
 			foreach ( $system_fonts as $name => $variants ) {
-				$string .= '<option value="' . esc_attr( $name ) . '" >' . esc_attr( $name ) . '</option>';
+				?>
+
+				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_attr( $name ); ?></option>
+				<?php
 			}
 
-			$string .= '<optgroup label="Google">';
+			// Add Custom Font List Into Customizer.
+			do_action( 'astra_customizer_font_list', '' );
 
+			?>
+			<optgroup label="Google">
+
+			<?php
 			foreach ( $google_fonts as $name => $single_font ) {
 				$variants = astra_get_prop( $single_font, '0' );
 				$category = astra_get_prop( $single_font, '1' );
-				$string  .= '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . '>' . esc_attr( $name ) . '</option>';
+
+				?>
+				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_attr( $name ); ?></option>
+
+				<?php
 			}
 
-			return $string;
+			return ob_get_clean();
 		}
 
 		/**
