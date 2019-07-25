@@ -9,6 +9,10 @@
  * @since       Astra 1.7.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 
 	/**
@@ -122,6 +126,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
+
+			/**
+			 * Breadcrumb Font Defaults
+			 */
+			$defaults['breadcrumb-font-family']    = 'inherit';
+			$defaults['breadcrumb-font-weight']    = 'inherit';
+			$defaults['breadcrumb-text-transform'] = '';
 
 			return $defaults;
 		}

@@ -6,6 +6,10 @@
  * @since 1.2.7
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Loop' ) ) :
 
 	/**

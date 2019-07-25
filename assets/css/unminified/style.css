@@ -3956,6 +3956,14 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0;
 }
 
+.wp-block-separator {
+  max-width: 100px;
+}
+
+.wp-block-separator.is-style-wide {
+  max-width: none;
+}
+
 .entry-content .has-2-columns .wp-block-column:first-child {
   padding-right: 10px;
 }
@@ -5628,15 +5636,14 @@ input[type="color"]::-webkit-color-swatch {
   left: 0 !important;
 }
 
-.elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
-  width: auto;
-  padding: 0;
-  margin: 0;
-  float: none;
-}
-
 .elementor-post.elementor-grid-item.hentry {
   margin-bottom: 0;
+}
+
+.elementor-page .elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
+  width: auto;
+  margin: 0;
+  float: none;
 }
 
 /**
