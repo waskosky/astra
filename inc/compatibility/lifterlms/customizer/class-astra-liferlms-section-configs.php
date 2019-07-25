@@ -9,6 +9,10 @@
  * @since       Astra 1.2.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Liferlms_Section_Configs' ) ) {
 
 	/**
