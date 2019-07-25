@@ -9,6 +9,10 @@
  * @since       Astra 1.0.13
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 
 	/**

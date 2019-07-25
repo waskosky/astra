@@ -9,6 +9,10 @@
  * @since       Astra 1.5.5
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Customizer_Register_Edd_Section' ) ) {
 
 	/**

@@ -9,6 +9,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 $control_dir = ASTRA_THEME_DIR . 'inc/customizer/custom-controls';
 
 require $control_dir . '/class-astra-customizer-control-base.php';
