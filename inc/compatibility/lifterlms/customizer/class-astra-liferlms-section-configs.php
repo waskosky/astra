@@ -37,7 +37,6 @@ if ( ! class_exists( 'Astra_Liferlms_Section_Configs' ) ) {
 					'type'     => 'section',
 					'priority' => 65,
 					'title'    => __( 'LifterLMS', 'astra' ),
-					'panel'    => 'panel-layout',
 				),
 			);
 

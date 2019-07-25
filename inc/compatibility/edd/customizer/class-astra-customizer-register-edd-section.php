@@ -38,7 +38,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Edd_Section' ) ) {
 					'name'     => 'section-edd-group',
 					'type'     => 'section',
 					'title'    => __( 'Easy Digital Downloads', 'astra' ),
-					'panel'    => 'panel-layout',
 					'priority' => 60,
 				),
 
@@ -46,7 +45,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Edd_Section' ) ) {
 					'name'     => 'section-edd-archive',
 					'title'    => __( 'Product Archive', 'astra' ),
 					'type'     => 'section',
-					'panel'    => 'panel-layout',
 					'section'  => 'section-edd-group',
 					'priority' => 10,
 				),
@@ -55,7 +53,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Edd_Section' ) ) {
 					'name'     => 'section-edd-single',
 					'type'     => 'section',
 					'title'    => __( 'Single Product', 'astra' ),
-					'panel'    => 'panel-layout',
 					'section'  => 'section-edd-group',
 					'priority' => 15,
 				),
