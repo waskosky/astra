@@ -3,7 +3,7 @@
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -208,7 +208,7 @@
 }
 
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -235,7 +235,7 @@
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -440,7 +440,7 @@
 }
 
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -530,6 +530,41 @@
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+}
+
+/* Safari Browser specific CSS */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
+      display: inline-block;
+      width: 100%;
+    }
+    .dashicons-desktop:before, .dashicons-tablet:before, .dashicons-smartphone:before {
+      color: #000000;
+      opacity: .75;
+    }
+    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+      width: 20%;
+    }
+  }
+}
+
+/* Firefox Browser specific CSS */
+@-moz-document url-prefix() {
+  .control-section.open .customize-control:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+/* IE Browser specific CSS */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .control-section.open .customize-control:last-child {
+    padding-bottom: 20px;
+  }
+  #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
 }
 
 .customize-control-ast-description .ast-description {
@@ -692,7 +727,7 @@
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -1297,7 +1332,7 @@
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
@@ -1659,6 +1694,41 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   height: 100%;
 }
 
+/* Safari Browser specific CSS */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
+      display: inline-block;
+      width: 100%;
+    }
+    .dashicons-desktop:before, .dashicons-tablet:before, .dashicons-smartphone:before {
+      color: #000000;
+      opacity: .75;
+    }
+    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+      width: 20%;
+    }
+  }
+}
+
+/* Firefox Browser specific CSS */
+@-moz-document url-prefix() {
+  .control-section.open .customize-control:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+/* IE Browser specific CSS */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .control-section.open .customize-control:last-child {
+    padding-bottom: 20px;
+  }
+  #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -1819,7 +1889,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -2424,7 +2494,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
