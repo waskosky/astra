@@ -306,6 +306,25 @@
       display: inline-block;
       width: 100%;
     }
+    .dashicons-desktop:before, .dashicons-tablet:before, .dashicons-smartphone:before {
+      color: #000000;
+      opacity: .75;
+    }
+    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+      width: 20%;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  .control-section.open .customize-control:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .control-section.open .customize-control:last-child {
+    padding-bottom: 20px;
   }
 }
 
