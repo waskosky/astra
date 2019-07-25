@@ -5,6 +5,10 @@
  * @package Astra Addon
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_header_dynamic_css' );
 
 /**

@@ -81,13 +81,13 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					$val = $input_attrs['min'];
 				}
 
-						$dv = $val / $input_attrs['step'];
+				$dv = (float) $val / $input_attrs['step'];
 
-						$dv = round( $dv );
+				$dv = round( $dv );
 
-						$val = $dv * $input_attrs['step'];
+				$val = $dv * $input_attrs['step'];
 
-					$val = number_format( (float) $val, 2, '.', '' );
+				$val = number_format( (float) $val, 2, '.', '' );
 				if ( $val == (int) $val ) {
 					$val = (int) $val;
 				}
