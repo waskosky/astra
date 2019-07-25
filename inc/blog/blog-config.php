@@ -6,6 +6,10 @@
  * @package Astra
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Common Functions for Blog and Single Blog
  *
