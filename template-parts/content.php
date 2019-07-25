@@ -25,9 +25,8 @@
 
 			)
 		);
-	?>
-	
-
+		?>
+>
 	<?php astra_entry_top(); ?>
 
 	<header class="entry-header <?php astra_entry_header_class(); ?>">

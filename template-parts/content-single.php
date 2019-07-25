@@ -25,8 +25,7 @@
 
 			)
 		);
-	?>
-	
+		?>
 >
 
 	<?php astra_entry_top(); ?>
