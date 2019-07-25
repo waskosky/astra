@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.8.4\n"
+"Project-Id-Version: Astra 1.8.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2019-06-05 11:34:04+00:00\n"
+"POT-Creation-Date: 2019-06-25 05:10:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1712,7 +1712,7 @@ msgstr ""
 
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:283
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:434
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:514
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:529
 msgid "Border Radius"
 msgstr ""
 
@@ -1791,7 +1791,7 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-blog-layout-configs.php:169
 #: inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php:152
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:334
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:555
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:570
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:166
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:134
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:269
@@ -2006,51 +2006,55 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:418
-msgid "Menu Label on Small Devices"
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:413
+msgid "The parent menu should have a # link for the submenu to open on a link."
 msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:433
+msgid "Menu Label on Small Devices"
+msgstr ""
+
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:448
 msgid "Hide Last item in Menu on mobile"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:447
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:462
 msgid "Take Last item in Menu outside menu"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:461
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:476
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:465
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:480
 msgid "Stack"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:471
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:486
 msgid "Mobile Header Alignment"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:481
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:496
 msgid "Toggle Button Style"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:486
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:501
 msgid "Fill"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:487
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:502
 msgid "Outline"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:488
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:503
 msgid "Minimal"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:500
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:515
 msgid "Toggle Button Color"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:555
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:570
 msgid "More Options Available for Mobile Header in Astra Pro!"
 msgstr ""
 

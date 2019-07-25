@@ -1,3 +1,12 @@
+v1.8.7
+- New: Introduced wp_body_open action hook.
+- Improvement: Show notification when Dropdown Target selected as "Link".
+- Fix: Product widget grid design conflict with Elementor editor mobile device view.
+- Fix: Padding added from Elementor product widget not working on the Front-end.
+
+v1.8.6
+- Improvement: Deprecated layout options for LearnDash 3.0 template.
+
 v1.8.5
 - New: Introduced astra_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpastra.com/docs/modify-font-display-property-value/ )
 - New: Filter to add a title tag to Header background image as an alt text alternative. ( https://wpastra.com/docs/title-tag-in-header-background-image/ )

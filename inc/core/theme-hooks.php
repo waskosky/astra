@@ -11,6 +11,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Themes and Plugins can check for astra_hooks using current_theme_supports( 'astra_hooks', $hook )
  * to determine whether a theme declares itself to support this specific hook type.
@@ -479,4 +483,17 @@ function astra_primary_content_bottom() {
  */
 function astra_404_content_template() {
 	do_action( 'astra_404_content_template' );
+}
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+
+	/**
+	 * Fire the wp_body_open action.
+	 * Adds backward compatibility for WordPress versions < 5.2
+	 *
+	 * @since 1.8.7
+	 */
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
 }
