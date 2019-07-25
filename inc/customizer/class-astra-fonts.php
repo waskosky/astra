@@ -132,7 +132,8 @@ final class Astra_Fonts {
 		$font_args = array();
 		$family    = array();
 
-		$fonts = astra_apply_filters_deprecated( 'astra_google_fonts', array( $fonts ), 'x.x.x', 'astra_google_fonts_selected', '' );
+		// This is deprecated filter hook.
+		$fonts = apply_filters( 'astra_google_fonts', array( $fonts ) );
 
 		$fonts = apply_filters( 'astra_google_fonts_selected', $fonts );
 
