@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * All groups parent-child relation array data.
 		 *
 		 * @access Public
-		 * @since x.x.x
+		 * @since 2.0.0
 		 * @var Array
 		 */
 		public static $group_configs = array();
@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @param Array                $control_config Panel Configuration settings.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since x.x.x
+		 * @since 2.0.0
 		 * @return void
 		 */
 		private function register_sub_control_setting( $control_config, $wp_customize ) {
