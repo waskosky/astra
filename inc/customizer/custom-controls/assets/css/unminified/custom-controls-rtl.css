@@ -532,6 +532,7 @@
   height: 100%;
 }
 
+/* Safari Browser specific CSS */
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
     #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
@@ -548,15 +549,21 @@
   }
 }
 
+/* Firefox Browser specific CSS */
 @-moz-document url-prefix() {
   .control-section.open .customize-control:last-child {
     margin-bottom: 20px;
   }
 }
 
+/* IE Browser specific CSS */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .control-section.open .customize-control:last-child {
     padding-bottom: 20px;
+  }
+  #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+    margin-right: 0px;
+    margin-left: 20px;
   }
 }
 
@@ -1687,6 +1694,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   height: 100%;
 }
 
+/* Safari Browser specific CSS */
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
     #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
@@ -1703,15 +1711,21 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   }
 }
 
+/* Firefox Browser specific CSS */
 @-moz-document url-prefix() {
   .control-section.open .customize-control:last-child {
     margin-bottom: 20px;
   }
 }
 
+/* IE Browser specific CSS */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .control-section.open .customize-control:last-child {
     padding-bottom: 20px;
+  }
+  #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+    margin-right: 0px;
+    margin-left: 20px;
   }
 }
 
