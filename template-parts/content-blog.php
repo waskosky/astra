@@ -19,7 +19,7 @@
 			'article-blog',
 			array(
 				'itemtype'  => 'https://schema.org/CreativeWork',
-				'itemscope' => 'itemscope site',
+				'itemscope' => 'itemscope',
 				'id'        => 'post-' . get_the_id(),
 				'class'     => join( ' ', get_post_class() ),
 
