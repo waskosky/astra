@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		public function __construct() {
 
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_dynamic_styles' ) );
+			add_action( 'astra_dynamic_css', array( $this, 'add_dynamic_styles' ) );
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
@@ -60,10 +60,12 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		/**
 		 * Enqueue styles
 		 *
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @since 1.3.0
 		 * @return void
 		 */
-		function add_dynamic_styles() {
+		function add_dynamic_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			$active_ld_theme = '';
 
@@ -183,8 +185,9 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			/* Parse CSS from array()*/
 			$css_output .= astra_parse_css( $mobile_typography, '', '544' );
 
-			wp_add_inline_style( 'learndash_style', apply_filters( 'astra_theme_learndash_dynamic_css', $css_output ) );
+			$dynamic_css = $dynamic_css . $css_output;
 
+			return apply_filters( 'astra_theme_learndash_dynamic_css', $css_output );
 		}
 
 		/**

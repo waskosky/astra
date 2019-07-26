@@ -193,12 +193,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			// Fonts - Render Fonts.
 			Astra_Fonts::render_fonts();
 
-			/**
-			 * Inline styles
-			 */
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
-
 			// Submenu Container Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
 			wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );

@@ -1021,14 +1021,15 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	/**
 	 * Function to Add Header Breakpoint Style
 	 *
+	 * @param  string $dynamic_css          Astra Dynamic CSS.
+	 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 	 * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
-	function astra_header_breakpoint_style() {
+	function astra_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();
-		$dynamic_css        = '';
 
 		$astra_header_width = astra_get_option( 'header-main-layout-width' );
 
@@ -1054,12 +1055,12 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 			// trim white space for faster page loading.
 			$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+			return $dynamic_css;
 		}
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'astra_header_breakpoint_style' );
+add_action( 'astra_dynamic_css', 'astra_header_breakpoint_style' );
 
 /**
  * Function to filter comment form's default fields
