@@ -3,7 +3,7 @@
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -212,7 +212,7 @@
 }
 
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -239,7 +239,7 @@
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -448,7 +448,7 @@
 }
 
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -536,8 +536,43 @@
 }
 
 /* CSS to show popups without scroll */
-#customize-theme-controls .control-section-ast_section.open {
+#customize-theme-controls .control-section.open {
   height: 100%;
+}
+
+/* Safari Browser specific CSS */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
+      display: inline-block;
+      width: 100%;
+    }
+    .dashicons-desktop:before, .dashicons-tablet:before, .dashicons-smartphone:before {
+      color: #000000;
+      opacity: .75;
+    }
+    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+      width: 20%;
+    }
+  }
+}
+
+/* Firefox Browser specific CSS */
+@-moz-document url-prefix() {
+  .control-section.open .customize-control:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+/* IE Browser specific CSS */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .control-section.open .customize-control:last-child {
+    padding-bottom: 20px;
+  }
+  #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
 }
 
 .customize-control-ast-description .ast-description {
@@ -575,7 +610,7 @@
   margin-top: 15px;
 }
 
-.ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 11px;
@@ -700,7 +735,7 @@
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -946,10 +981,9 @@
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
-  width: 15px;
-  height: 15px;
   font-size: 15px;
   margin-top: 1px;
+  vertical-align: middle;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper.ast-spacing-responsive-wrapper {
@@ -1309,7 +1343,7 @@
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
@@ -1667,8 +1701,43 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 /* CSS to show popups without scroll */
-#customize-theme-controls .control-section-ast_section.open {
+#customize-theme-controls .control-section.open {
   height: 100%;
+}
+
+/* Safari Browser specific CSS */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
+      display: inline-block;
+      width: 100%;
+    }
+    .dashicons-desktop:before, .dashicons-tablet:before, .dashicons-smartphone:before {
+      color: #000000;
+      opacity: .75;
+    }
+    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+      width: 20%;
+    }
+  }
+}
+
+/* Firefox Browser specific CSS */
+@-moz-document url-prefix() {
+  .control-section.open .customize-control:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+/* IE Browser specific CSS */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .control-section.open .customize-control:last-child {
+    padding-bottom: 20px;
+  }
+  #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
 }
 
 .customize-control-ast-description .ast-description {
@@ -1706,7 +1775,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   margin-top: 15px;
 }
 
-.ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 11px;
@@ -1831,7 +1900,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
   line-height: 17px;
 }
 
@@ -2439,7 +2508,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 65px !important;
+  width: 67px !important;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {

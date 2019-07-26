@@ -9,6 +9,10 @@
  * @since       Astra 1.0.13
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 
 	/**
@@ -48,7 +52,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		 * After version 1.8.7 we are stopping from running this to avoid execution of unnecessary database queries.
 		 * This code will be removed alltogether in newer versions as it is not working
 		 *
-		 * @since x.x.x
+		 * @since 2.0.0
 		 *
 		 * @return void
 		 */
