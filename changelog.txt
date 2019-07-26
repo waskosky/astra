@@ -1,6 +1,6 @@
 v2.0.0
+- Improvement: Loading combined CSS and JS file for params in the customizer.
 - Improvement: Remove unnecessary role attribute from HTML. 
-- Improvement: SVG for Below and Above Header layouts. 
 - Improvement: Crossbrowser compatibility for customizer UI. 
 - Improvement: Optimized number of queries executed on admin pages.  
 - Improvement: Live preview for controls. 
