@@ -155,7 +155,11 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since  x.x.x
 		 */
 		public function file_write( $style_data, $post_id, $timestamp ) {
-			$post_timestamp = get_post_meta( get_the_ID(), 'astra_style_timestamp-' . 'css', true );
+			$post_timestamp = get_post_meta( get_the_ID(), 'astra_style_timestamp_css', true );
+
+			if ( false == $post_timestamp || '' == $post_timestamp ) {
+				return;
+			}
 
 			// File not created yet.
 			$assets_info = $this->get_asset_info( $style_data, $post_id, $timestamp );
@@ -166,7 +170,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			fclose( $handle );
 
 			// Update the post meta.
-			update_post_meta( get_the_ID(), 'astra_style_timestamp-' . 'css', $timestamp );
+			update_post_meta( get_the_ID(), 'astra_style_timestamp_css', $timestamp );
 		}
 
 	}

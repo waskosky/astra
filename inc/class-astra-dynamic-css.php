@@ -1046,9 +1046,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// trim white space for faster page loading.
-			$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-
-			return $dynamic_css;
+			return Astra_Enqueue_Scripts::trim_css( $dynamic_css );
 
 		}
 
@@ -1060,8 +1058,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return mixed              Return the CSS.
 		 */
 		public function return_meta_output( $dynamic_css, $dynamic_css_filtered = '' ) {
-
-			$return_css = false;
 
 			/**
 			 * - Page Layout
@@ -1182,9 +1178,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			endif;
 
 			$dynamic_css .= $parse_css;
-			if ( false != $return_css ) {
-				return $dynamic_css;
-			}
 
 			return  $dynamic_css;
 		}
@@ -1260,3 +1253,5 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 	}
 }
+
+new Astra_Dynamic_CSS;

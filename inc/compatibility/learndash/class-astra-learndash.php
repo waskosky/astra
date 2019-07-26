@@ -185,7 +185,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			/* Parse CSS from array()*/
 			$css_output .= astra_parse_css( $mobile_typography, '', '544' );
 
-			$dynamic_css = $dynamic_css . $css_output;
+			$dynamic_css .= $css_output;
 
 			return apply_filters( 'astra_theme_learndash_dynamic_css', $css_output );
 		}
