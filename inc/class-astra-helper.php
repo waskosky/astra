@@ -32,11 +32,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return bool
 		 */
-		function enqueue_scripts() {
+		public function enqueue_scripts() {
 
-			$post_id   = get_the_ID();
-			$date      = new DateTime();
-			$timestamp = $date->getTimestamp();
+			$post_id   = $this->get_post_id();
+			$timestamp = $this->get_timestamp();
 
 			if ( ! $post_id ) {
 				return;
@@ -50,6 +49,30 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$uploads_dir_url = $uploads_dir['url'];
 
 			wp_enqueue_style( 'astra-dynamic', $uploads_dir_url . 'astra-dynamic-css-' . $post_id . '-' . $timestamp . '.css' );
+		}
+
+		/**
+		 * Gets the current post id.
+		 *
+		 * @since x.x.x
+		 * @return string $post_id Post ID.
+		 */
+		public function get_post_id() {
+			$post_id = get_the_ID();
+			return $post_id;
+		}
+
+		/**
+		 * Gets the current timestamp.
+		 *
+		 * @since x.x.x
+		 * @return string $timestamp Timestamp.
+		 */
+		public function get_timestamp() {
+			$date      = new DateTime();
+			$timestamp = $date->getTimestamp();
+
+			return $timestamp;
 		}
 
 		/**
@@ -112,6 +135,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @return array
 		 */
 		public function get_asset_info( $data, $post_id, $timestamp ) {
+
 			$uploads_dir = $this->get_upload_dir();
 			$css_suffix  = 'astra-dynamic-css';
 			$info        = array();

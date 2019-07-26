@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_header_dynamic_css' );
+add_filter( 'astra_dynamic_css', 'astra_ext_transparent_header_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -459,5 +459,5 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	$dynamic_css .= $css;
 
-	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+	return $dynamic_css;
 }
