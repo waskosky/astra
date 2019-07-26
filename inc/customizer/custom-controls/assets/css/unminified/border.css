@@ -11,6 +11,10 @@
   position: relative;
 }
 
+.customize-control-ast-border .ast-border-wrapper {
+  display: flex;
+}
+
 .customize-control-ast-border .ast-border-btns {
   display: block;
   text-align: center;
