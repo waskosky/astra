@@ -24,7 +24,9 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_scripts' ), 1 );
-			add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_scripts' ), 999 );
+			if ( defined( 'ASTRA_EXT_FILE' ) ) {
+				add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_scripts' ), 999 );
+			}
 		}
 
 		/**
