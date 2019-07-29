@@ -25,21 +25,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 	class Astra_Dynamic_CSS {
 
 		/**
-		 * Constructor function that initializes required actions and hooks
-		 */
-		public function __construct() {
-			add_filter( 'astra_dynamic_css', array( $this, 'return_output' ) );
-			add_filter( 'astra_dynamic_css', array( $this, 'return_meta_output' ) );
-		}
-
-		/**
 		 * Return CSS Output
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return string Generated CSS.
 		 */
-		public function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public static function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 *
@@ -1057,7 +1049,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return mixed              Return the CSS.
 		 */
-		public function return_meta_output( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public static function return_meta_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 * - Page Layout
@@ -1253,5 +1245,3 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 	}
 }
-
-new Astra_Dynamic_CSS;
