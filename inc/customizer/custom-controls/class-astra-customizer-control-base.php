@@ -38,10 +38,10 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-
+			
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'theme_customize_style' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-			add_action( 'customize_controls_enqueue_scripts', array( $this, 'theme_customize_style' ) );
 		}
 
 		/**
