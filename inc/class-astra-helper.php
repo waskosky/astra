@@ -23,16 +23,17 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 999 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_scripts' ), 1 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_scripts' ), 999 );
 		}
 
 		/**
-		 * Enqueue CSS files.
+		 * Enqueue theme CSS files.
 		 *
 		 * @since x.x.x
 		 * @return bool
 		 */
-		public function enqueue_scripts() {
+		public function theme_enqueue_scripts() {
 
 			$post_id   = $this->get_post_id();
 			$timestamp = $this->get_timestamp();
@@ -42,15 +43,37 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			$theme_css_data = apply_filters( 'astra_theme_dynamic_css', '' );
-			$addon_css_data = apply_filters( 'astra_dynamic_css', '' );
 
-			if ( empty( $theme_css_data ) && empty( $addon_css_data ) ) {
+			if ( empty( $theme_css_data ) ) {
 				return;
 			}
 
 			if ( ! empty( $theme_css_data ) ) {
 				$this->file_write( $theme_css_data, $post_id, $timestamp, 'theme' );
 			}
+
+			$uploads_dir     = $this->get_upload_dir();
+			$uploads_dir_url = $uploads_dir['url'];
+
+			wp_enqueue_style( 'astra-theme-dynamic', $uploads_dir_url . 'astra-theme-dynamic-css-' . $post_id . '.css', array(), $timestamp );
+		}
+
+		/**
+		 * Enqueue Addon CSS files.
+		 *
+		 * @since x.x.x
+		 * @return bool
+		 */
+		public function addon_enqueue_scripts() {
+
+			$post_id   = $this->get_post_id();
+			$timestamp = $this->get_timestamp();
+
+			if ( ! $post_id ) {
+				return;
+			}
+
+			$addon_css_data = apply_filters( 'astra_dynamic_css', '' );
 
 			if ( ! empty( $addon_css_data ) ) {
 				$this->file_write( $addon_css_data, $post_id, $timestamp, 'addon' );
@@ -59,7 +82,6 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$uploads_dir     = $this->get_upload_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
-			wp_enqueue_style( 'astra-theme-dynamic', $uploads_dir_url . 'astra-theme-dynamic-css-' . $post_id . '.css', array(), $timestamp );
 			wp_enqueue_style( 'astra-addon-dynamic', $uploads_dir_url . 'astra-addon-dynamic-css-' . $post_id . '.css', array(), $timestamp );
 		}
 
