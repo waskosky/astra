@@ -37,8 +37,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function theme_enqueue_scripts() {
 
-			$post_id   = $this->get_post_id();
-			$timestamp = $this->get_timestamp();
+			$post_id = $this->get_post_id();
 
 			if ( ! $post_id ) {
 				return;
@@ -46,8 +45,12 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			$theme_css_data = apply_filters( 'astra_theme_dynamic_css', '' );
 
-			if ( empty( $theme_css_data ) ) {
-				return;
+			$post_timestamp = get_post_meta( get_the_ID(), 'astra_theme_style_timestamp_css', true );
+
+			if ( '' === $post_timestamp ) {
+				$timestamp = $this->get_timestamp();
+			} else {
+				$timestamp = $post_timestamp;
 			}
 
 			if ( ! empty( $theme_css_data ) ) {
@@ -76,6 +79,14 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			$addon_css_data = apply_filters( 'astra_dynamic_css', '' );
+
+			$post_timestamp = get_post_meta( get_the_ID(), 'astra_addon_style_timestamp_css', true );
+
+			if ( '' === $post_timestamp ) {
+				$timestamp = $this->get_timestamp();
+			} else {
+				$timestamp = $post_timestamp;
+			}
 
 			if ( ! empty( $addon_css_data ) ) {
 				$this->file_write( $addon_css_data, $post_id, $timestamp, 'addon' );
@@ -197,7 +208,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 
-			if ( false == $post_timestamp || '' == $post_timestamp ) {
+			if ( '' !== $post_timestamp ) {
 				return;
 			}
 
