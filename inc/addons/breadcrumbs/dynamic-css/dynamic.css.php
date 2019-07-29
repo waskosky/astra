@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Breadcrumbs
  */
-add_filter( 'astra_dynamic_css', 'astra_breadcrumb_section_dynamic_css' );
+add_filter( 'astra_theme_dynamic_css', 'astra_breadcrumb_section_dynamic_css' );
 
 /**
  * Dynamic CSS

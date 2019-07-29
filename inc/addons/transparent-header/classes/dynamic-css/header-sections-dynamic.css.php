@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Transparent Above Header
  */
-add_filter( 'astra_dynamic_css', 'astra_ext_transparent_above_header_sections_dynamic_css' );
+add_filter( 'astra_theme_dynamic_css', 'astra_ext_transparent_above_header_sections_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -269,7 +269,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 /**
  * Transparent Below Header
  */
-add_filter( 'astra_dynamic_css', 'astra_ext_transparent_below_header_sections_dynamic_css' );
+add_filter( 'astra_theme_dynamic_css', 'astra_ext_transparent_below_header_sections_dynamic_css' );
 
 /**
  * Dynamic CSS

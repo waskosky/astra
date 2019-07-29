@@ -197,8 +197,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			 * Inline styles
 			 */
 
-			add_filter( 'astra_dynamic_css', array( 'Astra_Dynamic_CSS', 'return_output' ) );
-			add_filter( 'astra_dynamic_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
+			add_filter( 'astra_theme_dynamic_css', array( 'Astra_Dynamic_CSS', 'return_output' ) );
+			add_filter( 'astra_theme_dynamic_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
 
 			// Submenu Container Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );

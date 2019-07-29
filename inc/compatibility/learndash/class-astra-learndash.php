@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		public function __construct() {
 
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
-			add_action( 'astra_dynamic_css', array( $this, 'add_dynamic_styles' ) );
+			add_action( 'astra_theme_dynamic_css', array( $this, 'add_dynamic_styles' ) );
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
