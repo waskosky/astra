@@ -377,11 +377,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				// Store values.
 				if ( $meta_value ) {
 					update_post_meta( $post_id, $key, $meta_value );
-					do_action( 'astra_post_meta_updated', array( $post_id, $key, $meta_value ) );
 				} else {
 					delete_post_meta( $post_id, $key );
 				}
 			}
+
+			do_action( 'astra_post_meta_updated', $post_id );
 
 		}
 	}

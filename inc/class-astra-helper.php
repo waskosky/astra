@@ -27,6 +27,12 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			if ( defined( 'ASTRA_EXT_FILE' ) ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_scripts' ), 999 );
 			}
+			add_action( 'astra_post_meta_updated', array( $this, 'check_values' ), 10, 1 );
+
+		}
+
+		public function check_values( $post_id ){
+			delete_post_meta( $post_id, 'astra_theme_style_timestamp_css' );
 		}
 
 		/**
