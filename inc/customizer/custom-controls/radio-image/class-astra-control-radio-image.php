@@ -52,7 +52,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	/**
 	 * Function to add custom CSS for Admin.
 	 *
-	 * @since x.x.x
+	 * @since 2.0.0
 	 * @return void
 	 */
 	public static function astra_add_radio_img_svg_css() {
@@ -64,7 +64,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	/**
 	 * Get the Highlight SVG options set from the Admin Color Scheme.
 	 *
-	 * @since x.x.x
+	 * @since 2.0.0
 	 * @return void
 	 */
 	public static function astra_set_highlight_color() {

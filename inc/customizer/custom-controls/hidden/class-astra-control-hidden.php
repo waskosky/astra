@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       x.x.x
+ * @since       2.0.0
  */
 
 // Exit if accessed directly.
@@ -23,7 +23,7 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 	 * The control type.
 	 *
 	 * @access public
-	 * @since  x.x.x
+	 * @since  2.0.0
 	 * @var string
 	 */
 	public $type = 'ast-hidden';
@@ -33,7 +33,7 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
-	 * @since  x.x.x
+	 * @since  2.0.0
 	 */
 	public function to_json() {
 		parent::to_json();
@@ -53,7 +53,7 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 	 * @see WP_Customize_Control::print_template()
 	 *
 	 * @access protected
-	 * @since  x.x.x
+	 * @since  2.0.0
 	 */
 	protected function content_template() {
 		?>
@@ -70,7 +70,7 @@ class Astra_Control_Hidden extends WP_Customize_Control {
 	 * Render the control's content.
 	 *
 	 * @see WP_Customize_Control::render_content()
-	 * @since  x.x.x
+	 * @since  2.0.0
 	 */
 	protected function render_content() {}
 }

@@ -90,6 +90,10 @@
   position: relative;
 }
 
+.customize-control-ast-border .ast-border-wrapper {
+  display: flex;
+}
+
 .customize-control-ast-border .ast-border-btns {
   display: block;
   text-align: center;
@@ -370,7 +374,7 @@
   margin-top: 15px;
 }
 
-.ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 11px;
@@ -741,10 +745,13 @@
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
-  width: 15px;
-  height: 15px;
   font-size: 15px;
   margin-top: 1px;
+  vertical-align: middle;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper.ast-spacing-responsive-wrapper {
+  display: inline-flex;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units {
