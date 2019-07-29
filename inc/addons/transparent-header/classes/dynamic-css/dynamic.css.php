@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'astra_theme_dynamic_css', 'astra_ext_transparent_header_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_ext_transparent_header_dynamic_css' );
 
 /**
  * Dynamic CSS

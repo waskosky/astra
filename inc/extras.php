@@ -1060,7 +1060,7 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	}
 }
 
-add_action( 'astra_theme_dynamic_css', 'astra_header_breakpoint_style' );
+add_filter( 'astra_dynamic_theme_css', 'astra_header_breakpoint_style' );
 
 /**
  * Function to filter comment form's default fields

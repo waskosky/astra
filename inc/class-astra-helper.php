@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				return;
 			}
 
-			$theme_css_data = apply_filters( 'astra_theme_dynamic_css', '' );
+			$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
 
 			$post_timestamp = get_post_meta( get_the_ID(), 'astra_theme_style_timestamp_css', true );
 
