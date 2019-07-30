@@ -81,12 +81,9 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$slug = $this->astra_get_post_id();
 			}
 
-			if ( ! $slug ) {
-				return;
-			}
-
 			$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
 
+			// Return if there is no data to add in the css file.
 			if ( empty( $theme_css_data ) ) {
 				return;
 			}
@@ -109,12 +106,9 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$slug = $this->astra_get_post_id();
 			}
 
-			if ( ! $slug ) {
-				return;
-			}
-
 			$addon_css_data = apply_filters( 'astra_dynamic_css', '' );
 
+			// Return if there is no data to add in the css file.
 			if ( empty( $addon_css_data ) ) {
 				return;
 			}
@@ -231,6 +225,56 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			return apply_filters( 'astra_astra_get_upload_dir', $dir_info );
 		}
 
+				/**
+				 * Gets the archive title.
+				 *
+				 * @since  x.x.x
+				 * @return $title Gets the archive title.
+				 */
+		public function astra_get_archive_title() {
+			if ( is_category() ) {
+				$title = 'category';
+			} elseif ( is_tag() ) {
+				$title = 'tag';
+			} elseif ( is_author() ) {
+				$title = 'author';
+			} elseif ( is_year() ) {
+				$title = 'year';
+			} elseif ( is_month() ) {
+				$title = 'month';
+			} elseif ( is_day() ) {
+				$title = 'day';
+			} elseif ( is_tax( 'post_format' ) ) {
+				if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+					$title = 'asides';
+				} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+					$title = 'galleries';
+				} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+					$title = 'images';
+				} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+					$title = 'videos';
+				} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+					$title = 'quotes';
+				} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+					$title = 'links';
+				} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+					$title = 'statuses';
+				} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+					$title = 'audio';
+				} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+					$title = 'chats';
+				}
+			} elseif ( is_post_type_archive() ) {
+				$title = 'archives';
+			} elseif ( is_tax() ) {
+				$tax   = get_taxonomy( get_queried_object()->taxonomy );
+				$title = $tax->labels->singular_name;
+			} else {
+				$title = '';
+			}
+			return $title;
+		}
+
 		/**
 		 * Returns an array of paths for the CSS assets
 		 * of the current post.
@@ -293,57 +337,6 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				update_option( 'astra_' . $type . '_get_dynamic_css', $timestamp );
 			}
 		}
-
-		/**
-		 * Gets the archive title.
-		 *
-		 * @since  x.x.x
-		 * @return $title Gets the archive title.
-		 */
-		public function astra_get_archive_title() {
-			if ( is_category() ) {
-				$title = 'category';
-			} elseif ( is_tag() ) {
-				$title = 'tag';
-			} elseif ( is_author() ) {
-				$title = 'author';
-			} elseif ( is_year() ) {
-				$title = 'year';
-			} elseif ( is_month() ) {
-				$title = 'month';
-			} elseif ( is_day() ) {
-				$title = 'day';
-			} elseif ( is_tax( 'post_format' ) ) {
-				if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-					$title = 'asides';
-				} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-					$title = 'galleries';
-				} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-					$title = 'images';
-				} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-					$title = 'videos';
-				} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-					$title = 'quotes';
-				} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-					$title = 'links';
-				} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-					$title = 'statuses';
-				} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-					$title = 'audio';
-				} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-					$title = 'chats';
-				}
-			} elseif ( is_post_type_archive() ) {
-				$title = 'archives';
-			} elseif ( is_tax() ) {
-				$tax   = get_taxonomy( get_queried_object()->taxonomy );
-				$title = $tax->labels->singular_name;
-			} else {
-				$title = '';
-			}
-			return $title;
-		}
-
 	}
 
 	new Astra_Helper;
