@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			// Call enqueue scripts function.
-			enqueue_scripts( $theme_css_data, $slug, 'theme' );
+			$this->enqueue_scripts( $theme_css_data, $slug, 'theme' );
 		}
 
 		/**
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			// Call enqueue scripts function.
-			enqueue_scripts( $slug, 'addon' );
+			$this->enqueue_scripts( $addon_css_data, $slug, 'addon' );
 		}
 
 		/**
@@ -218,9 +218,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			// Create the upload dir if it doesn't exist.
 			if ( ! file_exists( $dir_info['path'] ) ) {
 				// Create the directory.
+				// WP_Filesystem_Direct::mkdir( $dir_info['path'] );
 				mkdir( $dir_info['path'] );
 				// Add an index file for security.
-				file_put_contents( $dir_info['path'] . 'index.html', '' );
+				file_put_contents( $dir_info['path'] . 'index.php', '' );
 			}
 			return apply_filters( 'astra_astra_get_upload_dir', $dir_info );
 		}
