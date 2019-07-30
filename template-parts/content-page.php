@@ -15,7 +15,7 @@
 <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php astra_entry_top(); ?>
-
+	EMINEM
 	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
 		<?php astra_get_post_thumbnail(); ?>

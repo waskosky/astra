@@ -15,7 +15,7 @@
 <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php astra_entry_top(); ?>
-
+	EMINEM
 	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
 		<?php astra_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>

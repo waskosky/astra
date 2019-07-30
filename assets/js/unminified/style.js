@@ -446,6 +446,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
         var self = this || '',
             hash = '#';
 
+         console.log(this);
+
         if( self && ! self.classList.contains('astra-search-icon') ) {
             var link = new String( self );
             if( link.indexOf( hash ) !== -1 ) {
@@ -508,6 +510,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
 
 			// On li elements toggle the class .focus.
+			console.log(self.tagName.toLowerCase());
 			if ( 'li' === self.tagName.toLowerCase() ) {
 				if ( -1 !== self.className.indexOf( 'focus' ) ) {
 					self.className = self.className.replace( ' focus', '' );

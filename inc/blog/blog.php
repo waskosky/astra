@@ -236,6 +236,7 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 		// Blog Post Title and Blog Post Meta.
 		do_action( 'astra_archive_entry_header_before' );
 		?>
+		EMINEM
 		<header class="entry-header">
 			<?php
 

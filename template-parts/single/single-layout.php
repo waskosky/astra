@@ -14,7 +14,7 @@
 <div <?php astra_blog_layout_class( 'single-layout-1' ); ?>>
 
 	<?php astra_single_header_before(); ?>
-
+	EMINEM
 	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
 		<?php astra_single_header_top(); ?>
