@@ -31,7 +31,7 @@
 			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
 			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
-
+			$( document ).on('click', '#astra_refresh_assets', AstraThemeAdmin._astra_refresh_assets);
 		},
 
 		/**
@@ -244,6 +244,29 @@
 				window.location.href = astraSitesLink + '&ast-disable-activation-notice';
 			}
 
+		},
+
+		_astra_refresh_assets: function(e)
+		{
+			var _this = $(this)
+
+			_this.addClass('refreshing-assets');
+
+			$.ajax({
+				url: astra.ajaxUrl,
+				type: 'POST',
+				data: {
+					'action': 'astra_refresh_assets_files',
+				},
+			})
+			.done(function(result) {
+				if (result.success) {
+					_this.removeClass('refreshing-assets');
+				} else {
+					_this.removeClass('refreshing-assets');
+
+				}
+			});
 		},
 	};
 

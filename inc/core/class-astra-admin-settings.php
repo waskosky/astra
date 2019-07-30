@@ -114,6 +114,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_knowledge_base_scetion', 11 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_community_scetion', 12 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_five_star_scetion', 13 );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_refresh_assets_files', 14 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
@@ -124,6 +125,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
+
 		}
 
 		/**
@@ -733,6 +735,50 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							esc_html( $astra_support_link_text )
 						);
 					?>
+				</div>
+			</div>
+			<?php
+		}
+
+		/**
+		 * Include the refresh button to delete and regenerate new assets files.
+		 *
+		 * @since 1.2.4
+		 */
+		public static function astra_refresh_assets_files() {
+			?>
+
+			<div class="postbox">
+				<h2 class="hndle ast-normal-cusror">
+					<span class="dashicons dashicons-update"></span>
+					<span>
+						<?php
+						printf( esc_html( 'Refresh Assets file', 'astra' ) );
+						?>
+				</h2>
+				<div class="inside">
+					<p>
+						<?php esc_html_e( 'Click on the refresh button to regenerate css files.', 'astra-addon' ); ?>
+					</p>
+					<p>
+					<?php
+						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . esc_url( '#' ) . '">';
+						$a_tag_close = '</a>';
+
+						printf(
+							/* translators: %1$s: a tag open. */
+							__( 'Please read %1$s this article %2$s to know more.', 'astra-addon' ),
+							$a_tag_open,
+							$a_tag_close
+						);
+					?>
+					</p>
+
+					<label for="astra_refresh_assets">
+						<button class="button astra-beta-updates" id="astra_refresh_assets">
+							<?php _e( 'Refresh', 'astra' ); ?>
+						</button>
+					</label>
 				</div>
 			</div>
 			<?php

@@ -23,12 +23,32 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
+
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_scripts' ), 1 );
+
 			if ( defined( 'ASTRA_EXT_FILE' ) ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_scripts' ), 999 );
 			}
+
 			add_action( 'astra_post_meta_updated', array( $this, 'check_values' ), 10, 1 );
 			add_action( 'customize_save_after', array( $this, 'astra_remove_css_option' ) );
+
+			// Refresh assets.
+			add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_refresh_assets' ) );
+		}
+
+		/**
+		 * Refresh Assets
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function astra_refresh_assets() {
+
+			$uploads_dir      = $this->astra_get_upload_dir();
+			$uploads_dir_path = $uploads_dir['path'];
+
+			array_map( 'unlink', glob( $uploads_dir_path . '/*.*' ) );
 		}
 
 		/**
@@ -63,7 +83,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$slug = $this->astra_get_archive_title();
 
 			if ( '' == $slug ) {
-				$slug = $this->get_post_id();
+				$slug = $this->astra_get_post_id();
 			}
 
 			if ( ! $slug ) {
@@ -78,17 +98,24 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$post_timestamp = get_option( 'astra_theme_get_dynamic_css' );
 			}
 
+			var_dump( '' == $post_timestamp );
 			if ( '' == $post_timestamp ) {
-				$timestamp = $this->get_timestamp();
+				$timestamp = $this->astra_get_file_timestamp();
 			} else {
 				$timestamp = $post_timestamp;
 			}
 
-			if ( ! empty( $theme_css_data ) ) {
-				$this->file_write( $theme_css_data, $slug, $timestamp, 'theme' );
+			$assets_info = $this->astra_get_asset_info( $theme_css_data, $slug, $timestamp, 'theme' );
+
+			if ( ! file_exists( $assets_info['css'] ) ) {
+				$timestamp = $this->astra_get_file_timestamp();
 			}
 
-			$uploads_dir     = $this->get_upload_dir();
+			if ( ! empty( $theme_css_data ) ) {
+				$this->file_write( $theme_css_data, $slug, $timestamp, 'theme', $assets_info );
+			}
+
+			$uploads_dir     = $this->astra_get_upload_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
 			wp_enqueue_style( 'astra-theme-dynamic', $uploads_dir_url . 'astra-theme-dynamic-css-' . $slug . '.css', array(), $timestamp );
@@ -105,32 +132,38 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$slug = $this->astra_get_archive_title();
 
 			if ( '' == $slug ) {
-				$slug = $this->get_post_id();
+				$slug = $this->astra_get_post_id();
 			}
 
 			if ( ! $slug ) {
 				return;
 			}
 
-			$theme_css_data = apply_filters( 'astra_dynamic_css', '' );
+			$addon_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
 
 			if ( '' == $this->astra_get_archive_title() ) {
-				$post_timestamp = get_post_meta( get_the_ID(), 'astra_addon_style_timestamp_css', true );
+				$post_timestamp = get_post_meta( get_the_ID(), 'astra_theme_style_timestamp_css', true );
 			} else {
-				$post_timestamp = get_option( 'astra_addon_get_dynamic_css' );
+				$post_timestamp = get_option( 'astra_theme_get_dynamic_css' );
 			}
 
-			if ( '' === $post_timestamp ) {
-				$timestamp = $this->get_timestamp();
+			if ( '' == $post_timestamp ) {
+				$timestamp = $this->astra_get_file_timestamp();
 			} else {
 				$timestamp = $post_timestamp;
 			}
 
-			if ( ! empty( $addon_css_data ) ) {
-				$this->file_write( $addon_css_data, $slug, $timestamp, 'addon' );
+			$assets_info = $this->astra_get_asset_info( $addon_css_data, $slug, $timestamp, 'addon' );
+
+			if ( ! file_exists( $assets_info['css_url'] ) ) {
+				$timestamp = $this->astra_get_file_timestamp();
 			}
 
-			$uploads_dir     = $this->get_upload_dir();
+			if ( ! empty( $addon_css_data ) ) {
+				$this->file_write( $addon_css_data, $slug, $timestamp, 'addon', $assets_info );
+			}
+
+			$uploads_dir     = $this->astra_get_upload_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
 			wp_enqueue_style( 'astra-addon-dynamic', $uploads_dir_url . 'astra-addon-dynamic-css-' . $slug . '.css', array(), $timestamp );
@@ -142,7 +175,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return string $post_id Post ID.
 		 */
-		public function get_post_id() {
+		public function astra_get_post_id() {
 			$post_id = get_the_ID();
 			return $post_id;
 		}
@@ -153,7 +186,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return string $timestamp Timestamp.
 		 */
-		public function get_timestamp() {
+		public function astra_get_file_timestamp() {
 			$date      = new DateTime();
 			$timestamp = $date->getTimestamp();
 
@@ -184,7 +217,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return array
 		 */
-		public function get_upload_dir() {
+		public function astra_get_upload_dir() {
 			$wp_info  = wp_upload_dir( null, false );
 			$dir_name = basename( ASTRA_THEME_DIR );
 			if ( 'astra' == $dir_name ) {
@@ -206,7 +239,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				// Add an index file for security.
 				file_put_contents( $dir_info['path'] . 'index.html', '' );
 			}
-			return apply_filters( 'astra_get_upload_dir', $dir_info );
+			return apply_filters( 'astra_astra_get_upload_dir', $dir_info );
 		}
 
 		/**
@@ -220,9 +253,9 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return array
 		 */
-		public function get_asset_info( $data, $slug, $timestamp, $type ) {
+		public function astra_get_asset_info( $data, $slug, $timestamp, $type ) {
 
-			$uploads_dir = $this->get_upload_dir();
+			$uploads_dir = $this->astra_get_upload_dir();
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$info        = array();
@@ -237,29 +270,27 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * Creates CSS files.
 		 *
 		 * @param  string $style_data   Gets the CSS for the current Page.
-		 * @param  string $slug      Gets the current post ID/ Taxonomy name.
+		 * @param  string $slug         Gets the current post ID/ Taxonomy name.
 		 * @param  string $timestamp    Gets the current timestamp.
 		 * @param  string $type         Gets the type theme/addon.
+		 * @param  string $assets_info  Gets the assets path info.
 		 * @since  x.x.x
 		 */
-		public function file_write( $style_data, $slug, $timestamp, $type ) {
+		public function file_write( $style_data, $slug, $timestamp, $type, $assets_info ) {
 
 			if ( '' == $this->astra_get_archive_title() ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 
-				if ( '' == $post_timestamp ) {
+				if ( '' == $post_timestamp && '' == $timestamp ) {
 					return;
 				}
 			} else {
 				$current_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css', true );
 
-				if ( '' == $current_timestamp ) {
+				if ( '' == $current_timestamp && '' == $timestamp ) {
 					return;
 				}
 			}
-
-			// File not created yet.
-			$assets_info = $this->get_asset_info( $style_data, $slug, $timestamp, $type );
 
 			// Create a new file.
 			$handle = fopen( $assets_info['css'], 'a' );
@@ -320,7 +351,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$tax   = get_taxonomy( get_queried_object()->taxonomy );
 				$title = $tax->labels->singular_name;
 			} else {
-				$title = $this->get_post_id();
+				$title = '';
 			}
 			return $title;
 		}
