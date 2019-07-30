@@ -775,8 +775,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 
 					<label for="astra_refresh_assets">
-						<button class="button astra-beta-updates" id="astra_refresh_assets">
-							<?php _e( 'Refresh', 'astra' ); ?>
+						<button class="button astra-refresh-assets" id="astra_refresh_assets">
+							<span class="ast-loader"></span>
+							<span class="ast-refresh-btn-text"><?php _e( 'Refresh', 'astra' ); ?></span>
 						</button>
 					</label>
 				</div>

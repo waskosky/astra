@@ -24,6 +24,12 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function __construct() {
 
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/file.php';
+			}
+
+			WP_Filesystem();
+
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_scripts' ), 1 );
 
 			if ( defined( 'ASTRA_EXT_FILE' ) ) {
@@ -53,7 +59,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$uploads_dir      = $this->astra_get_upload_dir();
 			$uploads_dir_path = $uploads_dir['path'];
 
-			array_map( 'unlink', glob( $uploads_dir_path . '/*.*' ) );
+			array_map( 'unlink', glob( $uploads_dir_path . '/astra-*.*' ) );
 		}
 
 		/**
@@ -201,6 +207,9 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @return array
 		 */
 		public function astra_get_upload_dir() {
+
+			global $wp_filesystem;
+
 			$wp_info  = wp_upload_dir( null, false );
 			$dir_name = basename( ASTRA_THEME_DIR );
 			if ( 'astra' == $dir_name ) {
@@ -218,10 +227,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			// Create the upload dir if it doesn't exist.
 			if ( ! file_exists( $dir_info['path'] ) ) {
 				// Create the directory.
-				// WP_Filesystem_Direct::mkdir( $dir_info['path'] );
-				mkdir( $dir_info['path'] );
+				$wp_filesystem->mkdir( $dir_info['path'] );
 				// Add an index file for security.
-				file_put_contents( $dir_info['path'] . 'index.php', '' );
+				$wp_filesystem->put_contents( $dir_info['path'] . 'index.php', '' );
+
 			}
 			return apply_filters( 'astra_astra_get_upload_dir', $dir_info );
 		}
@@ -311,6 +320,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function file_write( $style_data, $slug, $timestamp, $type, $assets_info ) {
 
+			global $wp_filesystem;
+
 			if ( '' == $this->astra_get_archive_title() ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 
@@ -326,9 +337,11 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			// Create a new file.
-			$handle = fopen( $assets_info['path'], 'a' );
-			file_put_contents( $assets_info['path'], $style_data );
-			fclose( $handle );
+			$put_contents = $wp_filesystem->put_contents( $assets_info['path'], $style_data );
+
+			if ( ! $put_contents ) {
+				return new \WP_Error( '404', sprintf( 'Cannot create file "%s".', $file_data['name'] ) );
+			}
 
 			if ( '' == $this->astra_get_archive_title() ) {
 				// Update the post meta.

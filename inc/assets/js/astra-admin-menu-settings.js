@@ -251,6 +251,8 @@
 			var _this = $(this)
 
 			_this.addClass('refreshing-assets');
+			_this.find( '.ast-loader' ).addClass( 'spinner is-active' );
+			_this.find( '.ast-refresh-btn-text' ).text('Refreshing...');
 
 			$.ajax({
 				url: astra.ajaxUrl,
@@ -261,9 +263,13 @@
 			})
 			.done(function(result) {
 				if (result.success) {
+					_this.find( '.ast-loader' ).removeClass( 'spinner is-active' );
 					_this.removeClass('refreshing-assets');
+					_this.find( '.ast-refresh-btn-text' ).text('CSS Refreshed');
 				} else {
+					_this.find( '.ast-loader' ).removeClass( 'spinner is-active' );
 					_this.removeClass('refreshing-assets');
+					_this.find( '.ast-refresh-btn-text' ).text('CSS Refreshed');
 
 				}
 			});
