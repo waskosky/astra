@@ -41,8 +41,6 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			// Refresh assets.
 			add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
 			add_action( 'astra_addon_activate', array( $this, 'astra_refresh_assets' ) );
-			add_action( 'astra_addon_deactivate', array( $this, 'astra_refresh_assets' ) );
-			add_action( 'after_switch_theme', array( $this, 'astra_refresh_assets' ) );
 
 			// Triggeres on click on refresh button.
 			add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_refresh_assets' ) );
