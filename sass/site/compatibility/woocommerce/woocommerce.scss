@@ -3882,12 +3882,12 @@ button.pswp__button--zoom:hover {
 
 	.search-field {
 		flex: auto;
-		width: 100%;
+		width: 50%;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
 
-	input[type="submit"] {
+	button {
 		padding: 10px 15px;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;

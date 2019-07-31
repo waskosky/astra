@@ -4,18 +4,24 @@
 .ast-author-box{
 	img.avatar {
 	    border-radius: 50%;
-	    margin: 0 20px 0 0;
+		margin: 0 20px 0 0;
+		@media (max-width: $mx-col-md) {
+			max-width: 5.8em;
+		}
 	}
 }
 
 .ast-archive-description{
-	margin-bottom: 2.5em;
-	padding-bottom: 1.3333em;
+	margin-bottom: 3em;
+	padding-bottom: 3em;
 	border-bottom: 1px solid $color-border-content;
 	.ast-archive-title{
     	margin-bottom: 0;
     	font-size: 26px;
-    	font-weight: 300;
+		font-weight: 300;
+		@media (max-width: $mx-col-sm) {
+			font-size: 22px;
+		}
 	}
 	p{
 		margin-bottom: 0;
@@ -37,37 +43,37 @@
 	}
 }
 
-@media (max-width: $mx-col-md) {
-	.ast-author-box{
-		img.avatar {
-		    margin: 20px 0 0 0;
-		}
-	}
-}
-
 .ast-separate-container {
 	.ast-author-box,
-	.ast-archive-description{
+	.ast-archive-description {
 		background-color: $color-background-page-header;
 		padding-bottom: 0;
 		border-bottom: 0;
+	}
+	&.ast-two-container {
+		.ast-archive-description {
+			margin-bottom: 20px;
+			@media (max-width: $mx-col-sm) {
+				margin-bottom: 10px;
+			}
+		}
 	}
 }
 .ast-separate-container{
 	@media (max-width: $mx-col-xl) {
 		.ast-archive-description{
 		    margin: 0;
-		    padding: 3.34em 2.4em;
+		    padding: 3em;
 		}
 	}
 	@media (max-width: $mx-col-lg) {
 		.ast-archive-description{
-		    padding: 2.14em;
+		    padding: 3em;
 		}
 	}
 	@media (max-width: $mx-col-sm) {
 		.ast-archive-description{
-		    padding: 1.5em 1em;
+		    padding: 2em;
 		}
 	}
 }

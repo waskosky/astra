@@ -5,7 +5,7 @@
 }
 
 .widget {
-	margin: 0 0 2.8em 0;
+	margin: 0 0 2.5em 0;
 
 	&:last-child {
 		margin-bottom: 0;
@@ -147,7 +147,6 @@
 	th,
 	td {
 		padding: 0;
-		text-align: center;
 	}
 
 	table,
@@ -183,7 +182,6 @@
 	}
 	tbody {
 	    line-height: 2.10em;
-	    text-align: center;
 		> tr {
 			> td {
 			    width: 14.2857%;
@@ -196,6 +194,12 @@
 	#today {
 	    background: $color-background-active;
 	}
+	#prev {
+		text-align: left;
+	}
+	#next {
+		text-align: right;
+	}
 }
 
 //separate container content layout
@@ -206,15 +210,14 @@
 			.widget{
 				background-color: $color-background-content;
 				padding: 2em;
-				margin-bottom: 1.35em;
+				margin-bottom: 0.675em;
 				@media (min-width: $col-md) {
 					&:last-child{
 						margin-bottom: 0;
 					}
 				}
-				@media (max-width: $mx-col-sm) {
-					margin-bottom: 10px;
-					margin-top: 10px;
+				@media (min-width: $mx-col-sm) {
+					margin-bottom: 1.459em;
 				}
 			}
 		}

@@ -179,11 +179,10 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								</header> <!-- .ast-comment-meta -->
 							</div>
 							<section class="ast-comment-content comment">
-								<?php comment_text(); ?>
-								<div class="ast-comment-edit-reply-wrap">
-									<?php edit_comment_link( astra_default_strings( 'string-comment-edit-link', false ), '<span class="ast-edit-link">', '</span>' ); ?>
-									<?php
-									comment_reply_link(
+							<?php comment_text(); ?>
+								<?php
+									$no_reply_link      = '';
+									$comment_reply_link = get_comment_reply_link(
 										array_merge(
 											$args,
 											array(
@@ -196,6 +195,23 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 											)
 										)
 									);
+								if ( is_null( $comment_reply_link ) ) {
+									$no_reply_link = 'ast-no-reply-link';
+								}
+								?>
+								<div 
+								<?php
+									echo astra_attr(
+										'ast-reply-edit-link-attr',
+										array(
+											'class' => "ast-comment-edit-reply-wrap $no_reply_link",
+										)
+									);
+								?>
+								>
+									<?php edit_comment_link( astra_default_strings( 'string-comment-edit-link', false ), '<span class="ast-edit-link">', '</span>' ); ?>
+									<?php
+									echo $comment_reply_link;
 									?>
 								</div>
 								<?php if ( '0' == $comment->comment_approved ) : ?>

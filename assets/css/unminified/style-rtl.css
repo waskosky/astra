@@ -3900,7 +3900,7 @@ input[type=tel],
 select,
 textarea {
   color: #666;
-  padding: 0.75em;
+  padding: 0.81em;
   height: auto;
   border-width: 1px;
   border-style: solid;
@@ -4166,6 +4166,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 3em;
 }
 
+.search-no-results .site-content .content-area .search-form {
+  margin-bottom: 0;
+}
+
 .blog-layout-1 {
   /* 2 - Blog Thumbnail Styles */
 }
@@ -4359,71 +4363,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /*----------  404  ----------*/
-.ast-404-layout-1 {
-  text-align: center;
-  margin: 4em auto;
-}
-
-.ast-404-layout-1 .page-sub-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.ast-404-layout-1 .widget_search {
-  padding-top: 0.5em;
-}
-
-.ast-404-search {
-  margin-top: 1.5em;
-}
-
-.ast-404-search .widget_search {
-  max-width: 370px;
-  margin: 0 auto;
-}
-
-.ast-separate-container .error-404,
-.ast-separate-container .no-results {
-  background-color: #fff;
-}
-
-@media (max-width: 1200px) {
-  .ast-separate-container .ast-404-layout-1,
-  .ast-separate-container .no-results {
-    margin: 0;
-    padding: 3.34em 2.4em;
-  }
-}
-
-@media (max-width: 768px) {
-  .ast-separate-container .ast-404-layout-1,
-  .ast-separate-container .no-results {
-    padding: 1.5em 2.14em;
-  }
-}
-
-@media (max-width: 544px) {
-  .ast-separate-container .ast-404-layout-1,
-  .ast-separate-container .no-results {
-    padding: 1.5em 1em;
-  }
-}
-
-@media (min-width: 1201px) {
-  .ast-separate-container .ast-404-layout-1,
-  .ast-separate-container .no-results {
-    margin: 0;
-    padding: 5.34em 6.67em;
-  }
-}
-
-@media (min-width: 769px) {
-  .error404.ast-separate-container #primary,
-  .search-no-results.ast-separate-container #primary {
-    margin-bottom: 4em;
-  }
-}
-
 /*----------  Blog Styles  ----------*/
 /*----------  Media Query min-width Structure   ----------*/
 /*----------  Media Query max-width Structure   ----------*/
@@ -4445,6 +4384,12 @@ input[type="color"]::-webkit-color-swatch {
 .blog-layout-1 .post-content {
   padding-right: 0;
   padding-left: 0;
+}
+
+@media (max-width: 544px) {
+  .blog-layout-1 {
+    padding-bottom: 2em;
+  }
 }
 
 /*----------  Page Builders  ----------*/

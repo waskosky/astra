@@ -4593,12 +4593,12 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-product-search .search-field {
   flex: auto;
-  width: 100%;
+  width: 50%;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.woocommerce-product-search input[type="submit"] {
+.woocommerce-product-search button {
   padding: 10px 15px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;

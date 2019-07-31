@@ -426,15 +426,15 @@ module.exports = function (grunt) {
                 },
                 classic_skin: {
                     src: [
+                        'assets/css/unminified/style.css',
                         'assets/css/unminified/skin-classic.css',
-                        'assets/css/unminified/style.css'
                     ],
                     dest: 'assets/css/unminified/style-classic.css',
                 },
                 modern_skin: {
                     src: [
+                        'assets/css/unminified/style.css',
                         'assets/css/unminified/skin-1.css',
-                        'assets/css/unminified/style.css'
                     ],
                     dest: 'assets/css/unminified/style-modern.css',
                 },
@@ -498,9 +498,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-rtlcss');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -518,7 +518,7 @@ module.exports = function (grunt) {
     grunt.registerTask('style', ['scss', 'postcss:style', 'rtl']);
 
     // min all
-    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css', 'concat']);
+    grunt.registerTask('minify', ['style', 'uglify:js', 'concat', 'cssmin:css']);
 
     // Update google Fonts
     grunt.registerTask('google-fonts', function () {

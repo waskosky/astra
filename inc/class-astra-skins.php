@@ -33,6 +33,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			add_filter( 'astra_comment_avatar_size', array( $this, 'comment_avatar_size' ) );
 			add_filter( 'astra_theme_defaults', array( $this, 'skin_defaults' ) );
 			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );
+			add_filter( 'astra_comment_form_all_post_type_support', array( $this, 'comment_box_markup_on_page' ) );
 		}
 
 		/**
@@ -101,7 +102,8 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
 				$defaults['font-size-entry-title']['desktop']           = 30;
 				$defaults['font-size-archive-summary-title']['desktop'] = 40;
-				$defaults['font-size-archive-summary-title']['desktop'] = 40;
+				$defaults['font-size-archive-summary-title']['tablet']  = 40;
+				$defaults['font-size-archive-summary-title']['mobile']  = 40;
 				$defaults['site-sidebar-width']                         = 30;
 			}
 
@@ -127,6 +129,23 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			}
 
 			return $form_title;
+		}
+
+		/**
+		 * Change comment form title in case of Classic Skin.
+		 *
+		 * @since x.x.x
+		 * @param String $default HTML markup condition for the Comments Form on Page.
+		 * @return String
+		 */
+		public function comment_box_markup_on_page( $default ) {
+			// Markup of Comment on Page similar to Post when modern skin is used.
+			if ( 'modern-skin' === self::astra_get_selected_skin() ) {
+				$default = true;
+				return $default;
+			}
+
+			return $default;
 		}
 
 		/**

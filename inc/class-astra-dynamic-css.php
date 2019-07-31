@@ -205,8 +205,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
-				$archive_post_title_font_size_value = 22;
-				$skin_css_output                    = array(
+				$skin_css_output = array(
 					'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
@@ -220,10 +219,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top' => astra_get_css_value( (int) $body_font_size_desktop * 2.25, 'px' ),
 					),
 				);
-				$parse_css                          = astra_parse_css( $skin_css_output );
+				$parse_css       = astra_parse_css( $skin_css_output );
 			} else {
-				$archive_post_title_font_size_value = 30;
-				$skin_css_output                    = array(
+				$skin_css_output = array(
 					'p, .entry-content p'  => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
@@ -234,7 +232,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 					),
 				);
-				$parse_css                          = astra_parse_css( $skin_css_output );
+				$parse_css       = astra_parse_css( $skin_css_output );
 
 				/* Width for Comments for Full Width / Stretched Template */
 				if ( 'classic-skin' === Astra_Skins::astra_get_selected_skin() ) {
@@ -492,8 +490,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *'              => array(
-					'line-height' => '1.45',
-					'color'       => esc_attr( $link_color ),
+					'color' => esc_attr( $link_color ),
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
 					'color' => esc_attr( $link_hover_color ),
@@ -728,13 +725,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'tablet' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
+					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'tablet' ),
 				),
 				'.site-header .site-description'        => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'tablet' ),
 				),
 				'.entry-title'                          => array(
-					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'tablet', 30 ),
+					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'tablet' ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -833,13 +830,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'mobile' ),
 				),
 				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),
+					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'mobile' ),
 				),
 				'.site-header .site-description'        => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'mobile' ),
 				),
 				'.entry-title'                          => array(
-					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'mobile', $archive_post_title_font_size_value ),
+					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'mobile' ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -1120,10 +1117,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( 'no-sidebar' !== astra_page_layout() ) :
 
 				$meta_style = array(
-					'.ast-container #primary'   => array(
+					'#primary'   => array(
 						'width' => astra_get_css_value( $primary_width, '%' ),
 					),
-					'.ast-container #secondary' => array(
+					'#secondary' => array(
 						'width' => astra_get_css_value( $secondary_width, '%' ),
 					),
 				);
