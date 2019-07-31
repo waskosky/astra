@@ -20,7 +20,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_ext_transparent_header_dynamic_css
  */
 function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+	if ( true !== Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		return;
 	}
 
