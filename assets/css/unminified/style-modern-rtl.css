@@ -5340,6 +5340,26 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+.ast-page-builder-template .children .ast-comment {
+  margin: 2.250em 0 0 0;
+}
+
+.ast-page-builder-template .depth-1 {
+  padding: 1.125em 0em;
+}
+
+.ast-page-builder-template .comment-reply-title {
+  padding-top: 0;
+}
+
+.ast-page-builder-template .depth-1:last-child {
+  padding-bottom: 0em;
+}
+
+.ast-page-builder-template .ast-comment-list .comment-respond {
+  padding: 2.25em 0 0 0;
+}
+
 .comment-respond {
   padding: 2.25em 0em 0em 0em;
   border-top: 1px solid #eaeaea;
