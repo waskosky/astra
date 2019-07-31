@@ -360,6 +360,10 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 			foreach ( $css_output as $selector => $properties ) {
 
+				if ( null === $properties ) {
+					break;
+				}
+
 				if ( ! count( $properties ) ) {
 					continue; }
 
@@ -448,6 +452,31 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 		 * @var Mixed.
 		 */
 		return apply_filters( "astra_get_option_{$option}", $value, $option, $default );
+	}
+}
+
+if ( ! function_exists( 'astra_update_option' ) ) {
+
+	/**
+	 * Update Theme options.
+	 *
+	 * @param  string $option option key.
+	 * @param  Mixed  $value  option value.
+	 * @return void
+	 */
+	function astra_update_option( $option, $value ) {
+
+		do_action( "astra_before_update_option_{$option}", $value, $option );
+
+		// Get all customizer options.
+		$theme_options = get_option( ASTRA_THEME_SETTINGS );
+
+		// Update value in options array.
+		$theme_options[ $option ] = $value;
+
+		update_option( ASTRA_THEME_SETTINGS, $theme_options );
+
+		do_action( "astra_after_update_option_{$option}", $value, $option );
 	}
 }
 
@@ -1215,6 +1244,29 @@ if ( ! function_exists( 'astra_is_white_labelled' ) ) :
 		}
 
 		return apply_filters( 'astra_is_white_labelled', false );
+	}
+
+endif;
+
+if ( ! function_exists( 'astra_get_option_by_group' ) ) :
+
+	/** Delete this function soon
+	 * Get option value for defined group.
+	 *
+	 * @param string $option option name.
+	 * @param string $group group name.
+	 * @param string $default default value for option.
+	 */
+	function astra_get_option_by_group( $option, $group, $default = '' ) {
+
+		$group_option = astra_get_option( $group );
+		$group_option = ! is_array( $group_option ) ? json_decode( $group_option, true ) : $group_option;
+
+		if ( isset( $group_option[ $option ] ) && '' != $group_option[ $option ] ) {
+			return apply_filters( "astra_get_option_{$option}", $group_option[ $option ], $option, $default );
+		}
+
+		return astra_get_option( $option, $default );
 	}
 
 endif;

@@ -11,6 +11,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_action( 'wp_head', 'astra_pingback_header' );
 
 /**
@@ -644,8 +648,10 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 	function astra_toggle_buttons_markup() {
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
+		$hide_custom_menu_mobile    = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_bottons               = true;
-		if ( $disable_primary_navigation && 'none' == $custom_header_section ) {
+
+		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && true == $hide_custom_menu_mobile ) ) {
 			$menu_bottons = false;
 		}
 		if ( apply_filters( 'astra_enable_mobile_menu_buttons', $menu_bottons ) ) {
@@ -743,7 +749,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'walker'         => new Astra_Walker_Page(),
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -769,7 +775,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
 					echo '<div class="main-header-bar-navigation">';
-						echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+						echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 							wp_page_menu( $fallback_menu_args );
 						echo '</nav>';
 					echo '</div>';
