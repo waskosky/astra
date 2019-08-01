@@ -1519,9 +1519,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 			$file_extension = $file_type['ext'];
 
 			if ( 'svg' == $file_extension ) {
-				$attr['width']  = '100%';
-				$attr['height'] = '100%';
-				$attr['class']  = 'astra-logo-svg';
+				$attr['width']    = '100%';
+				$attr['height']   = '100%';
+				$existing_classes = isset( $attr['class'] ) ? $attr['class'] : '';
+				$attr['class']    = $existing_classes . ' astra-logo-svg';
 			}
 		}
 

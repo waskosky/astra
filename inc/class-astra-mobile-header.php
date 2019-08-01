@@ -131,7 +131,6 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			if ( '' !== $mobile_header_logo && '1' == $different_logo ) {
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
-
 				add_filter( 'astra_is_logo_attachment', array( $this, 'add_mobile_logo_svg_class' ), 10, 2 );
 			}
 		}
