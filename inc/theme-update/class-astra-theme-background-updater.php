@@ -65,6 +65,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			if ( $this->needs_db_update() ) {
 				$this->update();
+			} else {
+				$this->update_db_version();
 			}
 
 			do_action( 'astra_update_initiated', self::$background_updater );
