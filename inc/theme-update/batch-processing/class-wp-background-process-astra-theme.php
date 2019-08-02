@@ -23,15 +23,6 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		protected $action = 'database_migration';
 
 		/**
-		 * Really long running process
-		 *
-		 * @return int
-		 */
-		public function really_long_running_task() {
-			return sleep( 5 );
-		}
-
-		/**
 		 * Task
 		 *
 		 * Override this method to perform any actions required on each
@@ -45,9 +36,6 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 * @return mixed
 		 */
 		protected function task( $process ) {
-
-			// Enable this function if we need to halt the process for few seconds between tasks.
-			// $this->really_long_running_task(); .
 
 			do_action( 'astra_batch_process_task'. '-' .$process , $process );
 
