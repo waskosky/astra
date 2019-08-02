@@ -76,6 +76,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
+			// If there is no saved version in the database then return.
 			if ( false === $saved_version ) {
 				return;
 			}
