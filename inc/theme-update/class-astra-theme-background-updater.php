@@ -29,8 +29,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.0.0-beta.1' => array(
-				// 'astra_theme_update_v2_0_0_customizer_optimization',
+			'2.0.0' => array(
+				'astra_theme_update_v2_0_0_customizer_optimization',
 			),
 		);
 
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		public function update_db_version( $version = null ) {
 
 			do_action( 'astra_update_before' );
-			
+
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
