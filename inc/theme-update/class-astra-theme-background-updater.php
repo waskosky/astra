@@ -29,9 +29,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.0.0' => array(
-				'astra_theme_update_v2_0_0_customizer_optimization',
-			),
 		);
 
 		/**
