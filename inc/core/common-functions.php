@@ -480,6 +480,30 @@ if ( ! function_exists( 'astra_update_option' ) ) {
 	}
 }
 
+if ( ! function_exists( 'astra_delete_option' ) ) {
+
+	/**
+	 * Update Theme options.
+	 *
+	 * @param  string $option option key.
+	 * @return void
+	 */
+	function astra_delete_option( $option ) {
+
+		do_action( "astra_before_delete_option_{$option}", $option );
+
+		// Get all customizer options.
+		$theme_options = get_option( ASTRA_THEME_SETTINGS );
+
+		// Update value in options array.
+		unset( $theme_options[ $option ] );
+
+		update_option( ASTRA_THEME_SETTINGS, $theme_options );
+
+		do_action( "astra_after_delete_option_{$option}", $option );
+	}
+}
+
 /**
  * Return Theme options from postmeta.
  */

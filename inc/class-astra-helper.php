@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
 			add_action( 'astra_addon_activate', array( $this, 'astra_refresh_assets' ) );
 
-			// Triggeres on click on refresh button.
+			// Triggers on click on refresh/ recheck button.
 			add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_refresh_assets' ) );
 		}
 
@@ -53,6 +53,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @return void
 		 */
 		public function astra_refresh_assets() {
+
+			astra_delete_option( 'file-write-access' );
 
 			$uploads_dir      = $this->astra_get_upload_dir();
 			$uploads_dir_path = $uploads_dir['path'];
@@ -147,13 +149,15 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			if ( ! empty( $style_data ) ) {
-				$enqueue = $this->file_write( $style_data, $slug, $timestamp, $type, $assets_info );
+				$this->file_write( $style_data, $slug, $timestamp, $type, $assets_info );
 			}
 
 			$uploads_dir     = $this->astra_get_upload_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
-			if ( ! $enqueue ) {
+			$write_access = astra_get_option( 'file-write-access', true );
+
+			if ( ! $write_access ) {
 				wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 			} else {
 				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $timestamp );
@@ -319,7 +323,6 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @param  string $type         Gets the type theme/addon.
 		 * @param  string $assets_info  Gets the assets path info.
 		 * @since  x.x.x
-		 * @return string
 		 */
 		public function file_write( $style_data, $slug, $timestamp, $type, $assets_info ) {
 
@@ -342,6 +345,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			// Create a new file.
 			$put_contents = $wp_filesystem->put_contents( $assets_info['path'], $style_data );
 
+			astra_update_option( 'file-write-access', $put_contents );
+
 			if ( false === $this->astra_get_archive_title() ) {
 				// Update the post meta.
 				update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
@@ -349,8 +354,6 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				// Update the option.
 				update_option( 'astra_' . $type . '_get_dynamic_css', $timestamp );
 			}
-
-			return $put_contents;
 		}
 	}
 

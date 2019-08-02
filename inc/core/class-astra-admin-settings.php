@@ -747,38 +747,50 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function astra_refresh_assets_files() {
+
+			$write_access = astra_get_option( 'file-write-access', true );
+
+			if ( $write_access ) {
+				$button_text = __( 'Refresh', 'astra' );
+				$message     = esc_html__( 'Click on the refresh button to regenerate css files.', 'astra' );
+				$doc_link    = esc_url( '#' );
+			} else {
+				$button_text = __( 'Recheck', 'astra' );
+				$message     = esc_html__( 'Click on the Recheck button to check if the upload folder has write access.', 'astra' );
+				$doc_link    = esc_url( '#' );
+			}
 			?>
 
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-update"></span>
 					<span>
-						<?php
-						printf( esc_html( 'Refresh Assets file', 'astra' ) );
-						?>
+						<?php printf( esc_html( 'Refresh Assets file', 'astra' ) ); ?>
+					</span>
 				</h2>
 				<div class="inside">
-					<p>
-						<?php esc_html_e( 'Click on the refresh button to regenerate css files.', 'astra-addon' ); ?>
+					<p class="warning">
+						<?php echo $message; ?>
 					</p>
 					<p>
 					<?php
-						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . esc_url( '#' ) . '">';
+						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . $doc_link . '">';
 						$a_tag_close = '</a>';
 
 						printf(
 							/* translators: %1$s: a tag open. */
-							__( 'Please read %1$s this article %2$s to know more.', 'astra-addon' ),
+							__( 'Please read %1$s this article %2$s to know more.', 'astra' ),
 							$a_tag_open,
 							$a_tag_close
 						);
 					?>
 					</p>
 
+
 					<label for="astra_refresh_assets">
 						<button class="button astra-refresh-assets" id="astra_refresh_assets">
 							<span class="ast-loader"></span>
-							<span class="ast-refresh-btn-text"><?php _e( 'Refresh', 'astra' ); ?></span>
+							<span class="ast-refresh-btn-text"><?php echo $button_text; ?></span>
 						</button>
 					</label>
 				</div>
