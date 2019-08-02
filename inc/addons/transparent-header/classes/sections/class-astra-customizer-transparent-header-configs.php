@@ -206,7 +206,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => false,
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Different Logo for retina devices?', 'astra' ),
+					'title'    => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'required' => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 					'priority' => 30,
 					'control'  => 'checkbox',
@@ -248,6 +248,18 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Transparent Header Border Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-border-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Bottom Border Size
 				 */
 				array(
@@ -255,7 +267,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-main-sep' ),
 					'type'        => 'control',
 					'transport'   => 'postMessage',
-					'control'     => 'number',
+					'control'     => 'ast-slider',
 					'section'     => 'section-transparent-header',
 					'priority'    => 30,
 					'title'       => __( 'Bottom Border Size', 'astra' ),
@@ -288,7 +300,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Colors & Background', 'astra-addon' ),
+					'title'    => __( 'Colors & Background', 'astra' ),
 					'priority' => 35,
 					'settings' => array(),
 				),
@@ -309,7 +321,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'   => astra_get_option( 'transparent-header-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Header', 'astra' ),
+					'title'     => __( 'Site Title', 'astra' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
@@ -321,6 +333,17 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Menu', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-submenu]',
+					'default'   => astra_get_option( 'transparent-header-colors-submenu' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Submenu', 'astra' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,

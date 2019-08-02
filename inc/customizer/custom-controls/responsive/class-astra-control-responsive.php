@@ -44,21 +44,6 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 	public $units = array();
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive/';
-
-		wp_enqueue_script( 'ast-responsive', $js_uri . 'responsive.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'ast-responsive', $css_uri . 'responsive.css', null, ASTRA_THEME_VERSION );
-
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()

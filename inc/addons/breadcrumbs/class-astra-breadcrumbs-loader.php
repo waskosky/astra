@@ -9,6 +9,10 @@
  * @since       Astra 1.7.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 
 	/**
@@ -53,8 +57,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 * @return void
 		 */
 		public function add_fonts() {
-			$breadcrumb_font_family = astra_get_option_by_group( 'breadcrumb-font-family', 'section-breadcrumb-typo' );
-			$breadcrumb_font_weight = astra_get_option_by_group( 'breadcrumb-font-weight', 'section-breadcrumb-typo' );
+			$breadcrumb_font_family = astra_get_option( 'breadcrumb-font-family' );
+			$breadcrumb_font_weight = astra_get_option( 'breadcrumb-font-weight' );
 			Astra_Fonts::add_font( $breadcrumb_font_family, $breadcrumb_font_weight );
 		}
 

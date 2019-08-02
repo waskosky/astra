@@ -9,6 +9,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 
 	/**
@@ -39,19 +43,18 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				array(
-					'name'     => 'section-site-layout',
-					'type'     => 'section',
-					'priority' => 5,
-					'title'    => __( 'Site Layout', 'astra' ),
-					'panel'    => 'panel-layout',
+					'name'     => 'panel-global',
+					'type'     => 'panel',
+					'priority' => 10,
+					'title'    => __( 'Global', 'astra' ),
 				),
 
 				array(
 					'name'               => 'section-container-layout',
 					'type'               => 'section',
-					'priority'           => 70,
+					'priority'           => 17,
 					'title'              => __( 'Container', 'astra' ),
-					'panel'              => 'panel-layout',
+					'panel'              => 'panel-global',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
@@ -80,11 +83,10 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				 * @since 1.4.0
 				 */
 				array(
-					'name'     => 'section-header-group',
-					'type'     => 'section',
+					'name'     => 'panel-header-group',
+					'type'     => 'panel',
 					'priority' => 20,
 					'title'    => __( 'Header', 'astra' ),
-					'panel'    => 'panel-layout',
 				),
 
 				/*
@@ -97,8 +99,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'               => 'section',
 					'priority'           => 5,
 					'title'              => __( 'Site Identity', 'astra' ),
-					'panel'              => 'panel-layout',
-					'section'            => 'section-header-group',
+					'panel'              => 'panel-header-group',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
@@ -125,8 +126,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'               => 'section',
 					'priority'           => 15,
 					'title'              => __( 'Primary Header', 'astra' ),
-					'panel'              => 'panel-layout',
-					'section'            => 'section-header-group',
+					'panel'              => 'panel-header-group',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
@@ -143,25 +143,25 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					),
 				),
 
-				/*
-				 * Mobile Header section
-				 *
-				 * @since 1.4.0
-				 */
 				array(
-					'name'     => 'section-mobile-header',
+					'name'     => 'section-primary-menu',
 					'type'     => 'section',
-					'priority' => 40,
-					'title'    => __( 'Menu Breakpoint', 'astra' ),
-					'panel'    => 'panel-layout',
-					'section'  => 'section-header-group',
+					'priority' => 15,
+					'title'    => __( 'Primary Menu', 'astra' ),
+					'panel'    => 'panel-header-group',
 				),
 				array(
 					'name'     => 'section-footer-group',
 					'type'     => 'section',
 					'title'    => __( 'Footer', 'astra' ),
-					'panel'    => 'panel-layout',
 					'priority' => 55,
+				),
+
+				array(
+					'name'             => 'section-separator',
+					'type'             => 'section',
+					'priority'         => 70,
+					'section_callback' => 'Astra_WP_Customize_Separator',
 				),
 
 				/**
@@ -172,7 +172,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-footer-adv',
 					'type'     => 'section',
 					'title'    => __( 'Footer Widgets', 'astra' ),
-					'panel'    => 'panel-layout',
 					'section'  => 'section-footer-group',
 					'priority' => 5,
 				),
@@ -181,7 +180,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'               => 'section-footer-small',
 					'type'               => 'section',
 					'title'              => __( 'Footer Bar', 'astra' ),
-					'panel'              => 'panel-layout',
 					'section'            => 'section-footer-group',
 					'priority'           => 10,
 					'description_hidden' => true,
@@ -205,14 +203,12 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'     => 'section',
 					'priority' => 40,
 					'title'    => __( 'Blog', 'astra' ),
-					'panel'    => 'panel-layout',
 				),
 				array(
 					'name'     => 'section-blog',
 					'type'     => 'section',
 					'priority' => 5,
 					'title'    => __( 'Blog / Archive', 'astra' ),
-					'panel'    => 'panel-layout',
 					'section'  => 'section-blog-group',
 				),
 				array(
@@ -220,7 +216,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'     => 'section',
 					'priority' => 10,
 					'title'    => __( 'Single Post', 'astra' ),
-					'panel'    => 'panel-layout',
 					'section'  => 'section-blog-group',
 				),
 
@@ -229,7 +224,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'               => 'section',
 					'priority'           => 50,
 					'title'              => __( 'Sidebar', 'astra' ),
-					'panel'              => 'panel-layout',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
@@ -250,10 +244,10 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				 * Colors Panel
 				 */
 				array(
-					'name'               => 'panel-colors-background',
-					'type'               => 'panel',
-					'priority'           => 15,
-					'title'              => __( 'Colors & Background', 'astra' ),
+					'name'               => 'section-colors-background',
+					'type'               => 'section',
+					'priority'           => 16,
+					'title'              => __( 'Colors', 'astra' ),
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
@@ -268,14 +262,16 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							),
 						)
 					),
+					'panel'              => 'panel-global',
 				),
 
 				array(
 					'name'     => 'section-colors-body',
 					'type'     => 'section',
 					'title'    => __( 'Base Colors', 'astra' ),
-					'panel'    => 'panel-colors-background',
+					'panel'    => 'panel-global',
 					'priority' => 1,
+					'section'  => 'section-colors-background',
 				),
 
 				array(
@@ -290,10 +286,10 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				 * Typography Panel
 				 */
 				array(
-					'name'               => 'panel-typography',
-					'type'               => 'panel',
+					'name'               => 'section-typography',
+					'type'               => 'section',
 					'title'              => __( 'Typography', 'astra' ),
-					'priority'           => 20,
+					'priority'           => 15,
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
@@ -308,22 +304,25 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 							),
 						)
 					),
+					'panel'              => 'panel-global',
 				),
 
 				array(
 					'name'     => 'section-body-typo',
 					'type'     => 'section',
 					'title'    => __( 'Base Typography', 'astra' ),
-					'panel'    => 'panel-typography',
+					'section'  => 'section-typography',
 					'priority' => 1,
+					'panel'    => 'panel-global',
 				),
 
 				array(
 					'name'     => 'section-content-typo',
 					'type'     => 'section',
-					'title'    => __( 'Content', 'astra' ),
-					'panel'    => 'panel-typography',
+					'title'    => __( 'Headings', 'astra' ),
+					'section'  => 'section-typography',
 					'priority' => 35,
+					'panel'    => 'panel-global',
 				),
 
 				/**
@@ -334,6 +333,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'     => 'section',
 					'priority' => 50,
 					'title'    => __( 'Buttons', 'astra' ),
+					'panel'    => 'panel-global',
 				),
 
 				/**

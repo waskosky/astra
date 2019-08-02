@@ -62,19 +62,6 @@ class Astra_Control_Slider extends WP_Customize_Control {
 	}
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/slider/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/slider/';
-
-		wp_enqueue_script( 'astra-slider', $js_uri . 'slider.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-slider', $css_uri . 'slider.css', null, ASTRA_THEME_VERSION );
-	}
-
-	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
 	 *
 	 * Class variables for this control class are available in the `data` JS object;
@@ -85,6 +72,7 @@ class Astra_Control_Slider extends WP_Customize_Control {
 	 * @access protected
 	 */
 	protected function content_template() {
+		$reset = __( 'Back to default', 'astra' );
 		?>
 		<label>
 			<# if ( data.label ) { #>
@@ -103,7 +91,7 @@ class Astra_Control_Slider extends WP_Customize_Control {
 					} #>
 				</div>
 				<div class="ast-slider-reset">
-					<span class="dashicons dashicons-image-rotate"></span>
+					<span class="dashicons dashicons-image-rotate ast-control-tooltip" title="<?php echo esc_html( $reset ); ?>" ></span>
 				</div>
 			</div>
 		</label>

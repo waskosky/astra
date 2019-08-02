@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		private static $db_updates = array(
 			'2.0.0-beta.1' => array(
-				'astra_theme_update_v2_0_0_customizer_optimization',
+				// 'astra_theme_update_v2_0_0_customizer_optimization',
 			),
 		);
 
@@ -147,33 +147,38 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		public function update_db_version( $version = null ) {
 
 			do_action( 'astra_update_before' );
+			
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
+			if ( false === $saved_version ) {
+
+				$saved_version = ASTRA_THEME_VERSION;
+
+				// Update auto saved version number.
+				astra_update_option( 'theme-auto-version', ASTRA_THEME_VERSION );
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
+
 				// Get old version.
 				$theme_version = get_option( '_astra_auto_version', ASTRA_THEME_VERSION );
+
 				// Remove option.
 				delete_option( '_astra_auto_version' );
+
 			} else {
+
 				// Get latest version.
 				$theme_version = ASTRA_THEME_VERSION;
 			}
 
-			// Get all customizer options.
-			$customizer_options = get_option( ASTRA_THEME_SETTINGS );
-
-			// Get all customizer options.
-			$version_array = array(
-				'theme-auto-version' => $theme_version,
-			);
-
-			// Merge customizer options with version.
-			$theme_options = wp_parse_args( $version_array, $customizer_options );
-
 			// Update auto saved version number.
-			update_option( ASTRA_THEME_SETTINGS, $theme_options );
+			astra_update_option( 'theme-auto-version', $theme_version );
+
+			// Update variables.
+			Astra_Theme_Options::refresh();
 
 			do_action( 'astra_update_after' );
 		}

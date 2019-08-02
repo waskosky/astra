@@ -169,7 +169,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
-		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
 		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
@@ -210,7 +209,8 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
 		}
 
-		echo ' data-value="' . esc_attr( $this->value() ) . '">';
+		echo ' data-value="' . esc_attr( $this->value() ) . '"';
+		echo ' data-name="' . esc_attr( $this->name ) . '"';
 	}
 
 	/**
@@ -295,6 +295,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		}
 		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
 		echo '</select>';
+		echo '<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>';
 	}
 
 	/**

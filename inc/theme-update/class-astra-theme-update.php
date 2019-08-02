@@ -9,6 +9,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 	/**
@@ -59,8 +63,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			}
 			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
-
-
 
 		/**
 		 * Implement theme update logic.
@@ -187,7 +189,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.6.1-alpha.3', '<' ) ) {
 				self::v_1_6_1();
 			}
-
 		}
 
 		/**

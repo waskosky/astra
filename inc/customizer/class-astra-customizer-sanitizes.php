@@ -81,13 +81,13 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					$val = $input_attrs['min'];
 				}
 
-						$dv = $val / $input_attrs['step'];
+				$dv = (float) $val / $input_attrs['step'];
 
-						$dv = round( $dv );
+				$dv = round( $dv );
 
-						$val = $dv * $input_attrs['step'];
+				$val = $dv * $input_attrs['step'];
 
-					$val = number_format( (float) $val, 2, '.', '' );
+				$val = number_format( (float) $val, 2, '.', '' );
 				if ( $val == (int) $val ) {
 					$val = (int) $val;
 				}
@@ -119,41 +119,6 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				$val[ $key ] = ( is_numeric( $val[ $key ] ) && $val[ $key ] >= 0 ) ? $val[ $key ] : '';
 			}
 
-			return $val;
-		}
-
-		/**
-		 * Sanitize Settings Group
-		 *
-		 * @param  string $val Customizer settings value.
-		 * @return array        Return array.
-		 * @since  2.0.0-beta.1
-		 */
-		public static function sanitize_customizer_settings_group( $val ) {
-
-			$val = json_decode( $val, true );
-			self::sanitize_customizer_settings_group_recursive( $val );
-
-			return $val;
-		}
-
-		/**
-		 * Sanitize Settings Group Recursive function
-		 *
-		 * @param  array $val Customizer settings value.
-		 * @return array        Return array.
-		 * @since  2.0.0-beta.1
-		 */
-		public static function sanitize_customizer_settings_group_recursive( $val ) {
-
-			foreach ( $val as $key => $value ) {
-
-				if ( is_array( $value ) ) {
-					$val[ $key ] = self::sanitize_customizer_settings_group_recursive( $value );
-				} else {
-					$val[ $key ] = sanitize_text_field( $value );
-				}
-			}
 			return $val;
 		}
 
@@ -288,12 +253,12 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				'mobile-unit'  => '',
 			);
 			if ( is_array( $val ) ) {
-				$responsive['desktop']      = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
-				$responsive['tablet']       = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
-				$responsive['mobile']       = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
-				$responsive['desktop-unit'] = in_array( $val['desktop-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['desktop-unit'] : 'px';
-				$responsive['tablet-unit']  = in_array( $val['tablet-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['tablet-unit'] : 'px';
-				$responsive['mobile-unit']  = in_array( $val['mobile-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['mobile-unit'] : 'px';
+				$responsive['desktop']      = ( isset( $val['desktop'] ) && is_numeric( $val['desktop'] ) ) ? $val['desktop'] : '';
+				$responsive['tablet']       = ( isset( $val['tablet'] ) && is_numeric( $val['tablet'] ) ) ? $val['tablet'] : '';
+				$responsive['mobile']       = ( isset( $val['mobile'] ) && is_numeric( $val['mobile'] ) ) ? $val['mobile'] : '';
+				$responsive['desktop-unit'] = ( isset( $val['desktop-unit'] ) && in_array( $val['desktop-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ) ? $val['desktop-unit'] : 'px';
+				$responsive['tablet-unit']  = ( isset( $val['tablet-unit'] ) && in_array( $val['tablet-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ) ? $val['tablet-unit'] : 'px';
+				$responsive['mobile-unit']  = ( isset( $val['mobile-unit'] ) && in_array( $val['mobile-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ) ? $val['mobile-unit'] : 'px';
 			} else {
 				$responsive['desktop'] = is_numeric( $val ) ? $val : '';
 			}

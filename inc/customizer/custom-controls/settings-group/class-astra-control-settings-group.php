@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		 * @access public
 		 * @var string
 		 */
-		public $value = '';
+		public $tab = '';
 
 		/**
 		 * The fields for group.
@@ -71,18 +71,6 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		public $help = '';
 
 		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-			$assets_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/settings-group/';
-			wp_enqueue_style( 'astra-settings-group', $assets_uri . 'settings-group.css', null, ASTRA_THEME_VERSION );
-
-			wp_enqueue_script( 'astra-settings-group-script', $assets_uri . 'settings-group.js', array( 'jquery', 'jquery-ui-tabs', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		}
-
-		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.
 		 *
 		 * @see WP_Customize_Control::to_json()
@@ -95,8 +83,22 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 			$this->json['help']  = $this->help;
 			$this->json['name']  = $this->name;
 
-			$this->json['value']      = is_array( $this->value() ) ? json_encode( $this->value() ) : $this->value();
-			$this->json['ast_fields'] = $this->ast_fields;
+			$config = array();
+
+			if ( isset( Astra_Customizer::$group_configs[ $this->name ]['tabs'] ) ) {
+				$tab = array_keys( Astra_Customizer::$group_configs[ $this->name ]['tabs'] );
+
+				foreach ( $tab as $key => $value ) {
+
+					$config['tabs'][ $value ] = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ]['tabs'][ $value ], 'priority' );
+				}
+			} else {
+				if ( isset( Astra_Customizer::$group_configs[ $this->name ] ) ) {
+					$config = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ], 'priority' );
+				}
+			}
+
+			$this->json['ast_fields'] = $config;
 		}
 
 		/**
@@ -109,7 +111,8 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		 *
 		 * @access protected
 		 */
-		protected function content_template() {             ?>
+		protected function content_template() {
+			?>
 
 		<div class="ast-toggle-desc-wrap">
 			<label class="customizer-text">
@@ -122,9 +125,6 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 								<span class="ast-adv-toggle-icon dashicons" data-control="{{ data.name }}"></span>
 			</label>
 		</div>
-		<div class="customize-control-content">
-			<input type="hidden" data-name="{{ data.name }}" class="ast-hidden-input" value="{{ data.value }}">
-		</div>
 		<div class="ast-field-settings-wrap">
 		</div>
 			<?php
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 		 *
 		 * @see WP_Customize_Control::render_content()
 		 */
-		protected function render_content() {       }
+		protected function render_content() {}
 	}
 
 endif;

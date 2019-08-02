@@ -294,6 +294,27 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Check if the current page is a Product Subcategory page or not.
+		 *
+		 * @param integer $category_id Current page Category ID.
+		 * @return boolean
+		 */
+		function astra_woo_is_subcategory( $category_id = null ) {
+			if ( is_tax( 'product_cat' ) ) {
+				if ( empty( $category_id ) ) {
+					$category_id = get_queried_object_id();
+				}
+				$category = get_term( get_queried_object_id(), 'product_cat' );
+				if ( empty( $category->parent ) ) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/**
 		 * Update Shop page grid
 		 *
 		 * @return int
@@ -301,6 +322,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function shop_no_of_products() {
 			$taxonomy_page_display = get_option( 'woocommerce_category_archive_display', false );
 			if ( is_product_taxonomy() && 'subcategories' === $taxonomy_page_display ) {
+				if ( $this->astra_woo_is_subcategory() ) {
+					$products = astra_get_option( 'shop-no-of-products' );
+					return $products;
+				}
 				$products = wp_count_posts( 'product' )->publish;
 			} else {
 				$products = astra_get_option( 'shop-no-of-products' );
@@ -503,7 +528,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			}
 
-			return $layout;
+			return apply_filters( 'astra_get_store_content_layout', $layout );
 		}
 
 		/**
@@ -636,7 +661,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				<?php astra_primary_content_top(); ?>
 
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main">
 					<div class="ast-woocommerce-container">
 			<?php
 		}
@@ -687,21 +712,21 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
-			$btn_color = astra_get_option_by_group( 'button-color', 'theme-button-color-group' );
+			$btn_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
 				$btn_color = astra_get_foreground_color( $theme_color );
 			}
 
-			$btn_h_color = astra_get_option_by_group( 'button-h-color', 'theme-button-color-group' );
+			$btn_h_color = astra_get_option( 'button-h-color' );
 			if ( empty( $btn_h_color ) ) {
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
 			}
-			$btn_bg_color   = astra_get_option_by_group( 'button-bg-color', 'theme-button-color-group', '', $theme_color );
-			$btn_bg_h_color = astra_get_option_by_group( 'button-bg-h-color', 'theme-button-color-group', '', $link_h_color );
+			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
+			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
-			$btn_border_radius      = astra_get_option_by_group( 'button-radius', 'theme-button-border-group' );
-			$btn_vertical_padding   = astra_get_option_by_group( 'button-v-padding', 'theme-button-border-group' );
-			$btn_horizontal_padding = astra_get_option_by_group( 'button-h-padding', 'theme-button-border-group' );
+			$btn_border_radius      = astra_get_option( 'button-radius' );
+			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
+			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 
 			$cart_h_color = astra_get_foreground_color( $link_h_color );
 
@@ -812,27 +837,29 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
-			/* Woocommerce Shop Archive width */
-			if ( 'custom' === $woo_shop_archive_width ) :
-				// Woocommerce shop archive custom width.
-				$site_width  = array(
-					'.ast-woo-shop-archive .site-content > .ast-container' => array(
-						'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
-					),
-				);
-				$css_output .= astra_parse_css( $site_width, '769' );
+			if ( 'page-builder' !== astra_get_content_layout() ) {
+				/* Woocommerce Shop Archive width */
+				if ( 'custom' === $woo_shop_archive_width ) :
+					// Woocommerce shop archive custom width.
+					$site_width  = array(
+						'.ast-woo-shop-archive .site-content > .ast-container' => array(
+							'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
+						),
+					);
+					$css_output .= astra_parse_css( $site_width, '769' );
 
-			else :
-				// Woocommerce shop archive default width.
-				$site_width = array(
-					'.ast-woo-shop-archive .site-content > .ast-container' => array(
-						'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
-					),
-				);
+				else :
+					// Woocommerce shop archive default width.
+					$site_width = array(
+						'.ast-woo-shop-archive .site-content > .ast-container' => array(
+							'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+						),
+					);
 
-				/* Parse CSS from array()*/
-				$css_output .= astra_parse_css( $site_width, '769' );
-			endif;
+					/* Parse CSS from array()*/
+					$css_output .= astra_parse_css( $site_width, '769' );
+				endif;
+			}
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 

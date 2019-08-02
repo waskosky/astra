@@ -134,10 +134,14 @@ p.demo_store a,
 }
 
 .screen-reader-text {
+  border: 0;
   clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
   height: 1px;
+  margin: -1px;
   overflow: hidden;
-  position: absolute !important;
+  padding: 0;
+  position: absolute;
   width: 1px;
   word-wrap: normal !important;
 }
@@ -2771,7 +2775,7 @@ p.demo_store a,
   }
   .woocommerce ul.products a.button,
   .woocommerce-page ul.products a.button {
-    padding: .618em 1em;
+    padding: 0.5em 0.75em;
   }
   .woocommerce ul.products a.button.loading::after,
   .woocommerce-page ul.products a.button.loading::after {

@@ -5,6 +5,10 @@
  * @package Astra Addon
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Transparent Above Header
  */
@@ -29,53 +33,53 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 	 * Set colors
 	 */
 
-	$transparent_bg_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'desktop' );
-	$transparent_bg_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'tablet' );
-	$transparent_bg_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'mobile' );
+	$transparent_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'desktop' );
+	$transparent_bg_color_tablet  = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'tablet' );
+	$transparent_bg_color_mobile  = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'mobile' );
 
-	$transparent_color_site_title_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'desktop' );
-	$transparent_color_site_title_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'tablet' );
-	$transparent_color_site_title_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'mobile' );
+	$transparent_color_site_title_desktop = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'desktop' );
+	$transparent_color_site_title_tablet  = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'tablet' );
+	$transparent_color_site_title_mobile  = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'mobile' );
 
-	$transparent_color_h_site_title_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-h-site-title-responsive', 'transparent-header-colors' ), 'desktop' );
-	$transparent_color_h_site_title_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-h-site-title-responsive', 'transparent-header-colors' ), 'tablet' );
-	$transparent_color_h_site_title_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-h-site-title-responsive', 'transparent-header-colors' ), 'mobile' );
+	$transparent_color_h_site_title_desktop = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'desktop' );
+	$transparent_color_h_site_title_tablet  = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'tablet' );
+	$transparent_color_h_site_title_mobile  = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'mobile' );
 
-	$transparent_menu_bg_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-menu-bg-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_menu_color_desktop    = astra_get_prop( astra_get_option_by_group( 'transparent-menu-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_menu_h_color_desktop  = astra_get_prop( astra_get_option_by_group( 'transparent-menu-h-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
+	$transparent_menu_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'desktop' );
+	$transparent_menu_color_desktop    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'desktop' );
+	$transparent_menu_h_color_desktop  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'desktop' );
 
-	$transparent_menu_bg_color_tablet = astra_get_prop( astra_get_option_by_group( 'transparent-menu-bg-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_menu_color_tablet    = astra_get_prop( astra_get_option_by_group( 'transparent-menu-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_menu_h_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-menu-h-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
+	$transparent_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'tablet' );
+	$transparent_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'tablet' );
+	$transparent_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'tablet' );
 
-	$transparent_menu_bg_color_mobile = astra_get_prop( astra_get_option_by_group( 'transparent-menu-bg-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_menu_color_mobile    = astra_get_prop( astra_get_option_by_group( 'transparent-menu-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_menu_h_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-menu-h-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
+	$transparent_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'mobile' );
+	$transparent_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'mobile' );
+	$transparent_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'mobile' );
 
-	$transparent_sub_menu_color_desktop    = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_sub_menu_h_color_desktop  = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-h-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_sub_menu_bg_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-bg-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
+	$transparent_sub_menu_color_desktop    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'desktop' );
+	$transparent_sub_menu_h_color_desktop  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'desktop' );
+	$transparent_sub_menu_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'desktop' );
 
-	$transparent_sub_menu_color_tablet    = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_sub_menu_h_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-h-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_sub_menu_bg_color_tablet = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-bg-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
+	$transparent_sub_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'tablet' );
+	$transparent_sub_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'tablet' );
+	$transparent_sub_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'tablet' );
 
-	$transparent_sub_menu_color_mobile    = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_sub_menu_h_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-h-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_sub_menu_bg_color_mobile = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-bg-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
+	$transparent_sub_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'mobile' );
+	$transparent_sub_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'mobile' );
+	$transparent_sub_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'mobile' );
 
-	$transparent_content_section_text_color_desktop   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-text-color-responsive', 'transparent-header-colors-content' ), 'desktop' );
-	$transparent_content_section_link_color_desktop   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-color-responsive', 'transparent-header-colors-content' ), 'desktop' );
-	$transparent_content_section_link_h_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-h-color-responsive', 'transparent-header-colors-content' ), 'desktop' );
+	$transparent_content_section_text_color_desktop   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'desktop' );
+	$transparent_content_section_link_color_desktop   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'desktop' );
+	$transparent_content_section_link_h_color_desktop = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'desktop' );
 
-	$transparent_content_section_text_color_tablet   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-text-color-responsive', 'transparent-header-colors-content' ), 'tablet' );
-	$transparent_content_section_link_color_tablet   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-color-responsive', 'transparent-header-colors-content' ), 'tablet' );
-	$transparent_content_section_link_h_color_tablet = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-h-color-responsive', 'transparent-header-colors-content' ), 'tablet' );
+	$transparent_content_section_text_color_tablet   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'tablet' );
+	$transparent_content_section_link_color_tablet   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'tablet' );
+	$transparent_content_section_link_h_color_tablet = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'tablet' );
 
-	$transparent_content_section_text_color_mobile   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-text-color-responsive', 'transparent-header-colors-content' ), 'mobile' );
-	$transparent_content_section_link_color_mobile   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-color-responsive', 'transparent-header-colors-content' ), 'mobile' );
-	$transparent_content_section_link_h_color_mobile = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-h-color-responsive', 'transparent-header-colors-content' ), 'mobile' );
+	$transparent_content_section_text_color_mobile   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'mobile' );
+	$transparent_content_section_link_color_mobile   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'mobile' );
+	$transparent_content_section_link_h_color_mobile = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'mobile' );
 
 	/**
 	 * Generate Dynamic CSS
@@ -106,7 +110,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'color' => esc_attr( $transparent_menu_h_color_desktop ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-navigation a'                => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation a, .ast-header-break-point.ast-theme-transparent-header .ast-above-header-navigation a, .ast-header-break-point.ast-theme-transparent-header .ast-above-header-navigation > ul.ast-above-header-menu > .menu-item-has-children:not(.current-menu-item) > .ast-menu-toggle'                => array(
 			'color' => esc_attr( $transparent_menu_color_desktop ),
 		),
 		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu' => array(
@@ -122,7 +126,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'color' => esc_attr( $transparent_sub_menu_h_color_desktop ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu, .ast-theme-transparent-header .ast-above-header-menu .sub-menu a' => array(
+		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu, .ast-theme-transparent-header .ast-above-header-navigation .ast-above-header-menu .sub-menu a' => array(
 			'color' => esc_attr( $transparent_sub_menu_color_desktop ),
 		),
 
@@ -162,7 +166,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'color' => esc_attr( $transparent_menu_h_color_tablet ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-navigation a'                => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation a, .ast-header-break-point.ast-theme-transparent-header .ast-above-header-navigation a, .ast-header-break-point.ast-theme-transparent-header .ast-above-header-navigation > ul.ast-above-header-menu > .menu-item-has-children:not(.current-menu-item) > .ast-menu-toggle'                => array(
 			'color' => esc_attr( $transparent_menu_color_tablet ),
 		),
 		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu' => array(
@@ -178,7 +182,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'color' => esc_attr( $transparent_sub_menu_h_color_tablet ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu, .ast-theme-transparent-header .ast-above-header-menu .sub-menu a' => array(
+		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu, .ast-theme-transparent-header .ast-above-header-navigation .ast-above-header-menu .sub-menu a' => array(
 			'color' => esc_attr( $transparent_sub_menu_color_tablet ),
 		),
 
@@ -217,7 +221,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'color' => esc_attr( $transparent_menu_h_color_mobile ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-navigation a'                => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation a, .ast-header-break-point.ast-theme-transparent-header .ast-above-header-navigation a, .ast-header-break-point.ast-theme-transparent-header .ast-above-header-navigation > ul.ast-above-header-menu > .menu-item-has-children:not(.current-menu-item) > .ast-menu-toggle'                => array(
 			'color' => esc_attr( $transparent_menu_color_mobile ),
 		),
 		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu' => array(
@@ -233,7 +237,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'color' => esc_attr( $transparent_sub_menu_h_color_mobile ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu, .ast-theme-transparent-header .ast-above-header-menu .sub-menu a' => array(
+		'.ast-theme-transparent-header .ast-above-header-menu .sub-menu, .ast-theme-transparent-header .ast-above-header-navigation .ast-above-header-menu .sub-menu a' => array(
 			'color' => esc_attr( $transparent_sub_menu_color_mobile ),
 		),
 
@@ -287,53 +291,53 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 	 * Set colors
 	 */
 
-	$transparent_bg_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'desktop' );
-	$transparent_bg_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'tablet' );
-	$transparent_bg_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-bg-color-responsive', 'transparent-header-background-colors' ), 'mobile' );
+	$transparent_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'desktop' );
+	$transparent_bg_color_tablet  = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'tablet' );
+	$transparent_bg_color_mobile  = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'mobile' );
 
-	$transparent_color_site_title_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'desktop' );
-	$transparent_color_site_title_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'tablet' );
-	$transparent_color_site_title_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-site-title-responsive', 'transparent-header-colors' ), 'mobile' );
+	$transparent_color_site_title_desktop = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'desktop' );
+	$transparent_color_site_title_tablet  = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'tablet' );
+	$transparent_color_site_title_mobile  = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'mobile' );
 
-	$transparent_color_h_site_title_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-h-site-title-responsive', 'transparent-header-colors' ), 'desktop' );
-	$transparent_color_h_site_title_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-h-site-title-responsive', 'transparent-header-colors' ), 'tablet' );
-	$transparent_color_h_site_title_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-header-color-h-site-title-responsive', 'transparent-header-colors' ), 'mobile' );
+	$transparent_color_h_site_title_desktop = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'desktop' );
+	$transparent_color_h_site_title_tablet  = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'tablet' );
+	$transparent_color_h_site_title_mobile  = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'mobile' );
 
-	$transparent_menu_bg_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-menu-bg-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_menu_color_desktop    = astra_get_prop( astra_get_option_by_group( 'transparent-menu-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_menu_h_color_desktop  = astra_get_prop( astra_get_option_by_group( 'transparent-menu-h-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
+	$transparent_menu_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'desktop' );
+	$transparent_menu_color_desktop    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'desktop' );
+	$transparent_menu_h_color_desktop  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'desktop' );
 
-	$transparent_menu_bg_color_tablet = astra_get_prop( astra_get_option_by_group( 'transparent-menu-bg-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_menu_color_tablet    = astra_get_prop( astra_get_option_by_group( 'transparent-menu-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_menu_h_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-menu-h-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
+	$transparent_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'tablet' );
+	$transparent_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'tablet' );
+	$transparent_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'tablet' );
 
-	$transparent_menu_bg_color_mobile = astra_get_prop( astra_get_option_by_group( 'transparent-menu-bg-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_menu_color_mobile    = astra_get_prop( astra_get_option_by_group( 'transparent-menu-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_menu_h_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-menu-h-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
+	$transparent_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'mobile' );
+	$transparent_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'mobile' );
+	$transparent_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'mobile' );
 
-	$transparent_sub_menu_color_desktop    = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_sub_menu_h_color_desktop  = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-h-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
-	$transparent_sub_menu_bg_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-bg-color-responsive', 'transparent-header-colors-menu' ), 'desktop' );
+	$transparent_sub_menu_color_desktop    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'desktop' );
+	$transparent_sub_menu_h_color_desktop  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'desktop' );
+	$transparent_sub_menu_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'desktop' );
 
-	$transparent_sub_menu_color_tablet    = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_sub_menu_h_color_tablet  = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-h-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
-	$transparent_sub_menu_bg_color_tablet = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-bg-color-responsive', 'transparent-header-colors-menu' ), 'tablet' );
+	$transparent_sub_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'tablet' );
+	$transparent_sub_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'tablet' );
+	$transparent_sub_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'tablet' );
 
-	$transparent_sub_menu_color_mobile    = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_sub_menu_h_color_mobile  = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-h-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
-	$transparent_sub_menu_bg_color_mobile = astra_get_prop( astra_get_option_by_group( 'transparent-submenu-bg-color-responsive', 'transparent-header-colors-menu' ), 'mobile' );
+	$transparent_sub_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'mobile' );
+	$transparent_sub_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'mobile' );
+	$transparent_sub_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'mobile' );
 
-	$transparent_content_section_text_color_desktop   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-text-color-responsive', 'transparent-header-colors-content' ), 'desktop' );
-	$transparent_content_section_link_color_desktop   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-color-responsive', 'transparent-header-colors-content' ), 'desktop' );
-	$transparent_content_section_link_h_color_desktop = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-h-color-responsive', 'transparent-header-colors-content' ), 'desktop' );
+	$transparent_content_section_text_color_desktop   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'desktop' );
+	$transparent_content_section_link_color_desktop   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'desktop' );
+	$transparent_content_section_link_h_color_desktop = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'desktop' );
 
-	$transparent_content_section_text_color_tablet   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-text-color-responsive', 'transparent-header-colors-content' ), 'tablet' );
-	$transparent_content_section_link_color_tablet   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-color-responsive', 'transparent-header-colors-content' ), 'tablet' );
-	$transparent_content_section_link_h_color_tablet = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-h-color-responsive', 'transparent-header-colors-content' ), 'tablet' );
+	$transparent_content_section_text_color_tablet   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'tablet' );
+	$transparent_content_section_link_color_tablet   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'tablet' );
+	$transparent_content_section_link_h_color_tablet = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'tablet' );
 
-	$transparent_content_section_text_color_mobile   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-text-color-responsive', 'transparent-header-colors-content' ), 'mobile' );
-	$transparent_content_section_link_color_mobile   = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-color-responsive', 'transparent-header-colors-content' ), 'mobile' );
-	$transparent_content_section_link_h_color_mobile = astra_get_prop( astra_get_option_by_group( 'transparent-content-section-link-h-color-responsive', 'transparent-header-colors-content' ), 'mobile' );
+	$transparent_content_section_text_color_mobile   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'mobile' );
+	$transparent_content_section_link_color_mobile   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'mobile' );
+	$transparent_content_section_link_h_color_mobile = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'mobile' );
 
 	/**
 	 * Generate Dynamic CSS
@@ -360,7 +364,7 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 		 * Below Header Navigation
 		 */
 
-		'.ast-theme-transparent-header .ast-below-header-menu, .ast-theme-transparent-header .ast-below-header-menu a' => array(
+		'.ast-theme-transparent-header .ast-below-header-menu, .ast-theme-transparent-header .ast-below-header-menu a, .ast-header-break-point.ast-theme-transparent-header .ast-below-header-menu a, .ast-header-break-point.ast-theme-transparent-header .ast-below-header-menu' => array(
 			'color' => esc_attr( $transparent_menu_color_desktop ),
 		),
 
@@ -426,7 +430,7 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 		 * Below Header Navigation
 		 */
 
-		'.ast-theme-transparent-header .ast-below-header-menu, .ast-theme-transparent-header .ast-below-header-menu a' => array(
+		'.ast-theme-transparent-header .ast-below-header-menu, .ast-theme-transparent-header .ast-below-header-menu a, .ast-header-break-point.ast-theme-transparent-header .ast-below-header-menu a, .ast-header-break-point.ast-theme-transparent-header .ast-below-header-menu' => array(
 			'color' => esc_attr( $transparent_menu_color_tablet ),
 		),
 
@@ -492,7 +496,7 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 		 * Below Header Navigation
 		 */
 
-		'.ast-theme-transparent-header .ast-below-header-menu, .ast-theme-transparent-header .ast-below-header-menu a' => array(
+		'.ast-theme-transparent-header .ast-below-header-menu, .ast-theme-transparent-header .ast-below-header-menu a, .ast-header-break-point.ast-theme-transparent-header .ast-below-header-menu a, .ast-header-break-point.ast-theme-transparent-header .ast-below-header-menu' => array(
 			'color' => esc_attr( $transparent_menu_color_mobile ),
 		),
 
