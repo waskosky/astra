@@ -28,8 +28,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * @var array
 		 */
-		private static $db_updates = array(
-		);
+		private static $db_updates = array();
 
 		/**
 		 *  Constructor
