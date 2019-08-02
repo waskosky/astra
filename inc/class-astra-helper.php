@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			$slug = $this->astra_get_archive_title();
 
-			if ( '' == $slug ) {
+			if ( false === $slug ) {
 				$slug = $this->astra_get_post_id();
 			}
 
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			$slug = $this->astra_get_archive_title();
 
-			if ( '' == $slug ) {
+			if ( false === $slug ) {
 				$slug = $this->astra_get_post_id();
 			}
 
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			$assets_info = $this->astra_get_asset_info( $css_data, $slug, $type );
 
-			if ( '' == $this->astra_get_archive_title() ) {
+			if ( false === $this->astra_get_archive_title() ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 			} else {
 				$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
@@ -278,7 +278,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$tax   = get_taxonomy( get_queried_object()->taxonomy );
 				$title = $tax->labels->singular_name;
 			} else {
-				$title = '';
+				$title = false;
 			}
 			return $title;
 		}
@@ -320,7 +320,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			global $wp_filesystem;
 
-			if ( '' == $this->astra_get_archive_title() ) {
+			if ( false === $this->astra_get_archive_title() ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 
 				if ( '' == $post_timestamp && '' == $timestamp ) {
@@ -338,10 +338,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$put_contents = $wp_filesystem->put_contents( $assets_info['path'], $style_data );
 
 			if ( ! $put_contents ) {
-				return new \WP_Error( '404', sprintf( 'Cannot create file "%s".', $file_data['name'] ) );
+				wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 			}
 
-			if ( '' == $this->astra_get_archive_title() ) {
+			if ( false === $this->astra_get_archive_title() ) {
 				// Update the post meta.
 				update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
 			} else {
