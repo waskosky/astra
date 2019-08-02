@@ -121,6 +121,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
 
+			error_log( 'Batch Process Started!' );
 			foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 				if ( version_compare( $current_db_version, $version, '<' ) ) {
 					foreach ( $update_callbacks as $update_callback ) {
