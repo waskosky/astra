@@ -124,15 +124,15 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		/**
 		 * Enqueue Addon CSS files.
 		 *
-		 * @param  string $css_data     Gets the CSS data.
+		 * @param  string $style_data     Gets the CSS data.
 		 * @param  string $slug         Gets the archive title.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @since  x.x.x
 		 * @return void
 		 */
-		public function enqueue_scripts( $css_data, $slug, $type ) {
+		public function enqueue_scripts( $style_data, $slug, $type ) {
 
-			$assets_info = $this->astra_get_asset_info( $css_data, $slug, $type );
+			$assets_info = $this->astra_get_asset_info( $style_data, $slug, $type );
 
 			if ( false === $this->astra_get_archive_title() ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
@@ -146,14 +146,18 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$timestamp = $post_timestamp;
 			}
 
-			if ( ! empty( $css_data ) ) {
-				$this->file_write( $css_data, $slug, $timestamp, $type, $assets_info );
+			if ( ! empty( $style_data ) ) {
+				$enqueue = $this->file_write( $style_data, $slug, $timestamp, $type, $assets_info );
 			}
 
 			$uploads_dir     = $this->astra_get_upload_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
-			wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $timestamp );
+			if ( ! $enqueue ) {
+				wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
+			} else {
+				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $timestamp );
+			}
 		}
 
 		/**
@@ -315,6 +319,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @param  string $type         Gets the type theme/addon.
 		 * @param  string $assets_info  Gets the assets path info.
 		 * @since  x.x.x
+		 * @return string
 		 */
 		public function file_write( $style_data, $slug, $timestamp, $type, $assets_info ) {
 
@@ -337,10 +342,6 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			// Create a new file.
 			$put_contents = $wp_filesystem->put_contents( $assets_info['path'], $style_data );
 
-			if ( ! $put_contents ) {
-				wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
-			}
-
 			if ( false === $this->astra_get_archive_title() ) {
 				// Update the post meta.
 				update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
@@ -348,6 +349,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				// Update the option.
 				update_option( 'astra_' . $type . '_get_dynamic_css', $timestamp );
 			}
+
+			return $put_contents;
 		}
 	}
 
