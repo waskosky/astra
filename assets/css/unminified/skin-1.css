@@ -853,9 +853,6 @@ body {
   .ast-separate-container #secondary {
     padding: 1.5em 0;
   }
-  .ast-separate-container.ast-right-sidebar #secondary {
-    padding-left: 1em;
-  }
   .ast-separate-container.ast-two-container #secondary {
     padding-left: 0;
     padding-right: 0;
