@@ -5716,9 +5716,6 @@ body {
   .ast-separate-container #secondary {
     padding: 1.5em 0;
   }
-  .ast-separate-container.ast-right-sidebar #secondary {
-    padding-right: 0em;
-  }
   .ast-separate-container.ast-two-container #secondary {
     padding-right: 0;
     padding-left: 0;
