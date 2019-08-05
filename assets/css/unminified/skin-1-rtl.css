@@ -969,7 +969,8 @@ body {
   margin: 0;
 }
 
-.ast-page-builder-template .hentry:first-child {
+.ast-page-builder-template .hentry:first-child,
+.ast-page-builder-template .ast-article-single {
   margin-top: 3em;
 }
 
