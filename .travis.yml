@@ -20,6 +20,7 @@ matrix:
     - php: 7.2
       env: WP_TRAVISCI=phpcs
       env: ASTRA_TESTS_URL=http://localhost:8000/
+      env: DOCKER=true
 
 before_script:
   #- |
