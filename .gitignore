@@ -29,3 +29,6 @@ astra
 
 # Ignore Composer's directories
 vendor/
+
+# Ignore screenshots from e2e tests
+tests/e2e/screenshots/**/**
