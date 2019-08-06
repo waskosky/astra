@@ -14,7 +14,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		/**
 		 * Get fonts to generate.
 		 *
-		 * @since 1.0.0
+		 * @since x.x.x
 		 * @var array $fonts
 		 */
 		static private $css = array();
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function theme_enqueue_scripts() {
 
-			$slug = $this->astra_get_archive_title();
+			$slug = $archive_title = $this->astra_get_archive_title();
 
 			if ( false === $slug ) {
 				$slug = $this->astra_get_post_id();
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			// Call enqueue scripts function.
-			$this->enqueue_scripts( $theme_css_data, $slug, 'theme' );
+			$this->enqueue_scripts( $theme_css_data, $slug, $archive_title, 'theme' );
 		}
 
 		/**
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function addon_enqueue_scripts() {
 
-			$slug = $this->astra_get_archive_title();
+			$slug = $archive_title = $this->astra_get_archive_title();
 
 			if ( false === $slug ) {
 				$slug = $this->astra_get_post_id();
@@ -121,23 +121,24 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			// Call enqueue scripts function.
-			$this->enqueue_scripts( $addon_css_data, $slug, 'addon' );
+			$this->enqueue_scripts( $addon_css_data, $slug, $archive_title, 'addon' );
 		}
 
 		/**
 		 * Enqueue Addon CSS files.
 		 *
-		 * @param  string $style_data     Gets the CSS data.
+		 * @param  string $style_data   Gets the CSS data.
+		 * @param  string $slug         Gets the taxonomy name/ post id.
 		 * @param  string $slug         Gets the archive title.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @since  x.x.x
 		 * @return void
 		 */
-		public function enqueue_scripts( $style_data, $slug, $type ) {
+		public function enqueue_scripts( $style_data, $slug, $archive_title, $type ) {
 
 			$assets_info = $this->astra_get_asset_info( $style_data, $slug, $type );
 
-			if ( false === $this->astra_get_archive_title() ) {
+			if ( false === $archive_title ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 			} else {
 				$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
@@ -150,7 +151,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			if ( ! empty( $style_data ) ) {
-				$this->file_write( $style_data, $slug, $timestamp, $type, $assets_info );
+				$this->file_write( $style_data, $slug, $archive_title, $timestamp, $type, $assets_info );
 			}
 
 			$uploads_dir     = $this->astra_get_upload_dir();
@@ -321,16 +322,17 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 *
 		 * @param  string $style_data   Gets the CSS for the current Page.
 		 * @param  string $slug         Gets the current post ID/ Taxonomy name.
+		 * @param  string $slug         Gets the archive title.
 		 * @param  string $timestamp    Gets the current timestamp.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @param  string $assets_info  Gets the assets path info.
 		 * @since  x.x.x
 		 */
-		public function file_write( $style_data, $slug, $timestamp, $type, $assets_info ) {
+		public function file_write( $style_data, $slug, $archive_title, $timestamp, $type, $assets_info ) {
 
 			global $wp_filesystem;
 
-			if ( false === $this->astra_get_archive_title() ) {
+			if ( false === $archive_title ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 
 				if ( '' == $post_timestamp && '' == $timestamp ) {
@@ -349,7 +351,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			astra_update_option( 'file-write-access', $put_contents );
 
-			if ( false === $this->astra_get_archive_title() ) {
+			if ( false === $archive_title ) {
 				// Update the post meta.
 				update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
 			} else {
