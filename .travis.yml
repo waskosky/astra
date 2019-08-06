@@ -24,15 +24,15 @@ matrix:
 before_script:
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      composer install
+      # composer install
     fi
 
 script:
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      vendor/bin/phpcs
+      # vendor/bin/phpcs
     fi
-  - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
+  # - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
   # Setup e2e enviornment
   - docker-compose up -d
   - docker-compose run --rm cli core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress 
