@@ -23,7 +23,7 @@ jobs:
     - name: Lint
       name: Lint (PHP, JavaScript, and configuration files)
       php: "7.3"
-      env: WP_VERSION=latest DEV_LIB_ONLY=phpsyntax
+      env: WP_VERSION=latest
       before_script:
         - |
          if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
