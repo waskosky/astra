@@ -184,10 +184,6 @@ describe("Primary Header", async () => {
         delay: 0
       });
 
-      // Taking screenshot of the page
-      await bs.page.screenshot(
-        util.png("Page 2", { fullPage: false, omitBackground: false })
-      );
     });
   });
 
@@ -255,10 +251,6 @@ describe("Primary Header", async () => {
         delay: 0
       });
 
-      // Taking screenshot of the page
-      await bs.page.screenshot(
-        util.png("Page 4", { fullPage: false, omitBackground: false })
-      );
     });
 
     test("Test Site Title", async () => {
