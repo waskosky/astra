@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since x.x.x.x
+ * @since x.x.x
  */
 
 if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
