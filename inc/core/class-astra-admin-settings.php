@@ -752,11 +752,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			if ( $write_access ) {
 				$button_text = __( 'Refresh', 'astra' );
-				$message     = esc_html__( 'Click on the refresh button to regenerate css files.', 'astra' );
+				$message     = esc_html__( 'Click on the Refresh button to regenerate CSS files.', 'astra' );
 				$doc_link    = esc_url( '#' );
 			} else {
 				$button_text = __( 'Recheck', 'astra' );
-				$message     = esc_html__( 'Click on the Recheck button to check if the upload folder has write access.', 'astra' );
+				$message     = esc_html__( 'Click on the Recheck button to check if the uploads folder has write access.', 'astra' );
 				$doc_link    = esc_url( '#' );
 			}
 			?>
@@ -785,7 +785,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						);
 					?>
 					</p>
-
 
 					<label for="astra_refresh_assets">
 						<button class="button astra-refresh-assets" id="astra_refresh_assets">
