@@ -20,8 +20,7 @@ jobs:
     - env: ALLOW_FAILURES=1
   include:
 
-    - name: Lint
-      name: Lint (PHP, JavaScript, and configuration files)
+    - name: Lint (PHP, JavaScript, and configuration files)
       php: "7.3"
       env: WP_VERSION=latest
       before_script:
