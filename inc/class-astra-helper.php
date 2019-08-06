@@ -59,7 +59,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$uploads_dir      = $this->astra_get_upload_dir();
 			$uploads_dir_path = $uploads_dir['path'];
 
-			array_map( 'unlink', glob( $uploads_dir_path . '/astra-*.*' ) );
+			array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
+			array_map( 'unlink', glob( $uploads_dir_path . '/astra-addon-dynamic-css*.*' ) );
 		}
 
 		/**
