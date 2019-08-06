@@ -5829,7 +5829,8 @@ body {
   margin: 0;
 }
 
-.ast-page-builder-template .hentry:first-child {
+.ast-page-builder-template .hentry:first-child,
+.ast-page-builder-template .ast-article-single {
   margin-top: 3em;
 }
 
@@ -6093,7 +6094,7 @@ body {
 @media (min-width: 769px) {
   .error404.ast-separate-container #primary,
   .search-no-results.ast-separate-container #primary {
-    margin-bottom: 4em;
+    margin-bottom: 3em;
   }
 }
 
