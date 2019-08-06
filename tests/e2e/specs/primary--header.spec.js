@@ -288,7 +288,7 @@ describe("Primary Header", async () => {
         "font-size",
         "undefined"
       );
-      expect(result).toBeEqual("51px", "SITE_TITLE.assertStyle");
+      expect(result).toBeEqual("52px", "SITE_TITLE.assertStyle");
     });
   });
 });
