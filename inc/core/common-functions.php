@@ -1267,3 +1267,25 @@ endif;
 function astra_get_fonts_display_property() {
 	return apply_filters( 'astra_fonts_display_property', 'fallback' );
 }
+
+if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
+
+	/**
+	 * Get the tablet brekpoint value.
+	 */
+	function astra_get_tablet_breakpoint() {
+		return apply_filters( 'astra_tablet_breakpoint', '921' );
+	}
+
+endif;
+
+if ( ! function_exists( 'astra_get_mobile_breakpoint' ) ) :
+
+	/**
+	 * Get the tablet brekpoint value.
+	 */
+	function astra_get_mobile_breakpoint() {
+		return apply_filters( 'astra_tablet_breakpoint', '544' );
+	}
+
+endif;
