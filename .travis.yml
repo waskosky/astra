@@ -14,28 +14,38 @@ notifications:
 cache:
   - $HOME/.composer/cache
 
-matrix:
+jobs:
+  fast_finish: true
+  allow_failures:
+    - env: ALLOW_FAILURES=1
   include:
-    - php: 7.2
-      env: WP_TRAVISCI=phpcs
-      env: ASTRA_TESTS_URL=http://localhost:8000/
 
-before_script:
-  #- |
-  #  if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      # composer install
-   # fi
+    - name: Lint
+      name: Lint (PHP, JavaScript, and configuration files)
+      php: "7.3"
+      env: WP_VERSION=latest DEV_LIB_ONLY=phpsyntax
+      before_script:
+        - |
+         if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+            composer install
+         fi
+      script:
+        - |
+          if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+            vendor/bin/phpcs
+          fi
+        - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
 
-script:
-  #- |
-    #if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      # vendor/bin/phpcs
-    #fi
-  # - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
-  # Setup e2e enviornment
-  - docker-compose up -d
-  # - docker-compose run --rm cli core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress 
-  # - docker-compose run --rm cli db create
-  - docker-compose run --rm cli core install --title='Astra e2e' --admin_user='admin' --admin_password='password' --admin_email=test@astra.dev --url="$ASTRA_TESTS_URL"
-  - docker-compose run --rm cli option get home
-  
+    - name: E2E tests
+      php: "7.3"
+      env: WP_VERSION=latest PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=
+      install:
+        - nvm install
+        # - composer install
+        # npm is handled by `npm run env:start`
+      script:
+        - npm run env:start
+        # - npm run build:js # after npm dependencies have been installed
+        # - npm run env:reset-site
+        # - npm run test:e2e:ci
+        - npm run env:stop
