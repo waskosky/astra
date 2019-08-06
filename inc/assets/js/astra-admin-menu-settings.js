@@ -252,7 +252,7 @@
 
 			_this.addClass('refreshing-assets');
 			_this.find( '.ast-loader' ).addClass( 'spinner is-active' );
-			_this.find( '.ast-refresh-btn-text' ).text('Refreshing...');
+			_this.find( '.ast-refresh-btn-text' ).text( astra.assetsRefreshingButtonText + '...' );
 
 			$.ajax({
 				url: astra.ajaxUrl,
