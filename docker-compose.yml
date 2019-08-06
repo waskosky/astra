@@ -40,9 +40,9 @@ services:
      # vstm: The sleep 10 is required so that the command is run after
      # mysql is initialized. Depending on your machine this might take
      # longer or it can go faster.
-     command: 
-      - wp core install --path="/var/www/html" --url="http://localhost:8000" --title="Local Wordpress By Docker" --admin_user=admin --admin_password=secret --admin_email=foo@bar.com
-      - wp option get home
+    #  command: 
+      # - wp core install --path="/var/www/html" --url="http://localhost:8000" --title="Local Wordpress By Docker" --admin_user=admin --admin_password=secret --admin_email=foo@bar.com
+      # - wp option get home
      # vstm: add shared volume
      volumes:
         - wordpress_data:/var/www/html
