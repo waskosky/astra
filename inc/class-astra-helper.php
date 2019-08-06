@@ -30,10 +30,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			WP_Filesystem();
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_scripts' ), 1 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
 
 			if ( defined( 'ASTRA_EXT_FILE' ) ) {
-				add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_scripts' ), 999 );
+				add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_styles' ), 999 );
 			}
 
 			add_action( 'astra_post_meta_updated', array( $this, 'check_values' ), 10, 1 );
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return void
 		 */
-		public function theme_enqueue_scripts() {
+		public function theme_enqueue_styles() {
 
 			$slug = $archive_title = $this->astra_get_archive_title();
 
@@ -95,8 +95,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				return;
 			}
 
-			// Call enqueue scripts function.
-			$this->enqueue_scripts( $theme_css_data, $slug, $archive_title, 'theme' );
+			// Call enqueue styles function.
+			$this->enqueue_styles( $theme_css_data, $slug, $archive_title, 'theme' );
 		}
 
 		/**
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return void
 		 */
-		public function addon_enqueue_scripts() {
+		public function addon_enqueue_styles() {
 
 			$slug = $archive_title = $this->astra_get_archive_title();
 
@@ -120,8 +120,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				return;
 			}
 
-			// Call enqueue scripts function.
-			$this->enqueue_scripts( $addon_css_data, $slug, $archive_title, 'addon' );
+			// Call enqueue styles function.
+			$this->enqueue_styles( $addon_css_data, $slug, $archive_title, 'addon' );
 		}
 
 		/**
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since  x.x.x
 		 * @return void
 		 */
-		public function enqueue_scripts( $style_data, $slug, $archive_title, $type ) {
+		public function enqueue_styles( $style_data, $slug, $archive_title, $type ) {
 
 			$assets_info = $this->astra_get_asset_info( $style_data, $slug, $type );
 
@@ -244,12 +244,12 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			return apply_filters( 'astra_astra_get_upload_dir', $dir_info );
 		}
 
-				/**
-				 * Gets the archive title.
-				 *
-				 * @since  x.x.x
-				 * @return $title Gets the archive title.
-				 */
+		/**
+		 * Gets the archive title.
+		 *
+		 * @since  x.x.x
+		 * @return $title Gets the archive title.
+		 */
 		public function astra_get_archive_title() {
 			if ( is_category() ) {
 				$title = 'category';
@@ -349,6 +349,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			// Create a new file.
 			$put_contents = $wp_filesystem->put_contents( $assets_info['path'], $style_data );
 
+			// Adds an option as if the uploads folder has file rights access.
 			astra_update_option( 'file-write-access', $put_contents );
 
 			if ( false === $archive_title ) {
