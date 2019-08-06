@@ -6,9 +6,6 @@ services:
 language: php
 dist: precise
 
-services:
-  - docker
-
 notifications:
   email:
     on_success: never
