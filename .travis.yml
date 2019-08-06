@@ -41,11 +41,8 @@ jobs:
       env: WP_VERSION=latest PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=
       install:
         - nvm install
-        # - composer install
-        # npm is handled by `npm run env:start`
       script:
         - npm run env:start
-        # - npm run build:js # after npm dependencies have been installed
-        # - npm run env:reset-site
-        # - npm run test:e2e:ci
+        - npm run env:reset-site
+        - npm run test:e2e:ci
         - npm run env:stop

@@ -9,6 +9,12 @@
   },
   "author": "",
   "license": "ISC",
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "**/*.spec.js"
+    ]
+  },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "grunt": "^1.0.4",
@@ -27,11 +33,21 @@
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "^1.0.3",
     "node-sass": "^4.12.0",
-    "postcss-flexibility": "^2.0.0"
+    "postcss-flexibility": "^2.0.0",
+    "cross-env": "^5.2.0",
+    "faker": "^4.1.0",
+    "jest": "^23.6.0",
+    "node-fetch": "^2.6.0",
+    "node-localstorage": "^1.3.1",
+    "node-wp-cli": "0.0.4",
+    "puppeteer": "^1.17.0",
+    "shelljs": "^0.8.2"
   },
   "scripts": {
     "env:start": "./bin/local-env/start.sh",
     "env:stop": "./bin/local-env/stop.sh",
-    "env:reset-site": "./bin/local-env/install-wordpress.sh --reset-site"
+    "env:reset-site": "./bin/local-env/install-wordpress.sh --reset-site",
+    "test:e2e:ci": "cross-env NODE_ENV=test jest",
+    "test:e2e:ci:debug": "cross-env PUPPETEER_RUN_IN_BROWSER=true jest --detectOpenHandles"
   }
 }
