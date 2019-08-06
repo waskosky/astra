@@ -68,12 +68,12 @@
 }
 
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
-  display: inline;
+  display: inline-block;
   .ast-responsive-select {
     display: none;
   }
   .ast-responsive-input {
-    width: 92%;
+    width: 100%;
   }
 }
 
