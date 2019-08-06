@@ -3,6 +3,9 @@ sudo: false
 language: php
 dist: precise
 
+services:
+  - docker
+
 notifications:
   email:
     on_success: never
@@ -16,6 +19,7 @@ matrix:
   include:
     - php: 7.2
       env: WP_TRAVISCI=phpcs
+      env: WP_URL=http://localhost:8000/
 
 before_script:
   - |
@@ -33,6 +37,6 @@ script:
   - docker-compose up -d
   - docker-compose run --rm cli core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress 
   - docker-compose run --rm cli db create
-  - docker-compose run --rm cli core install --title='Astra e2e' --admin_user='admin' --admin_password='password' --admin_email=test@astra.dev --url=http://localhost:8000/
+  - docker-compose run --rm cli core install --title='Astra e2e' --admin_user='admin' --admin_password='password' --admin_email=test@astra.dev --url="$WP_URL"
   - docker-compose run --rm cli option get home
   
