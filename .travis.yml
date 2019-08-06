@@ -23,9 +23,7 @@ jobs:
     - name: Lint
       name: Lint (PHP, JavaScript, and configuration files)
       php: "7.3"
-      env: 
-        - WP_VERSION=latest
-        - ASTRA_TESTS_URL=http://localhost:8890
+      env: WP_VERSION=latest
       before_script:
         - |
          if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
@@ -40,7 +38,7 @@ jobs:
 
     - name: E2E tests
       php: "7.3"
-      env: WP_VERSION=latest PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=
+      env: WP_VERSION=latest ASTRA_TESTS_URL=http://localhost:8890 PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=
       install:
         - nvm install
       script:
