@@ -156,9 +156,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$uploads_dir     = $this->astra_get_upload_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
-			$write_access = astra_get_option( 'file-write-access', true );
+			$write_access    = astra_get_option( 'file-write-access', true );
+			$load_inline_css = apply_filters( 'astra_load_dynamic_css_inline', false );
 
-			if ( ! $write_access ) {
+			if ( ! $write_access || $load_inline_css ) {
 				wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 			} else {
 				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $timestamp );
