@@ -22,16 +22,16 @@ matrix:
       env: WP_URL=http://localhost:8000/
 
 before_script:
-  - |
-    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+  #- |
+  #  if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       # composer install
-    fi
+   # fi
 
 script:
-  - |
-    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+  #- |
+    #if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       # vendor/bin/phpcs
-    fi
+    #fi
   # - if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
   # Setup e2e enviornment
   - docker-compose up -d
