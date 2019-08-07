@@ -32,15 +32,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
 
-			if ( defined( 'ASTRA_EXT_FILE' ) ) {
-				add_action( 'wp_enqueue_scripts', array( $this, 'addon_enqueue_styles' ), 999 );
-			}
-
 			add_action( 'astra_post_meta_updated', array( $this, 'check_values' ), 10, 1 );
 
 			// Refresh assets.
 			add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
-			add_action( 'astra_addon_activate', array( $this, 'astra_refresh_assets' ) );
 
 			// Triggers on click on refresh/ recheck button.
 			add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_refresh_assets' ) );
@@ -82,12 +77,6 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function theme_enqueue_styles() {
 
-			$slug = $archive_title = $this->astra_get_archive_title();
-
-			if ( false === $slug ) {
-				$slug = $this->astra_get_post_id();
-			}
-
 			$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
 
 			// Return if there is no data to add in the css file.
@@ -96,45 +85,25 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			}
 
 			// Call enqueue styles function.
-			$this->enqueue_styles( $theme_css_data, $slug, $archive_title, 'theme' );
-		}
-
-		/**
-		 * Enqueue Addon CSS files.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function addon_enqueue_styles() {
-
-			$slug = $archive_title = $this->astra_get_archive_title();
-
-			if ( false === $slug ) {
-				$slug = $this->astra_get_post_id();
-			}
-
-			$addon_css_data = apply_filters( 'astra_dynamic_css', '' );
-
-			// Return if there is no data to add in the css file.
-			if ( empty( $addon_css_data ) ) {
-				return;
-			}
-
-			// Call enqueue styles function.
-			$this->enqueue_styles( $addon_css_data, $slug, $archive_title, 'addon' );
+			$this->enqueue_styles( $theme_css_data, 'theme' );
 		}
 
 		/**
 		 * Enqueue Addon CSS files.
 		 *
 		 * @param  string $style_data   Gets the CSS data.
-		 * @param  string $slug         Gets the taxonomy name/ post id.
-		 * @param  string $slug         Gets the archive title.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @since  x.x.x
 		 * @return void
 		 */
-		public function enqueue_styles( $style_data, $slug, $archive_title, $type ) {
+		public function enqueue_styles( $style_data, $type ) {
+
+			$slug          = $this->astra_get_archive_title();
+			$archive_title = $this->astra_get_archive_title();
+
+			if ( false === $slug ) {
+				$slug = $this->astra_get_post_id();
+			}
 
 			$assets_info = $this->astra_get_asset_info( $style_data, $slug, $type );
 
@@ -322,7 +291,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 *
 		 * @param  string $style_data   Gets the CSS for the current Page.
 		 * @param  string $slug         Gets the current post ID/ Taxonomy name.
-		 * @param  string $slug         Gets the archive title.
+		 * @param  string $archive_title         Gets the archive title.
 		 * @param  string $timestamp    Gets the current timestamp.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @param  string $assets_info  Gets the assets path info.
