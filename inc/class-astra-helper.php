@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			$assets_info = $this->get_asset_info( $style_data, $slug, $type );
 
 			// Gets the timestamp.
-			$post_timestamp = $this->get_post_timestamp( $archive_title );
+			$post_timestamp = $this->get_post_timestamp( $archive_title, $type, $assets_info );
 
 			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
 				$timestamp = $this->get_file_timestamp();
@@ -140,9 +140,11 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 *
 		 * @since  x.x.x
 		 * @param  string $archive_title         Gets the taxonomay name.
+		 * @param  string $type         Gets the type theme/addon.
+		 * @param  string $assets_info  Gets the assets path info.
 		 * @return string $timestamp.
 		 */
-		public function get_post_timestamp( $archive_title ) {
+		public function get_post_timestamp( $archive_title, $type, $assets_info ) {
 
 			// Check if current page is a post/ archive page. false states that the current page is a post.
 			if ( false === $archive_title ) {
@@ -151,7 +153,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
 			}
 
-			$timestamp = $this->maybe_get_new_timestamp( $post_timestamp );
+			$timestamp = $this->maybe_get_new_timestamp( $post_timestamp, $assets_info );
 
 			return $timestamp;
 		}
@@ -161,9 +163,10 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 *
 		 * @since  x.x.x
 		 * @param  string $post_timestamp Timestamp of the post meta/ option.
+		 * @param  string $assets_info  Gets the assets path info.
 		 * @return string $timestamp.
 		 */
-		public function maybe_get_new_timestamp( $post_timestamp ) {
+		public function maybe_get_new_timestamp( $post_timestamp, $assets_info ) {
 
 			// Creates a new timestamp if the file does not exists or the timestamp is empty.
 			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
