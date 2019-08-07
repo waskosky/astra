@@ -41,6 +41,10 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 */
 		public function astra_ajax_refresh_assets() {
 
+			if ( ! current_user_can( 'edit_theme_options' ) ) {
+				wp_die();
+			}
+
 			check_ajax_referer( 'astra-assets-refresh', 'nonce' );
 
 			astra_delete_option( 'file-write-access' );
@@ -59,6 +63,10 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 * @return void
 		 */
 		public function astra_refresh_assets() {
+
+			if ( ! current_user_can( 'edit_theme_options' ) ) {
+				wp_die();
+			}
 
 			astra_delete_option( 'file-write-access' );
 
