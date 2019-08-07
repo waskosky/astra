@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			astra_delete_option( 'file-write-access' );
 
-			$uploads_dir      = $this->astra_get_upload_dir();
+			$uploads_dir      = $this->get_uploads_dir();
 			$uploads_dir_path = $uploads_dir['path'];
 
 			array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
@@ -98,22 +98,22 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function enqueue_styles( $style_data, $type ) {
 
-			$archive_title = $this->astra_get_archive_title();
+			$archive_title = $this->get_archive_title();
 
 			if ( false === $archive_title ) {
-				$slug = $this->astra_get_post_id();
+				$slug = $this->get_post_id();
 			} else {
 				$slug = $archive_title;
 			}
 
 			// Gets the file path.
-			$assets_info = $this->astra_get_asset_info( $style_data, $slug, $type );
+			$assets_info = $this->get_asset_info( $style_data, $slug, $type );
 
 			// Gets the timestamp.
-			$post_timestamp = $this->astra_get_post_timestamp( $archive_title );
+			$post_timestamp = $this->get_post_timestamp( $archive_title );
 
 			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
-				$timestamp = $this->astra_get_file_timestamp();
+				$timestamp = $this->get_file_timestamp();
 			} else {
 				$timestamp = $post_timestamp;
 			}
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$this->file_write( $style_data, $slug, $archive_title, $timestamp, $type, $assets_info );
 			}
 
-			$uploads_dir     = $this->astra_get_upload_dir();
+			$uploads_dir     = $this->get_uploads_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
 			$write_access    = astra_get_option( 'file-write-access', true );
@@ -136,37 +136,38 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		}
 
 		/**
-		 * Gets the current Post Meta/ Option Timestamp.
+		 * Returns the current Post Meta/ Option Timestamp.
 		 *
 		 * @since  x.x.x
 		 * @param  string $archive_title         Gets the taxonomay name.
 		 * @return string $timestamp.
 		 */
-		public function astra_get_post_timestamp( $archive_title ) {
+		public function get_post_timestamp( $archive_title ) {
 
+			// Check if current page is a post/ archive page. false states that the current page is a post.
 			if ( false === $archive_title ) {
 				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 			} else {
 				$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
 			}
 
-			$timestamp = $this->astra_maybe_get_new_timestamp( $post_timestamp );
+			$timestamp = $this->maybe_get_new_timestamp( $post_timestamp );
 
 			return $timestamp;
 		}
 
 		/**
-		 * Gets the current Post Meta/ Option Timestamp or creates a new timestamp.
+		 * Returns the current Post Meta/ Option Timestamp or creates a new timestamp.
 		 *
 		 * @since  x.x.x
 		 * @param  string $post_timestamp Timestamp of the post meta/ option.
 		 * @return string $timestamp.
 		 */
-		public function astra_maybe_get_new_timestamp( $post_timestamp ) {
+		public function maybe_get_new_timestamp( $post_timestamp ) {
 
 			// Creates a new timestamp if the file does not exists or the timestamp is empty.
 			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
-				$timestamp = $this->astra_get_file_timestamp();
+				$timestamp = $this->get_file_timestamp();
 			} else {
 				$timestamp = $post_timestamp;
 			}
@@ -180,7 +181,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return string $post_id Post ID.
 		 */
-		public function astra_get_post_id() {
+		public function get_post_id() {
 			$post_id = get_the_ID();
 			return $post_id;
 		}
@@ -191,7 +192,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return string $timestamp Timestamp.
 		 */
-		public function astra_get_file_timestamp() {
+		public function get_file_timestamp() {
 			$date      = new DateTime();
 			$timestamp = $date->getTimestamp();
 
@@ -222,7 +223,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return array
 		 */
-		public function astra_get_upload_dir() {
+		public function get_uploads_dir() {
 
 			global $wp_filesystem;
 
@@ -248,7 +249,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$wp_filesystem->put_contents( $dir_info['path'] . 'index.php', '' );
 
 			}
-			return apply_filters( 'astra_astra_get_upload_dir', $dir_info );
+			return apply_filters( 'astra_get_assets_uploads_dir', $dir_info );
 		}
 
 		/**
@@ -257,7 +258,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since  x.x.x
 		 * @return $title Gets the archive title.
 		 */
-		public function astra_get_archive_title() {
+		public function get_archive_title() {
 			if ( is_category() ) {
 				$title = 'category';
 			} elseif ( is_tag() ) {
@@ -311,9 +312,9 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return array
 		 */
-		public function astra_get_asset_info( $data, $slug, $type ) {
+		public function get_asset_info( $data, $slug, $type ) {
 
-			$uploads_dir = $this->astra_get_upload_dir();
+			$uploads_dir = $this->get_uploads_dir();
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$info        = array();
