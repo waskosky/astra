@@ -257,6 +257,7 @@
 			$.ajax({
 				url: astra.ajaxUrl,
 				type: 'POST',
+				nonce: astra.ajax_nonce,
 				data: {
 					'action': 'astra_refresh_assets_files',
 				},

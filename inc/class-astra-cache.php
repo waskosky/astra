@@ -30,7 +30,26 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
 
 			// Triggers on click on refresh/ recheck button.
-			add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_refresh_assets' ) );
+			add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_ajax_refresh_assets' ) );
+		}
+
+		/**
+		 * Refresh Assets
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function astra_ajax_refresh_assets() {
+
+			check_ajax_referer( 'astra-assets-refresh', 'nonce' );
+
+			astra_delete_option( 'file-write-access' );
+
+			$uploads_dir      = $this->get_uploads_dir();
+			$uploads_dir_path = $uploads_dir['path'];
+
+			array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
+			array_map( 'unlink', glob( $uploads_dir_path . '/astra-addon-dynamic-css*.*' ) );
 		}
 
 		/**
