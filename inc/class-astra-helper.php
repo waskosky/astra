@@ -106,13 +106,11 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 				$slug = $archive_title;
 			}
 
+			// Gets the file path.
 			$assets_info = $this->astra_get_asset_info( $style_data, $slug, $type );
 
-			if ( false === $archive_title ) {
-				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
-			} else {
-				$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
-			}
+			// Gets the timestamp.
+			$post_timestamp = $this->astra_get_post_timestamp( $archive_title );
 
 			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
 				$timestamp = $this->astra_get_file_timestamp();
@@ -135,6 +133,45 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			} else {
 				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $timestamp );
 			}
+		}
+
+		/**
+		 * Gets the current Post Meta/ Option Timestamp.
+		 *
+		 * @since  x.x.x
+		 * @param  string $archive_title         Gets the taxonomay name.
+		 * @return string $timestamp.
+		 */
+		public function astra_get_post_timestamp( $archive_title ) {
+
+			if ( false === $archive_title ) {
+				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
+			} else {
+				$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
+			}
+
+			$timestamp = $this->astra_maybe_get_new_timestamp( $post_timestamp );
+
+			return $timestamp;
+		}
+
+		/**
+		 * Gets the current Post Meta/ Option Timestamp or creates a new timestamp.
+		 *
+		 * @since  x.x.x
+		 * @param  string $post_timestamp Timestamp of the post meta/ option.
+		 * @return string $timestamp.
+		 */
+		public function astra_maybe_get_new_timestamp( $post_timestamp ) {
+
+			// Creates a new timestamp if the file does not exists or the timestamp is empty.
+			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
+				$timestamp = $this->astra_get_file_timestamp();
+			} else {
+				$timestamp = $post_timestamp;
+			}
+
+			return $timestamp;
 		}
 
 		/**
