@@ -289,7 +289,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		/**
 		 * Updates the Post Meta/ Option Timestamp.
 		 *
-		 * @param  string $archive_title         Gets the archive title.
+		 * @param  string $archive_title         Gets the taxonomay name.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @param  string $timestamp    Gets the current timestamp.
 		 * @since  x.x.x
@@ -297,6 +297,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function update_timestamp( $archive_title, $type, $timestamp ) {
 
+			// Check if current page is a post/ archive page. false states that the current page is a post.
 			if ( false === $archive_title ) {
 				// Update the post meta.
 				update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
