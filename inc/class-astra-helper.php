@@ -287,6 +287,26 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		}
 
 		/**
+		 * Updates the Post Meta/ Option Timestamp.
+		 *
+		 * @param  string $archive_title         Gets the archive title.
+		 * @param  string $type         Gets the type theme/addon.
+		 * @param  string $timestamp    Gets the current timestamp.
+		 * @since  x.x.x
+		 * @return void
+		 */
+		public function update_timestamp( $archive_title, $type, $timestamp ) {
+
+			if ( false === $archive_title ) {
+				// Update the post meta.
+				update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
+			} else {
+				// Update the option.
+				update_option( 'astra_' . $type . '_get_dynamic_css', $timestamp );
+			}
+		}
+
+		/**
 		 * Creates CSS files.
 		 *
 		 * @param  string $style_data   Gets the CSS for the current Page.
@@ -321,13 +341,8 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 			// Adds an option as if the uploads folder has file rights access.
 			astra_update_option( 'file-write-access', $put_contents );
 
-			if ( false === $archive_title ) {
-				// Update the post meta.
-				update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
-			} else {
-				// Update the option.
-				update_option( 'astra_' . $type . '_get_dynamic_css', $timestamp );
-			}
+			// This function will update the Post/ Option timestamp.
+			$this->update_timestamp( $archive_title, $type, $timestamp );
 		}
 	}
 
