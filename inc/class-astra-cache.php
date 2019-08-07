@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		}
 
 		/**
-		 * Refresh Assets
+		 * Refresh Assets, called through ajax
 		 *
 		 * @since x.x.x
 		 * @return void
