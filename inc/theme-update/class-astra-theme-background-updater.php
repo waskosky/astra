@@ -158,6 +158,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				astra_update_option( 'theme-auto-version', ASTRA_THEME_VERSION );
 			}
 
+			// If equals then return.
+			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+				return;
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
