@@ -5,11 +5,11 @@
  * @package Astra
  */
 
-if ( ! class_exists( 'Astra_Helper' ) ) {
+if ( ! class_exists( 'Astra_Cache' ) ) {
 	/**
-	 * Class Astra_Helper.
+	 * Class Astra_Cache.
 	 */
-	class Astra_Helper {
+	class Astra_Cache {
 
 		/**
 		 * Get fonts to generate.
@@ -389,5 +389,5 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		}
 	}
 
-	new Astra_Helper;
+	new Astra_Cache;
 }
