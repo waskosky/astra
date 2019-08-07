@@ -5825,6 +5825,13 @@ body {
   }
 }
 
+<<<<<<< Updated upstream
+=======
+.no-results .search-field {
+  margin-bottom: 10px;
+}
+
+>>>>>>> Stashed changes
 .ast-page-builder-template .hentry {
   margin: 0;
 }

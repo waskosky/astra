@@ -483,6 +483,10 @@
   }
 }
 
+.ast-page-builder-template .comments-area {
+  padding: 3em 0em 3em 0em;
+}
+
 .ast-page-builder-template .children .ast-comment {
   margin: 2.250em 0 0 0;
 }
