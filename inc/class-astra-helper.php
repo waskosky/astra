@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
 
-			add_action( 'astra_post_meta_updated', array( $this, 'check_values' ), 10, 1 );
+			add_action( 'astra_post_meta_updated', array( $this, 'refresh_post_meta_data' ), 10, 1 );
 
 			// Refresh assets.
 			add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 * @since x.x.x
 		 * @return void
 		 */
-		public function check_values( $post_id ) {
+		public function refresh_post_meta_data( $post_id ) {
 			delete_post_meta( $post_id, 'astra_theme_style_timestamp_css' );
 		}
 
