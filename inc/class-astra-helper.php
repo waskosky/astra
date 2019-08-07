@@ -98,11 +98,12 @@ if ( ! class_exists( 'Astra_Helper' ) ) {
 		 */
 		public function enqueue_styles( $style_data, $type ) {
 
-			$slug          = $this->astra_get_archive_title();
 			$archive_title = $this->astra_get_archive_title();
 
-			if ( false === $slug ) {
+			if ( false === $archive_title ) {
 				$slug = $this->astra_get_post_id();
+			} else {
+				$slug = $archive_title;
 			}
 
 			$assets_info = $this->astra_get_asset_info( $style_data, $slug, $type );
