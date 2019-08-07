@@ -6315,10 +6315,8 @@ body {
   margin-bottom: 0.675em;
 }
 
-@media (min-width: 769px) {
-  .ast-separate-container.ast-two-container #secondary .widget:last-child {
-    margin-bottom: 0;
-  }
+.ast-separate-container.ast-two-container #secondary .widget:last-child {
+  margin-bottom: 0;
 }
 
 @media (min-width: 544px) {

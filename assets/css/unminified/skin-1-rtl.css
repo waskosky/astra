@@ -873,6 +873,7 @@ body {
   }
   .ast-separate-container #secondary {
     padding-top: 1em;
+    padding-bottom: 0;
   }
   .ast-separate-container .site-content .ast-container {
     padding: 10px;
