@@ -12,14 +12,6 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 	class Astra_Cache {
 
 		/**
-		 * Get fonts to generate.
-		 *
-		 * @since x.x.x
-		 * @var array $fonts
-		 */
-		static private $css = array();
-
-		/**
 		 *  Constructor
 		 */
 		public function __construct() {
