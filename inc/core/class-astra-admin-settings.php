@@ -752,7 +752,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$write_access = astra_get_option( 'file-write-access', true );
 
 			if ( $write_access ) {
-				$button_text = __( 'Refresh', 'astra' );
+				$button_text = esc_html__(  'Refresh', 'astra' );
 				$message     = esc_html__( 'Click on the Refresh button to regenerate CSS files.', 'astra' );
 				$doc_link    = esc_url( '#' );
 			} else {
