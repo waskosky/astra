@@ -116,8 +116,8 @@ describe("Primary Header", async () => {
         isLandscape: false
       });
 
-      // Navigating to ${ process.env.ASTRA_TESTS_URL }wp-login.php
-      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }wp-login.php`, {
+      // Navigating to ${ process.env.ASTRA_TESTS_URL }/wp-login.php
+      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }/wp-login.php`, {
         timeout: 30000,
         waitUntil: "networkidle0"
       });
@@ -155,8 +155,8 @@ describe("Primary Header", async () => {
         isLandscape: false
       });
 
-      // Navigating to ${ process.env.ASTRA_TESTS_URL }wp-admin/customize.php
-      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }wp-admin/customize.php`, {
+      // Navigating to ${ process.env.ASTRA_TESTS_URL }/wp-admin/customize.php
+      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }/wp-admin/customize.php`, {
         timeout: 30000,
         waitUntil: "networkidle0"
       });
@@ -194,8 +194,8 @@ describe("Primary Header", async () => {
       // Defining browser viewport
       await bs.page.setViewport({ height: 908, width: 1680 });
 
-      // Navigating to ${ process.env.ASTRA_TESTS_URL }wp-admin/customize.php
-      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }wp-admin/customize.php`, {
+      // Navigating to ${ process.env.ASTRA_TESTS_URL }/wp-admin/customize.php
+      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }/wp-admin/customize.php`, {
         timeout: 30000,
         waitUntil: "networkidle0"
       });
@@ -266,8 +266,8 @@ describe("Primary Header", async () => {
         isLandscape: false
       });
 
-      // Navigating to ${ process.env.ASTRA_TESTS_URL }
-      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }`, {
+      // Navigating to ${ process.env.ASTRA_TESTS_URL }/
+      await bs.page.goto(`${ process.env.ASTRA_TESTS_URL }/`, {
         timeout: 30000,
         waitUntil: "networkidle0"
       });
