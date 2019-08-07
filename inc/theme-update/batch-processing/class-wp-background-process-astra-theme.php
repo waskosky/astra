@@ -43,6 +43,10 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 				call_user_func( $process );
 			}
 
+			if( 'update_db_version' === $process ) {
+				Astra_Theme_Background_Updater::update_db_version();
+			}
+
 			return false;
 		}
 

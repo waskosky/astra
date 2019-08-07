@@ -58,18 +58,18 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		public function install_actions() {
 
+			do_action( 'astra_update_initiated', self::$background_updater );
+
 			if ( true === $this->is_new_install() ) {
-				$this->update_db_version();
+				self::update_db_version();
 				return;
 			}
 
 			if ( $this->needs_db_update() ) {
 				$this->update();
 			} else {
-				$this->update_db_version();
+				self::update_db_version();
 			}
-
-			do_action( 'astra_update_initiated', self::$background_updater );
 		}
 
 		/**
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				}
 			}
 
-			self::$background_updater->push_to_queue( $this->update_db_version() );
+			self::$background_updater->push_to_queue( 'update_db_version' );
 			self::$background_updater->save()->dispatch();
 		}
 
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * @param string|null $version New Astra theme version or null.
 		 */
-		public function update_db_version( $version = null ) {
+		public static function update_db_version( $version = null ) {
 
 			do_action( 'astra_update_before' );
 
