@@ -211,10 +211,8 @@
 				background-color: $color-background-content;
 				padding: 2em;
 				margin-bottom: 0.675em;
-				@media (min-width: $col-md) {
-					&:last-child{
-						margin-bottom: 0;
-					}
+				&:last-child{
+					margin-bottom: 0;
 				}
 				@media (min-width: $mx-col-sm) {
 					margin-bottom: 1.459em;
