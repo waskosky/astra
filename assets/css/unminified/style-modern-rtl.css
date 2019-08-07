@@ -5825,6 +5825,10 @@ body {
   }
 }
 
+.no-results .search-submit {
+  margin-bottom: 10px;
+}
+
 .ast-page-builder-template .hentry {
   margin: 0;
 }
