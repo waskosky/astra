@@ -5337,7 +5337,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .ast-plain-container .comments-area {
-    padding: 1em;
+    padding: 2em 1em 1em 1em;
   }
   .ast-plain-container .comments-area .ast-comment-cite-wrap,
   .ast-plain-container .comments-area .ast-comment-time,
