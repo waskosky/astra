@@ -184,6 +184,9 @@ describe("Primary Header", async () => {
         delay: 0
       });
 
+      // Waiting for 1000 ms
+      await bs.page.waitFor(400);
+
     });
   });
 
@@ -250,6 +253,9 @@ describe("Primary Header", async () => {
         clickCount: 1,
         delay: 0
       });
+
+      // Waiting for 1000 ms
+      await bs.page.waitFor(400);
 
     });
 
