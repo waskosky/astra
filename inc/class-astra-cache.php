@@ -97,11 +97,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			astra_delete_option( 'file-write-access' );
 
-			$uploads_dir      = parent::get_uploads_dir();
-			$uploads_dir_path = $uploads_dir['path'];
-
-			array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
-			array_map( 'unlink', glob( $uploads_dir_path . '/astra-addon-dynamic-css*.*' ) );
+			$this->delete_cache_files();
 		}
 
 		/**
@@ -117,6 +113,17 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			}
 
 			astra_delete_option( 'file-write-access' );
+
+			$this->delete_cache_files();
+		}
+
+		/**
+		 * Deletes cache files
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function delete_cache_files() {
 
 			$uploads_dir      = parent::get_uploads_dir();
 			$uploads_dir_path = $uploads_dir['path'];
