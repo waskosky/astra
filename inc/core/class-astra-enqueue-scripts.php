@@ -202,9 +202,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			// Submenu Container Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
-			wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+
+			$rtl = ( is_rtl() ) ? '-rtl' : '';
+
 			if ( ! empty( $menu_animation ) ) {
-				wp_enqueue_style( 'astra-menu-animation' );
+				Astra_Cache::add_dynamic_theme_css( array( $css_uri . 'menu-animation' . $rtl . $file_prefix . '.css' ) );
 			}
 
 			if ( astra_is_emp_endpoint() ) {

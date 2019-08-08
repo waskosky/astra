@@ -6,15 +6,33 @@
  */
 
 if ( ! class_exists( 'Astra_Cache' ) ) {
+
+
 	/**
 	 * Class Astra_Cache.
 	 */
-	class Astra_Cache {
+	class Astra_Cache extends Astra_File_Operations {
+
+		/**
+		 * Member Variable
+		 *
+		 * @var array instance
+		 */
+		private static $dynamic_css_file_path = array();
+
+		/**
+		 * Member Variable
+		 *
+		 * @var string instance
+		 */
+		private static $dynamic_css_data;
 
 		/**
 		 *  Constructor
 		 */
 		public function __construct() {
+
+			parent::__construct();
 
 			if ( ! function_exists( 'WP_Filesystem' ) ) {
 				require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -22,6 +40,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			WP_Filesystem();
 
+			add_action( 'wp_enqueue_scripts', array( $this, 'add_to_dynamic_css_file' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
 
 			add_action( 'astra_post_meta_updated', array( $this, 'refresh_post_meta_data' ), 10, 1 );
@@ -31,6 +50,35 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			// Triggers on click on refresh/ recheck button.
 			add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_ajax_refresh_assets' ) );
+		}
+
+		/**
+		 * Create an array of all the files that needs to be merged in dynamic CSS file.
+		 *
+		 * @since x.x.x
+		 * @param array $file file path.
+		 * @return void
+		 */
+		public static function add_dynamic_theme_css( $file ) {
+			self::$dynamic_css_file_path = array_merge( self::$dynamic_css_file_path, $file );
+		}
+
+		/**
+		 * Append CSS style to the theme dynamic css.
+		 *
+		 * @since x.x.x
+		 * @param array $file file path.
+		 * @return void
+		 */
+		public function add_to_dynamic_css_file( $file ) {
+
+			foreach ( self::$dynamic_css_file_path as $key => $value ) {
+				// Get file contents.
+				$get_contents = parent::astra_get_contents( $value );
+				if ( $get_contents ) {
+					self::$dynamic_css_data .= $get_contents;
+				}
+			}
 		}
 
 		/**
@@ -49,7 +97,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			astra_delete_option( 'file-write-access' );
 
-			$uploads_dir      = $this->get_uploads_dir();
+			$uploads_dir      = parent::get_uploads_dir();
 			$uploads_dir_path = $uploads_dir['path'];
 
 			array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
@@ -70,7 +118,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			astra_delete_option( 'file-write-access' );
 
-			$uploads_dir      = $this->get_uploads_dir();
+			$uploads_dir      = parent::get_uploads_dir();
 			$uploads_dir_path = $uploads_dir['path'];
 
 			array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
@@ -96,7 +144,8 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 */
 		public function theme_enqueue_styles() {
 
-			$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
+			$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
+			$theme_css_data .= self::$dynamic_css_data;
 
 			// Return if there is no data to add in the css file.
 			if ( empty( $theme_css_data ) ) {
@@ -131,26 +180,20 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			// Gets the timestamp.
 			$post_timestamp = $this->get_post_timestamp( $archive_title, $type, $assets_info );
 
-			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
-				$timestamp = $this->get_file_timestamp();
-			} else {
-				$timestamp = $post_timestamp;
-			}
-
-			if ( ! empty( $style_data ) ) {
-				$this->file_write( $style_data, $slug, $archive_title, $timestamp, $type, $assets_info );
-			}
-
-			$uploads_dir     = $this->get_uploads_dir();
+			$uploads_dir     = parent::get_uploads_dir();
 			$uploads_dir_url = $uploads_dir['url'];
 
 			$write_access    = astra_get_option( 'file-write-access', true );
 			$load_inline_css = apply_filters( 'astra_load_dynamic_css_inline', false );
 
+			if ( ! empty( $style_data ) && $post_timestamp['create_new_file'] ) {
+				$this->file_write( $style_data, $slug, $archive_title, $post_timestamp['timestamp'], $type, $assets_info );
+			}
+
 			if ( ! $write_access || $load_inline_css ) {
 				wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 			} else {
-				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $timestamp );
+				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $post_timestamp['timestamp'] );
 			}
 		}
 
@@ -161,7 +204,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 * @param  string $archive_title         Gets the taxonomay name.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @param  string $assets_info  Gets the assets path info.
-		 * @return string $timestamp.
+		 * @return array $timestamp_data.
 		 */
 		public function get_post_timestamp( $archive_title, $type, $assets_info ) {
 
@@ -172,9 +215,9 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 				$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
 			}
 
-			$timestamp = $this->maybe_get_new_timestamp( $post_timestamp, $assets_info );
+			$timestamp_data = $this->maybe_get_new_timestamp( $post_timestamp, $assets_info );
 
-			return $timestamp;
+			return $timestamp_data;
 		}
 
 		/**
@@ -183,18 +226,29 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 * @since  x.x.x
 		 * @param  string $post_timestamp Timestamp of the post meta/ option.
 		 * @param  string $assets_info  Gets the assets path info.
-		 * @return string $timestamp.
+		 * @return array $data.
 		 */
 		public function maybe_get_new_timestamp( $post_timestamp, $assets_info ) {
 
 			// Creates a new timestamp if the file does not exists or the timestamp is empty.
+			// If post_timestamp is empty that means it is an new post or the post is updated and a new file needs to be created.
+			// If a file does not exists that means we need to create a new file.
 			if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
 				$timestamp = $this->get_file_timestamp();
+
+				$data = array(
+					'create_new_file' => true,
+					'timestamp'       => $timestamp,
+				);
 			} else {
 				$timestamp = $post_timestamp;
+				$data      = array(
+					'create_new_file' => false,
+					'timestamp'       => $timestamp,
+				);
 			}
 
-			return $timestamp;
+			return $data;
 		}
 
 		/**
@@ -219,59 +273,6 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			$timestamp = $date->getTimestamp();
 
 			return $timestamp;
-		}
-
-		/**
-		 * Checks to see if the site has SSL enabled or not.
-		 *
-		 * @since x.x.x
-		 * @return bool
-		 */
-		public function is_ssl() {
-			if ( is_ssl() ) {
-				return true;
-			} elseif ( 0 === stripos( get_option( 'siteurl' ), 'https://' ) ) {
-				return true;
-			} elseif ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' == $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
-				return true;
-			}
-			return false;
-		}
-
-		/**
-		 * Returns an array of paths for the upload directory
-		 * of the current site.
-		 *
-		 * @since x.x.x
-		 * @return array
-		 */
-		public function get_uploads_dir() {
-
-			global $wp_filesystem;
-
-			$wp_info  = wp_upload_dir( null, false );
-			$dir_name = basename( ASTRA_THEME_DIR );
-			if ( 'astra' == $dir_name ) {
-				$dir_name = 'astra';
-			}
-			// SSL workaround.
-			if ( $this->is_ssl() ) {
-				$wp_info['baseurl'] = str_ireplace( 'http://', 'https://', $wp_info['baseurl'] );
-			}
-			// Build the paths.
-			$dir_info = array(
-				'path' => $wp_info['basedir'] . '/' . $dir_name . '/',
-				'url'  => $wp_info['baseurl'] . '/' . $dir_name . '/',
-			);
-			// Create the upload dir if it doesn't exist.
-			if ( ! file_exists( $dir_info['path'] ) ) {
-				// Create the directory.
-				$wp_filesystem->mkdir( $dir_info['path'] );
-				// Add an index file for security.
-				$wp_filesystem->put_contents( $dir_info['path'] . 'index.php', '' );
-
-			}
-			return apply_filters( 'astra_get_assets_uploads_dir', $dir_info );
 		}
 
 		/**
@@ -336,7 +337,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 */
 		public function get_asset_info( $data, $slug, $type ) {
 
-			$uploads_dir = $this->get_uploads_dir();
+			$uploads_dir = parent::get_uploads_dir();
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$info        = array();
@@ -381,24 +382,14 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 */
 		public function file_write( $style_data, $slug, $archive_title, $timestamp, $type, $assets_info ) {
 
-			global $wp_filesystem;
-
 			if ( false === $archive_title ) {
-				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
-
-				if ( '' == $post_timestamp && '' == $timestamp ) {
-					return;
-				}
+				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', '' );
 			} else {
 				$current_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css', true );
-
-				if ( '' == $current_timestamp && '' == $timestamp ) {
-					return;
-				}
 			}
 
 			// Create a new file.
-			$put_contents = $wp_filesystem->put_contents( $assets_info['path'], $style_data );
+			$put_contents = parent::astra_put_contents( $assets_info['path'], $style_data );
 
 			// Adds an option as if the uploads folder has file rights access.
 			astra_update_option( 'file-write-access', $put_contents );

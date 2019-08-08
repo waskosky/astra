@@ -125,6 +125,7 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-divi-builder.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-amp.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/transparent-header/class-astra-ext-transparent-header.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/class-astra-breadcrumbs.php';
+require_once ASTRA_THEME_DIR . 'inc/class-astra-file-operations.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-cache.php';
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.
