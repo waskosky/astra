@@ -173,7 +173,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 */
 		public function enqueue_styles( $style_data, $type ) {
 
-			$archive_title = $this->get_archive_title();
+			$archive_title = astra_get_archive_title();
 
 			// Returns false if the current page is a post.
 			if ( false === $archive_title ) {
@@ -275,56 +275,6 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			$timestamp = $date->getTimestamp();
 
 			return $timestamp;
-		}
-
-		/**
-		 * Gets the archive title.
-		 *
-		 * @since  x.x.x
-		 * @return $title Gets the archive title.
-		 */
-		public function get_archive_title() {
-			if ( is_category() ) {
-				$title = 'category';
-			} elseif ( is_tag() ) {
-				$title = 'tag';
-			} elseif ( is_author() ) {
-				$title = 'author';
-			} elseif ( is_year() ) {
-				$title = 'year';
-			} elseif ( is_month() ) {
-				$title = 'month';
-			} elseif ( is_day() ) {
-				$title = 'day';
-			} elseif ( is_tax( 'post_format' ) ) {
-				if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-					$title = 'asides';
-				} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-					$title = 'galleries';
-				} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-					$title = 'images';
-				} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-					$title = 'videos';
-				} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-					$title = 'quotes';
-				} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-					$title = 'links';
-				} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-					$title = 'statuses';
-				} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-					$title = 'audio';
-				} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-					$title = 'chats';
-				}
-			} elseif ( is_post_type_archive() ) {
-				$title = 'archives';
-			} elseif ( is_tax() ) {
-				$tax   = get_taxonomy( get_queried_object()->taxonomy );
-				$title = $tax->labels->singular_name;
-			} else {
-				$title = false;
-			}
-			return $title;
 		}
 
 		/**
