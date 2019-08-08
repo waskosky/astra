@@ -207,7 +207,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
 				$skin_css_output = array(
-					'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
+					'p, .entry-content p, .single .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
 					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
