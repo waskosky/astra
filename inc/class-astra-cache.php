@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		}
 
 		/**
-		 * Enqueue theme CSS files.
+		 * Fetch theme CSS data to be added in the dynamic CSS file.
 		 *
 		 * @since x.x.x
 		 * @return void
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		}
 
 		/**
-		 * Enqueue Addon CSS files.
+		 * Enqueue CSS files.
 		 *
 		 * @param  string $style_data   Gets the CSS data.
 		 * @param  string $type         Gets the type theme/addon.
