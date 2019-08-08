@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		}
 
 		/**
-		 * Remove post meta that check if css file need to be regenerated.
+		 * Remove post meta that check if CSS file need to be regenerated.
 		 *
 		 * @param int $post_id Gets the post id.
 		 * @since x.x.x
@@ -175,8 +175,9 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			$archive_title = $this->get_archive_title();
 
+			// Returns false if the current page is a post.
 			if ( false === $archive_title ) {
-				$slug = $this->get_post_id();
+				$slug = get_the_ID();
 			} else {
 				$slug = $archive_title;
 			}
@@ -187,20 +188,25 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			// Gets the timestamp.
 			$post_timestamp = $this->get_post_timestamp( $archive_title, $type, $assets_info );
 
-			$uploads_dir     = parent::get_uploads_dir();
-			$uploads_dir_url = $uploads_dir['url'];
+			// Gets the uploads folder directory.
+			$uploads_dir = parent::get_uploads_dir();
 
-			$write_access    = astra_get_option( 'file-write-access', true );
+			// Check if the uploads folder has write access.
+			$write_access = astra_get_option( 'file-write-access', true );
+
+			// Check if we need to show the dynamic CSS inline.
 			$load_inline_css = apply_filters( 'astra_load_dynamic_css_inline', false );
 
+			// Check if we need to create a new file or override the current file.
 			if ( ! empty( $style_data ) && $post_timestamp['create_new_file'] ) {
 				$this->file_write( $style_data, $slug, $archive_title, $post_timestamp['timestamp'], $type, $assets_info );
 			}
 
+			// Add inline CSS if there is no write access or user has returned true using the `astra_load_dynamic_css_inline` filter.
 			if ( ! $write_access || $load_inline_css ) {
 				wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 			} else {
-				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir_url . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $post_timestamp['timestamp'] );
+				wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $post_timestamp['timestamp'] );
 			}
 		}
 
@@ -256,17 +262,6 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			}
 
 			return $data;
-		}
-
-		/**
-		 * Gets the current post id.
-		 *
-		 * @since x.x.x
-		 * @return string $post_id Post ID.
-		 */
-		public function get_post_id() {
-			$post_id = get_the_ID();
-			return $post_id;
 		}
 
 		/**
