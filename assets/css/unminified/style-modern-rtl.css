@@ -5915,6 +5915,7 @@ body {
 
 .ast-page-builder-template .ast-archive-description {
   margin-top: 3em;
+  margin-top: 0;
   margin-right: auto;
   margin-left: auto;
   padding-right: 20px;
