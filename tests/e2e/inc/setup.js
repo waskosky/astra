@@ -1,4 +1,3 @@
-var wpCli = require("node-wp-cli");
 const request = require("request");
 
 beforeEach(() => {
