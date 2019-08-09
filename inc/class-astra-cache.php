@@ -199,7 +199,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			// Check if we need to create a new file or override the current file.
 			if ( ! empty( $style_data ) && $post_timestamp['create_new_file'] ) {
-				$this->file_write( $style_data, $slug, $archive_title, $post_timestamp['timestamp'], $type, $assets_info );
+				$this->file_write( $style_data, $archive_title, $post_timestamp['timestamp'], $type, $assets_info );
 			}
 
 			// Add inline CSS if there is no write access or user has returned true using the `astra_load_dynamic_css_inline` filter.
@@ -312,20 +312,13 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 * Creates CSS files.
 		 *
 		 * @param  string $style_data   Gets the CSS for the current Page.
-		 * @param  string $slug         Gets the current post ID/ Taxonomy name.
 		 * @param  string $archive_title         Gets the archive title.
 		 * @param  string $timestamp    Gets the current timestamp.
 		 * @param  string $type         Gets the type theme/addon.
 		 * @param  string $assets_info  Gets the assets path info.
 		 * @since  x.x.x
 		 */
-		public function file_write( $style_data, $slug, $archive_title, $timestamp, $type, $assets_info ) {
-
-			if ( false === $archive_title ) {
-				$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', '' );
-			} else {
-				$current_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css', true );
-			}
+		public function file_write( $style_data, $archive_title, $timestamp, $type, $assets_info ) {
 
 			// Create a new file.
 			$put_contents = parent::astra_put_contents( $assets_info['path'], $style_data );
