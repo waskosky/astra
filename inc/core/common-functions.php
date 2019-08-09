@@ -1282,21 +1282,6 @@ if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_get_option_by_group' ) ) :
-
-	/**
-	 * Get the value for font-display property.
-	 *
-	 * @since 1.8.6
-	 * @return string
-	 */
-	function astra_get_fonts_display_property() {
-		return apply_filters( 'astra_fonts_display_property', 'fallback' );
-	}
-
-endif;
-
-
 if ( ! function_exists( 'astra_get_archive_title' ) ) :
 
 	/**
@@ -1305,7 +1290,7 @@ if ( ! function_exists( 'astra_get_archive_title' ) ) :
 	 * @since  x.x.x
 	 * @return $title Returns the archive title.
 	 */
-	public function astra_get_archive_title() {
+	function astra_get_archive_title() {
 		if ( is_category() ) {
 			$title = 'category';
 		} elseif ( is_tag() ) {
@@ -1350,3 +1335,31 @@ if ( ! function_exists( 'astra_get_archive_title' ) ) :
 	}
 
 endif;
+
+
+if ( ! function_exists( 'astra_get_current_timestamp' ) ) :
+
+	/**
+	 * Gets the current timestamp.
+	 *
+	 * @since x.x.x
+	 * @return string $timestamp Timestamp.
+	 */
+	function astra_get_current_timestamp() {
+		$date      = new DateTime();
+		$timestamp = $date->getTimestamp();
+
+		return $timestamp;
+	}
+
+endif;
+
+	/**
+	 * Get the value for font-display property.
+	 *
+	 * @since 1.8.6
+	 * @return string
+	 */
+function astra_get_fonts_display_property() {
+	return apply_filters( 'astra_fonts_display_property', 'fallback' );
+}
