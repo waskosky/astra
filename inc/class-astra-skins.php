@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ), 100 );
-			add_filter( 'astra_attr_ast-comment-meta', array( $this, 'comment_meta_attributes' ) );
+			add_filter( 'astra_attr_comment-meta-author', array( $this, 'comment_meta_attributes' ) );
 			add_filter( 'astra_comment_avatar_size', array( $this, 'comment_avatar_size' ) );
 			add_filter( 'astra_theme_defaults', array( $this, 'skin_defaults' ) );
 			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );

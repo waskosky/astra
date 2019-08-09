@@ -152,7 +152,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								<?php
 								echo '<header ';
 								echo astra_attr(
-									'commen-meta-author',
+									'comment-meta-author',
 									array(
 										'class' => 'ast-comment-meta ast-row ast-comment-author vcard',
 									)
