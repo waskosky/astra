@@ -12,16 +12,18 @@ cd "$(dirname "$0")/../.."
 # Check whether Node and NVM are installed
 . "$(dirname "$0")/install-node-nvm.sh"
 
-# Check whether Composer installed
-. "$(dirname "$0")/install-composer.sh"
+# # Check whether Composer installed
+# . "$(dirname "$0")/install-composer.sh"
 
-# Check whether Docker is installed and running
+# # Check whether Docker is installed and running
 . "$(dirname "$0")/launch-containers.sh"
 
-# Set up WordPress Development site.
-# Note: we don't bother installing the test site right now, because that's
-# done on every time `npm run test-e2e` is run.
+# # Set up WordPress Development site.
+# # Note: we don't bother installing the test site right now, because that's
+# # done on every time `npm run test-e2e` is run.
 . "$(dirname "$0")/install-wordpress.sh"
+
+. "$(dirname "$0")/install-dummy-data.sh"
 
 
 CURRENT_URL=$(docker-compose $DOCKER_COMPOSE_FILE_OPTIONS run -T --rm cli option get siteurl)
