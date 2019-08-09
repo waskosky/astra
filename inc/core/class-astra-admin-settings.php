@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function init_admin_settings() {
 			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
-			self::astra_set_plugin_slug();
+			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
@@ -127,22 +127,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Plugin Slug setter including White Label.
+		 * Theme options page Slug getter including White Label string.
 		 *
 		 * @since x.x.x
-		 * @return void
+		 * @return string Theme Options Page Slug.
 		 */
-		public static function astra_set_plugin_slug() {
-			self::$plugin_slug = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
-		}
-
-		/**
-		 * Plugin Slug getter including White Label.
-		 *
-		 * @since x.x.x
-		 * @return string Plugin Slug.
-		 */
-		public static function astra_get_plugin_slug() {
+		public static function get_theme_page_slug() {
 			return self::$plugin_slug;
 		}
 
