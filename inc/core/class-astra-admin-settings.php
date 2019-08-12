@@ -775,7 +775,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'header'       => array(
 						'title'     => __( 'Header Options', 'astra' ),
 						'dashicon'  => 'dashicons-align-center',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-header' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-header-group' ),
 					),
 					'blog-layout'  => array(
 						'title'     => __( 'Blog Layouts', 'astra' ),
