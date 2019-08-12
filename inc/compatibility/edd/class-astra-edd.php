@@ -423,7 +423,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @since 1.5.5
-		 * @return void
+		 * @return string $dynamic_css
 		 */
 		function add_inline_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
