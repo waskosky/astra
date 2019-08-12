@@ -846,7 +846,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
 						),
 					);
-					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint() );
+					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 
 				else :
 					// Woocommerce shop archive default width.
@@ -857,7 +857,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 
 					/* Parse CSS from array()*/
-					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint() );
+					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 				endif;
 			}
 

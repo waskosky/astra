@@ -1273,17 +1273,25 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 	/**
 	 * Get the tablet brekpoint value.
 	 */
-	function astra_get_tablet_breakpoint() {
+	function astra_get_tablet_breakpoint( $min_width = '', $max_width = '' ) {
 
 		$header_breakpoint = astra_get_option( 'mobile-header-breakpoint' );
 
 		if ( '' !== $header_breakpoint ) {
 			$breakpoint = $header_breakpoint;
 		} else {
-			$breakpoint = '921';
+			$breakpoint = '922';
 		}
 
-		return apply_filters( 'astra_tablet_breakpoint', $breakpoint );
+		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $breakpoint );
+
+		if( '' !== $min_width ) {
+			$header_breakpoint = $header_breakpoint - $min_width;
+		} else if( '' !== $max_width ) {
+			$header_breakpoint = $header_breakpoint + $max_width;
+		}
+
+		return $header_breakpoint;
 	}
 
 endif;
@@ -1293,8 +1301,17 @@ if ( ! function_exists( 'astra_get_mobile_breakpoint' ) ) :
 	/**
 	 * Get the tablet brekpoint value.
 	 */
-	function astra_get_mobile_breakpoint() {
-		return apply_filters( 'astra_tablet_breakpoint', '544' );
+	function astra_get_mobile_breakpoint( $min_width = '', $max_width = '' ) {
+
+		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', '544' );
+		
+		if( '' !== $min_width ) {
+			$header_breakpoint = $header_breakpoint - $min_width;
+		} else if( '' !== $max_width ) {
+			$header_breakpoint = $header_breakpoint + $max_width;
+		}
+
+		return $header_breakpoint;
 	}
 
 endif;

@@ -181,7 +181,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				),
 			);
 			/* Parse CSS from array()*/
-			$css_output .= astra_parse_css( $mobile_typography, '', '544' );
+			$css_output .= astra_parse_css( $mobile_typography, '', astra_get_mobile_breakpoint() );
 
 			wp_add_inline_style( 'learndash_style', apply_filters( 'astra_theme_learndash_dynamic_css', $css_output ) );
 

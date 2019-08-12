@@ -612,7 +612,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array()*/
-				$parse_css .= astra_parse_css( array_merge( $custom_button, $custom_trans_button ), '', '544' );
+				$parse_css .= astra_parse_css( array_merge( $custom_button, $custom_trans_button ), '', astra_get_mobile_breakpoint() );
 			}
 
 			// Foreground color.
@@ -639,7 +639,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array()*/
-				$parse_css .= astra_parse_css( $genral_global_responsive, astra_get_tablet_breakpoint() );
+				$parse_css .= astra_parse_css( $genral_global_responsive, astra_get_tablet_breakpoint( '', 1 ) );
 			}
 
 			/* Width for Comments for Full Width / Stretched Template */
@@ -652,7 +652,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $page_builder_comment, '545' );
+			$parse_css .= astra_parse_css( $page_builder_comment, astra_get_mobile_breakpoint( '', 1 ) );
 
 			$separate_container_css = array(
 				'body, .ast-separate-container' => astra_get_background_obj( $box_bg_obj ),
@@ -870,7 +870,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( array_merge( $mobile_typo, $mobile_typography ), '', '544' );
+			$parse_css .= astra_parse_css( array_merge( $mobile_typo, $mobile_typography ), '', astra_get_mobile_breakpoint() );
 
 			/*
 			 *  Responsive Font Size for Tablet & Mobile to the root HTML element
@@ -900,7 +900,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $html_mobile_typography, '', '544' );
+			$parse_css .= astra_parse_css( $html_mobile_typography, '', astra_get_mobile_breakpoint() );
 
 			/* Site width Responsive */
 			$site_width = array(
@@ -910,7 +910,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint() );
+			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 
 			/**
 			 * Astra Fonts
@@ -949,7 +949,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'max-width' => astra_get_css_value( $blog_max_width, 'px' ),
 					),
 				);
-				$parse_css .= astra_parse_css( $blog_css, astra_get_tablet_breakpoint() );
+				$parse_css .= astra_parse_css( $blog_css, astra_get_tablet_breakpoint( '', 1 ) );
 			endif;
 
 			/* Single Blog */
@@ -961,7 +961,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'max-width' => astra_get_css_value( $single_post_max_width, 'px' ),
 					),
 				);
-				$parse_css      .= astra_parse_css( $single_blog_css, astra_get_tablet_breakpoint() );
+				$parse_css      .= astra_parse_css( $single_blog_css, astra_get_tablet_breakpoint( '', 1 ) );
 			endif;
 
 			// Primary Submenu Border Width & Color.
@@ -996,8 +996,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$parse_css .= astra_parse_css( $submenu_border_style );
 			// Submenu items goes outside?
-			$parse_css .= astra_parse_css( $submenu_border_for_left_align_menu, astra_get_tablet_breakpoint() );
-
+			$parse_css .= astra_parse_css( $submenu_border_for_left_align_menu, astra_get_tablet_breakpoint( '', 1 ) );
+ 
 			/* Small Footer CSS */
 			if ( 'disabled' != $small_footer_layout ) :
 				$sml_footer_css = array(
@@ -1080,7 +1080,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= astra_parse_css( $meta_style, astra_get_tablet_breakpoint() );
+			$parse_css .= astra_parse_css( $meta_style, astra_get_tablet_breakpoint( '', 1 ) );
 
 			if ( 'no-sidebar' !== astra_page_layout() ) :
 
@@ -1093,7 +1093,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				$parse_css .= astra_parse_css( $meta_style, astra_get_tablet_breakpoint() );
+				$parse_css .= astra_parse_css( $meta_style, astra_get_tablet_breakpoint( '', 1 ) );
 
 			endif;
 

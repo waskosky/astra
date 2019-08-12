@@ -986,7 +986,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				),
 			);
 
-			$parse_css .= astra_parse_css( $astra_small_break_point_navigation, '544' );
+			$parse_css .= astra_parse_css( $astra_small_break_point_navigation, astra_get_mobile_breakpoint() );
 
 			return $parse_css;
 		}
