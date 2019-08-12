@@ -173,7 +173,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				),
 			);
 			/* Parse CSS from array()*/
-			$css_output .= astra_parse_css( $tablet_typography, '', '768' );
+			$css_output .= astra_parse_css( $tablet_typography, '', astra_get_tablet_breakpoint() );
 
 			$mobile_typography = array(
 				'#ld_course_list .entry-title' => array(

@@ -846,7 +846,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'max-width' => astra_get_css_value( $woo_shop_archive_max_width, 'px' ),
 						),
 					);
-					$css_output .= astra_parse_css( $site_width, '769' );
+					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint() );
 
 				else :
 					// Woocommerce shop archive default width.
@@ -857,7 +857,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 
 					/* Parse CSS from array()*/
-					$css_output .= astra_parse_css( $site_width, '769' );
+					$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint() );
 				endif;
 			}
 
@@ -922,7 +922,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 			/* Parse CSS from array()*/
-			$yith_wcwl_main_style .= astra_parse_css( $yith_wcwl_main_style_small, '', '768' );
+			$yith_wcwl_main_style .= astra_parse_css( $yith_wcwl_main_style_small, '', astra_get_tablet_breakpoint() );
 
 			wp_add_inline_style( 'yith-wcwl-main', $yith_wcwl_main_style );
 		}

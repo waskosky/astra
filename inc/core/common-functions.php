@@ -1274,7 +1274,16 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 	 * Get the tablet brekpoint value.
 	 */
 	function astra_get_tablet_breakpoint() {
-		return apply_filters( 'astra_tablet_breakpoint', '921' );
+
+		$header_breakpoint = astra_get_option( 'mobile-header-breakpoint' );
+
+		if ( '' !== $header_breakpoint ) {
+			$breakpoint = $header_breakpoint;
+		} else {
+			$breakpoint = '921';
+		}
+
+		return apply_filters( 'astra_tablet_breakpoint', $breakpoint );
 	}
 
 endif;

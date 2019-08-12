@@ -182,7 +182,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			$css .= astra_parse_css( $tablet_css, '', '768' );
+			$css .= astra_parse_css( $tablet_css, '', astra_get_tablet_breakpoint() );
 
 			$mobile_css = array(
 				'.editor-post-title__block .editor-post-title__input' => array(
@@ -209,7 +209,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			$css .= astra_parse_css( $mobile_css, '', '768' );
+			$css .= astra_parse_css( $mobile_css, '', astra_get_tablet_breakpoint() );
 
 			if ( in_array( $pagenow, array( 'post-new.php', 'post.php' ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(

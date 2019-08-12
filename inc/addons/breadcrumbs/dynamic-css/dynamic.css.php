@@ -468,7 +468,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	);
 
 	$css .= astra_parse_css( $breadcrumbs_desktop );
-	$css .= astra_parse_css( $breadcrumbs_tablet, '', '768' );
+	$css .= astra_parse_css( $breadcrumbs_tablet, '', astra_get_tablet_breakpoint() );
 	$css .= astra_parse_css( $breadcrumbs_mobile, '', '544' );
 	$css .= astra_parse_css( $breadcrumbs_default_css );
 

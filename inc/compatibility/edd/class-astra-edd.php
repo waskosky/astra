@@ -483,7 +483,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						'max-width' => astra_get_css_value( $edd_archive_max_width, 'px' ),
 					),
 				);
-				$css_output .= astra_parse_css( $site_width, '769' );
+				$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint() );
 
 			else :
 				// Easy Digital DOwnloads shop archive default width.
@@ -494,7 +494,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				);
 
 				/* Parse CSS from array()*/
-				$css_output .= astra_parse_css( $site_width, '769' );
+				$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint() );
 			endif;
 
 			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $css_output ) );

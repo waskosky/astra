@@ -257,7 +257,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 
 	/* Parse CSS from array() */
 	$css .= astra_parse_css( $transparent_header_desktop );
-	$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
+	$css .= astra_parse_css( $transparent_header_tablet, '', astra_get_tablet_breakpoint() );
 	$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
 
 	return $dynamic_css . $css;
@@ -546,7 +546,7 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 
 	/* Parse CSS from array() */
 	$css .= astra_parse_css( $transparent_header_desktop );
-	$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
+	$css .= astra_parse_css( $transparent_header_tablet, '', astra_get_tablet_breakpoint() );
 	$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
 
 	return $dynamic_css . $css;

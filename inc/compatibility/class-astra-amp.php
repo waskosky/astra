@@ -907,7 +907,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				),
 			);
 
-			$parse_css .= astra_parse_css( $astra_medium_break_point_navigation, '768' );
+			$parse_css .= astra_parse_css( $astra_medium_break_point_navigation, astra_get_tablet_breakpoint() );
 
 			// 544px
 			$astra_small_break_point_navigation = array(
