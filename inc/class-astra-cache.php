@@ -44,6 +44,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
 
 			add_action( 'astra_post_meta_updated', array( $this, 'refresh_post_meta_data' ), 10, 1 );
+			add_action( 'astra_advanced_headers_save_after', array( $this, 'astra_refresh_assets' ) );
 
 			// Refresh assets.
 			add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
