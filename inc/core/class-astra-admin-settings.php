@@ -760,22 +760,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'colors'       => array(
 						'title'     => __( 'Set Colors', 'astra' ),
 						'dashicon'  => 'dashicons-admin-customizer',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-colors-background' ),
 					),
 					'typography'   => array(
 						'title'     => __( 'Customize Fonts', 'astra' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-typography' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-typography' ),
 					),
 					'layout'       => array(
 						'title'     => __( 'Layout Options', 'astra' ),
 						'dashicon'  => 'dashicons-layout',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-layout' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-container-layout' ),
 					),
 					'header'       => array(
 						'title'     => __( 'Header Options', 'astra' ),
 						'dashicon'  => 'dashicons-align-center',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-header' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-header-group' ),
 					),
 					'blog-layout'  => array(
 						'title'     => __( 'Blog Layouts', 'astra' ),
