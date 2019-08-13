@@ -1272,6 +1272,10 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 
 	/**
 	 * Get the tablet brekpoint value.
+	 *
+	 * @param string $min_width min width.
+	 * @param string $max_width max width.
+	 * @return string header_breakpoint.
 	 */
 	function astra_get_tablet_breakpoint( $min_width = '', $max_width = '' ) {
 
@@ -1285,9 +1289,9 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 
 		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $breakpoint );
 
-		if( '' !== $min_width ) {
+		if ( '' !== $min_width ) {
 			$header_breakpoint = $header_breakpoint - $min_width;
-		} else if( '' !== $max_width ) {
+		} elseif ( '' !== $max_width ) {
 			$header_breakpoint = $header_breakpoint + $max_width;
 		}
 
@@ -1300,14 +1304,18 @@ if ( ! function_exists( 'astra_get_mobile_breakpoint' ) ) :
 
 	/**
 	 * Get the tablet brekpoint value.
+	 *
+	 * @param string $min_width min width.
+	 * @param string $max_width max width.
+	 * @return string header_breakpoint.
 	 */
 	function astra_get_mobile_breakpoint( $min_width = '', $max_width = '' ) {
 
 		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', '544' );
-		
-		if( '' !== $min_width ) {
+
+		if ( '' !== $min_width ) {
 			$header_breakpoint = $header_breakpoint - $min_width;
-		} else if( '' !== $max_width ) {
+		} elseif ( '' !== $max_width ) {
 			$header_breakpoint = $header_breakpoint + $max_width;
 		}
 
