@@ -258,6 +258,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function minimum_addon_version_notice() {
 
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				return;
+			}
+
 			$astra_theme_name = astra_get_theme_name();
 			$astra_addon_name = astra_get_addon_name();
 
@@ -273,7 +277,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				),
 				'priority'       => 1,
 				'type'           => 'warning',
-				'show_if'        => defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0,
+				'show_if'        => version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0,
 				'is_dismissible' => false,
 			);
 
