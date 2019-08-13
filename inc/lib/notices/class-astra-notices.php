@@ -177,7 +177,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
 				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
-				'is_dismissible'            => true
+				'is_dismissible'             => true,
 			);
 
 			// Count for the notices that are rendered.
