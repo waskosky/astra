@@ -1279,7 +1279,7 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 	 */
 	function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
 
-		$header_breakpoint = astra_get_option( 'mobile-header-breakpoint' );
+		$header_breakpoint = astra_header_break_point();
 
 		if ( '' !== $header_breakpoint ) {
 			$breakpoint = $header_breakpoint;
