@@ -258,29 +258,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function minimum_addon_version_notice() {
 
-			$astra_theme_name = 'Astra';
-			if ( function_exists( 'astra_get_theme_name' ) ) {
-				$astra_theme_name = astra_get_theme_name();
-			}
-
-			$show_if = false;
-
-			if ( defined( 'ASTRA_EXT_VER' ) && ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) ) {
-				$show_if = true;
-			}
+			$astra_theme_name = astra_get_theme_name();
+			$astra_addon_name = astra_get_addon_name();
 
 			$notice_args = array(
 				'id'             => 'ast-minimum-addon-version-notice',
 				'type'           => '',
 				'message'        => sprintf(
 					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
-					__( 'Glad to see you have updated the %1$1s theme! Please update the %1$1s Pro addon to version %2$2s or higher.', 'astra' ),
+					__( 'Glad to see you have updated the %1$1s! Please update the %2$2s to version %3$3s or higher.', 'astra' ),
 					$astra_theme_name,
+					$astra_addon_name,
 					ASTRA_EXT_MIN_VER
 				),
 				'priority'       => 1,
 				'type'           => 'warning',
-				'show_if'        => $show_if,
+				'show_if'        => defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0,
 				'is_dismissible' => false,
 			);
 
