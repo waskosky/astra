@@ -1271,31 +1271,31 @@ function astra_get_fonts_display_property() {
 if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 
 	/**
-	 * Get the tablet brekpoint value.
+	 * Get the tablet breakpoint value.
 	 *
-	 * @param string $min_width min width.
-	 * @param string $max_width max width.
+	 * @param string $min min.
+	 * @param string $max max.
 	 * @return string header_breakpoint.
 	 */
-	function astra_get_tablet_breakpoint( $min_width = '', $max_width = '' ) {
+	function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
 
 		$header_breakpoint = astra_get_option( 'mobile-header-breakpoint' );
 
 		if ( '' !== $header_breakpoint ) {
 			$breakpoint = $header_breakpoint;
 		} else {
-			$breakpoint = '922';
+			$breakpoint = 921;
 		}
 
 		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $breakpoint );
 
-		if ( '' !== $min_width ) {
-			$header_breakpoint = $header_breakpoint - $min_width;
-		} elseif ( '' !== $max_width ) {
-			$header_breakpoint = $header_breakpoint + $max_width;
+		if ( '' !== $min ) {
+			$header_breakpoint = $header_breakpoint - $min;
+		} elseif ( '' !== $max ) {
+			$header_breakpoint = $header_breakpoint + $max;
 		}
 
-		return $header_breakpoint;
+		return absint( $header_breakpoint );
 	}
 
 endif;
@@ -1303,23 +1303,23 @@ endif;
 if ( ! function_exists( 'astra_get_mobile_breakpoint' ) ) :
 
 	/**
-	 * Get the tablet brekpoint value.
+	 * Get the mobile breakpoint value.
 	 *
-	 * @param string $min_width min width.
-	 * @param string $max_width max width.
+	 * @param string $min min.
+	 * @param string $max max.
 	 * @return string header_breakpoint.
 	 */
-	function astra_get_mobile_breakpoint( $min_width = '', $max_width = '' ) {
+	function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
 
-		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', '544' );
+		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', 544 );
 
-		if ( '' !== $min_width ) {
-			$header_breakpoint = $header_breakpoint - $min_width;
-		} elseif ( '' !== $max_width ) {
-			$header_breakpoint = $header_breakpoint + $max_width;
+		if ( '' !== $min ) {
+			$header_breakpoint = $header_breakpoint - $min;
+		} elseif ( '' !== $max ) {
+			$header_breakpoint = $header_breakpoint + $max;
 		}
 
-		return $header_breakpoint;
+		return absint( $header_breakpoint );
 	}
 
 endif;
