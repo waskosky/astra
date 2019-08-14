@@ -124,6 +124,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
+
+			add_action( 'admin_notices', __CLASS__ . '::minimum_addon_version_notice' );
+
 		}
 
 		/**
@@ -246,6 +249,39 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
 				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
 			}
+		}
+
+		/**
+		 * Display notice for minimun version for Astra addon.
+		 *
+		 * @since 2.0.0
+		 */
+		public static function minimum_addon_version_notice() {
+
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				return;
+			}
+
+			$astra_theme_name = astra_get_theme_name();
+			$astra_addon_name = astra_get_addon_name();
+
+			$notice_args = array(
+				'id'             => 'ast-minimum-addon-version-notice',
+				'type'           => '',
+				'message'        => sprintf(
+					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
+					__( 'Glad to see you have updated the %1$1s! Please update the %2$2s to version %3$3s or higher.', 'astra' ),
+					$astra_theme_name,
+					$astra_addon_name,
+					ASTRA_EXT_MIN_VER
+				),
+				'priority'       => 1,
+				'type'           => 'warning',
+				'show_if'        => version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0,
+				'is_dismissible' => false,
+			);
+
+			Astra_Notices::add_notice( $notice_args );
 		}
 
 		/**
@@ -760,22 +796,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'colors'       => array(
 						'title'     => __( 'Set Colors', 'astra' ),
 						'dashicon'  => 'dashicons-admin-customizer',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-colors-background' ),
 					),
 					'typography'   => array(
 						'title'     => __( 'Customize Fonts', 'astra' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-typography' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-typography' ),
 					),
 					'layout'       => array(
 						'title'     => __( 'Layout Options', 'astra' ),
 						'dashicon'  => 'dashicons-layout',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-layout' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-container-layout' ),
 					),
 					'header'       => array(
 						'title'     => __( 'Header Options', 'astra' ),
 						'dashicon'  => 'dashicons-align-center',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-header' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-header-group' ),
 					),
 					'blog-layout'  => array(
 						'title'     => __( 'Blog Layouts', 'astra' ),
