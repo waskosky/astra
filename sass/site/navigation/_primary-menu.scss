@@ -27,14 +27,14 @@
 
 .main-header-menu {
 
-	a {
+	.menu-link {
 		text-decoration: none;
 		padding: 0 1em;
 		display: inline-block;
 		@include ast-transition();
 	}
 
-	li {
+	.menu-item {
 		position: relative;
 
 		&:hover > ul,
@@ -77,9 +77,9 @@
 		z-index: 99999;
 
 		@media (min-width: $col-md) {
-			li {
-				&:hover > ul,
-				&.focus > ul {
+			.menu-item {
+				&:hover > .sub-menu,
+				&.focus > .sub-menu {
 					left: 100%;
 					right: auto;
 				}
@@ -100,14 +100,14 @@
 		}
 
 
-		a {
+		.menu-link {
 			padding: 0.9em 1em;
 			display: block;
 			word-wrap: break-word;
 		}
 
-		li.page_item_has_children > a:after,
-		li.menu-item-has-children > a:after {
+		.menu-item.page_item_has_children > .menu-link:after,
+		.menu-item.menu-item-has-children > .menu-link:after {
 			position: absolute;
 			right: 1em;
 			top: 50%;
@@ -119,8 +119,8 @@
 }
 
 .main-header-menu {
-	ul {
-		ul{
+	.sub-menu {
+		.sub-menu{
 			top: 0px;
 		}
 	}
@@ -131,7 +131,7 @@
 		border-width: 1px;
 		border-style: solid;
 
-		a {
+		.menu-link {
 			border-width: 0 0 1px;
 			border-style: solid;
 		}
@@ -144,8 +144,8 @@
 .ast-desktop{
 	.submenu-with-border{
 		.sub-menu {
-			> li:last-child{
-				> a{
+			> .menu-item:last-child{
+				> .menu-link{
 					border-bottom-width: 0;
 				}
 			}
@@ -157,8 +157,8 @@
 	.main-navigation {
 		padding-left: 0;
 
-		ul {
-			li,
+		.sub-menu {
+			.meni-item,
 			.button-custom-menu-item {
 				a {
 					padding: 0 20px;
@@ -169,8 +169,8 @@
 					border-color: #eaeaea;
 				}
 			}
-			&.children li a,
-			&.sub-menu li a {
+			&.children .menu-item .menu-link,
+			&.sub-menu .menu-item .menu-link {
 			    padding-left: 30px;
 			    &:before{
 			    	content: "\e900";
@@ -182,16 +182,16 @@
     				margin-right: 5px;
 			    }
 			}
-			&.children li li a,
-			&.sub-menu li li a {
+			&.children .menu-item .menu-item .menu-link,
+			&.sub-menu .menu-item .menu-item .menu-link {
 			    padding-left: 40px;
 			}
-			&.children li li li a,
-			&.sub-menu li li li a {
+			&.children .menu-item .menu-item .menu-item .menu-link,
+			&.sub-menu .menu-item .menu-item .menu-item .menu-link {
 			    padding-left: 50px;
 			}
-			&.children li li li li a,
-			&.sub-menu li li li li a {
+			&.children .menu-item .menu-item .menu-item .menu-item .menu-link,
+			&.sub-menu .menu-item .menu-item .menu-item .menu-item .menu-link {
 			    padding-left: 60px;
 			}
 		}
@@ -205,7 +205,7 @@
 	}
 
 	.main-header-menu {
-		ul {
+		.sub-menu {
 			background-color: $color-background-nav-mobile;
 			position: static;
 			opacity: 1;
