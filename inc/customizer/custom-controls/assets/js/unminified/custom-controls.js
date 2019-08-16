@@ -2377,8 +2377,8 @@ wp.customize.controlConstructor['ast-settings-group'] = wp.customize.Control.ext
 				weightObject = Object.keys(weightObject).map(function(k) {
 				  return weightObject[k];
 				});
-			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue.split(',')[0] ] ) {
-				weightObject = AstFontFamilies.custom[ fontValue.split(',')[0] ].weights;
+			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue ] ) {
+				weightObject = AstFontFamilies.custom[ fontValue ].weights;
 			}
 
 			return weightObject;

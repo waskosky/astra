@@ -1235,29 +1235,6 @@ if ( ! function_exists( 'astra_is_white_labelled' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_get_option_by_group' ) ) :
-
-	/** Delete this function soon
-	 * Get option value for defined group.
-	 *
-	 * @param string $option option name.
-	 * @param string $group group name.
-	 * @param string $default default value for option.
-	 */
-	function astra_get_option_by_group( $option, $group, $default = '' ) {
-
-		$group_option = astra_get_option( $group );
-		$group_option = ! is_array( $group_option ) ? json_decode( $group_option, true ) : $group_option;
-
-		if ( isset( $group_option[ $option ] ) && '' != $group_option[ $option ] ) {
-			return apply_filters( "astra_get_option_{$option}", $group_option[ $option ], $option, $default );
-		}
-
-		return astra_get_option( $option, $default );
-	}
-
-endif;
-
 /**
  * Get the value for font-display property.
  *
