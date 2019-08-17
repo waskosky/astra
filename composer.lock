@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a173ded12533d811c461d8e98879da4",
+    "content-hash": "641fc6e9708f8842534e2f4b5bf22050",
     "packages": [],
     "packages-dev": [
         {
@@ -182,13 +182,13 @@
                 },
                 {
                     "name": "Wim Godden",
-                    "role": "lead",
-                    "homepage": "https://github.com/wimg"
+                    "homepage": "https://github.com/wimg",
+                    "role": "lead"
                 },
                 {
                     "name": "Juliette Reinders Folmer",
-                    "role": "lead",
-                    "homepage": "https://github.com/jrfnl"
+                    "homepage": "https://github.com/jrfnl",
+                    "role": "lead"
                 }
             ],
             "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP cross-version compatibility.",
