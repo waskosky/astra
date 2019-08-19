@@ -34,6 +34,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'skin_defaults' ) );
 			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );
 			add_filter( 'astra_comment_form_all_post_type_support', array( $this, 'comment_box_markup_on_page' ) );
+			add_filter( 'astra_woocommerce_style', array( $this, 'add_woocommerce_styles' ) );
 		}
 
 		/**
@@ -53,6 +54,22 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			}
 
 			return $assets;
+		}
+
+		/**
+		 * Add WooCommerce assets in theme
+		 *
+		 * @param string $handle String given for WooCommerce CSS handle.
+		 * @return string $handle handle for CSS after filter.
+		 * @since x.x.x
+		 */
+		public function add_woocommerce_styles( $handle ) {
+
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$handle = 'woocommerce';
+			}
+
+			return $handle;
 		}
 
 		/**
