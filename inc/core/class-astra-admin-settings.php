@@ -758,7 +758,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$message     = esc_html__( 'Click on the Refresh button to regenerate CSS files.', 'astra' );
 				$doc_link    = esc_url( '#' );
 			} else {
-				$button_text = __( 'Recheck', 'astra' );
+				$button_text = esc_html__( 'Recheck', 'astra' );
 				$message     = esc_html__( 'Click on the Recheck button to check if the uploads folder has write access.', 'astra' );
 				$doc_link    = esc_url( '#' );
 			}
