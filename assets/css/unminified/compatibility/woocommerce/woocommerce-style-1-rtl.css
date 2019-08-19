@@ -3064,6 +3064,12 @@ p.demo_store a,
   width: 100%;
 }
 
+@media (max-width: 544px) {
+  .ast-separate-container.ast-two-container #primary {
+    padding-bottom: 0;
+  }
+}
+
 .post-type-archive-product.ast-page-builder-template .ast-woocommerce-container {
   margin-top: 3em;
 }

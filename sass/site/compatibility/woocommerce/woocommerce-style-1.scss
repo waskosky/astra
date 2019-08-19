@@ -2700,6 +2700,13 @@
             width: 100%;
         }
      }
+     &.ast-two-container {
+         @media (max-width: $mx-col-sm) {
+             #primary {
+                 padding-bottom: 0;
+             }
+         }
+     }
  }
 
 .post-type-archive-product {
