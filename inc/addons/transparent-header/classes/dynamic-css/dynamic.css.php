@@ -134,7 +134,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			' max-width' => astra_get_css_value( $transparent_header_logo_width['mobile'], 'px' ),
 		),
 	);
-	$css              .= astra_parse_css( $mobile_css_output, '', astra_get_mobile_breakpoint( 1, '' ) );
+	$css              .= astra_parse_css( $mobile_css_output, '', astra_get_mobile_breakpoint() );
 
 	$transparent_header_base = array(
 		'.ast-theme-transparent-header #masthead'         => array(
