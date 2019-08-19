@@ -2701,6 +2701,14 @@
         }
      }
  }
+
+.post-type-archive-product {
+    &.ast-page-builder-template {
+        .ast-woocommerce-container {
+            margin-top: 3em;
+        }
+    }
+}
  
  /**
   * Photoswipe

@@ -3064,6 +3064,10 @@ p.demo_store a,
   width: 100%;
 }
 
+.post-type-archive-product.ast-page-builder-template .ast-woocommerce-container {
+  margin-top: 3em;
+}
+
 /**
   * Photoswipe
   * 1. These styles are required to overwrite default theme button styles (Twenty Twelve adds gradients via background-image).
