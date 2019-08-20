@@ -598,7 +598,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 					'itemtype'  => 'https://schema.org/WPHeader',
 					'itemscope' => 'itemscope',
 					'id'        => 'masthead',
-					'class'     => join( ' ', astra_get_header_class() ),
+					'class'     => join( ' ', astra_get_header_classes() ),
 					'role'      => 'banner',
 				)
 			);
@@ -975,7 +975,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
  * @since x.x.x
  * @return Array classnames for the <header>
  */
-function astra_get_header_class() {
+function astra_get_header_classes() {
 		$classes                       = array( 'site-header' );
 		$menu_logo_location            = astra_get_option( 'header-layouts' );
 		$mobile_header_alignment       = astra_get_option( 'header-main-menu-align' );
@@ -1030,7 +1030,7 @@ function astra_get_header_class() {
 
 	$classes = array_map( 'sanitize_html_class', $classes );
 
-	return apply_filtes( 'astra_get_header_classes', $classes );
+	return apply_filters( 'astra_get_header_classes', $classes );
 }
 
 /**
