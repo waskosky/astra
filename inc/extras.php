@@ -965,10 +965,16 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 	 * @since 1.0.0
 	 */
 	function astra_header_classes() {
-		echo 'class="' . esc_attr( join( ' ', astra_get_header_class() ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', astra_get_header_classes() ) ) . '"';
 	}
 }
 
+/**
+ * Return classnames for <header> element.
+ *
+ * @since x.x.x
+ * @return Array classnames for the <header>
+ */
 function astra_get_header_class() {
 		$classes                       = array( 'site-header' );
 		$menu_logo_location            = astra_get_option( 'header-layouts' );
@@ -1016,15 +1022,15 @@ function astra_get_header_class() {
 		$classes[] = 'ast-hide-custom-menu-mobile';
 	}
 
-		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
+	$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
 
-		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
+	$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 
-		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
+	$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
 
-		$classes = array_map( 'sanitize_html_class', $classes );
+	$classes = array_map( 'sanitize_html_class', $classes );
 
-		return $classes;
+	return apply_filtes( 'astra_get_header_classes', $classes );
 }
 
 /**
@@ -1042,10 +1048,17 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 	}
 }
 
+/**
+ * Return classnames for <footer> element.
+ *
+ * @since x.x.x
+ * @return Array classnames for the <footer>
+ */
 function astra_get_footer_classes() {
 	$classes = array_unique( apply_filters( 'astra_footer_class', array( 'site-footer' ) ) );
+	$classes = array_map( 'sanitize_html_class', $classes );
 
-	return array_map( 'sanitize_html_class', $classes );
+	return apply_filters( 'astra_get_footer_classes', $classes );
 }
 
 /**
