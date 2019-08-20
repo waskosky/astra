@@ -11,7 +11,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 	/**
 	 * Class Astra_Cache.
 	 */
-	class Astra_Cache extends Astra_File_Operations {
+	class Astra_Cache extends Astra_Filesystem {
 
 		/**
 		 * Member Variable
