@@ -37,3 +37,7 @@
     justify-content: left;
     align-items: center;
 }
+
+#astra-sites-on-active .notice-image img {
+	max-width: 85px;
+}

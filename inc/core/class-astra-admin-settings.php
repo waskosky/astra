@@ -222,7 +222,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				$astra_sites_notice_args = array(
 					'id'                         => 'astra-sites-on-active',
-					'type'                       => '',
+					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
 							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
