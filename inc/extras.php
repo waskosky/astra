@@ -861,7 +861,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 				<?php
 
 				echo astra_attr(
-					'header',
+					'footer',
 					array(
 						'itemtype'  => 'https://schema.org/WPFooter',
 						'itemscope' => 'itemscope',
