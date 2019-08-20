@@ -136,8 +136,10 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			if ( '' !== $mobile_header_logo && '1' == $different_logo ) {
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
+				add_filter( 'astra_is_logo_attachment', array( $this, 'add_mobile_logo_svg_class' ), 10, 2 );
 			}
 		}
+
 		/**
 		 * Replace logo with Mobile Header logo.
 		 *
@@ -173,6 +175,26 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 
 			return $html . $logo;
 
+		}
+
+		/**
+		 * Add svg class to mobile logo.
+		 *
+		 * @param bool  $is_logo_attachment is attachment is logo image?.
+		 * @param array $attachment attachment data.
+		 * @since x.x.x
+		 * @return bool return if attachment is mobile logo image.
+		 */
+		function add_mobile_logo_svg_class( $is_logo_attachment, $attachment ) {
+
+			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
+			$custom_logo_id     = attachment_url_to_postid( $mobile_header_logo );
+
+			if ( $custom_logo_id === $attachment->ID ) {
+				return true;
+			}
+
+			return $is_logo_attachment;
 		}
 
 		/**
