@@ -27,8 +27,8 @@ echo '<div ';
 		)
 	);
 
-echo '>';
-?>
+	echo '>';
+	?>
 
 	<div class="sidebar-main" <?php echo apply_filters( 'astra_sidebar_data_attrs', '', $sidebar ); ?>>
 
