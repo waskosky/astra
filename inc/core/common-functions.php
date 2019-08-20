@@ -1085,7 +1085,7 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 			$url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
 		}
 
-		return esc_url( $url );
+		return apply_filters( 'astra_get_pro_url', esc_url( $url ) );
 	}
 
 endif;
