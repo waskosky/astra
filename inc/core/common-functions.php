@@ -1136,7 +1136,7 @@ endif;
  *
  * @return bool
  */
-function astra_is_emp_endpoint() {
+function astra_is_amp_endpoint() {
 	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 }
 
