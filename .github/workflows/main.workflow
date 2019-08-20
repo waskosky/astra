@@ -1,6 +1,6 @@
 workflow "on pull request merge, delete the branch" {
-  on = "pull_request"
   resolves = ["branch cleanup"]
+  on = "pull_request"
 }
 
 action "branch cleanup" {
