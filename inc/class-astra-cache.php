@@ -64,7 +64,7 @@ class Astra_Cache {
 
 		foreach ( self::$dynamic_css_file_path as $key => $value ) {
 			// Get file contents.
-			$get_contents = astra_filesystem()->astra_get_contents( $value );
+			$get_contents = astra_filesystem()->get_contents( $value );
 			if ( $get_contents ) {
 				self::$dynamic_css_data .= $get_contents;
 			}
@@ -311,7 +311,7 @@ class Astra_Cache {
 	public function file_write( $style_data, $archive_title, $timestamp, $type, $assets_info ) {
 
 		// Create a new file.
-		$put_contents = astra_filesystem()->astra_put_contents( $assets_info['path'], $style_data );
+		$put_contents = astra_filesystem()->put_contents( $assets_info['path'], $style_data );
 
 		// Adds an option as if the uploads folder has file rights access.
 		astra_update_option( 'file-write-access', $put_contents );

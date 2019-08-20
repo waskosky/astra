@@ -14,13 +14,11 @@ class Astra_Filesystem {
 
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
-			$filtered        = apply_filters( 'fl_filesystem_instance', null );
 			self::$_instance = new self();
 		}
 
 		return self::$_instance;
 	}
-
 
 	/**
 	 * Get WP_Filesystem instance.
@@ -83,7 +81,7 @@ class Astra_Filesystem {
 	 * @since x.x.x
 	 * @return bool
 	 */
-	public function astra_is_ssl() {
+	public function is_ssl() {
 		if ( is_ssl() ) {
 			return true;
 		} elseif ( 0 === stripos( get_option( 'siteurl' ), 'https://' ) ) {
@@ -105,18 +103,22 @@ class Astra_Filesystem {
 	public function get_uploads_dir() {
 		$wp_info  = wp_upload_dir( null, false );
 		$dir_name = basename( ASTRA_THEME_DIR );
+
 		if ( 'astra' == $dir_name ) {
 			$dir_name = 'astra';
 		}
+
 		// SSL workaround.
-		if ( $this->astra_is_ssl() ) {
+		if ( $this->is_ssl() ) {
 			$wp_info['baseurl'] = str_ireplace( 'http://', 'https://', $wp_info['baseurl'] );
 		}
+
 		// Build the paths.
 		$dir_info = array(
 			'path' => $wp_info['basedir'] . '/' . $dir_name . '/',
 			'url'  => $wp_info['baseurl'] . '/' . $dir_name . '/',
 		);
+
 		// Create the upload dir if it doesn't exist.
 		if ( ! file_exists( $dir_info['path'] ) ) {
 			// Create the directory.
@@ -137,7 +139,7 @@ class Astra_Filesystem {
 	 * @since  x.x.x
 	 * @return bool $put_content returns false if file write is not successful.
 	 */
-	public function astra_put_contents( $file_path, $style_data ) {
+	public function put_contents( $file_path, $style_data ) {
 		return astra_filesystem()->get_filesystem()->put_contents( $file_path, $style_data );
 	}
 
@@ -148,7 +150,7 @@ class Astra_Filesystem {
 	 * @since  x.x.x
 	 * @return bool $get_contents Gets te file contents.
 	 */
-	public function astra_get_contents( $file_path ) {
+	public function get_contents( $file_path ) {
 		return astra_filesystem()->get_filesystem()->get_contents( $file_path );
 	}
 }
