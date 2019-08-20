@@ -589,23 +589,26 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	function astra_header_markup() {
 
 		do_action( 'astra_header_markup_before' );
-
-		echo '<header ';
-
-			echo astra_attr(
-				'header',
-				array(
-					'itemtype'  => 'https://schema.org/WPHeader',
-					'itemscope' => 'itemscope',
-					'id'        => 'masthead',
-					'class'     => join( ' ', astra_get_header_classes() ),
-					'role'      => 'banner',
-				)
-			);
-
-		echo '>';
-
 		?>
+
+		<header
+
+			<?php
+
+				echo astra_attr(
+					'header',
+					array(
+						'itemtype'  => 'https://schema.org/WPHeader',
+						'itemscope' => 'itemscope',
+						'id'        => 'masthead',
+						'class'     => join( ' ', astra_get_header_classes() ),
+						'role'      => 'banner',
+					)
+				);
+
+			?>
+
+		>
 
 			<?php astra_masthead_top(); ?>
 
