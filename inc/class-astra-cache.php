@@ -11,7 +11,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 	/**
 	 * Class Astra_Cache.
 	 */
-	class Astra_Cache extends Astra_Filesystem {
+	class Astra_Cache {
 
 		/**
 		 * Member Variable
@@ -31,14 +31,6 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-
-			parent::__construct();
-
-			if ( ! function_exists( 'WP_Filesystem' ) ) {
-				require_once ABSPATH . 'wp-admin/includes/file.php';
-			}
-
-			WP_Filesystem();
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_to_dynamic_css_file' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
@@ -75,7 +67,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 
 			foreach ( self::$dynamic_css_file_path as $key => $value ) {
 				// Get file contents.
-				$get_contents = parent::astra_get_contents( $value );
+				$get_contents = astra_filesystem()->astra_get_contents( $value );
 				if ( $get_contents ) {
 					self::$dynamic_css_data .= $get_contents;
 				}
@@ -126,7 +118,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 */
 		public function delete_cache_files() {
 
-			$uploads_dir      = parent::get_uploads_dir();
+			$uploads_dir      = astra_filesystem()->get_uploads_dir();
 			$uploads_dir_path = $uploads_dir['path'];
 
 			array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
@@ -190,7 +182,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 			$post_timestamp = $this->get_post_timestamp( $archive_title, $type, $assets_info );
 
 			// Gets the uploads folder directory.
-			$uploads_dir = parent::get_uploads_dir();
+			$uploads_dir = astra_filesystem()->get_uploads_dir();
 
 			// Check if the uploads folder has write access.
 			$write_access = astra_get_option( 'file-write-access', true );
@@ -277,7 +269,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		 */
 		public function get_asset_info( $data, $slug, $type ) {
 
-			$uploads_dir = parent::get_uploads_dir();
+			$uploads_dir = astra_filesystem()->get_uploads_dir();
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$css_suffix  = 'astra-' . $type . '-dynamic-css';
 			$info        = array();
@@ -322,7 +314,7 @@ if ( ! class_exists( 'Astra_Cache' ) ) {
 		public function file_write( $style_data, $archive_title, $timestamp, $type, $assets_info ) {
 
 			// Create a new file.
-			$put_contents = parent::astra_put_contents( $assets_info['path'], $style_data );
+			$put_contents = astra_filesystem()->astra_put_contents( $assets_info['path'], $style_data );
 
 			// Adds an option as if the uploads folder has file rights access.
 			astra_update_option( 'file-write-access', $put_contents );

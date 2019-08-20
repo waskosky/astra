@@ -1744,5 +1744,5 @@ add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
  * @return WP_Filesystem
  */
 function astra_filesystem() {
-	return ( Astra_Filesystem() )->get_filesystem();
+	return Astra_Filesystem::instance();
 }

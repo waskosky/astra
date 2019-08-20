@@ -10,6 +10,18 @@
  */
 class Astra_Filesystem {
 
+	protected static $_instance = null;
+
+	public static function instance() {
+		if ( is_null( self::$_instance ) ) {
+			$filtered        = apply_filters( 'fl_filesystem_instance', null );
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
+
+
 	/**
 	 * Get WP_Filesystem instance.
 	 *
@@ -17,7 +29,9 @@ class Astra_Filesystem {
 	 */
 	public function get_filesystem() {
 
-		if ( ! $wp_filesystem || 'direct' != astra_filesystem()->method ) {
+		global $wp_filesystem;
+
+		if ( ! $wp_filesystem || 'direct' != $wp_filesystem->method ) {
 			require_once ABSPATH . '/wp-admin/includes/file.php';
 
 			$context = apply_filters( 'request_filesystem_credentials_context', false );
@@ -106,9 +120,9 @@ class Astra_Filesystem {
 		// Create the upload dir if it doesn't exist.
 		if ( ! file_exists( $dir_info['path'] ) ) {
 			// Create the directory.
-			astra_filesystem()->mkdir( $dir_info['path'] );
+			astra_filesystem()->get_filesystem()->mkdir( $dir_info['path'] );
 			// Add an index file for security.
-			astra_filesystem()->put_contents( $dir_info['path'] . 'index.php', '' );
+			astra_filesystem()->get_filesystem()->put_contents( $dir_info['path'] . 'index.php', '' );
 
 		}
 
@@ -124,7 +138,7 @@ class Astra_Filesystem {
 	 * @return bool $put_content returns false if file write is not successful.
 	 */
 	public function astra_put_contents( $file_path, $style_data ) {
-		return astra_filesystem()->put_contents( $file_path, $style_data );
+		return astra_filesystem()->get_filesystem()->put_contents( $file_path, $style_data );
 	}
 
 	/**
@@ -135,6 +149,6 @@ class Astra_Filesystem {
 	 * @return bool $get_contents Gets te file contents.
 	 */
 	public function astra_get_contents( $file_path ) {
-		return astra_filesystem()->get_contents( $file_path );
+		return astra_filesystem()->get_filesystem()->get_contents( $file_path );
 	}
 }
