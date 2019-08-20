@@ -66,7 +66,7 @@ function astra_deprecated_primary_header_main_rt_section( $elements, $header ) {
 	return $elements;
 }
 
-// Deprecating astra_attr_comment-meta-author filter.
+// Deprecating astra_attr_commen-meta-author filter.
 add_filter( 'astra_attr_comment-meta-author', 'astra_deprecated_astra_attr_commen_meta_author', 10, 1 );
 
 /**
