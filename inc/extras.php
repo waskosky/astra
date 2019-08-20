@@ -856,7 +856,24 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
+		<footer
+
+				<?php
+
+				echo astra_attr(
+					'header',
+					array(
+						'itemtype'  => 'https://schema.org/WPFooter',
+						'itemscope' => 'itemscope',
+						'id'        => 'colophon',
+						'class'     => join( ' ', astra_get_footer_classes() ),
+						'role'      => 'contentinfo',
+					)
+				);
+
+				?>
+
+		>
 
 			<?php astra_footer_content_top(); ?>
 
@@ -1021,13 +1038,14 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 	 * @since 1.0.0
 	 */
 	function astra_footer_classes() {
-
-		$classes = array_unique( apply_filters( 'astra_footer_class', array( 'site-footer' ) ) );
-
-		$classes = array_map( 'sanitize_html_class', $classes );
-
-		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', astra_get_footer_classes() ) ) . '"';
 	}
+}
+
+function astra_get_footer_classes() {
+	$classes = array_unique( apply_filters( 'astra_footer_class', array( 'site-footer' ) ) );
+
+	return array_map( 'sanitize_html_class', $classes );
 }
 
 /**
