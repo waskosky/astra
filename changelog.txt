@@ -14,6 +14,7 @@ v2.0.0
 - Fix: Fonts from custom font plugin not appearing in fonts list in the customizer. 
 - Fix: Group popup not closing in customizer for the WooCommerce product catalog section. 
 - Fix: Section title does not stick in the customizer. 
+- Fix: RTL fixes for customizer custom controls.
 
 v2.0.0-rc.1
 - Improvement: Improved logic that is used to save the values of options inside the new popups, Earlier all the values of options inside the popup were combined and stored in JSON objects now all the values inside the popup are stored separately similar to Astra Version 1.X.X. This removes the requirement of the Database Upgrade routine when updating from Version 1.X to 2.X
