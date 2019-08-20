@@ -66,6 +66,23 @@ function astra_deprecated_primary_header_main_rt_section( $elements, $header ) {
 	return $elements;
 }
 
+// Deprecating astra_attr_comment-meta-author filter.
+add_filter( 'astra_attr_comment-meta-author', 'astra_deprecated_astra_attr_commen_meta_author', 10, 1 );
+
+/**
+ * Astra Comment Attr elements.
+ *
+ * @since x.x.x
+ * @param array $attr Array of HTML attributes and their values.
+ * @return array
+ */
+function astra_deprecated_astra_attr_commen_meta_author( $attr ) {
+
+	$elements = astra_apply_filters_deprecated( 'astra_attr_commen-meta-author', array( $attr ), 'x.x.x', 'astra_attr_comment-meta-author', '' );
+
+	return $elements;
+}
+
 if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 	/**
 	 * Astra Filter Deprecated
