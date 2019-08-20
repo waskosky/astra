@@ -1070,22 +1070,22 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 	 */
 	function astra_get_pro_url( $url, $source = '', $medium = '', $campaign = '' ) {
 
-		$url = trailingslashit( $url );
+		$astra_pro_url = trailingslashit( $url );
 
 		// Set up our URL if we have a source.
 		if ( isset( $source ) ) {
-			$url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
+			$astra_pro_url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
 		}
 		// Set up our URL if we have a medium.
 		if ( isset( $medium ) ) {
-			$url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
+			$astra_pro_url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
 		}
 		// Set up our URL if we have a campaign.
 		if ( isset( $campaign ) ) {
-			$url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
+			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
 		}
 
-		return esc_url( apply_filters( 'astra_get_pro_url', $url ) );
+		return esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
 	}
 
 endif;
