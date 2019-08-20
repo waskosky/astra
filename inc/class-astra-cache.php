@@ -321,4 +321,4 @@ class Astra_Cache {
 	}
 }
 
-new Astra_Cache;
+new Astra_Cache();
