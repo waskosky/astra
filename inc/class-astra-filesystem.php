@@ -41,7 +41,7 @@ class Astra_Filesystem {
 	public function get_filesystem() {
 		global $wp_filesystem;
 
-		if ( ! $wp_filesystem  ) {
+		if ( ! $wp_filesystem ) {
 			require_once ABSPATH . '/wp-admin/includes/file.php';
 			$context = apply_filters( 'request_filesystem_credentials_context', false );
 
@@ -60,7 +60,7 @@ class Astra_Filesystem {
 
 		return $wp_filesystem;
 	}
-	
+
 	/**
 	 * Checks to see if the site has SSL enabled or not.
 	 *
