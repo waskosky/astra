@@ -25,10 +25,34 @@ class Astra_Cache {
 	private static $dynamic_css_data;
 
 	/**
+	 * Asset slug for filename.
+	 *
+	 * @since x.x.x
+	 * @var string
+	 */
+	private $asset_slug = '';
+
+	/**
+	 * Check if we are on a single or archive query page.
+	 *
+	 * @since x.x.x
+	 * @var string
+	 */
+	private $asset_query_var = '';
+
+	/**
+	 * Asset Type - archive/post
+	 * 
+	 * @since x.x.x
+	 * @var string
+	 */
+	private $asset_type = '';
+
+	/**
 	 *  Constructor
 	 */
 	public function __construct() {
-
+		add_action( 'wp', array( $this, 'init_cache' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_to_dynamic_css_file' ), 1 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
 
@@ -40,6 +64,90 @@ class Astra_Cache {
 
 		// Triggers on click on refresh/ recheck button.
 		add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_ajax_refresh_assets' ) );
+	}
+
+	public function init_cache() {
+		$this->asset_query_var = $this->asset_query_var();
+		$this->asset_type      = $this->asset_type();
+		$this->asset_slug      = $this->asset_slug();
+	}
+
+	private function asset_query_var() {
+		if ( false === $this->asset_type || 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
+			$slug = 'single';
+		} else {
+			$slug = 'archive';
+		}
+
+		return $slug;
+	}
+
+	private function asset_slug() {
+		if ( 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
+			return $this->asset_type;
+		} else {
+			
+			return $this->asset_type . '-' . get_queried_object_id();
+		}
+	}
+
+	/**
+	 * Get the archive title.
+	 *
+	 * @since  x.x.x
+	 * @return $title Returns the archive title.
+	 */
+	private function asset_type() {
+		$title = 'post';
+
+		if ( is_category() ) {
+			$title = 'category';
+		} elseif ( is_tag() ) {
+			$title = 'tag';
+		} elseif ( is_author() ) {
+			$title = 'author';
+		} elseif ( is_year() ) {
+			$title = 'year';
+		} elseif ( is_month() ) {
+			$title = 'month';
+		} elseif ( is_day() ) {
+			$title = 'day';
+		} elseif ( is_tax( 'post_format' ) ) {
+			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+				$title = 'asides';
+			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+				$title = 'galleries';
+			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+				$title = 'images';
+			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+				$title = 'videos';
+			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+				$title = 'quotes';
+			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+				$title = 'links';
+			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+				$title = 'statuses';
+			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+				$title = 'audio';
+			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+				$title = 'chats';
+			}
+		} elseif ( is_post_type_archive() ) {
+			$title = 'archives';
+		} elseif ( is_tax() ) {
+			$tax   = get_taxonomy( get_queried_object()->taxonomy );
+			$title = $tax->labels->singular_name;
+		}
+
+		if ( is_home() ) {
+			$title = 'home';
+		}
+
+		if ( is_front_page() ) {
+			$title = 'frontpage';
+		}
+
+		return $title;
 	}
 
 	/**
@@ -162,21 +270,11 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function enqueue_styles( $style_data, $type ) {
-
-		$archive_title = astra_get_archive_title();
-
-		// Returns false if the current page is a post.
-		if ( false === $archive_title ) {
-			$slug = get_the_ID();
-		} else {
-			$slug = $archive_title;
-		}
-
 		// Gets the file path.
 		$assets_info = $this->get_asset_info( $style_data, $slug, $type );
 
 		// Gets the timestamp.
-		$post_timestamp = $this->get_post_timestamp( $archive_title, $type, $assets_info );
+		$post_timestamp = $this->get_post_timestamp( $type, $assets_info );
 
 		// Gets the uploads folder directory.
 		$uploads_dir = astra_filesystem()->get_uploads_dir();
@@ -189,7 +287,7 @@ class Astra_Cache {
 
 		// Check if we need to create a new file or override the current file.
 		if ( ! empty( $style_data ) && $post_timestamp['create_new_file'] ) {
-			$this->file_write( $style_data, $archive_title, $post_timestamp['timestamp'], $type, $assets_info );
+			$this->file_write( $style_data, $post_timestamp['timestamp'], $type, $assets_info );
 		}
 
 		// Add inline CSS if there is no write access or user has returned true using the `astra_load_dynamic_css_inline` filter.
@@ -209,10 +307,9 @@ class Astra_Cache {
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @return array $timestamp_data.
 	 */
-	public function get_post_timestamp( $archive_title, $type, $assets_info ) {
-
+	public function get_post_timestamp( $type, $assets_info ) {
 		// Check if current page is a post/ archive page. false states that the current page is a post.
-		if ( false === $archive_title ) {
+		if ( 'single' === $this->asset_query_var ) {
 			$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
 		} else {
 			$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
@@ -286,10 +383,10 @@ class Astra_Cache {
 	 * @since  x.x.x
 	 * @return void
 	 */
-	public function update_timestamp( $archive_title, $type, $timestamp ) {
+	public function update_timestamp( $type, $timestamp ) {
 
 		// Check if current page is a post/ archive page. false states that the current page is a post.
-		if ( false === $archive_title ) {
+		if ( false === $this->asset_query_var ) {
 			// Update the post meta.
 			update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
 		} else {
@@ -308,7 +405,7 @@ class Astra_Cache {
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @since  x.x.x
 	 */
-	public function file_write( $style_data, $archive_title, $timestamp, $type, $assets_info ) {
+	public function file_write( $style_data, $timestamp, $type, $assets_info ) {
 
 		// Create a new file.
 		$put_contents = astra_filesystem()->put_contents( $assets_info['path'], $style_data );
@@ -317,7 +414,7 @@ class Astra_Cache {
 		astra_update_option( 'file-write-access', $put_contents );
 
 		// This function will update the Post/ Option timestamp.
-		$this->update_timestamp( $archive_title, $type, $timestamp );
+		$this->update_timestamp( $type, $timestamp );
 	}
 }
 
