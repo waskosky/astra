@@ -39,7 +39,8 @@
 }
 
 #astra-sites-on-active .notice-image img {
-	max-width: 60px;
+    max-width: 60px;
+    margin-left: 5px;
 }
 
 #astra-sites-on-active .notice-content .notice-heading {
@@ -62,9 +63,9 @@
 
 #astra-sites-on-active .astra-install-recommended-plugin {
     font-size: 13px;
-    height: 33px;
-    line-height: 31px;
-    padding: 0 14px;
+    height: 30px;
+    line-height: 26px;
+    padding: 0 12px;
 }
 
 #astra-sites-on-active .astra-review-notice-container {
