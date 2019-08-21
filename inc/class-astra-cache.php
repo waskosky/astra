@@ -136,7 +136,7 @@ class Astra_Cache {
 			$title = 'archives';
 		} elseif ( is_tax() ) {
 			$tax   = get_taxonomy( get_queried_object()->taxonomy );
-			$title = $tax->labels->singular_name;
+			$title = sanitize_key( $tax->name );
 		}
 
 		if ( is_home() ) {
