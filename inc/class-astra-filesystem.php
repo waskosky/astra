@@ -39,23 +39,14 @@ class Astra_Filesystem {
 	 * @return WP_Filesystem
 	 */
 	public function get_filesystem() {
-
 		global $wp_filesystem;
 
-		if ( ! $wp_filesystem || 'direct' != $wp_filesystem->method ) {
+		if ( ! $wp_filesystem  ) {
 			require_once ABSPATH . '/wp-admin/includes/file.php';
-
 			$context = apply_filters( 'request_filesystem_credentials_context', false );
 
-			add_filter( 'filesystem_method', array( $this, 'filesystem_method' ) );
-			add_filter( 'request_filesystem_credentials', array( $this, 'request_filesystem_credentials' ) );
-
-			$creds = request_filesystem_credentials( site_url(), '', true, $context, null );
-
+			$creds = request_filesystem_credentials( site_url(), '', false, $context, null );
 			WP_Filesystem( $creds, $context );
-
-			remove_filter( 'filesystem_method', array( $this, 'filesystem_method' ) );
-			remove_filter( 'request_filesystem_credentials', array( $this, 'FLBuilderUtils::request_filesystem_credentials' ) );
 		}
 
 		// Set the permission constants if not already set.
