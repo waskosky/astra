@@ -165,11 +165,11 @@
 				if( 'down' === $(this).attr( 'data-direction' ) )
 				{
 					$(this).attr('data-direction', 'up');
-					$(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+					$(this).find('.message').html( astraCustomizerControlBackground.lessSettings );
 					$(this).find('.icon').html( '↑' );
 				} else {
 					$(this).attr('data-direction', 'down');
-					$(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+					$(this).find('.message').html( astraCustomizerControlBackground.moreSettings );
 					$(this).find('.icon').html( '↓' );
 				}
 			});
