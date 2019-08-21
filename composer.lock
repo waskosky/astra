@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "641fc6e9708f8842534e2f4b5bf22050",
+    "content-hash": "def95731ba5ef93e9c825354f6f74962",
     "packages": [],
     "packages-dev": [
         {
@@ -182,13 +182,13 @@
                 },
                 {
                     "name": "Wim Godden",
-                    "homepage": "https://github.com/wimg",
-                    "role": "lead"
+                    "role": "lead",
+                    "homepage": "https://github.com/wimg"
                 },
                 {
                     "name": "Juliette Reinders Folmer",
-                    "homepage": "https://github.com/jrfnl",
-                    "role": "lead"
+                    "role": "lead",
+                    "homepage": "https://github.com/jrfnl"
                 }
             ],
             "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP cross-version compatibility.",
@@ -652,7 +652,7 @@
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "dev-master",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress-Coding-Standards.git",
@@ -694,13 +694,81 @@
                 "wordpress"
             ],
             "time": "2019-05-21T02:50:00+00:00"
+        },
+        {
+            "name": "wptrt/wpthemereview",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WPTRT/WPThemeReview.git",
+                "reference": "1141d45d12718e9fca0211b843c51e4dbf681f13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WPTRT/WPThemeReview/zipball/1141d45d12718e9fca0211b843c51e4dbf681f13",
+                "reference": "1141d45d12718e9fca0211b843c51e4dbf681f13",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "squizlabs/php_codesniffer": "^3.3.1",
+                "wp-coding-standards/wpcs": "^2.1.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+                "roave/security-advisories": "dev-master"
+            },
+            "suggest": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Theme Review Team",
+                    "role": "Strategy and rule setting",
+                    "homepage": "https://make.wordpress.org/themes/handbook/"
+                },
+                {
+                    "name": "Ulrich Pogson",
+                    "role": "Lead developer",
+                    "homepage": "https://github.com/grappler"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "role": "Lead developer",
+                    "homepage": "https://github.com/jrfnl"
+                },
+                {
+                    "name": "Denis Žoljom",
+                    "role": "Plugin integration lead",
+                    "homepage": "https://github.com/dingo-d"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/WPTRT/WPThemeReview/graphs/contributors"
+                }
+            ],
+            "description": "PHP_CodeSniffer rules (sniffs) to verify theme compliance with the rules for theme hosting on wordpress.org",
+            "homepage": "https://make.wordpress.org/themes/handbook/review/",
+            "keywords": [
+                "phpcs",
+                "standards",
+                "themes",
+                "wordpress"
+            ],
+            "time": "2019-07-18T07:48:56+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wp-coding-standards/wpcs": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
