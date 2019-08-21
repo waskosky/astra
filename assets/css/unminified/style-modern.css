@@ -5228,6 +5228,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-right: 10px;
 }
 
+.ast-page-builder-template .comments-area {
+  padding: 3em 0 3em 0;
+}
+
 .ast-separate-container .comments-count-wrapper {
   background-color: #fff;
 }
