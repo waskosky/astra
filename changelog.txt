@@ -1,3 +1,6 @@
+v2.0.1
+- Fix: JavaScript console error in the customizer due to third party plugin conflict.  
+
 v2.0.0
 - Improvement: Loading combined CSS and JS file for params in the customizer.
 - Improvement: Remove unnecessary role attribute from HTML. 
