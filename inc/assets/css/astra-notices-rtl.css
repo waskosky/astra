@@ -39,7 +39,7 @@
 }
 
 #astra-sites-on-active .notice-image img {
-	max-width: 85px;
+	max-width: 65px;
 }
 
 #astra-sites-on-active .notice-content .notice-heading {
@@ -52,4 +52,20 @@
 
 #astra-sites-on-active .notice-container {
     padding: 22px 0 23px;
+    align-items: start;
+}
+
+#astra-sites-on-active .astra-install-recommended-plugin {
+    font-size: 13px;
+    height: 33px;
+    line-height: 31px;
+    padding: 0 14px;
+}
+
+#astra-sites-on-active .astra-review-notice-container {
+    padding-top: 5px;
+}
+
+#astra-sites-on-active .button-primary {
+    box-shadow: 0 1px 0 #006799;
 }
