@@ -42,7 +42,7 @@ class Astra_Cache {
 
 	/**
 	 * Asset Type - archive/post
-	 * 
+	 *
 	 * @since x.x.x
 	 * @var string
 	 */
@@ -66,12 +66,24 @@ class Astra_Cache {
 		add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_ajax_refresh_assets' ) );
 	}
 
+	/**
+	 * Setup class variables.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
 	public function init_cache() {
 		$this->asset_type      = $this->asset_type();
 		$this->asset_query_var = $this->asset_query_var();
 		$this->asset_slug      = $this->asset_slug();
 	}
 
+	/**
+	 * Get Current query type. single|archive.
+	 *
+	 * @since x.x.x
+	 * @return String
+	 */
 	private function asset_query_var() {
 		if ( 'post' === $this->asset_type || 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
 			$slug = 'single';
@@ -82,6 +94,12 @@ class Astra_Cache {
 		return $slug;
 	}
 
+	/**
+	 * Get current asset slug.
+	 *
+	 * @since x.x.x
+	 * @return String
+	 */
 	private function asset_slug() {
 		if ( 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
 			return $this->asset_type;
@@ -301,7 +319,6 @@ class Astra_Cache {
 	 * Returns the current Post Meta/ Option Timestamp.
 	 *
 	 * @since  x.x.x
-	 * @param  string $archive_title         Gets the taxonomay name.
 	 * @param  string $type         Gets the type theme/addon.
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @return array $timestamp_data.
@@ -319,6 +336,12 @@ class Astra_Cache {
 		return $timestamp_data;
 	}
 
+	/**
+	 * Gets the current timestamp.
+	 *
+	 * @since x.x.x
+	 * @return string $timestamp Timestamp.
+	 */
 	private function get_current_timestamp() {
 		$date      = new DateTime();
 		$timestamp = $date->getTimestamp();
@@ -362,7 +385,6 @@ class Astra_Cache {
 	 * of the current post.
 	 *
 	 * @param  var    $data         Gets the CSS for the current Page.
-	 * @param  string $slug         Gets the current post ID/taxonomy name.
 	 * @param  string $type         Gets the type theme/addon.
 	 * @since x.x.x
 	 * @return array
@@ -384,7 +406,6 @@ class Astra_Cache {
 	/**
 	 * Updates the Post Meta/ Option Timestamp.
 	 *
-	 * @param  string $archive_title         Gets the taxonomay name.
 	 * @param  string $type         Gets the type theme/addon.
 	 * @param  string $timestamp    Gets the current timestamp.
 	 * @since  x.x.x
@@ -405,7 +426,6 @@ class Astra_Cache {
 	 * Creates CSS files.
 	 *
 	 * @param  string $style_data   Gets the CSS for the current Page.
-	 * @param  string $archive_title         Gets the archive title.
 	 * @param  string $timestamp    Gets the current timestamp.
 	 * @param  string $type         Gets the type theme/addon.
 	 * @param  string $assets_info  Gets the assets path info.

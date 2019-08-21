@@ -10,8 +10,20 @@
  */
 class Astra_Filesystem {
 
+	/**
+	 * Store instance of Astra_Filesystem
+	 *
+	 * @since x.x.x
+	 * @var Astra_Filesystem
+	 */
 	protected static $_instance = null;
 
+	/**
+	 * Get instance of Astra_Filesystem
+	 *
+	 * @since x.x.x
+	 * @return Astra_Filesystem
+	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
@@ -23,7 +35,8 @@ class Astra_Filesystem {
 	/**
 	 * Get WP_Filesystem instance.
 	 *
-	 * @return void
+	 * @since x.x.x
+	 * @return WP_Filesystem
 	 */
 	public function get_filesystem() {
 
