@@ -60,25 +60,7 @@ class Astra_Filesystem {
 
 		return $wp_filesystem;
 	}
-
-	/**
-	 * Sets method to direct.
-	 *
-	 * @since x.x.x
-	 */
-	public function filesystem_method() {
-		return 'direct';
-	}
-
-	/**
-	 * Sets credentials to true.
-	 *
-	 * @since x.x.x
-	 */
-	function request_filesystem_credentials() {
-		return true;
-	}
-
+	
 	/**
 	 * Checks to see if the site has SSL enabled or not.
 	 *
