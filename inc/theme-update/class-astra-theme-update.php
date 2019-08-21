@@ -966,6 +966,16 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			update_option( 'astra-settings', $theme_options );
 		}
+
+		/**
+		 * Flush bundled products After udpating to version 2.0.0
+		 *
+		 * @return void
+		 */
+		public static function v_2_0_0() {
+			update_site_option( 'bsf_force_check_extensions', true );
+		}
+
 	}
 }
 
