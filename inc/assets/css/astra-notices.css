@@ -45,7 +45,7 @@
 
 #astra-sites-on-active .notice-content .notice-heading {
     margin: 0 0 10px;
-    padding-bottom: 0;
+    padding: 0;
     font-weight: bolder;
     font-size: 1.3em;
     color: #2e4453;
