@@ -201,7 +201,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			// Force Astra welcome notice on theme activation.
-			// if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
+			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
 
 				wp_enqueue_script( 'astra-admin-settings' );
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
 				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
-			// }
+			}
 		}
 
 		/**
