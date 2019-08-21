@@ -627,6 +627,7 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 		jQuery( '.customize-control-ast-responsive-color .customize-control-content .ast-responsive-color.' + device ).parents( '.wp-picker-container' ).addClass( 'active' );
 	});
 })(jQuery);
+
 ( function( $ ) {
 
 	/**
@@ -735,6 +736,7 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 	});
 	
 })(jQuery);
+
 ( function( $ ) {
 	/**
 	 * File spacing.js
@@ -2069,6 +2071,7 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
     });
 
 })(jQuery);
+
 ( function( $ ) {
 	/**
 	 * File slider.js
@@ -2120,6 +2123,7 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 		}
 	});
 })(jQuery);
+
 ( function( $ ) {
 	/**
 	 * File sortable.js
@@ -2180,6 +2184,7 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 		}
 	});
 })(jQuery);
+
 ( function( $ ) {
 	/**
 	 * File spacing.js
