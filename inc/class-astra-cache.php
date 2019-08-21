@@ -86,7 +86,6 @@ class Astra_Cache {
 		if ( 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
 			return $this->asset_type;
 		} else {
-			
 			return $this->asset_type . '-' . get_queried_object_id();
 		}
 	}
