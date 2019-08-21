@@ -67,13 +67,13 @@ class Astra_Cache {
 	}
 
 	public function init_cache() {
-		$this->asset_query_var = $this->asset_query_var();
 		$this->asset_type      = $this->asset_type();
+		$this->asset_query_var = $this->asset_query_var();
 		$this->asset_slug      = $this->asset_slug();
 	}
 
 	private function asset_query_var() {
-		if ( false === $this->asset_type || 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
+		if ( 'post' === $this->asset_type || 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
 			$slug = 'single';
 		} else {
 			$slug = 'archive';
@@ -271,7 +271,7 @@ class Astra_Cache {
 	 */
 	public function enqueue_styles( $style_data, $type ) {
 		// Gets the file path.
-		$assets_info = $this->get_asset_info( $style_data, $slug, $type );
+		$assets_info = $this->get_asset_info( $style_data, $type );
 
 		// Gets the timestamp.
 		$post_timestamp = $this->get_post_timestamp( $type, $assets_info );
@@ -294,7 +294,7 @@ class Astra_Cache {
 		if ( ! $write_access || $load_inline_css ) {
 			wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 		} else {
-			wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $slug . '.css', array(), $post_timestamp['timestamp'] );
+			wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array(), $post_timestamp['timestamp'] );
 		}
 	}
 
@@ -361,16 +361,17 @@ class Astra_Cache {
 	 * @since x.x.x
 	 * @return array
 	 */
-	public function get_asset_info( $data, $slug, $type ) {
+	public function get_asset_info( $data, $type ) {
 
 		$uploads_dir = astra_filesystem()->get_uploads_dir();
 		$css_suffix  = 'astra-' . $type . '-dynamic-css';
 		$css_suffix  = 'astra-' . $type . '-dynamic-css';
 		$info        = array();
 		if ( ! empty( $data ) ) {
-			$info['path']    = $uploads_dir['path'] . $css_suffix . '-' . $slug . '.css';
-			$info['css_url'] = $uploads_dir['url'] . $css_suffix . '-' . $slug . '.css';
+			$info['path']    = $uploads_dir['path'] . $css_suffix . '-' . $this->asset_slug . '.css';
+			$info['css_url'] = $uploads_dir['url'] . $css_suffix . '-' . $this->asset_slug . '.css';
 		}
+
 		return $info;
 	}
 
@@ -384,9 +385,8 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function update_timestamp( $type, $timestamp ) {
-
 		// Check if current page is a post/ archive page. false states that the current page is a post.
-		if ( false === $this->asset_query_var ) {
+		if ( 'single' === $this->asset_query_var ) {
 			// Update the post meta.
 			update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
 		} else {
@@ -406,7 +406,6 @@ class Astra_Cache {
 	 * @since  x.x.x
 	 */
 	public function file_write( $style_data, $timestamp, $type, $assets_info ) {
-
 		// Create a new file.
 		$put_contents = astra_filesystem()->put_contents( $assets_info['path'], $style_data );
 
