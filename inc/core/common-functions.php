@@ -1267,3 +1267,21 @@ endif;
 function astra_get_fonts_display_property() {
 	return apply_filters( 'astra_fonts_display_property', 'fallback' );
 }
+
+/**
+ * Is this a brand new theme install?
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function is_new_install() {
+
+	// Get auto saved version number.
+	$saved_version = astra_get_option( 'theme-auto-version', false );
+
+	if ( false === $saved_version ) {
+		return true;
+	} else {
+		return false;
+	}
+}
