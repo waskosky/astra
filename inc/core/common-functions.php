@@ -1282,90 +1282,12 @@ if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_get_archive_title' ) ) :
-
-	/**
-	 * Get the archive title.
-	 *
-	 * @since  x.x.x
-	 * @return $title Returns the archive title.
-	 */
-	function astra_get_archive_title() {
-
-		$title = 'post';
-
-		if ( is_archive() ) {
-			if ( is_category() ) {
-				$title = 'category';
-			} elseif ( is_tag() ) {
-				$title = 'tag';
-			} elseif ( is_author() ) {
-				$title = 'author';
-			} elseif ( is_year() ) {
-				$title = 'year';
-			} elseif ( is_month() ) {
-				$title = 'month';
-			} elseif ( is_day() ) {
-				$title = 'day';
-			} elseif ( is_tax( 'post_format' ) ) {
-				if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-					$title = 'asides';
-				} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-					$title = 'galleries';
-				} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-					$title = 'images';
-				} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-					$title = 'videos';
-				} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-					$title = 'quotes';
-				} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-					$title = 'links';
-				} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-					$title = 'statuses';
-				} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-					$title = 'audio';
-				} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-					$title = 'chats';
-				}
-			} elseif ( is_post_type_archive() ) {
-				$title = 'archives';
-			} elseif ( is_tax() ) {
-				$tax   = get_taxonomy( get_queried_object()->taxonomy );
-				$title = $tax->labels->singular_name;
-			} else {
-				$title = false;
-			}
-		}
-
-		return $title . '-' . $GLOBALS['wp_query']->queried_object_id;
-	}
-
-endif;
-
-
-if ( ! function_exists( 'astra_get_current_timestamp' ) ) :
-
-	/**
-	 * Gets the current timestamp.
-	 *
-	 * @since x.x.x
-	 * @return string $timestamp Timestamp.
-	 */
-	function astra_get_current_timestamp() {
-		$date      = new DateTime();
-		$timestamp = $date->getTimestamp();
-
-		return $timestamp;
-	}
-
-endif;
-
-	/**
-	 * Get the value for font-display property.
-	 *
-	 * @since 1.8.6
-	 * @return string
-	 */
+/**
+ * Get the value for font-display property.
+ *
+ * @since 1.8.6
+ * @return string
+ */
 function astra_get_fonts_display_property() {
 	return apply_filters( 'astra_fonts_display_property', 'fallback' );
 }
