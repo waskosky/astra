@@ -170,6 +170,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_add_inline_script( 'astra-flexibility', 'flexibility(document.documentElement);' );
 			wp_script_add_data( 'astra-flexibility', 'conditional', 'IE' );
 
+			wp_register_script( 'astra-css-vars-ponyfill', $js_uri . 'css-vars-ponyfill.min.js', array(), ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-css-vars-ponyfill' );
+			wp_script_add_data( 'astra-css-vars-ponyfill', 'conditional', 'IE' );
+
 			// Polyfill for CustomEvent for IE.
 			wp_register_script( 'astra-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION );
 
