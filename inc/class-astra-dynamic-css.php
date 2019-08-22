@@ -207,7 +207,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$css_output = array(
 
-				':root' => array(
+				':root'                                   => array(
 					'--content-width' => astra_get_css_value( $site_content_width, 'px' ),
 				),
 
