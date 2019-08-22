@@ -116,8 +116,18 @@ class Astra_Cache {
 		if ( 'home' === $this->asset_type || 'frontpage' === $this->asset_type ) {
 			return $this->asset_type;
 		} else {
-			return $this->asset_type . '-' . get_queried_object_id();
+			return $this->asset_type . $this->cache_key_suffix();
 		}
+	}
+
+	/**
+	 * Append queried object ID to cache if it is not `0`
+	 *
+	 * @since x.x.x
+	 * @return Mixed queried object id if that is not 0; else false.
+	 */
+	private function cache_key_suffix() {
+		return get_queried_object_id() !== 0 ? '-' . get_queried_object_id() : false;
 	}
 
 	/**
@@ -136,11 +146,11 @@ class Astra_Cache {
 		} elseif ( is_author() ) {
 			$title = 'author';
 		} elseif ( is_year() ) {
-			$title = 'year';
+			$title = 'year-' . get_query_var( 'year' );
 		} elseif ( is_month() ) {
-			$title = 'month';
+			$title = 'month-' . get_query_var( 'monthnum' );
 		} elseif ( is_day() ) {
-			$title = 'day';
+			$title = 'day-' . get_query_var( 'day' );
 		} elseif ( is_tax( 'post_format' ) ) {
 			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
 				$title = 'asides';
