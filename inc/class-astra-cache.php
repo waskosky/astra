@@ -22,7 +22,7 @@ class Astra_Cache {
 	 *
 	 * @var string instance
 	 */
-	private static $dynamic_css_data;
+	private static $dynamic_css_data = '';
 
 	/**
 	 * Asset slug for filename.
@@ -275,7 +275,7 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function theme_enqueue_styles() {
-		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', self::$dynamic_css_data );
+		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', self::$dynamic_css_data = '' );
 
 		// Return if there is no data to add in the css file.
 		if ( empty( $theme_css_data ) ) {
