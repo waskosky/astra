@@ -304,20 +304,21 @@ class Astra_Cache {
 		// Gets the timestamp.
 		$post_timestamp = $this->get_post_timestamp( $type, $assets_info );
 
-		// Check if we need to show the dynamic CSS inline.
-		$load_inline_css = apply_filters( 'astra_load_dynamic_css_inline', false );
-
 		// Check if we need to create a new file or override the current file.
 		if ( ! empty( $style_data ) && $post_timestamp['create_new_file'] ) {
 			$this->file_write( $style_data, $post_timestamp['timestamp'], $type, $assets_info );
 		}
 
 		// Add inline CSS if there is no write access or user has returned true using the `astra_load_dynamic_css_inline` filter.
-		if ( ! astra_filesystem()->can_access_filesystem() || $load_inline_css ) {
+		if ( $this->inline_assets() ) {
 			wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 		} else {
 			wp_enqueue_style( 'astra-' . $type . '-dynamic', $this->uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array(), $post_timestamp['timestamp'] );
 		}
+	}
+
+	private function inline_assets() {
+		return apply_filters( 'astra_load_dynamic_css_inline', ! astra_filesystem()->can_access_filesystem() );
 	}
 
 	/**
