@@ -310,7 +310,7 @@ class Astra_Cache {
 
 			// Check if we need to create a new file or override the current file.
 			if ( ! empty( $style_data ) && true === $post_timestamp['create_new_file'] ) {
-				$this->file_write( $style_data, $post_timestamp['timestamp'], $type, $assets_info );
+				$this->file_write( $style_data, $post_timestamp['timestamp'], $assets_info );
 			}
 
 			wp_enqueue_style( 'astra-' . $type . '-dynamic', $this->uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array(), $post_timestamp['timestamp'] );
@@ -437,7 +437,7 @@ class Astra_Cache {
 	 * @since  x.x.x
 	 * @return void
 	 */
-	public function file_write( $style_data, $timestamp, $type, $assets_info ) {
+	public function file_write( $style_data, $timestamp, $assets_info ) {
 		astra_filesystem()->put_contents( $assets_info['path'], $style_data );
 		$this->update_timestamp( $timestamp );
 	}
