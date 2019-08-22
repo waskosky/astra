@@ -456,6 +456,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					    opacity: 0.5;
 					}
 				</style>';
+
+				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
+
+				$localize = array(
+					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
+					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
+					'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
+					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
+					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
+					'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+					'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
+					'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+				);
+
+				wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 			}
 		}
 
@@ -472,21 +488,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				wp_enqueue_style( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
 			}
-
-			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
-
-			$localize = array(
-				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
-				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
-				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
-				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
-				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
-				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
-				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
-				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
-			);
-			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
