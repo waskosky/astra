@@ -432,7 +432,6 @@ class Astra_Cache {
 	 *
 	 * @param  string $style_data   Gets the CSS for the current Page.
 	 * @param  string $timestamp    Gets the current timestamp.
-	 * @param  string $type         Gets the type theme/addon.
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @since  x.x.x
 	 * @return void
