@@ -49,6 +49,14 @@ class Astra_Cache {
 	private $asset_type = '';
 
 	/**
+	 * Uploads directory.
+	 *
+	 * @since x.x.x
+	 * @var array
+	 */
+	private $uploads_dir = array();
+
+	/**
 	 *  Constructor
 	 */
 	public function __construct() {
@@ -76,6 +84,11 @@ class Astra_Cache {
 		$this->asset_type      = $this->asset_type();
 		$this->asset_query_var = $this->asset_query_var();
 		$this->asset_slug      = $this->asset_slug();
+		$this->uploads_dir     = astra_filesystem()->get_uploads_dir( 'astra' );
+
+		// Create uploads directory.
+		$status = astra_filesystem()->maybe_create_uploads_dir( $this->uploads_dir['path'] );
+		astra_filesystem()->update_filesystem_access_status( $status );
 	}
 
 	/**
@@ -210,7 +223,7 @@ class Astra_Cache {
 
 		check_ajax_referer( 'astra-assets-refresh', 'nonce' );
 
-		astra_delete_option( 'file-write-access' );
+		astra_filesystem()->reset_filesystem_access_status();
 
 		$this->delete_cache_files();
 	}
@@ -227,7 +240,7 @@ class Astra_Cache {
 			wp_die();
 		}
 
-		astra_delete_option( 'file-write-access' );
+		astra_filesystem()->reset_filesystem_access_status();
 
 		$this->delete_cache_files();
 	}
@@ -239,9 +252,7 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function delete_cache_files() {
-
-		$uploads_dir      = astra_filesystem()->get_uploads_dir();
-		$uploads_dir_path = $uploads_dir['path'];
+		$uploads_dir_path = $this->uploads_dir['path'];
 
 		array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
 		array_map( 'unlink', glob( $uploads_dir_path . '/astra-addon-dynamic-css*.*' ) );
@@ -293,12 +304,6 @@ class Astra_Cache {
 		// Gets the timestamp.
 		$post_timestamp = $this->get_post_timestamp( $type, $assets_info );
 
-		// Gets the uploads folder directory.
-		$uploads_dir = astra_filesystem()->get_uploads_dir();
-
-		// Check if the uploads folder has write access.
-		$write_access = astra_get_option( 'file-write-access', true );
-
 		// Check if we need to show the dynamic CSS inline.
 		$load_inline_css = apply_filters( 'astra_load_dynamic_css_inline', false );
 
@@ -308,10 +313,10 @@ class Astra_Cache {
 		}
 
 		// Add inline CSS if there is no write access or user has returned true using the `astra_load_dynamic_css_inline` filter.
-		if ( ! $write_access || $load_inline_css ) {
+		if ( ! astra_filesystem()->can_access_filesystem() || $load_inline_css ) {
 			wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 		} else {
-			wp_enqueue_style( 'astra-' . $type . '-dynamic', $uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array(), $post_timestamp['timestamp'] );
+			wp_enqueue_style( 'astra-' . $type . '-dynamic', $this->uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array(), $post_timestamp['timestamp'] );
 		}
 	}
 
@@ -390,14 +395,12 @@ class Astra_Cache {
 	 * @return array
 	 */
 	public function get_asset_info( $data, $type ) {
-
-		$uploads_dir = astra_filesystem()->get_uploads_dir();
-		$css_suffix  = 'astra-' . $type . '-dynamic-css';
-		$css_suffix  = 'astra-' . $type . '-dynamic-css';
-		$info        = array();
+		$css_suffix = 'astra-' . $type . '-dynamic-css';
+		$css_suffix = 'astra-' . $type . '-dynamic-css';
+		$info       = array();
 		if ( ! empty( $data ) ) {
-			$info['path']    = $uploads_dir['path'] . $css_suffix . '-' . $this->asset_slug . '.css';
-			$info['css_url'] = $uploads_dir['url'] . $css_suffix . '-' . $this->asset_slug . '.css';
+			$info['path']    = $this->uploads_dir['path'] . $css_suffix . '-' . $this->asset_slug . '.css';
+			$info['css_url'] = $this->uploads_dir['url'] . $css_suffix . '-' . $this->asset_slug . '.css';
 		}
 
 		return $info;
@@ -433,10 +436,7 @@ class Astra_Cache {
 	 */
 	public function file_write( $style_data, $timestamp, $type, $assets_info ) {
 		// Create a new file.
-		$put_contents = astra_filesystem()->put_contents( $assets_info['path'], $style_data );
-
-		// Adds an option as if the uploads folder has file rights access.
-		astra_update_option( 'file-write-access', $put_contents );
+		astra_filesystem()->put_contents( $assets_info['path'], $style_data );
 
 		// This function will update the Post/ Option timestamp.
 		$this->update_timestamp( $type, $timestamp );

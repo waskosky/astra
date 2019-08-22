@@ -79,6 +79,36 @@ class Astra_Filesystem {
 		return false;
 	}
 
+	public function maybe_create_uploads_dir( $dir ) {
+		// Create the upload dir if it doesn't exist.
+		if ( ! file_exists( $dir ) ) {
+			// Create the directory.
+			$status = astra_filesystem()->get_filesystem()->mkdir( $dir );
+
+			// IF a directory cannot be created, return with false status.
+			if ( false === $status ) {
+				return false;
+			}
+
+			// Add an index file for security.
+			astra_filesystem()->get_filesystem()->put_contents( $dir . 'index.php', '' );
+		}
+
+		return true;
+	}
+
+	public function update_filesystem_access_status( $status ) {
+		astra_update_option( 'file-write-access', $status );
+	}
+
+	public function can_access_filesystem() {
+		return (bool) astra_get_option( 'file-write-access', true );
+	}
+
+	public function reset_filesystem_access_status() {
+		astra_delete_option( 'file-write-access' );
+	}
+
 	/**
 	 * Returns an array of paths for the upload directory
 	 * of the current site.
@@ -86,13 +116,8 @@ class Astra_Filesystem {
 	 * @since x.x.x
 	 * @return array
 	 */
-	public function get_uploads_dir() {
+	public function get_uploads_dir( $assets_dir ) {
 		$wp_info  = wp_upload_dir( null, false );
-		$dir_name = basename( ASTRA_THEME_DIR );
-
-		if ( 'astra' == $dir_name ) {
-			$dir_name = 'astra';
-		}
 
 		// SSL workaround.
 		if ( $this->is_ssl() ) {
@@ -101,19 +126,11 @@ class Astra_Filesystem {
 
 		// Build the paths.
 		$dir_info = array(
-			'path' => $wp_info['basedir'] . '/' . $dir_name . '/',
-			'url'  => $wp_info['baseurl'] . '/' . $dir_name . '/',
+			'path' => $wp_info['basedir'] . '/' . $assets_dir . '/',
+			'url'  => $wp_info['baseurl'] . '/' . $assets_dir . '/',
 		);
 
-		// Create the upload dir if it doesn't exist.
-		if ( ! file_exists( $dir_info['path'] ) ) {
-			// Create the directory.
-			astra_filesystem()->get_filesystem()->mkdir( $dir_info['path'] );
-			// Add an index file for security.
-			astra_filesystem()->get_filesystem()->put_contents( $dir_info['path'] . 'index.php', '' );
-
-		}
-
+		
 		return apply_filters( 'astra_get_assets_uploads_dir', $dir_info );
 	}
 
