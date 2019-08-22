@@ -61,7 +61,7 @@
     align-items: start;
 }
 
-#astra-sites-on-active .astra-install-recommended-plugin {
+#astra-sites-on-active .button.button-hero {
     font-size: 13px;
     height: 30px;
     line-height: 26px;
