@@ -301,7 +301,7 @@ class Astra_Cache {
 		$assets_info = $this->get_asset_info( $style_data, $type );
 
 		// Gets the timestamp.
-		$post_timestamp = $this->get_post_timestamp( $type, $assets_info );
+		$post_timestamp = $this->get_post_timestamp( $assets_info );
 
 		// Check if we need to create a new file or override the current file.
 		if ( ! empty( $style_data ) && $post_timestamp['create_new_file'] ) {
@@ -334,12 +334,12 @@ class Astra_Cache {
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @return array $timestamp_data.
 	 */
-	public function get_post_timestamp( $type, $assets_info ) {
+	public function get_post_timestamp( $assets_info ) {
 		// Check if current page is a post/ archive page. false states that the current page is a post.
 		if ( 'single' === $this->asset_query_var ) {
-			$post_timestamp = get_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', true );
+			$post_timestamp = get_post_meta( get_the_ID(), 'astra_style_timestamp_css', true );
 		} else {
-			$post_timestamp = get_option( 'astra_' . $type . '_get_dynamic_css' );
+			$post_timestamp = get_option( 'astra_get_dynamic_css' );
 		}
 
 		$timestamp_data = $this->maybe_get_new_timestamp( $post_timestamp, $assets_info );
@@ -420,14 +420,14 @@ class Astra_Cache {
 	 * @since  x.x.x
 	 * @return void
 	 */
-	public function update_timestamp( $type, $timestamp ) {
+	public function update_timestamp( $timestamp ) {
 		// Check if current page is a post/ archive page. false states that the current page is a post.
 		if ( 'single' === $this->asset_query_var ) {
 			// Update the post meta.
-			update_post_meta( get_the_ID(), 'astra_' . $type . '_style_timestamp_css', $timestamp );
+			update_post_meta( get_the_ID(), 'astra_style_timestamp_css', $timestamp );
 		} else {
 			// Update the option.
-			update_option( 'astra_' . $type . '_get_dynamic_css', $timestamp );
+			update_option( 'astra_get_dynamic_css', $timestamp );
 		}
 	}
 
@@ -445,7 +445,7 @@ class Astra_Cache {
 		astra_filesystem()->put_contents( $assets_info['path'], $style_data );
 
 		// This function will update the Post/ Option timestamp.
-		$this->update_timestamp( $type, $timestamp );
+		$this->update_timestamp( $timestamp );
 	}
 }
 
