@@ -75,3 +75,10 @@
 #astra-sites-on-active .button-primary {
     box-shadow: 0 1px 0 #006799;
 }
+
+#astra-sites-on-active .button.updating-message:before,
+#astra-sites-on-active .button.updated-message:before,
+#astra-sites-on-active .button.installed:before,
+#astra-sites-on-active .button.installing:before {
+	margin: 12px -1px 0px 5px;
+}
