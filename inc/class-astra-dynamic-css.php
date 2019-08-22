@@ -207,6 +207,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$css_output = array(
 
+				':root' => array(
+					'--content-width' => astra_get_css_value( $site_content_width, 'px' ),
+				),
+
 				// HTML.
 				'html'                                    => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),

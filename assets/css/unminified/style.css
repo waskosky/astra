@@ -3897,7 +3897,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-left: -100px;
   margin-right: -100px;
   max-width: unset;
-  width: unset;
+  width: calc(var(--content-width) + 200px);
 }
 
 .ast-no-sidebar .entry-content .alignwide .alignfull,
