@@ -198,7 +198,6 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function add_to_dynamic_css_file( $file ) {
-
 		foreach ( self::$dynamic_css_file_path as $key => $value ) {
 			// Get file contents.
 			$get_contents = astra_filesystem()->get_contents( $value );
@@ -215,7 +214,6 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function astra_ajax_refresh_assets() {
-
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
 			wp_die();
 		}
@@ -234,7 +232,6 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function astra_refresh_assets() {
-
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
 			wp_die();
 		}
@@ -362,7 +359,6 @@ class Astra_Cache {
 	 * @return array $data.
 	 */
 	public function maybe_get_new_timestamp( $post_timestamp, $assets_info ) {
-
 		// Creates a new timestamp if the file does not exists or the timestamp is empty.
 		// If post_timestamp is empty that means it is an new post or the post is updated and a new file needs to be created.
 		// If a file does not exists then we need to create a new file.
@@ -415,10 +411,8 @@ class Astra_Cache {
 	public function update_timestamp( $timestamp ) {
 		// Check if current page is a post/ archive page. false states that the current page is a post.
 		if ( 'single' === $this->asset_query_var ) {
-			// Update the post meta.
 			update_post_meta( get_the_ID(), 'astra_style_timestamp_css', $timestamp );
 		} else {
-			// Update the option.
 			update_option( 'astra_get_dynamic_css', $timestamp );
 		}
 	}
@@ -431,12 +425,10 @@ class Astra_Cache {
 	 * @param  string $type         Gets the type theme/addon.
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @since  x.x.x
+	 * @return void
 	 */
 	public function file_write( $style_data, $timestamp, $type, $assets_info ) {
-		// Create a new file.
 		astra_filesystem()->put_contents( $assets_info['path'], $style_data );
-
-		// This function will update the Post/ Option timestamp.
 		$this->update_timestamp( $timestamp );
 	}
 }
