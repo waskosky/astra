@@ -324,7 +324,6 @@ class Astra_Cache {
 	 * Returns the current Post Meta/ Option Timestamp.
 	 *
 	 * @since  x.x.x
-	 * @param  string $type         Gets the type theme/addon.
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @return array $timestamp_data.
 	 */
@@ -409,7 +408,6 @@ class Astra_Cache {
 	/**
 	 * Updates the Post Meta/ Option Timestamp.
 	 *
-	 * @param  string $type         Gets the type theme/addon.
 	 * @param  string $timestamp    Gets the current timestamp.
 	 * @since  x.x.x
 	 * @return void
