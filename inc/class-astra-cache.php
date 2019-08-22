@@ -275,7 +275,7 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function theme_enqueue_styles() {
-		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', self::$dynamic_css_data = '' );
+		$theme_css_data = apply_filters( 'astra_dynamic_theme_css', self::$dynamic_css_data = '' );
 
 		// Return if there is no data to add in the css file.
 		if ( empty( $theme_css_data ) ) {
@@ -295,21 +295,17 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function enqueue_styles( $style_data, $type ) {
-		// Gets the file path.
-		$assets_info = $this->get_asset_info( $style_data, $type );
-
-		// Gets the timestamp.
-		$post_timestamp = $this->get_post_timestamp( $assets_info );
-
-		// Check if we need to create a new file or override the current file.
-		if ( ! empty( $style_data ) && $post_timestamp['create_new_file'] ) {
-			$this->file_write( $style_data, $post_timestamp['timestamp'], $type, $assets_info );
-		}
-
-		// Add inline CSS if there is no write access or user has returned true using the `astra_load_dynamic_css_inline` filter.
 		if ( $this->inline_assets() ) {
 			wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 		} else {
+			$assets_info    = $this->get_asset_info( $style_data, $type );
+			$post_timestamp = $this->get_post_timestamp( $assets_info );
+
+			// Check if we need to create a new file or override the current file.
+			if ( ! empty( $style_data ) && true === $post_timestamp['create_new_file'] ) {
+				$this->file_write( $style_data, $post_timestamp['timestamp'], $type, $assets_info );
+			}
+
 			wp_enqueue_style( 'astra-' . $type . '-dynamic', $this->uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array(), $post_timestamp['timestamp'] );
 		}
 	}
