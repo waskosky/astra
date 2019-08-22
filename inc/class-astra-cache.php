@@ -317,6 +317,12 @@ class Astra_Cache {
 		}
 	}
 
+	/**
+	 * Enqueue the assets inline.
+	 *
+	 * @since x.x.x
+	 * @return boolean
+	 */
 	private function inline_assets() {
 		return apply_filters( 'astra_load_dynamic_css_inline', ! astra_filesystem()->can_access_filesystem() );
 	}

@@ -79,6 +79,13 @@ class Astra_Filesystem {
 		return false;
 	}
 
+	/**
+	 * Create uploads directory if it does not exist.
+	 *
+	 * @since x.x.x
+	 * @param String $dir directory path to be created.
+	 * @return boolean True of the directory is created. False if directory is not created.
+	 */
 	public function maybe_create_uploads_dir( $dir ) {
 		// Create the upload dir if it doesn't exist.
 		if ( ! file_exists( $dir ) ) {
@@ -97,14 +104,33 @@ class Astra_Filesystem {
 		return true;
 	}
 
+	/**
+	 * Update Filesystem status.
+	 *
+	 * @since x.x.x
+	 * @param boolean $status status for filesystem access.
+	 * @return void
+	 */
 	public function update_filesystem_access_status( $status ) {
 		astra_update_option( 'file-write-access', $status );
 	}
 
+	/**
+	 * Check if filesystem has write access.
+	 *
+	 * @since x.x.x
+	 * @return boolean True if filesystem has access, false if does not have access.
+	 */
 	public function can_access_filesystem() {
 		return (bool) astra_get_option( 'file-write-access', true );
 	}
 
+	/**
+	 * Reset filesystem access status.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
 	public function reset_filesystem_access_status() {
 		astra_delete_option( 'file-write-access' );
 	}
@@ -114,10 +140,11 @@ class Astra_Filesystem {
 	 * of the current site.
 	 *
 	 * @since x.x.x
+	 * @param String $assets_dir directory name to be created in the WordPress uploads directory.
 	 * @return array
 	 */
 	public function get_uploads_dir( $assets_dir ) {
-		$wp_info  = wp_upload_dir( null, false );
+		$wp_info = wp_upload_dir( null, false );
 
 		// SSL workaround.
 		if ( $this->is_ssl() ) {
@@ -130,7 +157,6 @@ class Astra_Filesystem {
 			'url'  => $wp_info['baseurl'] . '/' . $assets_dir . '/',
 		);
 
-		
 		return apply_filters( 'astra_get_assets_uploads_dir', $dir_info );
 	}
 
