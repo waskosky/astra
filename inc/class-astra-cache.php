@@ -88,7 +88,6 @@ class Astra_Cache {
 
 		// Create uploads directory.
 		$status = astra_filesystem()->maybe_create_uploads_dir( $this->uploads_dir['path'] );
-		astra_filesystem()->update_filesystem_access_status( $status );
 	}
 
 	/**

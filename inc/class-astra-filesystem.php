@@ -94,6 +94,7 @@ class Astra_Filesystem {
 
 			// IF a directory cannot be created, return with false status.
 			if ( false === $status ) {
+				astra_filesystem()->update_filesystem_access_status( $status );
 				return false;
 			}
 
