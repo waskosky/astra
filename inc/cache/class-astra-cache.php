@@ -26,7 +26,10 @@ class Astra_Cache extends Astra_Cache_Base {
 	private static $dynamic_css_files = array();
 
 	/**
-	 *  Constructor
+	 * Constructor
+	 *
+	 * @since x.x.x
+	 * @param String $cache_dir Base cache directory in the uploads directory.
 	 */
 	public function __construct( $cache_dir ) {
 		parent::__construct( $cache_dir );

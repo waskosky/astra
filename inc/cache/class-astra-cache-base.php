@@ -62,7 +62,10 @@ class Astra_Cache_Base {
 	private $cache_dir;
 
 	/**
-	 *  Constructor
+	 * Constructor
+	 *
+	 * @since x.x.x
+	 * @param String $cache_dir Base cache directory in the uploads directory.
 	 */
 	public function __construct( $cache_dir ) {
 		$this->cache_dir = $cache_dir;
@@ -208,8 +211,8 @@ class Astra_Cache_Base {
 	 * Append CSS style to the theme dynamic css.
 	 *
 	 * @since x.x.x
-	 * @param array $file file path.
-	 * @return void
+	 * @param Array $dynamic_css_files Array of file paths to be to be added to minify cache.
+	 * @return String CSS from the CSS files passed.
 	 */
 	public function get_css_from_files( $dynamic_css_files ) {
 		$dynamic_css_data = '';
