@@ -212,7 +212,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
 
 			if ( ! empty( $menu_animation ) ) {
-				Astra_Cache::add_dynamic_theme_css( array( $css_uri . 'menu-animation' . $rtl . $file_prefix . '.css' ) );
+				Astra_Cache::add_dynamic_theme_css( array( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' ) );
 			}
 
 			if ( astra_is_amp_endpoint() ) {

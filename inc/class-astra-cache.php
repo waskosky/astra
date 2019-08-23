@@ -296,7 +296,8 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function theme_enqueue_styles() {
-		$theme_css_data = apply_filters( 'astra_dynamic_theme_css', self::$dynamic_css_data );
+		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
+		$theme_css_data .= self::$dynamic_css_data;
 
 		// Return if there is no data to add in the css file.
 		if ( empty( $theme_css_data ) ) {
@@ -304,7 +305,7 @@ class Astra_Cache {
 		}
 
 		// Call enqueue styles function.
-		$this->enqueue_styles( $theme_css_data, 'theme' );
+		$this->enqueue_styles( Astra_Enqueue_Scripts::trim_css( $theme_css_data ), 'theme' );
 	}
 
 	/**
