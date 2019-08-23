@@ -91,6 +91,10 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'widget' => __( 'Widget', 'astra' ),
 						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
+					'partial'   => array(
+						'selector'            => '.ast-small-footer .ast-container .ast-footer-widget-1-area, .ast-small-footer .ast-container .ast-small-footer-section-1 .footer-primary-navigation',
+						'container_inclusive' => false,
+					),
 				),
 				/**
 				 * Option: Section 1 Custom Text
@@ -140,6 +144,10 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'widget' => __( 'Widget', 'astra' ),
 						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
+					'partial'   => array(
+						'selector'            => '.ast-small-footer .ast-container .ast-footer-widget-2-area, .ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**
@@ -158,6 +166,10 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'selector'            => '.ast-small-footer-section-2',
 						'container_inclusive' => false,
 						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
+					),
+					'partial'   => array(
+						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-2',
+						'container_inclusive' => false,
 					),
 				),
 
