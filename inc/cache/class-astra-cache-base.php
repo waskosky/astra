@@ -10,9 +10,9 @@
  */
 
 /**
- * Class Astra_Cache.
+ * Class Astra_Cache_Base.
  */
-class Astra_Cache {
+class Astra_Cache_Base {
 
 	/**
 	 * Member Variable
@@ -202,9 +202,7 @@ class Astra_Cache {
 	 * @param array $file file path.
 	 * @return void
 	 */
-	public static function add_css_file( $file ) {
-		self::$dynamic_css_files = array_merge( self::$dynamic_css_files, $file );
-	}
+	public static function add_css_file( $file ) {}
 
 	/**
 	 * Append CSS style to the theme dynamic css.
@@ -288,18 +286,7 @@ class Astra_Cache {
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function setup_cache() {
-		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
-		$theme_css_data .= $this->get_css_from_files( self::$dynamic_css_files );
-
-		// Return if there is no data to add in the css file.
-		if ( empty( $theme_css_data ) ) {
-			return;
-		}
-
-		// Call enqueue styles function.
-		$this->enqueue_styles( Astra_Enqueue_Scripts::trim_css( $theme_css_data ), 'theme' );
-	}
+	public function setup_cache() {}
 
 	/**
 	 * Enqueue CSS files.
@@ -449,5 +436,3 @@ class Astra_Cache {
 		$this->update_timestamp( $timestamp );
 	}
 }
-
-new Astra_Cache( 'astra' );
