@@ -57,12 +57,22 @@ class Astra_Cache {
 	private $uploads_dir = array();
 
 	/**
+	 * Cache directory from uploads folder.
+	 *
+	 * @since x.x.x
+	 * @var String
+	 */
+	private $cache_dir;
+
+	/**
 	 *  Constructor
 	 */
-	public function __construct() {
+	public function __construct( $cache_dir ) {
+		$this->cache_dir = $cache_dir;
+
 		add_action( 'wp', array( $this, 'init_cache' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_to_dynamic_css_file' ), 1 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'setup_cache' ) );
 
 		add_action( 'save_post', array( $this, 'astra_refresh_assets' ) );
 		add_action( 'post_updated', array( $this, 'astra_refresh_assets' ) );
@@ -84,7 +94,7 @@ class Astra_Cache {
 		$this->asset_type      = $this->asset_type();
 		$this->asset_query_var = $this->asset_query_var();
 		$this->asset_slug      = $this->asset_slug();
-		$this->uploads_dir     = astra_filesystem()->get_uploads_dir( 'astra' );
+		$this->uploads_dir     = astra_filesystem()->get_uploads_dir( $this->cache_dir );
 
 		// Create uploads directory.
 		astra_filesystem()->maybe_create_uploads_dir( $this->uploads_dir['path'] );
@@ -218,6 +228,16 @@ class Astra_Cache {
 	}
 
 	/**
+	 * Get CSS from files.
+	 *
+	 * @since x.x.x
+	 * @return String CSS from the CSS files.
+	 */
+	private function get_cache_files_data() {
+		return self::$dynamic_css_data;
+	}
+
+	/**
 	 * Refresh Assets, called through ajax
 	 *
 	 * @since x.x.x
@@ -278,7 +298,7 @@ class Astra_Cache {
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function theme_enqueue_styles() {
+	public function setup_cache() {
 		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
 		$theme_css_data .= self::$dynamic_css_data;
 
@@ -311,7 +331,7 @@ class Astra_Cache {
 				$this->file_write( $style_data, $post_timestamp['timestamp'], $assets_info );
 			}
 
-			wp_enqueue_style( 'astra-' . $type . '-dynamic', $this->uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array(), $post_timestamp['timestamp'] );
+			wp_enqueue_style( 'astra-' . $type . '-dynamic', $this->uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array( 'astra-' . $type . '-css' ), $post_timestamp['timestamp'] );
 		}
 	}
 
@@ -440,4 +460,4 @@ class Astra_Cache {
 	}
 }
 
-new Astra_Cache();
+new Astra_Cache( 'astra' );
