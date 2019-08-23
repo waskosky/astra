@@ -230,6 +230,7 @@ class Astra_Cache {
 
 		check_ajax_referer( 'astra-assets-refresh', 'nonce' );
 
+		$this->init_cache();
 		astra_filesystem()->reset_filesystem_access_status();
 
 		$this->delete_cache_files();
@@ -246,6 +247,7 @@ class Astra_Cache {
 			wp_die();
 		}
 
+		$this->init_cache();
 		astra_filesystem()->reset_filesystem_access_status();
 
 		$this->delete_cache_files();
@@ -258,10 +260,8 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function delete_cache_files() {
-		$uploads_dir_path = $this->uploads_dir['path'];
-
-		array_map( 'unlink', glob( $uploads_dir_path . '/astra-theme-dynamic-css*.*' ) );
-		array_map( 'unlink', glob( $uploads_dir_path . '/astra-addon-dynamic-css*.*' ) );
+		array_map( 'unlink', glob( $this->uploads_dir['path'] . '/astra-theme-dynamic-css*.*' ) );
+		array_map( 'unlink', glob( $this->uploads_dir['path'] . '/astra-addon-dynamic-css*.*' ) );
 	}
 
 	/**
