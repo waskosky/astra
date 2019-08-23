@@ -18,13 +18,6 @@ class Astra_Cache {
 	private static $dynamic_css_files = array();
 
 	/**
-	 * Member Variable
-	 *
-	 * @var string instance
-	 */
-	private static $dynamic_css_data = '';
-
-	/**
 	 * Asset slug for filename.
 	 *
 	 * @since x.x.x
@@ -71,7 +64,6 @@ class Astra_Cache {
 		$this->cache_dir = $cache_dir;
 
 		add_action( 'wp', array( $this, 'init_cache' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'get_css_from_files' ), 1 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'setup_cache' ) );
 
 		add_action( 'save_post', array( $this, 'astra_refresh_assets' ) );
@@ -217,24 +209,18 @@ class Astra_Cache {
 	 * @param array $file file path.
 	 * @return void
 	 */
-	public function get_css_from_files() {
-		foreach ( self::$dynamic_css_files as $key => $value ) {
+	public function get_css_from_files( $dynamic_css_files ) {
+		$dynamic_css_data = '';
+
+		foreach ( $dynamic_css_files as $key => $value ) {
 			// Get file contents.
 			$get_contents = astra_filesystem()->get_contents( $value );
 			if ( $get_contents ) {
-				self::$dynamic_css_data .= $get_contents;
+				$dynamic_css_data .= $get_contents;
 			}
 		}
-	}
 
-	/**
-	 * Get CSS from files.
-	 *
-	 * @since x.x.x
-	 * @return String CSS from the CSS files.
-	 */
-	private function get_cache_files_data() {
-		return self::$dynamic_css_data;
+		return $dynamic_css_data;
 	}
 
 	/**
@@ -300,7 +286,7 @@ class Astra_Cache {
 	 */
 	public function setup_cache() {
 		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
-		$theme_css_data .= $this->get_cache_files_data();
+		$theme_css_data .= $this->get_css_from_files( self::$dynamic_css_files );
 
 		// Return if there is no data to add in the css file.
 		if ( empty( $theme_css_data ) ) {
