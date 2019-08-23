@@ -134,6 +134,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Disable Menu', 'astra' ),
 					'priority' => 5,
+					'partial'   => array(
+						'selector'            => '.main-header-bar .main-navigation .main-header-menu',
+						'container_inclusive' => false,
+					),
 				),
 
 				array(
