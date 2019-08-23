@@ -139,7 +139,7 @@ endif;
  * @return bool
  */
 function astra_is_emp_endpoint() {
-	_deprecated_function( __FUNCTION__, 'x.x.x', 'astra_is_amp_endpoint()' );
+	_deprecated_function( __FUNCTION__, '2.0.1', 'astra_is_amp_endpoint()' );
 
 	return astra_is_amp_endpoint();
 }
