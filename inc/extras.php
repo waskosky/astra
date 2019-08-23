@@ -1792,7 +1792,7 @@ add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
 /**
  * Added referal ID to social snap upgrade link.
  *
- * @param int $link social snap upgrade link.
+ * @param string $link social snap upgrade link.
  * @return String social snap upgrade link
  */
 function astra_filter_socialsnap_upgrade_link( $link ) {
