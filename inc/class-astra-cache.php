@@ -300,7 +300,7 @@ class Astra_Cache {
 	 */
 	public function setup_cache() {
 		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
-		$theme_css_data .= self::$dynamic_css_data;
+		$theme_css_data .= $this->get_cache_files_data();
 
 		// Return if there is no data to add in the css file.
 		if ( empty( $theme_css_data ) ) {
