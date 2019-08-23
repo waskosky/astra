@@ -162,6 +162,19 @@ class Astra_Filesystem {
 	}
 
 	/**
+	 * Delete file from the filesystem.
+	 *
+	 * @since x.x.x
+	 * @param String  $file Path to the file or directory.
+	 * @param boolean $recursive If set to true, changes file group recursively.
+	 * @param boolean $type Type of resource. 'f' for file, 'd' for directory.
+	 * @return void
+	 */
+	public function delete( $file, $recursive = false, $type = false ) {
+		astra_filesystem()->get_filesystem()->delete( $file, $recursive, $type );
+	}
+
+	/**
 	 * Adds contents to the file.
 	 *
 	 * @param  string $file_path  Gets the assets path info.

@@ -260,8 +260,16 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function delete_cache_files() {
-		array_map( 'unlink', glob( $this->uploads_dir['path'] . '/astra-theme-dynamic-css*.*' ) );
-		array_map( 'unlink', glob( $this->uploads_dir['path'] . '/astra-addon-dynamic-css*.*' ) );
+		$cache_files = astra_filesystem()->get_filesystem()->dirlist( $this->uploads_dir['path'], false, true );
+
+		foreach ( $cache_files as $file ) {
+			// don't delete index.php file.
+			if ( 'index.php' === $file['name'] ) {
+				continue;
+			}
+
+			astra_filesystem()->delete( trailingslashit( $this->uploads_dir['path'] ) . $file['name'], true, 'f' );
+		}
 	}
 
 	/**
