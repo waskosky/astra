@@ -498,6 +498,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'title'     => __( 'Menu Label', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'text',
+					'partial'   => array(
+						'selector'            => '.ast-mobile-menu-buttons',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**
