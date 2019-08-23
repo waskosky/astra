@@ -382,8 +382,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				}
 			}
 
-			do_action( 'astra_post_meta_updated', $post_id );
-
 		}
 	}
 }

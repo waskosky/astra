@@ -64,8 +64,8 @@ class Astra_Cache {
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_to_dynamic_css_file' ), 1 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue_styles' ), 1 );
 
-		add_action( 'astra_post_meta_updated', array( $this, 'refresh_post_meta_data' ), 10, 1 );
-		add_action( 'astra_advanced_headers_save_after', array( $this, 'astra_refresh_assets' ) );
+		add_action( 'save_post', array( $this, 'astra_refresh_assets' ) );
+		add_action( 'post_updated', array( $this, 'astra_refresh_assets' ) );
 
 		// Refresh assets.
 		add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
@@ -270,23 +270,6 @@ class Astra_Cache {
 
 			astra_filesystem()->delete( trailingslashit( $this->uploads_dir['path'] ) . $file['name'], true, 'f' );
 		}
-	}
-
-	/**
-	 * Remove post meta that check if CSS file need to be regenerated.
-	 *
-	 * @param int $post_id Gets the post id.
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function refresh_post_meta_data( $post_id ) {
-		$this->init_cache();
-
-		astra_filesystem()->delete(
-			trailingslashit( $this->uploads_dir['path'] ) . 'astra-theme-dynamic-css-post-' . get_the_id() . '.css',
-			false,
-			'f'
-		);
 	}
 
 	/**
