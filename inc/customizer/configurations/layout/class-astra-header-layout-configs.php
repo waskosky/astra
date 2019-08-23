@@ -159,6 +159,10 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						),
 						'primary-header'
 					),
+					'partial'   => array(
+						'selector'            => '.main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.search-custom-menu-item',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**
