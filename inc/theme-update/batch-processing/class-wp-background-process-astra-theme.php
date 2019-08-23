@@ -20,7 +20,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 *
 		 * @var string
 		 */
-		protected $action = 'database_migration';
+		protected $action = 'astra_theme_db_migration';
 
 		/**
 		 * Task

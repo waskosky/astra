@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			do_action( 'astra_update_initiated', self::$background_updater );
 
-			if ( true === is_new_install() ) {
+			if ( true === $this->is_new_install() ) {
 				self::update_db_version();
 				return;
 			}
@@ -167,6 +167,25 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			Astra_Theme_Options::refresh();
 
 			do_action( 'astra_update_after' );
+		}
+
+
+		/**
+		 * Is this a brand new theme install?
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		function is_new_install() {
+
+			// Get auto saved version number.
+			$saved_version = astra_get_option( 'theme-auto-version', false );
+
+			if ( false === $saved_version ) {
+				return true;
+			}
+
+			return false;
 		}
 	}
 }
