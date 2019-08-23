@@ -1030,16 +1030,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'920'
 			);
 
-			$dynamic_css .= $parse_css;
-			$custom_css   = astra_get_option( 'custom-css' );
+			$parse_css .= $dynamic_css;
+			$custom_css = astra_get_option( 'custom-css' );
 
 			if ( '' != $custom_css ) {
-				$dynamic_css .= $custom_css;
+				$parse_css .= $custom_css;
 			}
 
 			// trim white space for faster page loading.
-			$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-			return apply_filters( 'astra_theme_dynamic_css', $dynamic_css );
+			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
+			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
 		}
 
