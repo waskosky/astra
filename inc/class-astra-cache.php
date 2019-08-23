@@ -280,7 +280,13 @@ class Astra_Cache {
 	 * @return void
 	 */
 	public function refresh_post_meta_data( $post_id ) {
-		delete_post_meta( $post_id, 'astra_theme_style_timestamp_css' );
+		$this->init_cache();
+
+		astra_filesystem()->delete(
+			trailingslashit( $this->uploads_dir['path'] ) . 'astra-theme-dynamic-css-post-' . get_the_id() . '.css',
+			false,
+			'f'
+		);
 	}
 
 	/**
