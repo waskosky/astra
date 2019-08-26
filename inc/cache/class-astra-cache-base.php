@@ -223,6 +223,7 @@ class Astra_Cache_Base {
 	 * Refresh Assets, called through ajax
 	 *
 	 * @since x.x.x
+	 * @param String $cache_dir dirname of the cache.
 	 * @return void
 	 */
 	public function ajax_refresh_assets( $cache_dir ) {
@@ -242,6 +243,7 @@ class Astra_Cache_Base {
 	 * Refresh Assets
 	 *
 	 * @since x.x.x
+	 * @param String $cache_dir dirname of the cache.
 	 * @return void
 	 */
 	public function refresh_assets( $cache_dir ) {
@@ -259,10 +261,11 @@ class Astra_Cache_Base {
 	 * Deletes cache files
 	 *
 	 * @since x.x.x
+	 * @param String $cache_dir dirname of the cache.
 	 * @return void
 	 */
 	private function delete_cache_files( $cache_dir ) {
-		$cache_dir 	 = astra_filesystem()->get_uploads_dir( $cache_dir );
+		$cache_dir   = astra_filesystem()->get_uploads_dir( $cache_dir );
 		$cache_files = astra_filesystem()->get_filesystem()->dirlist( $cache_dir['path'], false, true );
 
 		foreach ( $cache_files as $file ) {

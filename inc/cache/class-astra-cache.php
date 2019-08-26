@@ -25,6 +25,12 @@ class Astra_Cache extends Astra_Cache_Base {
 	 */
 	private static $dynamic_css_files = array();
 
+	/**
+	 * Cache directory.
+	 *
+	 * @since x.x.x
+	 * @var String
+	 */
 	private $cache_dir;
 
 	/**
@@ -78,6 +84,12 @@ class Astra_Cache extends Astra_Cache_Base {
 		$this->enqueue_styles( Astra_Enqueue_Scripts::trim_css( $theme_css_data ), 'theme' );
 	}
 
+	/**
+	 * Refresh Assets.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
 	public function astra_refresh_assets() {
 		parent::refresh_assets( $this->cache_dir );
 	}
