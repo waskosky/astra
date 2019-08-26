@@ -84,6 +84,21 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Description: Breadcrumb Position - Before Title Description.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position-before-title-desc]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-breadcrumb',
+					'priority' => 5,
+					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '==', 'astra_entry_top' ),
+					'title'    => '',
+					'help'     => __( 'Breadcrumbs will appear above the overall content of the post if the title\'s position is customized/changed.', 'astra' ),
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Breadcrumb Source
 				 */
 				array(
