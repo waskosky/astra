@@ -65,7 +65,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				return;
 			}
 
-			if ( $this->needs_db_update() ) {
+			$is_queue_running = astra_get_option( 'is_theme_queue_running' );
+
+			if ( $this->needs_db_update() && ! $is_queue_running ) {
 				$this->update();
 			} else {
 				self::update_db_version();
@@ -116,8 +118,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				}
 			}
 
+			astra_update_option( 'is_theme_queue_running', true );
+
 			self::$background_updater->push_to_queue( 'update_db_version' );
 			self::$background_updater->save()->dispatch();
+
 		}
 
 		/**
@@ -166,9 +171,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
+			astra_update_option( 'is_theme_queue_running', false );
+
 			do_action( 'astra_update_after' );
 		}
-
 
 		/**
 		 * Is this a brand new theme install?
