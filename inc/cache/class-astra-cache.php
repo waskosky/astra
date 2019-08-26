@@ -25,6 +25,8 @@ class Astra_Cache extends Astra_Cache_Base {
 	 */
 	private static $dynamic_css_files = array();
 
+	private $cache_dir;
+
 	/**
 	 * Constructor
 	 *
@@ -32,7 +34,18 @@ class Astra_Cache extends Astra_Cache_Base {
 	 * @param String $cache_dir Base cache directory in the uploads directory.
 	 */
 	public function __construct( $cache_dir ) {
+		$this->cache_dir = $cache_dir;
+
 		parent::__construct( $cache_dir );
+
+		// Triggers on click on refresh/ recheck button.
+		add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'addon_refresh_assets' ) );
+
+		add_action( 'save_post', array( $this, 'astra_refresh_assets' ) );
+		add_action( 'post_updated', array( $this, 'astra_refresh_assets' ) );
+
+		add_action( 'customize_preview_init', array( $this, 'astra_refresh_assets' ) );
+		add_action( 'customize_save', array( $this, 'astra_refresh_assets' ) );
 	}
 
 	/**
@@ -63,6 +76,20 @@ class Astra_Cache extends Astra_Cache_Base {
 
 		// Call enqueue styles function.
 		$this->enqueue_styles( Astra_Enqueue_Scripts::trim_css( $theme_css_data ), 'theme' );
+	}
+
+	public function astra_refresh_assets() {
+		parent::refresh_assets( $this->cache_dir );
+	}
+
+	/**
+	 * Refresh Assets, called through ajax
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function addon_refresh_assets() {
+		parent::ajax_refresh_assets( $this->cache_dir );
 	}
 
 }

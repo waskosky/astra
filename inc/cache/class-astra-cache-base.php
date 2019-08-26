@@ -72,15 +72,6 @@ class Astra_Cache_Base {
 
 		add_action( 'wp', array( $this, 'init_cache' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'setup_cache' ) );
-
-		add_action( 'save_post', array( $this, 'astra_refresh_assets' ) );
-		add_action( 'post_updated', array( $this, 'astra_refresh_assets' ) );
-
-		// Refresh assets.
-		add_action( 'customize_save_after', array( $this, 'astra_refresh_assets' ) );
-
-		// Triggers on click on refresh/ recheck button.
-		add_action( 'wp_ajax_astra_refresh_assets_files', array( $this, 'astra_ajax_refresh_assets' ) );
 	}
 
 	/**
@@ -234,7 +225,7 @@ class Astra_Cache_Base {
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function astra_ajax_refresh_assets() {
+	public function ajax_refresh_assets( $cache_dir ) {
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
 			wp_die();
 		}
@@ -244,7 +235,7 @@ class Astra_Cache_Base {
 		$this->init_cache();
 		astra_filesystem()->reset_filesystem_access_status();
 
-		$this->delete_cache_files();
+		$this->delete_cache_files( $cache_dir );
 	}
 
 	/**
@@ -253,7 +244,7 @@ class Astra_Cache_Base {
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function astra_refresh_assets() {
+	public function refresh_assets( $cache_dir ) {
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
 			wp_die();
 		}
@@ -261,7 +252,7 @@ class Astra_Cache_Base {
 		$this->init_cache();
 		astra_filesystem()->reset_filesystem_access_status();
 
-		$this->delete_cache_files();
+		$this->delete_cache_files( $cache_dir );
 	}
 
 	/**
@@ -270,8 +261,9 @@ class Astra_Cache_Base {
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function delete_cache_files() {
-		$cache_files = astra_filesystem()->get_filesystem()->dirlist( $this->uploads_dir['path'], false, true );
+	private function delete_cache_files( $cache_dir ) {
+		$cache_dir 	 = astra_filesystem()->get_uploads_dir( $cache_dir );
+		$cache_files = astra_filesystem()->get_filesystem()->dirlist( $cache_dir['path'], false, true );
 
 		foreach ( $cache_files as $file ) {
 			// don't delete index.php file.
@@ -279,7 +271,7 @@ class Astra_Cache_Base {
 				continue;
 			}
 
-			astra_filesystem()->delete( trailingslashit( $this->uploads_dir['path'] ) . $file['name'], true, 'f' );
+			astra_filesystem()->delete( trailingslashit( $cache_dir['path'] ) . $file['name'], true, 'f' );
 		}
 	}
 
