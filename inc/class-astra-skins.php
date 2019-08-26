@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'skin_defaults' ) );
 			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );
 			add_filter( 'astra_comment_form_all_post_type_support', array( $this, 'comment_box_markup_on_page' ) );
-			add_filter( 'astra_woocommerce_style', array( $this, 'add_woocommerce_styles' ) );
+			add_filter( 'astra_woocommerce_style_handle', array( $this, 'add_woocommerce_styles' ) );
 		}
 
 		/**

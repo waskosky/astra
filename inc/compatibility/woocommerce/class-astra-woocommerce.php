@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'has_rtl' => true,
 				),
 				'woocommerce-general'     => array(
-					'src'     => $css_uri . apply_filters( 'astra_woocommerce_style', 'woocommerce-style-1' ) . $file_prefix . '.css',
+					'src'     => $css_uri . apply_filters( 'astra_woocommerce_style_handle', 'woocommerce-style-1' ) . $file_prefix . '.css',
 					'deps'    => '',
 					'version' => ASTRA_THEME_VERSION,
 					'media'   => 'all',
