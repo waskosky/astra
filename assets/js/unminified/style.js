@@ -367,7 +367,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
-		if ( typeof event.target.classList.contains !==  'undefined' ) {
+		if ( typeof event.target.classList !==  'undefined' ) {
 			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.ast-search-menu-icon' ).length === 0 && getParents( event.target, '.ast-search-icon' ).length === 0  ) {
 				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
 				
