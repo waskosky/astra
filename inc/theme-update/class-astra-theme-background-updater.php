@@ -64,13 +64,15 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				self::update_db_version();
 				return;
 			}
-
-			$is_queue_running = astra_get_option( 'is_theme_queue_running' );
+			
+			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
 
 			if ( $this->needs_db_update() && ! $is_queue_running ) {
 				$this->update();
 			} else {
-				self::update_db_version();
+				if( ! $is_queue_running ) {
+					self::update_db_version();
+				}
 			}
 		}
 
@@ -117,12 +119,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 			}
-
-			astra_update_option( 'is_theme_queue_running', true );
-
+			
 			self::$background_updater->push_to_queue( 'update_db_version' );
-			self::$background_updater->save()->dispatch();
-
+			astra_update_option( 'is_theme_queue_running', true );
+			
+			self::$background_updater->save()->dispatch();	
 		}
 
 		/**
@@ -147,6 +148,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+				do_action( 'astra_theme_update_after' );
 				return;
 			}
 
