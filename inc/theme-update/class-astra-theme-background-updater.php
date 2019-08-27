@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		public static function update_db_version( $version = null ) {
 
-			do_action( 'astra_update_before' );
+			do_action( 'astra_theme_update_before' );
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			astra_update_option( 'is_theme_queue_running', false );
 
-			do_action( 'astra_update_after' );
+			do_action( 'astra_theme_update_after' );
 		}
 
 		/**
