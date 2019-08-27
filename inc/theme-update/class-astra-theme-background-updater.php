@@ -77,6 +77,24 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
+		 * Is this a brand new theme install?
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		function is_new_install() {
+
+			// Get auto saved version number.
+			$saved_version = astra_get_option( 'theme-auto-version', false );
+
+			if ( false === $saved_version ) {
+				return true;
+			}
+
+			return false;
+		}
+
+		/**
 		 * Is a DB update needed?
 		 *
 		 * @since x.x.x
@@ -176,24 +194,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			astra_update_option( 'is_theme_queue_running', false );
 
 			do_action( 'astra_theme_update_after' );
-		}
-
-		/**
-		 * Is this a brand new theme install?
-		 *
-		 * @since x.x.x
-		 * @return boolean
-		 */
-		function is_new_install() {
-
-			// Get auto saved version number.
-			$saved_version = astra_get_option( 'theme-auto-version', false );
-
-			if ( false === $saved_version ) {
-				return true;
-			}
-
-			return false;
 		}
 	}
 }
