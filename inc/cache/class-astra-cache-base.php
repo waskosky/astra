@@ -178,12 +178,12 @@ class Astra_Cache_Base {
 			$title = sanitize_key( $tax->name );
 		}
 
-		if ( is_home() ) {
-			$title = 'home';
+		if ( is_front_page() ) {
+			$title = 'post';
 		}
 
-		if ( is_front_page() ) {
-			$title = 'frontpage';
+		if ( is_home() ) {
+			$title = 'home';
 		}
 
 		return $title;
