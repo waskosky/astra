@@ -178,6 +178,14 @@ class Astra_Cache_Base {
 			$title = sanitize_key( $tax->name );
 		}
 
+		if ( is_search() ) {
+			$title = 'search';
+		}
+		
+		if ( is_404() ) {
+			$title = '404';
+		}
+
 		if ( is_front_page() ) {
 			$title = 'post';
 		}
