@@ -181,7 +181,7 @@ class Astra_Cache_Base {
 		if ( is_search() ) {
 			$title = 'search';
 		}
-		
+
 		if ( is_404() ) {
 			$title = '404';
 		}
