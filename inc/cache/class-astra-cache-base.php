@@ -282,6 +282,11 @@ class Astra_Cache_Base {
 				continue;
 			}
 
+			// Delete only dynamic CSS files.
+			if ( false === strpos( $file['name'], 'dynamic-css' ) ) {
+				continue;
+			}
+
 			astra_filesystem()->delete( trailingslashit( $cache_dir['path'] ) . $file['name'], true, 'f' );
 		}
 	}
