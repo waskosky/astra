@@ -50,7 +50,6 @@ class Astra_Cache extends Astra_Cache_Base {
 		add_action( 'save_post', array( $this, 'astra_refresh_assets' ) );
 		add_action( 'post_updated', array( $this, 'astra_refresh_assets' ) );
 
-		add_action( 'customize_preview_init', array( $this, 'astra_refresh_assets' ) );
 		add_action( 'customize_save', array( $this, 'astra_refresh_assets' ) );
 	}
 

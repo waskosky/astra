@@ -303,7 +303,8 @@ class Astra_Cache_Base {
 	 * @return void
 	 */
 	public function enqueue_styles( $style_data, $type ) {
-		if ( $this->inline_assets() ) {
+
+		if ( $this->inline_assets() || is_customize_preview() ) {
 			wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
 		} else {
 			$assets_info    = $this->get_asset_info( $style_data, $type );
