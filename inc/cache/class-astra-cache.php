@@ -74,7 +74,7 @@ class Astra_Cache extends Astra_Cache_Base {
 		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
 		$theme_css_data .= $this->get_css_from_files( self::$dynamic_css_files );
 
-		return $theme_css_data;
+		return Astra_Enqueue_Scripts::trim_css( $theme_css_data );
 	}
 
 	/**
