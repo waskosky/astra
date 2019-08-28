@@ -332,7 +332,7 @@ class Astra_Cache_Base {
 	 * @since  x.x.x
 	 * @return void
 	 */
-	public function enqueue_styles( $style_data, $type ) {
+	public function enqueue_styles( $type ) {
 		if ( $this->inline_assets() || is_customize_preview() ) {
 			wp_add_inline_style( 'astra-' . $type . '-css', $this->get_dynamic_css() );
 		} else {

@@ -29,6 +29,8 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		return $dynamic_css;
 	}
 
+	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
+
 	$dynamic_css .= astra_parse_css(
 		array(
 			'.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li' => array(

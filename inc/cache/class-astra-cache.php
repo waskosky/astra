@@ -98,7 +98,7 @@ class Astra_Cache extends Astra_Cache_Base {
 		}
 
 		// Call enqueue styles function.
-		$this->enqueue_styles( Astra_Enqueue_Scripts::trim_css( $theme_css_data ), 'theme' );
+		$this->enqueue_styles( 'theme' );
 	}
 
 	/**
