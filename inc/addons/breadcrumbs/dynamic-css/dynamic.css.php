@@ -25,8 +25,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_breadcrumb_section_dynamic_css' );
  */
 function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
-	if ( 'none' === $breadcrumb_position ) {
+	if ( false === Astra_Breadcrumbs_Markup::astra_breadcrumb_rules() ) {
 		return $dynamic_css;
 	}
 
