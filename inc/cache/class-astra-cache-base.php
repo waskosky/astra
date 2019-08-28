@@ -327,7 +327,6 @@ class Astra_Cache_Base {
 	/**
 	 * Enqueue CSS files.
 	 *
-	 * @param  string $style_data   Gets the CSS data.
 	 * @param  string $type         Gets the type theme/addon.
 	 * @since  x.x.x
 	 * @return void
