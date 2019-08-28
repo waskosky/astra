@@ -300,6 +300,31 @@ class Astra_Cache_Base {
 	public function setup_cache() {}
 
 	/**
+	 * Write dynamic asset files.
+	 *
+	 * @param String $style_data Dynamic CSS.
+	 * @param String $type Asset type.
+	 * @return void
+	 */
+	protected function write_assets( $style_data, $type ) {
+		$assets_info    = $this->get_asset_info( $type );
+		$post_timestamp = $this->get_post_timestamp( $assets_info );
+
+		// Check if we need to create a new file or override the current file.
+		if ( ! empty( $style_data ) && true === $post_timestamp['create_new_file'] ) {
+			$this->file_write( $style_data, $post_timestamp['timestamp'], $assets_info );
+		}
+	}
+
+	/**
+	 * Get Dynamic CSS.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	protected function get_dynamic_css() { }
+
+	/**
 	 * Enqueue CSS files.
 	 *
 	 * @param  string $style_data   Gets the CSS data.
@@ -308,18 +333,11 @@ class Astra_Cache_Base {
 	 * @return void
 	 */
 	public function enqueue_styles( $style_data, $type ) {
-
 		if ( $this->inline_assets() || is_customize_preview() ) {
-			wp_add_inline_style( 'astra-' . $type . '-css', $style_data );
+			wp_add_inline_style( 'astra-' . $type . '-css', $this->get_dynamic_css() );
 		} else {
-			$assets_info    = $this->get_asset_info( $style_data, $type );
+			$assets_info    = $this->get_asset_info( $type );
 			$post_timestamp = $this->get_post_timestamp( $assets_info );
-
-			// Check if we need to create a new file or override the current file.
-			if ( ! empty( $style_data ) && true === $post_timestamp['create_new_file'] ) {
-				$this->file_write( $style_data, $post_timestamp['timestamp'], $assets_info );
-			}
-
 			wp_enqueue_style( 'astra-' . $type . '-dynamic', $this->uploads_dir['url'] . 'astra-' . $type . '-dynamic-css-' . $this->asset_slug . '.css', array( 'astra-' . $type . '-css' ), $post_timestamp['timestamp'] );
 		}
 	}
@@ -330,7 +348,7 @@ class Astra_Cache_Base {
 	 * @since x.x.x
 	 * @return boolean
 	 */
-	private function inline_assets() {
+	protected function inline_assets() {
 		return apply_filters( 'astra_load_dynamic_css_inline', ! astra_filesystem()->can_access_filesystem() );
 	}
 
@@ -401,19 +419,17 @@ class Astra_Cache_Base {
 	 * Returns an array of paths for the CSS assets
 	 * of the current post.
 	 *
-	 * @param  var    $data         Gets the CSS for the current Page.
 	 * @param  string $type         Gets the type theme/addon.
 	 * @since x.x.x
 	 * @return array
 	 */
-	public function get_asset_info( $data, $type ) {
+	public function get_asset_info( $type ) {
 		$css_suffix = 'astra-' . $type . '-dynamic-css';
 		$css_suffix = 'astra-' . $type . '-dynamic-css';
 		$info       = array();
-		if ( ! empty( $data ) ) {
-			$info['path']    = $this->uploads_dir['path'] . $css_suffix . '-' . $this->asset_slug . '.css';
-			$info['css_url'] = $this->uploads_dir['url'] . $css_suffix . '-' . $this->asset_slug . '.css';
-		}
+
+		$info['path']    = $this->uploads_dir['path'] . $css_suffix . '-' . $this->asset_slug . '.css';
+		$info['css_url'] = $this->uploads_dir['url'] . $css_suffix . '-' . $this->asset_slug . '.css';
 
 		return $info;
 	}

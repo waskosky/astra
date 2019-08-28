@@ -65,18 +65,36 @@ class Astra_Cache extends Astra_Cache_Base {
 	}
 
 	/**
+	 * Get dynamic CSS
+	 *
+	 * @since x.x.x
+	 * @return String Dynamic CSS
+	 */
+	protected function get_dynamic_css() {
+		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
+		$theme_css_data .= $this->get_css_from_files( self::$dynamic_css_files );
+
+		return $theme_css_data;
+	}
+
+	/**
 	 * Fetch theme CSS data to be added in the dynamic CSS file.
 	 *
 	 * @since x.x.x
 	 * @return void
 	 */
 	public function setup_cache() {
-		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
-		$theme_css_data .= $this->get_css_from_files( self::$dynamic_css_files );
+		$assets_info = $this->get_asset_info( 'theme' );
 
-		// Return if there is no data to add in the css file.
-		if ( empty( $theme_css_data ) ) {
-			return;
+		if ( ! file_exists( $assets_info['path'] ) && ! $this->inline_assets() ) {
+			$theme_css_data = $this->get_dynamic_css();
+
+			// Return if there is no data to add in the css file.
+			if ( empty( $theme_css_data ) ) {
+				return;
+			}
+
+			$this->write_assets( $theme_css_data, 'theme' );
 		}
 
 		// Call enqueue styles function.
