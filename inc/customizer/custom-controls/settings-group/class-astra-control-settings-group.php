@@ -83,17 +83,19 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 			$this->json['help']  = $this->help;
 			$this->json['name']  = $this->name;
 
+			$config = array();
+
 			if ( isset( Astra_Customizer::$group_configs[ $this->name ]['tabs'] ) ) {
 				$tab = array_keys( Astra_Customizer::$group_configs[ $this->name ]['tabs'] );
-
-				$config = array();
 
 				foreach ( $tab as $key => $value ) {
 
 					$config['tabs'][ $value ] = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ]['tabs'][ $value ], 'priority' );
 				}
 			} else {
-				$config = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ], 'priority' );
+				if ( isset( Astra_Customizer::$group_configs[ $this->name ] ) ) {
+					$config = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ], 'priority' );
+				}
 			}
 
 			$this->json['ast_fields'] = $config;
