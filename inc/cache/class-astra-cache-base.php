@@ -348,7 +348,13 @@ class Astra_Cache_Base {
 	 * @return boolean
 	 */
 	protected function inline_assets() {
-		return apply_filters( 'astra_load_dynamic_css_inline', ! astra_filesystem()->can_access_filesystem() );
+		$inline = false;
+
+		if ( ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) && astra_filesystem()->can_access_filesystem() ) {
+			$inline = true;
+		}
+
+		return apply_filters( 'astra_load_dynamic_css_inline', $inline );
 	}
 
 	/**
