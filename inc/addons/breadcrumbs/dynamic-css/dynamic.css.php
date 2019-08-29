@@ -62,7 +62,6 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		return  $dynamic_css;
 	}
 
-
 	/**
 	 * Set CSS Params
 	 */
