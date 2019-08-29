@@ -28,15 +28,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * @var array
 		 */
-		private static $db_updates = array(
-			'2.1.1' => array(
-				'theme_new_function_1',
-				'theme_new_function_2',
-				'theme_new_function_3',
-				'theme_new_function_4',
-				'theme_new_function_5',
-			),
-		);
+		private static $db_updates = array();
 
 		/**
 		 *  Constructor
