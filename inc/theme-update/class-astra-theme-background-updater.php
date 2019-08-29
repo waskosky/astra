@@ -30,12 +30,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		private static $db_updates = array(
 			'2.1.1' => array(
-				'new_function_1',
-				'new_function_2',
-				'new_function_3',
-				'new_function_4',
-				'new_function_5',
-			)
+				'theme_new_function_1',
+				'theme_new_function_2',
+				'theme_new_function_3',
+				'theme_new_function_4',
+				'theme_new_function_5',
+			),
 		);
 
 		/**
@@ -72,13 +72,13 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				self::update_db_version();
 				return;
 			}
-			
+
 			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
 
 			if ( $this->needs_db_update() && ! $is_queue_running ) {
 				$this->update();
 			} else {
-				if( ! $is_queue_running ) {
+				if ( ! $is_queue_running ) {
 					self::update_db_version();
 				}
 			}
@@ -145,11 +145,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 			}
-			
+
 			astra_update_option( 'is_theme_queue_running', true );
 
 			self::$background_updater->push_to_queue( 'update_db_version' );
-			self::$background_updater->save()->dispatch();	
+			self::$background_updater->save()->dispatch();
 		}
 
 		/**
