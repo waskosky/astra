@@ -149,7 +149,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-		public static function enqueue_theme_assets() {
+			public static function enqueue_theme_assets() {
 				return;
 			}
 
