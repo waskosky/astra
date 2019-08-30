@@ -288,7 +288,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		/**
 		 * Function to check if enqueuing of Astra assets are disabled.
 		 *
-		 * @since x.x.x
+		 * @since 2.1.0
 		 * @return boolean
 		 */
 		public static function enqueue_theme_assets() {

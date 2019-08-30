@@ -975,7 +975,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 /**
  * Return classnames for <header> element.
  *
- * @since x.x.x
+ * @since 2.1.0
  * @return Array classnames for the <header>
  */
 function astra_get_header_classes() {
@@ -1054,7 +1054,7 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 /**
  * Return classnames for <footer> element.
  *
- * @since x.x.x
+ * @since 2.1.0
  * @return Array classnames for the <footer>
  */
 function astra_get_footer_classes() {
@@ -1805,7 +1805,7 @@ add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
 /**
  * Get instance of WP_Filesystem.
  *
- * @since x.x.x
+ * @since 2.1.0
  *
  * @return WP_Filesystem
  */

@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Theme options page Slug getter including White Label string.
 		 *
-		 * @since x.x.x
+		 * @since 2.1.0
 		 * @return string Theme Options Page Slug.
 		 */
 		public static function get_theme_page_slug() {

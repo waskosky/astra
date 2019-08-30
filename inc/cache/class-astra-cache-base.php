@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 2.1.0
  */
 
 /**
@@ -24,7 +24,7 @@ class Astra_Cache_Base {
 	/**
 	 * Asset slug for filename.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var string
 	 */
 	private $asset_slug = '';
@@ -32,7 +32,7 @@ class Astra_Cache_Base {
 	/**
 	 * Check if we are on a single or archive query page.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var string
 	 */
 	private $asset_query_var = '';
@@ -40,7 +40,7 @@ class Astra_Cache_Base {
 	/**
 	 * Asset Type - archive/post
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var string
 	 */
 	private $asset_type = '';
@@ -48,7 +48,7 @@ class Astra_Cache_Base {
 	/**
 	 * Uploads directory.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var array
 	 */
 	private $uploads_dir = array();
@@ -56,7 +56,7 @@ class Astra_Cache_Base {
 	/**
 	 * Cache directory from uploads folder.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var String
 	 */
 	private $cache_dir;
@@ -64,7 +64,7 @@ class Astra_Cache_Base {
 	/**
 	 * Set priority for add_action call for action `wp_enqueue_scripts`
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var string
 	 */
 	protected $asset_priority = '';
@@ -72,7 +72,7 @@ class Astra_Cache_Base {
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String $cache_dir Base cache directory in the uploads directory.
 	 */
 	public function __construct( $cache_dir ) {
@@ -85,7 +85,7 @@ class Astra_Cache_Base {
 	/**
 	 * Setup class variables.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	public function init_cache() {
@@ -101,7 +101,7 @@ class Astra_Cache_Base {
 	/**
 	 * Get Current query type. single|archive.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return String
 	 */
 	private function asset_query_var() {
@@ -117,7 +117,7 @@ class Astra_Cache_Base {
 	/**
 	 * Get current asset slug.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return String
 	 */
 	private function asset_slug() {
@@ -131,7 +131,7 @@ class Astra_Cache_Base {
 	/**
 	 * Append queried object ID to cache if it is not `0`
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return Mixed queried object id if that is not 0; else false.
 	 */
 	private function cache_key_suffix() {
@@ -141,7 +141,7 @@ class Astra_Cache_Base {
 	/**
 	 * Get the archive title.
 	 *
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @return $title Returns the archive title.
 	 */
 	private function asset_type() {
@@ -208,7 +208,7 @@ class Astra_Cache_Base {
 	/**
 	 * Create an array of all the files that needs to be merged in dynamic CSS file.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param array $file file path.
 	 * @return void
 	 */
@@ -217,7 +217,7 @@ class Astra_Cache_Base {
 	/**
 	 * Append CSS style to the theme dynamic css.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param Array $dynamic_css_files Array of file paths to be to be added to minify cache.
 	 * @return String CSS from the CSS files passed.
 	 */
@@ -238,7 +238,7 @@ class Astra_Cache_Base {
 	/**
 	 * Refresh Assets, called through ajax
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String $cache_dir dirname of the cache.
 	 * @return void
 	 */
@@ -258,7 +258,7 @@ class Astra_Cache_Base {
 	/**
 	 * Refresh Assets
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String $cache_dir dirname of the cache.
 	 * @return void
 	 */
@@ -276,7 +276,7 @@ class Astra_Cache_Base {
 	/**
 	 * Deletes cache files
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String $cache_dir dirname of the cache.
 	 * @return void
 	 */
@@ -302,7 +302,7 @@ class Astra_Cache_Base {
 	/**
 	 * Fetch theme CSS data to be added in the dynamic CSS file.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	public function setup_cache() {}
@@ -327,7 +327,7 @@ class Astra_Cache_Base {
 	/**
 	 * Get Dynamic CSS.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	protected function get_dynamic_css() { }
@@ -336,7 +336,7 @@ class Astra_Cache_Base {
 	 * Enqueue CSS files.
 	 *
 	 * @param  string $type         Gets the type theme/addon.
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @return void
 	 */
 	public function enqueue_styles( $type ) {
@@ -352,7 +352,7 @@ class Astra_Cache_Base {
 	/**
 	 * Enqueue the assets inline.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return boolean
 	 */
 	protected function inline_assets() {
@@ -368,7 +368,7 @@ class Astra_Cache_Base {
 	/**
 	 * Returns the current Post Meta/ Option Timestamp.
 	 *
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @return array $timestamp_data.
 	 */
@@ -388,7 +388,7 @@ class Astra_Cache_Base {
 	/**
 	 * Gets the current timestamp.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return string $timestamp Timestamp.
 	 */
 	private function get_current_timestamp() {
@@ -401,7 +401,7 @@ class Astra_Cache_Base {
 	/**
 	 * Returns the current Post Meta/ Option Timestamp or creates a new timestamp.
 	 *
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @param  string $post_timestamp Timestamp of the post meta/ option.
 	 * @param  string $assets_info  Gets the assets path info.
 	 * @return array $data.
@@ -433,7 +433,7 @@ class Astra_Cache_Base {
 	 * of the current post.
 	 *
 	 * @param  string $type         Gets the type theme/addon.
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return array
 	 */
 	public function get_asset_info( $type ) {
@@ -451,7 +451,7 @@ class Astra_Cache_Base {
 	 * Updates the Post Meta/ Option Timestamp.
 	 *
 	 * @param  string $timestamp    Gets the current timestamp.
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @return void
 	 */
 	public function update_timestamp( $timestamp ) {
@@ -469,7 +469,7 @@ class Astra_Cache_Base {
 	 * @param  string $style_data   Gets the CSS for the current Page.
 	 * @param  string $timestamp    Gets the current timestamp.
 	 * @param  string $assets_info  Gets the assets path info.
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @return void
 	 */
 	public function file_write( $style_data, $timestamp, $assets_info ) {

@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,7 +28,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	/**
 	 * Cache directory.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var String
 	 */
 	private $cache_dir;
@@ -36,7 +36,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String $cache_dir Base cache directory in the uploads directory.
 	 */
 	public function __construct( $cache_dir ) {
@@ -58,7 +58,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	/**
 	 * Create an array of all the files that needs to be merged in dynamic CSS file.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param array $file file path.
 	 * @return void
 	 */
@@ -69,7 +69,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	/**
 	 * Get dynamic CSS
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return String Dynamic CSS
 	 */
 	protected function get_dynamic_css() {
@@ -82,7 +82,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	/**
 	 * Fetch theme CSS data to be added in the dynamic CSS file.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	public function setup_cache() {
@@ -109,7 +109,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	/**
 	 * Refresh Assets.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	public function astra_refresh_assets() {
@@ -119,7 +119,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	/**
 	 * Refresh Assets, called through ajax
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	public function addon_refresh_assets() {

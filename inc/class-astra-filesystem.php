@@ -13,7 +13,7 @@ class Astra_Filesystem {
 	/**
 	 * Store instance of Astra_Filesystem
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @var Astra_Filesystem
 	 */
 	protected static $_instance = null;
@@ -21,7 +21,7 @@ class Astra_Filesystem {
 	/**
 	 * Get instance of Astra_Filesystem
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return Astra_Filesystem
 	 */
 	public static function instance() {
@@ -35,7 +35,7 @@ class Astra_Filesystem {
 	/**
 	 * Get WP_Filesystem instance.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return WP_Filesystem
 	 */
 	public function get_filesystem() {
@@ -64,7 +64,7 @@ class Astra_Filesystem {
 	/**
 	 * Checks to see if the site has SSL enabled or not.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return bool
 	 */
 	public function is_ssl() {
@@ -82,7 +82,7 @@ class Astra_Filesystem {
 	/**
 	 * Create uploads directory if it does not exist.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String $dir directory path to be created.
 	 * @return boolean True of the directory is created. False if directory is not created.
 	 */
@@ -108,7 +108,7 @@ class Astra_Filesystem {
 	/**
 	 * Update Filesystem status.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param boolean $status status for filesystem access.
 	 * @return void
 	 */
@@ -119,7 +119,7 @@ class Astra_Filesystem {
 	/**
 	 * Check if filesystem has write access.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return boolean True if filesystem has access, false if does not have access.
 	 */
 	public function can_access_filesystem() {
@@ -129,7 +129,7 @@ class Astra_Filesystem {
 	/**
 	 * Reset filesystem access status.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @return void
 	 */
 	public function reset_filesystem_access_status() {
@@ -140,7 +140,7 @@ class Astra_Filesystem {
 	 * Returns an array of paths for the upload directory
 	 * of the current site.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String $assets_dir directory name to be created in the WordPress uploads directory.
 	 * @return array
 	 */
@@ -164,7 +164,7 @@ class Astra_Filesystem {
 	/**
 	 * Delete file from the filesystem.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.0
 	 * @param String  $file Path to the file or directory.
 	 * @param boolean $recursive If set to true, changes file group recursively.
 	 * @param boolean $type Type of resource. 'f' for file, 'd' for directory.
@@ -179,7 +179,7 @@ class Astra_Filesystem {
 	 *
 	 * @param  string $file_path  Gets the assets path info.
 	 * @param  string $style_data   Gets the CSS data.
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @return bool $put_content returns false if file write is not successful.
 	 */
 	public function put_contents( $file_path, $style_data ) {
@@ -190,7 +190,7 @@ class Astra_Filesystem {
 	 * Get contents of the file.
 	 *
 	 * @param  string $file_path  Gets the assets path info.
-	 * @since  x.x.x
+	 * @since  2.1.0
 	 * @return bool $get_contents Gets te file contents.
 	 */
 	public function get_contents( $file_path ) {
