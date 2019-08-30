@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		public function __construct() {
 
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
-			add_action( 'astra_dynamic_theme_css', array( $this, 'add_dynamic_styles' ) );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'add_dynamic_styles' ) );
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
@@ -60,10 +60,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		/**
 		 * Enqueue styles
 		 *
-		 * @param  string $dynamic_css          Astra Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @param  String $dynamic_css          Astra Dynamic CSS.
+		 * @param  String $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @since 1.3.0
-		 * @return void
+		 * @return String Dynamic CSS.
 		 */
 		function add_dynamic_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			}
 
 			if ( 'ld30' === $active_ld_theme ) {
-				return;
+				return $dynamic_css;
 			}
 
 			/**
