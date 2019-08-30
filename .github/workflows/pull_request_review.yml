@@ -11,4 +11,4 @@ jobs:
       env:
         APPROVALS: "2"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        LABEL_NAME: approved
+        LABEL_NAME: ready to merge
