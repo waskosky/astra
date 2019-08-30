@@ -295,7 +295,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener('resize', function () {
 		// Skip resize event when keyboard display event triggers on devices. 
-		if( 'INPUT' != document.activeElement.tagName ) {
+		if( 'INPUT' !== document.activeElement.tagName ) {
 			updateHeaderBreakPoint();
 			AstraToggleSetup();
 		}
