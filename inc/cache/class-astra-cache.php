@@ -61,7 +61,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	 * @return void
 	 */
 	public static function add_css_file( $file ) {
-		self::$dynamic_css_files = array_merge( self::$dynamic_css_files, $file );
+		self::$dynamic_css_files[] = $file;
 	}
 
 	/**
