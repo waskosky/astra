@@ -27,11 +27,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Return CSS Output
 		 *
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return string Generated CSS.
 		 */
-		public static function return_output() {
-
-			$dynamic_css = '';
+		public static function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 *
@@ -1030,26 +1030,27 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'920'
 			);
 
-			$dynamic_css = $parse_css;
-			$custom_css  = astra_get_option( 'custom-css' );
+			$parse_css .= $dynamic_css;
+			$custom_css = astra_get_option( 'custom-css' );
 
 			if ( '' != $custom_css ) {
-				$dynamic_css .= $custom_css;
+				$parse_css .= $custom_css;
 			}
 
 			// trim white space for faster page loading.
-			$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
+			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
+			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
-			return apply_filters( 'astra_theme_dynamic_css', $dynamic_css );
 		}
 
 		/**
 		 * Return post meta CSS
 		 *
-		 * @param  boolean $return_css Return the CSS.
-		 * @return mixed              Return on print the CSS.
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @return mixed              Return the CSS.
 		 */
-		public static function return_meta_output( $return_css = false ) {
+		public static function return_meta_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 * - Page Layout
@@ -1172,12 +1173,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			endif;
 
-			$dynamic_css = $parse_css;
-			if ( false != $return_css ) {
-				return $dynamic_css;
-			}
+			$dynamic_css .= $parse_css;
 
-			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+			return  $dynamic_css;
 		}
 
 		/**
