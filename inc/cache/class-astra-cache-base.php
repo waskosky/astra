@@ -62,6 +62,14 @@ class Astra_Cache_Base {
 	private $cache_dir;
 
 	/**
+	 * Set priority for add_action call for action `wp_enqueue_scripts`
+	 *
+	 * @since x.x.x
+	 * @var string
+	 */
+	protected $asset_priority = '';
+
+	/**
 	 * Constructor
 	 *
 	 * @since x.x.x
@@ -71,7 +79,7 @@ class Astra_Cache_Base {
 		$this->cache_dir = $cache_dir;
 
 		add_action( 'wp', array( $this, 'init_cache' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'setup_cache' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'setup_cache' ), $this->asset_priority );
 	}
 
 	/**
