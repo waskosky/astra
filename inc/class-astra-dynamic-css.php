@@ -27,11 +27,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Return CSS Output
 		 *
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return string Generated CSS.
 		 */
-		public static function return_output() {
-
-			$dynamic_css = '';
+		public static function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 *
@@ -73,15 +73,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$link_hover_color = astra_get_option( 'link-h-color' );
 
 			// Typography.
-			$body_font_size                  = astra_get_option( 'font-size-body' );
-			$body_line_height                = astra_get_option( 'body-line-height' );
-			$para_margin_bottom              = astra_get_option( 'para-margin-bottom' );
-			$body_text_transform             = astra_get_option( 'body-text-transform' );
-			$headings_font_family            = astra_get_option( 'headings-font-family' );
-			$headings_font_weight            = astra_get_option( 'headings-font-weight' );
-			$headings_text_transform         = astra_get_option( 'headings-text-transform' );
-			$site_title_font_size            = astra_get_option( 'font-size-site-title' );
-			$site_tagline_font_size          = astra_get_option( 'font-size-site-tagline' );
+			$body_font_size          = astra_get_option( 'font-size-body' );
+			$body_line_height        = astra_get_option( 'body-line-height' );
+			$para_margin_bottom      = astra_get_option( 'para-margin-bottom' );
+			$body_text_transform     = astra_get_option( 'body-text-transform' );
+			$headings_font_family    = astra_get_option( 'headings-font-family' );
+			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
+			$headings_text_transform = astra_get_option( 'headings-text-transform' );
+			$site_title_font_size    = astra_get_option( 'font-size-site-title' );
+			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
+
 			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
 			$archive_summary_title_font_size = astra_get_option( 'font-size-archive-summary-title' );
 			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
@@ -224,7 +225,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'text-transform' => esc_attr( $body_text_transform ),
 				),
 				'blockquote'                              => array(
-					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
+					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
 				'p, .entry-content p'                     => array(
 					'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
@@ -452,7 +453,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Blockquote Text Color.
-				'blockquote, blockquote a'                => array(
+				'blockquote'                              => array(
 					'color' => astra_adjust_brightness( $text_color, 75, 'darken' ),
 				),
 
@@ -922,6 +923,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
 					$astra_fonts     .= 'font-weight: normal;';
 					$astra_fonts     .= 'font-style: normal;';
+					$astra_fonts     .= 'font-display: ' . astra_get_fonts_display_property() . ';';
 				$astra_fonts         .= '}';
 				$parse_css           .= $astra_fonts;
 			}
@@ -988,7 +990,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Submenu items goes outside?
 			$submenu_border_for_left_align_menu = array(
 				'.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul' => array(
-					'margin-left' => ( ( isset( $submenu_border['left'] ) && '' != $submenu_border['left'] ) || isset( $submenu_border['right'] ) && '' != $submenu_border['right'] ) ? astra_get_css_value( '-' . ( $submenu_border['left'] + $submenu_border['right'] ), 'px' ) : '',
+					'margin-left' => ( ( isset( $submenu_border['left'] ) && '' != $submenu_border['left'] ) || isset( $submenu_border['right'] ) && '' != $submenu_border['right'] ) ? astra_get_css_value( '-' . ( (int) $submenu_border['left'] + (int) $submenu_border['right'] ), 'px' ) : '',
 				),
 			);
 
@@ -1028,26 +1030,27 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'920'
 			);
 
-			$dynamic_css = $parse_css;
-			$custom_css  = astra_get_option( 'custom-css' );
+			$parse_css .= $dynamic_css;
+			$custom_css = astra_get_option( 'custom-css' );
 
 			if ( '' != $custom_css ) {
-				$dynamic_css .= $custom_css;
+				$parse_css .= $custom_css;
 			}
 
 			// trim white space for faster page loading.
-			$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
+			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
+			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
-			return $dynamic_css;
 		}
 
 		/**
 		 * Return post meta CSS
 		 *
-		 * @param  boolean $return_css Return the CSS.
-		 * @return mixed              Return on print the CSS.
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @return mixed              Return the CSS.
 		 */
-		public static function return_meta_output( $return_css = false ) {
+		public static function return_meta_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 * - Page Layout
@@ -1124,6 +1127,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
 				// @see https://github.com/brainstormforce/astra/pull/828
 				$submenu_below_header = array(
+					'.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'display' => 'block',
+					),
 					'.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
 						'-js-display'             => 'flex',
 						'display'                 => '-webkit-box',
@@ -1158,18 +1164,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'display'             => '-ms-flexbox',
 						'display'             => 'flex',
 					),
+					'.ast-primary-menu-disabled .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'flex' => 'unset',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $submenu_below_header );
 
 			endif;
 
-			$dynamic_css = $parse_css;
-			if ( false != $return_css ) {
-				return $dynamic_css;
-			}
+			$dynamic_css .= $parse_css;
 
-			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+			return  $dynamic_css;
 		}
 
 		/**

@@ -41,6 +41,8 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$defaults = Astra_Theme_Options::defaults();
+
 			$_configs = array(
 
 				/**
@@ -75,14 +77,30 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 * Option: Disable Transparent Header on Archive Pages
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-index]',
-					'default'  => astra_get_option( 'transparent-header-disable-index' ),
-					'type'     => 'control',
-					'section'  => 'section-transparent-header',
-					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'    => __( 'Disable on Blog Index page?', 'astra' ),
-					'priority' => 25,
-					'control'  => 'checkbox',
+					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-index]',
+					'default'     => astra_get_option( 'transparent-header-disable-index' ),
+					'type'        => 'control',
+					'section'     => 'section-transparent-header',
+					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'title'       => __( 'Disable on Blog page?', 'astra' ),
+					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'astra' ),
+					'priority'    => 25,
+					'control'     => 'checkbox',
+				),
+
+				/**
+				 * Option: Disable Transparent Header on Your latest posts index Page
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-latest-posts-index]',
+					'default'     => astra_get_option( 'transparent-header-disable-latest-posts-index' ),
+					'type'        => 'control',
+					'section'     => 'section-transparent-header',
+					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'title'       => __( 'Disable on Latest Posts Page?', 'astra' ),
+					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
+					'priority'    => 25,
+					'control'     => 'checkbox',
 				),
 
 				/**
@@ -188,7 +206,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => false,
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Different Logo for retina devices?', 'astra' ),
+					'title'    => __( 'Different Logo For Retina Devices?', 'astra' ),
 					'required' => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 					'priority' => 30,
 					'control'  => 'checkbox',
@@ -230,6 +248,18 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Transparent Header Border Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-border-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 30,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Bottom Border Size
 				 */
 				array(
@@ -237,7 +267,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'     => astra_get_option( 'transparent-header-main-sep' ),
 					'type'        => 'control',
 					'transport'   => 'postMessage',
-					'control'     => 'number',
+					'control'     => 'ast-slider',
 					'section'     => 'section-transparent-header',
 					'priority'    => 30,
 					'title'       => __( 'Bottom Border Size', 'astra' ),
@@ -260,6 +290,74 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'section'   => 'section-transparent-header',
 					'priority'  => 30,
 					'title'     => __( 'Bottom Border Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Transparent Header Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-sec-transparent-styling]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-transparent-header',
+					'title'    => __( 'Colors & Background', 'astra' ),
+					'priority' => 35,
+					'settings' => array(),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-background-colors]',
+					'default'   => astra_get_option( 'transparent-header-background-colors' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Background', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
+					'default'   => astra_get_option( 'transparent-header-colors' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Site Title', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
+					'default'   => astra_get_option( 'transparent-header-colors-menu' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Menu', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-submenu]',
+					'default'   => astra_get_option( 'transparent-header-colors-submenu' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Submenu', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
+					'default'   => astra_get_option( 'transparent-header-colors-content' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Content', 'astra' ),
+					'section'   => 'section-transparent-header',
+					'transport' => 'postMessage',
+					'priority'  => 35,
 				),
 			);
 

@@ -126,10 +126,6 @@
 		}
 	}
 
-	.ui-sortable {
-		overflow-y: auto !important;
-	}
-
 }
 
 #learndash_course_certificate {
@@ -1110,3 +1106,8 @@ body {
 		}
 	}
  }
+
+// LearnDash Quiz dragable elements not working scrolling the page on mobile devices.
+body.single-sfwd-quiz {
+	overflow-x: unset;
+}

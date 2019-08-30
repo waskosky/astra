@@ -6,6 +6,10 @@
  * @since 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 
 	/**
@@ -52,20 +56,21 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 		function theme_defaults( $defaults ) {
 
 			// Header - Transparent.
-			$defaults['transparent-header-logo']            = '';
-			$defaults['transparent-header-retina-logo']     = '';
-			$defaults['different-transparent-logo']         = 0;
-			$defaults['different-transparent-retina-logo']  = 0;
-			$defaults['transparent-header-logo-width']      = array(
+			$defaults['transparent-header-logo']                       = '';
+			$defaults['transparent-header-retina-logo']                = '';
+			$defaults['different-transparent-logo']                    = 0;
+			$defaults['different-transparent-retina-logo']             = 0;
+			$defaults['transparent-header-logo-width']                 = array(
 				'desktop' => '',
 				'tablet'  => '',
 				'mobile'  => '',
 			);
-			$defaults['transparent-header-enable']          = 0;
-			$defaults['transparent-header-disable-archive'] = 1;
-			$defaults['transparent-header-on-devices']      = 'both';
-			$defaults['transparent-header-main-sep']        = 0;
-			$defaults['transparent-header-main-sep-color']  = '';
+			$defaults['transparent-header-enable']                     = 0;
+			$defaults['transparent-header-disable-archive']            = 1;
+			$defaults['transparent-header-disable-latest-posts-index'] = 1;
+			$defaults['transparent-header-on-devices']                 = 'both';
+			$defaults['transparent-header-main-sep']                   = 0;
+			$defaults['transparent-header-main-sep-color']             = '';
 
 			/**
 			* Transparent Header
@@ -181,7 +186,13 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 		 * Customizer Preview
 		 */
 		function preview_scripts() {
-			wp_enqueue_script( 'astra-transparent-header-customizer-preview-js', ASTRA_THEME_TRANSPARENT_HEADER_URI . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+			/**
+			 * Load unminified if SCRIPT_DEBUG is true.
+			 */
+			/* Directory and Extension */
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			wp_enqueue_script( 'astra-transparent-header-customizer-preview-js', ASTRA_THEME_TRANSPARENT_HEADER_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 		}
 	}
 }

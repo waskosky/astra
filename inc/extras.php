@@ -11,6 +11,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_action( 'wp_head', 'astra_pingback_header' );
 
 /**
@@ -71,6 +75,10 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-header-break-point';
 		} else {
 			$classes[] = 'ast-desktop';
+		}
+
+		if ( astra_is_amp_endpoint() ) {
+			$classes[] = 'ast-amp';
 		}
 
 		// Apply separate container class to the body.
@@ -241,9 +249,15 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$site_tagline_markup = apply_filters(
 				'astra_site_description_markup',
 				sprintf(
-					'<p class="site-description" itemprop="description">
-					%1$s
-				</p>',
+					'<%1$s class="site-description" itemprop="description">
+					%2$s
+				</%1$s>',
+					/**
+					* Filters the tags for site tagline.
+					*
+					* @since 1.8.5
+					*/
+					apply_filters( 'astra_site_tagline_tag', 'p' ),
 					/**
 					* Filters the site description.
 					*
@@ -340,9 +354,9 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	function astra_get_search( $option = '' ) {
 		ob_start();
 		?>
-		<div class="ast-search-menu-icon slide-search" id="ast-search-form">
+		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); ?>id="ast-search-form" role="search" tabindex="-1">
 			<div class="ast-search-icon">
-				<a class="slide-search astra-search-icon" href="#">
+				<a class="slide-search astra-search-icon" aria-label="Search icon link" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
 				</a>
 			</div>
@@ -445,7 +459,7 @@ if ( ! function_exists( 'astra_get_custom_widget' ) ) {
 			$widget_id = 'footer-widget-2';
 		}
 
-		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area">';
+		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area"' . apply_filters( 'astra_sidebar_data_attrs', '', $widget_id ) . '>';
 				astra_get_sidebar( $widget_id );
 		echo '</div>';
 
@@ -573,9 +587,28 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	 * @since 1.0.0
 	 */
 	function astra_header_markup() {
+
+		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
+		<header
+
+			<?php
+
+				echo astra_attr(
+					'header',
+					array(
+						'itemtype'  => 'https://schema.org/WPHeader',
+						'itemscope' => 'itemscope',
+						'id'        => 'masthead',
+						'class'     => join( ' ', astra_get_header_classes() ),
+						'role'      => 'banner',
+					)
+				);
+
+			?>
+
+		>
 
 			<?php astra_masthead_top(); ?>
 
@@ -584,7 +617,10 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 			<?php astra_masthead_bottom(); ?>
 
 		</header><!-- #masthead -->
+
 		<?php
+		do_action( 'astra_header_markup_after' );
+
 	}
 }
 
@@ -629,8 +665,10 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 	function astra_toggle_buttons_markup() {
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
+		$hide_custom_menu_mobile    = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_bottons               = true;
-		if ( $disable_primary_navigation && 'none' == $custom_header_section ) {
+
+		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && true == $hide_custom_menu_mobile ) ) {
 			$menu_bottons = false;
 		}
 		if ( apply_filters( 'astra_enable_mobile_menu_buttons', $menu_bottons ) ) {
@@ -728,7 +766,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'walker'         => new Astra_Walker_Page(),
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -747,15 +785,17 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			if ( has_nav_menu( 'primary' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
-				echo '<div class="ast-main-header-bar-alignment">';
+				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
 					wp_nav_menu( $primary_menu_args );
 				echo '</div>';
 			} else {
 
-				echo '<div class="main-header-bar-navigation">';
-					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
-						wp_page_menu( $fallback_menu_args );
-					echo '</nav>';
+				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
+					echo '<div class="main-header-bar-navigation">';
+						echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+							wp_page_menu( $fallback_menu_args );
+						echo '</nav>';
+					echo '</div>';
 				echo '</div>';
 			}
 		}
@@ -819,7 +859,24 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
+		<footer
+
+				<?php
+
+				echo astra_attr(
+					'footer',
+					array(
+						'itemtype'  => 'https://schema.org/WPFooter',
+						'itemscope' => 'itemscope',
+						'id'        => 'colophon',
+						'class'     => join( ' ', astra_get_footer_classes() ),
+						'role'      => 'contentinfo',
+					)
+				);
+
+				?>
+
+		>
 
 			<?php astra_footer_content_top(); ?>
 
@@ -911,7 +968,17 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 	 * @since 1.0.0
 	 */
 	function astra_header_classes() {
+		echo 'class="' . esc_attr( join( ' ', astra_get_header_classes() ) ) . '"';
+	}
+}
 
+/**
+ * Return classnames for <header> element.
+ *
+ * @since x.x.x
+ * @return Array classnames for the <header>
+ */
+function astra_get_header_classes() {
 		$classes                       = array( 'site-header' );
 		$menu_logo_location            = astra_get_option( 'header-layouts' );
 		$mobile_header_alignment       = astra_get_option( 'header-main-menu-align' );
@@ -925,49 +992,48 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
 		$submenu_container_animation   = astra_get_option( 'header-main-submenu-container-animation' );
 
-		if ( '' !== $submenu_container_animation ) {
-			$classes[] = 'ast-primary-submenu-animation-' . $submenu_container_animation;
+	if ( '' !== $submenu_container_animation ) {
+		$classes[] = 'ast-primary-submenu-animation-' . $submenu_container_animation;
+	}
+
+	if ( $menu_logo_location ) {
+		$classes[] = $menu_logo_location;
+	}
+
+	if ( $primary_menu_disable ) {
+
+		$classes[] = 'ast-primary-menu-disabled';
+
+		if ( 'none' == $primary_menu_custom_item ) {
+			$classes[] = 'ast-no-menu-items';
 		}
-
-		if ( $menu_logo_location ) {
-			$classes[] = $menu_logo_location;
-		}
-
-		if ( $primary_menu_disable ) {
-
-			$classes[] = 'ast-primary-menu-disabled';
-
-			if ( 'none' == $primary_menu_custom_item ) {
-				$classes[] = 'ast-no-menu-items';
-			}
-		} else {
-			$classes[] = 'ast-primary-menu-enabled';
-		}
+	} else {
+		$classes[] = 'ast-primary-menu-enabled';
+	}
 
 		// Add class if Mobile Header Logo is set.
-		if ( '' !== $mobile_header_logo && '1' == $different_mobile_header_order ) {
-			$classes[] = 'ast-has-mobile-header-logo';
-		}
+	if ( '' !== $mobile_header_logo && '1' == $different_mobile_header_order ) {
+		$classes[] = 'ast-has-mobile-header-logo';
+	}
 
 		// Add class if Inline Logo & Site Title.
-		if ( $logo_title_inline ) {
-			$classes[] = 'ast-logo-title-inline';
-		}
-
-		if ( '1' == $hide_custom_menu_mobile ) {
-			$classes[] = 'ast-hide-custom-menu-mobile';
-		}
-
-		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
-
-		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
-
-		$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
-
-		$classes = array_map( 'sanitize_html_class', $classes );
-
-		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
+	if ( $logo_title_inline ) {
+		$classes[] = 'ast-logo-title-inline';
 	}
+
+	if ( '1' == $hide_custom_menu_mobile ) {
+		$classes[] = 'ast-hide-custom-menu-mobile';
+	}
+
+	$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
+
+	$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
+
+	$classes = array_unique( apply_filters( 'astra_header_class', $classes ) );
+
+	$classes = array_map( 'sanitize_html_class', $classes );
+
+	return apply_filters( 'astra_get_header_classes', $classes );
 }
 
 /**
@@ -981,13 +1047,21 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 	 * @since 1.0.0
 	 */
 	function astra_footer_classes() {
-
-		$classes = array_unique( apply_filters( 'astra_footer_class', array( 'site-footer' ) ) );
-
-		$classes = array_map( 'sanitize_html_class', $classes );
-
-		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', astra_get_footer_classes() ) ) . '"';
 	}
+}
+
+/**
+ * Return classnames for <footer> element.
+ *
+ * @since x.x.x
+ * @return Array classnames for the <footer>
+ */
+function astra_get_footer_classes() {
+	$classes = array_unique( apply_filters( 'astra_footer_class', array( 'site-footer' ) ) );
+	$classes = array_map( 'sanitize_html_class', $classes );
+
+	return apply_filters( 'astra_get_footer_classes', $classes );
 }
 
 /**
@@ -998,28 +1072,29 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	/**
 	 * Function to Add Header Breakpoint Style
 	 *
+	 * @param  string $dynamic_css          Astra Dynamic CSS.
+	 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 	 * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
-	function astra_header_breakpoint_style() {
+	function astra_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();
-		$dynamic_css        = '';
 
 		$astra_header_width = astra_get_option( 'header-main-layout-width' );
 
 		/* Width for Header */
 		if ( 'content' != $astra_header_width ) {
 			$genral_global_responsive = array(
-				'#masthead .ast-container' => array(
+				'#masthead .ast-container, .ast-header-breadcrumb .ast-container' => array(
 					'max-width'     => '100%',
 					'padding-left'  => '35px',
 					'padding-right' => '35px',
 				),
 			);
 			$padding_below_breakpoint = array(
-				'#masthead .ast-container' => array(
+				'#masthead .ast-container, .ast-header-breadcrumb .ast-container' => array(
 					'padding-left'  => '20px',
 					'padding-right' => '20px',
 				),
@@ -1031,12 +1106,12 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 			// trim white space for faster page loading.
 			$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+			return $dynamic_css;
 		}
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'astra_header_breakpoint_style' );
+add_filter( 'astra_dynamic_theme_css', 'astra_header_breakpoint_style' );
 
 /**
  * Function to filter comment form's default fields
@@ -1296,13 +1371,16 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	 */
 	function astra_entry_header_class() {
 
-		$post_id          = astra_get_post_id();
-		$classes          = array();
-		$title_markup     = astra_the_title( '', '', $post_id, false );
-		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
-		$post_meta_markup = astra_single_get_post_meta( '', '', false );
+		$post_id                    = astra_get_post_id();
+		$classes                    = array();
+		$title_markup               = astra_the_title( '', '', $post_id, false );
+		$thumb_markup               = astra_get_post_thumbnail( '', '', false );
+		$post_meta_markup           = astra_single_get_post_meta( '', '', false );
+		$blog_single_post_structure = astra_get_option( 'blog-single-post-structure' );
 
-		if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
+		if ( ! $blog_single_post_structure || ( 'single-image' === astra_get_prop( $blog_single_post_structure, 0 ) && empty( $thumb_markup ) && 'single-title-meta' !== astra_get_prop( $blog_single_post_structure, 1 ) ) ) {
+			$classes[] = 'ast-header-without-markup';
+		} elseif ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
 
@@ -1420,9 +1498,11 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 
 		$is_ie = false;
 
-		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-		if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
-			$is_ie = true;
+		if ( ! empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
+			if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
+				$is_ie = true;
+			}
 		}
 
 		return apply_filters( 'astra_check_is_ie', $is_ie );
@@ -1480,11 +1560,11 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	 */
 	function astra_replace_header_attr( $attr, $attachment, $size ) {
 
-		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		$custom_logo_id     = get_theme_mod( 'custom_logo' );
+		$is_logo_attachment = ( $custom_logo_id == $attachment->ID ) ? true : false;
 
-		if ( $custom_logo_id == $attachment->ID ) {
+		if ( apply_filters( 'astra_is_logo_attachment', $is_logo_attachment, $attachment ) ) {
 
-			$attach_data = array();
 			if ( ! is_customize_preview() ) {
 				$attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
 
@@ -1497,10 +1577,14 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 			$file_extension = $file_type['ext'];
 
 			if ( 'svg' == $file_extension ) {
-				$attr['width']  = '100%';
-				$attr['height'] = '100%';
-				$attr['class']  = 'astra-logo-svg';
+				$attr['width']    = '100%';
+				$attr['height']   = '100%';
+				$existing_classes = isset( $attr['class'] ) ? $attr['class'] : '';
+				$attr['class']    = $existing_classes . ' astra-logo-svg';
 			}
+		}
+
+		if ( apply_filters( 'astra_is_retina_logo_attachment', $is_logo_attachment, $attachment ) ) {
 
 			$diff_retina_logo = astra_get_option( 'different-retina-logo' );
 
@@ -1520,7 +1604,6 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 					}
 
 					$attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
-
 				}
 			}
 		}
@@ -1690,8 +1773,42 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
  *
  * @return int affiliate id.
  */
-function ast_filter_ninja_forms_affiliate_id() {
+function astra_filter_ninja_forms_affiliate_id() {
 	return 1115254;
 };
 
-add_filter( 'ninja_forms_affiliate_id', 'ast_filter_ninja_forms_affiliate_id' );
+add_filter( 'ninja_forms_affiliate_id', 'astra_filter_ninja_forms_affiliate_id' );
+
+/**
+ * Change upgrade link for wpforms.
+ *
+ * @return String updated upgrade link.
+ */
+function astra_wpforms_upgrade_link() {
+	return 'https://shareasale.com/r.cfm?b=834775&u=1115254&m=64312&urllink=&afftrack=';
+}
+
+add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
+
+/**
+ * Added referal ID to social snap upgrade link.
+ *
+ * @param string $link social snap upgrade link.
+ * @return String social snap upgrade link
+ */
+function astra_filter_socialsnap_upgrade_link( $link ) {
+	return 'https://socialsnap.com/?ref=352';
+}
+
+add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
+
+/**
+ * Get instance of WP_Filesystem.
+ *
+ * @since x.x.x
+ *
+ * @return WP_Filesystem
+ */
+function astra_filesystem() {
+	return Astra_Filesystem::instance();
+}
