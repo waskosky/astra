@@ -97,7 +97,7 @@ class Astra_Cache extends Astra_Cache_Base {
 			$this->write_assets( $theme_css_data, 'theme' );
 		}
 
-		if ( Astra_Cache::astra_enqueue_theme_assets() ) {
+		if ( Astra_Enqueue_Scripts::astra_enqueue_theme_assets() ) {
 			// Call enqueue styles function.
 			$this->enqueue_styles( 'theme' );
 		}
