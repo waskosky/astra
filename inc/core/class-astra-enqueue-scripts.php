@@ -291,7 +291,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * @since x.x.x
 		 * @return boolean
 		 */
-		public static function astra_enqueue_theme_assets() {
+		public static function enqueue_theme_assets() {
 			return apply_filters( 'astra_enqueue_theme_assets', true );
 		}
 
