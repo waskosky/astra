@@ -56,3 +56,9 @@
 .entry-summary > :last-child {
     margin-bottom: 0;
 }
+
+.page-content > .read-more,
+.entry-content > .read-more,
+.entry-summary > .read-more {
+    margin-bottom: 6px;
+}

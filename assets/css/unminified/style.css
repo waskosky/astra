@@ -3553,6 +3553,12 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-bottom: 0;
 }
 
+.page-content > .read-more,
+.entry-content > .read-more,
+.entry-summary > .read-more {
+  margin-bottom: 6px;
+}
+
 .comment-content a {
   word-wrap: break-word;
 }
