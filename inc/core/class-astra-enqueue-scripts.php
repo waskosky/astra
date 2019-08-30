@@ -149,9 +149,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
-
-			if ( ! $astra_enqueue ) {
+			if ( ! Astra_Cache::astra_enqueue_theme_assets() ) {
 				return;
 			}
 

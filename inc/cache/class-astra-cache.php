@@ -97,8 +97,11 @@ class Astra_Cache extends Astra_Cache_Base {
 			$this->write_assets( $theme_css_data, 'theme' );
 		}
 
-		// Call enqueue styles function.
-		$this->enqueue_styles( 'theme' );
+		if ( Astra_Cache::astra_enqueue_theme_assets() ) {
+			// Call enqueue styles function.
+			$this->enqueue_styles( 'theme' );
+		}
+
 	}
 
 	/**
@@ -119,6 +122,16 @@ class Astra_Cache extends Astra_Cache_Base {
 	 */
 	public function addon_refresh_assets() {
 		parent::ajax_refresh_assets( $this->cache_dir );
+	}
+
+	/**
+	 * Function to check if enqueuing of Astra assets are disabled.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public static function astra_enqueue_theme_assets() {
+		return apply_filters( 'astra_enqueue_theme_assets', true );
 	}
 
 }
