@@ -42,6 +42,8 @@ class Astra_Cache extends Astra_Cache_Base {
 	public function __construct( $cache_dir ) {
 		$this->cache_dir = $cache_dir;
 
+		$this->asset_priority = 2;
+
 		parent::__construct( $cache_dir );
 
 		// Triggers on click on refresh/ recheck button.
