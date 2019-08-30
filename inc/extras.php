@@ -1106,8 +1106,9 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 			// trim white space for faster page loading.
 			$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-			return $dynamic_css;
 		}
+
+		return $dynamic_css;
 	}
 }
 

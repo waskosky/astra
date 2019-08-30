@@ -14,14 +14,14 @@ add_filter( 'astra_dynamic_theme_css', 'astra_ext_transparent_header_dynamic_css
 /**
  * Dynamic CSS
  *
- * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return void
+ * @param  String $dynamic_css          Astra Dynamic CSS.
+ * @param  String $dynamic_css_filtered Astra Dynamic CSS Filters.
+ * @return String Dynamic CSS.
  */
 function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	if ( true !== Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
-		return;
+		return $dynamic_css;
 	}
 
 	/**
