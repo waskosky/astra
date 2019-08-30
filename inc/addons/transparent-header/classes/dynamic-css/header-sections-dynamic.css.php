@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Transparent Above Header
  */
-add_filter( 'astra_dynamic_css', 'astra_ext_transparent_above_header_sections_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_ext_transparent_above_header_sections_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -23,9 +23,13 @@ add_filter( 'astra_dynamic_css', 'astra_ext_transparent_above_header_sections_dy
  */
 function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$above_header_layout = astra_get_option( 'above-header-layout' );
+	$above_header_layout = astra_get_option( 'above-header-layout', 'disabled' );
 
-	if ( 'disabled' == $above_header_layout && false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+	if ( 'disabled' === $above_header_layout ) {
+		return $dynamic_css;
+	}
+
+	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		return $dynamic_css;
 	}
 
@@ -269,7 +273,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 /**
  * Transparent Below Header
  */
-add_filter( 'astra_dynamic_css', 'astra_ext_transparent_below_header_sections_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_ext_transparent_below_header_sections_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -281,9 +285,13 @@ add_filter( 'astra_dynamic_css', 'astra_ext_transparent_below_header_sections_dy
 function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	// set page width depending on site layout.
-	$below_header_layout = astra_get_option( 'below-header-layout' );
+	$below_header_layout = astra_get_option( 'below-header-layout', 'disabled' );
 
-	if ( 'disabled' == $below_header_layout && false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+	if ( 'disabled' === $below_header_layout ) {
+		return $dynamic_css;
+	}
+
+	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		return $dynamic_css;
 	}
 
