@@ -285,6 +285,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
 		}
 
+		/**
+		 * Function to check if enqueuing of Astra assets are disabled.
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		public static function astra_enqueue_theme_assets() {
+			return apply_filters( 'astra_enqueue_theme_assets', true );
+		}
+
 	}
 
 	new Astra_Enqueue_Scripts();

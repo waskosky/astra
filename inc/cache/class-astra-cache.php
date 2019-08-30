@@ -124,16 +124,6 @@ class Astra_Cache extends Astra_Cache_Base {
 		parent::ajax_refresh_assets( $this->cache_dir );
 	}
 
-	/**
-	 * Function to check if enqueuing of Astra assets are disabled.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public static function astra_enqueue_theme_assets() {
-		return apply_filters( 'astra_enqueue_theme_assets', true );
-	}
-
 }
 
 new Astra_Cache( 'astra' );
