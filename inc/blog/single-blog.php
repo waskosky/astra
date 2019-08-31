@@ -144,7 +144,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 
 					<article id="comment-<?php comment_ID(); ?>" class="ast-comment">
 						<div class='ast-comment-avatar-wrap'>
-							<?php echo get_avatar( $comment, apply_filters( 'astra_comment_avatar_size', 72 ) ); ?>
+							<?php echo get_avatar( $comment, apply_filters( 'astra_comment_avatar_size', 60 ) ); ?>
 						</div><!-- Remove 1px Space -->
 
 						<div class="ast-comment-data-wrap">
