@@ -5059,6 +5059,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-reply-link {
+  font-size: 13.5px;
+  font-weight: normal;
   position: absolute;
   top: 0;
   right: 0;
@@ -5071,6 +5073,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-edit-link {
+  font-size: 13.5px;
+  font-weight: normal;
   position: absolute;
   top: 0;
   right: 65px;
@@ -5113,7 +5117,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-cite-wrap {
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.25em;
   margin-bottom: 4px;
   text-transform: capitalize;
 }
@@ -5143,7 +5147,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-time .timendate {
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-right: 0.5em;
 }
 

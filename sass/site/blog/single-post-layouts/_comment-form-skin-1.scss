@@ -73,6 +73,8 @@
 }
 
 .ast-reply-link {
+    font-size: 13.5px;
+    font-weight: normal;
     position: absolute;
     top: 0;
     right: 0;
@@ -85,6 +87,8 @@
 }
 
 .ast-edit-link {
+    font-size: 13.5px;
+    font-weight: normal;
     position: absolute;
     top: 0;
     right: 65px;
@@ -123,7 +127,7 @@
 
 .ast-comment-cite-wrap {
     text-align: left;
-    font-size: 1.2em;
+    font-size: 1.25em;
     margin-bottom: 4px;
     text-transform: capitalize;
     cite {
@@ -150,7 +154,7 @@
 .ast-comment-time {
 
     .timendate {
-        font-size: 1.2em;
+        font-size: 1.1em;
         margin-right: 0.5em;
     }
     .reply {
