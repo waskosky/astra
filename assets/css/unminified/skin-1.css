@@ -143,12 +143,6 @@
   }
 }
 
-@media (max-width: 544px) {
-  .ast-comment-list .children {
-    margin-left: 0;
-  }
-}
-
 .ast-comment-list .comment-respond {
   margin: 2.25em 0 0 0;
 }
