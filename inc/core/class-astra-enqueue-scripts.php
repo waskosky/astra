@@ -149,9 +149,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
-
-			if ( ! $astra_enqueue ) {
+			if ( false === self::enqueue_theme_assets() ) {
 				return;
 			}
 
@@ -202,14 +200,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
+
+			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_output' ) );
+			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
 
 			// Submenu Container Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
-			wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+
+			$rtl = ( is_rtl() ) ? '-rtl' : '';
+
 			if ( ! empty( $menu_animation ) ) {
-				wp_enqueue_style( 'astra-menu-animation' );
+				Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
 			}
 
 			if ( astra_is_amp_endpoint() ) {
@@ -282,6 +283,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			Astra_Fonts::render_fonts();
 
 			wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
+		}
+
+		/**
+		 * Function to check if enqueuing of Astra assets are disabled.
+		 *
+		 * @since 2.1.0
+		 * @return boolean
+		 */
+		public static function enqueue_theme_assets() {
+			return apply_filters( 'astra_enqueue_theme_assets', true );
 		}
 
 	}

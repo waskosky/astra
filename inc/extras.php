@@ -975,7 +975,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 /**
  * Return classnames for <header> element.
  *
- * @since x.x.x
+ * @since 2.1.0
  * @return Array classnames for the <header>
  */
 function astra_get_header_classes() {
@@ -1054,7 +1054,7 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 /**
  * Return classnames for <footer> element.
  *
- * @since x.x.x
+ * @since 2.1.0
  * @return Array classnames for the <footer>
  */
 function astra_get_footer_classes() {
@@ -1072,14 +1072,15 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	/**
 	 * Function to Add Header Breakpoint Style
 	 *
+	 * @param  string $dynamic_css          Astra Dynamic CSS.
+	 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 	 * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
-	function astra_header_breakpoint_style() {
+	function astra_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();
-		$dynamic_css        = '';
 
 		$astra_header_width = astra_get_option( 'header-main-layout-width' );
 
@@ -1105,12 +1106,13 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 
 			// trim white space for faster page loading.
 			$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-			wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 		}
+
+		return $dynamic_css;
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'astra_header_breakpoint_style' );
+add_filter( 'astra_dynamic_theme_css', 'astra_header_breakpoint_style' );
 
 /**
  * Function to filter comment form's default fields
@@ -1798,4 +1800,16 @@ add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
 function astra_filter_socialsnap_upgrade_link( $link ) {
 	return 'https://socialsnap.com/?ref=352';
 }
+
 add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
+
+/**
+ * Get instance of WP_Filesystem.
+ *
+ * @since 2.1.0
+ *
+ * @return WP_Filesystem
+ */
+function astra_filesystem() {
+	return Astra_Filesystem::instance();
+}
