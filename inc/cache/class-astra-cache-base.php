@@ -76,6 +76,10 @@ class Astra_Cache_Base {
 	 * @param String $cache_dir Base cache directory in the uploads directory.
 	 */
 	public function __construct( $cache_dir ) {
+		if ( true === is_admin() ) {
+			return false;
+		}
+
 		$this->cache_dir = $cache_dir;
 
 		add_action( 'wp', array( $this, 'init_cache' ) );
