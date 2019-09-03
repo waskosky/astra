@@ -214,6 +214,16 @@
 				&:last-child{
 					margin-bottom: 0;
 				}
+				@media (max-width: $mx-col-md) {
+					&:last-child{
+						margin-bottom: 1.459em;
+					}
+				}
+				@media (max-width: $mx-col-sm) {
+					&:last-child{
+						margin-bottom: 0;
+					}
+				}
 				@media (min-width: $mx-col-sm) {
 					margin-bottom: 1.459em;
 				}

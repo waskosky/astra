@@ -6320,6 +6320,18 @@ body {
   margin-bottom: 0;
 }
 
+@media (max-width: 768px) {
+  .ast-separate-container.ast-two-container #secondary .widget:last-child {
+    margin-bottom: 1.459em;
+  }
+}
+
+@media (max-width: 544px) {
+  .ast-separate-container.ast-two-container #secondary .widget:last-child {
+    margin-bottom: 0;
+  }
+}
+
 @media (min-width: 544px) {
   .ast-separate-container.ast-two-container #secondary .widget {
     margin-bottom: 1.459em;
