@@ -128,7 +128,7 @@ body{
 			padding-top: 0;
 		}
 		#secondary{
-			padding-top: 1em;
+			padding-top: 10px;
 			padding-bottom: 0;
 		}
 		.site-content {
@@ -232,6 +232,10 @@ body{
 	}
 }
 
+.no-results .search-field {
+	margin-bottom: 10px; 
+}
+
 //page builder content layout
 .ast-page-builder-template {
 
@@ -316,6 +320,7 @@ body{
 
 	.ast-archive-description {
 		margin-top: 3em;
+		margin-bottom: 0;
 		margin-left: auto;
 		margin-right: auto;
 		padding-left: ($grid-gutter-width / 2);

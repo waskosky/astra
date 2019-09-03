@@ -207,7 +207,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
 				$skin_css_output = array(
-					'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
+					'p, .entry-content p, .single .entry-content p, .ast-comment-data-wrap .ast-comment-content p, .single .entry-content p' => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
 					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
@@ -1159,6 +1159,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
 				// @see https://github.com/brainstormforce/astra/pull/828
 				$submenu_below_header = array(
+					'.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'display' => 'block',
+					),
 					'.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
 						'-js-display'             => 'flex',
 						'display'                 => '-webkit-box',

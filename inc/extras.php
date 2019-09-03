@@ -77,7 +77,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-desktop';
 		}
 
-		if ( astra_is_emp_endpoint() ) {
+		if ( astra_is_amp_endpoint() ) {
 			$classes[] = 'ast-amp';
 		}
 
@@ -130,17 +130,19 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 		global $numpages;
 		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
-		if ( isset( $numpages ) && $enabled ) {
+		$the_posts_pagination = get_the_posts_pagination(
+			array(
+				'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
+				'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
+				'taxonomy'     => 'category',
+				'in_same_term' => true,
+			)
+		);
+
+		if ( isset( $numpages ) && ! empty( $the_posts_pagination ) && $enabled ) {
 			ob_start();
 			echo "<div class='ast-pagination'>";
-			the_posts_pagination(
-				array(
-					'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
-					'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
-					'taxonomy'     => 'category',
-					'in_same_term' => true,
-				)
-			);
+			echo $the_posts_pagination;
 			echo '</div>';
 			$output = ob_get_clean();
 			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
