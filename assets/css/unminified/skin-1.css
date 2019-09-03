@@ -1237,6 +1237,13 @@ body {
   .ast-separate-container .no-results {
     padding: 2em;
   }
+  .ast-separate-container.ast-no-sidebar .ast-404-layout-1,
+  .ast-separate-container.ast-no-sidebar .no-results {
+    margin-bottom: 0;
+  }
+  .ast-separate-container.ast-no-sidebar.search-no-results #primary, .ast-separate-container.ast-no-sidebar.error404 #primary {
+    padding-bottom: 0;
+  }
 }
 
 @media (min-width: 1201px) {

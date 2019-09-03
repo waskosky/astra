@@ -6091,7 +6091,7 @@ body {
   }
   .ast-separate-container.ast-no-sidebar .ast-404-layout-1,
   .ast-separate-container.ast-no-sidebar .no-results {
-    padding: 3em;
+    margin-bottom: 1.5em;
   }
 }
 

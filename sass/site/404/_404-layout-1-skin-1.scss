@@ -52,6 +52,18 @@
 		.no-results{
 		    padding: 2em;
 		}
+		&.ast-no-sidebar {
+			.ast-404-layout-1,
+			.no-results{
+				margin-bottom: 0;
+			}
+			&.search-no-results,
+			&.error404 {
+				#primary {
+					padding-bottom: 0;			
+				}
+			}
+		}
 	}
 }
 
