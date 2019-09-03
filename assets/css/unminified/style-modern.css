@@ -6050,7 +6050,7 @@ body {
 /*----------  404  ----------*/
 .ast-404-layout-1 {
   text-align: center;
-  margin: 4em auto;
+  margin: 3em auto;
 }
 
 .ast-404-layout-1 .page-sub-title {
@@ -6088,6 +6088,10 @@ body {
   .ast-separate-container .ast-404-layout-1,
   .ast-separate-container .no-results {
     padding: 3em;
+  }
+  .ast-separate-container.ast-no-sidebar .ast-404-layout-1,
+  .ast-separate-container.ast-no-sidebar .no-results {
+    margin-bottom: 1.5em;
   }
 }
 

@@ -1,6 +1,6 @@
 .ast-404-layout-1 {
 	text-align: center;
-	margin: 4em auto;
+	margin: 3em auto;
 
 	.page-sub-title {
 		font-size: 1.5rem;
@@ -39,6 +39,12 @@
 		.ast-404-layout-1,
 		.no-results{
 		    padding: 3em;
+		}
+		&.ast-no-sidebar {
+			.ast-404-layout-1,
+			.no-results{
+				margin-bottom: 1.5em;
+			}
 		}
 	}
 	@media (max-width: $mx-col-sm) {

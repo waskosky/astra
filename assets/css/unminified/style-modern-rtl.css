@@ -5196,7 +5196,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comments-area .comment-notes,
-.comments-area .comment-form-comment,
+.comments-area .comment-textarea,
 .comments-area .form-allowed-tags {
   margin-bottom: 2.5em;
 }
@@ -6050,7 +6050,7 @@ body {
 /*----------  404  ----------*/
 .ast-404-layout-1 {
   text-align: center;
-  margin: 4em auto;
+  margin: 3em auto;
 }
 
 .ast-404-layout-1 .page-sub-title {
@@ -6087,6 +6087,10 @@ body {
 @media (max-width: 768px) {
   .ast-separate-container .ast-404-layout-1,
   .ast-separate-container .no-results {
+    padding: 3em;
+  }
+  .ast-separate-container.ast-no-sidebar .ast-404-layout-1,
+  .ast-separate-container.ast-no-sidebar .no-results {
     padding: 3em;
   }
 }
