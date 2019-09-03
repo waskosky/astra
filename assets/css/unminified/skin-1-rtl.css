@@ -333,7 +333,7 @@
 }
 
 .comments-area .comment-notes,
-.comments-area .comment-form-comment,
+.comments-area .comment-textarea,
 .comments-area .form-allowed-tags {
   margin-bottom: 2.5em;
 }
