@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority'  => 10,
 					'link_type' => 'section',
 					'linked'    => 'section-buttons',
-					'link_text' => 'Customize Button Style.',
+					'link_text' => __( 'Customize Button Style.', 'astra' ),
 				),
 
 				/**
