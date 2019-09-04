@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'widget' => __( 'Widget', 'astra' ),
 						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
-					'partial'   => array(
+					'partial'  => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-footer-widget-1-area, .ast-small-footer .ast-container .ast-small-footer-section-1 .footer-primary-navigation',
 						'container_inclusive' => false,
 					),
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'widget' => __( 'Widget', 'astra' ),
 						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
-					'partial'   => array(
+					'partial'  => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-footer-widget-2-area, .ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation',
 						'container_inclusive' => false,
 					),
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'container_inclusive' => false,
 						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
 					),
-					'partial'   => array(
+					'partial'  => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-2',
 						'container_inclusive' => false,
 					),
@@ -311,7 +311,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'path'  => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" role="img" id="Layer_1" x="0px" y="0px" width="120.5px" height="81px" viewBox="0 0 120.5 81" enable-background="new 0 0 120.5 81" xml:space="preserve"><g><g><g><g><path fill="#0085BA" d="M116.701,80.796H3.799c-1.957,0-3.549-1.592-3.549-3.549V3.753c0-1.957,1.592-3.549,3.549-3.549h112.902 c1.956,0,3.549,1.592,3.549,3.549v73.494C120.25,79.204,118.657,80.796,116.701,80.796z M3.799,1.979 c-0.979,0-1.773,0.797-1.773,1.774v73.494c0,0.979,0.795,1.772,1.773,1.772h112.902c0.979,0,1.773-0.797,1.773-1.772V3.753 c0-0.979-0.795-1.774-1.773-1.774H3.799z"/></g></g></g></g><g><path fill="#0085BA" d="M28.064,70c0,1.657-1.354,3-3.023,3H12.458c-1.669,0-3.023-1.343-3.023-3V58.25c0-1.656,1.354-3,3.023-3 h12.583c1.67,0,3.023,1.344,3.023,3V70z"/></g><g><path fill="#0085BA" d="M55.731,70c0,1.657-1.354,3-3.023,3H40.125c-1.669,0-3.023-1.343-3.023-3V58.25c0-1.656,1.354-3,3.023-3 h12.583c1.67,0,3.023,1.344,3.023,3V70z"/></g><g><path fill="#0085BA" d="M83.397,70c0,1.657-1.354,3-3.023,3H67.791c-1.669,0-3.022-1.343-3.022-3V58.25c0-1.656,1.354-3,3.022-3 h12.583c1.67,0,3.023,1.344,3.023,3V70z"/></g><g><path fill="#0085BA" d="M111.064,70c0,1.657-1.354,3-3.023,3H95.458c-1.669,0-3.022-1.343-3.022-3V58.25c0-1.656,1.354-3,3.022-3 h12.583c1.67,0,3.023,1.344,3.023,3V70z"/></g><g><rect x="0.607" y="48" fill="#0085BA" width="119.285" height="1"/></g></svg>',
 						),
 					),
-					'partial'   => array(
+					'partial' => array(
 						'selector'            => '.footer-adv .ast-container',
 						'container_inclusive' => false,
 					),
