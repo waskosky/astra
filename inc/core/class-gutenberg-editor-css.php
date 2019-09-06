@@ -77,7 +77,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
 			}
 
-
 			$container_layout = get_post_meta( get_the_id(), 'site-content-layout', true );
 
 			if ( 'default' === $container_layout || '' === $container_layout ) {
@@ -177,7 +176,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				/**
 				 * WooCommerce Grid Products compatibility.
 				 */
-				'.wc-block-grid__product-title' => array(
+				'.wc-block-grid__product-title'           => array(
 					'color' => esc_attr( $text_color ),
 				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
