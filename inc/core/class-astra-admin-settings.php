@@ -256,9 +256,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				Astra_Notices::add_notice(
 					$astra_sites_notice_args
 				);
-
-				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
-				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
 			}
 		}
 
@@ -308,16 +305,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				wp_enqueue_style( 'astra-notices', ASTRA_THEME_URI . 'inc/assets/css/astra-notices.css', array(), ASTRA_THEME_VERSION );
 			}
-		}
-
-		/**
-		 * Enqueue plugin install JS in Notices
-		 *
-		 * @since 1.7.2
-		 * @return void
-		 */
-		public static function enqueue_plugin_install_js() {
-			wp_enqueue_script( 'plugin-install' );
 		}
 
 		/**
@@ -510,6 +497,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
+
+			if ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+				// For starter site plugin popup detail "Details »" on Astra Options page.
+				wp_enqueue_script( 'plugin-install' );
+				wp_enqueue_script( 'thickbox' );
+				wp_enqueue_style( 'thickbox' );
+			}
 		}
 
 
