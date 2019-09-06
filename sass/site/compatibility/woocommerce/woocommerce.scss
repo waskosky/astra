@@ -4113,16 +4113,22 @@ button.pswp__button--zoom:hover {
 				text-transform: capitalize;
 				position: absolute;
 				text-align: center;
-				top: 0.5em;
-				left: 0.5em;
-				margin: 0;
 				border-radius: 100%;
 				z-index: 9;
 				top: 0;
-				right: 0;
+				right: 2%;
 				left: auto;
 				margin: -0.5em -0.5em 0 0;
 			}
 		}
 	}
+	&.has-1-columns {
+        .wc-block-grid__products {
+            .wc-block-grid__product {
+                .wc-block-grid__product-onsale {
+                    right: 51%;
+                }
+            }
+        }
+    }
 }
