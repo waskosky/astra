@@ -59,8 +59,14 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 *
 		 * @link https://git.io/vWdr2
 		 * @link https://github.com/WordPress/twentynineteen/pull/47/files
+		 * @link https://github.com/ampproject/amphtml/issues/18671
 		 */
 		function astra_skip_link_focus_fix() {
+			// Skip printing script on AMP content, since accessibility fix is covered by AMP framework.
+			if ( astra_is_amp_endpoint() ) {
+				return;
+			}
+
 			// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
 			?>
 			<script>
@@ -143,9 +149,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
-
-			if ( ! $astra_enqueue ) {
+			if ( false === self::enqueue_theme_assets() ) {
 				return;
 			}
 
@@ -196,17 +200,20 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
+
+			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_output' ) );
+			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
 
 			// Submenu Container Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
-			wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+
+			$rtl = ( is_rtl() ) ? '-rtl' : '';
+
 			if ( ! empty( $menu_animation ) ) {
-				wp_enqueue_style( 'astra-menu-animation' );
+				Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
 			}
 
-			if ( astra_is_emp_endpoint() ) {
+			if ( astra_is_amp_endpoint() ) {
 				return;
 			}
 
@@ -276,6 +283,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			Astra_Fonts::render_fonts();
 
 			wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
+		}
+
+		/**
+		 * Function to check if enqueuing of Astra assets are disabled.
+		 *
+		 * @since 2.1.0
+		 * @return boolean
+		 */
+		public static function enqueue_theme_assets() {
+			return apply_filters( 'astra_enqueue_theme_assets', true );
 		}
 
 	}

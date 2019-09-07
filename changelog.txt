@@ -1,5 +1,24 @@
-v2.1.0-dev.1
-- Fix: Removed extra padding that were being applied to all the guttenberg blocks.
+v2.1.0
+- New: A CSS file will be loaded for dynamic style generated according to options set in the customizer, earlier inline CSS was loading on the page.
+- New: Introduce filter `astra_get_pro_url`. 
+- New: New filter `astra_load_dynamic_css_inline` to disable/enable loading of inline CSS. 
+- New: New filter `astra_single_post_comment_time_enabled` to disable post comment time on single blog page. 
+- Improvement: Redesign admin notices as per WordPress standards
+- Fix: Broken menu style on iOS safari browsers for version 11 or lower.  
+- Fix: JavaScript conflict with WP Google maps plugin. 
+- Fix: Drag scrollbar not working inside sections in the customizer. 
+- Fix: Search bar not working on android tablet devices.  
+- Fix: Font weights not displaying in the customizer for fonts added from Custom Adobe Fonts plugin. 
+- Fix: Removed extra padding that was being applied to all the Gutenberg blocks.
+- Fix: Omit printing skip-focus-fix script on AMP content ( props @amedina ) 
+- Deprecated: astra_is_emp_endpoint function. 
+- Fix: SVG logo not working for mobile devices.
+- Fix: Transparent Header menu background color not working on tablet devices.
+
+v2.0.1
+- Fix: JavaScript error causing customizer to not load for a few users due to conflict with some third-party plugins.
+- Fix: Do not load accessibility fix for skip link in AMP endpoint as it is included in the amphtml (props @amedina)
+- Fix: Rename function astra_is_emp_endpoint() to astra_is_amp_endpoint() and depracate astra_is_emp_endpoint() to fix the typo in the function name.  
 
 v2.0.0
 - Improvement: Loading combined CSS and JS file for params in the customizer.
@@ -14,6 +33,7 @@ v2.0.0
 - Fix: Fonts from custom font plugin not appearing in fonts list in the customizer. 
 - Fix: Group popup not closing in customizer for the WooCommerce product catalog section. 
 - Fix: Section title does not stick in the customizer. 
+- Fix: RTL fixes for customizer custom controls.
 
 v2.0.0-rc.1
 - Improvement: Improved logic that is used to save the values of options inside the new popups, Earlier all the values of options inside the popup were combined and stored in JSON objects now all the values inside the popup are stored separately similar to Astra Version 1.X.X. This removes the requirement of the Database Upgrade routine when updating from Version 1.X to 2.X
