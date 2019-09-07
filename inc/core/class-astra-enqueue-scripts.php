@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
 
 			if ( ! empty( $menu_animation ) ) {
-				if( class_exists( 'Astra_Cache' ) ) {
+				if ( class_exists( 'Astra_Cache' ) ) {
 					Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
 				}
 			}
