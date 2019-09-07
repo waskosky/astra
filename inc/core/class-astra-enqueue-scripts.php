@@ -218,10 +218,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 						wp_enqueue_style( 'astra-menu-animation' );
 					}
 				}
-			} 
+			}
 
 			if ( ! class_exists( 'Astra_Cache' ) ) {
-				$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
+				$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
 				wp_add_inline_style( 'astra-theme-css', $theme_css_data );
 			}
 
