@@ -212,8 +212,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( ! empty( $menu_animation ) ) {
 				if ( class_exists( 'Astra_Cache' ) ) {
 					Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
+				} else {
+					wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+					if ( ! empty( $menu_animation ) ) {
+						wp_enqueue_style( 'astra-menu-animation' );
+					}
 				}
-			}
+			} 
 
 			if ( astra_is_amp_endpoint() ) {
 				return;
