@@ -501,8 +501,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
 				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
-				'assetsRefreshingButtonText'         => __( 'Refreshing', 'astra' ),
-				'ajaxNonce'                          => wp_create_nonce( 'astra-assets-refresh' ),
 
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
