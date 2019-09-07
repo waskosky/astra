@@ -220,6 +220,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			} 
 
+			if ( ! class_exists( 'Astra_Cache' ) ) {
+				$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
+				wp_add_inline_style( 'astra-theme-css', $theme_css_data );
+			}
+
 			if ( astra_is_amp_endpoint() ) {
 				return;
 			}
