@@ -203,6 +203,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_2_0_0();
 			}
 
+			if ( version_compare( $saved_version, '2.1.1', '<' ) ) {
+				self::v_2_1_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -1005,6 +1009,28 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_2_0_0() {
 			update_site_option( 'bsf_force_check_extensions', true );
+		}
+
+		/**
+		 * Add Hidden Class CSS if Addon is not updated to 2.1.0
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public static function v_2_1_1() {
+			// If Addon is not updated to version 2.1.1 then add hidden class as a fallback.
+			if ( class_exists( 'Astra_Addon_Update' ) ) {
+				$saved_version = Astra_Addon_Update::astra_addon_stored_version();
+				if ( version_compare( $saved_version, '2.1.1', '<' ) ) {
+					$theme_options = get_option( 'astra-settings' );
+
+					// Set flag to add hidden class css if addon is not updated.
+					if ( ! isset( $theme_options['hidden-class-css'] ) ) {
+						$theme_options['hidden-class-css'] = true;
+						update_option( 'astra-settings', $theme_options );
+					}
+				}
+			}
 		}
 
 	}
