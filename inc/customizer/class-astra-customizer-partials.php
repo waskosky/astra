@@ -107,6 +107,33 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		}
 
 		/**
+		 * Render Partial Text Header Site Tagline
+		 */
+		static function _render_header_site_tagline() {
+			$site_title_enable   = astra_get_option( 'display-site-title' );
+			$site_tagline_enable = astra_get_option( 'display-site-tagline' );
+			$html                = '';
+
+			$site_title = '<h1 class="site-title" itemprop="name"><a href="' . esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ) . '" rel="home" itemprop="url" >' . get_bloginfo( 'name' ) . '</a></h1>';
+
+			$site_tagline = '<h1 class="site-title" itemprop="name">' . get_bloginfo( 'description' ) . '</h1>';
+
+			if ( true == $site_title_enable && false == $site_tagline_enable ) {
+				$html .= $site_title;
+			}
+
+			if ( false == $site_title_enable && true == $site_tagline_enable ) {
+				$html .= $site_tagline;
+			}
+
+			if ( true == $site_title_enable && true == $site_tagline_enable ) {
+				$html .= $site_title . $site_tagline;
+			}
+
+			return do_shortcode( $html );
+		}
+
+		/**
 		 * Render Partial Footer Section 1 Credit
 		 */
 		static function _render_footer_sml_section_1_credit() {
