@@ -168,7 +168,6 @@
 					border-color: #eaeaea;
 				}
 			}
-			&.children .menu-item .menu-link,
 			&.sub-menu .menu-item .menu-link {
 			    padding-left: 30px;
 			    &:before{
@@ -181,15 +180,12 @@
     				margin-right: 5px;
 			    }
 			}
-			&.children .menu-item .menu-item .menu-link,
 			&.sub-menu .menu-item .menu-item .menu-link {
 			    padding-left: 40px;
 			}
-			&.children .menu-item .menu-item .menu-item .menu-link,
 			&.sub-menu .menu-item .menu-item .menu-item .menu-link {
 			    padding-left: 50px;
 			}
-			&.children .menu-item .menu-item .menu-item .menu-item .menu-link,
 			&.sub-menu .menu-item .menu-item .menu-item .menu-item .menu-link {
 			    padding-left: 60px;
 			}

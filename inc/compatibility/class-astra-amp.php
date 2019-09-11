@@ -276,10 +276,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'border-style'        => 'solid',
 					'border-color'        => '#eaeaea',
 				),
-				'.ast-amp .main-navigation ul.children li a, .ast-amp .main-navigation ul.sub-menu li a' => array(
+				'.ast-amp .main-navigation ul.sub-menu li a' => array(
 					'padding-left' => '30px',
 				),
-				'.ast-amp .main-navigation ul.children li a:before, .ast-amp .main-navigation ul.sub-menu li a:before' => array(
+				'.ast-amp .main-navigation ul.sub-menu li a:before' => array(
 					'content'         => '""',
 					'font-family'     => '"Astra"',
 					'font-size'       => '0.65em',
@@ -288,11 +288,11 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'transform'       => 'translate(0, -2px) rotateZ(270deg)',
 					'margin-right'    => '5px',
 				),
-				'.ast-amp .main-navigation ul.children li li a, .ast-amp .main-navigation ul.sub-menu li li a' => array(
+				'.ast-amp .main-navigation ul.sub-menu li li a' => array(
 					'padding-left' => '40px',
 				),
-				'.ast-amp .main-navigation ul.children li li li a, .ast-amp .main-navigation ul.sub-menu li li li a' => array(),
-				'.ast-amp .main-navigation ul.children li li li li a, .ast-amp .main-navigation ul.sub-menu li li li li a' => array(
+				'.ast-amp .main-navigation ul.sub-menu li li li a' => array(),
+				'.ast-amp .main-navigation ul.sub-menu li li li li a' => array(
 					'padding-left' => '60px',
 				),
 				'.ast-amp .ast-header-custom-item'         => array(
@@ -425,7 +425,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'line-height' => '3',
 					'display'     => 'none',
 				),
-				'.ast-amp .main-header-bar .main-header-bar-navigation .children, .ast-amp .main-header-bar .main-header-bar-navigation .sub-menu' => array(
+				'.ast-amp .main-header-bar .main-header-bar-navigation .sub-menu' => array(
 					'line-height' => '3',
 				),
 				'.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu' => array(
