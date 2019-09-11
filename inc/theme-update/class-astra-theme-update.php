@@ -1022,8 +1022,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options = get_option( 'astra-settings' );
 
 			// Set flag to use flex align center css to open submenu just below menu.
-			if ( ! isset( $theme_options['submenu-below-menu'] ) ) {
-				$theme_options['submenu-below-menu'] = true;
+			if ( ! isset( $theme_options['submenu-below-header'] ) ) {
+				$theme_options['submenu-below-header'] = false;
 				update_option( 'astra-settings', $theme_options );
 			}
 		}
