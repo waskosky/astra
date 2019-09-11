@@ -1014,6 +1014,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		/**
 		 * Open Submenu just below menu for existing users.
 		 *
+		 * @since x.x.x
+		 *
 		 * @return void
 		 */
 		public static function v_2_1_1() {
