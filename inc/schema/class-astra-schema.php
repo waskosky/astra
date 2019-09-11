@@ -46,6 +46,7 @@ class Astra_Schema {
 		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpheader-schema.php';
 		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpfooter-schema.php';
 		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpsidebar-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-person-schema.php';
 	}
 
 	/**

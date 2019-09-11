@@ -140,10 +140,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 			echo astra_attr(
 				'post-meta-author',
 				array(
-					'class'     => 'posted-by vcard author',
-					'itemtype'  => 'https://schema.org/Person',
-					'itemscope' => 'itemscope',
-					'itemprop'  => 'author',
+					'class' => 'posted-by author',
 				)
 			);
 		echo '>';
