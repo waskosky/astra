@@ -642,7 +642,16 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div class="ast-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
+			<div
+			<?php
+				echo astra_attr(
+					'site-identity',
+					array(
+						'class' => 'ast-site-identity',
+					)
+				);
+			?>
+			>
 				<?php astra_logo(); ?>
 			</div>
 		</div>
