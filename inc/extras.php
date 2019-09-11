@@ -38,6 +38,10 @@ if ( ! function_exists( 'astra_schema_body' ) ) :
 	 */
 	function astra_schema_body() {
 
+		if ( true !== apply_filters( 'astra_schema_enabled', true ) ) {
+			return;
+		}
+
 		// Check conditions.
 		$is_blog = ( is_home() || is_archive() || is_attachment() || is_tax() || is_single() ) ? true : false;
 
