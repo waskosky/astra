@@ -203,6 +203,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_2_0_0();
 			}
 
+			if ( version_compare( $saved_version, '2.1.1', '<' ) ) {
+				self::v_2_1_1();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -1005,6 +1009,21 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_2_0_0() {
 			update_site_option( 'bsf_force_check_extensions', true );
+		}
+
+		/**
+		 * Open Submenu just below menu for existing users.
+		 *
+		 * @return void
+		 */
+		public static function v_2_1_1() {
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set flag to use flex align center css to open submenu just below menu.
+			if ( ! isset( $theme_options['submenu-below-menu'] ) ) {
+				$theme_options['submenu-below-menu'] = true;
+				update_option( 'astra-settings', $theme_options );
+			}
 		}
 
 	}

@@ -1173,6 +1173,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			endif;
 
+			if ( self::astra_submenu_below_menu_fix() ) {
+				// CSS to open submenu just below menu.
+				$submenu_below_menu = array(
+					'.header-main-layout-1 .ast-flex.main-header-container, .header-main-layout-3 .ast-flex.main-header-container'          => array(
+						'-webkit-align-content' => 'center',
+						'-ms-flex-line-pack'    => 'center',
+						'align-content'         => 'center',
+						'-webkit-box-align'     => 'center',
+						'-webkit-align-items'   => 'center',
+						'-moz-box-align'        => 'center',
+						'-ms-flex-align'        => 'center',
+						'align-items'           => 'center',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_below_menu );
+			}
+
 			$dynamic_css .= $parse_css;
 
 			return  $dynamic_css;
@@ -1246,6 +1264,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				return true;
 			}
 
+		}
+
+		/**
+		 * Check backwards compatibility CSS for loading submenu below the menu needs to be added.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if CSS should be included, False if not.
+		 */
+		public static function astra_submenu_below_menu_fix() {
+			if ( true === (bool) astra_get_option( 'submenu-below-menu', false ) ) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 }
