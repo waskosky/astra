@@ -209,7 +209,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
  * @param boolean $display_site_title Site title enable or not.
  * @param boolean $display_site_tagline Site tagline enable or not.
  *
- * @return mixed echo or return markup.
+ * @return string return markup.
  */
 function astra_get_site_title_tagline( $display_site_title, $display_site_tagline ) {
 	$html = '';
