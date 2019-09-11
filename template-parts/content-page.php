@@ -15,16 +15,7 @@
 <article 
 
 	<?php
-		echo astra_attr(
-			'article-page',
-			array(
-				'itemtype'  => 'https://schema.org/CreativeWork',
-				'itemscope' => 'itemscope',
-				'id'        => 'post-' . get_the_id(),
-				'class'     => join( ' ', get_post_class() ),
-
-			)
-		);
+		Astra_Schema_Markup::ast_creativework_schema();
 		?>
 >
 
