@@ -1026,7 +1026,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 					// Set flag to add hidden class css if addon is not updated.
 					if ( ! isset( $theme_options['hidden-class-css'] ) ) {
-						$theme_options['hidden-class-css'] = true;
+						$theme_options['hidden-class-css'] = false;
 						update_option( 'astra-settings', $theme_options );
 					}
 				}
