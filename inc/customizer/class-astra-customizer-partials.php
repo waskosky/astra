@@ -108,6 +108,8 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 		/**
 		 * Render Partial Text Header Site Title & Tagline
+		 *
+		 * @since x.x.x
 		 */
 		static function _render_header_site_title_tagline() {
 			$display_site_title   = astra_get_option( 'display-site-title' );

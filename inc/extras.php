@@ -205,7 +205,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 /**
  * Return or echo site logo markup.
  *
- * @since 1.0.0
+ * @since x.x.x
  * @param boolean $display_site_title Site title enable or not.
  * @param boolean $display_site_tagline Site tagline enable or not.
  *
