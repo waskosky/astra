@@ -89,7 +89,7 @@ require_once ASTRA_THEME_DIR . 'inc/class-astra-after-setup-theme.php';
 // Required files.
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-helper.php';
 
-require_once ASTRA_THEME_DIR . 'inc/core/class-astra-schema-markup.php';
+require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-schema.php';
 
 if ( is_admin() ) {
 
@@ -155,3 +155,6 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
+
+
+add_filter( 'astra_schema_enabled', '__return_true' );
