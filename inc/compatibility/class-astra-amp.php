@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'width'   => '100%',
 				),
 
-				'.main-header-menu > .menu-item > a'       => array(
+				'.main-header-menu > .menu-item > .menu-link'       => array(
 					'padding'             => '0 20px',
 					'display'             => 'inline-block',
 					'width'               => '100%',
@@ -410,7 +410,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .ast-site-identity'              => array(
 					'width' => '100%',
 				),
-				'.ast-amp .main-header-bar-navigation .menu-item-has-children > a:after' => array(
+				'.ast-amp .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
 					'display' => 'none',
 				),
 				'.ast-amp .main-header-bar'                => array(
