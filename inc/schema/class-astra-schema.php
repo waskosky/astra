@@ -20,21 +20,41 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Astra_Schema {
 
+	/**
+	 * Constructor
+	 */
 	public function __construct() {
 		$this->include_schemas();
 
 		add_action( 'wp', array( $this, 'setup_schema' ) );
 	}
-	
+
+	/**
+	 * Setup schema
+	 *
+	 * @since 1.0.0
+	 */
 	public function setup_schema() { }
 
-    private function include_schemas() {
-        require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-creativework-schema.php';
-    }
-    
-    protected function schema_enabled() {
-        return apply_filters( 'astra_schema_enabled', true );
-    }
+	/**
+	 * Include schema files.
+	 *
+	 * @since 1.0.0
+	 */
+	private function include_schemas() {
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-creativework-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpheader-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpfooter-schema.php';
+	}
+
+	/**
+	 * Enabled schema
+	 *
+	 * @since 1.0.0
+	 */
+	protected function schema_enabled() {
+		return apply_filters( 'astra_schema_enabled', true );
+	}
 
 }
 

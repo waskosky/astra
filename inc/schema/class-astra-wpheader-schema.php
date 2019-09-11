@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since x.x.x
  */
-class Astra_CreativeWork_Schema extends Astra_Schema {
+class Astra_WPHeader_Schema extends Astra_Schema {
 
 	/**
 	 * Setup schema
@@ -31,10 +31,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 			return false;
 		}
 
-		add_filter( 'astra_attr_article-blog', array( $this, 'creative_work_Schema' ) );
-		add_filter( 'astra_attr_article-page', array( $this, 'creative_work_Schema' ) );
-		add_filter( 'astra_attr_article-single', array( $this, 'creative_work_Schema' ) );
-		add_filter( 'astra_attr_article-content', array( $this, 'creative_work_Schema' ) );
+		add_filter( 'astra_attr_header', array( $this, 'wpheader_Schema' ) );
 	}
 
 	/**
@@ -44,8 +41,8 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @return string       Updated embed markup.
 	 */
-	public function creative_work_Schema( $attr ) {
-		$attr['itemtype']  = 'https://schema.org/CreativeWork';
+	public function wpheader_Schema( $attr ) {
+		$attr['itemtype']  = 'https://schema.org/WPHeader';
 		$attr['itemscope'] = 'itemscope';
 
 		return $attr;
@@ -57,9 +54,9 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 * @since 1.0.0
 	 */
 	protected function schema_enabled() {
-		return apply_filters( 'astra_creativework_schema_enabled', parent::schema_enabled() );
+		return apply_filters( 'astra_wpheader_schema_enabled', parent::schema_enabled() );
 	}
 
 }
 
-new Astra_CreativeWork_Schema();
+new Astra_WPHeader_Schema();

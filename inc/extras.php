@@ -598,11 +598,9 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 				echo astra_attr(
 					'header',
 					array(
-						'itemtype'  => 'https://schema.org/WPHeader',
-						'itemscope' => 'itemscope',
-						'id'        => 'masthead',
-						'class'     => join( ' ', astra_get_header_classes() ),
-						'role'      => 'banner',
+						'id'    => 'masthead',
+						'class' => join( ' ', astra_get_header_classes() ),
+						'role'  => 'banner',
 					)
 				);
 
@@ -866,11 +864,9 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 				echo astra_attr(
 					'footer',
 					array(
-						'itemtype'  => 'https://schema.org/WPFooter',
-						'itemscope' => 'itemscope',
-						'id'        => 'colophon',
-						'class'     => join( ' ', astra_get_footer_classes() ),
-						'role'      => 'contentinfo',
+						'id'    => 'colophon',
+						'class' => join( ' ', astra_get_footer_classes() ),
+						'role'  => 'contentinfo',
 					)
 				);
 

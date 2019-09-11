@@ -18,11 +18,11 @@
 		echo astra_attr(
 			'article-content',
 			array(
-				'id'        => 'post-' . get_the_id(),
-				'class'     => join( ' ', get_post_class() ),
+				'id'    => 'post-' . get_the_id(),
+				'class' => join( ' ', get_post_class() ),
 			)
 		);
-	?>
+		?>
 >
 	<?php astra_entry_top(); ?>
 
