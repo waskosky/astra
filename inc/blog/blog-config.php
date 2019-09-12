@@ -228,39 +228,42 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 
 				<!-- Comment Schema Meta -->
 				<?php
-				echo '<span ';
-					echo astra_attr(
-						'comments-interactioncounter',
-						array(
-							'itemprop'  => 'interactionStatistic',
-							'itemscope' => '',
-							'itemtype'  => 'https://schema.org/InteractionCounter',
-						)
-					);
-				echo '>';
 
-					echo '<meta ';
+				if ( true == apply_filters( 'astra_schema_enabled', true ) ) {
+					echo '<span ';
 						echo astra_attr(
-							'comments-interactioncounter-interactiontype',
+							'comments-interactioncounter',
 							array(
-								'itemprop' => 'interactionType',
-								'content'  => 'https://schema.org/CommentAction',
+								'itemprop'  => 'interactionStatistic',
+								'itemscope' => '',
+								'itemtype'  => 'https://schema.org/InteractionCounter',
 							)
 						);
-					echo '/>';
+					echo '>';
 
-					echo '<meta ';
-						echo astra_attr(
-							'comments-interactioncounter-userinteractioncount',
-							array(
-								'itemprop' => 'userInteractionCount',
-								'content'  => absint( wp_count_comments( get_the_ID() )->approved ),
-							)
-						);
+						echo '<meta ';
+							echo astra_attr(
+								'comments-interactioncounter-interactiontype',
+								array(
+									'itemprop' => 'interactionType',
+									'content'  => 'https://schema.org/CommentAction',
+								)
+							);
+						echo '/>';
 
-					echo '/>';
+						echo '<meta ';
+							echo astra_attr(
+								'comments-interactioncounter-userinteractioncount',
+								array(
+									'itemprop' => 'userInteractionCount',
+									'content'  => absint( wp_count_comments( get_the_ID() )->approved ),
+								)
+							);
 
-				echo '</span>';
+						echo '/>';
+
+					echo '</span>';
+				}
 				?>
 			</span>
 
