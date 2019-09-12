@@ -16,12 +16,12 @@
 
 		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 
-		<div
+		<div class="entry-content clear"
 			<?php
 				echo astra_attr(
 					'article-entry-content',
 					array(
-						'class' => 'entry-content clear',
+						'class' => '',
 					)
 				);
 				?>

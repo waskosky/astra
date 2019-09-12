@@ -1484,8 +1484,13 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 					get_the_post_thumbnail(
 						get_the_ID(),
 						apply_filters( 'astra_post_thumbnail_default_size', 'large' ),
-						array(
-							'itemprop' => 'image',
+						sprintf(
+							astra_attr(
+								'article-image',
+								array(
+									'class' => '',
+								)
+							)
 						)
 					)
 				);

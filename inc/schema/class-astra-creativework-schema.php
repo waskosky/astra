@@ -37,6 +37,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 		add_filter( 'astra_attr_article-content', array( $this, 'creative_work_schema' ) );
 		add_filter( 'astra_attr_article-title', array( $this, 'article_title_schema_prop' ) );
 		add_filter( 'astra_attr_article-entry-content', array( $this, 'article_content_schema_prop' ) );
+		add_filter( 'astra_attr_article-image', array( $this, 'article_image_schema_prop' ) );
 	}
 
 	/**
@@ -75,6 +76,19 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 */
 	public function article_content_schema_prop( $attr ) {
 		$attr['itemprop'] = 'text';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function article_image_schema_prop( $attr ) {
+		$attr['itemprop'] = 'image';
 
 		return $attr;
 	}

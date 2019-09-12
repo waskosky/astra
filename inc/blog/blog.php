@@ -248,12 +248,12 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 				/* translators: 1: Current post link, 2: Current post id */
 				astra_the_post_title(
 					sprintf(
-						'<h2 %2$s><a href="%1$s" rel="bookmark">',
+						'<h2 class="entry-title" %2$s><a href="%1$s" rel="bookmark">',
 						esc_url( get_permalink() ),
 						astra_attr(
 							'article-title',
 							array(
-								'class' => 'entry-title',
+								'class' => '',
 							)
 						)
 					),
@@ -301,7 +301,15 @@ if ( ! function_exists( 'astra_get_single_post_title_meta' ) ) {
 
 			do_action( 'astra_single_post_title_before' );
 
-			astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+			astra_the_title(
+				'<h1 class="entry-title" ' . astra_attr(
+					'article-title',
+					array(
+						'class' => '',
+					)
+				) . '>',
+				'</h1>'
+			);
 
 			do_action( 'astra_single_post_title_after' );
 

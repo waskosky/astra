@@ -31,10 +31,29 @@
 
 		<?php astra_get_post_thumbnail(); ?>
 
-		<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+		<?php
+		astra_the_title(
+			'<h1 class="entry-title" ' . astra_attr(
+				'article-title',
+				array(
+					'class' => '',
+				)
+			) . '>',
+			'</h1>'
+		);
+		?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content clear" itemprop="text">
+	<div class="entry-content clear" 
+		<?php
+				echo astra_attr(
+					'article-entry-content',
+					array(
+						'class' => '',
+					)
+				);
+				?>
+	>
 
 		<?php astra_entry_content_before(); ?>
 
