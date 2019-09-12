@@ -246,7 +246,20 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 				do_action( 'astra_archive_post_title_before' );
 
 				/* translators: 1: Current post link, 2: Current post id */
-				astra_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
+				astra_the_post_title(
+					sprintf(
+						'<h2 %2$s><a href="%1$s" rel="bookmark">',
+						esc_url( get_permalink() ),
+						astra_attr(
+							'article-title',
+							array(
+								'class' => 'entry-title',
+							)
+						)
+					),
+					'</a></h2>',
+					get_the_id()
+				);
 
 				do_action( 'astra_archive_post_title_after' );
 
