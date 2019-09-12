@@ -38,7 +38,6 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 		add_filter( 'astra_attr_article-title', array( $this, 'article_title_schema_prop' ) );
 		add_filter( 'astra_attr_article-entry-content', array( $this, 'article_content_schema_prop' ) );
 	}
-}
 
 	/**
 	 * Update Schema markup attribute.
@@ -47,25 +46,12 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @return string       Updated embed markup.
 	 */
-public function creative_work_schema( $attr ) {
-	$attr['itemtype']  = 'https://schema.org/CreativeWork';
-	$attr['itemscope'] = 'itemscope';
+	public function creative_work_schema( $attr ) {
+		$attr['itemtype']  = 'https://schema.org/CreativeWork';
+		$attr['itemscope'] = 'itemscope';
 
-	return $attr;
-}
-
-	/**
-	 * Update Schema markup attribute.
-	 *
-	 * @param  array $attr An array of attributes.
-	 *
-	 * @return string       Updated embed markup.
-	 */
-public function article_title_schema_prop( $attr ) {
-	$attr['itemprop'] = 'headline';
-
-	return $attr;
-}
+		return $attr;
+	}
 
 	/**
 	 * Update Schema markup attribute.
@@ -74,20 +60,33 @@ public function article_title_schema_prop( $attr ) {
 	 *
 	 * @return string       Updated embed markup.
 	 */
-public function article_content_schema_prop( $attr ) {
-	$attr['itemprop'] = 'text';
+	public function article_title_schema_prop( $attr ) {
+		$attr['itemprop'] = 'headline';
 
-	return $attr;
-}
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function article_content_schema_prop( $attr ) {
+		$attr['itemprop'] = 'text';
+
+		return $attr;
+	}
 
 	/**
 	 * Enabled schema
 	 *
 	 * @since 1.0.0
 	 */
-protected function schema_enabled() {
-	return apply_filters( 'astra_creativework_schema_enabled', parent::schema_enabled() );
-}
+	protected function schema_enabled() {
+		return apply_filters( 'astra_creativework_schema_enabled', parent::schema_enabled() );
+	}
 
 }
 

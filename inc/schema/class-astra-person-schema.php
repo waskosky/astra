@@ -32,6 +32,8 @@ class Astra_Person_Schema extends Astra_Schema {
 		}
 
 		add_filter( 'astra_attr_post-meta-author', array( $this, 'person_Schema' ) );
+		add_filter( 'astra_attr_author-name', array( $this, 'author_name_schema_itemprop' ) );
+		add_filter( 'astra_attr_author-url', array( $this, 'author_url_schema_itemprop' ) );
 	}
 
 	/**
@@ -46,6 +48,32 @@ class Astra_Person_Schema extends Astra_Schema {
 		$attr['itemscope'] = 'itemscope';
 		$attr['itemprop']  = 'author';
 		$attr['class']     = 'posted-by vcard author';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function author_name_schema_itemprop( $attr ) {
+		$attr['itemprop'] = 'author-name';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function author_url_schema_itemprop( $attr ) {
+		$attr['itemprop'] = 'url';
 
 		return $attr;
 	}
