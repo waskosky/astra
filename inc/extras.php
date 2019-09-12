@@ -210,8 +210,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$site_title_markup = apply_filters(
 				'astra_site_title_output',
 				sprintf(
-					'<%1$s class="site-title" itemprop="name">
-					<a href="%2$s" rel="home" itemprop="url" >
+					'<%1$s %4$s>
+					<a href="%2$s" rel="home" %5$s >
 						%3$s
 					</a>
 				</%1$s>',
@@ -238,7 +238,17 @@ if ( ! function_exists( 'astra_logo' ) ) {
 					*
 					* @param string site title
 					*/
-					apply_filters( 'astra_site_title', get_bloginfo( 'name' ) )
+					apply_filters( 'astra_site_title', get_bloginfo( 'name' ) ),
+					astra_attr(
+						'site-title',
+						array(
+							'class' => 'site-title',
+						)
+					),
+					astra_attr(
+						'site-title-link',
+						array()
+					)
 				)
 			);
 
