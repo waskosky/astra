@@ -184,7 +184,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 					// Add dynamic CSS dependency for all styles except for theme's style.css.
 					if ( 'astra-theme-css' !== $key && class_exists( 'Astra_Cache_Base' ) ) {
-						if ( ! Astra_Cache_Base::may_add_inline_css() ) {
+						if ( ! Astra_Cache_Base::inline_assets() ) {
 							$dependency[] = 'astra-theme-dynamic';
 						}
 					}
