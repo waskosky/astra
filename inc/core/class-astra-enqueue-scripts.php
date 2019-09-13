@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public function __construct() {
 
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 3 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_assets' ) );
 			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 			add_action( 'wp_print_footer_scripts', array( $this, 'astra_skip_link_focus_fix' ) );
