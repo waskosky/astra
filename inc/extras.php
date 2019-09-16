@@ -1791,7 +1791,7 @@ function astra_wpforms_upgrade_link() {
 
 add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
 
-/*
+/**
  * Added referal ID to social snap upgrade link.
  *
  * @param string $link social snap upgrade link.
@@ -1815,7 +1815,7 @@ function astra_filesystem() {
 }
 
 /**
- * Decide whether to display except.
+ * Decide whether to display excrept.
  *
  * @since x.x.x
  * @return bool
@@ -1824,7 +1824,7 @@ function astra_display_excerpt() {
 
 	global $post;
 	$excerpt_type    = astra_get_option( 'blog-post-content' );
-	$display_excerpt = 'full-content' == $excerpt_type ? false : true;
+	$display_excerpt = 'full-content' === $excerpt_type ? false : true;
 
 	$format = ( false !== get_post_format() ) ? get_post_format() : 'standard';
 
