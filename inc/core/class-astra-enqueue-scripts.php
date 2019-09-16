@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public function __construct() {
 
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 3 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_assets' ) );
 			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 			add_action( 'wp_print_footer_scripts', array( $this, 'astra_skip_link_focus_fix' ) );
@@ -180,11 +180,20 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				// Register & Enqueue Styles.
 				foreach ( $styles as $key => $style ) {
 
+					$dependency = array();
+
+					// Add dynamic CSS dependency for all styles except for theme's style.css.
+					if ( 'astra-theme-css' !== $key && class_exists( 'Astra_Cache_Base' ) ) {
+						if ( ! Astra_Cache_Base::inline_assets() ) {
+							$dependency[] = 'astra-theme-dynamic';
+						}
+					}
+
 					// Generate CSS URL.
 					$css_file = $css_uri . $style . $file_prefix . '.css';
 
 					// Register.
-					wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+					wp_register_style( $key, $css_file, $dependency, ASTRA_THEME_VERSION, 'all' );
 
 					// Enqueue.
 					wp_enqueue_style( $key );
