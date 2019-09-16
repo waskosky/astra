@@ -201,6 +201,19 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	};
 
 	AstraToggleSetup = function () {
+
+		var deviceAgent = navigator.userAgent.toLowerCase();
+
+		var isTouchDevice = ('ontouchstart' in document.documentElement) || 
+		(deviceAgent.match(/(iphone|ipod|ipad)/) ||
+		deviceAgent.match(/(android)/)  || 
+		deviceAgent.match(/(iemobile)/) || 
+		deviceAgent.match(/iphone/i) || 
+		deviceAgent.match(/ipad/i) || 
+		deviceAgent.match(/ipod/i) || 
+		deviceAgent.match(/blackberry/i) || 
+		deviceAgent.match(/bada/i));
+
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 
 		if (menu_toggle_all.length > 0) {
@@ -211,7 +224,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 
-				if ('undefined' !== typeof __main_header_all[i]) {
+				if ('undefined' !== typeof __main_header_all[i] && isTouchDevice ) {
+					if (document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
+						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.main-header-menu .menu-item-has-children > a, .main-header-menu .page_item_has_children > a, ul.main-header-menu .ast-menu-toggle');
+					} else {
+						var astra_menu_toggle = __main_header_all[i].querySelectorAll('ul.main-header-menu .ast-menu-toggle');
+					}
+
+					// Add Eevetlisteners for Submenu.
+					if (astra_menu_toggle.length > 0) {
+						for (var j = 0; j < astra_menu_toggle.length; j++) {
+							astra_menu_toggle[j].addEventListener('click', AstraToggleSubMenu, false);
+						};
+					}
+				}
+				else if ('undefined' !== typeof __main_header_all[i]) {
 
 					if (document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-header-break-point .main-header-menu .menu-item-has-children > a, .ast-header-break-point .main-header-menu .page_item_has_children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle');
