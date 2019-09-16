@@ -1815,7 +1815,7 @@ function astra_filesystem() {
 }
 
 /**
- * Decide whether to display excrept.
+ * Decide whether to display excerpt.
  *
  * @since x.x.x
  * @return bool
