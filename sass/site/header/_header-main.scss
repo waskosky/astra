@@ -91,7 +91,16 @@
 	.ast-search-menu-icon .search-form {
 		background-color: #ffffff;
 	}
+}
 
+.ast-primary-menu-disabled {
+	.main-header-bar{
+		.main-header-bar-navigation {
+			&.toggle-on {
+				padding-top: 0;
+			}
+		}
+	}
 }
 
 .ast-flyout-menu-enable {
