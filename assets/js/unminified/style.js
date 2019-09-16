@@ -142,6 +142,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	updateHeaderBreakPoint();
 
 	AstraToggleSubMenu = function() {
+
+		event.preventDefault();
 		var parent_li = this.parentNode;
 		if (parent_li.classList.contains('ast-submenu-expanded') && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 			if (!this.classList.contains('ast-menu-toggle')) {
