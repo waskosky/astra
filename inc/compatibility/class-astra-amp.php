@@ -276,10 +276,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'border-style'        => 'solid',
 					'border-color'        => '#eaeaea',
 				),
-				'.ast-amp .main-navigation ul.sub-menu li a' => array(
+				'.ast-amp .main-navigation ul.sub-menu .menu-item .menu-link' => array(
 					'padding-left' => '30px',
 				),
-				'.ast-amp .main-navigation ul.sub-menu li a:before' => array(
+				'.ast-amp .main-navigation ul.sub-menu .menu-item .menu-link:before' => array(
 					'content'         => '""',
 					'font-family'     => '"Astra"',
 					'font-size'       => '0.65em',

@@ -301,7 +301,7 @@ p.demo_store,
 
 	.main-header-menu {
 		.woocommerce-custom-menu-item{
-			li:hover > a.remove{
+			.menu-item:hover > .menu-link.remove{
 				color: #ccc;
 			}
 		}
