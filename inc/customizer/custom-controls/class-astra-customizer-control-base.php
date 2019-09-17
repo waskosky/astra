@@ -62,8 +62,8 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			wp_enqueue_script( 'custom-control-script-partial', $js_uri . 'custom-control-script-partial' . $file_prefix . '.js', array( 'customize-selective-refresh' ), ASTRA_THEME_VERSION, true );
 
 			$test = array(
-				'class-1' => __( 'Class 1', 'wpse-272991' ),
-				'class-2' => __( 'Class 2', 'wpse-272991' ),
+				'class-1' => __( 'Class 1', 'astra' ),
+				'class-2' => __( 'Class 2', 'astra' ),
 			);
 
 			// Export the choices to JS.
