@@ -1,7 +1,5 @@
 v2.1.0
-- New: A CSS file will be loaded for dynamic style generated according to options set in the customizer, earlier inline CSS was loading on the page.
 - New: Introduce filter `astra_get_pro_url`. 
-- New: New filter `astra_load_dynamic_css_inline` to disable/enable loading of inline CSS. 
 - New: New filter `astra_single_post_comment_time_enabled` to disable post comment time on single blog page. 
 - Improvement: Redesign admin notices as per WordPress standards
 - Fix: Broken menu style on iOS safari browsers for version 11 or lower.  
