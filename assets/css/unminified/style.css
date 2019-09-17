@@ -3649,7 +3649,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.ast-header-break-point .main-navigation ul > li:first-child {
+.ast-header-break-point .main-navigation ul > .menu-item:first-child {
   border-top: 0;
 }
 

@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'width'   => '100%',
 				),
 
-				'.main-header-menu > .menu-item > .menu-link'       => array(
+				'.main-header-menu > .menu-item > .menu-link' => array(
 					'padding'             => '0 20px',
 					'display'             => 'inline-block',
 					'width'               => '100%',
