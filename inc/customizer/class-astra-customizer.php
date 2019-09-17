@@ -341,13 +341,25 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			if ( astra_get_prop( $config, 'partial', false ) ) {
 
+				// if ( isset( $wp_customize->selective_refresh ) ) {
+				// 	$wp_customize->selective_refresh->add_partial(
+				// 		astra_get_prop( $config, 'name' ),
+				// 		array(
+				// 			'selector'            => astra_get_prop( $config['partial'], 'selector' ),
+				// 			'type'                => astra_get_prop( $config['partial'], 'partial_type' ),
+				// 			'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
+				// 			'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
+				// 		)
+				// 	);
+				// }
+				print_r( astra_get_prop( $config['partial'], 'partial_type' ) );
 				if ( isset( $wp_customize->selective_refresh ) ) {
 					$wp_customize->selective_refresh->add_partial(
 						astra_get_prop( $config, 'name' ),
 						array(
 							'selector'            => astra_get_prop( $config['partial'], 'selector' ),
-							'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
-							'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
+							'type'                => astra_get_prop( $config['partial'], 'partial_type' ),
+							'settings'           => astra_get_prop( $config, 'name' ),
 						)
 					);
 				}

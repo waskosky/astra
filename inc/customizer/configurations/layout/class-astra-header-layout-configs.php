@@ -181,14 +181,43 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				* Option: Button Link
 				*/
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-link]',
-					'default'  => astra_get_option( 'header-main-rt-section-button-link' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-link]',
+					'default'   => astra_get_option( 'header-main-rt-section-button-link' ),
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'control'   => 'text',
+					'section'   => 'section-primary-menu',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+					'priority'  => 10,
+					'title'     => __( 'Button Link', 'astra' ),
+					// 'partial'   => array(
+					// 	'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-button',
+					// 	'container_inclusive' => false,
+					// 	'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_button_link' ),
+					// ),
+				),
+
+				/**
+				* Option: Button Style
+				*/
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-test]',
+					'default'  => astra_get_option( 'header-main-rt-section-button-test' ),
 					'type'     => 'control',
-					'control'  => 'text',
+					'control'  => 'select',
+					'transport' => 'postMessage',
 					'section'  => 'section-primary-menu',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority' => 10,
-					'title'    => __( 'Button Link', 'astra' ),
+					'partial'  => array(
+						'selector' => 'nav',
+						'partial_type' => 'custom_type',
+						// 'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_button_link' ),
+					),
+					'choices'  => array(
+						'class-1'  => __( 'Class 1', 'astra' ),
+						'class-2' => __( 'Class 2', 'astra' ),
+					),
+					'title'    => __( 'Button Test', 'astra' ),
 				),
 
 				/**

@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		}
 
 		/**
@@ -56,8 +56,25 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			$js_uri      = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir_name . '/';
 
 			wp_enqueue_style( 'custom-control-style' . $file_rtl, $css_uri . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'astra-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'astra-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable', 'customize-selective-refresh' ), ASTRA_THEME_VERSION, true );
+			// Export the choices to JS.
 
+			wp_enqueue_script( 'custom-control-script-partial', $js_uri . 'custom-control-script-partial' . $file_prefix . '.js', array( 'customize-selective-refresh' ), ASTRA_THEME_VERSION, true );
+
+			$test = array(
+				'class-1' => __( 'Class 1', 'wpse-272991' ),
+				'class-2' => __( 'Class 2', 'wpse-272991' ),
+			);
+
+			// Export the choices to JS.
+			wp_add_inline_script(
+				'custom-control-script-partial',
+				sprintf(
+					'wp.customize.selectiveRefresh.partialConstructor[ %s ].prototype.choices = %s;',
+					wp_json_encode( 'custom_type' ),
+					wp_json_encode( array_keys( $test ) )
+				)
+			);
 		}
 
 		/**
