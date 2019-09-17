@@ -154,7 +154,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 
-		if( ! parent_li.classList.contains("astra-megamenu-li") ) {
+		if( 'false' == parent_li.classList.contains("astra-megamenu-li") ) {
 			var parent_li_child = parent_li.querySelectorAll('.menu-item-has-children, .page_item_has_children');
 			for (var j = 0; j < parent_li_child.length; j++) {
 
