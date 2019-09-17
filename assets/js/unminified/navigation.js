@@ -154,26 +154,28 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 
-		var parent_li_child = parent_li.querySelectorAll('.menu-item-has-children, .page_item_has_children');
-		for (var j = 0; j < parent_li_child.length; j++) {
+		if( ! parent_li.classList.contains("astra-megamenu-li") ) {
+			var parent_li_child = parent_li.querySelectorAll('.menu-item-has-children, .page_item_has_children');
+			for (var j = 0; j < parent_li_child.length; j++) {
 
-			parent_li_child[j].classList.remove('ast-submenu-expanded');
-			var parent_li_child_sub_menu = parent_li_child[j].querySelector('.sub-menu, .children');
-			parent_li_child_sub_menu.style.display = 'none';
-		};
+				parent_li_child[j].classList.remove('ast-submenu-expanded');
+				var parent_li_child_sub_menu = parent_li_child[j].querySelector('.sub-menu, .children');
+				parent_li_child_sub_menu.style.display = 'none';
+			};
 
-		var parent_li_sibling = parent_li.parentNode.querySelectorAll('.menu-item-has-children, .page_item_has_children');
-		for (var j = 0; j < parent_li_sibling.length; j++) {
+			var parent_li_sibling = parent_li.parentNode.querySelectorAll('.menu-item-has-children, .page_item_has_children');
+			for (var j = 0; j < parent_li_sibling.length; j++) {
 
-			if (parent_li_sibling[j] != parent_li) {
+				if (parent_li_sibling[j] != parent_li) {
 
-				parent_li_sibling[j].classList.remove('ast-submenu-expanded');
-				var all_sub_menu = parent_li_sibling[j].querySelectorAll('.sub-menu, .children');
-				for (var k = 0; k < all_sub_menu.length; k++) {
-					all_sub_menu[k].style.display = 'none';
-				};
-			}
-		};
+					parent_li_sibling[j].classList.remove('ast-submenu-expanded');
+					var all_sub_menu = parent_li_sibling[j].querySelectorAll('.sub-menu, .children');
+					for (var k = 0; k < all_sub_menu.length; k++) {
+						all_sub_menu[k].style.display = 'none';
+					};
+				}
+			};
+		}
 
 		if (parent_li.classList.contains('menu-item-has-children') || parent_li.classList.contains('page_item_has_children')) {
 			toggleClass(parent_li, 'ast-submenu-expanded');
