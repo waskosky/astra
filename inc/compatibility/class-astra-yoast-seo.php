@@ -5,11 +5,6 @@
  * @package Astra
  */
 
-// If plugin - 'Contact Form 7' not exist then return.
-if ( ! class_exists( 'WPCF7' ) ) {
-	return;
-}
-
 /**
  * Astra Contact Form 7 Compatibility
  */
@@ -51,7 +46,9 @@ if ( ! class_exists( 'Astra_Yoast_SEO' ) ) :
 		 *
 		 * @since 1.0.0
 		 */
+
 		function ast_sitemap_exclude_post_type( $value, $post_type ) {
+
 			if ( $post_type == 'astra-advanced-hook' ) {
 				return true;
 			}
