@@ -180,11 +180,20 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				// Register & Enqueue Styles.
 				foreach ( $styles as $key => $style ) {
 
+					$dependency = array();
+
+					// Add dynamic CSS dependency for all styles except for theme's style.css.
+					if ( 'astra-theme-css' !== $key && class_exists( 'Astra_Cache_Base' ) ) {
+						if ( ! Astra_Cache_Base::inline_assets() ) {
+							$dependency[] = 'astra-theme-dynamic';
+						}
+					}
+
 					// Generate CSS URL.
 					$css_file = $css_uri . $style . $file_prefix . '.css';
 
 					// Register.
-					wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+					wp_register_style( $key, $css_file, $dependency, ASTRA_THEME_VERSION, 'all' );
 
 					// Enqueue.
 					wp_enqueue_style( $key );
@@ -210,7 +219,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
 
 			if ( ! empty( $menu_animation ) ) {
-				Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
+				if ( class_exists( 'Astra_Cache' ) ) {
+					Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
+				} else {
+					wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+					wp_enqueue_style( 'astra-menu-animation' );
+				}
+			}
+
+			if ( ! class_exists( 'Astra_Cache' ) ) {
+				$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
+				wp_add_inline_style( 'astra-theme-css', $theme_css_data );
 			}
 
 			if ( astra_is_amp_endpoint() ) {
