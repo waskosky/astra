@@ -101,6 +101,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 ( function() {
 
 	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
+	var above_menu_toggle_all 	= document.querySelectorAll( '.menu-above-header-toggle' );
+	var below_menu_toggle_all 	= document.querySelectorAll( '.menu-below-header-toggle' );
 
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
@@ -202,8 +204,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	AstraToggleSetup = function () {
-
+	astraIsTouchDevice = function() {
 		var deviceAgent = navigator.userAgent.toLowerCase();
 
 		var isTouchDevice = ('ontouchstart' in document.documentElement) || 
@@ -216,8 +217,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		deviceAgent.match(/blackberry/i) || 
 		deviceAgent.match(/bada/i));
 
-		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
+		return isTouchDevice;
+	};	
 
+	AstraToggleSetup = function ( selector, toggle_selector ) {
+
+		var __main_header_all = document.querySelectorAll( selector );
 		if (menu_toggle_all.length > 0) {
 
 			for (var i = 0; i < menu_toggle_all.length; i++) {
@@ -226,11 +231,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 
-				if ('undefined' !== typeof __main_header_all[i] && isTouchDevice ) {
+				if ('undefined' !== typeof __main_header_all[i] && astraIsTouchDevice() ) {
 					if (document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
-						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.main-header-menu .menu-item-has-children > a, ul.main-header-menu .ast-menu-toggle');
+						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-nav-menu .menu-item-has-children > a, ul.ast-nav-menu .ast-menu-toggle');
 					} else {
-						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.main-header-menu .menu-item-has-children .sub-arrow, ul.main-header-menu .ast-menu-toggle');
+						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-nav-menu .menu-item-has-children .sub-arrow, ul.ast-nav-menu .ast-menu-toggle');
 					}
 
 					// Add Eevetlisteners for Submenu.
@@ -312,12 +317,16 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Skip resize event when keyboard display event triggers on devices. 
 		if( 'INPUT' !== document.activeElement.tagName ) {
 			updateHeaderBreakPoint();
-			AstraToggleSetup();
+			AstraToggleSetup( '.main-header-bar-navigation', menu_toggle_all );
+			AstraToggleSetup( '.ast-above-header-navigation', above_menu_toggle_all );
+			AstraToggleSetup( '.ast-below-header-navigation', below_menu_toggle_all );
 		}
 	});
 
 	document.addEventListener('DOMContentLoaded', function () {
-		AstraToggleSetup();
+		AstraToggleSetup( '.main-header-bar-navigation', menu_toggle_all );
+		AstraToggleSetup( '.ast-above-header-navigation', above_menu_toggle_all );
+		AstraToggleSetup( '.ast-below-header-navigation', below_menu_toggle_all );
 		/**
 		 * Navigation Keyboard Navigation.
 		 */
