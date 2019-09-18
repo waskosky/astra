@@ -38,18 +38,18 @@ if ( ! class_exists( 'Astra_Yoast_SEO' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'wpseo_sitemap_exclude_post_type', 'ast_sitemap_exclude_post_type', 10, 2 );
+			add_filter( 'wpseo_sitemap_exclude_post_type', array( $this, 'ast_sitemap_exclude_post_type' ), 10, 2 );
 		}
 
 		/**
 		 * Exclude One Content Type From Yoast SEO Sitemap
 		 *
+		 * @param  string $value value.
+		 * @param  string $post_type Post Type.
 		 * @since 1.0.0
 		 */
-
 		function ast_sitemap_exclude_post_type( $value, $post_type ) {
-
-			if ( $post_type == 'astra-advanced-hook' ) {
+			if ( 'astra-advanced-hook' == $post_type ) {
 				return true;
 			}
 		}
