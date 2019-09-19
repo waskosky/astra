@@ -44,6 +44,7 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
+			add_action( 'wp_head', array( $this, 'preview_styles' ) );
 
 		}
 
@@ -193,6 +194,20 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			wp_enqueue_script( 'astra-transparent-header-customizer-preview-js', ASTRA_THEME_TRANSPARENT_HEADER_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		}
+
+		/**
+		 * Customizer Preview
+		 */
+		function preview_styles() {
+			if ( is_customize_preview() ) {
+				echo '<style class="astra-theme-custom-shortcut-edit-icons">
+					.customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
+					.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+					    z-index: 6;
+					}
+				</style>';
+			}
 		}
 	}
 }

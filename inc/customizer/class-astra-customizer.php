@@ -100,6 +100,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+			add_action( 'wp_head', array( $this, 'preview_styles' ) );
 		}
 
 		/**
@@ -924,6 +925,21 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						}
 					}
 				}
+			}
+		}
+
+		/**
+		 * Customizer Preview
+		 */
+		function preview_styles() {
+			if ( is_customize_preview() ) {
+				echo '<style class="astra-custom-shortcut-edit-icons">
+					.customize-partial-edit-shortcut-astra-settings-footer-adv {
+						position: relative;
+					    top: -1em;
+					    left: -1em;
+					}
+				</style>';
 			}
 		}
 	}

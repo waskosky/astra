@@ -56,6 +56,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'    => __( 'Enable on Complete Website', 'astra' ),
 					'priority' => 20,
 					'control'  => 'checkbox',
+					'partial'  => array(
+						'selector'            => '.ast-theme-transparent-header .main-header-bar .main-navigation .main-header-menu',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**
