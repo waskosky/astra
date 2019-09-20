@@ -141,59 +141,6 @@ describe("Primary Header", async () => {
 		});
 	});
 
-	describe("Header Layouts", async () => {
-		test("Recorded test case", async () => {
-			let result, assert;
-
-			// Defining browser viewport
-			await bs.page.setViewport({
-				width: 1680,
-				height: 908,
-				deviceScaleFactor: 2,
-				isMobile: false,
-				hasTouch: false,
-				isLandscape: false
-			});
-
-			// Navigating to ${ process.env.ASTRA_TESTS_URL }/wp-admin/customize.php
-			await bs.page.goto(
-				`${process.env.ASTRA_TESTS_URL}/wp-admin/customize.php`,
-				{
-					timeout: 30000,
-					waitUntil: "networkidle0"
-				}
-			);
-
-			// Emulating mouse click
-			await (await H3_CLASS_ACCORDION_SECTION_TITLE()).click({
-				button: "left"
-			});
-
-			// Emulating mouse click
-			await (await H3_CLASS_ACCORDION_SECTION_TITLE_1()).click({
-				button: "left"
-			});
-
-			// Emulating mouse click
-			await (await SPAN_CLASS_IMAGE_CLICKABLE()).click({
-				button: "left"
-			});
-
-			// Waiting for 2000 ms
-			await bs.page.waitFor(2000);
-
-			// Emulating mouse click
-			await (await CUSTOMIZE_SAVE()).click({
-				button: "left",
-				clickCount: 1,
-				delay: 0
-			});
-
-			// Waiting for 1000 ms
-			await bs.page.waitFor(400);
-		});
-	});
-
 	describe("Site Title", async () => {
 		test("Set Site Title", async () => {
 			let result, assert;
