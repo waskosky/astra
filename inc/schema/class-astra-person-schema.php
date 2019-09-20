@@ -34,6 +34,8 @@ class Astra_Person_Schema extends Astra_Schema {
 		add_filter( 'astra_attr_post-meta-author', array( $this, 'person_Schema' ) );
 		add_filter( 'astra_attr_author-name', array( $this, 'author_name_schema_itemprop' ) );
 		add_filter( 'astra_attr_author-url', array( $this, 'author_url_schema_itemprop' ) );
+		add_filter( 'astra_attr_author-item', array( $this, 'author_item_schema_itemprop' ) );
+		add_filter( 'astra_attr_author-desc', array( $this, 'author_desc_schema_itemprop' ) );
 	}
 
 	/**
@@ -74,6 +76,32 @@ class Astra_Person_Schema extends Astra_Schema {
 	 */
 	public function author_url_schema_itemprop( $attr ) {
 		$attr['itemprop'] = 'url';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function author_desc_schema_itemprop( $attr ) {
+		$attr['itemprop'] = 'description';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function author_item_schema_itemprop( $attr ) {
+		$attr['itemprop'] = 'author';
 
 		return $attr;
 	}
