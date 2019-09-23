@@ -19,7 +19,7 @@
 		<div class="entry-content clear"
 			<?php
 				echo astra_attr(
-					'article-entry-content',
+					'article-entry-content-blog-layout',
 					array(
 						'class' => '',
 					)

@@ -251,7 +251,7 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 						'<h2 class="entry-title" %2$s><a href="%1$s" rel="bookmark">',
 						esc_url( get_permalink() ),
 						astra_attr(
-							'article-title',
+							'article-title-blog',
 							array(
 								'class' => '',
 							)
@@ -303,7 +303,7 @@ if ( ! function_exists( 'astra_get_single_post_title_meta' ) ) {
 
 			astra_the_title(
 				'<h1 class="entry-title" ' . astra_attr(
-					'article-title',
+					'article-title-blog-single',
 					array(
 						'class' => '',
 					)

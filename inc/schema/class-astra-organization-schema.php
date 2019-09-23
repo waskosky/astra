@@ -34,6 +34,10 @@ class Astra_Organization_Schema extends Astra_Schema {
 		add_filter( 'astra_attr_site-identity', array( $this, 'organization_Schema' ) );
 		add_filter( 'astra_attr_site-title', array( $this, 'site_title_attr' ) );
 		add_filter( 'astra_attr_site-title-link', array( $this, 'site_title_link_attr' ) );
+		add_filter( 'astra_attr_site-title-custom-link', array( $this, 'site_title_custom_link_attr' ) );
+		add_filter( 'astra_attr_site-title-sticky-custom-link', array( $this, 'site_title_sticky_custom_link_attr' ) );
+		add_filter( 'astra_attr_site-title-none-sticky-custom-link', array( $this, 'site_title_none_sticky_custom_link_attr' ) );
+		add_filter( 'astra_attr_site-title-sticky-custom-logo-link', array( $this, 'site_title_sticky_custom_logo_link_attr' ) );
 	}
 
 	/**
@@ -71,6 +75,62 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 * @return string       Updated embed markup.
 	 */
 	public function site_title_link_attr( $attr ) {
+		$attr['itemprop'] = 'url';
+		$attr['class']    = '';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function site_title_custom_link_attr( $attr ) {
+		$attr['itemprop'] = 'url';
+		$attr['class']    = '';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function site_title_sticky_custom_link_attr( $attr ) {
+		$attr['itemprop'] = 'url';
+		$attr['class']    = '';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function site_title_none_sticky_custom_link_attr( $attr ) {
+		$attr['itemprop'] = 'url';
+		$attr['class']    = '';
+
+		return $attr;
+	}
+
+	/**
+	 * Update Schema markup attribute.
+	 *
+	 * @param  array $attr An array of attributes.
+	 *
+	 * @return string       Updated embed markup.
+	 */
+	public function site_title_sticky_custom_logo_link_attr( $attr ) {
 		$attr['itemprop'] = 'url';
 		$attr['class']    = '';
 

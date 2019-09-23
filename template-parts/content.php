@@ -32,7 +32,7 @@
 		astra_the_title(
 			sprintf(
 				'<h2 class="entry-title" ' . astra_attr(
-					'article-title',
+					'article-title-content',
 					array(
 						'class' => '',
 					)

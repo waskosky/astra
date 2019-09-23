@@ -34,7 +34,7 @@
 		<?php
 		astra_the_title(
 			'<h1 class="entry-title" ' . astra_attr(
-				'article-title',
+				'article-title-content-page',
 				array(
 					'class' => '',
 				)
@@ -47,7 +47,7 @@
 	<div class="entry-content clear" 
 		<?php
 				echo astra_attr(
-					'article-entry-content',
+					'article-entry-content-page',
 					array(
 						'class' => '',
 					)
