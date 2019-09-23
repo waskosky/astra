@@ -585,3 +585,25 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 }
+
+/* Customize Preview */
+
+.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+	.customize-partial-edit-shortcut-button {
+		left: 100px;
+	}
+}
+
+.ast-full-width-header {
+	.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+		.customize-partial-edit-shortcut-button {
+			left: 5px;
+		}
+	}
+	.customize-partial-edit-shortcut-blogname {
+		.customize-partial-edit-shortcut-button {
+			top: 35px;
+  			left: -15px;			
+		}
+	}
+}

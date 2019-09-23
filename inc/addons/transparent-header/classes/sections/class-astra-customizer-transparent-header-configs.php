@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'priority' => 20,
 					'control'  => 'checkbox',
 					'partial'  => array(
-						'selector'            => '.ast-theme-transparent-header .main-header-bar .main-navigation .main-header-menu',
+						'selector'            => '.ast-theme-transparent-header .main-header-bar',
 						'container_inclusive' => false,
 					),
 				),
