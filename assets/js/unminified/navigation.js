@@ -147,8 +147,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		event.preventDefault();
 		var parent_li = this.parentNode;
-		if (parent_li.classList.contains('ast-submenu-expanded') && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
-			if (!this.classList.contains('ast-menu-toggle')) {
+		if ( parent_li.classList.contains('ast-submenu-expanded') ) {
+			if ( !this.classList.contains('ast-menu-toggle') ) {
 				var link = parent_li.querySelector('a').getAttribute('href');
 				if ('' !== link || '#' !== link) {
 					window.location = link;
@@ -158,7 +158,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if( 'false' == parent_li.classList.contains("astra-megamenu-li") ) {
 			var parent_li_child = parent_li.querySelectorAll('.menu-item-has-children');
-			for (var j = 0; j < parent_li_child.length; j++) {
+			for ( var j = 0; j < parent_li_child.length; j++ ) {
 
 				parent_li_child[j].classList.remove('ast-submenu-expanded');
 				var parent_li_child_sub_menu = parent_li_child[j].querySelector('.sub-menu');
@@ -166,13 +166,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			};
 
 			var parent_li_sibling = parent_li.parentNode.querySelectorAll('.menu-item-has-children');
-			for (var j = 0; j < parent_li_sibling.length; j++) {
+			for ( var j = 0; j < parent_li_sibling.length; j++ ) {
 
-				if (parent_li_sibling[j] != parent_li) {
+				if ( parent_li_sibling[j] != parent_li ) {
 
 					parent_li_sibling[j].classList.remove('ast-submenu-expanded');
 					var all_sub_menu = parent_li_sibling[j].querySelectorAll('.sub-menu');
-					for (var k = 0; k < all_sub_menu.length; k++) {
+					for ( var k = 0; k < all_sub_menu.length; k++ ) {
 						all_sub_menu[k].style.display = 'none';
 					};
 				}
@@ -232,10 +232,16 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 
 				if ('undefined' !== typeof __main_header_all[i] && astraIsTouchDevice() ) {
-					if (document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
-						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-nav-menu .menu-item-has-children > a, ul.ast-nav-menu .ast-menu-toggle');
+					
+					if ( document.querySelector("body").classList.contains("ast-header-break-point") ) {
+
+						if ( document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
+							var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-nav-menu .menu-item-has-children > .menu-link, .ast-nav-menu .ast-menu-toggle');
+						} else {
+							var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-nav-menu .menu-item-has-children .sub-arrow, .ast-nav-menu .ast-menu-toggle');
+						}
 					} else {
-						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-nav-menu .menu-item-has-children .sub-arrow, ul.ast-nav-menu .ast-menu-toggle');
+						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-nav-menu .menu-item-has-children > .menu-link, .ast-nav-menu .ast-menu-toggle');
 					}
 
 					// Add Eevetlisteners for Submenu.
