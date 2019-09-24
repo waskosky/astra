@@ -607,3 +607,18 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 }
+
+.ast-primary-sticky-header-active {
+	&.ast-theme-transparent-header {
+		.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+			.customize-partial-edit-shortcut-button {
+				display: none;
+			}
+		}
+	}
+	.customize-partial-edit-shortcut-astra-settings-header-main-stick {
+		.customize-partial-edit-shortcut-button {
+			left: 5px;
+		}
+	}
+}

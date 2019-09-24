@@ -3800,6 +3800,14 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   right: -15px;
 }
 
+.ast-primary-sticky-header-active.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-enable .customize-partial-edit-shortcut-button {
+  display: none;
+}
+
+.ast-primary-sticky-header-active .customize-partial-edit-shortcut-astra-settings-header-main-stick .customize-partial-edit-shortcut-button {
+  right: 5px;
+}
+
 /* 7 - Header Toggle Buttons */
 .ast-header-break-point .ast-mobile-menu-buttons {
   text-align: left;
