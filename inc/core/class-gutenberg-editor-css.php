@@ -214,17 +214,17 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'page-builder' === $container_layout ) {
 				$page_builder_css = array(
 					'.editor-post-title__block, .editor-default-block-appender, .editor-block-list__block' => array(
-						'width' => '100%',
+						'width'     => '100%',
 						'max-width' => '100%',
 					),
 					'.block-editor-block-list__layout' => array(
-						'padding-left' => 0,
+						'padding-left'  => 0,
 						'padding-right' => 0,
 					),
-					'.editor-block-list__block-edit' => array(
-						'padding-left' => '20px',
+					'.editor-block-list__block-edit'   => array(
+						'padding-left'  => '20px',
 						'padding-right' => '20px',
-					)
+					),
 				);
 
 				$css .= astra_parse_css( $page_builder_css );
