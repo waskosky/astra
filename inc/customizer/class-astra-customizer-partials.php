@@ -27,24 +27,6 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 	class Astra_Customizer_Partials {
 
 		/**
-		 * Instance
-		 *
-		 * @access private
-		 * @var object
-		 */
-		private static $instance;
-
-		/**
-		 * Initiator
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
-			}
-			return self::$instance;
-		}
-
-		/**
 		 * Constructor
 		 */
 		public function __construct() { }
@@ -52,7 +34,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Site Tagline
 		 */
-		static function render_partial_site_tagline() {
+		function render_partial_site_tagline() {
 
 			$site_tagline = astra_get_option( 'display-site-tagline' );
 
@@ -64,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Site Tagline
 		 */
-		static function render_partial_site_title() {
+		function render_partial_site_title() {
 
 			$site_title = astra_get_option( 'display-site-title' );
 
@@ -76,7 +58,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Header Right Section HTML
 		 */
-		static function render_header_main_rt_section_html() {
+		function render_header_main_rt_section_html() {
 
 			$right_section_html = astra_get_option( 'header-main-rt-section-html' );
 
@@ -86,7 +68,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Text Custom Menu Item
 		 */
-		static function render_header_main_rt_section_button_text() {
+		function render_header_main_rt_section_button_text() {
 			$custom_button_text = astra_get_option( 'header-main-rt-section-button-text' );
 
 			return do_shortcode( $custom_button_text );
@@ -97,7 +79,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 *
 		 * @since x.x.x
 		 */
-		static function render_header_site_title_tagline() {
+		function render_header_site_title_tagline() {
 			$display_site_title   = astra_get_option( 'display-site-title' );
 			$display_site_tagline = astra_get_option( 'display-site-tagline' );
 
@@ -109,7 +91,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Footer Section 1 Credit
 		 */
-		static function render_footer_sml_section_1_credit() {
+		function render_footer_sml_section_1_credit() {
 
 			$output = astra_get_small_footer_custom_text( 'footer-sml-section-1-credit' );
 			return do_shortcode( $output );
@@ -118,15 +100,10 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Footer Section 2 Credit
 		 */
-		static function render_footer_sml_section_2_credit() {
+		function render_footer_sml_section_2_credit() {
 
 			$output = astra_get_small_footer_custom_text( 'footer-sml-section-2-credit' );
 			return do_shortcode( $output );
 		}
 	}
 }
-
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Astra_Customizer_Partials::get_instance();
