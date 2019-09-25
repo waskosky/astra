@@ -3813,8 +3813,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .customize-partial-edit-shortcut-astra-settings-above-header-section-1-search-box-type .customize-partial-edit-shortcut-button {
-  right: -38px;
-  top: -5px;
+  top: -10px;
 }
 
 .woocommerce-above-header .customize-partial-edit-shortcut-astra-settings-above-header-section-1 .customize-partial-edit-shortcut-button {
@@ -3826,45 +3825,24 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type .customize-partial-edit-shortcut-button {
-  right: -40px;
-}
-
-.below-header-section-1 .widget.ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-below-header-section-1 .customize-partial-edit-shortcut-button {
-  right: -75px;
-  top: 15px;
+  top: -10px;
 }
 
 .below-header-section-1 .customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type .customize-partial-edit-shortcut-button {
-  right: -40px;
-}
-
-.below-header-section-1 .customize-partial-edit-shortcut-astra-settings-below-header-section-1-html .customize-partial-edit-shortcut-button {
-  top: 15px;
-}
-
-.below-header-section-1 .ast-site-header-cart .customize-partial-edit-shortcut-astra-settings-below-header-section-1 .customize-partial-edit-shortcut-button {
-  right: -95px;
-  top: 14px;
+  top: -15px;
 }
 
 .below-header-section-2 .customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type .customize-partial-edit-shortcut-button {
-  right: -44px;
-  top: -6px;
+  top: -15px;
 }
 
-.below-header-section-2 .widget.ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-below-header-section-2 .customize-partial-edit-shortcut-button {
-  right: -75px;
-  top: 14px;
+.ast-below-header .below-header-user-select .ast-site-header-cart,
+.ast-below-header .below-header-user-select .ast-search-menu-icon, .ast-below-header .below-header-user-select.below-header-widget {
+  text-align: right;
 }
 
-.below-header-section-2 .ast-site-header-cart .customize-partial-edit-shortcut-astra-settings-below-header-section-2 .customize-partial-edit-shortcut-button {
-  right: -95px;
-  top: 14px;
-}
-
-.ast-above-header-section-2 .customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type .customize-partial-edit-shortcut-button {
-  right: -44px;
-  top: -6px;
+.ast-above-header-section .user-select .ast-search-menu-icon {
+  text-align: right;
 }
 
 /*.customize-partial-edit-shortcut-blogname {

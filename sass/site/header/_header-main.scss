@@ -632,8 +632,7 @@ li.ast-masthead-custom-menu-items {
 
 .customize-partial-edit-shortcut-astra-settings-above-header-section-1-search-box-type {
 	.customize-partial-edit-shortcut-button {
-		left: -38px;
-		top: -5px;
+		top: -10px;
 	}
 }
 
@@ -651,41 +650,17 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
+
 .customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type {
 	.customize-partial-edit-shortcut-button {
-		left: -40px;
+		top: -10px;
 	}
 }
 
-
 .below-header-section-1 {
-	.widget {
-		&.ast-no-widget-row {
-			.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
-				.customize-partial-edit-shortcut-button {
-					left: -75px;
-					top: 15px;
-				}
-			}
-		}
-	}
 	.customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type {
 		.customize-partial-edit-shortcut-button {
-			left: -40px;
-		}
-	}
-	
-	.customize-partial-edit-shortcut-astra-settings-below-header-section-1-html {
-		.customize-partial-edit-shortcut-button {
-			top: 15px;
-		}
-	}
-	.ast-site-header-cart {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
-			.customize-partial-edit-shortcut-button {
-				left: -95px;
-				top: 14px;
-			}
+			top: -15px
 		}
 	}
 }
@@ -693,35 +668,25 @@ li.ast-masthead-custom-menu-items {
 .below-header-section-2 {
 	.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type {
 		.customize-partial-edit-shortcut-button {
-			left: -44px;
-    		top: -6px;
-		}
-	}
-	.widget {
-		&.ast-no-widget-row {
-			.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
-				.customize-partial-edit-shortcut-button {
-					left: -75px;
-					top: 14px;
-				}
-			}
-		}	
-	}
-	.ast-site-header-cart {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
-			.customize-partial-edit-shortcut-button {
-				left: -95px;
-				top: 14px;
-			}
+    		top: -15px;
 		}
 	}
 }
 
-.ast-above-header-section-2 {
-	.customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type {
-		.customize-partial-edit-shortcut-button {
-			left: -44px;
-    		top: -6px;
+.ast-below-header {
+	.below-header-user-select {
+		.ast-site-header-cart,
+		.ast-search-menu-icon,
+		&.below-header-widget {
+			text-align: left;
+		}
+	}
+}
+
+.ast-above-header-section {
+	.user-select {
+		.ast-search-menu-icon {
+			text-align: left;
 		}
 	}
 }
