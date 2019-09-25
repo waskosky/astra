@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-1',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_1_credit' ),
 					),
 				),
 
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'partials' => array(
 						'selector'            => '.ast-small-footer-section-2',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_2_credit' ),
 					),
 				),
 

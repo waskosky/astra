@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.main-header-bar .site-branding .ast-site-title-wrap',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_site_title_tagline' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_site_title_tagline' ),
 					),
 				),
 
@@ -169,7 +169,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.main-header-bar .site-branding .ast-site-title-wrap',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_site_title_tagline' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_site_title_tagline' ),
 					),
 				),
 
