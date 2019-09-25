@@ -23,7 +23,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	/**
 	 * Setup schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	public function setup_schema() {
 
@@ -45,7 +45,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function organization_Schema( $attr ) {
 		$attr['itemtype']  = 'https://schema.org/Organization';
@@ -59,7 +59,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function site_title_attr( $attr ) {
 		$attr['itemprop'] = 'name';
@@ -72,7 +72,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function site_title_link_attr( $attr ) {
 		$attr['itemprop'] = 'url';
@@ -86,7 +86,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function site_title_custom_link_attr( $attr ) {
 		$attr['itemprop'] = 'url';
@@ -100,7 +100,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function site_title_sticky_custom_link_attr( $attr ) {
 		$attr['itemprop'] = 'url';
@@ -114,7 +114,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function site_title_none_sticky_custom_link_attr( $attr ) {
 		$attr['itemprop'] = 'url';
@@ -128,7 +128,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function site_title_sticky_custom_logo_link_attr( $attr ) {
 		$attr['itemprop'] = 'url';
@@ -140,7 +140,7 @@ class Astra_Organization_Schema extends Astra_Schema {
 	/**
 	 * Enabled schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	protected function schema_enabled() {
 		return apply_filters( 'astra_organization_schema_enabled', parent::schema_enabled() );

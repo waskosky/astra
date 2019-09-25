@@ -32,14 +32,14 @@ class Astra_Schema {
 	/**
 	 * Setup schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	public function setup_schema() { }
 
 	/**
 	 * Include schema files.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	private function include_schemas() {
 		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-creativework-schema.php';
@@ -54,7 +54,7 @@ class Astra_Schema {
 	/**
 	 * Enabled schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	protected function schema_enabled() {
 		return apply_filters( 'astra_schema_enabled', true );

@@ -23,7 +23,7 @@ class Astra_Site_Navigation_Schema extends Astra_Schema {
 	/**
 	 * Setup schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	public function setup_schema() {
 
@@ -39,7 +39,7 @@ class Astra_Site_Navigation_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function site_navigation_schema( $attr ) {
 		$attr['itemtype']  = 'https://schema.org/SiteNavigationElement';
@@ -51,7 +51,7 @@ class Astra_Site_Navigation_Schema extends Astra_Schema {
 	/**
 	 * Enabled schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	protected function schema_enabled() {
 		return apply_filters( 'astra_site_navigation_schema_enabled', parent::schema_enabled() );

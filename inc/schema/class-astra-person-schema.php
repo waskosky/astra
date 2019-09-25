@@ -23,7 +23,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	/**
 	 * Setup schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	public function setup_schema() {
 
@@ -45,7 +45,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function person_Schema( $attr ) {
 		$attr['itemtype']  = 'https://schema.org/Person';
@@ -61,7 +61,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function author_name_schema_itemprop( $attr ) {
 		$attr['itemprop'] = 'author-name';
@@ -74,7 +74,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function author_name_info_schema_itemprop( $attr ) {
 		$attr['itemprop'] = 'author-name';
@@ -87,7 +87,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function author_url_schema_itemprop( $attr ) {
 		$attr['itemprop'] = 'url';
@@ -100,7 +100,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function author_info_url_schema_itemprop( $attr ) {
 		$attr['itemprop'] = 'url';
@@ -113,7 +113,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function author_desc_schema_itemprop( $attr ) {
 		$attr['itemprop'] = 'description';
@@ -126,7 +126,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function author_item_schema_itemprop( $attr ) {
 		$attr['itemprop'] = 'author';
@@ -137,7 +137,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	/**
 	 * Enabled schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	protected function schema_enabled() {
 		return apply_filters( 'astra_person_schema_enabled', parent::schema_enabled() );

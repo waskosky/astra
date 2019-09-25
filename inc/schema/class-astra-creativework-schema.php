@@ -23,7 +23,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	/**
 	 * Setup schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	public function setup_schema() {
 
@@ -55,7 +55,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function creative_work_schema( $attr ) {
 		$attr['itemtype']  = 'https://schema.org/CreativeWork';
@@ -69,7 +69,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_title_blog_schema_prop( $attr ) {
 		$attr['itemprop'] = 'headline';
@@ -82,7 +82,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_title_blog_single_schema_prop( $attr ) {
 		$attr['itemprop'] = 'headline';
@@ -95,7 +95,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_title_content_page_schema_prop( $attr ) {
 		$attr['itemprop'] = 'headline';
@@ -108,7 +108,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_title_content_schema_prop( $attr ) {
 		$attr['itemprop'] = 'headline';
@@ -121,7 +121,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_content_blog_layout_schema_prop( $attr ) {
 		$attr['itemprop'] = 'text';
@@ -134,7 +134,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_content_page_schema_prop( $attr ) {
 		$attr['itemprop'] = 'text';
@@ -147,7 +147,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_content_schema_prop( $attr ) {
 		$attr['itemprop'] = 'text';
@@ -160,7 +160,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_content_blog_layout_2_schema_prop( $attr ) {
 		$attr['itemprop'] = 'text';
@@ -173,7 +173,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_content_blog_layout_3_schema_prop( $attr ) {
 		$attr['itemprop'] = 'text';
@@ -186,7 +186,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_content_single_layout_schema_prop( $attr ) {
 		$attr['itemprop'] = 'text';
@@ -199,7 +199,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_image_schema_prop( $attr ) {
 		$attr['itemprop'] = 'image';
@@ -212,7 +212,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array       Updated embed markup.
 	 */
 	public function article_image_blog_archive_schema_prop( $attr ) {
 		$attr['itemprop'] = 'image';
@@ -225,7 +225,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 *
 	 * @param  array $attr An array of attributes.
 	 *
-	 * @return string       Updated embed markup.
+	 * @return array Updated embed markup.
 	 */
 	public function article_image_blog_single_post_schema_prop( $attr ) {
 		$attr['itemprop'] = 'image';
@@ -236,7 +236,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	/**
 	 * Enabled schema
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	protected function schema_enabled() {
 		return apply_filters( 'astra_creativework_schema_enabled', parent::schema_enabled() );
