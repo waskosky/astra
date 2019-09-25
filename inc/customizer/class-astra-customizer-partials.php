@@ -28,11 +28,19 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 		/**
 		 * Constructor
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return void
 		 */
 		public function __construct() { }
 
 		/**
 		 * Render Partial Site Tagline
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return mixed
 		 */
 		function render_partial_site_tagline() {
 
@@ -45,6 +53,10 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 		/**
 		 * Render Partial Site Tagline
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return mixed
 		 */
 		function render_partial_site_title() {
 
@@ -57,6 +69,10 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 		/**
 		 * Render Partial Header Right Section HTML
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return mixed
 		 */
 		function render_header_main_rt_section_html() {
 
@@ -67,6 +83,10 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 		/**
 		 * Render Partial Text Custom Menu Item
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return mixed
 		 */
 		function render_header_main_rt_section_button_text() {
 			$custom_button_text = astra_get_option( 'header-main-rt-section-button-text' );
@@ -78,6 +98,8 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		 * Render Partial Text Header Site Title & Tagline
 		 *
 		 * @since x.x.x
+		 *
+		 * @return mixed
 		 */
 		function render_header_site_title_tagline() {
 			$display_site_title   = astra_get_option( 'display-site-title' );
@@ -90,6 +112,10 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 		/**
 		 * Render Partial Footer Section 1 Credit
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return mixed
 		 */
 		function render_footer_sml_section_1_credit() {
 
@@ -99,6 +125,10 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 		/**
 		 * Render Partial Footer Section 2 Credit
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return mixed
 		 */
 		function render_footer_sml_section_2_credit() {
 
