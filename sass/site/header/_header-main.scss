@@ -618,7 +618,14 @@ li.ast-masthead-custom-menu-items {
 	}
 	.customize-partial-edit-shortcut-astra-settings-header-main-stick {
 		.customize-partial-edit-shortcut-button {
-			left: 5px;
+			left: 100px;
+		}
+	}
+	&.ast-full-width-header {
+		.customize-partial-edit-shortcut-astra-settings-header-main-stick {
+			.customize-partial-edit-shortcut-button {
+				left: 5px;
+			}
 		}
 	}
 }
@@ -657,3 +664,23 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 }
+
+.customize-partial-edit-shortcut-astra-settings-header-layouts {
+	.customize-partial-edit-shortcut-button{
+		left: -65px;	
+	}
+}
+
+/*.customize-partial-edit-shortcut-blogname {
+	.customize-partial-edit-shortcut-button {
+		display: none;
+	}
+}
+
+.ast-theme-transparent-header .main-header-bar:hover {
+	.customize-partial-edit-shortcut-blogname {
+		.customize-partial-edit-shortcut-button {
+			display: block;
+		}
+	}
+}*/

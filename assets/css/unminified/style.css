@@ -3805,6 +3805,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-primary-sticky-header-active .customize-partial-edit-shortcut-astra-settings-header-main-stick .customize-partial-edit-shortcut-button {
+  left: 100px;
+}
+
+.ast-primary-sticky-header-active.ast-full-width-header .customize-partial-edit-shortcut-astra-settings-header-main-stick .customize-partial-edit-shortcut-button {
   left: 5px;
 }
 
@@ -3832,6 +3836,23 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   left: 4px;
 }
 
+.customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
+  left: -65px;
+}
+
+/*.customize-partial-edit-shortcut-blogname {
+	.customize-partial-edit-shortcut-button {
+		display: none;
+	}
+}
+
+.ast-theme-transparent-header .main-header-bar:hover {
+	.customize-partial-edit-shortcut-blogname {
+		.customize-partial-edit-shortcut-button {
+			display: block;
+		}
+	}
+}*/
 /* 7 - Header Toggle Buttons */
 .ast-header-break-point .ast-mobile-menu-buttons {
   text-align: right;
