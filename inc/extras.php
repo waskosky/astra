@@ -674,7 +674,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 
 		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && true == $hide_custom_menu_mobile ) ) {
 			$menu_bottons = false;
-			if ( ( true == $above_header_on_mobile && true == $above_header_merge ) || ( true == $below_header_on_mobile && true == $below_header_on_mobile ) ) {
+			if ( ( true == $above_header_on_mobile && true == $above_header_merge ) || ( true == $below_header_on_mobile && true == $below_header_merge ) ) {
 				$menu_bottons = true;
 			}
 		}
