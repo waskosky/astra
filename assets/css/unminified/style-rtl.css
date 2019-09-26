@@ -3791,6 +3791,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   right: 100px;
 }
 
+.customize-partial-edit-shortcut-blogname .customize-partial-edit-shortcut-button {
+  right: -25px;
+}
+
 .ast-full-width-header .customize-partial-edit-shortcut-astra-settings-transparent-header-enable .customize-partial-edit-shortcut-button {
   right: 5px;
 }
@@ -3821,7 +3825,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
-  right: -65px;
+  right: -50px;
+  top: -30px;
 }
 
 .customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type .customize-partial-edit-shortcut-button {
@@ -3843,6 +3848,20 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-above-header-section .user-select .ast-search-menu-icon {
   text-align: right;
+}
+
+/* Hover CSS Customizer Edit pencil */
+.customize-partial-edit-shortcut-blogname .customize-partial-edit-shortcut-button,
+.customize-partial-edit-shortcut-astra-settings-disable-primary-nav .customize-partial-edit-shortcut-button {
+  display: none;
+}
+
+.site-title:hover .customize-partial-edit-shortcut-blogname .customize-partial-edit-shortcut-button {
+  display: block;
+}
+
+.main-navigation:hover .customize-partial-edit-shortcut-astra-settings-disable-primary-nav .customize-partial-edit-shortcut-button {
+  display: block;
 }
 
 /*.customize-partial-edit-shortcut-blogname {
