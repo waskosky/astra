@@ -1285,7 +1285,7 @@ if ( ! function_exists( 'astra_the_excerpt' ) ) {
 
 		do_action( 'astra_the_excerpt_before', $excerpt_type );
 
-		if ( ! astra_display_excerpt() ) {
+		if ( 'full-content' === astra_excerpt_type() ) {
 			the_content();
 		} else {
 			the_excerpt();
@@ -1815,20 +1815,19 @@ function astra_filesystem() {
 }
 
 /**
- * Decide whether to display excerpt.
+ * Returns except type to display.
  *
  * @since x.x.x
  * @return bool
  */
-function astra_display_excerpt() {
+function astra_excerpt_type() {
 
-	global $post;
-	$excerpt_type    = astra_get_option( 'blog-post-content' );
-	$display_excerpt = 'full-content' === $excerpt_type ? false : true;
+	$excerpt_type = astra_get_option( 'blog-post-content' );
+	$post_format  = get_post_format();
 
-	$format = ( false !== get_post_format() ) ? get_post_format() : 'standard';
+	if ( false !== $post_format && 'standard' !== $post_format ) {
+		$excerpt_type = 'full-content';
+	}
 
-	$display_excerpt = ( 'standard' !== $format ) ? false : $display_excerpt;
-
-	return apply_filters( 'astra_display_excerpt', $display_excerpt );
+	return apply_filters( 'astra_excerpt_type', $excerpt_type );
 }
