@@ -3827,6 +3827,58 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   left: -25px;
 }
 
+.ast-masthead-custom-menu-items.search-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+  left: -25px;
+  top: -10px;
+  display: none;
+}
+
+.ast-masthead-custom-menu-items.search-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+  display: block;
+}
+
+.ast-masthead-custom-menu-items.button-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style .customize-partial-edit-shortcut-button {
+  left: -20px;
+  display: none;
+}
+
+.ast-masthead-custom-menu-items.button-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style .customize-partial-edit-shortcut-button {
+  display: block;
+}
+
+.ast-masthead-custom-menu-items.text-html-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html .customize-partial-edit-shortcut-button {
+  left: -20px;
+  display: none;
+}
+
+.ast-masthead-custom-menu-items.text-html-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html .customize-partial-edit-shortcut-button {
+  display: block;
+}
+
+.ast-masthead-custom-menu-items.widget-custom-menu-item {
+  text-align: left;
+}
+
+.ast-masthead-custom-menu-items.widget-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+  left: -25px;
+  top: -8px;
+  display: none;
+}
+
+.ast-masthead-custom-menu-items.widget-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+  display: block;
+}
+
+.ast-masthead-custom-menu-items.woocommerce-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+  top: -20px;
+  left: -25px;
+  display: none;
+}
+
+.ast-masthead-custom-menu-items.woocommerce-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+  display: block;
+}
+
 /* Below Header common CSS */
 .ast-below-header .below-header-user-select .ast-site-header-cart,
 .ast-below-header .below-header-user-select .ast-search-menu-icon, .ast-below-header .below-header-user-select.below-header-widget {

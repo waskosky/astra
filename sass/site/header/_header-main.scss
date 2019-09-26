@@ -653,6 +653,88 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
+.ast-masthead-custom-menu-items {
+	&.search-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+				top: -10px;
+				display: none;
+			}
+		}
+	}
+	&.search-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.button-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style {
+			.customize-partial-edit-shortcut-button {
+				left: -20px;
+				display: none;
+			}
+		}
+	}
+	&.button-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.text-html-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html {
+			.customize-partial-edit-shortcut-button {
+				left: -20px;
+				display: none;
+			}
+		}
+	}
+	&.text-html-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.widget-custom-menu-item {
+		text-align: left;
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+				top: -8px;
+				display: none;
+			}
+		}
+	}
+	&.widget-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.woocommerce-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				top: -20px;
+				left: -25px;
+				display: none;
+			}
+		}
+	}
+	&.woocommerce-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+}
+
 /* Below Header common CSS */
 
 .ast-below-header {
