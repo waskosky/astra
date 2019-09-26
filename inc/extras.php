@@ -602,7 +602,6 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 						'itemscope' => 'itemscope',
 						'id'        => 'masthead',
 						'class'     => join( ' ', astra_get_header_classes() ),
-						'role'      => 'banner',
 					)
 				);
 
@@ -870,7 +869,6 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 						'itemscope' => 'itemscope',
 						'id'        => 'colophon',
 						'class'     => join( ' ', astra_get_footer_classes() ),
-						'role'      => 'contentinfo',
 					)
 				);
 
