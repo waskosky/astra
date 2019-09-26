@@ -35,12 +35,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				/**
 				 * Layout Panel
 				 */
-				array(
-					'name'     => 'panel-layout',
-					'type'     => 'panel',
-					'priority' => 10,
-					'title'    => __( 'Layout', 'astra' ),
-				),
 
 				array(
 					'name'     => 'panel-global',

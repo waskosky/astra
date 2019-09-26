@@ -1030,16 +1030,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'920'
 			);
 
-			$dynamic_css .= $parse_css;
-			$custom_css   = astra_get_option( 'custom-css' );
+			$parse_css .= $dynamic_css;
+			$custom_css = astra_get_option( 'custom-css' );
 
 			if ( '' != $custom_css ) {
-				$dynamic_css .= $custom_css;
+				$parse_css .= $custom_css;
 			}
 
 			// trim white space for faster page loading.
-			$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-			return apply_filters( 'astra_theme_dynamic_css', $dynamic_css );
+			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
+			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
 		}
 
@@ -1127,6 +1127,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
 				// @see https://github.com/brainstormforce/astra/pull/828
 				$submenu_below_header = array(
+					'.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'display' => 'block',
+					),
 					'.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
 						'-js-display'             => 'flex',
 						'display'                 => '-webkit-box',
@@ -1169,6 +1172,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $submenu_below_header );
 
 			endif;
+
+			if ( false === self::add_hidden_class_css() ) {
+				// If Astra Addon is not updated to v2.1.1 then add .hidden class css from theme to support megamenu css in addon.
+				$hidden_class_css = array(
+					'.hidden' => array(
+						'display' => 'none !important',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $hidden_class_css );
+
+			}
 
 			$dynamic_css .= $parse_css;
 
@@ -1240,6 +1255,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					return false;
 			} else {
 
+				return true;
+			}
+
+		}
+
+		/**
+		 * Check backwards compatibility CSS for .hidden class.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if CSS should be included, False if not.
+		 */
+		public static function add_hidden_class_css() {
+
+			if ( false === astra_get_option( 'hidden-class-css', true ) &&
+			false === apply_filters(
+				'astra_hidden_class_css',
+				false
+			) ) {
+				return false;
+			} else {
 				return true;
 			}
 
