@@ -1815,10 +1815,10 @@ function astra_filesystem() {
 }
 
 /**
- * Returns except type to display.
+ * Returns excerpt type to display.
  *
  * @since x.x.x
- * @return bool
+ * @return string
  */
 function astra_excerpt_type() {
 
