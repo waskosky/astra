@@ -2556,7 +2556,15 @@ body {
   padding-left: 0;
 }
 
-.ast-header-break-point .main-navigation .sub-menu .menu-item a,
+.ast-header-break-point .main-navigation .sub-menu .menu-item .menu-link {
+  padding: 0 20px;
+  display: inline-block;
+  width: 100%;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+}
+
 .ast-header-break-point .main-navigation .sub-menu .button-custom-menu-item a {
   padding: 0 20px;
   display: inline-block;
