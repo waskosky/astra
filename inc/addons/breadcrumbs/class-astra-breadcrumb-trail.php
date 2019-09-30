@@ -282,13 +282,11 @@ class Astra_Breadcrumb_Trail {
 				);
 			}
 
-			$breadcrumb_list_schema = $this->args['schema'] ? 'itemscope itemtype="http://schema.org/BreadcrumbList"' : '';
-
 			// Open the unordered list.
 			$breadcrumb .= sprintf(
 				'<%1$s class="trail-items" %2$s>',
 				tag_escape( $this->args['list_tag'] ),
-				$breadcrumb_list_schema,
+				( $this->args['schema'] ? 'itemscope itemtype="http://schema.org/BreadcrumbList"' : '' )
 			);
 				
 			if ( $this->args['schema'] ) {
