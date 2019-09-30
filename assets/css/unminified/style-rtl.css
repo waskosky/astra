@@ -3980,7 +3980,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type .customize-partial-edit-shortcut-button,
 .customize-partial-edit-shortcut-astra-settings-below-header-section-2-html .customize-partial-edit-shortcut-button,
 .customize-partial-edit-shortcut-astra-settings-below-header-section-2 .customize-partial-edit-shortcut-button,
-.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type .customize-partial-edit-shortcut-button {
+.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type .customize-partial-edit-shortcut-button,
+.ast-main-header-bar-alignment .customize-partial-edit-shortcut-button {
   display: none;
 }
 
