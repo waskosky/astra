@@ -34,7 +34,7 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 	}
 
 	/**
-	 * Disable schema for Before Title option of Breadcrumb Position.
+	 * Disable Schema for Before Title option of Breadcrumb Position.
 	 *
 	 * @since x.x.x
 	 *
