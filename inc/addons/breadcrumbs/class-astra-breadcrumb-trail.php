@@ -286,7 +286,9 @@ class Astra_Breadcrumb_Trail {
 			$breadcrumb .= sprintf(
 				'<%1$s class="trail-items" %2$s>',
 				tag_escape( $this->args['list_tag'] ),
+				// phpcs:disable
 				( $this->args['schema'] ? 'itemscope itemtype="http://schema.org/BreadcrumbList"' : '' ),
+				// phpcs:enable
 			);
 
 			if ( $this->args['schema'] ) {
