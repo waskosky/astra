@@ -350,7 +350,7 @@ class Astra_Breadcrumb_Trail {
 				$this->args['before'],
 				$breadcrumb,
 				$this->args['after'],
-				$this->args['schema'] ? 'sitemprop="breadcrumb"' : '',
+				$this->args['schema'] ? 'sitemprop="breadcrumb"' : ''
 			);
 		}
 
