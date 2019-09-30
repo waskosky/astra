@@ -282,14 +282,14 @@ class Astra_Breadcrumb_Trail {
 				);
 			}
 
+			$breadcrumb_list_schema = $this->args['schema'] ? 'itemscope itemtype="http://schema.org/BreadcrumbList"' : '';
+
 			// Open the unordered list.
-			// phpcs:disable
 			$breadcrumb .= sprintf(
 				'<%1$s class="trail-items" %2$s>',
 				tag_escape( $this->args['list_tag'] ),
-				( $this->args['schema'] ? 'itemscope itemtype="http://schema.org/BreadcrumbList"' : '' ),
+				$breadcrumb_list_schema,
 			);
-			// phpcs:enable
 				
 			if ( $this->args['schema'] ) {
 				// Add the number of items and item list order schema.
