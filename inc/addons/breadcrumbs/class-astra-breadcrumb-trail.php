@@ -268,6 +268,7 @@ class Astra_Breadcrumb_Trail {
 		$breadcrumb    = '';
 		$item_count    = count( $this->items );
 		$item_position = 0;
+		$meta          = '';
 
 		// Connect the breadcrumb trail if there are items in the trail.
 		if ( 0 < $item_count ) {
