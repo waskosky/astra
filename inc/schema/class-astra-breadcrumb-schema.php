@@ -26,10 +26,6 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 	 * @since x.x.x
 	 */
 	public function setup_schema() {
-		if ( true !== $this->schema_enabled() ) {
-			add_filter( 'astra_breadcrumb_trail_args', array( $this, 'breadcrumb_schema' ) );
-			return false;
-		}
 		add_action( 'wp', array( $this, 'disable_schema_before_title' ), 20 );
 	}
 
@@ -44,7 +40,7 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 		$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 		$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
-		if ( 'astra_entry_top' === $breadcrumb_position && empty( $breadcrumb_source ) ) {
+		if ( ( 'astra_entry_top' === $breadcrumb_position && empty( $breadcrumb_source ) ) || ( true !== $this->schema_enabled() ) ) {
 			add_filter( 'astra_breadcrumb_trail_args', array( $this, 'breadcrumb_schema' ) );
 		}
 	}
