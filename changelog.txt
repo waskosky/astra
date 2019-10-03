@@ -8,8 +8,6 @@ v2.1.0
 - Fix: Search bar not working on android tablet devices.  
 - Fix: Font weights not displaying in the customizer for fonts added from Custom Adobe Fonts plugin. 
 - Fix: Removed extra padding that was being applied to all the Gutenberg blocks.
-- Fix: Omit printing skip-focus-fix script on AMP content ( props @amedina ) 
-- Deprecated: astra_is_emp_endpoint function. 
 - Fix: SVG logo not working for mobile devices.
 - Fix: Transparent Header menu background color not working on tablet devices.
 
