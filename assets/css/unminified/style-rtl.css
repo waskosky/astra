@@ -3957,7 +3957,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.wp-block-gallery {
+.wp-block-gallery,
+.blocks-gallery-grid {
   margin: 0;
 }
 

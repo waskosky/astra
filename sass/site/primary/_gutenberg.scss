@@ -77,7 +77,8 @@
 }
 
 // Removing margin from wp block gallery element.
-.wp-block-gallery {
+.wp-block-gallery,
+.blocks-gallery-grid {
     margin: 0;
 }
 
