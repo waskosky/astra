@@ -49,6 +49,7 @@ class Astra_Schema {
 		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-person-schema.php';
 		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-organization-schema.php';
 		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-site-navigation-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-breadcrumb-schema.php';
 	}
 
 	/**
