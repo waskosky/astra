@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function init_admin_settings() {
 			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
-			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
+			self::$plugin_slug     = self::get_theme_page_slug();
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
@@ -127,6 +127,16 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_notices', __CLASS__ . '::minimum_addon_version_notice' );
 
+		}
+
+		/**
+		 * Theme options page Slug getter including White Label string.
+		 *
+		 * @since 2.1.0
+		 * @return string Theme Options Page Slug.
+		 */
+		public static function get_theme_page_slug() {
+			return apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
 		}
 
 		/**
@@ -212,7 +222,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				$astra_sites_notice_args = array(
 					'id'                         => 'astra-sites-on-active',
-					'type'                       => '',
+					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
 							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
@@ -446,6 +456,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					    opacity: 0.5;
 					}
 				</style>';
+
+				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
+
+				$localize = array(
+					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
+					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
+					'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
+					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
+					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
+					'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+					'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
+					'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+				);
+
+				wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 			}
 		}
 
@@ -475,6 +501,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
 				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 

@@ -1815,6 +1815,14 @@
         }
     },
     {
+        "Chilanka": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Chivo": {
             "variants": [
                 "300",
@@ -3277,6 +3285,16 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Gayathri": {
+            "variants": [
+                "100",
+                "regular",
+                "700"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -5226,6 +5244,16 @@
         "Mandali": {
             "variants": [
                 "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Manjari": {
+            "variants": [
+                "100",
+                "regular",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -8283,12 +8311,19 @@
         "Source Code Pro": {
             "variants": [
                 "200",
+                "200italic",
                 "300",
+                "300italic",
                 "regular",
+                "italic",
                 "500",
+                "500italic",
                 "600",
+                "600italic",
                 "700",
-                "900"
+                "700italic",
+                "900",
+                "900italic"
             ],
             "category": "monospace"
         }
