@@ -292,8 +292,21 @@ class Astra_Breadcrumb_Trail {
 				
 			if ( $this->args['schema'] ) {
 				// Add the number of items and item list order schema.
-				$breadcrumb .= sprintf( '<meta name="numberOfItems" content="%d" />', absint( $item_count ) );
-				$breadcrumb .= '<meta name="itemListOrder" content="Ascending" />';
+				$breadcrumb .= sprintf( '<meta content="%1$d" %2$s />', absint( $item_count ), astra_attr(
+					'breadcrumb-trail-items-num-meta',
+					array(
+						'name'  => 'numberOfItems',
+						'class' => '',
+					)
+				) );
+				$breadcrumb .= '<meta ' . astra_attr(
+					'breadcrumb-trail-items-list-meta',
+					array(
+						'class'   => '',
+						'name'    => 'itemListOrder',
+						'content' => 'Ascending',
+					)
+				) . '/>';
 			}
 
 			// Loop through the items and add them to the list.
