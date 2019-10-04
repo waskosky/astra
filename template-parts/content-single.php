@@ -13,7 +13,6 @@
 <?php astra_entry_before(); ?>
 
 <article 
-
 	<?php
 		echo astra_attr(
 			'article-single',
@@ -22,7 +21,7 @@
 				'class' => join( ' ', get_post_class() ),
 			)
 		);
-		?>
+	?>
 >
 
 	<?php astra_entry_top(); ?>

@@ -605,10 +605,8 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header
-
+		<header 
 			<?php
-
 				echo astra_attr(
 					'header',
 					array(
@@ -617,9 +615,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 						'role'  => 'banner',
 					)
 				);
-
 			?>
-
 		>
 
 			<?php astra_masthead_top(); ?>
@@ -895,9 +891,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 		?>
 
 		<footer
-
-				<?php
-
+			<?php
 				echo astra_attr(
 					'footer',
 					array(
@@ -906,9 +900,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 						'role'  => 'contentinfo',
 					)
 				);
-
-				?>
-
+			?>
 		>
 
 			<?php astra_footer_content_top(); ?>
