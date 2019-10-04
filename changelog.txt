@@ -1,3 +1,6 @@
+v2.1.1
+- Fix: HTML markup break errors users facing when minify HTML is enabled from a few caching plugins. 
+
 v2.1.0
 - New: Introduce filter `astra_get_pro_url`. 
 - New: New filter `astra_single_post_comment_time_enabled` to disable post comment time on single blog page. 
