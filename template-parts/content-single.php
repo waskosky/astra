@@ -21,7 +21,7 @@
 				'class' => join( ' ', get_post_class() ),
 			)
 		);
-	?>
+		?>
 >
 
 	<?php astra_entry_top(); ?>
