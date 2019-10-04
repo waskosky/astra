@@ -591,9 +591,8 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header
-
-			<?php
+		<header 
+		<?php
 
 				echo astra_attr(
 					'header',
@@ -606,9 +605,8 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 					)
 				);
 
-			?>
-
-		>
+		?>
+			 >
 
 			<?php astra_masthead_top(); ?>
 
@@ -859,9 +857,8 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer
-
-				<?php
+		<footer 
+		<?php
 
 				echo astra_attr(
 					'footer',
@@ -874,9 +871,8 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 					)
 				);
 
-				?>
-
-		>
+		?>
+				 >
 
 			<?php astra_footer_content_top(); ?>
 
