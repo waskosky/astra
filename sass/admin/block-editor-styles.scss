@@ -144,6 +144,13 @@ html {
         }
     }
 }
+
+// Removing margin from wp block gallery element.
+.edit-post-visual-editor {
+    .blocks-gallery-grid {
+        margin: 0;
+    }
+}
 .wp-block-latest-posts {
     margin-left: 0;
     li {
