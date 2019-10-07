@@ -179,6 +179,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.wc-block-grid__product-title'           => array(
 					'color' => esc_attr( $text_color ),
 				),
+				'.wc-block-grid__product .wc-block-grid__product-onsale' => array(
+					'background-color' => $theme_color,
+					'color'            => astra_get_foreground_color( $theme_color ),
+				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
 					'color'            => $btn_color,
 					'border-color'     => $btn_bg_color,
