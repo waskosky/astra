@@ -735,7 +735,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
 
 			$css_output = array(
-				'.woocommerce span.onsale'                => array(
+				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,
 					'color'            => astra_get_foreground_color( $theme_color ),
 				),
