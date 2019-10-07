@@ -107,6 +107,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					'search-form',
 					'gallery',
 					'caption',
+					'style',
+					'script',
 				)
 			);
 
