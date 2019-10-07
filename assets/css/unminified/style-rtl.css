@@ -4022,6 +4022,11 @@ body .entry-content .wp-block-latest-posts li {
   color: #40464d;
 }
 
+.ast-page-builder-template.ast-no-sidebar .entry-content .alignwide {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 /*----------  Secondary  ----------*/
 .widget-title {
   font-weight: normal;
