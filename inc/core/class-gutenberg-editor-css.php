@@ -183,7 +183,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background-color' => $theme_color,
 					'color'            => astra_get_foreground_color( $theme_color ),
 				),
-				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
+				'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
 					'color'            => $btn_color,
 					'border-color'     => $btn_bg_color,
 					'background-color' => $btn_bg_color,
