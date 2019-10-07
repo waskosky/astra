@@ -114,7 +114,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_knowledge_base_scetion', 11 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_community_scetion', 12 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_five_star_scetion', 13 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_refresh_assets_files', 14 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
@@ -256,9 +255,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				Astra_Notices::add_notice(
 					$astra_sites_notice_args
 				);
-
-				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
-				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
 			}
 		}
 
@@ -308,16 +304,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				wp_enqueue_style( 'astra-notices', ASTRA_THEME_URI . 'inc/assets/css/astra-notices.css', array(), ASTRA_THEME_VERSION );
 			}
-		}
-
-		/**
-		 * Enqueue plugin install JS in Notices
-		 *
-		 * @since 1.7.2
-		 * @return void
-		 */
-		public static function enqueue_plugin_install_js() {
-			wp_enqueue_script( 'plugin-install' );
 		}
 
 		/**
@@ -502,14 +488,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
 				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
-				'assetsRefreshingButtonText'         => __( 'Refreshing', 'astra' ),
-				'ajaxNonce'                          => wp_create_nonce( 'astra-assets-refresh' ),
 
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
+
+			if ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+				// For starter site plugin popup detail "Details »" on Astra Options page.
+				wp_enqueue_script( 'plugin-install' );
+				wp_enqueue_script( 'thickbox' );
+				wp_enqueue_style( 'thickbox' );
+			}
 		}
 
 
@@ -800,60 +791,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							esc_html( $astra_support_link_text )
 						);
 					?>
-				</div>
-			</div>
-			<?php
-		}
-
-		/**
-		 * Include the refresh button to delete and regenerate new assets files.
-		 *
-		 * @since 1.2.4
-		 */
-		public static function astra_refresh_assets_files() {
-
-			if ( astra_filesystem()->can_access_filesystem() ) {
-				$button_text = esc_html__( 'Refresh', 'astra' );
-				$message     = esc_html__( 'Click on the Refresh button to regenerate CSS files.', 'astra' );
-				$doc_link    = esc_url( '#' );
-			} else {
-				$button_text = esc_html__( 'Recheck', 'astra' );
-				$message     = esc_html__( 'Click on the Recheck button to check if the uploads folder has write access.', 'astra' );
-				$doc_link    = esc_url( '#' );
-			}
-			?>
-
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
-					<span class="dashicons dashicons-update"></span>
-					<span>
-						<?php printf( esc_html( 'Refresh Assets file', 'astra' ) ); ?>
-					</span>
-				</h2>
-				<div class="inside">
-					<p class="warning">
-						<?php echo $message; ?>
-					</p>
-					<p>
-					<?php
-						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . $doc_link . '">';
-						$a_tag_close = '</a>';
-
-						printf(
-							/* translators: %1$s: a tag open. */
-							__( 'Please read %1$s this article %2$s to know more.', 'astra' ),
-							$a_tag_open,
-							$a_tag_close
-						);
-					?>
-					</p>
-
-					<label for="astra_refresh_assets">
-						<button class="button astra-refresh-assets" id="astra_refresh_assets">
-							<span class="ast-loader"></span>
-							<span class="ast-refresh-btn-text"><?php echo $button_text; ?></span>
-						</button>
-					</label>
 				</div>
 			</div>
 			<?php
