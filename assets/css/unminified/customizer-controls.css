@@ -129,6 +129,11 @@
 	min-height: 30px;
 }
 
+input[type="text"].select2-search__field {
+	line-height: 1;
+	border-radius: 0;
+  }
+
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
     -js-display: flex;
