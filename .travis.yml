@@ -39,7 +39,7 @@ jobs:
       php: "7.3"
       env: WP_VERSION=latest ASTRA_TESTS_URL=http://localhost:8890 PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=
       install:
-        - nvm install
+        - npm install
       script:
         - npm run env:start
         - npm run env:reset-site
