@@ -147,6 +147,11 @@
 	line-height: 17px;
 }
 
+.customize-control input[type="number"].ast-spacing-input {
+	min-height: 28px;
+	border-radius: 0;
+}
+
 /* WP Beta 5.3 compatibility CSS - Start */
 
 .customize-pane-child > li[id$="-content-layout"] > label,
