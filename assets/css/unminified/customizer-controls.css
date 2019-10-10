@@ -121,8 +121,12 @@
     padding-left: 5px;
 }
 
-.customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
-	padding-top: 2px;
+.customize-control select.ast-responsive-select {
+	height: 30px;
+}
+
+.customize-control input[type="number"] {
+	min-height: 30px;
 }
 
 .customize-pane-child > li[id$="-content-layout"] > label,
