@@ -846,6 +846,35 @@ function astra_page_css_class( $css_class, $page, $depth, $args, $current_page )
 
 add_filter( 'page_css_class', 'astra_page_css_class', 20, 5 );
 
+
+/**
+ * Change the HTML attributes applied to a page menu item's anchor element.
+ *
+ * @since x.x.x
+ *
+ * @param array   $atts {
+ *       The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+ *
+ *     @type string $href         The href attribute.
+ *     @type string $aria_current The aria-current attribute.
+ * }
+ * @param WP_Post $page         Page data object.
+ * @param int     $depth        Depth of page, used for padding.
+ * @param array   $args         An array of arguments.
+ * @param int     $current_page ID of the current page.
+ */
+function astra_page_menu_link_atts( $atts, $page, $depth, $args, $current_page ) {
+
+	if ( ! array_key_exists( 'class', $atts ) ) {
+		$atts['class'] = 'menu-link';
+	}
+
+	return $atts;
+}
+
+add_filter( 'page_menu_link_attributes', 'astra_page_menu_link_atts', 10, 5 );
+
+
 /**
  * Function to get site Footer
  */

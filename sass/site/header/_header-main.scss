@@ -68,13 +68,11 @@
 		    padding: 0;
 		}
 		
-		.children,
 		.sub-menu {
 			line-height: 1.45;
 		}
 
-		.page_item_has_children > a:after,
-		.menu-item-has-children > a:after {
+		.menu-item-has-children > .menu-link:after {
 			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
@@ -347,8 +345,7 @@ li.ast-masthead-custom-menu-items {
 
 	.main-header-bar-navigation {
 
-		.page_item_has_children > a:after,
-		.menu-item-has-children > a:after {
+		.menu-item-has-children > .menu-link:after {
 			display: none;
 		}
 	}
@@ -361,12 +358,10 @@ li.ast-masthead-custom-menu-items {
 			line-height: 3;
 			display: none;
 
-			.children,
 			.sub-menu {
 				line-height: 3;
 			}
 
-			.page_item_has_children,
 			.menu-item-has-children {
 
 				.sub-menu {
