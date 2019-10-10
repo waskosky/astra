@@ -121,6 +121,8 @@
     padding-right: 5px;
 }
 
+/* WP Beta 5.3 compatibility CSS - Start */
+
 .customize-control select.ast-responsive-select {
 	height: 30px;
 }
@@ -129,10 +131,16 @@
 	min-height: 30px;
 }
 
-input[type="text"].select2-search__field {
+.customize-control input[type="text"].select2-search__field {
 	line-height: 1;
 	border-radius: 0;
-  }
+}
+
+.customize-control .wp-picker-container button {
+	min-height: 24px;
+}
+
+/* WP Beta 5.3 compatibility CSS - Start */
 
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
