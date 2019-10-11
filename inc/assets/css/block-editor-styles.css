@@ -664,7 +664,11 @@ h6 {
 }
 
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product a img {
-  margin-bottom: .8em;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 .8em 0;
+  box-shadow: none;
 }
 
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-title {
@@ -754,19 +758,7 @@ h6 {
   border-radius: 100%;
   z-index: 9;
   top: 0;
-  right: 5px;
+  right: 15px;
   left: auto;
   margin: -0.5em -0.5em 0 0;
-}
-
-.wc-block-grid.has-3-columns .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-onsale {
-  right: 10%;
-}
-
-.wc-block-grid.has-2-columns .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-onsale {
-  right: 40%;
-}
-
-.wc-block-grid.has-1-columns .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-onsale {
-  right: 70%;
 }

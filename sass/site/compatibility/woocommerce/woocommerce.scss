@@ -4029,7 +4029,11 @@ button.pswp__button--zoom:hover {
 
 			a{
 				img{
-					margin-bottom:.8em;
+					width: 100%;
+					height: auto;
+					display: block;
+					margin: 0 0 .8em 0;
+					box-shadow: none;
 				}
 			}
 			.wc-block-grid__product-title {
@@ -4116,19 +4120,10 @@ button.pswp__button--zoom:hover {
 				border-radius: 100%;
 				z-index: 9;
 				top: 0;
-				right: 2%;
+				right: 15px;
 				left: auto;
 				margin: -0.5em -0.5em 0 0;
 			}
 		}
 	}
-	&.has-1-columns {
-        .wc-block-grid__products {
-            .wc-block-grid__product {
-                .wc-block-grid__product-onsale {
-                    right: 51%;
-                }
-            }
-        }
-    }
 }

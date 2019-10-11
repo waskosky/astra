@@ -4720,7 +4720,11 @@ button.pswp__button--zoom:hover {
 }
 
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product a img {
-  margin-bottom: .8em;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 .8em 0;
+  box-shadow: none;
 }
 
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-title {
@@ -4810,11 +4814,7 @@ button.pswp__button--zoom:hover {
   border-radius: 100%;
   z-index: 9;
   top: 0;
-  left: 2%;
+  left: 15px;
   right: auto;
   margin: -0.5em 0 0 -0.5em;
-}
-
-.wc-block-grid.has-1-columns .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-onsale {
-  left: 51%;
 }
