@@ -183,6 +183,13 @@ if ( ! function_exists( 'astra_blog_post_thumbnail_and_title_order' ) ) {
 						do_action( 'astra_blog_archive_title_meta_after' );
 						break;
 
+					// Post Content.
+					case 'post-content':
+						do_action( 'astra_blog_archive_content_before' );
+						astra_get_blog_post_content();
+						do_action( 'astra_blog_archive_content_after' );
+						break;
+
 					// Single Post Featured Image.
 					case 'single-image':
 						do_action( 'astra_blog_single_featured_image_before' );
@@ -264,6 +271,41 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 		<?php
 
 		do_action( 'astra_archive_entry_header_after' );
+	}
+}
+
+/**
+ * Blog Post Content
+ */
+if ( ! function_exists( 'astra_get_blog_post_content' ) ) {
+
+	/**
+	 * Blog post Thumbnail
+	 *
+	 * @since  1.0.8
+	 */
+	function astra_get_blog_post_content() {
+		?>
+		<div class="entry-content clear" itemprop="text">
+
+			<?php astra_entry_content_before(); ?>
+
+			<?php astra_the_excerpt(); ?>
+
+			<?php astra_entry_content_after(); ?>
+
+			<?php
+				wp_link_pages(
+					array(
+						'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-blog-page-links-before', false ) ),
+						'after'       => '</div>',
+						'link_before' => '<span class="page-link">',
+						'link_after'  => '</span>',
+					)
+				);
+			?>
+		</div><!-- .entry-content .clear -->
+		<?php
 	}
 }
 

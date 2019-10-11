@@ -123,8 +123,9 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'priority' => 50,
 					'title'    => __( 'Post Structure', 'astra' ),
 					'choices'  => array(
-						'image'      => __( 'Featured Image', 'astra' ),
-						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
+						'image'        => __( 'Featured Image', 'astra' ),
+						'title-meta'   => __( 'Title & Blog Meta', 'astra' ),
+						'post-content' => __( 'Post Content', 'astra' ),
 					),
 				),
 
