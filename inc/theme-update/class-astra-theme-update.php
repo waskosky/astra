@@ -194,6 +194,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.6.1-alpha.3', '<' ) ) {
 				self::v_1_6_1();
 			}
+			if ( version_compare( $saved_version, '2.0.0', '<' ) ) {
+				self::v_2_0_0();
+			}
 		}
 
 		/**
@@ -975,7 +978,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public static function v_2_0_0() {
 			update_site_option( 'bsf_force_check_extensions', true );
 		}
-
 	}
 }
 

@@ -182,7 +182,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 *
 		 * @param bool  $is_logo_attachment is attachment is logo image?.
 		 * @param array $attachment attachment data.
-		 * @since x.x.x
+		 * @since 2.1.0
 		 * @return bool return if attachment is mobile logo image.
 		 */
 		function add_mobile_logo_svg_class( $is_logo_attachment, $attachment ) {
