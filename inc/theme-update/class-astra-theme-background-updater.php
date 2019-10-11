@@ -47,9 +47,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			// Core Helpers - Batch Processing.
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-async-request.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/batch-processing/class-wp-background-process-astra-theme.php';
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-async-request.php';
+			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-background-process.php';
+			require_once ASTRA_THEME_DIR . 'inc/theme-update/class-wp-background-process-astra-theme.php';
 
 			self::$background_updater = new WP_Background_Process_Astra_Theme();
 

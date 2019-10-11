@@ -37,13 +37,13 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 */
 		protected function task( $process ) {
 
-			do_action( 'astra_batch_process_task'. '-' .$process , $process );
+			do_action( 'astra_batch_process_task' . '_' . $process, $process );
 
-			if( function_exists( $process ) ) {
+			if ( function_exists( $process ) ) {
 				call_user_func( $process );
 			}
 
-			if( 'update_db_version' === $process ) {
+			if ( 'update_db_version' === $process ) {
 				Astra_Theme_Background_Updater::update_db_version();
 			}
 
