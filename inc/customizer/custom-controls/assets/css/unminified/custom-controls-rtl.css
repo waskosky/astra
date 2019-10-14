@@ -476,6 +476,12 @@
   }
 }
 
+@media (min-width: 1900px) {
+  .iris-slider.iris-strip, .iris-strip.iris-slider.iris-alpha-slider {
+    margin-right: 8px !important;
+  }
+}
+
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
