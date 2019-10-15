@@ -1280,15 +1280,7 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 	 */
 	function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
 
-		$header_breakpoint = astra_header_break_point();
-
-		if ( '' !== $header_breakpoint ) {
-			$breakpoint = $header_breakpoint;
-		} else {
-			$breakpoint = 921;
-		}
-
-		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $breakpoint );
+		$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', 768 );
 
 		if ( '' !== $min ) {
 			$header_breakpoint = $header_breakpoint - $min;
@@ -1296,13 +1288,7 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 			$header_breakpoint = $header_breakpoint + $max;
 		}
 
-		/*
-		Compares if the value of header breakpoint is greater than 921
-		Usually all the actual tablet devices width in portrait mode are under 921px so if the user has added a value that is greater than 921 for header breakpoint then the default value 921 will be applied to tablet breakpoints.
-		*/
-		$breakpoint = ( $header_breakpoint < 921 ) ? $header_breakpoint : 921;
-
-		return absint( $breakpoint );
+		return absint( $header_breakpoint );
 	}
 
 endif;
