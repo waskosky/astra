@@ -65,7 +65,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_styles' ) );
+			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_scripts' ) );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'add_inline_styles' ) );
 
 			add_action( 'wp', array( $this, 'edd_initialization' ) );
 			add_action( 'init', array( $this, 'edd_set_defaults_initialization' ) );
@@ -387,11 +388,49 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @since 1.5.5
 		 */
-		function add_inline_styles() {
+		function add_inline_scripts() {
+
+			// Inline js for EDD Cart updates.
+			wp_add_inline_script(
+				'edd-ajax',
+				"jQuery( document ).ready( function($) {
+					/**
+					 * Astra - Easy Digital Downloads Cart Quantity & Total Amount
+					 */
+					var cartQuantity = jQuery('.ast-edd-site-header-cart-wrap .count'),
+						iconQuantity = jQuery('.ast-edd-site-header-cart-wrap .astra-icon'),
+						cartTotalAmount = jQuery('.ast-edd-site-header-cart-wrap .ast-edd-header-cart-total');
+
+					jQuery('body').on('edd_cart_item_added', function( event, response ) {
+						cartQuantity.html( response.cart_quantity );
+						iconQuantity.attr('data-cart-total', response.cart_quantity );
+						cartTotalAmount.html( response.total );
+					});
+
+					jQuery('body').on('edd_cart_item_removed', function( event, response ) {
+						cartQuantity.html( response.cart_quantity );
+						iconQuantity.attr('data-cart-total', response.cart_quantity );
+						cartTotalAmount.html( response.total );
+					});
+				});"
+			);
+
+		}
+
+		/**
+		 * Dynamic CSS
+		 *
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @since 1.5.5
+		 * @return string $dynamic_css
+		 */
+		function add_inline_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 * - Variable Declaration
 			 */
+
 			$site_content_width    = astra_get_option( 'site-content-width', 1200 );
 			$edd_archive_width     = astra_get_option( 'edd-archive-width' );
 			$edd_archive_max_width = astra_get_option( 'edd-archive-max-width' );
@@ -497,32 +536,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 			endif;
 
-			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $css_output ) );
-			// Inline js for EDD Cart updates.
-			wp_add_inline_script(
-				'edd-ajax',
-				"jQuery( document ).ready( function($) {
-					/**
-					 * Astra - Easy Digital Downloads Cart Quantity & Total Amount
-					 */
-					var cartQuantity = jQuery('.ast-edd-site-header-cart-wrap .count'),
-						iconQuantity = jQuery('.ast-edd-site-header-cart-wrap .astra-icon'),
-						cartTotalAmount = jQuery('.ast-edd-site-header-cart-wrap .ast-edd-header-cart-total');
+			$dynamic_css .= apply_filters( 'astra_theme_edd_dynamic_css', $css_output );
 
-					jQuery('body').on('edd_cart_item_added', function( event, response ) {
-						cartQuantity.html( response.cart_quantity );
-						iconQuantity.attr('data-cart-total', response.cart_quantity );
-						cartTotalAmount.html( response.total );
-					});
-
-					jQuery('body').on('edd_cart_item_removed', function( event, response ) {
-						cartQuantity.html( response.cart_quantity );
-						iconQuantity.attr('data-cart-total', response.cart_quantity );
-						cartTotalAmount.html( response.total );
-					});
-				});"
-			);
-
+			return $dynamic_css;
 		}
 
 		/**

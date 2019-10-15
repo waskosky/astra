@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function init_admin_settings() {
 			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
-			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
+			self::$plugin_slug     = self::get_theme_page_slug();
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
@@ -124,6 +124,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
+
+			add_action( 'admin_notices', __CLASS__ . '::minimum_addon_version_notice' );
+
+		}
+
+		/**
+		 * Theme options page Slug getter including White Label string.
+		 *
+		 * @since 2.1.0
+		 * @return string Theme Options Page Slug.
+		 */
+		public static function get_theme_page_slug() {
+			return apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
 		}
 
 		/**
@@ -209,7 +222,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				$astra_sites_notice_args = array(
 					'id'                         => 'astra-sites-on-active',
-					'type'                       => '',
+					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
 							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
@@ -242,10 +255,40 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				Astra_Notices::add_notice(
 					$astra_sites_notice_args
 				);
-
-				// Enqueue Install Plugin JS here to resolve conflict with Upload Theme button.
-				add_action( "astra_notice_before_markup_{$astra_sites_notice_args['id']}", __CLASS__ . '::enqueue_plugin_install_js' );
 			}
+		}
+
+		/**
+		 * Display notice for minimun version for Astra addon.
+		 *
+		 * @since 2.0.0
+		 */
+		public static function minimum_addon_version_notice() {
+
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				return;
+			}
+
+			$astra_theme_name = astra_get_theme_name();
+			$astra_addon_name = astra_get_addon_name();
+
+			$notice_args = array(
+				'id'             => 'ast-minimum-addon-version-notice',
+				'type'           => '',
+				'message'        => sprintf(
+					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
+					__( 'Glad to see you have updated the %1$1s! Please update the %2$2s to version %3$3s or higher.', 'astra' ),
+					$astra_theme_name,
+					$astra_addon_name,
+					ASTRA_EXT_MIN_VER
+				),
+				'priority'       => 1,
+				'type'           => 'warning',
+				'show_if'        => version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0,
+				'is_dismissible' => false,
+			);
+
+			Astra_Notices::add_notice( $notice_args );
 		}
 
 		/**
@@ -261,16 +304,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				wp_enqueue_style( 'astra-notices', ASTRA_THEME_URI . 'inc/assets/css/astra-notices.css', array(), ASTRA_THEME_VERSION );
 			}
-		}
-
-		/**
-		 * Enqueue plugin install JS in Notices
-		 *
-		 * @since 1.7.2
-		 * @return void
-		 */
-		public static function enqueue_plugin_install_js() {
-			wp_enqueue_script( 'plugin-install' );
 		}
 
 		/**
@@ -410,6 +443,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					    opacity: 0.5;
 					}
 				</style>';
+
+				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
+
+				$localize = array(
+					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
+					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
+					'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
+					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
+					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
+					'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+					'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
+					'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+				);
+
+				wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 			}
 		}
 
@@ -439,11 +488,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
 				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
+
+			if ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+				// For starter site plugin popup detail "Details »" on Astra Options page.
+				wp_enqueue_script( 'plugin-install' );
+				wp_enqueue_script( 'thickbox' );
+				wp_enqueue_style( 'thickbox' );
+			}
 		}
 
 
@@ -760,22 +817,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'colors'       => array(
 						'title'     => __( 'Set Colors', 'astra' ),
 						'dashicon'  => 'dashicons-admin-customizer',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-colors-background' ),
 					),
 					'typography'   => array(
 						'title'     => __( 'Customize Fonts', 'astra' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-typography' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-typography' ),
 					),
 					'layout'       => array(
 						'title'     => __( 'Layout Options', 'astra' ),
 						'dashicon'  => 'dashicons-layout',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-layout' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-container-layout' ),
 					),
 					'header'       => array(
 						'title'     => __( 'Header Options', 'astra' ),
 						'dashicon'  => 'dashicons-align-center',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-header' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-header-group' ),
 					),
 					'blog-layout'  => array(
 						'title'     => __( 'Blog Layouts', 'astra' ),
