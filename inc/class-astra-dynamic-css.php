@@ -1094,7 +1094,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				$parse_css .= astra_parse_css( $meta_style, astra_get_tablet_breakpoint( '', 1 ) );
+				$parse_css .= astra_parse_css( $meta_style, 769 );
 
 			endif;
 
