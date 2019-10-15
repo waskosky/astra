@@ -1176,6 +1176,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	 * @param  string $side  top | bottom | left | right.
 	 * @param  string $device  CSS device.
 	 * @param  string $default Default value.
+	 * @param  string $prefix Prefix value.
 	 * @return mixed
 	 */
 	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '', $prefix = '' ) {
@@ -1188,7 +1189,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 			$spacing = ( ! is_array( $option ) ) ? $option : '';
 		}
 
-		if( '' !== $prefix && '' !== $spacing ) {	
+		if ( '' !== $prefix && '' !== $spacing ) {
 			return $prefix . $spacing;
 		}
 		return $spacing;
