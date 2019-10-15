@@ -30,4 +30,3 @@ astra
 # Ignore Composer's directories
 vendor/
 cghooks.lock
-/home/vikas/sites/wordpress/wp-content/themes/astra/cghooks.lock
