@@ -1275,7 +1275,7 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 	 *
 	 * @param string $min min.
 	 * @param string $max max.
-	 * @return string $breakpoint.
+	 * @return number $breakpoint.
 	 */
 	function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
 
@@ -1297,11 +1297,11 @@ if ( ! function_exists( 'astra_get_tablet_breakpoint' ) ) :
 
 		/*
 		Compares if the value of header breakpoint is greater than 921
-		Usually all the actual tablet devices width in portaint mode are under 921px so if the user has added a value that is greater than 921 for header breakpoint then the default value 921 will be applied to tablet breakpoints.
+		Usually all the actual tablet devices width in portrait mode are under 921px so if the user has added a value that is greater than 921 for header breakpoint then the default value 921 will be applied to tablet breakpoints.
 		*/
 		$breakpoint = ( $header_breakpoint < 921 ) ? $header_breakpoint : 921;
 
-		return $breakpoint;
+		return absint( $breakpoint );
 	}
 
 endif;
@@ -1313,7 +1313,7 @@ if ( ! function_exists( 'astra_get_mobile_breakpoint' ) ) :
 	 *
 	 * @param string $min min.
 	 * @param string $max max.
-	 * @return string header_breakpoint.
+	 * @return number header_breakpoint.
 	 */
 	function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
 
