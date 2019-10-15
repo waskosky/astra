@@ -1188,7 +1188,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 			$spacing = ( ! is_array( $option ) ) ? $option : '';
 		}
 
-		return $prefix.$spacing;
+		return $prefix . $spacing;
 	}
 }
 
