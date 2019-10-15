@@ -1178,7 +1178,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
+	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $prefix = '', $default = '' ) {
 
 		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
 			$spacing = astra_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
@@ -1188,7 +1188,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 			$spacing = ( ! is_array( $option ) ) ? $option : '';
 		}
 
-		return $spacing;
+		return $prefix.$spacing;
 	}
 }
 
