@@ -231,7 +231,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 	 */
 	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
-		if ( '' == $value && '' == $default ) {
+		if ( ( '' == $value && '' == $default ) || ( 'inherit' === strtolower( $value ) || 'inherit' === strtolower( $default ) ) ) {
 			return $value;
 		}
 
@@ -477,6 +477,30 @@ if ( ! function_exists( 'astra_update_option' ) ) {
 		update_option( ASTRA_THEME_SETTINGS, $theme_options );
 
 		do_action( "astra_after_update_option_{$option}", $value, $option );
+	}
+}
+
+if ( ! function_exists( 'astra_delete_option' ) ) {
+
+	/**
+	 * Update Theme options.
+	 *
+	 * @param  string $option option key.
+	 * @return void
+	 */
+	function astra_delete_option( $option ) {
+
+		do_action( "astra_before_delete_option_{$option}", $option );
+
+		// Get all customizer options.
+		$theme_options = get_option( ASTRA_THEME_SETTINGS );
+
+		// Update value in options array.
+		unset( $theme_options[ $option ] );
+
+		update_option( ASTRA_THEME_SETTINGS, $theme_options );
+
+		do_action( "astra_after_delete_option_{$option}", $option );
 	}
 }
 
@@ -1083,22 +1107,22 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 	 */
 	function astra_get_pro_url( $url, $source = '', $medium = '', $campaign = '' ) {
 
-		$url = trailingslashit( $url );
+		$astra_pro_url = trailingslashit( $url );
 
 		// Set up our URL if we have a source.
 		if ( isset( $source ) ) {
-			$url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
+			$astra_pro_url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
 		}
 		// Set up our URL if we have a medium.
 		if ( isset( $medium ) ) {
-			$url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
+			$astra_pro_url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
 		}
 		// Set up our URL if we have a campaign.
 		if ( isset( $campaign ) ) {
-			$url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
+			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
 		}
 
-		return esc_url( $url );
+		return esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
 	}
 
 endif;
@@ -1119,7 +1143,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 			<label>
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
-				<input type="search" class="search-field" ' . apply_filters( 'astra_search_field_toggle_data_attrs', '' ) . ' placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
+				<input type="search" class="search-field" ' . apply_filters( 'astra_search_field_toggle_data_attrs', '' ) . ' placeholder="' . apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
 			</label>
 			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"><i class="astra-search-icon"></i></button>
 		</form>';
