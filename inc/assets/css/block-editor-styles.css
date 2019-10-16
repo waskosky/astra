@@ -551,6 +551,10 @@ html {
   list-style: none;
 }
 
+.blocks-gallery-grid {
+  margin: 0;
+}
+
 .wp-block-gallery {
   margin: 0;
 }
@@ -612,9 +616,17 @@ h6 {
   box-shadow: 0 0 0 1px #fff, 0 0 0 3px #0073aa;
 }
 
-#elementor-editor-button:active, #elementor-editor-button.active, #elementor-editor-button.active:focus, #elementor-editor-button.active:hover {
+#elementor-editor-button:active {
   background: #006291;
   border-color: #006291;
+  color: #fff;
+}
+
+#elementor-editor-button.active, #elementor-editor-button.active:focus, #elementor-editor-button.active:hover {
+  background: #0073aa;
+  color: #fff;
+  border-color: #003f5e;
+  box-shadow: inset 0 2px 5px -3px black;
 }
 
 #elementor-editor-button[disabled], #elementor-editor-button:disabled, #elementor-editor-button.button-primary-disabled, #elementor-editor-button.disabled {
