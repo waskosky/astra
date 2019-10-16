@@ -8,7 +8,7 @@
 /**
  * Astra Yoast SEO Compatibility
  *
- * @since 2.2.0
+ * @since 2.1.2
  */
 class Astra_Yoast_SEO {
 
@@ -24,7 +24,7 @@ class Astra_Yoast_SEO {
 	 *
 	 * @param  string $value value.
 	 * @param  string $post_type Post Type.
-	 * @since 2.2.0
+	 * @since 2.1.2
 	 */
 	function sitemap_exclude_post_type( $value, $post_type ) {
 		if ( 'astra-advanced-hook' === $post_type ) {
