@@ -1809,7 +1809,7 @@ function astra_filesystem() {
 /**
  * Returns excerpt type to display.
  *
- * @since 2.2.0
+ * @since 2.1.2
  * @return string
  */
 function astra_excerpt_type() {
