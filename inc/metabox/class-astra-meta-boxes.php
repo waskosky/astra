@@ -194,9 +194,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			wp_nonce_field( basename( __FILE__ ), 'astra_settings_meta_box' );
 			$stored = get_post_meta( $post->ID );
 
-			// Set stored and override defaults.
-			foreach ( $stored as $key => $value ) {
-				self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+			if ( is_array( $stored ) ) {
+
+				// Set stored and override defaults.
+				foreach ( $stored as $key => $value ) {
+					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+				}
 			}
 
 			// Get defaults.

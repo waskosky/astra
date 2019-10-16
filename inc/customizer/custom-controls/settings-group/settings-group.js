@@ -19,7 +19,7 @@
                 } else {
                     // On scroll up, add sticky section title.
                     var parent_width = $this.outerWidth();
-                    section_title.addClass( 'maybe-sticky' ).addClass( 'is-in-view' ).addClass( 'is-sticky' ).width( parent_width - 5 ).css( 'top', parentSection.css( 'top' ) );
+                    section_title.addClass( 'maybe-sticky' ).addClass( 'is-in-view' ).addClass( 'is-sticky' ).width( parent_width - 6 ).css( 'top', parentSection.css( 'top' ) );
                     $this.css( 'padding-top', section_title.height() );
                     if( scroll_top === 0 ) {
                         // Remove sticky section heading when scrolled to the top.
