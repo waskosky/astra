@@ -937,7 +937,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					.customize-partial-edit-shortcut-astra-settings-footer-adv {
 						position: relative;
 					    top: -1em;
-					    left: -1em;
+					    left: -1.8em;
 					}
 				</style>';
 				echo '<style class="astra-theme-custom-shortcut-edit-icons">
