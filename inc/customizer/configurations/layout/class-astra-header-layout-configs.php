@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						),
 					),
 					'partial'  => array(
-						'selector'            => '.main-header-bar-wrap .main-header-container',
+						'selector'            => '.header-main-layout-1 .main-header-bar-wrap .main-header-container, .header-main-layout-2 .main-header-bar-wrap .main-header-container, .header-main-layout-3 .main-header-bar-wrap .ast-container',
 						'container_inclusive' => false,
 					),
 				),

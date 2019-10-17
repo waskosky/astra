@@ -3823,9 +3823,14 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   top: -30px;
 }
 
+.header-main-layout-2 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
+  right: -60px;
+  top: 18px;
+}
+
 .header-main-layout-3 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
   right: -60px;
-  top: -30px;
+  top: 18px;
 }
 
 .customize-partial-edit-shortcut-blogname .customize-partial-edit-shortcut-button {
