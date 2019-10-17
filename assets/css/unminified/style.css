@@ -3859,13 +3859,13 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: left;
 }
 
-.ast-masthead-custom-menu-items.widget-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+.ast-masthead-custom-menu-items.widget-custom-menu-item .customize-partial-edit-shortcut .customize-partial-edit-shortcut-button {
   left: -25px;
   top: -8px;
   display: none;
 }
 
-.ast-masthead-custom-menu-items.widget-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
+.ast-masthead-custom-menu-items.widget-custom-menu-item:hover .customize-partial-edit-shortcut .customize-partial-edit-shortcut-button {
   display: block;
 }
 
