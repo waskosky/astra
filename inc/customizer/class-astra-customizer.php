@@ -939,6 +939,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					    top: -1em;
 					    left: -1.8em;
 					}
+					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
+						top: -0.5em;
+					}
 				</style>';
 				echo '<style class="astra-theme-custom-shortcut-edit-icons">
 					.customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
