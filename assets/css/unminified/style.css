@@ -2101,7 +2101,7 @@ body .ast-oembed-container * {
 }
 
 /*----------  Basic Layout  ----------*/
-.ast-hidden {
+.hidden {
   display: none !important;
 }
 

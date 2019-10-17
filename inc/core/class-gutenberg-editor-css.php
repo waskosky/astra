@@ -57,6 +57,26 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$heading_h5_font_size = astra_get_option( 'font-size-h5' );
 			$heading_h6_font_size = astra_get_option( 'font-size-h6' );
 
+			/**
+			 * WooCommerce Grid Products compatibility.
+			 */
+			$link_h_color           = astra_get_option( 'link-h-color' );
+			$btn_color              = astra_get_option( 'button-color' );
+			$btn_bg_color           = astra_get_option( 'button-bg-color', '', $theme_color );
+			$btn_h_color            = astra_get_option( 'button-h-color' );
+			$btn_bg_h_color         = astra_get_option( 'button-bg-h-color', '', $link_h_color );
+			$btn_border_radius      = astra_get_option( 'button-radius' );
+			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
+			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
+
+			if ( empty( $btn_color ) ) {
+				$btn_color = astra_get_foreground_color( $theme_color );
+			}
+
+			if ( empty( $btn_h_color ) ) {
+				$btn_h_color = astra_get_foreground_color( $link_h_color );
+			}
+
 			$container_layout = get_post_meta( get_the_id(), 'site-content-layout', true );
 
 			if ( 'default' === $container_layout || '' === $container_layout ) {
@@ -118,7 +138,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 					'font-weight' => 'normal',
 				),
-				'.editor-block-list__block, .editor-post-title__block .editor-post-title__input, .edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6' => array(
+				'.editor-block-list__block, .editor-post-title__block .editor-post-title__input, .edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6, .wc-block-grid__product-title' => array(
 					'color' => esc_attr( $text_color ),
 				),
 				// Blockquote Text Color.
@@ -152,6 +172,30 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 				'.edit-post-visual-editor h6, .wp-block-heading h6, .wp-block-freeform.block-library-rich-text__tinymce h6' => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+				),
+				/**
+				 * WooCommerce Grid Products compatibility.
+				 */
+				'.wc-block-grid__product-title'           => array(
+					'color' => esc_attr( $text_color ),
+				),
+				'.wc-block-grid__product .wc-block-grid__product-onsale' => array(
+					'background-color' => $theme_color,
+					'color'            => astra_get_foreground_color( $theme_color ),
+				),
+				'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
+					'color'            => $btn_color,
+					'border-color'     => $btn_bg_color,
+					'background-color' => $btn_bg_color,
+				),
+				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover' => array(
+					'color'            => $btn_h_color,
+					'border-color'     => $btn_bg_h_color,
+					'background-color' => $btn_bg_h_color,
+				),
+				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
+					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
+					'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
 			);
 
