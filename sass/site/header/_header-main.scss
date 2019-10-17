@@ -894,6 +894,8 @@ li.ast-masthead-custom-menu-items {
  */
 
 .customize-partial-edit-shortcut-blogname,
+.customize-partial-edit-shortcut-custom_logo,
+.customize-partial-edit-shortcut-blogdescription,
 .customize-partial-edit-shortcut-astra-settings-disable-primary-nav,
 .customize-partial-edit-shortcut-astra-settings-above-header-section-1-html,
 .customize-partial-edit-shortcut-astra-settings-above-header-section-1,
@@ -921,6 +923,22 @@ li.ast-masthead-custom-menu-items {
 
 .site-title:hover {
 	.customize-partial-edit-shortcut-blogname {
+		.customize-partial-edit-shortcut-button {
+			display: block;
+		}
+	}
+}
+
+.site-logo-img:hover {
+	.customize-partial-edit-shortcut-custom_logo {
+		.customize-partial-edit-shortcut-button {
+			display: block;
+		}
+	}
+}
+
+.site-description:hover {
+	.customize-partial-edit-shortcut-blogdescription {
 		.customize-partial-edit-shortcut-button {
 			display: block;
 		}
