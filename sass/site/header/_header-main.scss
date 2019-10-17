@@ -639,11 +639,21 @@ li.ast-masthead-custom-menu-items {
 }
 
 /* Primary Header common CSS */
+.header-main-layout-1 {
+	.customize-partial-edit-shortcut-astra-settings-header-layouts {
+		.customize-partial-edit-shortcut-button {
+			left: -60px;
+			top: -30px;
+		}
+	}
+}
 
-.customize-partial-edit-shortcut-astra-settings-header-layouts {
-	.customize-partial-edit-shortcut-button {
-		left: -60px;
-		top: -30px;
+.header-main-layout-3 {
+	.customize-partial-edit-shortcut-astra-settings-header-layouts {
+		.customize-partial-edit-shortcut-button {
+			left: -60px;
+			top: -30px;
+		}
 	}
 }
 
