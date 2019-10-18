@@ -281,12 +281,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'page-builder' === $container_layout || 'plain-container' === $container_layout ) {
 				$page_builder_css = array(
 					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
-						'margin-left' => '0',
-						'margin-right' => '0'
+						'margin-left'  => '0',
+						'margin-right' => '0',
 					),
 					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"]' => array(
-						'margin-left' => '0',
-						'margin-right' => '0'
+						'margin-left'  => '0',
+						'margin-right' => '0',
 					),
 				);
 
