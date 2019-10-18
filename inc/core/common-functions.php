@@ -231,7 +231,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 	 */
 	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
-		if ( '' == $value && '' == $default ) {
+		if ( ( '' == $value && '' == $default ) || ( 'inherit' === strtolower( $value ) || 'inherit' === strtolower( $default ) ) ) {
 			return $value;
 		}
 
