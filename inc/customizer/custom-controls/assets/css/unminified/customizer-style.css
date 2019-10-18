@@ -62,12 +62,17 @@
   top: 6px;
 }
 
+/* Select2 WP 5.3 compatibility */
+.customize-control .select2-search input[type="text"].select2-search__field {
+  min-height: 17px;
+}
+
 input[type="text"].select2-search__field {
   line-height: 1;
   border-radius: 0;
 }
 
-/* CSS to show popups without scroll */
+input[type="text"].select2-search__field
 #customize-theme-controls .control-section.open {
   height: 100%;
 }
