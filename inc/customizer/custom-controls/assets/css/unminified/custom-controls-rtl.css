@@ -1691,6 +1691,11 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   top: 6px;
 }
 
+input[type="text"].select2-search__field {
+  line-height: 1;
+  border-radius: 0;
+}
+
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
