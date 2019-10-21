@@ -270,7 +270,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 							<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
 						</label>
 					</div>
-
+					<?php do_action( 'astra_meta_box_markup_disable_sections_after_primary_header', $meta ); ?>
 					<?php if ( $show_meta_field ) { ?>
 						<div class="site-post-title-option-wrap">
 							<label for="site-post-title">
