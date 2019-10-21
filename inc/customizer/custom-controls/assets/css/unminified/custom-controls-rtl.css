@@ -533,7 +533,7 @@
 
 /* Select2 WP 5.3 compatibility */
 .customize-control .select2-search input[type="text"].select2-search__field {
-  height: 17px;
+  min-height: 17px;
 }
 
 input[type="text"].select2-search__field {
