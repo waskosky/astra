@@ -423,7 +423,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				if ( in_array( $post_type, (array) $post_types ) ) {
 					echo '<style class="astra-meta-box-style">
-						#side-sortables #astra_settings_meta_box select { min-width: 100%; }
+						#side-sortables #astra_settings_meta_box select { min-width: 84%; }
 						#normal-sortables #astra_settings_meta_box select { min-width: 200px; }
 					</style>';
 				}
