@@ -257,9 +257,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( 'page-builder' === $container_layout ) {
 				$page_builder_css = array(
-					'.editor-post-title__block, .editor-default-block-appender, .editor-block-list__block' => array(
+					'.editor-post-title__block, .editor-default-block-appender, .editor-block-list__block:not(.is-selected):not(.has-child-selected)' => array(
 						'width'     => '100%',
 						'max-width' => '100%',
+					),
+					'.editor-block-list__block.is-selected, .editor-block-list__block.has-child-selected' => array(
+						'max-width' => '100%',
+						'margin'    => '0 60px',
 					),
 					'.block-editor-block-list__layout' => array(
 						'padding-left'  => 0,
