@@ -143,7 +143,7 @@
 
 .customize-control .wp-picker-container .wp-color-picker {
 	padding: 3px 5px;
-	width: 71px;
+	width: 71px !important;
 	line-height: 17px;
 }
 
