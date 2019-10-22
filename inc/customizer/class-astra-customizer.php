@@ -962,6 +962,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					.ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation > .customize-partial-edit-shortcut{
 						display: none;
 					}
+					.ast-small-footer .customize-partial-edit-shortcut-astra-settings-footer-sml-layout {
+						    position: absolute;
+						    top: 18%;
+						    left: 10%;
+					}
 				</style>';
 				echo '<style class="astra-theme-custom-shortcut-edit-icons">
 					.customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
