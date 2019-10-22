@@ -3818,6 +3818,12 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 /* Primary Header common CSS */
+.ast-full-width-header .customize-partial-edit-shortcut-astra-settings-header-layouts {
+  position: absolute;
+  right: 2em;
+  top: 2.4em;
+}
+
 .header-main-layout-1 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
   right: -60px;
   top: -30px;

@@ -639,6 +639,13 @@ li.ast-masthead-custom-menu-items {
 }
 
 /* Primary Header common CSS */
+.ast-full-width-header {
+	.customize-partial-edit-shortcut-astra-settings-header-layouts {
+		position: absolute;
+	    left: 2em;
+	    top: 2.4em;
+	}
+}
 .header-main-layout-1 {
 	.customize-partial-edit-shortcut-astra-settings-header-layouts {
 		.customize-partial-edit-shortcut-button {
