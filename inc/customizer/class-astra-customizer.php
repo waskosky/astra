@@ -942,11 +942,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
 						top: -0.5em;
 					}
+					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
+						position: absolute;
+					    left: 47.5%;
+					}
 					.ast-small-footer-section-2 .ast-footer-widget-2-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
 						position: absolute;
 					    top: 53%;
 					    left: 47.5%;
 					}
+					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1
+					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+						position: absolute;
+					    right: -1em;
+					    left: unset;
+    					top: unset;
+					}
+					.ast-small-footer .ast-container .ast-small-footer-section-1 .footer-primary-navigation > .customize-partial-edit-shortcut,
 					.ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation > .customize-partial-edit-shortcut{
 						display: none;
 					}
