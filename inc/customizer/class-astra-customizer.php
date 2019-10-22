@@ -967,6 +967,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						    top: 18%;
 						    left: 10%;
 					}
+					.customize-partial-edit-shortcut button:hover {
+						border-color: #fff;
+					}
 				</style>';
 				echo '<style class="astra-theme-custom-shortcut-edit-icons">
 					.customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
