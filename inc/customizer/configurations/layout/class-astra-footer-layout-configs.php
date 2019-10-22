@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
 					),
 					'partial'  => array(
-						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-2',
+						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-2:has(> .ast-footer-site-title)',
 						'container_inclusive' => false,
 					),
 				),
