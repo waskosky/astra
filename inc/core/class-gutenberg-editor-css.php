@@ -278,6 +278,21 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $page_builder_css );
 			}
 
+			if ( 'page-builder' === $container_layout || 'plain-container' === $container_layout ) {
+				$page_builder_css = array(
+					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
+						'margin-left'  => '0',
+						'margin-right' => '0',
+					),
+					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"]' => array(
+						'margin-left'  => '0',
+						'margin-right' => '0',
+					),
+				);
+
+				$css .= astra_parse_css( $page_builder_css );
+			}
+
 			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
 					'.editor-writing-flow'       => array(
