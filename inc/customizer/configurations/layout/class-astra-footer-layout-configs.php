@@ -145,7 +145,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'menu'   => __( 'Footer Menu', 'astra' ),
 					),
 					'partial'  => array(
-						'selector'            => '.ast-small-footer .ast-container .ast-footer-widget-2-area, .ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation',
+						'selector'            => '.ast-small-footer .ast-container .ast-footer-widget-2-area, .ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation .nav-menu',
 						'container_inclusive' => false,
 					),
 				),

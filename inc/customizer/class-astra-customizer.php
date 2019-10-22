@@ -947,6 +947,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					    top: 53%;
 					    left: 47.5%;
 					}
+					.ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation > .customize-partial-edit-shortcut{
+						display: none;
+					}
 				</style>';
 				echo '<style class="astra-theme-custom-shortcut-edit-icons">
 					.customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
