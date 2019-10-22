@@ -133,6 +133,9 @@ html {
     list-style: none;
 }
 
+.blocks-gallery-grid {
+    margin: 0;
+}
 .wp-block-gallery {
     margin: 0;
 
@@ -142,6 +145,13 @@ html {
                 height: 100%;
             }
         }
+    }
+}
+
+// Removing margin from wp block gallery element.
+.edit-post-visual-editor {
+    .blocks-gallery-grid {
+        margin: 0;
     }
 }
 .wp-block-latest-posts {
