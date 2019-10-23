@@ -425,6 +425,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					echo '<style class="astra-meta-box-style">
 						#side-sortables #astra_settings_meta_box select { min-width: 84%; padding: 3px 24px 3px 8px; height: 20px; min-height: 20px; }
 						#normal-sortables #astra_settings_meta_box select { min-width: 200px; }
+						.edit-post-meta-boxes-area #poststuff #astra_settings_meta_box h2.hndle { border-bottom: 0; }
+						#astra_settings_meta_box .components-base-control__field, #astra_settings_meta_box .transparent-header-wrapper, #astra_settings_meta_box .adv-header-wrapper, #astra_settings_meta_box .stick-header-wrapper, #astra_settings_meta_box .disable-section-meta div { margin-bottom: 8px; }
+						#astra_settings_meta_box .disable-section-meta div label { vertical-align: inherit; }
 					</style>';
 				}
 			}
