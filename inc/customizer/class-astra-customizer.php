@@ -942,21 +942,30 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
 						top: -0.5em;
 					}
-					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
+					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut,
+					.ast-small-footer-section-2 .ast-footer-widget-2-area .customize-partial-edit-shortcut {
 						position: absolute;
-					    left: 47.5%;
+					    left: 47%;
 					}
-					.ast-small-footer-section-2 .ast-footer-widget-2-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .customize-partial-edit-shortcut,
+					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .customize-partial-edit-shortcut {
 						position: absolute;
-					    top: 53%;
-					    left: 47.5%;
+					    left: 42%;
 					}
-					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1
-					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
 						position: absolute;
-					    right: -1em;
-					    left: unset;
-    					top: unset;
+					    left: 1em;
+					}
+					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+						left: 83.5%;
+					}
+					.ast-small-footer-section-1.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
+						position: absolute;
+					    left: 1em;
+					}
+					.ast-small-footer-section-2.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+						position: absolute;
+					    left: 44.5%;
 					}
 					.ast-small-footer .ast-container .ast-small-footer-section-1 .footer-primary-navigation > .customize-partial-edit-shortcut,
 					.ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation > .customize-partial-edit-shortcut{
@@ -964,7 +973,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 					.ast-small-footer .customize-partial-edit-shortcut-astra-settings-footer-sml-layout {
 						    position: absolute;
-						    top: 18%;
+						    top: 3%;
 						    left: 10%;
 					}
 					.customize-partial-edit-shortcut button:hover {
