@@ -4025,6 +4025,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .site-description:hover .customize-partial-edit-shortcut-blogdescription .customize-partial-edit-shortcut-button {
   display: block;
+  top: -2px;
 }
 
 .main-navigation:hover .customize-partial-edit-shortcut-astra-settings-disable-primary-nav .customize-partial-edit-shortcut-button {
