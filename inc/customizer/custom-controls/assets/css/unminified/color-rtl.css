@@ -28,3 +28,9 @@
     margin-right: 8px !important;
   }
 }
+
+@media (min-width: 1900px) {
+  .iris-slider.iris-strip, .iris-strip.iris-slider.iris-alpha-slider {
+    margin-right: 8px !important;
+  }
+}
