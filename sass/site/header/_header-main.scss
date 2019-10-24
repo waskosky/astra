@@ -773,6 +773,12 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
+.ast-below-header {
+	.customize-partial-edit-shortcut {
+		top: 1em;
+	}
+}
+
 /* Above Header common CSS */
 
 .ast-above-header-section {
@@ -780,6 +786,12 @@ li.ast-masthead-custom-menu-items {
 		.ast-search-menu-icon {
 			text-align: left;
 		}
+	}
+}
+
+.ast-above-header {
+	.customize-partial-edit-shortcut {
+		top: 0.3em;
 	}
 }
 

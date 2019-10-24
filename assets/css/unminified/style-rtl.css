@@ -3906,6 +3906,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   text-align: right;
 }
 
+.ast-below-header .customize-partial-edit-shortcut {
+  top: 1em;
+}
+
 /* Above Header Section 1 */
 .ast-above-header-section-1 .ast-above-header-navigation .customize-partial-edit-shortcut-astra-settings-above-header-section-1 .customize-partial-edit-shortcut-button {
   right: -14px;
