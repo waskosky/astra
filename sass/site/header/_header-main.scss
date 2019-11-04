@@ -429,7 +429,7 @@ li.ast-masthead-custom-menu-items {
 		width: 100%;
 
 		ul {
-			> li:first-child {
+			> .menu-item:first-child {
 				border-top: 0;
 			}
 

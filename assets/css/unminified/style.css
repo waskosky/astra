@@ -2574,20 +2574,6 @@ body {
   border-color: #eaeaea;
 }
 
-.ast-header-break-point .main-navigation .sub-menu.sub-menu .menu-item .menu-link {
-  padding-left: 30px;
-}
-
-.ast-header-break-point .main-navigation .sub-menu.sub-menu .menu-item .menu-link:before {
-  content: "\e900";
-  font-family: 'Astra';
-  font-size: .65em;
-  text-decoration: inherit;
-  display: inline-block;
-  transform: translate(0, -2px) rotateZ(270deg);
-  margin-right: 5px;
-}
-
 .ast-header-break-point .main-navigation .sub-menu.sub-menu .menu-item .menu-item .menu-link {
   padding-left: 40px;
 }
@@ -3657,7 +3643,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.ast-header-break-point .main-navigation ul > li:first-child {
+.ast-header-break-point .main-navigation ul > .menu-item:first-child {
   border-top: 0;
 }
 
@@ -4329,13 +4315,13 @@ body .entry-content .wp-block-latest-posts li {
   .footer-sml-layout-2 .ast-small-footer-section-1 {
     text-align: left;
   }
-  .footer-sml-layout-2 .ast-small-footer-section-1 .menu-item a {
+  .footer-sml-layout-2 .ast-small-footer-section-1 .menu-item .menu-link {
     padding: 0 1em 0 0;
   }
   .footer-sml-layout-2 .ast-small-footer-section-2 {
     text-align: right;
   }
-  .footer-sml-layout-2 .ast-small-footer-section-2 .menu-item a {
+  .footer-sml-layout-2 .ast-small-footer-section-2 .menu-item .menu-link {
     padding: 0 0 0 1em;
   }
 }
