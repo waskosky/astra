@@ -1277,7 +1277,7 @@ if ( ! function_exists( 'astra_the_excerpt' ) ) {
 
 		do_action( 'astra_the_excerpt_before', $excerpt_type );
 
-		if ( 'full-content' == $excerpt_type ) {
+		if ( 'full-content' === $excerpt_type ) {
 			the_content();
 		} else {
 			the_excerpt();
