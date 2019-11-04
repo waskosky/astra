@@ -3831,12 +3831,27 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .header-main-layout-2 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
   right: -60px;
-  top: 18px;
+  top: 0;
 }
 
 .header-main-layout-3 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
   right: -60px;
-  top: 18px;
+  top: 0;
+}
+
+.ast-full-width-primary-header .header-main-layout-1 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
+  right: -35px;
+  top: -40px;
+}
+
+.ast-full-width-primary-header .header-main-layout-2 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
+  right: -35px;
+  top: 40px;
+}
+
+.ast-full-width-primary-header .header-main-layout-3 .customize-partial-edit-shortcut-astra-settings-header-layouts .customize-partial-edit-shortcut-button {
+  right: -35px;
+  top: 0;
 }
 
 .customize-partial-edit-shortcut-blogname .customize-partial-edit-shortcut-button {
