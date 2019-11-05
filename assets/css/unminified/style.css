@@ -2806,7 +2806,7 @@ body {
 }
 
 .header-main-layout-1 .main-header-container {
-  align-items: center;
+  align-items: stretch;
 }
 
 /**
@@ -2870,7 +2870,7 @@ body {
 
 .header-main-layout-3 .main-header-container {
   flex-direction: row-reverse;
-  align-items: center;
+  align-items: stretch;
 }
 
 .header-main-layout-3 .main-navigation {
