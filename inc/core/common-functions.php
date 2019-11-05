@@ -231,7 +231,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 	 */
 	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
-		if ( '' == $value && '' == $default ) {
+		if ( ( '' == $value && '' == $default ) || ( 'inherit' === strtolower( $value ) || 'inherit' === strtolower( $default ) ) ) {
 			return $value;
 		}
 
@@ -1176,9 +1176,10 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	 * @param  string $side  top | bottom | left | right.
 	 * @param  string $device  CSS device.
 	 * @param  string $default Default value.
+	 * @param  string $prefix Prefix value.
 	 * @return mixed
 	 */
-	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
+	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '', $prefix = '' ) {
 
 		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
 			$spacing = astra_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
@@ -1188,6 +1189,9 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 			$spacing = ( ! is_array( $option ) ) ? $option : '';
 		}
 
+		if ( '' !== $prefix && '' !== $spacing ) {
+			return $prefix . $spacing;
+		}
 		return $spacing;
 	}
 }

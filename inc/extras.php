@@ -1273,11 +1273,11 @@ if ( ! function_exists( 'astra_the_excerpt' ) ) {
 	 */
 	function astra_the_excerpt() {
 
-		$excerpt_type = astra_get_option( 'blog-post-content' );
+		$excerpt_type = apply_filters( 'astra_excerpt_type', astra_get_option( 'blog-post-content' ) );
 
 		do_action( 'astra_the_excerpt_before', $excerpt_type );
 
-		if ( 'full-content' == $excerpt_type ) {
+		if ( 'full-content' === $excerpt_type ) {
 			the_content();
 		} else {
 			the_excerpt();

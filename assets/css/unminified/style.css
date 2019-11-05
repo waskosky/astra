@@ -2101,7 +2101,7 @@ body .ast-oembed-container * {
 }
 
 /*----------  Basic Layout  ----------*/
-.ast-hidden {
+.hidden {
   display: none !important;
 }
 
@@ -3095,10 +3095,6 @@ body {
   border-bottom-style: solid;
 }
 
-.main-header-bar {
-  transition: all 0.2s linear;
-}
-
 /**
  * 6 - all and (max-width: $mx-break-point)
  */
@@ -3957,7 +3953,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.wp-block-gallery {
+.wp-block-gallery,
+.blocks-gallery-grid {
   margin: 0;
 }
 
@@ -4019,6 +4016,11 @@ body .entry-content .wp-block-latest-posts li {
   border-top: 4px solid #555d66;
   border-bottom: 4px solid #555d66;
   color: #40464d;
+}
+
+.ast-page-builder-template.ast-no-sidebar .entry-content .alignwide {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /*----------  Secondary  ----------*/
