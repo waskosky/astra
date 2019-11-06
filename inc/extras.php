@@ -683,11 +683,19 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
 		$hide_custom_menu_mobile    = astra_get_option( 'hide-custom-menu-mobile', false );
+		$above_header_merge         = astra_get_option( 'above-header-merge-menu' );
+		$above_header_on_mobile     = astra_get_option( 'above-header-on-mobile' );
+		$below_header_merge         = astra_get_option( 'below-header-merge-menu' );
+		$below_header_on_mobile     = astra_get_option( 'below-header-on-mobile' );
 		$menu_bottons               = true;
 
 		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && true == $hide_custom_menu_mobile ) ) {
 			$menu_bottons = false;
+			if ( ( true == $above_header_on_mobile && true == $above_header_merge ) || ( true == $below_header_on_mobile && true == $below_header_merge ) ) {
+				$menu_bottons = true;
+			}
 		}
+
 		if ( apply_filters( 'astra_enable_mobile_menu_buttons', $menu_bottons ) ) {
 			?>
 		<div class="ast-mobile-menu-buttons">
@@ -1306,11 +1314,11 @@ if ( ! function_exists( 'astra_the_excerpt' ) ) {
 	 */
 	function astra_the_excerpt() {
 
-		$excerpt_type = astra_get_option( 'blog-post-content' );
+		$excerpt_type = apply_filters( 'astra_excerpt_type', astra_get_option( 'blog-post-content' ) );
 
 		do_action( 'astra_the_excerpt_before', $excerpt_type );
 
-		if ( 'full-content' == $excerpt_type ) {
+		if ( 'full-content' === $excerpt_type ) {
 			the_content();
 		} else {
 			the_excerpt();

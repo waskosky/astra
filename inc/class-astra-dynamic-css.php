@@ -330,7 +330,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Conditionally select selectors with annchors or withour anchors for text color.
 				self::conditional_headings_css_selectors(
 					'body, h1, .entry-title a, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a',
-					'body, h1, .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6'
+					'body, h1, .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .wc-block-grid__product-title'
 				)                                         => array(
 					'color' => esc_attr( $text_color ),
 				),
@@ -1118,6 +1118,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-site-identity' => array(
 						'padding' => '0',
 					),
+					// CSS to open submenu just below menu.
+					'.header-main-layout-1 .ast-flex.main-header-container, .header-main-layout-3 .ast-flex.main-header-container' => array(
+						'-webkit-align-content' => 'center',
+						'-ms-flex-line-pack'    => 'center',
+						'align-content'         => 'center',
+						'-webkit-box-align'     => 'center',
+						'-webkit-align-items'   => 'center',
+						'-moz-box-align'        => 'center',
+						'-ms-flex-align'        => 'center',
+						'align-items'           => 'center',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $submenu_below_header );
@@ -1172,18 +1183,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $submenu_below_header );
 
 			endif;
-
-			if ( false === self::add_hidden_class_css() ) {
-				// If Astra Addon is not updated to v2.1.1 then add .hidden class css from theme to support megamenu css in addon.
-				$hidden_class_css = array(
-					'.hidden' => array(
-						'display' => 'none !important',
-					),
-				);
-
-				$parse_css .= astra_parse_css( $hidden_class_css );
-
-			}
 
 			$dynamic_css .= $parse_css;
 
@@ -1255,26 +1254,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					return false;
 			} else {
 
-				return true;
-			}
-
-		}
-
-		/**
-		 * Check backwards compatibility CSS for .hidden class.
-		 *
-		 * @since x.x.x
-		 * @return boolean true if CSS should be included, False if not.
-		 */
-		public static function add_hidden_class_css() {
-
-			if ( false === astra_get_option( 'hidden-class-css', true ) &&
-			false === apply_filters(
-				'astra_hidden_class_css',
-				false
-			) ) {
-				return false;
-			} else {
 				return true;
 			}
 

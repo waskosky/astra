@@ -243,46 +243,6 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				 */
 				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) );
 				?>
-
-				<!-- Comment Schema Meta -->
-				<?php
-
-				if ( true == apply_filters( 'astra_schema_enabled', true ) ) {
-					echo '<span ';
-						echo astra_attr(
-							'comments-interactioncounter',
-							array(
-								'itemprop'  => 'interactionStatistic',
-								'itemscope' => '',
-								'itemtype'  => 'https://schema.org/InteractionCounter',
-							)
-						);
-					echo '>';
-
-						echo '<meta ';
-							echo astra_attr(
-								'comments-interactioncounter-interactiontype',
-								array(
-									'itemprop' => 'interactionType',
-									'content'  => 'https://schema.org/CommentAction',
-								)
-							);
-						echo '/>';
-
-						echo '<meta ';
-							echo astra_attr(
-								'comments-interactioncounter-userinteractioncount',
-								array(
-									'itemprop' => 'userInteractionCount',
-									'content'  => absint( wp_count_comments( get_the_ID() )->approved ),
-								)
-							);
-
-						echo '/>';
-
-					echo '</span>';
-				}
-				?>
 			</span>
 
 			<?php

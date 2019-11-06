@@ -44,7 +44,6 @@
 
 		<?php
 			astra_edit_post_link(
-
 				sprintf(
 					/* translators: %s: Name of current post */
 					esc_html__( 'Edit %s', 'astra' ),
