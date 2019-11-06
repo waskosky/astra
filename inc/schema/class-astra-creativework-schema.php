@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 2.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Astra CreativeWork Schema Markup.
  *
- * @since x.x.x
+ * @since 2.1.3
  */
 class Astra_CreativeWork_Schema extends Astra_Schema {
 
 	/**
 	 * Setup schema
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 */
 	public function setup_schema() {
 
@@ -236,7 +236,7 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	/**
 	 * Enabled schema
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 */
 	protected function schema_enabled() {
 		return apply_filters( 'astra_creativework_schema_enabled', parent::schema_enabled() );

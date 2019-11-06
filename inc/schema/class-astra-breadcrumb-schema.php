@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 2.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Astra Breadcrumb Schema Markup.
  *
- * @since x.x.x
+ * @since 2.1.3
  */
 class Astra_Breadcrumb_Schema extends Astra_Schema {
 
 	/**
 	 * Setup schema
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 */
 	public function setup_schema() {
 		add_action( 'wp', array( $this, 'disable_schema_before_title' ), 20 );
@@ -32,7 +32,7 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 	/**
 	 * Disable Schema for Before Title option of Breadcrumb Position.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 *
 	 * @return void
 	 */
@@ -48,7 +48,7 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 	/**
 	 * Disable schema by passing false to the 'schema' param to the filter.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 *
 	 * @param  array $args An array of default values.
 	 *
@@ -63,7 +63,7 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 	/**
 	 * Enabled schema
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 */
 	protected function schema_enabled() {
 		return apply_filters( 'astra_breadcrumb_schema_enabled', parent::schema_enabled() );
