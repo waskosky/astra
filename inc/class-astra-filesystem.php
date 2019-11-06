@@ -69,7 +69,7 @@ class Astra_Filesystem {
 	/**
 	 * Sets credentials to true.
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 */
 	function request_filesystem_credentials() {
 		return true;

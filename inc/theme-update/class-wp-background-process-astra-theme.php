@@ -3,7 +3,7 @@
  * Database Background Process
  *
  * @package Astra
- * @since x.x.x
+ * @since 2.1.3
  */
 
 if ( class_exists( 'WP_Background_Process' ) ) :
@@ -11,7 +11,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 	/**
 	 * Database Background Process
 	 *
-	 * @since x.x.x
+	 * @since 2.1.3
 	 */
 	class WP_Background_Process_Astra_Theme extends WP_Background_Process {
 
@@ -30,7 +30,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 * in the next pass through. Or, return false to remove the
 		 * item from the queue.
 		 *
-		 * @since x.x.x
+		 * @since 2.1.3
 		 *
 		 * @param object $process Queue item object.
 		 * @return mixed
@@ -56,7 +56,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 * Override if applicable, but ensure that the below actions are
 		 * performed, or, call parent::complete().
 		 *
-		 * @since x.x.x
+		 * @since 2.1.3
 		 */
 		protected function complete() {
 			error_log( 'Batch Process Completed!' );

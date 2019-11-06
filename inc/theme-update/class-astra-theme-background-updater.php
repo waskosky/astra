@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since x.x.x
+ * @since 2.1.3
  */
 
 if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Is this a brand new theme install?
 		 *
-		 * @since x.x.x
+		 * @since 2.1.3
 		 * @return boolean
 		 */
 		function is_new_install() {
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Is a DB update needed?
 		 *
-		 * @since x.x.x
+		 * @since 2.1.3
 		 * @return boolean
 		 */
 		private function needs_db_update() {
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Get list of DB update callbacks.
 		 *
-		 * @since x.x.x
+		 * @since 2.1.3
 		 * @return array
 		 */
 		public function get_db_update_callbacks() {

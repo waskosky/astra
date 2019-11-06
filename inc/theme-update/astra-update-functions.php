@@ -5,7 +5,7 @@
  * Functions for updating data, used by the background updater.
  *
  * @package Astra
- * @version x.x.x
+ * @version 2.1.3
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Open Submenu just below menu for existing users.
  *
- * @since x.x.x
+ * @since 2.1.3
  *
  * @return void
  */
