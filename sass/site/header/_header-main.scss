@@ -596,7 +596,8 @@ li.ast-masthead-custom-menu-items {
 
 .customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
 	.customize-partial-edit-shortcut-button {
-		left: 100px;
+		left: 120px;
+		top: 0;
 	}
 }
 
@@ -608,8 +609,8 @@ li.ast-masthead-custom-menu-items {
 	}
 	.customize-partial-edit-shortcut-blogname {
 		.customize-partial-edit-shortcut-button {
-			top: 35px;
-  			left: -15px;			
+			top: 10px;
+    		left: -30px;			
 		}
 	}
 }
@@ -639,6 +640,12 @@ li.ast-masthead-custom-menu-items {
 }
 
 /* Primary Header common CSS */
+.customize-partial-edit-shortcut-blogname {
+	.customize-partial-edit-shortcut-button {
+		top: 10px;			
+	}
+}
+
 .ast-full-width-header {
 	.customize-partial-edit-shortcut-astra-settings-header-layouts {
 		position: absolute;
@@ -664,6 +671,12 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
+.customize-partial-edit-shortcut-astra-settings-disable-primary-nav {
+	.customize-partial-edit-shortcut-button {
+		top: 15px;
+	}
+}
+
 .header-main-layout-3 {
 	.customize-partial-edit-shortcut-astra-settings-header-layouts {
 		.customize-partial-edit-shortcut-button {
@@ -677,8 +690,8 @@ li.ast-masthead-custom-menu-items {
 	.header-main-layout-1 {
 		.customize-partial-edit-shortcut-astra-settings-header-layouts {
 			.customize-partial-edit-shortcut-button {
-				left: -35px;
-				top: -40px;
+				left: -50px;
+				top: -45px;
 			}
 		}
 	}
@@ -686,8 +699,8 @@ li.ast-masthead-custom-menu-items {
 	.header-main-layout-2 {
 		.customize-partial-edit-shortcut-astra-settings-header-layouts {
 			.customize-partial-edit-shortcut-button {
-				left: -35px;
-				top: 40px;
+				left: -50px;
+				top: -45px;
 			}
 		}
 	}
@@ -695,18 +708,27 @@ li.ast-masthead-custom-menu-items {
 	.header-main-layout-3 {
 		.customize-partial-edit-shortcut-astra-settings-header-layouts {
 			.customize-partial-edit-shortcut-button {
-				left: -35px;
-				top: 0;
+				left: -30px;
+				top: -35px;
 			}
+		}
+	}
+
+	.header-main-layout-3 {
+		.customize-partial-edit-shortcut-astra-settings-disable-primary-nav {
+			.customize-partial-edit-shortcut-button {
+				top: 15px;
+				left: -20px;
+			}
+		}
+	}
+	.customize-partial-edit-shortcut-blogname {
+		.customize-partial-edit-shortcut-button {
+			left: -25px;
 		}
 	}
 }
 
-.customize-partial-edit-shortcut-blogname {
-	.customize-partial-edit-shortcut-button {
-		left: -25px;
-	}
-}
 
 .ast-masthead-custom-menu-items {
 	&.search-custom-menu-item {
