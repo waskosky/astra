@@ -2565,7 +2565,7 @@ body {
   border-color: #eaeaea;
 }
 
-.ast-header-break-point .main-navigation .sub-menu .button-custom-menu-item a {
+.ast-header-break-point .main-navigation .sub-menu .button-custom-menu-item .menu-link {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
