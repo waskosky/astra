@@ -232,7 +232,7 @@
 
 @media (min-width: 1900px) {
   .rtl .iris-slider.iris-strip, .rtl.iris-strip.iris-slider.iris-alpha-slider {
-    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
@@ -465,6 +465,12 @@
 @media (min-width: 1900px) {
   .iris-slider.iris-strip, .iris-strip.iris-slider.iris-alpha-slider {
     margin-right: 8px !important;
+  }
+}
+
+@media (min-width: 1900px) {
+  .rtl .iris-slider.iris-strip, .rtl.iris-strip.iris-slider.iris-alpha-slider {
+    margin-left: 0 !important;
   }
 }
 
