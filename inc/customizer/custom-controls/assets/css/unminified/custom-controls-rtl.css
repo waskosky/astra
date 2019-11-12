@@ -230,6 +230,12 @@
   }
 }
 
+@media (min-width: 1900px) {
+  .rtl .iris-slider.iris-strip, .rtl.iris-strip.iris-slider.iris-alpha-slider {
+    margin-left: 0 !important;
+  }
+}
+
 #customize-controls .customize-control-notifications-container {
   margin: 0;
 }

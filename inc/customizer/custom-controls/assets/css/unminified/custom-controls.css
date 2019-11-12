@@ -230,6 +230,12 @@
   }
 }
 
+@media (min-width: 1900px) {
+  .rtl .iris-slider.iris-strip, .rtl.iris-strip.iris-slider.iris-alpha-slider {
+    margin-right: 0 !important;
+  }
+}
+
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
