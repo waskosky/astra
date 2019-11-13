@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 			$_configs = array(
 
-                /**
+				/**
 				 * Colors & Background - Panels & Sections
 				 */
 				array(

@@ -30,15 +30,15 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
-        }
-        
+		}
+
 		/**
 		 * Set Options Default Values
 		 *
 		 * @param  array $defaults  Astra options default value array.
 		 * @return array
-         *
-         * @since x.x.x
+		 *
+		 * @since x.x.x
 		 */
 		function theme_defaults( $defaults ) {
 
@@ -59,8 +59,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 		 * Load color configs for the Heading Colors.
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-         *
-         * @since x.x.x
+		 *
+		 * @since x.x.x
 		 */
 		function customize_register( $wp_customize ) {
 
