@@ -53,58 +53,6 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'priority' => 20,
 				),
 
-				/**
-				 * Option: Content divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[content-bg-obj-divider]',
-					'title'    => __( 'Background', 'astra-addon' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-colors-content',
-					'required' => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[site-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-							array( ASTRA_THEME_SETTINGS . '[single-page-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-							array( ASTRA_THEME_SETTINGS . '[single-post-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-							array( ASTRA_THEME_SETTINGS . '[archive-post-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-						),
-						'operator'   => 'OR',
-					),
-					'settings' => array(),
-				),
-
-				// Option: Content Background Color.
-				array(
-					'default'  => astra_get_option( 'content-bg-obj' ),
-					'type'     => 'control',
-					'control'  => 'ast-background',
-					'name'     => ASTRA_THEME_SETTINGS . '[content-bg-obj]',
-					'label'    => __( 'Background', 'astra-addon' ),
-					'section'  => 'section-colors-content',
-					'required' => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[site-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-							array( ASTRA_THEME_SETTINGS . '[single-page-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-							array( ASTRA_THEME_SETTINGS . '[single-post-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-							array( ASTRA_THEME_SETTINGS . '[archive-post-content-layout]', '==', array( 'boxed-container', 'content-boxed-container', 'plain-container' ) ),
-						),
-						'operator'   => 'OR',
-					),
-				),
-
-				/**
-				 * Option: heading Color Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[content-color-divider]',
-					'section'  => 'section-colors-content',
-					'title'    => __( 'Heading Colors', 'astra-addon' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'settings' => array(),
-				),
-
 				// Option: Heading 1 <h1> Color.
 				array(
 					'default'   => '',
