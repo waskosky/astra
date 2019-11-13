@@ -5,7 +5,7 @@
  * then make any necessary changes to the page using jQuery.
  *
  * @package Astra
- * @since 1.7.0
+ * @since x.x.x
  */
 
 ( function( $ ) {
