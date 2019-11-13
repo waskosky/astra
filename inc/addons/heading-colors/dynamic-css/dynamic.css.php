@@ -35,7 +35,7 @@ function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_fi
 
     /**
      * Normal Colors without reponsive option.
-     * [1]. Header Colors
+     * [1]. Heading Colors
      */
     $css_output = array(
 

@@ -30,21 +30,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
-			// // Load Google fonts.
-			// add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
-		}
-
-		/**
-		 * Enqueue google fonts.
-		 *
-		 * @return void
-		 */
-		// public function add_fonts() {
-		// 	$breadcrumb_font_family = astra_get_option( 'breadcrumb-font-family' );
-		// 	$breadcrumb_font_weight = astra_get_option( 'breadcrumb-font-weight' );
-		// 	Astra_Fonts::add_font( $breadcrumb_font_family, $breadcrumb_font_weight );
-		// }
-
+        }
+        
 		/**
 		 * Set Options Default Values
 		 *
@@ -81,9 +68,6 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			 * Register Panel & Sections
 			 */
 			require_once ASTRA_THEME_HEADING_COLORS_DIR . 'customizer/class-astra-heading-colors-configs.php';
-			// require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-color-configs.php';
-			// require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-typo-configs.php';
-
 		}
 
 		/**

@@ -31,12 +31,8 @@ if ( ! class_exists( 'Astra_Heading_Colors' ) ) {
 		public function __construct() {
 
 			require_once ASTRA_THEME_HEADING_COLORS_DIR . 'class-astra-heading-colors-loader.php';
-			// require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-markup.php';
-			// require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumb-trail.php';
-			// // Third Party plugins in the breadcrumb options.
-			// add_filter( 'astra_breadcrumb_source_list', array( $this, 'astra_breadcrumb_source_list_items' ) );
 
-			// // Include front end files.
+			// Include front end files.
 			if ( ! is_admin() ) {
 				require_once ASTRA_THEME_HEADING_COLORS_DIR . 'dynamic-css/dynamic.css.php';
 			}
