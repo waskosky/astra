@@ -1,12 +1,12 @@
 <?php
 /**
- * Breadcrumbs for Astra theme.
+ * Heading Colors for Astra theme.
  *
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -37,9 +37,9 @@ if ( ! class_exists( 'Astra_Heading_Colors' ) ) {
 			// add_filter( 'astra_breadcrumb_source_list', array( $this, 'astra_breadcrumb_source_list_items' ) );
 
 			// // Include front end files.
-			// if ( ! is_admin() ) {
-			// 	require_once ASTRA_THEME_BREADCRUMBS_DIR . 'dynamic-css/dynamic.css.php';
-			// }
+			if ( ! is_admin() ) {
+				require_once ASTRA_THEME_HEADING_COLORS_DIR . 'dynamic-css/dynamic.css.php';
+			}
 		}
 	}
 

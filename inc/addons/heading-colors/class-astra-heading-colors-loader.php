@@ -1,12 +1,12 @@
 <?php
 /**
- * Breadcrumbs Loader for Astra theme.
+ * Heading Colors Loader for Astra theme.
  *
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 	/**
 	 * Customizer Initialization
 	 *
-	 * @since 1.7.0
+	 * @since x.x.x
 	 */
 	class Astra_Heading_Colors_Loader {
 
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
-			// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
+			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 			// // Load Google fonts.
 			// add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 		}
@@ -50,6 +50,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 		 *
 		 * @param  array $defaults  Astra options default value array.
 		 * @return array
+         *
+         * @since x.x.x
 		 */
 		function theme_defaults( $defaults ) {
 
@@ -67,16 +69,17 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 		}
 
 		/**
-		 * Add postMessage support for site title and description for the Theme Customizer.
+		 * Load color configs for the Heading Colors.
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+         *
+         * @since x.x.x
 		 */
 		function customize_register( $wp_customize ) {
 
 			/**
 			 * Register Panel & Sections
 			 */
-            // echo 'working';
 			require_once ASTRA_THEME_HEADING_COLORS_DIR . 'customizer/class-astra-heading-colors-configs.php';
 			// require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-color-configs.php';
 			// require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-typo-configs.php';
@@ -86,15 +89,15 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 		/**
 		 * Customizer Preview
 		 */
-		// function preview_scripts() {
-		// 	/**
-		// 	 * Load unminified if SCRIPT_DEBUG is true.
-		// 	 */
-		// 	/* Directory and Extension */
-		// 	$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-		// 	$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-		// 	wp_enqueue_script( 'astra-breadcrumbs-customizer-preview-js', ASTRA_THEME_BREADCRUMBS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
-		// }
+		function preview_scripts() {
+			/**
+			 * Load unminified if SCRIPT_DEBUG is true.
+			 */
+			/* Directory and Extension */
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			wp_enqueue_script( 'astra-heading-colors-customizer-preview-js', ASTRA_THEME_HEADING_COLORS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		}
 	}
 }
 

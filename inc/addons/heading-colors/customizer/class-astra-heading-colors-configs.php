@@ -1,12 +1,12 @@
 <?php
 /**
- * Breadcrumbs Options for Astra theme.
+ * Heading Colors Options for Astra theme.
  *
  * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,16 +21,14 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 	class Astra_Heading_Colors_Configs extends Astra_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-Breadcrumbs Settings.
+		 * Register Astra Heading Colors Settings.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.7.0
+		 * @since x.x.x
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
-
-            // echo 'working 05';
 
 			$_configs = array(
 
