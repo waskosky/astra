@@ -608,6 +608,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color'            => esc_attr( $btn_text_color ),
 					'border-color'     => esc_attr( $btn_border_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
+					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 				),
 				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
