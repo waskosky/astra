@@ -26,6 +26,9 @@ add_filter( 'astra_dynamic_theme_css', 'astra_heading_colors_section_dynamic_css
  */
 function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+	/**
+	 * Heading Colors - h1 - h6.
+	 */
 	$h1_color = astra_get_option( 'h1-color' );
 	$h2_color = astra_get_option( 'h2-color' );
 	$h3_color = astra_get_option( 'h3-color' );

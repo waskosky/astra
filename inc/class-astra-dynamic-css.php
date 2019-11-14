@@ -93,6 +93,59 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$heading_h5_font_size            = astra_get_option( 'font-size-h5' );
 			$heading_h6_font_size            = astra_get_option( 'font-size-h6' );
 
+			/**
+			 * Heading Typography - h1 - h3.
+			 */
+			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
+
+			$h1_font_family    = astra_get_option( 'font-family-h1' );
+			$h1_font_weight    = astra_get_option( 'font-weight-h1' );
+			$h1_line_height    = astra_get_option( 'line-height-h1' );
+			$h1_text_transform = astra_get_option( 'text-transform-h1' );
+
+			$h2_font_family    = astra_get_option( 'font-family-h2' );
+			$h2_font_weight    = astra_get_option( 'font-weight-h2' );
+			$h2_line_height    = astra_get_option( 'line-height-h2' );
+			$h2_text_transform = astra_get_option( 'text-transform-h2' );
+
+			$h3_font_family    = astra_get_option( 'font-family-h3' );
+			$h3_font_weight    = astra_get_option( 'font-weight-h3' );
+			$h3_line_height    = astra_get_option( 'line-height-h3' );
+			$h3_text_transform = astra_get_option( 'text-transform-h3' );
+
+			// Fallback for H1 - headings typography.
+			if ( 'inherit' == $h1_font_family ) {
+				$h1_font_family = $headings_font_family;
+			}
+			if ( 'normal' == $h1_font_weight ) {
+				$h1_font_weight = $headings_font_weight;
+			}
+			if ( '' == $h1_text_transform ) {
+				$h1_text_transform = $headings_font_transform;
+			}
+
+			// Fallback for H2 - headings typography.
+			if ( 'inherit' == $h2_font_family ) {
+					$h2_font_family = $headings_font_family;
+			}
+			if ( 'normal' == $h2_font_weight ) {
+				$h2_font_weight = $headings_font_weight;
+			}
+			if ( '' == $h2_text_transform ) {
+				$h2_text_transform = $headings_font_transform;
+			}
+
+			// Fallback for H3 - headings typography.
+			if ( 'inherit' == $h3_font_family ) {
+					$h3_font_family = $headings_font_family;
+			}
+			if ( 'normal' == $h3_font_weight ) {
+				$h3_font_weight = $headings_font_weight;
+			}
+			if ( '' == $h3_text_transform ) {
+				$h3_text_transform = $headings_font_transform;
+			}
+
 			// Button Styling.
 			$btn_border_radius      = astra_get_option( 'button-radius' );
 			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
@@ -312,6 +365,45 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6'
 				)                                         => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+				),
+
+				/**
+				 * Heading - <h1>
+				 */
+				self::conditional_headings_css_selectors(
+					'h1, .entry-content h1, .entry-content h1 a',
+					'h1, .entry-content h1'
+				)                       => array(
+					'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
+					'line-height'    => esc_attr( $h1_line_height ),
+					'text-transform' => esc_attr( $h1_text_transform ),
+				),
+
+				/**
+				 * Heading - <h2>
+				 */
+				self::conditional_headings_css_selectors(
+					'h2, .entry-content h2, .entry-content h2 a',
+					'h2, .entry-content h2'
+				)                       => array(
+					'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
+					'line-height'    => esc_attr( $h2_line_height ),
+					'text-transform' => esc_attr( $h2_text_transform ),
+				),
+
+				/**
+				 * Heading - <h3>
+				 */
+				self::conditional_headings_css_selectors(
+					'h3, .entry-content h3, .entry-content h3 a',
+					'h3, .entry-content h3'
+				)                       => array(
+					'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
+					'line-height'    => esc_attr( $h3_line_height ),
+					'text-transform' => esc_attr( $h3_text_transform ),
 				),
 
 				'.ast-single-post .entry-title, .page-title' => array(

@@ -52,6 +52,24 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			$defaults['h5-color'] = '';
 			$defaults['h6-color'] = '';
 
+			// Header <H1>.
+			$defaults['font-family-h1']    = 'inherit';
+			$defaults['font-weight-h1']    = 'inherit';
+			$defaults['text-transform-h1'] = '';
+			$defaults['line-height-h1']    = '';
+
+			// Header <H2>.
+			$defaults['font-family-h2']    = 'inherit';
+			$defaults['font-weight-h2']    = 'inherit';
+			$defaults['text-transform-h2'] = '';
+			$defaults['line-height-h2']    = '';
+
+			// Header <H3>.
+			$defaults['font-family-h3']    = 'inherit';
+			$defaults['font-weight-h3']    = 'inherit';
+			$defaults['text-transform-h3'] = '';
+			$defaults['line-height-h3']    = '';
+
 			return $defaults;
 		}
 
