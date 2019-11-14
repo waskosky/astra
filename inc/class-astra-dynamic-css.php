@@ -610,6 +610,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'background-color'    => esc_attr( $btn_bg_color ),
 					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 				),
+				'.elementor-button-wrapper .elementor-button' => array(
+					'border-style'        => 'solid',
+					'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0px',
+					'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0px',
+					'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0px',
+					'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0px',
+					'color'               => esc_attr( $btn_text_color ),
+					'border-color'        => esc_attr( $btn_border_color ),
+					'background-color'    => esc_attr( $btn_bg_color ),
+					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+				),
 				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
