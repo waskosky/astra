@@ -144,19 +144,19 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'left'   => '',
 					),
 					'global-theme-button-padding'         => array(
-						'desktop' => array(
+						'desktop'      => array(
 							'top'    => '10',
 							'right'  => '40',
 							'bottom' => '10',
 							'left'   => '40',
 						),
-						'tablet'  => array(
+						'tablet'       => array(
 							'top'    => '',
 							'right'  => '',
 							'bottom' => '',
 							'left'   => '',
 						),
-						'mobile'  => array(
+						'mobile'       => array(
 							'top'    => '',
 							'right'  => '',
 							'bottom' => '',
