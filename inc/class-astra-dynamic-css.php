@@ -198,6 +198,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_custom_trans_button_border_h_color = astra_get_option( 'header-main-rt-trans-section-button-border-h-color' );
 			$header_custom_trans_button_border_size    = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
 
+			$global_custom_button_spacing = astra_get_option( 'global-theme-button-padding' );
+
 			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
 			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );
 
@@ -373,7 +375,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				self::conditional_headings_css_selectors(
 					'h1, .entry-content h1, .entry-content h1 a',
 					'h1, .entry-content h1'
-				)                       => array(
+				)                                         => array(
 					'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
 					'line-height'    => esc_attr( $h1_line_height ),
@@ -386,7 +388,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				self::conditional_headings_css_selectors(
 					'h2, .entry-content h2, .entry-content h2 a',
 					'h2, .entry-content h2'
-				)                       => array(
+				)                                         => array(
 					'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
 					'line-height'    => esc_attr( $h2_line_height ),
@@ -399,7 +401,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				self::conditional_headings_css_selectors(
 					'h3, .entry-content h3, .entry-content h3 a',
 					'h3, .entry-content h3'
-				)                       => array(
+				)                                         => array(
 					'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
 					'line-height'    => esc_attr( $h3_line_height ),
@@ -609,6 +611,42 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
+
+			$global_button_desktop = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'    => astra_responsive_spacing( $global_custom_button_spacing, 'top', 'desktop' ),
+					'padding-bottom' => astra_responsive_spacing( $global_custom_button_spacing, 'bottom', 'desktop' ),
+					'padding-left'   => astra_responsive_spacing( $global_custom_button_spacing, 'left', 'desktop' ),
+					'padding-right'  => astra_responsive_spacing( $global_custom_button_spacing, 'right', 'desktop' ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_desktop );
+
+			$global_button_tablet = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'    => astra_responsive_spacing( $global_custom_button_spacing, 'top', 'tablet' ),
+					'padding-bottom' => astra_responsive_spacing( $global_custom_button_spacing, 'bottom', 'tablet' ),
+					'padding-left'   => astra_responsive_spacing( $global_custom_button_spacing, 'left', 'tablet' ),
+					'padding-right'  => astra_responsive_spacing( $global_custom_button_spacing, 'right', 'tablet' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+
+			$global_button_mobile = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'    => astra_responsive_spacing( $global_custom_button_spacing, 'top', 'mobile' ),
+					'padding-bottom' => astra_responsive_spacing( $global_custom_button_spacing, 'bottom', 'mobile' ),
+					'padding-left'   => astra_responsive_spacing( $global_custom_button_spacing, 'left', 'mobile' ),
+					'padding-right'  => astra_responsive_spacing( $global_custom_button_spacing, 'right', 'mobile' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
 
 			if ( 'custom-button' === $header_custom_button_style ) {
 				$css_output = array(

@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'bottom' => '',
 						'left'   => '',
 					),
-					'global-theme-button-padding' => array(
+					'global-theme-button-padding'         => array(
 						'desktop' => array(
 							'top'    => '',
 							'right'  => '',
