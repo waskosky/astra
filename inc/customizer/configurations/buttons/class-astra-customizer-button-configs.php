@@ -202,6 +202,27 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Global Button Border.
+				 */
+				array(
+					'type'           => 'control',
+					'control'        => 'ast-responsive-spacing',
+					'name'           => ASTRA_THEME_SETTINGS . '[global-theme-button-padding]',
+					'section'        => 'section-buttons',
+					'transport'      => 'postMessage',
+					'linked_choices' => true,
+					'priority'       => 20,
+					'default'        => astra_get_option( 'global-theme-button-padding' ),
+					'title'          => __( 'Padding', 'astra' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+				),
+
+				/**
 				 * Option: Primary Header Button Colors Divider
 				 */
 				array(
