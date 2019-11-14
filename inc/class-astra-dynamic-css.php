@@ -594,8 +594,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
-			var_dump( $global_custom_button_border_size );
-
 			$global_button_desktop = array(
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'padding-top'    => astra_responsive_spacing( $global_custom_button_spacing, 'top', 'desktop' ),
