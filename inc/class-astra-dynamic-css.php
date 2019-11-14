@@ -610,6 +610,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'background-color'    => esc_attr( $btn_bg_color ),
 					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 				),
+				/**
+				 * Elementor button compatibility for default styling.
+				 */
 				'.elementor-button-wrapper .elementor-button' => array(
 					'border-style'        => 'solid',
 					'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0px',
