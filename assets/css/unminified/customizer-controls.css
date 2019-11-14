@@ -172,6 +172,13 @@
     margin-left: 10px;
 }
 
+.customize-pane-child > li[id*="-font-weight"], .customize-pane-child > li[id*="-text-transform"] {
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    clear: none;
+}
+
 /**
  * Upgred To Astra Pro
 */
