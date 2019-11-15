@@ -202,24 +202,39 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Global Button Border.
+				 * Option: Vertical Padding
 				 */
 				array(
-					'type'           => 'control',
-					'control'        => 'ast-responsive-spacing',
-					'name'           => ASTRA_THEME_SETTINGS . '[global-theme-button-padding]',
-					'section'        => 'section-buttons',
-					'transport'      => 'postMessage',
-					'linked_choices' => true,
-					'priority'       => 20,
-					'default'        => astra_get_option( 'global-theme-button-padding' ),
-					'title'          => __( 'Padding', 'astra' ),
-					'choices'        => array(
-						'top'    => __( 'Top', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-						'bottom' => __( 'Bottom', 'astra' ),
-						'left'   => __( 'Left', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[button-v-padding]',
+					'default'     => astra_get_option( 'button-v-padding' ),
+					'title'       => __( 'Vertical Padding', 'astra' ),
+					'type'        => 'control',
+					'section'     => 'section-buttons',
+					'control'     => 'ast-slider',
+					'input_attrs' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 200,
 					),
+					'priority'  => 20,
+				),
+
+				/**
+				 * Option: Horizontal Padding
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[button-h-padding]',
+					'default'     => astra_get_option( 'button-h-padding' ),
+					'title'       => __( 'Horizontal Padding', 'astra' ),
+					'type'        => 'control',
+					'section'     => 'section-buttons',
+					'control'     => 'ast-slider',
+					'input_attrs' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 200,
+					),
+					'priority'  => 21,
 				),
 
 				/**

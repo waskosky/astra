@@ -198,7 +198,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_custom_trans_button_border_h_color = astra_get_option( 'header-main-rt-trans-section-button-border-h-color' );
 			$header_custom_trans_button_border_size    = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
 
-			$global_custom_button_spacing     = astra_get_option( 'global-theme-button-padding' );
 			$global_custom_button_border_size = astra_get_option( 'theme-button-border-group-border-size' );
 			$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
@@ -569,10 +568,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$global_button_desktop = array(
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'padding-top'         => astra_responsive_spacing( $global_custom_button_spacing, 'top', 'desktop' ),
-					'padding-bottom'      => astra_responsive_spacing( $global_custom_button_spacing, 'bottom', 'desktop' ),
-					'padding-left'        => astra_responsive_spacing( $global_custom_button_spacing, 'left', 'desktop' ),
-					'padding-right'       => astra_responsive_spacing( $global_custom_button_spacing, 'right', 'desktop' ),
 					'border-style'        => 'solid',
 					'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0px',
 					'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0px',
@@ -582,6 +577,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-color'        => esc_attr( $btn_border_color ),
 					'background-color'    => esc_attr( $btn_bg_color ),
 					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+					'padding'             => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
 				/**
 				 * Elementor button compatibility for default styling.
@@ -608,30 +604,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $global_button_desktop );
-
-			$global_button_tablet = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'padding-top'    => astra_responsive_spacing( $global_custom_button_spacing, 'top', 'tablet' ),
-					'padding-bottom' => astra_responsive_spacing( $global_custom_button_spacing, 'bottom', 'tablet' ),
-					'padding-left'   => astra_responsive_spacing( $global_custom_button_spacing, 'left', 'tablet' ),
-					'padding-right'  => astra_responsive_spacing( $global_custom_button_spacing, 'right', 'tablet' ),
-				),
-			);
-
-			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
-
-			$global_button_mobile = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'padding-top'    => astra_responsive_spacing( $global_custom_button_spacing, 'top', 'mobile' ),
-					'padding-bottom' => astra_responsive_spacing( $global_custom_button_spacing, 'bottom', 'mobile' ),
-					'padding-left'   => astra_responsive_spacing( $global_custom_button_spacing, 'left', 'mobile' ),
-					'padding-right'  => astra_responsive_spacing( $global_custom_button_spacing, 'right', 'mobile' ),
-				),
-			);
-
-			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
 
 			if ( 'custom-button' === $header_custom_button_style ) {
 				$css_output = array(
