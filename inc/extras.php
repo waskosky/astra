@@ -904,7 +904,6 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 					array(
 						'id'    => 'colophon',
 						'class' => join( ' ', astra_get_footer_classes() ),
-						'role'  => 'contentinfo',
 					)
 				);
 			?>
