@@ -329,7 +329,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h1, .entry-content h1, .entry-content h1 a',
 					'h1, .entry-content h1'
 				)                                         => array(
-					'font-size' => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
+					'font-size'      => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
+					'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
+					'line-height'    => esc_attr( $h1_line_height ),
+					'text-transform' => esc_attr( $h1_text_transform ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -337,7 +341,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h2, .entry-content h2, .entry-content h2 a',
 					'h2, .entry-content h2'
 				)                                         => array(
-					'font-size' => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
+					'font-size'      => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
+					'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
+					'line-height'    => esc_attr( $h2_line_height ),
+					'text-transform' => esc_attr( $h2_text_transform ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -345,7 +353,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h3, .entry-content h3, .entry-content h3 a',
 					'h3, .entry-content h3'
 				)                                         => array(
-					'font-size' => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
+					'font-size'      => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
+					'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
+					'line-height'    => esc_attr( $h3_line_height ),
+					'text-transform' => esc_attr( $h3_text_transform ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -370,45 +382,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6'
 				)                                         => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
-				),
-
-				/**
-				 * Heading - <h1>
-				 */
-				self::conditional_headings_css_selectors(
-					'h1, .entry-content h1, .entry-content h1 a',
-					'h1, .entry-content h1'
-				)                                         => array(
-					'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
-					'line-height'    => esc_attr( $h1_line_height ),
-					'text-transform' => esc_attr( $h1_text_transform ),
-				),
-
-				/**
-				 * Heading - <h2>
-				 */
-				self::conditional_headings_css_selectors(
-					'h2, .entry-content h2, .entry-content h2 a',
-					'h2, .entry-content h2'
-				)                                         => array(
-					'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
-					'line-height'    => esc_attr( $h2_line_height ),
-					'text-transform' => esc_attr( $h2_text_transform ),
-				),
-
-				/**
-				 * Heading - <h3>
-				 */
-				self::conditional_headings_css_selectors(
-					'h3, .entry-content h3, .entry-content h3 a',
-					'h3, .entry-content h3'
-				)                                         => array(
-					'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
-					'line-height'    => esc_attr( $h3_line_height ),
-					'text-transform' => esc_attr( $h3_text_transform ),
 				),
 
 				'.ast-single-post .entry-title, .page-title' => array(
