@@ -29,12 +29,7 @@ function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_fi
 	/**
 	 * Heading Colors - h1 - h6.
 	 */
-	$h1_color = astra_get_option( 'h1-color' );
-	$h2_color = astra_get_option( 'h2-color' );
-	$h3_color = astra_get_option( 'h3-color' );
-	$h4_color = astra_get_option( 'h4-color' );
-	$h5_color = astra_get_option( 'h5-color' );
-	$h6_color = astra_get_option( 'h6-color' );
+	$heading_base_color = astra_get_option( 'heading-base-color' );
 
 	/**
 	 * Normal Colors without reponsive option.
@@ -43,25 +38,10 @@ function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$css_output = array(
 
 		/**
-		 * Content <h1> to <h6> headings
+		 * Content base heading color.
 		 */
-		'h1, .entry-content h1' => array(
-			'color' => esc_attr( $h1_color ),
-		),
-		'h2, .entry-content h2' => array(
-			'color' => esc_attr( $h2_color ),
-		),
-		'h3, .entry-content h3' => array(
-			'color' => esc_attr( $h3_color ),
-		),
-		'h4, .entry-content h4' => array(
-			'color' => esc_attr( $h4_color ),
-		),
-		'h5, .entry-content h5' => array(
-			'color' => esc_attr( $h5_color ),
-		),
-		'h6, .entry-content h6' => array(
-			'color' => esc_attr( $h6_color ),
+		'.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6' => array(
+			'color' => esc_attr( $heading_base_color ),
 		),
 	);
 

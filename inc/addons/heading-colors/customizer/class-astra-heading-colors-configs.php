@@ -57,63 +57,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[h1-color]',
-					'title'     => __( 'Heading 1 Color', 'astra-addon' ),
-					'section'   => 'section-colors-content',
-				),
-
-				// Option: Heading 2 <h2> Color.
-				array(
-					'default'   => '',
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[h2-color]',
-					'title'     => __( 'Heading 2 Color', 'astra-addon' ),
-					'section'   => 'section-colors-content',
-				),
-
-				// Option: Heading 3 <h3> Color.
-				array(
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[h3-color]',
-					'default'   => '',
-					'title'     => __( 'Heading 3 Color', 'astra-addon' ),
-					'section'   => 'section-colors-content',
-				),
-
-				// Option: Heading 4 <h4> Color.
-				array(
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'default'   => '',
-					'name'      => ASTRA_THEME_SETTINGS . '[h4-color]',
-					'title'     => __( 'Heading 4 Color', 'astra-addon' ),
-					'section'   => 'section-colors-content',
-				),
-
-				// Option: Heading 5 <h5> Color.
-				array(
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'default'   => '',
-					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[h5-color]',
-					'title'     => __( 'Heading 5 Color', 'astra-addon' ),
-					'section'   => 'section-colors-content',
-				),
-
-				// Option: Heading 6 <h6> Color.
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[h6-color]',
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'default'   => '',
-					'title'     => __( 'Heading 6 Color', 'astra-addon' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[heading-base-color]',
+					'title'     => __( 'Base Heading Color', 'astra-addon' ),
 					'section'   => 'section-colors-content',
 				),
 
