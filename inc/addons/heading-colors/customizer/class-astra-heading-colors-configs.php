@@ -32,34 +32,16 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 			$_configs = array(
 
-				/**
-				 * Colors & Background - Panels & Sections
-				 */
-				array(
-					'name'     => 'section-colors-content',
-					'type'     => 'section',
-					'title'    => __( 'Content', 'astra-addon' ),
-					'panel'    => 'panel-global',
-					'section'  => 'section-colors-background',
-					'priority' => 35,
-				),
-				array(
-					'name'     => 'section-colors-header',
-					'type'     => 'section',
-					'title'    => __( 'Header', 'astra-addon' ),
-					'panel'    => 'panel-colors-background',
-					'priority' => 20,
-				),
-
 				// Option: Base Heading Color.
 				array(
 					'default'   => '',
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
+					'priority'  => 18,
 					'name'      => ASTRA_THEME_SETTINGS . '[heading-base-color]',
 					'title'     => __( 'Base Heading Color', 'astra-addon' ),
-					'section'   => 'section-colors-content',
+					'section'   => 'section-colors-body',
 				),
 
 				/**
