@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'priority' => 20,
 				),
 
-				// Option: Heading 1 <h1> Color.
+				// Option: Base Heading Color.
 				array(
 					'default'   => '',
 					'type'      => 'control',

@@ -30,6 +30,28 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
+			// Load Google fonts.
+			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+		}
+
+		/**
+		 * Enqueue google fonts.
+		 *
+		 * @return void
+		 */
+		public function add_fonts() {
+			
+			$font_family_h1 = astra_get_option( 'font-family-h1' );
+			$font_weight_h1 = astra_get_option( 'font-weight-h1' );
+			Astra_Fonts::add_font( $font_family_h1, $font_weight_h1 );
+
+			$font_family_h2 = astra_get_option( 'font-family-h2' );
+			$font_weight_h2 = astra_get_option( 'font-weight-h2' );
+			Astra_Fonts::add_font( $font_family_h2, $font_weight_h2 );
+
+			$font_family_h3 = astra_get_option( 'font-family-h3' );
+			$font_weight_h3 = astra_get_option( 'font-weight-h3' );
+			Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
 		}
 
 		/**
