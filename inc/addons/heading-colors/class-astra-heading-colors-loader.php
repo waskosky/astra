@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 		 * @return void
 		 */
 		public function add_fonts() {
-			
+
 			$font_family_h1 = astra_get_option( 'font-family-h1' );
 			$font_weight_h1 = astra_get_option( 'font-weight-h1' );
 			Astra_Fonts::add_font( $font_family_h1, $font_weight_h1 );
