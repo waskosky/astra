@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 18,
 					'name'      => ASTRA_THEME_SETTINGS . '[heading-base-color]',
-					'title'     => __( 'Base Heading Color', 'astra-addon' ),
+					'title'     => __( 'Heading Color ( H1 - H6 )', 'astra-addon' ),
 					'section'   => 'section-colors-body',
 				),
 
