@@ -216,7 +216,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'step' => 1,
 						'max'  => 200,
 					),
-					'priority'  => 20,
+					'priority'    => 20,
 				),
 
 				/**
@@ -234,7 +234,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'step' => 1,
 						'max'  => 200,
 					),
-					'priority'  => 21,
+					'priority'    => 21,
 				),
 
 				/**
