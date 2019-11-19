@@ -1496,11 +1496,20 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 				if ( '' != $post_thumb ) {
 					$output .= '<div class="post-thumb-img-content post-thumb">';
 					if ( ! $check_is_singular ) {
-						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+						$output .= apply_filters(
+							'astra_blog_post_featured_image_link_before',
+							'<a ' . astra_attr(
+								'article-image-url',
+								array(
+									'class' => '',
+									'href'  => esc_url( get_permalink() ),
+								)
+							) . ' >'
+						);
 					}
 					$output .= $post_thumb;
 					if ( ! $check_is_singular ) {
-						$output .= '</a>';
+						$output .= apply_filters( 'astra_blog_post_featured_image_link_after', '</a>' );
 					}
 					$output .= '</div>';
 				}
