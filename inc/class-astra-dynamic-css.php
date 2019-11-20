@@ -594,7 +594,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
 			if ( self::page_builder_button_style_css() ) {
-				
+
 				$global_button_page_builder_css = array(
 					'.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited, .wp-block-button .wp-block-button__link' => array(
 						'border-style'        => 'solid',
@@ -613,21 +613,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => esc_attr( $btn_border_h_color ),
-	
+
 					),
 					'.elementor-widget-heading h1.elementor-heading-title' => array(
-						'line-height'    => esc_attr( $h1_line_height ),
+						'line-height' => esc_attr( $h1_line_height ),
 					),
 					'.elementor-widget-heading h2.elementor-heading-title' => array(
-						'line-height'    => esc_attr( $h2_line_height ),
+						'line-height' => esc_attr( $h2_line_height ),
 					),
 					'.elementor-widget-heading h3.elementor-heading-title' => array(
-						'line-height'    => esc_attr( $h3_line_height ),
-					)
+						'line-height' => esc_attr( $h3_line_height ),
+					),
 				);
-	
+
 				/* Parse CSS from array() */
-				$parse_css .= astra_parse_css( $global_button_page_builder_css );	
+				$parse_css .= astra_parse_css( $global_button_page_builder_css );
 			}
 
 			if ( 'custom-button' === $header_custom_button_style ) {
