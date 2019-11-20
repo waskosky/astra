@@ -26,3 +26,20 @@ function astra_submenu_below_header() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not apply new default colors to the Elementor & Gutenberg Buttons for existing users.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_page_builder_button_color_compatibility() {
+	$theme_options = get_option( 'astra-settings' );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['pb-button-color-compatibility'] ) ) {
+		$theme_options['pb-button-color-compatibility'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
