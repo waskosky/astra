@@ -615,6 +615,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-color'     => esc_attr( $btn_border_h_color ),
 	
 					),
+					'.elementor-widget-heading h1.elementor-heading-title' => array(
+						'line-height'    => esc_attr( $h1_line_height ),
+					),
+					'.elementor-widget-heading h2.elementor-heading-title' => array(
+						'line-height'    => esc_attr( $h2_line_height ),
+					),
+					'.elementor-widget-heading h3.elementor-heading-title' => array(
+						'line-height'    => esc_attr( $h3_line_height ),
+					)
 				);
 	
 				/* Parse CSS from array() */
