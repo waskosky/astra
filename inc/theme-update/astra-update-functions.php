@@ -35,7 +35,7 @@ function astra_submenu_below_header() {
  * @return void
  */
 function astra_page_builder_button_color_compatibility() {
-	$theme_options = get_option( 'astra-settings' );
+	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
 	if ( ! isset( $theme_options['pb-button-color-compatibility'] ) ) {

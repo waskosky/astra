@@ -202,6 +202,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 
+			/**
+			 * Theme Button Typography
+			 */
+			$theme_btn_font_family    = astra_get_option( 'theme-btn-font-family' );
+			$theme_btn_font_weight    = astra_get_option( 'theme-btn-font-weight' );
+			$theme_btn_font_size      = astra_get_option( 'theme-btn-font-size' );
+			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
+			$theme_btn_text_transform = astra_get_option( 'theme-btn-text-transform' );
+
 			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
 			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );
 
@@ -578,6 +587,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'background-color'    => esc_attr( $btn_bg_color ),
 					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'             => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
+					'font-family'         => astra_get_font_family( $theme_btn_font_family ),
+					'font-weight'         => esc_attr( $theme_btn_font_weight ),
+					'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+					'line-height'         => esc_attr( $theme_btn_line_height ),
+					'text-transform'      => esc_attr( $theme_btn_text_transform ),
 				),
 				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
@@ -605,9 +619,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'               => esc_attr( $btn_text_color ),
 						'border-color'        => esc_attr( $btn_border_color ),
 						'background-color'    => esc_attr( $btn_bg_color ),
+						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
+						'font-weight'         => esc_attr( $theme_btn_font_weight ),
+						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+						'line-height'         => esc_attr( $theme_btn_line_height ),
+						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 					),
 					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
 						'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 					),
 					'.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
 						'color'            => esc_attr( $btn_text_hover_color ),

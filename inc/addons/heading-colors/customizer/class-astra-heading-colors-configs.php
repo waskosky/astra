@@ -279,6 +279,133 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 				),
 
+				/**
+				 * Option: Divider
+				 * Option: Theme button Typography Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[theme-button-typography-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-buttons',
+					'title'    => __( 'Typography', 'astra' ),
+					'priority' => 25,
+					'settings' => array(),
+				),
+
+				/*
+				 * Option: Theme Button Typography
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[theme-button-typo]',
+					'default'   => astra_get_option( 'theme-button-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Content', 'astra' ),
+					'section'   => 'section-buttons',
+					'transport' => 'postMessage',
+					'priority'  => 30,
+				),
+
+				/**
+				 * Option: Theme Button Font Family
+				 */
+				array(
+					'name'      => 'theme-btn-font-family',
+					'default'   => astra_get_option( 'theme-btn-font-family' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[theme-button-typo]',
+					'section'   => 'section-buttons',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'title'     => __( 'Family', 'astra' ),
+					'connect'   => 'theme-btn-font-weight',
+					'priority'  => 5,
+				),
+
+				/**
+				 * Option: Theme Button Font Size
+				 */
+				array(
+					'name'        => 'theme-btn-font-size',
+					'control'     => 'ast-responsive',
+					'type'        => 'sub-control',
+					'parent'      => ASTRA_THEME_SETTINGS . '[theme-btn-font-size]',
+					'section'     => 'section-buttons',
+					'default'     => astra_get_option( 'theme-btn-font-size' ),
+					'transport'   => 'postMessage',
+					'title'       => __( 'Size', 'astra' ),
+					'priority'    => 10,
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+				/**
+				 * Option: Theme Button Font Weight
+				 */
+				array(
+					'name'              => 'theme-btn-font-weight',
+					'control'           => 'ast-font',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[theme-button-typo]',
+					'section'           => 'section-buttons',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'theme-btn-font-weight' ),
+					'title'             => __( 'Weight', 'astra' ),
+					'connect'           => 'theme-btn-font-family',
+					'priority'          => 15,
+				),
+
+				/**
+				 * Option: Theme Button Text Transform
+				 */
+				array(
+					'name'      => 'theme-btn-text-transform',
+					'control'   => 'ast-select',
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[theme-button-typo]',
+					'section'   => 'section-buttons',
+					'default'   => astra_get_option( 'theme-btn-text-transform' ),
+					'title'     => __( 'Text Transform', 'astra' ),
+					'transport' => 'postMessage',
+					'priority'  => 20,
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Capitalize', 'astra' ),
+						'uppercase'  => __( 'Uppercase', 'astra' ),
+						'lowercase'  => __( 'Lowercase', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Theme Button Line Height
+				 */
+				array(
+					'name'              => 'theme-btn-line-height',
+					'control'           => 'ast-slider',
+					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
+					'default'           => '',
+					'parent'            => ASTRA_THEME_SETTINGS . '[theme-button-typo]',
+					'section'           => 'section-buttons',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Line Height', 'astra' ),
+					'suffix'            => '',
+					'priority'          => 25,
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 0.01,
+						'max'  => 5,
+					),
+				),
+
 			);
 
 			return array_merge( $configurations, $_configs );
