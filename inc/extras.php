@@ -790,7 +790,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 				'walker'         => new Astra_Walker_Page(),
 			);
-			
+
 			$items_wrap  = '<nav ';
 			$items_wrap .= astra_attr(
 				'site-navigation',
