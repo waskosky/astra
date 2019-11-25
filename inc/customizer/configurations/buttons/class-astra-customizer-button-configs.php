@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'       => __( 'Vertical Padding', 'astra' ),
 					'type'        => 'control',
 					'section'     => 'section-buttons',
-					'control'     => 'ast-slider',
+					'control'     => 'ast-responsive-slider',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
@@ -228,7 +228,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'       => __( 'Horizontal Padding', 'astra' ),
 					'type'        => 'control',
 					'section'     => 'section-buttons',
-					'control'     => 'ast-slider',
+					'control'     => 'ast-responsive-slider',
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
