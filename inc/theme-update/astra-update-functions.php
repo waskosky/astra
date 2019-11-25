@@ -50,6 +50,7 @@ function astra_page_builder_button_color_compatibility() {
 			'tablet'       => '',
 			'mobile'       => '',
 		);
+		update_option( 'astra-settings', $theme_options );
 	}
 
 	// If user has set values for horizontal padding of button then add it to responsive param.
@@ -59,5 +60,6 @@ function astra_page_builder_button_color_compatibility() {
 			'tablet'       => '',
 			'mobile'       => '',
 		);
+		update_option( 'astra-settings', $theme_options );
 	}
 }
