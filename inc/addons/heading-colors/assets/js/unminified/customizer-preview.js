@@ -30,5 +30,12 @@
 	astra_css('astra-settings[line-height-h3]', 'line-height', 'h3, .entry-content h3, .elementor-widget-heading h3.elementor-heading-title');
 	astra_css('astra-settings[text-transform-h3]', 'text-transform', 'h3, .entry-content h3');
 	
+	// Button Typo
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-button]', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+	astra_css( 'astra-settings[font-weight-button]', 'font-weight', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+	astra_css( 'astra-settings[text-transform-button]', 'text-transform', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+	astra_responsive_font_size( 'astra-settings[font-size-button]', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+	astra_css( 'astra-settings[theme-btn-line-height]', 'line-height', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+
 } )( jQuery );
 		
