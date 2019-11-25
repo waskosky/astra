@@ -205,11 +205,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Theme Button Typography
 			 */
-			$theme_btn_font_family    = astra_get_option( 'theme-btn-font-family' );
-			$theme_btn_font_weight    = astra_get_option( 'theme-btn-font-weight' );
-			$theme_btn_font_size      = astra_get_option( 'theme-btn-font-size' );
+			$theme_btn_font_family    = astra_get_option( 'font-family-button' );
+			$theme_btn_font_size      = astra_get_option( 'font-size-button' );
+			$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
+			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
-			$theme_btn_text_transform = astra_get_option( 'theme-btn-text-transform' );
 
 			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
 			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );

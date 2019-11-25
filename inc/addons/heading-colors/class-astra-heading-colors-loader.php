@@ -53,8 +53,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			$font_weight_h3 = astra_get_option( 'font-weight-h3' );
 			Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
 
-			$theme_btn_font_family = astra_get_option( 'theme-btn-font-family' );
-			$theme_btn_font_weight = astra_get_option( 'theme-btn-font-weight' );
+			$theme_btn_font_family = astra_get_option( 'font-family-button' );
+			$theme_btn_font_weight = astra_get_option( 'font-weight-button' );
 			Astra_Fonts::add_font( $theme_btn_font_family, $theme_btn_font_weight );
 		}
 
@@ -99,9 +99,10 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			/**
 			 * Theme button Font Defaults
 			 */
-			$defaults['theme-btn-font-family']    = 'inherit';
-			$defaults['theme-btn-font-weight']    = 'inherit';
-			$defaults['theme-btn-text-transform'] = '';
+			$defaults['font-weight-button']    = 'inherit';
+			$defaults['font-family-button']    = 'inherit';
+			$defaults['text-transform-button'] = '';
+			$defaults['theme-btn-line-height'] = '';
 
 			return $defaults;
 		}
