@@ -540,7 +540,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 			$theme_author = apply_filters(
 				'astra_theme_author',
 				array(
-					'theme_name'       => __( 'Astra WordPress theme', 'astra' ),
+					'theme_name'       => __( 'Astra WordPress Theme', 'astra' ),
 					'theme_author_url' => 'https://wpastra.com/',
 				)
 			);
