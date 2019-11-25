@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet'       => '',
 						'mobile'       => '',
 					),
-					'button-v-padding'                    => array(
+					'button-h-padding'                    => array(
 						'desktop'      => 40,
 						'tablet'       => '',
 						'mobile'       => '',
