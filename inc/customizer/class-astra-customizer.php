@@ -251,6 +251,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
 
+			if ( isset( $wp_customize->get_control( $sub_control_name )->id ) ) {
+				return;
+			}
+
 			$parent = astra_get_prop( $control_config, 'parent' );
 			$tab    = astra_get_prop( $control_config, 'tab' );
 
