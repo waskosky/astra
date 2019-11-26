@@ -586,7 +586,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-color'        => esc_attr( $btn_border_color ),
 					'background-color'    => esc_attr( $btn_bg_color ),
 					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
-					'padding'             => astra_get_css_value( $btn_vertical_padding['desktop'], 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding['desktop'], 'px' ),
+					'padding'             => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 					'font-family'         => astra_get_font_family( $theme_btn_font_family ),
 					'font-weight'         => esc_attr( $theme_btn_font_weight ),
 					'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),

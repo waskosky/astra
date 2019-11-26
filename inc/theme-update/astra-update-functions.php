@@ -42,24 +42,4 @@ function astra_page_builder_button_color_compatibility() {
 		$theme_options['pb-button-color-compatibility'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-
-	// If user has set values for vertical padding of button then add it to responsive param.
-	if ( isset( $theme_options['button-v-padding'] ) ) {
-		$theme_options['button-v-padding'] = array(
-			'desktop'      => $theme_options['button-v-padding'],
-			'tablet'       => '',
-			'mobile'       => '',
-		);
-		update_option( 'astra-settings', $theme_options );
-	}
-
-	// If user has set values for horizontal padding of button then add it to responsive param.
-	if ( isset( $theme_options['button-h-padding'] ) ) {
-		$theme_options['button-h-padding'] = array(
-			'desktop'      => $theme_options['button-v-padding'],
-			'tablet'       => '',
-			'mobile'       => '',
-		);
-		update_option( 'astra-settings', $theme_options );
-	}
 }

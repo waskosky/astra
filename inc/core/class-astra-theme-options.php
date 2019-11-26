@@ -136,16 +136,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'button-h-color'                      => '',
 					'button-bg-color'                     => '',
 					'button-bg-h-color'                   => '',
-					'button-v-padding'                    => array(
-						'desktop'      => 10,
-						'tablet'       => '',
-						'mobile'       => '',
-					),
-					'button-h-padding'                    => array(
-						'desktop'      => 40,
-						'tablet'       => '',
-						'mobile'       => '',
-					),
+					'button-v-padding'                    => 10,
+					'button-h-padding'                    => 40,
 					'button-radius'                       => 2,
 					'theme-button-border-group-border-size' => array(
 						'top'    => '',
