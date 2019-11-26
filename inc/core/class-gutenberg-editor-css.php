@@ -204,29 +204,36 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
-				/**
-				 * Elementor button compatibility for default styling.
-				 */
-				'.wp-block-button .wp-block-button__link' => array(
-					'border-style'        => 'solid',
-					'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0px',
-					'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0px',
-					'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0px',
-					'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0px',
-					'color'               => esc_attr( $btn_color ),
-					'border-color'        => esc_attr( $btn_border_color ),
-					'background-color'    => esc_attr( $btn_bg_color ),
-					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
-				),
-				'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
-					'color'            => esc_attr( $btn_h_color ),
-					'background-color' => esc_attr( $btn_bg_h_color ),
-					'border-color'     => esc_attr( $btn_border_h_color ),
-
-				),
 			);
 
 			$css .= astra_parse_css( $desktop_css );
+
+			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
+				$button_desktop_css = array(
+					/**
+					 * Gutenberg button compatibility for default styling.
+					 */
+					'.wp-block-button .wp-block-button__link' => array(
+						'border-style'        => 'solid',
+						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0px',
+						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0px',
+						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0px',
+						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0px',
+						'color'               => esc_attr( $btn_color ),
+						'border-color'        => esc_attr( $btn_border_color ),
+						'background-color'    => esc_attr( $btn_bg_color ),
+						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+					),
+					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
+						'color'            => esc_attr( $btn_h_color ),
+						'background-color' => esc_attr( $btn_bg_h_color ),
+						'border-color'     => esc_attr( $btn_border_h_color ),
+
+					),
+				);
+
+				$css .= astra_parse_css( $button_desktop_css );
+			}
 
 			$tablet_css = array(
 				'.editor-post-title__block .editor-post-title__input' => array(
