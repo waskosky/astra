@@ -13,7 +13,7 @@
 	/**
 	 * Content <h1> to <h6> headings
 	 */
-	astra_css( 'astra-settings[heading-base-color]', 'color', '.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6' );
+	astra_css( 'astra-settings[heading-base-color]', 'color', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-h1]', 'h1, .entry-content h1' );
 	astra_css('astra-settings[font-weight-h1]', 'font-weight', 'h1, .entry-content h1');	
