@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 2.1.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 	/**
 	 * Customizer Initialization
 	 *
-	 * @since x.x.x
+	 * @since 2.1.4
 	 */
 	class Astra_Heading_Colors_Loader {
 
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 		 * @param  array $defaults  Astra options default value array.
 		 * @return array
 		 *
-		 * @since x.x.x
+		 * @since 2.1.4
 		 */
 		function theme_defaults( $defaults ) {
 
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 *
-		 * @since x.x.x
+		 * @since 2.1.4
 		 */
 		function customize_register( $wp_customize ) {
 

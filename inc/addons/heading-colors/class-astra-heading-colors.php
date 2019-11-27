@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 2.1.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Astra_Heading_Colors' ) ) {
 	/**
 	 * Heading Initial Setup
 	 *
-	 * @since x.x.x
+	 * @since 2.1.4
 	 */
 	class Astra_Heading_Colors {
 

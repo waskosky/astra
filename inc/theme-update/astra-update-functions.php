@@ -30,7 +30,7 @@ function astra_submenu_below_header() {
 /**
  * Do not apply new default colors to the Elementor & Gutenberg Buttons for existing users.
  *
- * @since x.x.x
+ * @since 2.1.4
  *
  * @return void
  */

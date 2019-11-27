@@ -3,7 +3,7 @@
  * Heading Colors - Dynamic CSS
  *
  * @package Astra
- * @since x.x.x
+ * @since 2.1.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +22,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_heading_colors_section_dynamic_css
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
- * @since x.x.x
+ * @since 2.1.4
  */
 function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
