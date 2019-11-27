@@ -155,7 +155,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'priority'  => 30,
 					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', '==', 'custom' ),
 					'title'     => __( 'Section 2 Custom Text', 'astra' ),
-					'partial'  => array(
+					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-2',
 						'container_inclusive' => false,
 						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_2_credit' ),
