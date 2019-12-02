@@ -66,6 +66,10 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_button_padding', array( $this, 'button_padding' ) );
 			add_filter( 'uabb_theme_button_vertical_padding', array( $this, 'button_vertical_padding' ) );
 			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'button_horizontal_padding' ) );
+			add_filter( 'uabb_theme_button_border_width', array( $this, 'button_border_width' ) );
+			add_filter( 'uabb_theme_border_color', array( $this, 'button_border_color' ) );
+			add_filter( 'uabb_theme_border_hover_color', array( $this, 'button_border_hover_color' ) );
+			add_filter( 'uabb_theme_button_font_weight', array( $this, 'button_font_weight' ) );
 		}
 
 		/**
@@ -237,6 +241,54 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			}
 
 			return $padding;
+		}
+
+		/**
+		 * Button Border Width
+		 */
+		function button_border_width() {
+
+			$btn_width     = array();
+			$get_btn_width = astra_get_option( 'theme-button-border-group-border-size' );
+
+			if ( ! empty( $get_btn_width ) ) {
+				$btn_width = $get_btn_width;
+			}
+
+			return $btn_width;
+		}
+
+		/**
+		 * Button Border Color
+		 */
+		function button_border_color() {
+
+			$theme_color          = astra_get_option( 'theme-color' );
+			$btn_bg_color         = astra_get_option( 'button-bg-color', $theme_color );
+			$get_btn_border_color = astra_get_option( 'theme-button-border-group-border-color', $btn_bg_color );
+
+			return $get_btn_border_color;
+		}
+		
+		/**
+		 * Button Border Hover Color
+		 */
+		function button_border_hover_color() {
+
+			$link_hover_color       = astra_get_option( 'link-h-color' );
+			$btn_bg_hover_color     = astra_get_option( 'button-bg-h-color', $link_hover_color );
+			$get_btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color', $btn_bg_hover_color );
+
+			return $get_btn_border_h_color;
+		}
+
+		/**
+		 * Button Font Weight
+		 */
+		function button_font_weight() {
+
+			$get_btn_weight = astra_get_option( 'font-weight-button' );
+			return $get_btn_weight;
 		}
 
 	}
