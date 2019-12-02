@@ -269,7 +269,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 			return $get_btn_border_color;
 		}
-		
+
 		/**
 		 * Button Border Hover Color
 		 */
