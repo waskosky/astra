@@ -115,8 +115,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 */
 		function button_font_family() {
 			return array(
-				'family' => astra_get_option( 'body-font-family' ),
-				'weight' => astra_get_option( 'body-font-weight' ),
+				'family' => astra_get_font_family( astra_get_option( 'font-family-button' ) ),
 			);
 		}
 
