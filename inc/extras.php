@@ -191,110 +191,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			}
 		}
 
-		if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
+		$html .= astra_get_site_title_tagline( $display_site_title, $display_site_tagline );
 
-			// Site Title.
-			$tag = 'span';
-			if ( is_home() || is_front_page() ) {
-				$tag = 'h1';
-			}
-
-			/**
-			 * Filters the site title output.
-			 *
-			 * @since 1.4.9
-			 *
-			 * @param string the HTML output for Site Title.
-			 */
-			// Site Title.
-			$site_title_markup = apply_filters(
-				'astra_site_title_output',
-				sprintf(
-					'<%1$s %4$s>
-					<a href="%2$s" rel="home" %5$s >
-						%3$s
-					</a>
-				</%1$s>',
-					/**
-					* Filters the tags for site title.
-					*
-					* @since 1.3.1
-					*
-					* @param string $tags string containing the HTML tags for Site Title.
-					*/
-					apply_filters( 'astra_site_title_tag', $tag ),
-					/**
-					* Filters the href for the site title.
-					*
-					* @since 1.4.9
-					*
-					* @param string site title home url
-					*/
-					esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ),
-					/**
-					* Filters the site title.
-					*
-					* @since 1.4.9
-					*
-					* @param string site title
-					*/
-					apply_filters( 'astra_site_title', get_bloginfo( 'name' ) ),
-					astra_attr(
-						'site-title',
-						array(
-							'class' => 'site-title',
-						)
-					),
-					astra_attr(
-						'site-title-link',
-						array()
-					)
-				)
-			);
-
-			// Site Description.
-			/**
-			 * Filters the site description markup.
-			 *
-			 * @since 1.4.9
-			 *
-			 * @param string the HTML output for Site Title.
-			 */
-			$site_tagline_markup = apply_filters(
-				'astra_site_description_markup',
-				sprintf(
-					'<%1$s class="site-description" itemprop="description">
-					%2$s
-				</%1$s>',
-					/**
-					* Filters the tags for site tagline.
-					*
-					* @since 1.8.5
-					*/
-					apply_filters( 'astra_site_tagline_tag', 'p' ),
-					/**
-					* Filters the site description.
-					*
-					* @since 1.4.9
-					*
-					* @param string site description
-					*/
-					apply_filters( 'astra_site_description', get_bloginfo( 'description' ) )
-				)
-			);
-
-			if ( $display_site_title || $display_site_tagline ) {
-				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
-				$html .= sprintf(
-					'<div class="ast-site-title-wrap">
-							%1$s
-							%2$s
-						</div>',
-					( $display_site_title ) ? $site_title_markup : '',
-					( $display_site_tagline ) ? $site_tagline_markup : ''
-				);
-			}
-		}
 		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
 
 		/**
@@ -306,6 +204,125 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			return $html;
 		}
 	}
+}
+
+/**
+ * Return or echo site logo markup.
+ *
+ * @since x.x.x
+ * @param boolean $display_site_title Site title enable or not.
+ * @param boolean $display_site_tagline Site tagline enable or not.
+ *
+ * @return string return markup.
+ */
+function astra_get_site_title_tagline( $display_site_title, $display_site_tagline ) {
+	$html = '';
+
+	if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
+
+		// Site Title.
+		$tag = 'span';
+		if ( is_home() || is_front_page() ) {
+			$tag = 'h1';
+		}
+
+		/**
+		 * Filters the site title output.
+		 *
+		 * @since 1.4.9
+		 *
+		 * @param string the HTML output for Site Title.
+		 */
+		// Site Title.
+		$site_title_markup = apply_filters(
+			'astra_site_title_output',
+			sprintf(
+				'<%1$s %4$s>
+				<a href="%2$s" rel="home" %5$s >
+					%3$s
+				</a>
+			</%1$s>',
+				/**
+				* Filters the tags for site title.
+				*
+				* @since 1.3.1
+				*
+				* @param string $tags string containing the HTML tags for Site Title.
+				*/
+				apply_filters( 'astra_site_title_tag', $tag ),
+				/**
+				* Filters the href for the site title.
+				*
+				* @since 1.4.9
+				*
+				* @param string site title home url
+				*/
+				esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ),
+				/**
+				* Filters the site title.
+				*
+				* @since 1.4.9
+				*
+				* @param string site title
+				*/
+				apply_filters( 'astra_site_title', get_bloginfo( 'name' ) ),
+				astra_attr(
+					'site-title',
+					array(
+						'class' => 'site-title',
+					)
+				),
+				astra_attr(
+					'site-title-link',
+					array()
+				)
+			)
+		);
+
+		// Site Description.
+		/**
+		 * Filters the site description markup.
+		 *
+		 * @since 1.4.9
+		 *
+		 * @param string the HTML output for Site Title.
+		 */
+		$site_tagline_markup = apply_filters(
+			'astra_site_description_markup',
+			sprintf(
+				'<%1$s class="site-description" itemprop="description">
+				%2$s
+			</%1$s>',
+				/**
+				* Filters the tags for site tagline.
+				*
+				* @since 1.8.5
+				*/
+				apply_filters( 'astra_site_tagline_tag', 'p' ),
+				/**
+				* Filters the site description.
+				*
+				* @since 1.4.9
+				*
+				* @param string site description
+				*/
+				apply_filters( 'astra_site_description', get_bloginfo( 'description' ) )
+			)
+		);
+
+		if ( $display_site_title || $display_site_tagline ) {
+			/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
+			$html .= sprintf(
+				'<div class="ast-site-title-wrap">
+						%1$s
+						%2$s
+					</div>',
+				( $display_site_title ) ? $site_title_markup : '',
+				( $display_site_tagline ) ? $site_tagline_markup : ''
+			);
+		}
+	}
+	return $html;
 }
 
 /**
