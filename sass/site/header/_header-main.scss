@@ -585,3 +585,520 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 }
+
+/* Customize Preview */
+
+/**
+ * Customizer Edit pencil - Set Position
+ */
+
+/* Transparent Header CSS */
+
+.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+	.customize-partial-edit-shortcut-button {
+		left: 100px;
+	}
+}
+
+.ast-full-width-header {
+	.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+		.customize-partial-edit-shortcut-button {
+			left: 5px;
+		}
+	}
+	.customize-partial-edit-shortcut-blogname {
+		.customize-partial-edit-shortcut-button {
+			top: 35px;
+  			left: -15px;			
+		}
+	}
+}
+
+/* Sticky Header CSS */
+
+.ast-primary-sticky-header-active {
+	&.ast-theme-transparent-header {
+		.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+			.customize-partial-edit-shortcut-button {
+				display: none;
+			}
+		}
+	}
+	.customize-partial-edit-shortcut-astra-settings-header-main-stick {
+		.customize-partial-edit-shortcut-button {
+			left: 100px;
+		}
+	}
+	&.ast-full-width-header {
+		.customize-partial-edit-shortcut-astra-settings-header-main-stick {
+			.customize-partial-edit-shortcut-button {
+				left: 5px;
+			}
+		}
+	}
+}
+
+/* Primary Header common CSS */
+
+.customize-partial-edit-shortcut-astra-settings-header-layouts {
+	.customize-partial-edit-shortcut-button {
+		left: -60px;
+		top: -30px;
+	}
+}
+
+.customize-partial-edit-shortcut-blogname {
+	.customize-partial-edit-shortcut-button {
+		left: -25px;
+	}
+}
+
+.ast-masthead-custom-menu-items {
+	&.search-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+				top: -10px;
+				display: none;
+			}
+		}
+	}
+	&.search-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.button-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style {
+			.customize-partial-edit-shortcut-button {
+				left: -20px;
+				display: none;
+			}
+		}
+	}
+	&.button-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.text-html-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html {
+			.customize-partial-edit-shortcut-button {
+				left: -20px;
+				display: none;
+			}
+		}
+	}
+	&.text-html-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.widget-custom-menu-item {
+		text-align: left;
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+				top: -8px;
+				display: none;
+			}
+		}
+	}
+	&.widget-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.woocommerce-custom-menu-item {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				top: -20px;
+				left: -25px;
+				display: none;
+			}
+		}
+	}
+	&.woocommerce-custom-menu-item:hover {
+		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+}
+
+/* Below Header common CSS */
+
+.ast-below-header {
+	.below-header-user-select {
+		.ast-site-header-cart,
+		.ast-search-menu-icon,
+		&.below-header-widget {
+			text-align: left;
+		}
+	}
+}
+
+/* Above Header common CSS */
+
+.ast-above-header-section {
+	.user-select {
+		.ast-search-menu-icon {
+			text-align: left;
+		}
+	}
+}
+
+/* Above Header Section 1 */
+
+.ast-above-header-section-1 {
+	.ast-above-header-navigation {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				left: -14px;
+			}
+		}
+	}
+	.ast-search-menu-icon {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-1-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;			
+				top: -10px;
+			}
+		}
+	}
+	&.woocommerce-above-header {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+				top: -15px;
+			}
+		}
+	}
+	.customize-partial-edit-shortcut-astra-settings-above-header-section-1-html {
+		.customize-partial-edit-shortcut-button {
+			left: -25px;
+		}
+	}
+}
+
+/* Above Header Section 2 */
+
+.ast-above-header-section-2 {
+	.ast-above-header-navigation {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				left: -14px;
+			}
+		}
+	}
+	.ast-search-menu-icon {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				top: -10px;
+				left: -25px;			
+			}
+		}
+	}
+	&.woocommerce-above-header {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+			}
+		}
+	}
+}
+
+/* Below Header Section 1 */
+
+.below-header-section-1 {
+	&.ast-below-header-navigation {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				left: -14px;
+			}
+		}
+	}
+	.ast-search-menu-icon {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				top: -10px;
+				left: -25px;			
+			}
+		}
+	}
+	.ast-site-header-cart {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+			}
+		}
+	}
+	.customize-partial-edit-shortcut-astra-settings-below-header-section-1-html {
+		.customize-partial-edit-shortcut-button {
+			left: -25px;
+		}
+	}
+}
+
+/* Below Header Section 2 */
+
+.below-header-section-2 {
+	&.ast-below-header-navigation {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				left: -14px;
+			}
+		}
+	}
+	.ast-search-menu-icon {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				top: -10px;
+				left: -25px;			
+			}
+		}
+	}
+	.ast-site-header-cart {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				left: -25px;
+			}
+		}
+	}
+	.customize-partial-edit-shortcut-astra-settings-below-header-section-2-html {
+		.customize-partial-edit-shortcut-button {
+			left: -25px;
+		}
+	}
+}
+
+.customize-partial-edit-shortcut-astra-settings-above-header-layout,
+.customize-partial-edit-shortcut-astra-settings-below-header-layout {
+	.customize-partial-edit-shortcut-button {
+		left: -60px;
+	}
+}
+
+
+/**
+ * Hover CSS Customizer Edit pencil - Hide
+ */
+
+.customize-partial-edit-shortcut-blogname,
+.customize-partial-edit-shortcut-astra-settings-disable-primary-nav,
+.customize-partial-edit-shortcut-astra-settings-above-header-section-1-html,
+.customize-partial-edit-shortcut-astra-settings-above-header-section-1,
+.customize-partial-edit-shortcut-astra-settings-above-header-section-1-search-box-type,
+.customize-partial-edit-shortcut-astra-settings-above-header-section-2-html,
+.customize-partial-edit-shortcut-astra-settings-above-header-section-2,
+.customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type,
+.customize-partial-edit-shortcut-astra-settings-below-header-section-1-html,
+.customize-partial-edit-shortcut-astra-settings-below-header-section-1,
+.customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type,
+.customize-partial-edit-shortcut-astra-settings-below-header-section-2-html,
+.customize-partial-edit-shortcut-astra-settings-below-header-section-2,
+.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type,
+.ast-main-header-bar-alignment {
+	.customize-partial-edit-shortcut-button {
+		display: none;
+	}
+}
+
+/**
+ * Hover CSS Customizer Edit pencil - Show
+ */
+
+ /* Primary Header */
+
+.site-title:hover {
+	.customize-partial-edit-shortcut-blogname {
+		.customize-partial-edit-shortcut-button {
+			display: block;
+		}
+	}
+}
+
+.main-navigation:hover {
+	.customize-partial-edit-shortcut-astra-settings-disable-primary-nav {
+		.customize-partial-edit-shortcut-button {
+			display: block;
+		}
+	}
+}
+
+/* Above Header Section 1 */
+
+.ast-above-header-section-1 {
+	.ast-custom-html:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-1-html {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-above-header-navigation:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-search-menu-icon:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-1-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.woocommerce-above-header:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.above-header-widget:hover {
+		.widget {
+			.customize-partial-edit-shortcut-astra-settings-above-header-section-1 {
+				.customize-partial-edit-shortcut-button {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+/* Above Header Section 2 */
+
+.ast-above-header-section-2 {
+	.ast-custom-html:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-2-html {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-above-header-navigation:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-search-menu-icon:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.woocommerce-above-header:hover {
+		.customize-partial-edit-shortcut-astra-settings-above-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.above-header-widget:hover {
+		.widget {
+			.customize-partial-edit-shortcut-astra-settings-above-header-section-2 {
+				.customize-partial-edit-shortcut-button {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+/* Below Header Section 1 */
+
+.below-header-section-1 {
+	.ast-custom-html:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-1-html {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.ast-below-header-navigation:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-search-menu-icon:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-site-header-cart:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.below-header-widget:hover {
+		.widget {
+			.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
+				.customize-partial-edit-shortcut-button {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+/* Below Header Section 2 */
+
+.below-header-section-2 {
+	.ast-custom-html:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-2-html {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.ast-below-header-navigation:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-search-menu-icon:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	.ast-site-header-cart:hover {
+		.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
+			.customize-partial-edit-shortcut-button {
+				display: block;
+			}
+		}
+	}
+	&.below-header-widget:hover {
+		.widget {
+			.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
+				.customize-partial-edit-shortcut-button {
+					display: block;
+				}
+			}
+		}
+	}
+}
