@@ -124,14 +124,16 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Font Size
 		 */
 		function button_font_size() {
-			return '';
+			$theme_btn_font_size = astra_get_option( 'font-size-button' );
+			return $theme_btn_font_size;
 		}
 
 		/**
 		 * Button Line Height
 		 */
 		function button_line_height() {
-			return '';
+			$theme_btn_line_height = astra_get_option( 'theme-btn-line-height' );
+			return $theme_btn_line_height;
 		}
 
 		/**
@@ -145,7 +147,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Text Transform
 		 */
 		function button_text_transform() {
-			return '';
+			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
+			return $theme_btn_text_transform;
 		}
 
 		/**
