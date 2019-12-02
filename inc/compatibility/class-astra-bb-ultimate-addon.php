@@ -69,7 +69,6 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_button_border_width', array( $this, 'button_border_width' ) );
 			add_filter( 'uabb_theme_border_color', array( $this, 'button_border_color' ) );
 			add_filter( 'uabb_theme_border_hover_color', array( $this, 'button_border_hover_color' ) );
-			add_filter( 'uabb_theme_button_font_weight', array( $this, 'button_font_weight' ) );
 		}
 
 		/**
@@ -116,6 +115,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		function button_font_family() {
 			return array(
 				'family' => astra_get_font_family( astra_get_option( 'font-family-button' ) ),
+				'weight' => astra_get_option( 'font-weight-button' ),
 			);
 		}
 
@@ -282,15 +282,6 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			$get_btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color', $btn_bg_hover_color );
 
 			return $get_btn_border_h_color;
-		}
-
-		/**
-		 * Button Font Weight
-		 */
-		function button_font_weight() {
-
-			$get_btn_weight = astra_get_option( 'font-weight-button' );
-			return $get_btn_weight;
 		}
 
 	}
