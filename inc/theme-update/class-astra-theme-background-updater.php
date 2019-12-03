@@ -32,6 +32,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.1.3' => array(
 				'astra_submenu_below_header',
 			),
+			'2.2.0' => array(
+				'astra_update_theme_tablet_breakpoint',
+			),
 		);
 
 		/**

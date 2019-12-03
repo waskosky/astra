@@ -1291,7 +1291,14 @@ function astra_get_fonts_display_property() {
  */
 function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
 
-	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', 768 );
+	// Get auto saved version number.
+	$saved_version 	   = astra_get_option( 'theme-auto-version', false );
+	$update_breakpoint = astra_get_option( 'can-update-theme-tablet-breakpoint', true );
+
+	// Change default for new users.
+	$default = ( ( false === $saved_version ) || true === $update_breakpoint ) ? 921 : 768;
+
+	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default );
 
 	if ( '' !== $min ) {
 		$header_breakpoint = $header_breakpoint - $min;
