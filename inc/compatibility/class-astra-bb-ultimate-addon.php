@@ -131,7 +131,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Line Height
 		 */
 		function button_line_height() {
-			$theme_btn_line_height = astra_get_option( 'theme-btn-line-height', 1.85714285714286 );
+			$theme_btn_body_line_height = astra_get_option( 'body-line-height', 1.85714285714286 );
+			$theme_btn_line_height      = astra_get_option( 'theme-btn-line-height', $theme_btn_body_line_height );
 			return $theme_btn_line_height;
 		}
 
