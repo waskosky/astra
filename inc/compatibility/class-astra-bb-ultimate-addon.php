@@ -154,41 +154,44 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Text Color
 		 */
 		function button_text_color() {
-			$theme_color = astra_get_option( 'theme-color' );
-			$link_color  = astra_get_option( 'link-color', $theme_color );
-			$color       = astra_get_option( 'button-color' );
-			if ( empty( $color ) ) {
-				$color = astra_get_foreground_color( $link_color );
+			$theme_color    = astra_get_option( 'theme-color' );
+			$btn_text_color = astra_get_option( 'button-color' );
+			if ( empty( $btn_text_color ) ) {
+				$btn_text_color = astra_get_foreground_color( $theme_color );
 			}
 
-			return $color;
+			return $btn_text_color;
 		}
 
 		/**
 		 * Button Text Hover Color
 		 */
 		function button_text_hover_color() {
-			$link_hover_color = astra_get_option( 'link-h-color' );
-			$color            = astra_get_option( 'button-h-color' );
-			if ( empty( $color ) ) {
-				$color = astra_get_foreground_color( $link_hover_color );
+			$link_hover_color     = astra_get_option( 'link-h-color' );
+			$btn_text_hover_color = astra_get_option( 'button-h-color' );
+			if ( empty( $btn_text_hover_color ) ) {
+				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
 
-			return $color;
+			return $btn_text_hover_color;
 		}
 
 		/**
 		 * Button Background Color
 		 */
 		function button_bg_color() {
-			return astra_get_option( 'button-bg-color' );
+			$theme_color  = astra_get_option( 'theme-color' );
+			$btn_bg_color = astra_get_option( 'button-bg-color', $theme_color );
+			return $btn_bg_color;
 		}
 
 		/**
 		 * Button Background Color
 		 */
 		function button_bg_hover_color() {
-			return astra_get_option( 'button-bg-h-color' );
+			$link_hover_color   = astra_get_option( 'link-h-color' );
+			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
+			return $btn_bg_hover_color;
 		}
 
 		/**
