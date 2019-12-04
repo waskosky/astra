@@ -99,10 +99,11 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			/**
 			 * Theme button Font Defaults
 			 */
-			$defaults['font-weight-button']    = 'inherit';
-			$defaults['font-family-button']    = 'inherit';
-			$defaults['text-transform-button'] = '';
-			$defaults['theme-btn-line-height'] = '';
+			$defaults['font-weight-button']       = 'inherit';
+			$defaults['font-family-button']       = 'inherit';
+			$defaults['text-transform-button']    = '';
+			$defaults['theme-btn-line-height']    = '';
+			$defaults['theme-btn-letter-spacing'] = '';
 
 			return $defaults;
 		}

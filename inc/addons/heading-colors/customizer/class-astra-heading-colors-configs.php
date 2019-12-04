@@ -401,6 +401,28 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Theme Button Line Height
+				 */
+				array(
+					'name'              => 'theme-btn-letter-spacing',
+					'control'           => 'ast-slider',
+					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
+					'default'           => '',
+					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'section'           => 'section-buttons',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Letter Spacing', 'astra' ),
+					'suffix'            => '',
+					'priority'          => 5,
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 0.01,
+						'max'  => 10,
+					),
+				),
+
 			);
 
 			return array_merge( $configurations, $_configs );
