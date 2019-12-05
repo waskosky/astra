@@ -102,7 +102,11 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			$defaults['font-weight-button']    = 'inherit';
 			$defaults['font-family-button']    = 'inherit';
 			$defaults['text-transform-button'] = '';
-			$defaults['theme-btn-line-height'] = '';
+			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
+				$defaults['theme-btn-line-height'] = '1';
+			} else {
+				$defaults['theme-btn-line-height'] = '';
+			}
 
 			return $defaults;
 		}
