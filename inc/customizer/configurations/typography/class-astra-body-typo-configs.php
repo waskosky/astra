@@ -259,6 +259,29 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
 				),
+
+				/**
+				 * Option: Heading <H1> Line Height
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[headings-line-height]',
+					'section'           => 'section-content-typo',
+					'default'           => astra_get_option( 'headings-line-height' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'type'              => 'control',
+					'control'           => 'ast-slider',
+					'title'             => __( 'Line Height', 'astra' ),
+					'transport'         => 'postMessage',
+					'priority'          => 4,
+					'suffix'            => '',
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 0.01,
+						'max'  => 5,
+					),
+					'section'           => 'section-content-typo',
+					'transport'         => 'postMessage',
+				),
 			);
 
 			return array_merge( $configurations, $_configs );
