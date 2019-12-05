@@ -123,8 +123,25 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Font Size
 		 */
 		function button_font_size() {
+			$font_size_arr       = array();
+			$body_font_size      = astra_get_option( 'font-size-body' );
 			$theme_btn_font_size = astra_get_option( 'font-size-button' );
-			return $theme_btn_font_size;
+
+			$font_size_arr['desktop'] = astra_responsive_font( $theme_btn_font_size, 'desktop' );
+			$font_size_arr['tablet']  = astra_responsive_font( $theme_btn_font_size, 'tablet' );
+			$font_size_arr['mobile']  = astra_responsive_font( $theme_btn_font_size, 'mobile' );
+
+			if ( empty( $font_size_arr['desktop'] ) ) {
+				$font_size_arr['desktop'] = astra_responsive_font( $body_font_size, 'desktop' );
+			}
+			if ( empty( $font_size_arr['tablet'] ) ) {
+				$font_size_arr['tablet'] = astra_responsive_font( $body_font_size, 'tablet' );
+			}
+			if ( empty( $font_size_arr['mobile'] ) ) {
+				$font_size_arr['mobile'] = astra_responsive_font( $body_font_size, 'mobile' );
+			}
+
+			return $font_size_arr;
 		}
 
 		/**
