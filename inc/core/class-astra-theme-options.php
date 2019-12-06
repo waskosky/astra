@@ -138,6 +138,29 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'button-bg-h-color'                   => '',
 					'button-v-padding'                    => 10,
 					'button-h-padding'                    => 40,
+					'theme-button-padding'                => array(
+						'desktop'      => array(
+							'top'    => 10,
+							'right'  => 40,
+							'bottom' => 10,
+							'left'   => 40,
+						),
+						'tablet'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'mobile'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
 					'button-radius'                       => 2,
 					'theme-button-border-group-border-size' => array(
 						'top'    => '',
