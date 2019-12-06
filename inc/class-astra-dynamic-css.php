@@ -114,10 +114,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
-			$h4_line_height = '';
-			$h5_line_height = '';
-			$h6_line_height = '';
-
 			// Fallback for H1 - headings typography.
 			if ( 'inherit' == $h1_font_family ) {
 				$h1_font_family = $headings_font_family;
@@ -161,19 +157,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// Fallback for H4 - headings typography.
-			if ( '' == $h4_line_height ) {
-				$h4_line_height = $headings_line_height;
-			}
+			$h4_line_height = $headings_line_height;
 
 			// Fallback for H5 - headings typography.
-			if ( '' == $h5_line_height ) {
-				$h5_line_height = $headings_line_height;
-			}
+			$h5_line_height = $headings_line_height;
 
 			// Fallback for H6 - headings typography.
-			if ( '' == $h6_line_height ) {
-				$h6_line_height = $headings_line_height;
-			}
+			$h6_line_height = $headings_line_height;
 
 			// Button Styling.
 			$btn_border_radius      = astra_get_option( 'button-radius' );
