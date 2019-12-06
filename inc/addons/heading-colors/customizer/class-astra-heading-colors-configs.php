@@ -418,8 +418,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'priority'          => 5,
 					'input_attrs'       => array(
 						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 10,
+						'step' => 1,
+						'max'  => 100,
 					),
 				),
 
