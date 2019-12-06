@@ -47,7 +47,6 @@
 		astra_responsive_font_size( 'astra-settings[font-size-button]', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 		astra_css( 'astra-settings[theme-btn-line-height]', 'line-height', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 		astra_css( 'astra-settings[theme-btn-letter-spacing]', 'letter-spacing', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]', 'px' );
-		console.log( astraCustomizer.page_builder_button_style_css );
 	}
 
 } )( jQuery );
