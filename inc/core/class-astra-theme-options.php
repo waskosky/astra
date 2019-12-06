@@ -260,6 +260,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'headings-font-family'                => 'inherit',
 					'headings-font-weight'                => 'inherit',
 					'headings-text-transform'             => '',
+					'headings-line-height'                => '',
 					'font-size-site-title'                => array(
 						'desktop'      => 35,
 						'tablet'       => '',
