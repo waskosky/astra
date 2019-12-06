@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 				'mobile'  => '',
 			);
 			$defaults['text-transform-button'] = '';
-			$defaults['theme-btn-line-height'] = '';
+			$defaults['theme-btn-line-height'] = '1';
 
 			return $defaults;
 		}
