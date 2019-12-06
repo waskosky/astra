@@ -99,15 +99,16 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			/**
 			 * Theme button Font Defaults
 			 */
-			$defaults['font-weight-button']    = 'inherit';
-			$defaults['font-family-button']    = 'inherit';
-			$defaults['font-size-button']      = array(
+			$defaults['font-weight-button']       = 'inherit';
+			$defaults['font-family-button']       = 'inherit';
+			$defaults['font-size-button']         = array(
 				'desktop' => '',
 				'tablet'  => '',
 				'mobile'  => '',
 			);
-			$defaults['text-transform-button'] = '';
-			$defaults['theme-btn-line-height'] = '1';
+			$defaults['text-transform-button']    = '';
+			$defaults['theme-btn-line-height']    = '1';
+			$defaults['theme-btn-letter-spacing'] = '';
 
 			return $defaults;
 		}
