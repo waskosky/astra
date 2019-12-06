@@ -114,9 +114,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
-			$h4_line_height    = '';
-			$h5_line_height    = '';
-			$h6_line_height    = '';
+			$h4_line_height = '';
+			$h5_line_height = '';
+			$h6_line_height = '';
 
 			// Fallback for H1 - headings typography.
 			if ( 'inherit' == $h1_font_family ) {
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			if ( 'normal' == $h1_font_weight ) {
 				$h1_font_weight = $headings_font_weight;
- 			}
+			}
 			if ( '' == $h1_text_transform ) {
 				$h1_text_transform = $headings_font_transform;
 			}

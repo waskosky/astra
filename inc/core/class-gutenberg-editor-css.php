@@ -86,14 +86,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
 
-			$h1_line_height    = astra_get_option( 'line-height-h1' );
-			$h2_line_height    = astra_get_option( 'line-height-h2' );
-			$h3_line_height    = astra_get_option( 'line-height-h3' );
+			$h1_line_height = astra_get_option( 'line-height-h1' );
+			$h2_line_height = astra_get_option( 'line-height-h2' );
+			$h3_line_height = astra_get_option( 'line-height-h3' );
 
-			$h4_line_height    = '';
-			$h5_line_height    = '';
-			$h6_line_height    = '';
-
+			$h4_line_height = '';
+			$h5_line_height = '';
+			$h6_line_height = '';
 
 			// Fallback for H1 - headings typography.
 			if ( '' == $h1_line_height ) {
@@ -180,25 +179,25 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'text-transform' => esc_attr( $headings_text_transform ),
 				),
 				'.edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6' => array(
-					'line-height'    => esc_attr( $headings_line_height ),
+					'line-height' => esc_attr( $headings_line_height ),
 				),
 				'.edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1' => array(
-					'line-height'    => esc_attr( $h1_line_height ),
+					'line-height' => esc_attr( $h1_line_height ),
 				),
 				'.edit-post-visual-editor .wp-block-heading h2, .wp-block-heading h2.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h2' => array(
-					'line-height'    => esc_attr( $h2_line_height ),
+					'line-height' => esc_attr( $h2_line_height ),
 				),
 				'.edit-post-visual-editor .wp-block-heading h3, .wp-block-heading h3.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h3' => array(
-					'line-height'    => esc_attr( $h3_line_height ),
+					'line-height' => esc_attr( $h3_line_height ),
 				),
 				'.edit-post-visual-editor .wp-block-heading h4, .wp-block-heading h4.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h4' => array(
-					'line-height'    => esc_attr( $h4_line_height ),
+					'line-height' => esc_attr( $h4_line_height ),
 				),
 				'.edit-post-visual-editor .wp-block-heading h5, .wp-block-heading h5.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h5' => array(
-					'line-height'    => esc_attr( $h5_line_height ),
+					'line-height' => esc_attr( $h5_line_height ),
 				),
 				'.edit-post-visual-editor .wp-block-heading h6, .wp-block-heading h6.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h6' => array(
-					'line-height'    => esc_attr( $h6_line_height ),
+					'line-height' => esc_attr( $h6_line_height ),
 				),
 				'.edit-post-visual-editor.editor-styles-wrapper p,.editor-block-list__block p, .editor-block-list__layout, .editor-post-title' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
