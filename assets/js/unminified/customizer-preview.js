@@ -433,11 +433,10 @@ function astra_generate_outside_font_family_css( control, selector ) {
 /*
 * Generate Font Family CSS
 */
-function astra_generate_font_weight_css( fontcontrol, control, css_property, selector ) {
+function astra_generate_font_weight_css( font_control, control, css_property, selector ) {
 	wp.customize( control, function( value ) {
 		value.bind( function( new_value ) {
 
-			// Remove <style> first!
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
 
@@ -458,7 +457,7 @@ function astra_generate_font_weight_css( fontcontrol, control, css_property, sel
 					}
 				}
 
-				fontName = wp.customize._value[fontcontrol]._value;
+				fontName = wp.customize._value[font_control]._value;
 				fontName = fontName.split(',');
 				fontName = fontName[0].replace( /'/g, '' );
 
@@ -468,8 +467,8 @@ function astra_generate_font_weight_css( fontcontrol, control, css_property, sel
 				if ( fontName in astraCustomizer.googleFonts ) {
 					// Remove old.
 
-					jQuery('#' + fontcontrol).remove();
-					link = '<link id="' + fontcontrol + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+					jQuery('#' + font_control).remove();
+					link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
 				}
 
 				// Concat and append new <style>.
