@@ -169,6 +169,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$btn_border_radius      = astra_get_option( 'button-radius' );
 			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
 			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
+			$theme_btn_padding      = astra_get_option( 'theme-button-padding' );
 			$highlight_link_color   = astra_get_foreground_color( $link_color );
 			$highlight_theme_color  = astra_get_foreground_color( $theme_color );
 
