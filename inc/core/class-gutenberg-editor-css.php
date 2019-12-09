@@ -85,6 +85,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
+			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
 
 			$h1_line_height = astra_get_option( 'line-height-h1' );
 			$h2_line_height = astra_get_option( 'line-height-h2' );
@@ -286,6 +287,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'font-weight'         => esc_attr( $theme_btn_font_weight ),
 						'line-height'         => esc_attr( $theme_btn_line_height ),
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 						'padding'             => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
