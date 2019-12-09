@@ -430,6 +430,65 @@ function astra_generate_outside_font_family_css( control, selector ) {
 	});
 }
 
+/*
+* Generate Font Family CSS
+*/
+function astra_generate_font_weight_css( fontcontrol, control, css_property, selector ) {
+	wp.customize( control, function( value ) {
+		value.bind( function( new_value ) {
+
+			// Remove <style> first!
+			control = control.replace( '[', '-' );
+			control = control.replace( ']', '' );
+
+			if ( new_value ) {
+
+				/**
+				 *	If ( unit == 'url' ) then = url('{VALUE}')
+				 *	If ( unit == 'px' ) then = {VALUE}px
+				 *	If ( unit == 'em' ) then = {VALUE}em
+				 *	If ( unit == 'rem' ) then = {VALUE}rem.
+				 */
+				if ( 'undefined' != typeof unit) {
+
+					if ( 'url' === unit ) {
+						new_value = 'url(' + new_value + ')';
+					} else {
+						new_value = new_value + unit;
+					}
+				}
+
+				fontName = wp.customize._value[fontcontrol]._value;
+				fontName = fontName.split(',');
+				fontName = fontName[0].replace( /'/g, '' );
+
+				// Remove old.
+				jQuery( 'style#' + control + '-' + css_property ).remove();
+
+				if ( fontName in astraCustomizer.googleFonts ) {
+					// Remove old.
+
+					jQuery('#' + fontcontrol).remove();
+					link = '<link id="' + fontcontrol + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+				}
+
+				// Concat and append new <style>.
+				jQuery( 'head' ).append(
+					'<style id="' + control + '-' + css_property + '">'
+					+ selector + '	{ ' + css_property + ': ' + new_value + ' }'
+					+ '</style>'
+					+ link
+				);
+
+			} else {
+				// Remove old.
+				jQuery( 'style#' + control ).remove();
+			}
+
+		} );
+	});
+}
+
 function getChangedKey( value, other ) {
 
 	value = isJsonString(value) ? JSON.parse(value) : value;
