@@ -654,9 +654,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
 					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
-						'font-size'     => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
-						'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
-						'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
+						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+						'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					),
 					'.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
