@@ -453,7 +453,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$btn_bg_color   = astra_get_option( 'button-bg-color', $theme_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', $link_h_color );
 
-			$btn_border_radius      = astra_get_option( 'button-radius' );
+			$btn_border_radius = astra_get_option( 'button-radius' );
 
 			$cart_h_color = astra_get_foreground_color( $link_h_color );
 
