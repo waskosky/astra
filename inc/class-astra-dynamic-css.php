@@ -599,6 +599,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
+			/**
+			 * Global button CSS - Desktop.
+			 */
 			$global_button_desktop = array(
 				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'border-style'        => 'solid',
@@ -631,6 +634,36 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $global_button_desktop );
+
+			/**
+			 * Global button CSS - Tablet.
+			 */
+			$global_button_tablet = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+				),
+			);
+
+			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+
+			/**
+			 * Global button CSS - Mobile.
+			 */
+			$global_button_mobile = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+				),
+			);
+
+			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
 
 			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
