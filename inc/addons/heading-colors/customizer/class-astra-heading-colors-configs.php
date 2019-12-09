@@ -361,7 +361,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Text Transformhghjh
+				 * Option: Button Text Transform
 				 */
 				array(
 					'name'      => 'text-transform-button',
