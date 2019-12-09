@@ -54,18 +54,21 @@ function astra_page_builder_button_color_compatibility() {
 function astra_vertical_horizontal_padding_migration() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	$theme_options['button-v-padding'] = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
-	$theme_options['button-h-padding'] = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
+	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
+	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
+
+	error_log( 'Vertical Padding - ' . $btn_vertical_padding );
+	error_log( 'Horizontal Padding - ' . $btn_horizontal_padding );
 
 	// Migrate button vertical padding to the new padding param for button.
 	if ( ! isset( $theme_options['theme-button-padding'] ) ) {
 
 		$theme_options['theme-button-padding'] = array(
 			'desktop'      => array(
-				'top'    => $theme_options['button-v-padding'],
-				'right'  => $theme_options['button-h-padding'],
-				'bottom' => $theme_options['button-v-padding'],
-				'left'   => $theme_options['button-h-padding'],
+				'top'    => $btn_vertical_padding,
+				'right'  => $btn_horizontal_padding,
+				'bottom' => $btn_vertical_padding,
+				'left'   => $btn_horizontal_padding,
 			),
 			'tablet'       => array(
 				'top'    => '',
