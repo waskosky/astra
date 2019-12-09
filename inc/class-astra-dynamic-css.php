@@ -670,7 +670,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			if ( self::page_builder_button_style_css() ) {
 
-				$global_button_page_builder_css = array(
+				$global_button_page_builder_desktop = array(
 					'.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited, .wp-block-button .wp-block-button__link' => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '1px',
@@ -712,7 +712,33 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array() */
-				$parse_css .= astra_parse_css( $global_button_page_builder_css );
+				$parse_css .= astra_parse_css( $global_button_page_builder_desktop );
+
+				$global_button_page_builder_tablet = array(
+					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
+						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css .= astra_parse_css( $global_button_page_builder_tablet, '', '768' );
+
+				$global_button_page_builder_mobile = array(
+					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
+						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', '544' );
 			}
 
 			if ( 'custom-button' === $header_custom_button_style ) {
