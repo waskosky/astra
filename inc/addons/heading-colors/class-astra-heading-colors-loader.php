@@ -102,9 +102,12 @@ if ( ! class_exists( 'Astra_Heading_Colors_Loader' ) ) {
 			$defaults['font-weight-button']       = 'inherit';
 			$defaults['font-family-button']       = 'inherit';
 			$defaults['font-size-button']         = array(
-				'desktop' => '',
-				'tablet'  => '',
-				'mobile'  => '',
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
 			);
 			$defaults['text-transform-button']    = '';
 			$defaults['theme-btn-line-height']    = '1';
