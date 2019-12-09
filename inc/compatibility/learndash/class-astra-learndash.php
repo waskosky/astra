@@ -102,8 +102,6 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
 			$btn_border_radius      = astra_get_option( 'button-radius' );
-			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
-			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 
 			$archive_post_title_font_size = astra_get_option( 'font-size-page-title' );
 

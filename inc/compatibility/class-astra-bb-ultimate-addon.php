@@ -213,36 +213,6 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		}
 
 		/**
-		 * Button Padding
-		 */
-		function button_vertical_padding() {
-
-			$padding   = '';
-			$v_padding = astra_get_option( 'button-v-padding' );
-
-			if ( '' != $v_padding ) {
-				$padding = $v_padding;
-			}
-
-			return $padding;
-		}
-
-		/**
-		 * Button Padding
-		 */
-		function button_horizontal_padding() {
-
-			$padding   = '';
-			$h_padding = astra_get_option( 'button-h-padding' );
-
-			if ( '' != $h_padding ) {
-				$padding = $h_padding;
-			}
-
-			return $padding;
-		}
-
-		/**
 		 * Button Border Width
 		 */
 		function button_border_width() {

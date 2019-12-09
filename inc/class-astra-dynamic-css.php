@@ -166,12 +166,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$h6_line_height = $headings_line_height;
 
 			// Button Styling.
-			$btn_border_radius      = astra_get_option( 'button-radius' );
-			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
-			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
-			$theme_btn_padding      = astra_get_option( 'theme-button-padding' );
-			$highlight_link_color   = astra_get_foreground_color( $link_color );
-			$highlight_theme_color  = astra_get_foreground_color( $theme_color );
+			$btn_border_radius     = astra_get_option( 'button-radius' );
+			$theme_btn_padding     = astra_get_option( 'theme-button-padding' );
+			$highlight_link_color  = astra_get_foreground_color( $link_color );
+			$highlight_theme_color = astra_get_foreground_color( $theme_color );
 
 			// Footer Bar Colors.
 			$footer_bg_obj       = astra_get_option( 'footer-bg-obj' );
