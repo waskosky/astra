@@ -149,7 +149,8 @@
 	line-height: 17px;
 }
 
-.customize-control input[type="number"].ast-spacing-input {
+.customize-control input[type="number"].ast-spacing-input,
+.customize-control input.ast-border-input {
 	min-height: 28px;
 	border-radius: 0;
 }
