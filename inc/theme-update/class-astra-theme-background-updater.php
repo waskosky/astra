@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			$fallback = $this->test_cron();
 
-			if( $fallback ) {
+			if ( $fallback ) {
 				new Astra_Theme_Fallback_Update();
 			} else {
 				$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
