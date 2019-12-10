@@ -70,17 +70,17 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			global $wp_version;
 
 			if ( defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON ) {
-				$migration_fallback = true;
+				return true;
 			}
 
 			if ( defined( 'ALTERNATE_WP_CRON' ) && ALTERNATE_WP_CRON ) {
-				$migration_fallback = true;
+				return true;
 			}
 
 			$cached_status = get_transient( 'astra-theme-cron-test-ok' );
 
 			if ( $cache && $cached_status ) {
-				$migration_fallback = false;
+				return false;
 			}
 
 			$sslverify     = version_compare( $wp_version, 4.0, '<' );
@@ -104,10 +104,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			$result = wp_remote_post( $cron_request['url'], $cron_request['args'] );
 
 			if ( wp_remote_retrieve_response_code( $result ) >= 300 ) {
-				$migration_fallback = true;
+				return true;
 			} else {
-				$migration_fallback = false;
 				set_transient( 'astra-theme-cron-test-ok', 1, 3600 );
+				return false;
 			}
 
 			return $migration_fallback;
