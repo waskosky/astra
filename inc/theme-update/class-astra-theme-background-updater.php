@@ -56,6 +56,64 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
+		 * Check Cron Status
+		 *
+		 * Gets the current cron status by performing a test spawn. Cached for one hour when all is well.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param bool $cache Whether to use the cached result from previous calls.
+		 * @return true if there is a problem spawning a call to Wp-Cron system.
+		 */
+		public function test_cron( $cache = true ) {
+
+			global $wp_version;
+
+			if ( defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON ) {
+				$migration_fallback = true;
+			}
+
+			if ( defined( 'ALTERNATE_WP_CRON' ) && ALTERNATE_WP_CRON ) {
+				$migration_fallback = true;
+			}
+
+			$cached_status = get_transient( 'astra-theme-cron-test-ok' );
+
+			if ( $cache && $cached_status ) {
+				$migration_fallback = false;
+			}
+
+			$sslverify     = version_compare( $wp_version, 4.0, '<' );
+			$doing_wp_cron = sprintf( '%.22F', microtime( true ) );
+
+			$cron_request = apply_filters(
+				'cron_request',
+				array(
+					'url'  => site_url( 'wp-cron.php?doing_wp_cron=' . $doing_wp_cron ),
+					'key'  => $doing_wp_cron,
+					'args' => array(
+						'timeout'   => 3,
+						'blocking'  => true,
+						'sslverify' => apply_filters( 'https_local_ssl_verify', $sslverify ),
+					),
+				)
+			);
+
+			$cron_request['args']['blocking'] = true;
+
+			$result = wp_remote_post( $cron_request['url'], $cron_request['args'] );
+
+			if ( wp_remote_retrieve_response_code( $result ) >= 300 ) {
+				$migration_fallback = true;
+			} else {
+				$migration_fallback = false;
+				set_transient( 'astra-theme-cron-test-ok', 1, 3600 );
+			}
+
+			return $migration_fallback;
+		}
+
+		/**
 		 * Install actions when a update button is clicked within the admin area.
 		 *
 		 * This function is hooked into admin_init to affect admin and wp to affect the frontend.
@@ -69,17 +127,24 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				return;
 			}
 
-			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
+			$fallback = $this->test_cron();
 
-			if ( $this->needs_db_update() && ! $is_queue_running || ! $this->is_db_updated() ) {
-				error_log( 'Astra: Running update() function!' );
-				$this->update();
+			if( $fallback ) {
+				new Astra_Theme_Fallback_Update();
 			} else {
-				if ( ! $is_queue_running || ! $this->is_db_updated() ) {
-					error_log( 'Astra: Running update_db_version() function!' );
-					self::update_db_version();
+				$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
+
+				if ( $this->needs_db_update() && ! $is_queue_running || ! $this->is_db_updated() ) {
+					error_log( 'Running update() function!' );
+					$this->update();
+				} else {
+					if ( ! $is_queue_running || ! $this->is_db_updated() ) {
+						error_log( 'Running update_db_version() function!' );
+						self::update_db_version();
+					}
 				}
 			}
+
 		}
 
 		/**
