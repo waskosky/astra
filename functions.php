@@ -38,7 +38,6 @@ require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
  * Update theme
  */
 require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-update.php';
-require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-fallback-update.php';
 require_once ASTRA_THEME_DIR . 'inc/theme-update/astra-update-functions.php';
 require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-background-updater.php';
 require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-pb-compatibility.php';

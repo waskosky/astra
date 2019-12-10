@@ -127,24 +127,17 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				return;
 			}
 
-			$fallback = $this->test_cron();
+			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
 
-			if ( $fallback ) {
-				new Astra_Theme_Fallback_Update();
+			if ( $this->needs_db_update() && ! $is_queue_running || ! $this->is_db_updated() ) {
+				error_log( 'Running update() function!' );
+				$this->update();
 			} else {
-				$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
-
-				if ( $this->needs_db_update() && ! $is_queue_running || ! $this->is_db_updated() ) {
-					error_log( 'Running update() function!' );
-					$this->update();
-				} else {
-					if ( ! $is_queue_running || ! $this->is_db_updated() ) {
-						error_log( 'Running update_db_version() function!' );
-						self::update_db_version();
-					}
+				if ( ! $is_queue_running || ! $this->is_db_updated() ) {
+					error_log( 'Running update_db_version() function!' );
+					self::update_db_version();
 				}
 			}
-
 		}
 
 		/**
@@ -209,20 +202,29 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
+			$fallback           = $this->test_cron();
 
 			error_log( 'Astra: Batch Process Started!' );
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
 						foreach ( $update_callbacks as $update_callback ) {
-							error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) );
-							self::$background_updater->push_to_queue( $update_callback );
+							if ( $fallback ) {
+								call_user_func( $update_callback );
+							} else {
+								error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) );
+								self::$background_updater->push_to_queue( $update_callback );
+							}
 						}
 					}
 				}
-				astra_update_option( 'is_theme_queue_running', true );
 
-				self::$background_updater->push_to_queue( 'update_db_version' );
+				if ( $fallback ) {
+					self::update_db_version();
+				} else {
+					astra_update_option( 'is_theme_queue_running', true );
+					self::$background_updater->push_to_queue( 'update_db_version' );
+				}
 			} else {
 				self::$background_updater->push_to_queue( 'update_db_version' );
 			}
