@@ -617,7 +617,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					'font-family'         => astra_get_font_family( $theme_btn_font_family ),
 					'font-weight'         => esc_attr( $theme_btn_font_weight ),
-					'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+					'font-size'           => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
 					'line-height'         => esc_attr( $theme_btn_line_height ),
 					'text-transform'      => esc_attr( $theme_btn_text_transform ),
 					'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
@@ -633,6 +633,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $global_button_desktop );
 
+			$global_button_tablet = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+
+			$global_button_mobile = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -1503,7 +1520,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Check backwards compatibility CSS for loading submenu below the header needs to be added.
 		 *
-		 * @since 2.1.4
+		 * @since 2.1.3
 		 * @return boolean true if submenu below header fix is to be loaded, False if not.
 		 */
 		public static function astra_submenu_open_below_header_fix() {
