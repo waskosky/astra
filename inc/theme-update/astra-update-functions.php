@@ -61,7 +61,6 @@ function astra_vertical_horizontal_padding_migration() {
 	error_log( 'Astra: Migrating horizontal Padding - ' . $btn_horizontal_padding );
 
 	// Migrate button vertical padding to the new padding param for button.
-	error_log( 'inside isset' );
 	$theme_options['theme-button-padding'] = array(
 		'desktop'      => array(
 			'top'    => $btn_vertical_padding,
@@ -86,6 +85,5 @@ function astra_vertical_horizontal_padding_migration() {
 		'mobile-unit'  => 'px',
 	);
 
-	error_log( 'Astra: Migrated Padding value - ' . $theme_options['theme-button-padding'] );
 	update_option( 'astra-settings', $theme_options );
 }
