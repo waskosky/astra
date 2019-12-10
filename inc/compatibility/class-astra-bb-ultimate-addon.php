@@ -226,7 +226,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 */
 		function button_padding() {
 
-			$padding = astra_get_option( 'theme-button-padding', false );
+			$padding = astra_get_option( 'theme-button-padding' );
 
 			return $padding;
 		}
