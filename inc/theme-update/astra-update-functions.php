@@ -57,8 +57,8 @@ function astra_vertical_horizontal_padding_migration() {
 	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
 	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
 
-	error_log( 'Vertical Padding - ' . $btn_vertical_padding );
-	error_log( 'Horizontal Padding - ' . $btn_horizontal_padding );
+	error_log( 'Astra: Migrating vertical Padding - ' . $btn_vertical_padding );
+	error_log( 'Astra: Migrating horizontal Padding - ' . $btn_horizontal_padding );
 
 	// Migrate button vertical padding to the new padding param for button.
 	if ( ! isset( $theme_options['theme-button-padding'] ) ) {
