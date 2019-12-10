@@ -64,7 +64,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 * @return array       Updated embed markup.
 	 */
 	public function author_name_schema_itemprop( $attr ) {
-		$attr['itemprop'] = 'author-name';
+		$attr['itemprop'] = 'name';
 
 		return $attr;
 	}
@@ -77,7 +77,7 @@ class Astra_Person_Schema extends Astra_Schema {
 	 * @return array       Updated embed markup.
 	 */
 	public function author_name_info_schema_itemprop( $attr ) {
-		$attr['itemprop'] = 'author-name';
+		$attr['itemprop'] = 'name';
 
 		return $attr;
 	}

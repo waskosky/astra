@@ -34,6 +34,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
 			$headings_text_transform     = astra_get_option( 'headings-text-transform' );
+			$headings_line_height        = astra_get_option( 'headings-line-height' );
 			$single_post_title_font_size = astra_get_option( 'font-size-entry-title' );
 			$body_font_family            = astra_body_font_family();
 			$para_margin_bottom          = astra_get_option( 'para-margin-bottom' );
@@ -84,6 +85,35 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
+			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
+
+			$h1_line_height = astra_get_option( 'line-height-h1' );
+			$h2_line_height = astra_get_option( 'line-height-h2' );
+			$h3_line_height = astra_get_option( 'line-height-h3' );
+
+			// Fallback for H1 - headings typography.
+			if ( '' == $h1_line_height ) {
+				$h1_line_height = $headings_line_height;
+			}
+
+			// Fallback for H2 - headings typography.
+			if ( '' == $h2_line_height ) {
+				$h2_line_height = $headings_line_height;
+			}
+
+			// Fallback for H3 - headings typography.
+			if ( '' == $h3_line_height ) {
+				$h3_line_height = $headings_line_height;
+			}
+
+			// Fallback for H4 - headings typography.
+			$h4_line_height = $headings_line_height;
+
+			// Fallback for H5 - headings typography.
+			$h5_line_height = $headings_line_height;
+
+			// Fallback for H6 - headings typography.
+			$h6_line_height = $headings_line_height;
 
 			if ( empty( $btn_color ) ) {
 				$btn_color = astra_get_foreground_color( $theme_color );
@@ -118,6 +148,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'a'                                       => array(
 					'color' => esc_attr( $link_color ),
 				),
+
 				// Global selection CSS.
 				'.editor-block-list__layout .editor-block-list__block ::selection,.editor-block-list__layout .editor-block-list__block.is-multi-selected .editor-block-list__block-edit:before' => array(
 					'background-color' => esc_attr( $theme_color ),
@@ -137,6 +168,27 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
+				),
+				'.edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6' => array(
+					'line-height' => esc_attr( $headings_line_height ),
+				),
+				'.edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1' => array(
+					'line-height' => esc_attr( $h1_line_height ),
+				),
+				'.edit-post-visual-editor .wp-block-heading h2, .wp-block-heading h2.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h2' => array(
+					'line-height' => esc_attr( $h2_line_height ),
+				),
+				'.edit-post-visual-editor .wp-block-heading h3, .wp-block-heading h3.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h3' => array(
+					'line-height' => esc_attr( $h3_line_height ),
+				),
+				'.edit-post-visual-editor .wp-block-heading h4, .wp-block-heading h4.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h4' => array(
+					'line-height' => esc_attr( $h4_line_height ),
+				),
+				'.edit-post-visual-editor .wp-block-heading h5, .wp-block-heading h5.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h5' => array(
+					'line-height' => esc_attr( $h5_line_height ),
+				),
+				'.edit-post-visual-editor .wp-block-heading h6, .wp-block-heading h6.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h6' => array(
+					'line-height' => esc_attr( $h6_line_height ),
 				),
 				'.edit-post-visual-editor.editor-styles-wrapper p,.editor-block-list__block p, .editor-block-list__layout, .editor-post-title' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -235,6 +287,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'font-weight'         => esc_attr( $theme_btn_font_weight ),
 						'line-height'         => esc_attr( $theme_btn_line_height ),
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 						'padding'             => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),

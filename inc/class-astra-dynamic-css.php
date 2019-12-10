@@ -80,6 +80,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$headings_font_family    = astra_get_option( 'headings-font-family' );
 			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
 			$headings_text_transform = astra_get_option( 'headings-text-transform' );
+			$headings_line_height    = astra_get_option( 'headings-line-height' );
 			$site_title_font_size    = astra_get_option( 'font-size-site-title' );
 			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
 
@@ -123,6 +124,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( '' == $h1_text_transform ) {
 				$h1_text_transform = $headings_font_transform;
 			}
+			if ( '' == $h1_line_height ) {
+				$h1_line_height = $headings_line_height;
+			}
 
 			// Fallback for H2 - headings typography.
 			if ( 'inherit' == $h2_font_family ) {
@@ -133,6 +137,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			if ( '' == $h2_text_transform ) {
 				$h2_text_transform = $headings_font_transform;
+			}
+			if ( '' == $h2_line_height ) {
+				$h2_line_height = $headings_line_height;
 			}
 
 			// Fallback for H3 - headings typography.
@@ -145,6 +152,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( '' == $h3_text_transform ) {
 				$h3_text_transform = $headings_font_transform;
 			}
+			if ( '' == $h3_line_height ) {
+				$h3_line_height = $headings_line_height;
+			}
+
+			// Fallback for H4 - headings typography.
+			$h4_line_height = $headings_line_height;
+
+			// Fallback for H5 - headings typography.
+			$h5_line_height = $headings_line_height;
+
+			// Fallback for H6 - headings typography.
+			$h6_line_height = $headings_line_height;
 
 			// Button Styling.
 			$btn_border_radius      = astra_get_option( 'button-radius' );
@@ -210,6 +229,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
+			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
 
 			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
 			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );
@@ -373,7 +393,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h4, .entry-content h4, .entry-content h4 a',
 					'h4, .entry-content h4'
 				)                                         => array(
-					'font-size' => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
+					'font-size'   => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
+					'line-height' => esc_attr( $h4_line_height ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -381,7 +402,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h5, .entry-content h5, .entry-content h5 a',
 					'h5, .entry-content h5'
 				)                                         => array(
-					'font-size' => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
+					'font-size'   => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
+					'line-height' => esc_attr( $h5_line_height ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -389,7 +411,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6, .entry-content h6 a',
 					'h6, .entry-content h6'
 				)                                         => array(
-					'font-size' => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+					'font-size'   => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+					'line-height' => esc_attr( $h6_line_height ),
 				),
 
 				'.ast-single-post .entry-title, .page-title' => array(
@@ -589,9 +612,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'padding'             => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
 					'font-family'         => astra_get_font_family( $theme_btn_font_family ),
 					'font-weight'         => esc_attr( $theme_btn_font_weight ),
-					'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+					'font-size'           => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
 					'line-height'         => esc_attr( $theme_btn_line_height ),
 					'text-transform'      => esc_attr( $theme_btn_text_transform ),
+					'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 				),
 				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
@@ -604,6 +628,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $global_button_desktop );
 
+			$global_button_tablet = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+
+			$global_button_mobile = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
 			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
@@ -623,6 +664,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-weight'         => esc_attr( $theme_btn_font_weight ),
 						'line-height'         => esc_attr( $theme_btn_line_height ),
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
 					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
 						'font-size'     => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
@@ -1414,7 +1456,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Check backwards compatibility CSS for loading submenu below the header needs to be added.
 		 *
-		 * @since 2.1.4
+		 * @since 2.1.3
 		 * @return boolean true if submenu below header fix is to be loaded, False if not.
 		 */
 		public static function astra_submenu_open_below_header_fix() {
