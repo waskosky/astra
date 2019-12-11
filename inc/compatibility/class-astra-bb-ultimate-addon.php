@@ -277,8 +277,6 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 */
 		function button_vertical_padding() {
 
-			_deprecated_function( __FUNCTION__, 'x.x.x', 'button_padding()' );
-
 			$padding   = '';
 			$v_padding = astra_get_option( 'button-v-padding' );
 
@@ -295,8 +293,6 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * @deprecated x.x.x
 		 */
 		function button_horizontal_padding() {
-
-			_deprecated_function( __FUNCTION__, 'x.x.x', 'button_padding()' );
 
 			$padding   = '';
 			$h_padding = astra_get_option( 'button-h-padding' );
