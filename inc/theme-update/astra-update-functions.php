@@ -30,7 +30,7 @@ function astra_submenu_below_header() {
 /**
  * Do not apply new default colors to the Elementor & Gutenberg Buttons for existing users.
  *
- * @since 2.1.4
+ * @since x.x.x
  *
  * @return void
  */
@@ -42,4 +42,48 @@ function astra_page_builder_button_color_compatibility() {
 		$theme_options['pb-button-color-compatibility'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
+}
+
+/**
+ * Migrate option data from button vertical & horizontal padding to the new responsive padding param.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_vertical_horizontal_padding_migration() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
+	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
+
+	error_log( 'Astra: Migrating vertical Padding - ' . $btn_vertical_padding );
+	error_log( 'Astra: Migrating horizontal Padding - ' . $btn_horizontal_padding );
+
+	// Migrate button vertical padding to the new padding param for button.
+	$theme_options['theme-button-padding'] = array(
+		'desktop'      => array(
+			'top'    => $btn_vertical_padding,
+			'right'  => $btn_horizontal_padding,
+			'bottom' => $btn_vertical_padding,
+			'left'   => $btn_horizontal_padding,
+		),
+		'tablet'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'mobile'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	update_option( 'astra-settings', $theme_options );
 }

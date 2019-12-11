@@ -64,11 +64,11 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_button_bg_hover_color', array( $this, 'button_bg_hover_color' ) );
 			add_filter( 'uabb_theme_button_border_radius', array( $this, 'button_border_radius' ) );
 			add_filter( 'uabb_theme_button_padding', array( $this, 'button_padding' ) );
-			add_filter( 'uabb_theme_button_vertical_padding', array( $this, 'button_vertical_padding' ) );
-			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'button_horizontal_padding' ) );
 			add_filter( 'uabb_theme_button_border_width', array( $this, 'button_border_width' ) );
 			add_filter( 'uabb_theme_border_color', array( $this, 'button_border_color' ) );
 			add_filter( 'uabb_theme_border_hover_color', array( $this, 'button_border_hover_color' ) );
+			add_filter( 'uabb_theme_button_vertical_padding', array( $this, 'button_vertical_padding' ) );
+			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'button_horizontal_padding' ) );
 		}
 
 		/**
@@ -226,43 +226,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 */
 		function button_padding() {
 
-			$padding   = '';
-			$v_padding = astra_get_option( 'button-v-padding' );
-			$h_padding = astra_get_option( 'button-h-padding' );
-
-			if ( '' != $v_padding && '' != $h_padding ) {
-				$padding = $v_padding . 'px ' . $h_padding . 'px';
-			}
-
-			return $padding;
-		}
-
-		/**
-		 * Button Padding
-		 */
-		function button_vertical_padding() {
-
-			$padding   = '';
-			$v_padding = astra_get_option( 'button-v-padding' );
-
-			if ( '' != $v_padding ) {
-				$padding = $v_padding;
-			}
-
-			return $padding;
-		}
-
-		/**
-		 * Button Padding
-		 */
-		function button_horizontal_padding() {
-
-			$padding   = '';
-			$h_padding = astra_get_option( 'button-h-padding' );
-
-			if ( '' != $h_padding ) {
-				$padding = $h_padding;
-			}
+			$padding = astra_get_option( 'theme-button-padding' );
 
 			return $padding;
 		}
@@ -304,6 +268,40 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			$get_btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color', $btn_bg_hover_color );
 
 			return $get_btn_border_h_color;
+		}
+
+		/**
+		 * Button Vertical Padding.
+		 *
+		 * @deprecated x.x.x
+		 */
+		function button_vertical_padding() {
+
+			$padding   = '';
+			$v_padding = astra_get_option( 'button-v-padding' );
+
+			if ( '' != $v_padding ) {
+				$padding = $v_padding;
+			}
+
+			return $padding;
+		}
+
+		/**
+		 * Button Horizontal Padding.
+		 *
+		 * @deprecated x.x.x
+		 */
+		function button_horizontal_padding() {
+
+			$padding   = '';
+			$h_padding = astra_get_option( 'button-h-padding' );
+
+			if ( '' != $h_padding ) {
+				$padding = $h_padding;
+			}
+
+			return $padding;
 		}
 
 	}

@@ -202,39 +202,38 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Vertical Padding
+				 * Option: Button Padding Section
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[button-v-padding]',
-					'default'     => astra_get_option( 'button-v-padding' ),
-					'title'       => __( 'Vertical Padding', 'astra' ),
-					'type'        => 'control',
-					'section'     => 'section-buttons',
-					'control'     => 'ast-slider',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'priority'    => 20,
+					'name'     => ASTRA_THEME_SETTINGS . '[button-padding-styling-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-buttons',
+					'title'    => __( 'Spacing', 'astra' ),
+					'priority' => 30,
+					'settings' => array(),
 				),
 
 				/**
-				 * Option: Horizontal Padding
+				 * Option: Theme Button Padding
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[button-h-padding]',
-					'default'     => astra_get_option( 'button-h-padding' ),
-					'title'       => __( 'Horizontal Padding', 'astra' ),
-					'type'        => 'control',
-					'section'     => 'section-buttons',
-					'control'     => 'ast-slider',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
+					'name'           => ASTRA_THEME_SETTINGS . '[theme-button-padding]',
+					'default'        => astra_get_option( 'theme-button-padding' ),
+					'type'           => 'control',
+					'control'        => 'ast-responsive-spacing',
+					'section'        => 'section-buttons',
+					'title'          => __( 'Padding', 'astra-addon' ),
+					'linked_choices' => true,
+					'transport'      => 'postMessage',
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
-					'priority'    => 21,
+					'priority'       => 35,
 				),
 
 				/**
