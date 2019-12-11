@@ -230,10 +230,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 					'font-weight' => 'normal',
 				),
+				'.editor-block-list__block' => array(
+					'color' => esc_attr( $text_color ),
+				),
 				/**
 				 * Content base heading color.
 				 */
-				'.editor-block-list__block, .editor-post-title__block .editor-post-title__input, .wc-block-grid__product-title, .edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6, .edit-post-visual-editor .wp-block-heading' => array(
+				'.editor-post-title__block .editor-post-title__input, .wc-block-grid__product-title, .edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6, .edit-post-visual-editor .wp-block-heading, .edit-post-visual-editor .wp-block-uagb-advanced-heading h1, .edit-post-visual-editor .wp-block-uagb-advanced-heading h2, .edit-post-visual-editor .wp-block-uagb-advanced-heading h3, .edit-post-visual-editor .wp-block-uagb-advanced-heading h4, .edit-post-visual-editor .wp-block-uagb-advanced-heading h5, .edit-post-visual-editor .wp-block-uagb-advanced-heading h6' => array(
 					'color' => esc_attr( $heading_base_color ),
 				),
 				// Blockquote Text Color.
