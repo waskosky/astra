@@ -280,7 +280,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Styling
+				 * Option: Button Typography Section
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-styling-divider]',
@@ -292,6 +292,9 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'settings' => array(),
 				),
 
+				/**
+				 * Option: Button Typography Heading
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'default'   => astra_get_option( 'button-text-typography' ),
