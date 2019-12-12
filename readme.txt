@@ -406,8 +406,9 @@ For all the new installations this option will be enabled by default and don't n
 
 * New: Menu container animation.
 
-= 1.5.0-beta.1 
-- Introducing Nav Menu from Astra Pro
+= 1.5.0-beta.1 =
+
+* Introducing Nav Menu from Astra Pro
 
 = 1.4.9 =
 
@@ -459,7 +460,7 @@ For all the new installations this option will be enabled by default and don't n
 
 = 1.4.0 =
 
-- Introduced Mobile Headers support from Astra Theme and Mobile Headers addon in Astra Pro. Check out changelogs of 1.4.0 beta versions for list of complete changes.
+* Introduced Mobile Headers support from Astra Theme and Mobile Headers addon in Astra Pro. Check out changelogs of 1.4.0 beta versions for list of complete changes.
 * Improvement - Remove `-` and `--` from submenus and replace it with an icon `>`
 * Fix: LifterLMS RTL layout not working because of missing RTL variant of the stylesheet.
 
@@ -488,7 +489,7 @@ For all the new installations this option will be enabled by default and don't n
 * Improvement: Collapse menu when clicking on menu item with #links.
 * Improvement: Hide the desktop menu markup which appeared for fraction of seconds when loading the site on mobile.
 * Fix: On Header's search icon click menu desappears for desktop devices.
-- Update the beta branch with the latest stable release.
+* Update the beta branch with the latest stable release.
 
 = 1.4.0-beta.1 =
 
@@ -621,8 +622,8 @@ For all the new installations this option will be enabled by default and don't n
 
 = 1.2.0 =
 
-- Full Support for LifterLMS.
-- Better support for navigation menu plugins, Allowing plugins to override complete menu markup easily.
+* Full Support for LifterLMS.
+* Better support for navigation menu plugins, Allowing plugins to override complete menu markup easily.
 
 = 1.1.6 =
 
@@ -691,14 +692,14 @@ For all the new installations this option will be enabled by default and don't n
 
 = 1.0.28 =
 
-- Set correct page meta settings on themer layouts if they are empty.
+* Set correct page meta settings on themer layouts if they are empty.
 
 = 1.0.27 =
 
 * Fix: Two primary menu navigation drop-down icon visible for responsive devices.
 * Fix: Remove empty div for responsive devices if primary menu and custom menu item is disabled.
 * Improvement: Renamed filter `astra_sigle_post_navigation_enabled` to `astra_single_post_navigation_enabled`. The older filter will keep working but it is recommended to change to the new filter.
-- Enhancement: Astra meta box support added to BB Themer for single, 404 and archive page.
+* Enhancement: Astra meta box support added to BB Themer for single, 404 and archive page.
 
 = 1.0.26 =
 
@@ -707,7 +708,7 @@ For all the new installations this option will be enabled by default and don't n
 = 1.0.25 =
 
 * Fixed: Astra's menu CSS being applied to the Elementor's menu when used as replacement in the header.
-- Updated the theme screenshot and correct license details for the screenshot.
+* Updated the theme screenshot and correct license details for the screenshot.
 
 = 1.0.24 =
 
@@ -727,7 +728,7 @@ For all the new installations this option will be enabled by default and don't n
 = 1.0.21 =
 
 * Improvement: Updated the Toolset Types compatibility configuration.
-- Updated the theme screenshot.
+* Updated the theme screenshot.
 
 = 1.0.20 =
 
@@ -827,17 +828,17 @@ For all the new installations this option will be enabled by default and don't n
 
 = 1.0.6 =
 
-- Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
-- Enhancement: Combined JS files 'flexibility', 'navigation' and 'skip-link-focus-fix' files in style.js
-- Enhancement: Used astra_get_option() to set default customizer options instead of representative Astra_Theme_Options::defaults().
+* Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
+* Enhancement: Combined JS files 'flexibility', 'navigation' and 'skip-link-focus-fix' files in style.js
+* Enhancement: Used astra_get_option() to set default customizer options instead of representative Astra_Theme_Options::defaults().
 * Fixed: RTL support for minified css files.
 * New: Typography option for Archive Summary Box.
-- Enhancement: Updated default heading font-size support for small devices.
+* Enhancement: Updated default heading font-size support for small devices.
 
 = 1.0.5.2 =
 
-- Enhancement: Updated theme default screenshot.png.
-- Enhancement: Used filter 'after_setup_theme' to set default theme options instead of action 'init'.
+* Enhancement: Updated theme default screenshot.png.
+* Enhancement: Used filter 'after_setup_theme' to set default theme options instead of action 'init'.
 
 = 1.0.5.1 =
 
@@ -848,7 +849,7 @@ For all the new installations this option will be enabled by default and don't n
 
 = 1.0.5 =
 
-- Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
+* Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
 * Fixed: PHP Notice - Array to string conversion
 * Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
 * Fixed: Remove comment-form from add_theme_support( 'html5' )
@@ -874,7 +875,7 @@ For all the new installations this option will be enabled by default and don't n
 
 = 1.0.3 =
 
-- Enhancement: Removed option _astra_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
+* Enhancement: Removed option _astra_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
 * Fixed: Content Layout meta working on beaver builder page/post.
 
 = 1.0.2 =
