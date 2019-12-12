@@ -21,15 +21,15 @@ Looking for a perfect base theme? Look no further. Astra is fast, fully customiz
 
 = From within WordPress =
 1. Visit "Appearance > Themes > Add New"
-1. Search for "Astra"
-1. Install and activate
+2. Search for "Astra"
+3. Install and activate
 
 == License ==
 
-Astra WordPress Theme, Copyright 2018 WPAstra.
+Astra WordPress Theme, Copyright 2019 WPAstra.
 Astra is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Astra is based on Underscores https://underscores.me/, (C) 2012-2019 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 == Features ==
