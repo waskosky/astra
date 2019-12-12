@@ -724,6 +724,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.elementor-widget-heading h3.elementor-heading-title' => array(
 						'line-height' => esc_attr( $h3_line_height ),
 					),
+					'.elementor-widget-heading h4.elementor-heading-title' => array(
+						'line-height' => esc_attr( $h4_line_height ),
+					),
+					'.elementor-widget-heading h5.elementor-heading-title' => array(
+						'line-height' => esc_attr( $h5_line_height ),
+					),
+					'.elementor-widget-heading h6.elementor-heading-title' => array(
+						'line-height' => esc_attr( $h6_line_height ),
+					),
 				);
 
 				/* Parse CSS from array() */
