@@ -72,6 +72,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_default_button_bg_hover_color', array( $this, 'default_type_button_bg_hover_color' ) );
 			add_filter( 'uabb_theme_button_border_radius', array( $this, 'button_border_radius' ) );
 			add_filter( 'uabb_theme_button_padding', array( $this, 'button_padding' ) );
+			add_filter( 'uabb_theme_default_button_padding', array( $this, 'default_type_button_padding' ) );
 			add_filter( 'uabb_theme_button_border_width', array( $this, 'button_border_width' ) );
 			add_filter( 'uabb_theme_border_color', array( $this, 'button_border_color' ) );
 			add_filter( 'uabb_theme_border_hover_color', array( $this, 'button_border_hover_color' ) );
@@ -303,6 +304,16 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Padding
 		 */
 		function button_padding() {
+
+			$padding = astra_get_option( 'theme-button-padding' );
+
+			return $padding;
+		}
+
+		/**
+		 * Button Padding
+		 */
+		function default_type_button_padding() {
 
 			$padding = astra_get_option( 'theme-button-padding' );
 
