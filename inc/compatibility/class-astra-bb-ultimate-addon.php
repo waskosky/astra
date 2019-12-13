@@ -199,7 +199,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		function button_text_transform() {
 			return '';
 		}
-		
+
 		/**
 		 * Default type : Button Text Transform
 		 */
