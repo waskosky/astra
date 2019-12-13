@@ -55,8 +55,11 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_link_hover_color', array( $this, 'link_hover_color' ) );
 			add_filter( 'uabb_theme_button_font_family', array( $this, 'button_font_family' ) );
 			add_filter( 'uabb_theme_button_font_size', array( $this, 'button_font_size' ) );
+			add_filter( 'uabb_theme_default_button_font_size', array( $this, 'default_type_button_font_size' ) );
 			add_filter( 'uabb_theme_button_line_height', array( $this, 'button_line_height' ) );
+			add_filter( 'uabb_theme_default_button_line_height', array( $this, 'default_type_button_line_height' ) );
 			add_filter( 'uabb_theme_button_letter_spacing', array( $this, 'button_letter_spacing' ) );
+			add_filter( 'uabb_theme_default_button_letter_spacing', array( $this, 'default_type_button_letter_spacing' ) );
 			add_filter( 'uabb_theme_button_text_transform', array( $this, 'button_text_transform' ) );
 			add_filter( 'uabb_theme_button_text_color', array( $this, 'button_text_color' ) );
 			add_filter( 'uabb_theme_button_text_hover_color', array( $this, 'button_text_hover_color' ) );
@@ -125,6 +128,20 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Font Size
 		 */
 		function button_font_size() {
+			return '';
+		}
+
+		/**
+		 * Button Line Height
+		 */
+		function button_line_height() {
+			return '';
+		}
+		
+		/**
+		 * Default type : Button Font Size
+		 */
+		function default_type_button_font_size() {
 			$font_size_arr       = array();
 			$body_font_size      = astra_get_option( 'font-size-body' );
 			$theme_btn_font_size = astra_get_option( 'font-size-button' );
@@ -145,11 +162,11 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 			return $font_size_arr;
 		}
-
+		
 		/**
-		 * Button Line Height
+		 * Default type : Button Line Height
 		 */
-		function button_line_height() {
+		function default_type_button_line_height() {
 			$theme_btn_body_line_height = astra_get_option( 'body-line-height', 1.85714285714286 );
 			$theme_btn_line_height      = astra_get_option( 'theme-btn-line-height', $theme_btn_body_line_height );
 			return $theme_btn_line_height;
@@ -159,6 +176,14 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Letter Spacing
 		 */
 		function button_letter_spacing() {
+			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
+			return $theme_btn_letter_spacing;
+		}
+
+		/**
+		 * Default type : Button Letter Spacing
+		 */
+		function default_type_button_letter_spacing() {
 			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
 			return $theme_btn_letter_spacing;
 		}
