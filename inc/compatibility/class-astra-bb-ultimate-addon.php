@@ -181,8 +181,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Letter Spacing
 		 */
 		function button_letter_spacing() {
-			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
-			return $theme_btn_letter_spacing;
+			return '';
 		}
 
 		/**
