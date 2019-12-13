@@ -113,8 +113,10 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Font Family
 		 */
 		function button_font_family() {
+			$font_family = str_replace( "'", '', astra_get_option( 'font-family-button' ) );
+			$font_family = explode( ',', $font_family );
 			return array(
-				'family' => astra_get_font_family( str_replace( "'", '', astra_get_option( 'font-family-button' ) ) ),
+				'family' => $font_family[0],
 				'weight' => astra_get_option( 'font-weight-button' ),
 			);
 		}
