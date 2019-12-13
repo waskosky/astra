@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		function button_line_height() {
 			return '';
 		}
-		
+
 		/**
 		 * Default type : Button Font Size
 		 */
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 			return $font_size_arr;
 		}
-		
+
 		/**
 		 * Default type : Button Line Height
 		 */
