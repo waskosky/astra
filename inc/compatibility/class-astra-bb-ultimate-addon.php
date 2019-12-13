@@ -55,29 +55,33 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_link_hover_color', array( $this, 'link_hover_color' ) );
 			add_filter( 'uabb_theme_button_font_family', array( $this, 'button_font_family' ) );
 			add_filter( 'uabb_theme_button_font_size', array( $this, 'button_font_size' ) );
-			add_filter( 'uabb_theme_default_button_font_size', array( $this, 'default_type_button_font_size' ) );
 			add_filter( 'uabb_theme_button_line_height', array( $this, 'button_line_height' ) );
-			add_filter( 'uabb_theme_default_button_line_height', array( $this, 'default_type_button_line_height' ) );
 			add_filter( 'uabb_theme_button_letter_spacing', array( $this, 'button_letter_spacing' ) );
-			add_filter( 'uabb_theme_default_button_letter_spacing', array( $this, 'default_type_button_letter_spacing' ) );
 			add_filter( 'uabb_theme_button_text_transform', array( $this, 'button_text_transform' ) );
-			add_filter( 'uabb_theme_default_button_text_transform', array( $this, 'default_type_button_text_transform' ) );
 			add_filter( 'uabb_theme_button_text_color', array( $this, 'button_text_color' ) );
-			add_filter( 'uabb_theme_default_button_text_color', array( $this, 'default_type_button_text_color' ) );
 			add_filter( 'uabb_theme_button_text_hover_color', array( $this, 'button_text_hover_color' ) );
-			add_filter( 'uabb_theme_default_button_text_hover_color', array( $this, 'default_type_button_text_hover_color' ) );
 			add_filter( 'uabb_theme_button_bg_color', array( $this, 'button_bg_color' ) );
-			add_filter( 'uabb_theme_default_button_bg_color', array( $this, 'default_type_button_bg_color' ) );
 			add_filter( 'uabb_theme_button_bg_hover_color', array( $this, 'button_bg_hover_color' ) );
-			add_filter( 'uabb_theme_default_button_bg_hover_color', array( $this, 'default_type_button_bg_hover_color' ) );
 			add_filter( 'uabb_theme_button_border_radius', array( $this, 'button_border_radius' ) );
 			add_filter( 'uabb_theme_button_padding', array( $this, 'button_padding' ) );
-			add_filter( 'uabb_theme_default_button_padding', array( $this, 'default_type_button_padding' ) );
 			add_filter( 'uabb_theme_button_border_width', array( $this, 'button_border_width' ) );
 			add_filter( 'uabb_theme_border_color', array( $this, 'button_border_color' ) );
 			add_filter( 'uabb_theme_border_hover_color', array( $this, 'button_border_hover_color' ) );
 			add_filter( 'uabb_theme_button_vertical_padding', array( $this, 'button_vertical_padding' ) );
 			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'button_horizontal_padding' ) );
+			
+			/**
+			 * Default button type UABB compatibility.
+			 */
+			add_filter( 'uabb_theme_default_button_font_size', array( $this, 'default_type_button_font_size' ) );
+			add_filter( 'uabb_theme_default_button_line_height', array( $this, 'default_type_button_line_height' ) );
+			add_filter( 'uabb_theme_default_button_letter_spacing', array( $this, 'default_type_button_letter_spacing' ) );
+			add_filter( 'uabb_theme_default_button_text_transform', array( $this, 'default_type_button_text_transform' ) );
+			add_filter( 'uabb_theme_default_button_text_color', array( $this, 'default_type_button_text_color' ) );
+			add_filter( 'uabb_theme_default_button_text_hover_color', array( $this, 'default_type_button_text_hover_color' ) );
+			add_filter( 'uabb_theme_default_button_bg_color', array( $this, 'default_type_button_bg_color' ) );
+			add_filter( 'uabb_theme_default_button_bg_hover_color', array( $this, 'default_type_button_bg_hover_color' ) );
+			add_filter( 'uabb_theme_default_button_padding', array( $this, 'default_type_button_padding' ) );
 		}
 
 		/**
@@ -146,6 +150,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Font Size
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_font_size() {
 			$font_size_arr       = array();
@@ -171,6 +177,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Line Height
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_line_height() {
 			$theme_btn_body_line_height = astra_get_option( 'body-line-height', 1.85714285714286 );
@@ -187,6 +195,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Letter Spacing
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_letter_spacing() {
 			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
@@ -202,6 +212,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Text Transform
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_text_transform() {
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
@@ -223,6 +235,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Text Color
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_text_color() {
 			$theme_color    = astra_get_option( 'theme-color' );
@@ -249,6 +263,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Text Hover Color
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_text_hover_color() {
 			$link_hover_color     = astra_get_option( 'link-h-color' );
@@ -269,6 +285,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Background Color
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_bg_color() {
 			$theme_color  = astra_get_option( 'theme-color' );
@@ -285,6 +303,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 
 		/**
 		 * Default type : Button Background Color
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_bg_hover_color() {
 			$link_hover_color   = astra_get_option( 'link-h-color' );
@@ -311,7 +331,9 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		}
 
 		/**
-		 * Button Padding
+		 * Default type : Button Padding
+		 *
+		 * @since x.x.x
 		 */
 		function default_type_button_padding() {
 
