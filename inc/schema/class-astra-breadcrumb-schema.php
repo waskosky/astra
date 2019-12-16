@@ -40,7 +40,7 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 		$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 		$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
-		if ( ( 'astra_entry_top' === $breadcrumb_position && 'default' === $breadcrumb_source ) || ( true !== $this->schema_enabled() ) ) {
+		if ( ( 'astra_entry_top' === $breadcrumb_position && ( 'default' === $breadcrumb_source || empty( $breadcrumb_source ) ) ) || ( true !== $this->schema_enabled() ) ) {
 			add_filter( 'astra_breadcrumb_trail_args', array( $this, 'breadcrumb_schema' ) );
 		}
 	}
