@@ -324,9 +324,12 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Padding
 		 */
 		function button_padding() {
-
-			$padding = astra_get_option( 'theme-button-padding' );
-
+			$padding   = '';
+			$v_padding = astra_get_option( 'button-v-padding' );
+			$h_padding = astra_get_option( 'button-h-padding' );
+			if ( '' != $v_padding && '' != $h_padding ) {
+				$padding = $v_padding . 'px ' . $h_padding . 'px';
+			}
 			return $padding;
 		}
 
