@@ -64,11 +64,24 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_button_bg_hover_color', array( $this, 'button_bg_hover_color' ) );
 			add_filter( 'uabb_theme_button_border_radius', array( $this, 'button_border_radius' ) );
 			add_filter( 'uabb_theme_button_padding', array( $this, 'button_padding' ) );
-			add_filter( 'uabb_theme_button_vertical_padding', array( $this, 'button_vertical_padding' ) );
-			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'button_horizontal_padding' ) );
 			add_filter( 'uabb_theme_button_border_width', array( $this, 'button_border_width' ) );
 			add_filter( 'uabb_theme_border_color', array( $this, 'button_border_color' ) );
 			add_filter( 'uabb_theme_border_hover_color', array( $this, 'button_border_hover_color' ) );
+			add_filter( 'uabb_theme_button_vertical_padding', array( $this, 'button_vertical_padding' ) );
+			add_filter( 'uabb_theme_button_horizontal_padding', array( $this, 'button_horizontal_padding' ) );
+
+			/**
+			 * Default button type UABB compatibility.
+			 */
+			add_filter( 'uabb_theme_default_button_font_size', array( $this, 'default_type_button_font_size' ) );
+			add_filter( 'uabb_theme_default_button_line_height', array( $this, 'default_type_button_line_height' ) );
+			add_filter( 'uabb_theme_default_button_letter_spacing', array( $this, 'default_type_button_letter_spacing' ) );
+			add_filter( 'uabb_theme_default_button_text_transform', array( $this, 'default_type_button_text_transform' ) );
+			add_filter( 'uabb_theme_default_button_text_color', array( $this, 'default_type_button_text_color' ) );
+			add_filter( 'uabb_theme_default_button_text_hover_color', array( $this, 'default_type_button_text_hover_color' ) );
+			add_filter( 'uabb_theme_default_button_bg_color', array( $this, 'default_type_button_bg_color' ) );
+			add_filter( 'uabb_theme_default_button_bg_hover_color', array( $this, 'default_type_button_bg_hover_color' ) );
+			add_filter( 'uabb_theme_default_button_padding', array( $this, 'default_type_button_padding' ) );
 		}
 
 		/**
@@ -113,8 +126,10 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Font Family
 		 */
 		function button_font_family() {
+			$font_family = str_replace( "'", '', astra_get_option( 'font-family-button' ) );
+			$font_family = explode( ',', $font_family );
 			return array(
-				'family' => astra_get_font_family( astra_get_option( 'font-family-button' ) ),
+				'family' => $font_family[0],
 				'weight' => astra_get_option( 'font-weight-button' ),
 			);
 		}
@@ -123,6 +138,22 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Font Size
 		 */
 		function button_font_size() {
+			return '';
+		}
+
+		/**
+		 * Button Line Height
+		 */
+		function button_line_height() {
+			return '';
+		}
+
+		/**
+		 * Default type : Button Font Size
+		 *
+		 * @since x.x.x
+		 */
+		function default_type_button_font_size() {
 			$font_size_arr       = array();
 			$body_font_size      = astra_get_option( 'font-size-body' );
 			$theme_btn_font_size = astra_get_option( 'font-size-button' );
@@ -145,9 +176,11 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		}
 
 		/**
-		 * Button Line Height
+		 * Default type : Button Line Height
+		 *
+		 * @since x.x.x
 		 */
-		function button_line_height() {
+		function default_type_button_line_height() {
 			$theme_btn_body_line_height = astra_get_option( 'body-line-height', 1.85714285714286 );
 			$theme_btn_line_height      = astra_get_option( 'theme-btn-line-height', $theme_btn_body_line_height );
 			return $theme_btn_line_height;
@@ -157,14 +190,32 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Letter Spacing
 		 */
 		function button_letter_spacing() {
+			return '';
+		}
+
+		/**
+		 * Default type : Button Letter Spacing
+		 *
+		 * @since x.x.x
+		 */
+		function default_type_button_letter_spacing() {
 			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
-			return astra_get_css_value( $theme_btn_letter_spacing, 'px' );
+			return $theme_btn_letter_spacing;
 		}
 
 		/**
 		 * Button Text Transform
 		 */
 		function button_text_transform() {
+			return '';
+		}
+
+		/**
+		 * Default type : Button Text Transform
+		 *
+		 * @since x.x.x
+		 */
+		function default_type_button_text_transform() {
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
 			return $theme_btn_text_transform;
 		}
@@ -173,6 +224,21 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Text Color
 		 */
 		function button_text_color() {
+			$theme_color = astra_get_option( 'theme-color' );
+			$link_color  = astra_get_option( 'link-color', $theme_color );
+			$color       = astra_get_option( 'button-color' );
+			if ( empty( $color ) ) {
+				$color = astra_get_foreground_color( $link_color );
+			}
+			return $color;
+		}
+
+		/**
+		 * Default type : Button Text Color
+		 *
+		 * @since x.x.x
+		 */
+		function default_type_button_text_color() {
 			$theme_color    = astra_get_option( 'theme-color' );
 			$btn_text_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_text_color ) ) {
@@ -196,9 +262,33 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		}
 
 		/**
+		 * Default type : Button Text Hover Color
+		 *
+		 * @since x.x.x
+		 */
+		function default_type_button_text_hover_color() {
+			$link_hover_color     = astra_get_option( 'link-h-color' );
+			$btn_text_hover_color = astra_get_option( 'button-h-color' );
+			if ( empty( $btn_text_hover_color ) ) {
+				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
+			}
+
+			return $btn_text_hover_color;
+		}
+
+		/**
 		 * Button Background Color
 		 */
 		function button_bg_color() {
+			return astra_get_option( 'button-bg-color' );
+		}
+
+		/**
+		 * Default type : Button Background Color
+		 *
+		 * @since x.x.x
+		 */
+		function default_type_button_bg_color() {
 			$theme_color  = astra_get_option( 'theme-color' );
 			$btn_bg_color = astra_get_option( 'button-bg-color', $theme_color );
 			return $btn_bg_color;
@@ -208,6 +298,15 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Background Color
 		 */
 		function button_bg_hover_color() {
+			return astra_get_option( 'button-bg-h-color' );
+		}
+
+		/**
+		 * Default type : Button Background Color
+		 *
+		 * @since x.x.x
+		 */
+		function default_type_button_bg_hover_color() {
 			$link_hover_color   = astra_get_option( 'link-h-color' );
 			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 			return $btn_bg_hover_color;
@@ -225,44 +324,23 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Padding
 		 */
 		function button_padding() {
-
 			$padding   = '';
 			$v_padding = astra_get_option( 'button-v-padding' );
 			$h_padding = astra_get_option( 'button-h-padding' );
-
 			if ( '' != $v_padding && '' != $h_padding ) {
 				$padding = $v_padding . 'px ' . $h_padding . 'px';
 			}
-
 			return $padding;
 		}
 
 		/**
-		 * Button Padding
+		 * Default type : Button Padding
+		 *
+		 * @since x.x.x
 		 */
-		function button_vertical_padding() {
+		function default_type_button_padding() {
 
-			$padding   = '';
-			$v_padding = astra_get_option( 'button-v-padding' );
-
-			if ( '' != $v_padding ) {
-				$padding = $v_padding;
-			}
-
-			return $padding;
-		}
-
-		/**
-		 * Button Padding
-		 */
-		function button_horizontal_padding() {
-
-			$padding   = '';
-			$h_padding = astra_get_option( 'button-h-padding' );
-
-			if ( '' != $h_padding ) {
-				$padding = $h_padding;
-			}
+			$padding = astra_get_option( 'theme-button-padding' );
 
 			return $padding;
 		}
@@ -304,6 +382,40 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			$get_btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color', $btn_bg_hover_color );
 
 			return $get_btn_border_h_color;
+		}
+
+		/**
+		 * Button Vertical Padding.
+		 *
+		 * @deprecated x.x.x
+		 */
+		function button_vertical_padding() {
+
+			$padding   = '';
+			$v_padding = astra_get_option( 'button-v-padding' );
+
+			if ( '' != $v_padding ) {
+				$padding = $v_padding;
+			}
+
+			return $padding;
+		}
+
+		/**
+		 * Button Horizontal Padding.
+		 *
+		 * @deprecated x.x.x
+		 */
+		function button_horizontal_padding() {
+
+			$padding   = '';
+			$h_padding = astra_get_option( 'button-h-padding' );
+
+			if ( '' != $h_padding ) {
+				$padding = $h_padding;
+			}
+
+			return $padding;
 		}
 
 	}
