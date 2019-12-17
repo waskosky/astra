@@ -230,7 +230,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 					'font-weight' => 'normal',
 				),
-				'.editor-block-list__block' => array(
+				'.editor-block-list__block'               => array(
 					'color' => esc_attr( $text_color ),
 				),
 				/**
