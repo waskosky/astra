@@ -1551,7 +1551,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Check backwards compatibility to not load default CSS for the button styling of Page Builders.
 		 *
-		 * @since 2.1.4
+		 * @since x.x.x
 		 * @return boolean true if button style CSS should be loaded, False if not.
 		 */
 		public static function page_builder_button_style_css() {
