@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 2.1.4
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,12 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Initialization
  *
- * @since 2.1.4
+ * @since x.x.x
  */
 class Astra_Heading_Colors_Loader {
 
 	/**
-	 *  Constructor
+	 * Constructor
+	 *
+	 * @since x.x.x
 	 */
 	public function __construct() {
 
@@ -35,7 +37,7 @@ class Astra_Heading_Colors_Loader {
 	/**
 	 * Enqueue google fonts.
 	 *
-	 * @return void
+	 * @since x.x.x
 	 */
 	public function add_fonts() {
 
@@ -62,7 +64,7 @@ class Astra_Heading_Colors_Loader {
 	 * @param  array $defaults  Astra options default value array.
 	 * @return array
 	 *
-	 * @since 2.1.4
+	 * @since x.x.x
 	 */
 	function theme_defaults( $defaults ) {
 
@@ -108,6 +110,9 @@ class Astra_Heading_Colors_Loader {
 			'mobile-unit'  => 'px',
 		);
 		$defaults['text-transform-button'] = '';
+		/**
+		 * Check backward compatibility for button line height.
+		 */
 		if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
 			$defaults['theme-btn-line-height'] = 1;
 		} else {
@@ -123,7 +128,7 @@ class Astra_Heading_Colors_Loader {
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 *
-	 * @since 2.1.4
+	 * @since x.x.x
 	 */
 	function customize_register( $wp_customize ) {
 
@@ -135,6 +140,8 @@ class Astra_Heading_Colors_Loader {
 
 	/**
 	 * Customizer Preview
+	 *
+	 * @since x.x.x
 	 */
 	function preview_scripts() {
 		/**

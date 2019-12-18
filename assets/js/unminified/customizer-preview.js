@@ -431,7 +431,7 @@ function astra_generate_outside_font_family_css( control, selector ) {
 }
 
 /*
-* Generate Font Family CSS
+* Generate Font Weight CSS
 */
 function astra_generate_font_weight_css( font_control, control, css_property, selector ) {
 	wp.customize( control, function( value ) {
