@@ -29,8 +29,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.1.3' => array(
+			'2.1.3'   => array(
 				'astra_submenu_below_header',
+			),
+			'2.1.4.1' => array(
+				'astra_page_builder_button_color_compatibility',
+				'astra_vertical_horizontal_padding_migration',
 			),
 		);
 
