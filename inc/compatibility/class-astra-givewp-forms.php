@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Givewp_Forms' ) ) :
 					'background-color'    => esc_attr( $btn_bg_color ),
 					'font-family'         => astra_get_font_family( $theme_btn_font_family ),
 					'font-weight'         => esc_attr( $theme_btn_font_weight ),
-					'line-height'         => 'inherit',
+					'line-height'         => empty( $theme_btn_line_height ) ? 'inherit' : esc_attr( $theme_btn_line_height ),
 					'text-transform'      => esc_attr( $theme_btn_text_transform ),
 					'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
@@ -126,9 +126,8 @@ if ( ! class_exists( 'Astra_Givewp_Forms' ) ) :
 				),
 
 				'body #give-recurring-form, body form.give-form, body form[id*=give-form]' => array(
-					'margin'        => 'inherit',
+					'margin' => 'inherit',
 				),
-
 
 			);
 
