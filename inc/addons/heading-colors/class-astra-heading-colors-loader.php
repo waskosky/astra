@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 2.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Initialization
  *
- * @since x.x.x
+ * @since 2.2.0
  */
 class Astra_Heading_Colors_Loader {
 
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 */
 	public function __construct() {
 
@@ -37,7 +37,7 @@ class Astra_Heading_Colors_Loader {
 	/**
 	 * Enqueue google fonts.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 */
 	public function add_fonts() {
 
@@ -64,7 +64,7 @@ class Astra_Heading_Colors_Loader {
 	 * @param  array $defaults  Astra options default value array.
 	 * @return array
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 */
 	function theme_defaults( $defaults ) {
 
@@ -128,7 +128,7 @@ class Astra_Heading_Colors_Loader {
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 */
 	function customize_register( $wp_customize ) {
 
@@ -141,7 +141,7 @@ class Astra_Heading_Colors_Loader {
 	/**
 	 * Customizer Preview
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 */
 	function preview_scripts() {
 		/**

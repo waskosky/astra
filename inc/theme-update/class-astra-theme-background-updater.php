@@ -123,7 +123,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Is the DB updated?
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 * @return boolean
 		 */
 		private function is_db_updated() {
