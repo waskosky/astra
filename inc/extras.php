@@ -811,10 +811,12 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$items_wrap .= astra_attr(
 				'site-navigation',
 				array(
-					'id' => 'site-navigation',
+					'id'         => 'site-navigation',
+					'class'      => 'ast-flex-grow-1 navigation-accessibility',
+					'aria-label' => esc_attr( 'Site Navigation', 'astra' ),
 				)
 			);
-			$items_wrap .= ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap .= '>';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
