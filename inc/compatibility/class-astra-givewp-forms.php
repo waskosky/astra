@@ -43,7 +43,9 @@ if ( ! class_exists( 'Astra_Givewp_Forms' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_dynamic_theme_css', array( $this, 'add_dynamic_styles' ) );
+			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
+				add_filter( 'astra_dynamic_theme_css', array( $this, 'add_dynamic_styles' ) );
+			}
 		}
 
 		/**
