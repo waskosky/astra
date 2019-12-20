@@ -29,8 +29,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.1.3' => array(
+			'2.1.3'   => array(
 				'astra_submenu_below_header',
+			),
+			'2.1.4.1' => array(
+				'astra_page_builder_button_color_compatibility',
+				'astra_vertical_horizontal_padding_migration',
 			),
 		);
 
@@ -70,11 +74,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
-
-			if ( $this->needs_db_update() && ! $is_queue_running ) {
+			if ( ( $this->needs_db_update() && ! $is_queue_running ) || ! $this->is_db_updated() ) {
+				error_log( 'Astra: Running update() function!' );
 				$this->update();
 			} else {
-				if ( ! $is_queue_running ) {
+				if ( ! $is_queue_running || ! $this->is_db_updated() ) {
+					error_log( 'Astra: Running update_db_version() function!' );
 					self::update_db_version();
 				}
 			}
@@ -116,6 +121,18 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
+		 * Is the DB updated?
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		private function is_db_updated() {
+			$current_theme_version = astra_get_option( 'theme-auto-version', null );
+
+			return version_compare( $current_theme_version, ASTRA_THEME_VERSION, '=' );
+		}
+
+		/**
 		 * Get list of DB update callbacks.
 		 *
 		 * @since 2.1.3
@@ -131,20 +148,22 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
 
-			error_log( 'Batch Process Started!' );
-			foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
-				if ( version_compare( $current_db_version, $version, '<' ) ) {
-					foreach ( $update_callbacks as $update_callback ) {
-						error_log( sprintf( 'Queuing %s - %s', $version, $update_callback ) );
-
-						self::$background_updater->push_to_queue( $update_callback );
+			error_log( 'Astra: Batch Process Started!' );
+			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
+				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
+					if ( version_compare( $current_db_version, $version, '<' ) ) {
+						foreach ( $update_callbacks as $update_callback ) {
+							error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) );
+							self::$background_updater->push_to_queue( $update_callback );
+						}
 					}
 				}
+				astra_update_option( 'is_theme_queue_running', true );
+
+				self::$background_updater->push_to_queue( 'update_db_version' );
+			} else {
+				self::$background_updater->push_to_queue( 'update_db_version' );
 			}
-
-			astra_update_option( 'is_theme_queue_running', true );
-
-			self::$background_updater->push_to_queue( 'update_db_version' );
 			self::$background_updater->save()->dispatch();
 		}
 
