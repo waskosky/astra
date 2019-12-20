@@ -223,7 +223,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'ast-responsive-spacing',
 					'section'        => 'section-buttons',
-					'title'          => __( 'Padding', 'astra-addon' ),
+					'title'          => __( 'Padding', 'astra' ),
 					'linked_choices' => true,
 					'transport'      => 'postMessage',
 					'unit_choices'   => array( 'px', 'em', '%' ),
