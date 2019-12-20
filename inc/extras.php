@@ -1607,6 +1607,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	 */
 	function astra_replace_header_attr( $attr, $attachment, $size ) {
 
+		if ( ! isset( $attachment ) ) {
+			return $attr;
+		}
+
 		$custom_logo_id     = get_theme_mod( 'custom_logo' );
 		$is_logo_attachment = ( $custom_logo_id == $attachment->ID ) ? true : false;
 
