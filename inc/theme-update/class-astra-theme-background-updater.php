@@ -211,7 +211,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			// Update auto saved version number.
 			astra_update_option( 'theme-auto-version', $theme_version );
 
-			error_log( 'Astra: Running db version updated successfully!' );
+			error_log( 'Astra: db version updated successfully!' );
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
