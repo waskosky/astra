@@ -598,92 +598,42 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css = astra_parse_css( $css_output );
 
 			/**
-			 * Global button CSS - Desktop.
-			 */
-			$global_button_desktop = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'border-style'        => 'solid',
-					'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '1px',
-					'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '1px',
-					'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '1px',
-					'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '1px',
-					'color'               => esc_attr( $btn_text_color ),
-					'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
-					'background-color'    => esc_attr( $btn_bg_color ),
-					'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
-					'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
-					'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
-					'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
-					'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
-					'font-family'         => astra_get_font_family( $theme_btn_font_family ),
-					'font-weight'         => esc_attr( $theme_btn_font_weight ),
-					'font-size'           => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
-					'line-height'         => esc_attr( $theme_btn_line_height ),
-					'text-transform'      => esc_attr( $theme_btn_text_transform ),
-					'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
-				),
-				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
-					'color'            => esc_attr( $btn_text_hover_color ),
-					'background-color' => esc_attr( $btn_bg_hover_color ),
-					'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-
-				),
-			);
-
-			/* Parse CSS from array() */
-			$parse_css .= astra_parse_css( $global_button_desktop );
-
-			$global_button_tablet = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
-				),
-			);
-
-			/* Parse CSS from array() */
-			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
-
-			$global_button_mobile = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
-				),
-			);
-
-			/* Parse CSS from array() */
-			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
-			/**
-			 * Global button CSS - Tablet.
-			 */
-			$global_button_tablet = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
-					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
-					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
-					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
-					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
-				),
-			);
-
-			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
-
-			/**
-			 * Global button CSS - Mobile.
-			 */
-			$global_button_mobile = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
-					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
-					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
-					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
-					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
-				),
-			);
-
-			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
-
-			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
 			if ( self::page_builder_button_style_css() ) {
+
+				/**
+				 * Global button CSS - Desktop.
+				 */
+				$global_button_desktop = array(
+					'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+						'border-style'        => 'solid',
+						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0px',
+						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0px',
+						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0px',
+						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0px',
+						'color'               => esc_attr( $btn_text_color ),
+						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+						'background-color'    => esc_attr( $btn_bg_color ),
+						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
+						'font-weight'         => esc_attr( $theme_btn_font_weight ),
+						'font-size'           => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
+						'line-height'         => esc_attr( $theme_btn_line_height ),
+						'text-transform'      => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+					),
+					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+						'color'            => esc_attr( $btn_text_hover_color ),
+						'background-color' => esc_attr( $btn_bg_hover_color ),
+						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
+
+					),
+				);
 
 				$global_button_page_builder_desktop = array(
 					'.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited, .wp-block-button .wp-block-button__link' => array(
@@ -763,7 +713,86 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				/* Parse CSS from array() */
 				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', '544' );
+			} else {
+
+				/**
+				 * Global button CSS - Desktop.
+				 */
+				$global_button_desktop = array(
+					'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+						'color'            => esc_attr( $btn_text_color ),
+						'border-color'     => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+						'background-color' => esc_attr( $btn_bg_color ),
+						'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding-top'      => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'    => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom'   => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'     => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+						'font-family'      => astra_get_font_family( $theme_btn_font_family ),
+						'font-weight'      => esc_attr( $theme_btn_font_weight ),
+						'font-size'        => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
+						'line-height'      => esc_attr( $theme_btn_line_height ),
+						'text-transform'   => esc_attr( $theme_btn_text_transform ),
+						'letter-spacing'   => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+					),
+					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+						'color'            => esc_attr( $btn_text_hover_color ),
+						'background-color' => esc_attr( $btn_bg_hover_color ),
+						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
+
+					),
+				);
 			}
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_desktop );
+
+			$global_button_tablet = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+
+			$global_button_mobile = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
+			/**
+			 * Global button CSS - Tablet.
+			 */
+			$global_button_tablet = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+				),
+			);
+
+			$parse_css .= astra_parse_css( $global_button_tablet, '', '768' );
+
+			/**
+			 * Global button CSS - Mobile.
+			 */
+			$global_button_mobile = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+					'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+				),
+			);
+
+			$parse_css .= astra_parse_css( $global_button_mobile, '', '544' );
 
 			if ( 'custom-button' === $header_custom_button_style ) {
 				$css_output = array(
