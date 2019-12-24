@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.1.3'   => array(
 				'astra_submenu_below_header',
 			),
-			'2.1.4.1' => array(
+			'2.2.0' => array(
 				'astra_page_builder_button_color_compatibility',
 				'astra_vertical_horizontal_padding_migration',
 				'astra_default_button_line_height',
