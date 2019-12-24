@@ -1856,6 +1856,25 @@ function astra_filter_socialsnap_upgrade_link( $link ) {
 add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
 
 /**
+ * Update GiveWP's "Add-ons" link.
+ *
+ * This allows affiliates to change the link according to their needs.
+ */
+function astra_givewp_upgrade_link() {
+	$menu_slug = 'edit.php?post_type=give_forms';
+
+	// Remove existing page.
+	remove_submenu_page( $menu_slug, 'give-addons' );
+
+	// Add affiliate link to GiveWP.com.
+	global $submenu;
+
+	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' );
+}
+
+add_action( 'admin_menu', 'astra_givewp_upgrade_link', 9999999 );
+
+/**
  * Get instance of WP_Filesystem.
  *
  * @since 2.1.0
