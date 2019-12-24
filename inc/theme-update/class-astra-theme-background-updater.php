@@ -29,7 +29,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.1.3'   => array(
+			'2.1.3' => array(
 				'astra_submenu_below_header',
 			),
 			'2.2.0' => array(
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * This function is hooked into admin_init to affect admin and wp to affect the frontend.
 		 */
 		public function install_actions() {
-
+			error_log( 'EMINEM EMINEM EMINEM EMINEM EMINEM' );
 			do_action( 'astra_update_initiated', self::$background_updater );
 
 			if ( true === $this->is_new_install() ) {
