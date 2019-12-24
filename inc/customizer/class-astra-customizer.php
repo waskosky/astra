@@ -707,6 +707,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
+			wp_enqueue_style( 'wp-color-picker' );
 
 			// Customizer Core.
 			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
