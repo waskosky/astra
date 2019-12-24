@@ -146,17 +146,6 @@
 				'font-size': '11px'
 			});
 
-			self.toggler.find( '.wp-color-result-text' ).css({
-				'background': '#f7f7f7',
-				'border-radius': '0 2px 2px 0',
-				'border-left': '1px solid #ccc',
-				'color': '#555',
-				'display': 'block',
-				'line-height': '22px',
-				'padding': '0 6px',
-				'text-align': 'center'
-			});
-
 			el.iris( {
 				target: self.pickerContainer,
 				hide: self.options.hide,
@@ -187,7 +176,7 @@
 						}
 						self.toggler.find( 'span.color-alpha' ).css( {
 							'width'                     : '30px',
-							'height'                    : '22px',
+							'height'                    : '28px',
 							'position'                  : 'absolute',
 							'top'                       : 0,
 							'left'                      : 0,

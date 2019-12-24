@@ -169,7 +169,8 @@
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
-  margin-left: 6px;
+  min-height: 30px;
+  margin-left: 3px;
 }
 
 /* Buttons */

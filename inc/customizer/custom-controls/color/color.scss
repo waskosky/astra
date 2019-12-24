@@ -1,12 +1,10 @@
 .customize-control-ast-color {
   .wp-color-result span {
     background: #f7f7f7;
-    &.color-alpha {
-      height: 22px !important;
-    }
   }
   .wp-picker-clear {
-    margin-left: 2%;
+    min-height: 30px !important;
+    margin-left: 3px;
   }
 }
 
