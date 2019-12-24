@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * This function is hooked into admin_init to affect admin and wp to affect the frontend.
 		 */
 		public function install_actions() {
-			error_log( 'EMINEM EMINEM EMINEM EMINEM EMINEM' );
+
 			do_action( 'astra_update_initiated', self::$background_updater );
 
 			if ( true === $this->is_new_install() ) {
