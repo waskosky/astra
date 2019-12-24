@@ -87,3 +87,21 @@ function astra_vertical_horizontal_padding_migration() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * Set new option button line height depeding on the users ( existing / new ).
+ *
+ * @since 2.2.0
+ *
+ * @return void
+ */
+function astra_default_button_line_height() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! Astra_Dynamic_CSS::page_builder_button_style_css() ) {
+		$theme_options['theme-btn-line-height'] = 1.85714285714286;
+		update_option( 'astra-settings', $theme_options );
+		error_log( 'Astra: Set theme-btn-line-height = 1.85714285714286' );
+	}
+}

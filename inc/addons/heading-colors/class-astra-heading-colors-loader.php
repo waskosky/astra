@@ -113,11 +113,7 @@ class Astra_Heading_Colors_Loader {
 		/**
 		 * Check backward compatibility for button line height.
 		 */
-		if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
-			$defaults['theme-btn-line-height'] = 1;
-		} else {
-			$defaults['theme-btn-line-height'] = 1.85714285714286;
-		}
+		$defaults['theme-btn-line-height']    = 1;
 		$defaults['theme-btn-letter-spacing'] = '';
 
 		return $defaults;
