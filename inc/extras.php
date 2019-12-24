@@ -1862,9 +1862,9 @@ add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
  */
 function astra_givewp_upgrade_link() {
 	$menu_slug = 'edit.php?post_type=give_forms';
-	// Remove existing page
+	// Remove existing page.
 	remove_submenu_page( $menu_slug, 'give-addons' );
-	// Add affiliate link to GiveWP.com
+	// Add affiliate link to GiveWP.com.
 	global $submenu;
 	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' );
 }
