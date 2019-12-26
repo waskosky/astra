@@ -186,7 +186,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'   => 'ast-heading',
 					'section'   => 'section-content-typo',
 					'priority'  => 3,
-					'title'     => __( 'Headings', 'astra' ),
+					'title'     => __( 'Headings ( H1 - H6 )', 'astra' ),
 					'settings'  => array(),
 					'separator' => false,
 				),
