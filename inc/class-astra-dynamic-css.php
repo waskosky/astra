@@ -731,7 +731,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-family'      => astra_get_font_family( $theme_btn_font_family ),
 						'font-weight'      => esc_attr( $theme_btn_font_weight ),
 						'font-size'        => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
-						'line-height'      => esc_attr( $theme_btn_line_height ),
 						'text-transform'   => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'   => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
