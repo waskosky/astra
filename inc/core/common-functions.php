@@ -245,13 +245,19 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 					$css_val = $value;
 				} elseif ( '' != $default ) {
 					$css_val = $default;
+				} else {
+					$css_val = '';
 				}
 				break;
 
 			case 'px':
 			case '%':
-						$value   = ( '' != $value ) ? $value : $default;
-						$css_val = esc_attr( $value ) . $unit;
+				if ( 'inherit' === strtolower( $value ) || 'inherit' === strtolower( $default ) ) {
+					return $value;
+				}
+
+				$value   = ( '' != $value ) ? $value : $default;
+				$css_val = esc_attr( $value ) . $unit;
 				break;
 
 			case 'url':
@@ -259,6 +265,9 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				break;
 
 			case 'rem':
+				if ( 'inherit' === strtolower( $value ) || 'inherit' === strtolower( $default ) ) {
+					return $value;
+				}
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = astra_get_option( 'font-size-body' );
@@ -1132,7 +1141,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
 				<input type="search" class="search-field" ' . apply_filters( 'astra_search_field_toggle_data_attrs', '' ) . ' placeholder="' . apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
 			</label>
-			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"><i class="astra-search-icon"></i></button>
+			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"  aria-label="search submit"><i class="astra-search-icon"></i></button>
 		</form>';
 
 		/**
@@ -1176,9 +1185,10 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	 * @param  string $side  top | bottom | left | right.
 	 * @param  string $device  CSS device.
 	 * @param  string $default Default value.
+	 * @param  string $prefix Prefix value.
 	 * @return mixed
 	 */
-	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
+	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '', $prefix = '' ) {
 
 		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
 			$spacing = astra_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
@@ -1188,6 +1198,9 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 			$spacing = ( ! is_array( $option ) ) ? $option : '';
 		}
 
+		if ( '' !== $prefix && '' !== $spacing ) {
+			return $prefix . $spacing;
+		}
 		return $spacing;
 	}
 }

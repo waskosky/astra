@@ -1975,6 +1975,77 @@ input[type="submit"]:focus {
   font-family: "Open Sans", sans-serif;
 }
 
+/* Default Astra Icons CSS */
+.astra-icon-down_arrow::after {
+  content: "\e900";
+  font-family: Astra;
+}
+
+.astra-icon-close::after {
+  content: "\e5cd";
+  font-family: Astra;
+}
+
+.astra-icon-drag_handle::after {
+  content: "\e25d";
+  font-family: Astra;
+}
+
+.astra-icon-format_align_justify::after {
+  content: "\e235";
+  font-family: Astra;
+}
+
+.astra-icon-menu::after {
+  content: "\e5d2";
+  font-family: Astra;
+}
+
+.astra-icon-reorder::after {
+  content: "\e8fe";
+  font-family: Astra;
+}
+
+.astra-icon-search::after {
+  content: "\e8b6";
+  font-family: Astra;
+}
+
+.astra-icon-zoom_in::after {
+  content: "\e56b";
+  font-family: Astra;
+}
+
+.astra-icon-check-circle::after {
+  content: "\e901";
+  font-family: Astra;
+}
+
+.astra-icon-shopping-cart::after {
+  content: "\f07a";
+  font-family: Astra;
+}
+
+.astra-icon-shopping-bag::after {
+  content: "\f290";
+  font-family: Astra;
+}
+
+.astra-icon-shopping-basket::after {
+  content: "\f291";
+  font-family: Astra;
+}
+
+.astra-icon-circle-o::after {
+  content: "\e903";
+  font-family: Astra;
+}
+
+.astra-icon-certificate::after {
+  content: "\e902";
+  font-family: Astra;
+}
+
 select,
 input {
   line-height: 1;
@@ -2101,7 +2172,7 @@ body .ast-oembed-container * {
 }
 
 /*----------  Basic Layout  ----------*/
-.ast-hidden {
+.hidden {
   display: none !important;
 }
 
@@ -2793,7 +2864,7 @@ body {
 }
 
 .header-main-layout-1 .main-header-container {
-  align-items: center;
+  align-items: stretch;
 }
 
 /**
@@ -2856,7 +2927,7 @@ body {
 
 .header-main-layout-3 .main-header-container {
   flex-direction: row-reverse;
-  align-items: center;
+  align-items: stretch;
 }
 
 .header-main-layout-3 .main-navigation {
@@ -3079,10 +3150,6 @@ body {
   background-color: #fff;
   border-bottom-color: #eaeaea;
   border-bottom-style: solid;
-}
-
-.main-header-bar {
-  transition: all 0.2s linear;
 }
 
 /**
@@ -3936,7 +4003,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.wp-block-gallery {
+.wp-block-gallery,
+.blocks-gallery-grid {
   margin: 0;
 }
 
@@ -3998,6 +4066,11 @@ body .entry-content .wp-block-latest-posts li {
   border-top: 4px solid #555d66;
   border-bottom: 4px solid #555d66;
   color: #40464d;
+}
+
+.ast-page-builder-template.ast-no-sidebar .entry-content .alignwide {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /*----------  Secondary  ----------*/
