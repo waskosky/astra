@@ -203,7 +203,7 @@
 }
 
 .customize-control-ast-color .wp-color-result span.color-alpha {
-  height: 22px !important;
+  height: 28px !important;
 }
 
 .customize-control-ast-color .wp-picker-clear {
@@ -758,6 +758,10 @@ input[type="text"].select2-search__field {
 
 .wp-picker-container.wp-picker-active .wp-picker-open {
   margin: 0px 0px 6px 3px;
+}
+
+.customize-control-ast-responsive-background .wp-picker-container {
+  display: block;
 }
 
 .customize-control-ast-responsive-slider .wrapper {
