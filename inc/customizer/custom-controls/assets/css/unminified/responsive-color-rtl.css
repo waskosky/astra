@@ -21,3 +21,7 @@
 .wp-picker-container.wp-picker-active .wp-picker-open {
   margin: 0px 0px 6px 3px;
 }
+
+.customize-control-ast-responsive-background .wp-picker-container {
+  display: block;
+}

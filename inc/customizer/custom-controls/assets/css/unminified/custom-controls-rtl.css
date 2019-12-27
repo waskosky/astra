@@ -1930,6 +1930,10 @@ input[type="text"].select2-search__field {
   margin: 0px 0px 6px 3px;
 }
 
+.customize-control-ast-responsive-background .wp-picker-container {
+  display: block;
+}
+
 .ast-responsive-btns {
   display: inline-block;
   float: left;

@@ -138,7 +138,7 @@
 	border-radius: 0;
 }
 
-.customize-control .wp-picker-container button,
+.customize-control .wp-picker-container .wp-color-result.button,
 .customize-control .wp-picker-container .wp-color-picker {
 	min-height: 24px;
 }

@@ -529,6 +529,10 @@ input[type="text"].select2-search__field {
   margin: 0px 3px 6px 0px;
 }
 
+.customize-control-ast-responsive-background .wp-picker-container {
+  display: block;
+}
+
 .customize-control-ast-responsive-slider .wrapper {
   position: relative;
   height: 100%;
