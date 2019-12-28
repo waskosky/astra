@@ -184,7 +184,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-link]',
 					'default'  => astra_get_option( 'header-main-rt-section-button-link' ),
 					'type'     => 'control',
-					'control'  => 'text',
+					'control'  => 'ast-link',
 					'section'  => 'section-primary-menu',
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority' => 10,
