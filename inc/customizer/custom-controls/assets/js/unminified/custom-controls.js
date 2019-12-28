@@ -373,11 +373,9 @@
 			value;
 			
             console.log( 'here' );
-			// Set the link container.
-			// this.container = control.container.find( 'ul.ast-border-wrapper' ).first();
 
 			// Save the value.
-			this.container.on( 'change keyup paste', 'input.ast-border-input', function() {
+			this.container.on( 'change keyup paste', 'input.ast-link-input', function() {
 
 				value = jQuery( this ).val();
 
