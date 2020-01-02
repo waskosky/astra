@@ -97,7 +97,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Text Header Site Title & Tagline
 		 *
-		 * @since x.x.x
+		 * @since 2.2.0
 		 *
 		 * @return mixed
 		 */

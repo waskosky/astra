@@ -30,7 +30,7 @@ function astra_submenu_below_header() {
 /**
  * Do not apply new default colors to the Elementor & Gutenberg Buttons for existing users.
  *
- * @since x.x.x
+ * @since 2.2.0
  *
  * @return void
  */
@@ -47,7 +47,7 @@ function astra_page_builder_button_color_compatibility() {
 /**
  * Migrate option data from button vertical & horizontal padding to the new responsive padding param.
  *
- * @since x.x.x
+ * @since 2.2.0
  *
  * @return void
  */

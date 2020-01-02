@@ -209,7 +209,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 /**
  * Return or echo site logo markup.
  *
- * @since x.x.x
+ * @since 2.2.0
  * @param boolean $display_site_title Site title enable or not.
  * @param boolean $display_site_tagline Site tagline enable or not.
  *
@@ -811,10 +811,12 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$items_wrap .= astra_attr(
 				'site-navigation',
 				array(
-					'id' => 'site-navigation',
+					'id'         => 'site-navigation',
+					'class'      => 'ast-flex-grow-1 navigation-accessibility',
+					'aria-label' => esc_attr( 'Site Navigation', 'astra' ),
 				)
 			);
-			$items_wrap .= ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap .= '>';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -1852,6 +1854,25 @@ function astra_filter_socialsnap_upgrade_link( $link ) {
 }
 
 add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
+
+/**
+ * Update GiveWP's "Add-ons" link.
+ *
+ * This allows affiliates to change the link according to their needs.
+ */
+function astra_givewp_upgrade_link() {
+	$menu_slug = 'edit.php?post_type=give_forms';
+
+	// Remove existing page.
+	remove_submenu_page( $menu_slug, 'give-addons' );
+
+	// Add affiliate link to GiveWP.com.
+	global $submenu;
+
+	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' );
+}
+
+add_action( 'admin_menu', 'astra_givewp_upgrade_link', 9999999 );
 
 /**
  * Get instance of WP_Filesystem.
