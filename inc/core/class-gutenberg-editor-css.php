@@ -462,7 +462,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			$css .= astra_parse_css( $mobile_css, '', astra_get_tablet_breakpoint() );
+			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
 			if ( 'page-builder' === $container_layout ) {
 				$page_builder_css = array(
