@@ -184,7 +184,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-button',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_button_text' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_main_rt_section_button_text' ),
 					),
 					'title'     => __( 'Button Text', 'astra' ),
 				),
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_html' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_main_rt_section_html' ),
 					),
 					'title'     => __( 'Custom Menu Text / HTML', 'astra' ),
 				),

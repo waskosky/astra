@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-1',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_1_credit' ),
 					),
 				),
 
@@ -154,18 +154,19 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				 * Option: Section 2 Custom Text
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]',
-					'type'     => 'control',
-					'control'  => 'textarea',
-					'default'  => astra_get_option( 'footer-sml-section-2-credit' ),
-					'section'  => 'section-footer-small',
-					'priority' => 30,
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', '==', 'custom' ),
-					'title'    => __( 'Section 2 Custom Text', 'astra' ),
-					'partials' => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]',
+					'type'      => 'control',
+					'control'   => 'textarea',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'footer-sml-section-2-credit' ),
+					'section'   => 'section-footer-small',
+					'priority'  => 30,
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', '==', 'custom' ),
+					'title'     => __( 'Section 2 Custom Text', 'astra' ),
+					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-2',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
+						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_footer_sml_section_2_credit' ),
 					),
 					'partial'  => array(
 						'selector'            => '.ast-small-footer .ast-container .ast-small-footer-section.ast-small-footer-section-2',
