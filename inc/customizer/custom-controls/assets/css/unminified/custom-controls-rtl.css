@@ -1352,7 +1352,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
-  margin-right: 6px;
+  margin-right: 3px;
+  min-height: 30px !important;
 }
 
 /* Buttons */
