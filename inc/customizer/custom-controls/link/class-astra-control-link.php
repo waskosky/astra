@@ -65,29 +65,25 @@ class Astra_Control_Link extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<#
-		var name = data.settings.default;
-		name = name.replace( '[', '-' );
-		name = name.replace( ']', '' );
-		#>
 		<# if ( data.label ) { #>
 			<label>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			</label>
 		<# } console.log( data ); #>
-		<div class="customize-control-content">
-			<input type="text" class="ast-link-input" data-name="{{data.name}}" value="{{data.value.url}}" >
-		</div>
-		<div class="customize-control-content">
-			<input type="checkbox" id="ast-link-open-in-new-tab" name="ast-link-open-in-new-tab" checked>
-			<label for="ast-link-open-in-new-tab">Open in a new Tab</label>
-		</div>
-		<div class="customize-control-content">
-			<label>
-				<span class="customize-control-title">Button Link Rel</span>
-			</label>
-			<input type="text" class="ast-link-input" data-name="{{data.name}}" value="{{data.value.link_rel}}" >
-		</div>
+			<div class="customize-control-content">
+				<input type="text" class="ast-link-input" value="{{data.value.url}}" >
+			</div>
+			<div class="customize-control-content ast-link-open-in-new-tab-wrapper">
+				<input type="checkbox" id="ast-link-open-in-new-tab" class="ast-link-open-in-new-tab" name="ast-link-open-in-new-tab" {{ (data.value.new_tab) ? "checked" : ""}}>
+				<label for="ast-link-open-in-new-tab">Open in a new Tab</label>
+			</div>
+			<div class="customize-control-content">
+				<label>
+					<span class="customize-control-title">Button Link Rel</span>
+				</label>
+				<input type="text" class="ast-link-relationship" value="{{data.value.link_rel}}" >
+			</div>
+			<input type="hidden" class="customize-link-control-data" data-name="{{data.settings.default}}" data-value="{{ JSON.stringify( data.value ) }}">
 		<?php
 	}
 }
