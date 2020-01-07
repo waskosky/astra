@@ -74,11 +74,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
-			if ( ( $this->needs_db_update() && ! $is_queue_running ) || ! $this->is_db_updated() ) {
-				error_log( 'Astra: Running update() function!' );
+			if ( ( $this->needs_db_update() && ! $is_queue_running ) ) {
 				$this->update();
 			} else {
-				if ( ! $is_queue_running || ! $this->is_db_updated() ) {
+				if ( ! $is_queue_running ) {
 					self::update_db_version();
 				}
 			}
