@@ -3,7 +3,8 @@
 }
 
 .customize-control-ast-background .wp-picker-clear {
-  margin-right: 2%;
+  margin-right: 3px;
+  min-height: 30px !important;
 }
 
 .customize-control-ast-background .screen-reader-text {
@@ -207,7 +208,8 @@
 }
 
 .customize-control-ast-color .wp-picker-clear {
-  margin-right: 2%;
+  margin-right: 3px;
+  min-height: 30px !important;
 }
 
 .wp-picker-input-wrap label {
@@ -235,7 +237,8 @@
 }
 
 .customize-control-ast-background .wp-picker-clear {
-  margin-right: 2%;
+  margin-right: 3px;
+  min-height: 30px !important;
 }
 
 .customize-control-ast-background .screen-reader-text {
@@ -435,11 +438,12 @@
 }
 
 .customize-control-ast-color .wp-color-result span.color-alpha {
-  height: 22px !important;
+  height: 28px !important;
 }
 
 .customize-control-ast-color .wp-picker-clear {
-  margin-right: 2%;
+  margin-right: 3px;
+  min-height: 30px !important;
 }
 
 .wp-picker-input-wrap label {
@@ -2522,7 +2526,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
-  margin-right: 6px;
+  margin-right: 3px;
+  min-height: 30px !important;
 }
 
 /* Buttons */
