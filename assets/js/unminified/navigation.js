@@ -208,9 +208,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				menu_toggle_all[i].setAttribute('data-index', i);
 
-				if (!menu_click_listeners[menu_toggle_all[i]]) {
+				if ( ! menu_click_listeners[i] ) {
+					menu_click_listeners[i] = menu_toggle_all[i];
 					menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
-					menu_click_listeners[menu_toggle_all[i]] = menu_toggle_all[i];
 				}
 
 				if ('undefined' !== typeof __main_header_all[i]) {
