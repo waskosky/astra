@@ -914,7 +914,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php astra_the_archive_description(); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -928,7 +928,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php astra_the_archive_description(); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -958,7 +958,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php astra_the_archive_description(); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -970,6 +970,17 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 	add_action( 'astra_archive_header', 'astra_archive_page_info' );
 }
 
+/**
+ * Echo the archive description.
+ * 
+ * Provided filter to add opening and closing tag for the archive description.
+ *
+ * @since x.x.x
+ *
+ */
+function astra_the_archive_description() {
+	the_archive_description( apply_filters( 'astra_the_archive_description_open_tag', '' ), apply_filters( 'astra_the_archive_description_close_tag', '' ) );
+}
 
 /**
  * Adjust the HEX color brightness
