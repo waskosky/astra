@@ -102,6 +102,7 @@ function astra_header_button_new_options() {
 	if ( ! is_array( $theme_options['header-main-rt-section-button-link'] ) ) {
 
 		$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
+		error_log( 'Astra: Migrating button url - ' . $btn_url );
 		$theme_options['header-main-rt-section-button-link'] = array(
 			'url'      => $btn_url,
 			'new_tab'  => false,
