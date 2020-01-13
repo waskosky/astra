@@ -65,7 +65,12 @@ class Astra_Control_Link extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<# if ( data.label ) { #>
+		<#
+		var name = data.settings.default;
+		name = name.replace( '[', '-' );
+		name = name.replace( ']', '' );
+
+		if ( data.label ) { #>
 			<label>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			</label>
@@ -83,7 +88,7 @@ class Astra_Control_Link extends WP_Customize_Control {
 				</label>
 				<input type="text" class="ast-link-relationship" value="{{data.value.link_rel}}" >
 			</div>
-			<input type="hidden" class="customize-link-control-data" data-name="{{data.settings.default}}" data-value="{{ JSON.stringify( data.value ) }}">
+		<input type="hidden" id="_customize-input-{{data.settings.default}}" class="customize-link-control-data" name="{{name}}" data-customize-setting-link="{{data.settings.default}}" data-value="{{ JSON.stringify( data.value ) }}">
 		<?php
 	}
 }

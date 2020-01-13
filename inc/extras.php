@@ -451,8 +451,8 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 		$outside_menu   = astra_get_option( 'header-display-outside-menu' );
 		$new_tab        = ( $header_button['new_tab'] ? 'target="_blank"' : 'target="_self"' );
 
-		$link_rel = ( ! empty( $header_button['link_rel'] ) ? 'rel="' . esc_attr( $header_button['link_rel'] ) . '"' : '' );
-		$button_classes = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
+		$link_rel          = ( ! empty( $header_button['link_rel'] ) ? 'rel="' . esc_attr( $header_button['link_rel'] ) . '"' : '' );
+		$button_classes    = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
 		$outside_menu_item = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
 		if ( '1' == $outside_menu_item ) {
