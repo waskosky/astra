@@ -98,13 +98,16 @@ function astra_vertical_horizontal_padding_migration() {
 function astra_header_button_new_options() {
 
 	$theme_options = get_option( 'astra-settings', array() );
-	$btn_url       = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
 
-	$theme_options['header-main-rt-section-button-link'] = array(
-		'url'      => $btn_url,
-		'new_tab'  => false,
-		'link_rel' => '',
-	);
+	if ( ! is_array( $theme_options['header-main-rt-section-button-link'] ) ) {
 
-	update_option( 'astra-settings', $theme_options );
+		$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
+		$theme_options['header-main-rt-section-button-link'] = array(
+			'url'      => $btn_url,
+			'new_tab'  => false,
+			'link_rel' => '',
+		);
+
+		update_option( 'astra-settings', $theme_options );
+	}
 }
