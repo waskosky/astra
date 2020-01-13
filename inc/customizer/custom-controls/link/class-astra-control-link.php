@@ -1,14 +1,14 @@
 <?php
 /**
- * Customizer Control: select.
+ * Customizer Control: link.
  *
- * Creates a select control.
+ * Creates a link control.
  *
  * @package     Astra
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       1.0.0
+ * @since       x.x.x
  */
 
 // Exit if accessed directly.
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Color control (alpha).
+ * Link control.
  */
 class Astra_Control_Link extends WP_Customize_Control {
 
