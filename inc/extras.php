@@ -437,21 +437,22 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 	 *
 	 * @since 1.0.0
 	 * @param  string $button_text Button Text.
-	 * @param  string $button_link Button Link.
+	 * @param  array  $button_options Button Link.
 	 * @param  string $button_style Button Style.
 	 * @return String Button added by user in options panel.
 	 */
-	function astra_get_custom_button( $button_text = '', $button_link = '', $button_style = '' ) {
+	function astra_get_custom_button( $button_text = '', $button_options = '', $button_style = '' ) {
 
 		$custom_html    = '';
 		$button_classes = '';
 		$button_text    = astra_get_option( $button_text );
-		$header_button  = astra_get_option( $button_link );
 		$button_style   = astra_get_option( $button_style );
 		$outside_menu   = astra_get_option( 'header-display-outside-menu' );
-		$new_tab        = ( $header_button['new_tab'] ? 'target="_blank"' : 'target="_self"' );
 
-		$link_rel          = ( ! empty( $header_button['link_rel'] ) ? 'rel="' . esc_attr( $header_button['link_rel'] ) . '"' : '' );
+		$header_button = astra_get_option( $button_options );
+		$new_tab       = ( $header_button['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+		$link_rel      = ( ! empty( $header_button['link_rel'] ) ? 'rel="' . esc_attr( $header_button['link_rel'] ) . '"' : '' );
+
 		$button_classes    = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
 		$outside_menu_item = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
