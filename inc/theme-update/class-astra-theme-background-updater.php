@@ -212,10 +212,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			error_log( 'Astra: db version updated successfully!' );
 
+			astra_update_option( 'is_theme_queue_running', false );
+
 			// Update variables.
 			Astra_Theme_Options::refresh();
-
-			astra_update_option( 'is_theme_queue_running', false );
 
 			do_action( 'astra_theme_update_after' );
 		}
