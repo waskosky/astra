@@ -713,6 +713,51 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				/* Parse CSS from array() */
 				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', '544' );
+
+				/**
+				 * Global button Comment & Search CSS - Desktop.
+				 */
+				$comment_search_button_desktop = array(
+					'.search .search-submit, #comments .submit' => array(
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+						'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css .= astra_parse_css( $comment_search_button_desktop );
+
+				/**
+				 * Global button Comment & Search CSS - Tablet.
+				 */
+				$comment_search_button_tablet = array(
+					'.search .search-submit, #comments .submit' => array(
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+					),
+				);
+
+				$parse_css .= astra_parse_css( $comment_search_button_tablet, '', '768' );
+
+				/**
+				 * Global button Comment & Search CSS - Mobile.
+				 */
+				$comment_search_button_mobile = array(
+					'.search .search-submit, #comments .submit' => array(
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+					),
+				);
+
+				$parse_css .= astra_parse_css( $comment_search_button_mobile, '', '544' );
+
 			} else {
 
 				/**
