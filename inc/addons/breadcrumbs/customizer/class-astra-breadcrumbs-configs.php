@@ -288,7 +288,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			$wpseo_option = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
 			if ( ! is_array( $wpseo_option ) ) {
 
-				$wpseo_option = array( 'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ) );
+				$wpseo_option = array(
+					'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ),
+				);
 			}
 
 			if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] ) {
@@ -318,7 +320,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			$wpseo_option               = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
 			if ( ! is_array( $wpseo_option ) ) {
 
-				$wpseo_option = array( 'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ) );
+				$wpseo_option = array(
+					'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ),
+				);
 			}
 
 			if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] && 'yoast-seo-breadcrumbs' === $selected_breadcrumb_source ) {

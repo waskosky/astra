@@ -102,7 +102,9 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$wpseo_option            = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
 	if ( ! is_array( $wpseo_option ) ) {
 
-		$wpseo_option = array( 'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ) );
+		$wpseo_option = array(
+			'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ),
+		);
 	}
 
 	$css .= astra_parse_css(
