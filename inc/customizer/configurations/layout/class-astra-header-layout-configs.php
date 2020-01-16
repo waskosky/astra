@@ -181,8 +181,8 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 				* Option: Button Link
 				*/
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-link]',
-					'default'  => astra_get_option( 'header-main-rt-section-button-link' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-link-option]',
+					'default'  => astra_get_option( 'header-main-rt-section-button-link-option' ),
 					'type'     => 'control',
 					'control'  => 'ast-link',
 					'section'  => 'section-primary-menu',

@@ -194,7 +194,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-display-outside-menu'         => false,
 					'header-main-rt-section-html'         => '<button>' . __( 'Contact Us', 'astra' ) . '</button>',
 					'header-main-rt-section-button-text'  => __( 'Button', 'astra' ),
-					'header-main-rt-section-button-link'  => array(
+					'header-main-rt-section-button-link'  => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
+					'header-main-rt-section-button-link-option'  => array(
 						'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 						'new_tab'  => false,
 						'link_rel' => '',

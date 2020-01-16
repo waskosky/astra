@@ -99,16 +99,14 @@ function astra_header_button_new_options() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! is_array( $theme_options['header-main-rt-section-button-link'] ) ) {
+	$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
+	error_log( 'Astra: Migrating button url - ' . $btn_url );
+	$theme_options['header-main-rt-section-button-link-option'] = array(
+		'url'      => $btn_url,
+		'new_tab'  => false,
+		'link_rel' => '',
+	);
 
-		$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
-		error_log( 'Astra: Migrating button url - ' . $btn_url );
-		$theme_options['header-main-rt-section-button-link'] = array(
-			'url'      => $btn_url,
-			'new_tab'  => false,
-			'link_rel' => '',
-		);
-
-		update_option( 'astra-settings', $theme_options );
-	}
+	update_option( 'astra-settings', $theme_options );
+	
 }
