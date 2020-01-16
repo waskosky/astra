@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since 2.1.3
  */
@@ -31,6 +31,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		private static $db_updates = array(
 			'2.1.3' => array(
 				'astra_submenu_below_header',
+			),
+			'2.2.0' => array(
+				'astra_page_builder_button_color_compatibility',
+				'astra_vertical_horizontal_padding_migration',
 			),
 		);
 
@@ -284,6 +288,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// Update auto saved version number.
 			astra_update_option( 'theme-auto-version', $theme_version );
+
+			error_log( 'Astra: db version updated successfully!' );
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
