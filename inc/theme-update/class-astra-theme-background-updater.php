@@ -154,17 +154,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
-		 * Is DB updated?
-		 *
-		 * @since x.x.x
-		 * @return boolean
-		 */
-		private function is_db_updated() {
-			$current_theme_version = astra_get_option( 'theme-auto-version', null );
-			return version_compare( $current_theme_version, ASTRA_THEME_VERSION, '=' );
-		}
-
-		/**
 		 * Is PHP version updated?
 		 *
 		 * @since x.x.x
