@@ -99,7 +99,11 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css                     = '';
 	$breadcrumbs_default_css = array();
-	$wpseo_option            = get_option( 'wpseo_internallinks' );
+	$wpseo_option            = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
+	if ( ! is_array( $wpseo_option ) ) {
+
+		$wpseo_option = array( 'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ) );
+	}
 
 	$css .= astra_parse_css(
 		array(
@@ -114,7 +118,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	/**
 	 * Breadcrumb Colors & Typography
 	 */
-	if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
+	if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 
 		/* Yoast SEO Breadcrumb CSS - Desktop */
 		$breadcrumbs_desktop = array(

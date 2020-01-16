@@ -285,9 +285,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 		public function is_third_party_breadcrumb_active() {
 
 			// Check if breadcrumb is turned on from WPSEO option.
-			$wpseo_option = get_option( 'wpseo_internallinks' );
+			$wpseo_option = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
+			if ( ! is_array( $wpseo_option ) ) {
 
-			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+				$wpseo_option = array( 'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ) );
+			}
+
+			if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] ) {
 				// Check if breadcrumb is turned on from SEO Yoast plugin.
 				return true;
 			} elseif ( function_exists( 'bcn_display' ) ) {
@@ -311,9 +315,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			// Check if breadcrumb is turned on from WPSEO option.
 			$selected_breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
-			$wpseo_option               = get_option( 'wpseo_internallinks' );
+			$wpseo_option               = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
+			if ( ! is_array( $wpseo_option ) ) {
 
-			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && 'yoast-seo-breadcrumbs' === $selected_breadcrumb_source ) {
+				$wpseo_option = array( 'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ) );
+			}
+
+			if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] && 'yoast-seo-breadcrumbs' === $selected_breadcrumb_source ) {
 				// Check if breadcrumb is turned on from SEO Yoast plugin.
 				return false;
 			} elseif ( function_exists( 'bcn_display' ) && 'breadcrumb-navxt' === $selected_breadcrumb_source ) {

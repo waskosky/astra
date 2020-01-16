@@ -69,9 +69,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		 */
 		function astra_breadcrumb_source_list_items( $options ) {
 
-			$wpseo_option = get_option( 'wpseo_internallinks' );
+			$wpseo_option = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
+			if ( ! is_array( $wpseo_option ) ) {
 
-			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+				$wpseo_option = array( 'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ) );
+			}
+
+			if ( function_exists( 'yoast_breadcrumb' ) && true === $wpseo_option['breadcrumbs-enable'] ) {
 				$options['yoast-seo-breadcrumbs'] = 'Yoast SEO Breadcrumbs';
 			}
 
