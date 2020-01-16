@@ -241,7 +241,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 
-				if ( $fallback ) {
+				if ( $fallback || ! $this->is_php_version_updated() ) {
 					self::update_db_version();
 				} else {
 					self::$background_updater->push_to_queue( 'update_db_version' );
