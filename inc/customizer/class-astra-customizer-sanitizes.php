@@ -133,7 +133,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 			$link = array();
 
-			$link['url']      = esc_url( $val['url'] );
+			$link['url']      = esc_url_raw( $val['url'] );
 			$link['new_tab']  = esc_attr( $val['new_tab'] );
 			$link['link_rel'] = esc_attr( $val['link_rel'] );
 
