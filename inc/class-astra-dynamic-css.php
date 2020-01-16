@@ -718,7 +718,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Global button Comment & Search CSS - Desktop.
 				 */
 				$comment_search_button_desktop = array(
-					'.search .search-submit, #comments .submit' => array(
+					'.search .no-results .search-submit, #comments .submit' => array(
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
 						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
 						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
@@ -734,7 +734,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Global button Comment & Search CSS - Tablet.
 				 */
 				$comment_search_button_tablet = array(
-					'.search .search-submit, #comments .submit' => array(
+					'.search .no-results .search-submit, #comments .submit' => array(
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
 						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
 						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
@@ -748,7 +748,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Global button Comment & Search CSS - Mobile.
 				 */
 				$comment_search_button_mobile = array(
-					'.search .search-submit, #comments .submit' => array(
+					'.search .no-results .search-submit, #comments .submit' => array(
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
 						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
 						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
