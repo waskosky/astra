@@ -561,7 +561,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-link',
 				array(
 					'callback'          => 'Astra_Control_Link',
-					'sanitize_callback' => '',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
 				)
 			);
 
