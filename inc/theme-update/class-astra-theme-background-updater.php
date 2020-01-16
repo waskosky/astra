@@ -56,6 +56,23 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
+		 * Check If Theme DB Migration Cron is running.
+		 *
+		 * @since x.x.x
+		 *
+		 * @return true if cron is running.
+		 */
+		public function is_migration_cron_job_running() {
+			foreach ( _get_cron_array() as $key => $value ) {
+				$migration_running = isset( $value['wp_astra_theme_db_migration_cron'] );
+				if ( true === $migration_running ) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/**
 		 * Check Cron Status
 		 *
 		 * Gets the current cron status by performing a test spawn. Cached for one hour when all is well.
@@ -127,17 +144,34 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				return;
 			}
 
-			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
-
-			if ( $this->needs_db_update() && ! $is_queue_running || ! $this->is_db_updated() ) {
-				error_log( 'Running update() function!' );
+			if ( $this->needs_db_update() && true !== $this->is_migration_cron_job_running() ) {
 				$this->update();
 			} else {
-				if ( ! $is_queue_running || ! $this->is_db_updated() ) {
-					error_log( 'Running update_db_version() function!' );
+				if ( true !== $this->is_migration_cron_job_running() ) {
 					self::update_db_version();
 				}
 			}
+		}
+
+		/**
+		 * Is DB updated?
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		private function is_db_updated() {
+			$current_theme_version = astra_get_option( 'theme-auto-version', null );
+			return version_compare( $current_theme_version, ASTRA_THEME_VERSION, '=' );
+		}
+
+		/**
+		 * Is PHP version updated?
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		private function is_php_version_updated() {
+			return version_compare( phpversion(), '5.2.0', '>=' );
 		}
 
 		/**
@@ -176,18 +210,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
-		 * Is the DB updated?
-		 *
-		 * @since x.x.x
-		 * @return boolean
-		 */
-		private function is_db_updated() {
-			$current_theme_version = astra_get_option( 'theme-auto-version', null );
-
-			return version_compare( $current_theme_version, ASTRA_THEME_VERSION, '=' );
-		}
-
-		/**
 		 * Get list of DB update callbacks.
 		 *
 		 * @since 2.1.3
@@ -209,7 +231,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
 						foreach ( $update_callbacks as $update_callback ) {
-							if ( $fallback ) {
+							if ( $fallback || ! $this->is_php_version_updated() ) {
 								call_user_func( $update_callback );
 							} else {
 								error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) );
@@ -222,7 +244,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				if ( $fallback ) {
 					self::update_db_version();
 				} else {
-					astra_update_option( 'is_theme_queue_running', true );
 					self::$background_updater->push_to_queue( 'update_db_version' );
 				}
 			} else {
@@ -254,7 +275,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				do_action( 'astra_theme_update_after' );
-				astra_update_option( 'is_theme_queue_running', false );
 				return;
 			}
 
@@ -278,8 +298,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
-
-			astra_update_option( 'is_theme_queue_running', false );
 
 			do_action( 'astra_theme_update_after' );
 		}
