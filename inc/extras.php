@@ -357,7 +357,7 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 				break;
 
 			case 'button':
-					$output[] = astra_get_custom_button( $option . '-button-text', $option . '-button-link', $option . '-button-style' );
+					$output[] = astra_get_custom_button( $option . '-button-text', $option . '-button-link-option', $option . '-button-style' );
 				break;
 
 			default:
