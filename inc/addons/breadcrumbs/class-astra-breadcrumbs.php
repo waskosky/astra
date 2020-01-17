@@ -69,11 +69,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		 */
 		function astra_breadcrumb_source_list_items( $options ) {
 
-			$wpseo_option = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : WPSEO_Options::get( 'breadcrumbs-enable' );
+			$breadcrumb_enable = is_callable( 'WPSEO_Options::get' ) ? WPSEO_Options::get( 'breadcrumbs-enable' ) : false;
+			$wpseo_option      = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : $breadcrumb_enable;
 			if ( ! is_array( $wpseo_option ) ) {
 
+				unset( $wpseo_option );
 				$wpseo_option = array(
-					'breadcrumbs-enable' => WPSEO_Options::get( 'breadcrumbs-enable' ),
+					'breadcrumbs-enable' => $breadcrumb_enable,
 				);
 			}
 
