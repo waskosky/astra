@@ -144,12 +144,13 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				return;
 			}
 
+			$fallback = $this->test_cron();
 			if ( $this->needs_db_update() && true !== $this->is_migration_cron_job_running() ) {
-				$this->update();
+				$this->update( $fallback );
+			} elseif ( $fallback && $this->needs_db_update() ) {
+				self::update( $fallback );
 			} else {
-				if ( true !== $this->is_migration_cron_job_running() ) {
-					self::update_db_version();
-				}
+				self::update_db_version();
 			}
 		}
 
@@ -200,16 +201,16 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 		/**
 		 * Push all needed DB updates to the queue for processing.
+		 *
+		 * @param bool returns true if there is a problem spawning a call to Wp-Cron system.
 		 */
-		private function update() {
+		private function update( $fallback ) {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
-			$fallback           = $this->test_cron();
 
 			error_log( 'Astra: Batch Process Started!' );
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
-						array_push( $update_callbacks, 'update_db_version' );
 						foreach ( $update_callbacks as $update_callback ) {
 							if ( $fallback ) {
 								call_user_func( $update_callback );
@@ -219,6 +220,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 							}
 						}
 					}
+				}
+				if ( $fallback ) {
+					self::update_db_version();
+				} else {
+					self::$background_updater->push_to_queue( 'update_db_version' );
 				}
 			} else {
 				self::$background_updater->push_to_queue( 'update_db_version' );
