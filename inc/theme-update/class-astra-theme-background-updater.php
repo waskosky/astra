@@ -158,16 +158,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
-		 * Is PHP version updated?
-		 *
-		 * @since x.x.x
-		 * @return boolean
-		 */
-		private function is_php_version_updated() {
-			return version_compare( phpversion(), '5.2.0', '>=' );
-		}
-
-		/**
 		 * Is this a brand new theme install?
 		 *
 		 * @since 2.1.3
@@ -224,7 +214,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
 						foreach ( $update_callbacks as $update_callback ) {
-							if ( $fallback || ! $this->is_php_version_updated() ) {
+							if ( $fallback ) {
 								call_user_func( $update_callback );
 							} else {
 								error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) );
@@ -234,7 +224,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 
-				if ( $fallback || ! $this->is_php_version_updated() ) {
+				if ( $fallback ) {
 					self::update_db_version();
 				} else {
 					self::$background_updater->push_to_queue( 'update_db_version' );
