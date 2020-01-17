@@ -83,10 +83,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * @since x.x.x
 		 *
-		 * @param bool $cache Whether to use the cached result from previous calls.
 		 * @return true if there is a problem spawning a call to Wp-Cron system.
 		 */
-		public function test_cron( $cache = true ) {
+		public function test_cron() {
 
 			global $wp_version;
 
@@ -100,7 +99,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			$cached_status = get_transient( 'astra-theme-cron-test-ok' );
 
-			if ( $cache && $cached_status ) {
+			if ( $cached_status ) {
 				return false;
 			}
 
@@ -111,7 +110,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'cron_request',
 				array(
 					'url'  => site_url( 'wp-cron.php?doing_wp_cron=' . $doing_wp_cron ),
-					'key'  => $doing_wp_cron,
 					'args' => array(
 						'timeout'   => 3,
 						'blocking'  => true,
@@ -119,8 +117,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					),
 				)
 			);
-
-			$cron_request['args']['blocking'] = true;
 
 			$result = wp_remote_post( $cron_request['url'], $cron_request['args'] );
 
