@@ -209,6 +209,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
+						array_push( $update_callbacks, 'update_db_version' );
 						foreach ( $update_callbacks as $update_callback ) {
 							if ( $fallback ) {
 								call_user_func( $update_callback );
@@ -218,12 +219,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 							}
 						}
 					}
-				}
-
-				if ( $fallback ) {
-					self::update_db_version();
-				} else {
-					self::$background_updater->push_to_queue( 'update_db_version' );
 				}
 			} else {
 				self::$background_updater->push_to_queue( 'update_db_version' );
