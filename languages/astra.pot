@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2019 Brainstorm Force
+# <!=Copyright (C) 2020 Brainstorm Force
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: Astra 2.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2019-12-20 13:23:35+00:00\n"
+"POT-Creation-Date: 2020-01-02 11:44:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -1751,7 +1751,6 @@ msgid "Base Typography"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:316
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:189
 msgid "Headings"
 msgstr ""
 
@@ -2224,6 +2223,10 @@ msgstr ""
 msgid "Paragraph Margin Bottom"
 msgstr ""
 
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:189
+msgid "Headings ( H1 - H6 )"
+msgstr ""
+
 #: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:44
 msgid "Heading 1"
 msgstr ""
@@ -2473,6 +2476,10 @@ msgstr ""
 
 #: inc/lib/batch-processing/class-wp-background-process.php:425
 msgid "Every %d Minutes"
+msgstr ""
+
+#: inc/lib/notices/class-astra-notices.php:120
+msgid "WordPress Nonce not validated."
 msgstr ""
 
 #: inc/metabox/class-astra-meta-boxes.php:159
