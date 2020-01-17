@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -914,7 +914,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -928,7 +928,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -958,7 +958,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<?php do_action( 'astra_before_archive_title' ); ?>
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
 					<?php do_action( 'astra_after_archive_title' ); ?>
-					<?php the_archive_description(); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
 					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
@@ -969,7 +969,6 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 
 	add_action( 'astra_archive_header', 'astra_archive_page_info' );
 }
-
 
 /**
  * Adjust the HEX color brightness
@@ -1141,7 +1140,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
 				<input type="search" class="search-field" ' . apply_filters( 'astra_search_field_toggle_data_attrs', '' ) . ' placeholder="' . apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
 			</label>
-			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"><i class="astra-search-icon"></i></button>
+			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"  aria-label="search submit"><i class="astra-search-icon"></i></button>
 		</form>';
 
 		/**

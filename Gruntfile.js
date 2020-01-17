@@ -215,6 +215,12 @@ module.exports = function (grunt) {
                     },
                     {
                         src: [
+                            'inc/addons/heading-colors/assets/js/unminified/*.js',
+                        ],
+                        dest: 'inc/addons/heading-colors/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
                             'inc/addons/breadcrumbs/assets/js/unminified/*.js',
                         ],
                         dest: 'inc/addons/breadcrumbs/assets/js/minified/customizer-preview.min.js',
