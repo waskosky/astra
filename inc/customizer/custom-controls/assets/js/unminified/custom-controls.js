@@ -380,7 +380,7 @@
 				data.url = value;
 				
 				jQuery('.customize-link-control-data').attr('data-value', JSON.stringify( data )).trigger( 'change' );
-				
+
 				// Update value on change.
 				control.setting.set( data );
 			});
