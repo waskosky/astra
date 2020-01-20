@@ -288,7 +288,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			$breadcrumb_enable = is_callable( 'WPSEO_Options::get' ) ? WPSEO_Options::get( 'breadcrumbs-enable' ) : false;
 			$wpseo_option      = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : $breadcrumb_enable;
 			if ( ! is_array( $wpseo_option ) ) {
-
 				unset( $wpseo_option );
 				$wpseo_option = array(
 					'breadcrumbs-enable' => $breadcrumb_enable,
