@@ -202,7 +202,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Push all needed DB updates to the queue for processing.
 		 *
-		 * @param bool returns true if there is a problem spawning a call to Wp-Cron system.
+		 * @param bool $fallback returns true if there is a problem spawning a call to Wp-Cron system.
+		 * @return void
 		 */
 		private function update( $fallback ) {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
