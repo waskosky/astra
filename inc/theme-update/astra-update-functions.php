@@ -108,5 +108,5 @@ function astra_header_button_new_options() {
 	);
 
 	update_option( 'astra-settings', $theme_options );
-	
+
 }
