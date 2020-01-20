@@ -17,7 +17,7 @@
 			var data = jQuery( '.customize-link-control-data' ).data('value');
 
 			// Save the value.
-			this.container.on( 'change keyup paste', '.ast-link-input', function(e) {
+			this.container.on( 'change keyup', '.ast-link-input', function(e) {
 				e.preventDefault();
 				
 				value = jQuery( this ).val();
@@ -42,7 +42,7 @@
 			});
 			
 			// Save the value.
-			this.container.on( 'change keyup paste', '.ast-link-relationship', function(e) {
+			this.container.on( 'change keyup', '.ast-link-relationship', function(e) {
 				e.preventDefault();
 				
 				value = jQuery( this ).val();
