@@ -206,6 +206,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 				if ( $fallback ) {
+					error_log( 'Astra: CRON is disabled on this website!' );
 					self::update_db_version();
 				} else {
 					astra_update_option( 'is_theme_queue_running', true );
