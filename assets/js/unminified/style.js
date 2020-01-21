@@ -208,9 +208,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				menu_toggle_all[i].setAttribute('data-index', i);
 
-				if (!menu_click_listeners[menu_toggle_all[i]]) {
+				if ( ! menu_click_listeners[i] ) {
+					menu_click_listeners[i] = menu_toggle_all[i];
 					menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
-					menu_click_listeners[menu_toggle_all[i]] = menu_toggle_all[i];
 				}
 
 				if ('undefined' !== typeof __main_header_all[i]) {
@@ -221,7 +221,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 						var astra_menu_toggle = __main_header_all[i].querySelectorAll('ul.main-header-menu .ast-menu-toggle');
 					}
 
-					// Add Eevetlisteners for Submenu.
+					// Add Eventlisteners for Submenu.
 					if (astra_menu_toggle.length > 0) {
 						for (var j = 0; j < astra_menu_toggle.length; j++) {
 							astra_menu_toggle[j].addEventListener('click', AstraToggleSubMenu, false);
