@@ -436,9 +436,9 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 	 * Get custom HTML added by user.
 	 *
 	 * @since 1.0.0
-	 * @param  string $button_text Button Text.
-	 * @param  array  $button_options Button Link.
-	 * @param  string $button_style Button Style.
+	 * @param string $button_text Button Text.
+	 * @param string $button_options Button Link.
+	 * @param string $button_style Button Style.
 	 * @return String Button added by user in options panel.
 	 */
 	function astra_get_custom_button( $button_text = '', $button_options = '', $button_style = '' ) {
