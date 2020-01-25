@@ -146,7 +146,7 @@ final class Astra_Fonts {
 				}
 				$font_family = explode( ',', $font_name );
 				$font_family = str_replace( "'", '', astra_get_prop( $font_family, 0 ) );
-				$family[]    = trim( $font_family . ':' . urlencode( trim( $font_weight ) ) );
+				$family[]    = trim( $font_family . ':' . rawurlencode( trim( $font_weight ) ) );
 			} else {
 				$family[] = trim( $font_name );
 			}
@@ -169,7 +169,7 @@ final class Astra_Fonts {
 					$subsets = implode( ',', $subsets );
 				}
 
-				$font_args['subset'] = urlencode( trim( $subsets ) );
+				$font_args['subset'] = rawurlencode( trim( $subsets ) );
 			}
 
 			$font_args['display'] = astra_get_fonts_display_property();

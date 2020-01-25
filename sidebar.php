@@ -26,7 +26,7 @@ echo '<div ';
 	echo '>';
 	?>
 
-	<div class="sidebar-main" <?php echo esc_attr( apply_filters( 'astra_sidebar_data_attrs', '', $sidebar ) ); ?>>
+	<div class="sidebar-main" <?php echo esc_html( apply_filters( 'astra_sidebar_data_attrs', '', $sidebar ) ); ?>>
 
 		<?php astra_sidebars_before(); ?>
 

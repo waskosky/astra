@@ -67,7 +67,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.4.3
 		 * @var array
 		 */
-		private static $_dependency_arr = array();
+		private static $_dependency_arr = array(); // phpcs:ignore
+
 
 		/**
 		 * Initiator
@@ -161,7 +162,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 2.0.0
 		 * @return bool.
 		 */
-		function starts_with( $string, $start_string ) {
+		public function starts_with( $string, $start_string ) {
 			$len = strlen( $start_string );
 			return ( substr( $string, 0, $len ) === $start_string );
 		}
@@ -446,7 +447,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$output .= Astra_Fonts_Data::js();
 			$output .= '</script>';
 
-			echo $output;
+			echo $output; // phpcs:ignore
 		}
 
 		/**
@@ -455,7 +456,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register_panel( $wp_customize ) {
+		public function customize_register_panel( $wp_customize ) {
 
 			/**
 			 * Register Extended Panel
@@ -656,7 +657,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			/**
 			 * Override Defaults
@@ -671,7 +672,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		function astra_pro_upgrade_configurations( $wp_customize ) {
+		public function astra_pro_upgrade_configurations( $wp_customize ) {
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
@@ -685,7 +686,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function controls_scripts() {
+		public function controls_scripts() {
 
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
@@ -773,13 +774,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @return string
 		 */
-		function generate_font_dropdown() {
+		public function generate_font_dropdown() {
 
 			ob_start();
 
 			?>
 
-			<option value="inherit"><?php _e( 'Default System Font', 'astra' ); ?></option>
+			<option value="inherit"><?php esc_attr_e( 'Default System Font', 'astra' ); ?></option>
 			<optgroup label="Other System Fonts">
 
 			<?php
@@ -820,7 +821,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function preview_init() {
+		public function preview_init() {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
@@ -853,7 +854,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-		function customize_save() {
+		public function customize_save() {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();

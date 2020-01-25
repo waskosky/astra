@@ -77,7 +77,7 @@ if ( ! function_exists( 'astra_css' ) ) {
 				$css .= '	' . $css_property . ': ' . $value . ';';
 				$css .= '}';
 
-				echo $css;
+				echo $css; // phpcs:ignore
 			}
 		}
 	}
@@ -766,7 +766,7 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
-				echo $before . $title . $after; // WPCS: XSS OK.
+				echo $before . $title . $after; // phpcs:ignore
 			} else {
 				return $before . $title . $after;
 			}
@@ -809,7 +809,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title;
+			echo $title; // phpcs:ignore
 		} else {
 			return $title;
 		}
@@ -867,7 +867,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title;
+			echo $title; // phpcs:ignore
 		} else {
 			return $title;
 		}
@@ -944,7 +944,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 						/* translators: 1: search string */
 						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
+					<h1 class="page-title ast-archive-title"> <?php echo esc_html( $title ); ?> </h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
 				</section>
 
@@ -1156,7 +1156,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 		}
 
 		if ( $echo ) {
-			echo $result;
+			echo $result; // phpcs:ignore
 		} else {
 			return $result;
 		}
