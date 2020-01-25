@@ -37,4 +37,4 @@ class Astra_Yoast_SEO {
 /**
  * Kicking this off by object
  */
-new Astra_Yoast_SEO;
+new Astra_Yoast_SEO();

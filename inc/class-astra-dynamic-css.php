@@ -1481,7 +1481,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$dynamic_css .= $parse_css;
 
-			return  $dynamic_css;
+			return $dynamic_css;
 		}
 
 		/**

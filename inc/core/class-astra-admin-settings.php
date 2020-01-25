@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $menu_page_title
 		 */
-		static public $menu_page_title = 'Astra Theme';
+		public static $menu_page_title = 'Astra Theme';
 
 		/**
 		 * Page title
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $page_title
 		 */
-		static public $page_title = 'Astra';
+		public static $page_title = 'Astra';
 
 		/**
 		 * Plugin slug
@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $plugin_slug
 		 */
-		static public $plugin_slug = 'astra';
+		public static $plugin_slug = 'astra';
 
 		/**
 		 * Default Menu position
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $default_menu_position
 		 */
-		static public $default_menu_position = 'themes.php';
+		public static $default_menu_position = 'themes.php';
 
 		/**
 		 * Parent Page Slug
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $parent_page_slug
 		 */
-		static public $parent_page_slug = 'general';
+		public static $parent_page_slug = 'general';
 
 		/**
 		 * Current Slug
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $current_slug
 		 */
-		static public $current_slug = 'general';
+		public static $current_slug = 'general';
 
 		/**
 		 * Constructor
@@ -205,7 +205,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				wp_enqueue_script( 'astra-admin-settings' );
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
-				$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
+				$ast_sites_notice_btn = self::astra_sites_notice_button();
 
 				if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'astra' );
@@ -641,7 +641,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						?>
 					</p>
 						<?php
-						$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
+						$ast_sites_notice_btn = self::astra_sites_notice_button();
 
 						printf(
 							'<a class="%1$s" %2$s %3$s %4$s %5$s %6$s %7$s> %8$s </a>',

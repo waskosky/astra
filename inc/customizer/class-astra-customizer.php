@@ -864,13 +864,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
 
 				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
-				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+				self::generate_logo_by_width( $custom_logo_id );
 				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
 
 			} else {
 				// Regenerate the logo without custom image sizes.
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
-				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+				self::generate_logo_by_width( $custom_logo_id );
 			}
 
 			do_action( 'astra_customizer_save' );

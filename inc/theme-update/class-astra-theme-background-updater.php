@@ -226,4 +226,4 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 /**
  * Kicking this off by creating a new instance
  */
-new Astra_Theme_Background_Updater;
+new Astra_Theme_Background_Updater();

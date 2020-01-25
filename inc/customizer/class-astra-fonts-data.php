@@ -27,7 +27,7 @@ if ( ! class_exists( 'Astra_Fonts_Data' ) ) :
 		/**
 		 * Localize Fonts
 		 */
-		static public function js() {
+		public static function js() {
 
 			$system = json_encode( Astra_Font_Families::get_system_fonts() );
 			$google = json_encode( Astra_Font_Families::get_google_fonts() );
