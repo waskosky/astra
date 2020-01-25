@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @since 2.1.3
 		 * @return boolean
 		 */
-		function is_new_install() {
+		public function is_new_install() {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
@@ -146,12 +146,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
 
-			error_log( 'Astra: Batch Process Started!' );
+			error_log( 'Astra: Batch Process Started!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
 						foreach ( $update_callbacks as $update_callback ) {
-							error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) );
+							error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 							self::$background_updater->push_to_queue( $update_callback );
 						}
 					}
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			// Update auto saved version number.
 			astra_update_option( 'theme-auto-version', $theme_version );
 
-			error_log( 'Astra: db version updated successfully!' );
+			error_log( 'Astra: db version updated successfully!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
