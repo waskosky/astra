@@ -656,9 +656,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						);
 						printf(
 							'<a class="%1$s" %2$s target="_blank" rel="noopener"> %3$s </a>',
-							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_attr( $ast_sites_notice_btn['detail_link_class'] ) : '',
-							isset( $ast_sites_notice_btn['detail_link'] ) ? 'href="' . esc_url( $ast_sites_notice_btn['detail_link'] ) . '"' : '',
-							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_html( $ast_sites_notice_btn['detail_link_text'] ) : ''
+							esc_attr( $ast_sites_notice_btn['detail_link_class'] ),
+							'href="' . esc_url( astra_get_prop( $ast_sites_notice_btn, 'detail_link', '' ) ) . '"',
+							esc_html( $ast_sites_notice_btn['detail_link_text'] )
 						);
 						?>
 					<div>
@@ -728,7 +728,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						printf(
 							/* translators: %1$s: Astra Theme name. */
 							esc_html__( '%1$s Community', 'astra' ),
-							self::$page_title
+							esc_html( self::$page_title )
 						);
 						?>
 				</h2>
@@ -738,7 +738,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						printf(
 							/* translators: %1$s: Astra Theme name. */
 							esc_html__( 'Join the community of super helpful %1$s users. Say hello, ask questions, give feedback and help each other!', 'astra' ),
-							self::$page_title
+							esc_html( self::$page_title )
 						);
 						?>
 					</p>
@@ -782,7 +782,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						printf(
 							/* translators: %1$s: Astra Theme name. */
 							esc_html__( 'Got a question? Get in touch with %1$s developers. We\'re happy to help!', 'astra' ),
-							self::$page_title
+							esc_html( self::$page_title )
 						);
 						?>
 					</p>
@@ -1141,7 +1141,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 										$title_url     = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? 'href="' . esc_url( $info['title_url'] ) . '"' : '';
 										$anchor_target = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? "target='_blank' rel='noopener'" : '';
 
-										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title"' . $title_url . $anchor_target . ' >' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">';
+										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title"' . esc_url( $title_url ) . esc_attr( $anchor_target ) . ' >' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">';
 
 										foreach ( $info['links'] as $key => $link ) {
 											printf(
