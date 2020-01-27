@@ -16,7 +16,7 @@ class Astra_Filesystem {
 	 * @since 2.1.0
 	 * @var Astra_Filesystem
 	 */
-	protected static $_instance = null;
+	protected static $_instance = null; // // phpcs:ignore
 
 	/**
 	 * Get instance of Astra_Filesystem
@@ -71,7 +71,7 @@ class Astra_Filesystem {
 	 *
 	 * @since 2.1.3
 	 */
-	function request_filesystem_credentials() {
+	public function request_filesystem_credentials() {
 		return true;
 	}
 
