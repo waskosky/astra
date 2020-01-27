@@ -1148,7 +1148,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 												'<a class="%1$s" %2$s %3$s> %4$s </a>',
 												esc_attr( $link['link_class'] ),
 												isset( $link['link_url'] ) ? 'href="' . esc_url( $link['link_url'] ) . '"' : '',
-												( isset( $link['target_blank'] ) && $link['target_blank'] ) ? 'target="_blank" rel="noopener"' : '',
+												( isset( $link['target_blank'] ) && $link['target_blank'] ) ? 'target="_blank" rel="noopener"' : '', // phpcs:ignore
 												esc_html( $link['link_text'] )
 											);
 										}
@@ -1295,7 +1295,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 												)
 											) . '>';
 
-												echo '<a href="' . self::build_worg_plugin_link( $slug ) . '" target="_blank">';
+												echo '<a href="' . esc_url( self::build_worg_plugin_link( $slug ) ) . '" target="_blank">';
 													echo esc_html( $plugin['plugin-name'] );
 												echo '</a>';
 
@@ -1363,7 +1363,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 														)
 													) . '>';
 
-													echo $plugin['settings-link-text'];
+													echo $plugin['settings-link-text']; // phpcs:ignore
 
 													echo '</a>';
 												}
@@ -1404,7 +1404,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function required_plugin_activate() {
 
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
+			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore
 				wp_send_json_error(
 					array(
 						'success' => false,
@@ -1413,7 +1413,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : '';
+			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : ''; // phpcs:ignore
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
@@ -1442,7 +1442,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function required_plugin_deactivate() {
 
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
+			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore
 				wp_send_json_error(
 					array(
 						'success' => false,
@@ -1451,7 +1451,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : '';
+			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : ''; // phpcs:ignore
 
 			$deactivate = deactivate_plugins( $plugin_init, '', false );
 
@@ -1534,8 +1534,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							printf(
 								'<li><%1$s %2$s %3$s > %4$s </%1$s>',
 								isset( $info['url'] ) ? 'a' : 'span',
-								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '',
-								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '',
+								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '', // phpcs:ignore
+								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '', // phpcs:ignore
 								esc_html( $info['title'] )
 							);
 						}
