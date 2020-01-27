@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Divi_Builder' ) ) :
 		 * @return array List of updated assets.
 		 * @since 1.4.0
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			$assets['css']['astra-divi-builder'] = 'compatibility/divi-builder';
 			return $assets;
 		}
