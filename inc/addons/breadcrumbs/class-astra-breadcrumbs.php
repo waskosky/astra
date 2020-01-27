@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		 * @return Array breadcrumb options array.
 		 * @since 1.0.0
 		 */
-		function astra_breadcrumb_source_list_items( $options ) {
+		public function astra_breadcrumb_source_list_items( $options ) {
 
 			$wpseo_option = get_option( 'wpseo_internallinks' );
 
