@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.4.3
 		 * @var array
 		 */
-		private static $_dependency_arr = array(); // phpcs:ignore
+		private static $dependency_arr = array();
 
 
 		/**
@@ -373,7 +373,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		private function update_dependency_arr( $key, $dependency ) {
-			self::$_dependency_arr[ $key ] = $dependency;
+			self::$dependency_arr[ $key ] = $dependency;
 		}
 
 		/**
@@ -383,7 +383,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return Array Dependencies discovered when registering controls and settings.
 		 */
 		private function get_dependency_arr() {
-			return self::$_dependency_arr;
+			return self::$dependency_arr;
 		}
 
 		/**
@@ -447,7 +447,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$output .= Astra_Fonts_Data::js();
 			$output .= '</script>';
 
-			echo $output; // phpcs:ignore
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		/**

@@ -213,7 +213,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( get_post_meta( get_the_ID(), '_llms_display_reviews', true ) ) {
 				?>
 				<div id="old_reviews">
-				<h3><?php echo esc_html( apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ) ); ?></h3>
+				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 				<?php
 				$args        = array(
 					'posts_per_page'   => get_post_meta( get_the_ID(), '_llms_num_reviews', true ),
@@ -236,13 +236,13 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				}
 
 				foreach ( $posts_array as $post ) {
-					echo $styles['custom-css']; // phpcs:ignore
+					echo $styles['custom-css']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 					?>
 					<div class="llms_review" style="background-color:<?php echo esc_attr( $styles['background-color'] ); ?>;">
 						<h5 style="color:<?php echo esc_attr( $styles['title-color'] ); ?>;"><strong><?php echo esc_html( get_the_title( $post->ID ) ); ?></strong></h5>
 						<?php /* translators: 1 Author Name. */ ?>
-						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo sprintf( esc_html__( 'By: %s', 'astra' ), esc_html( get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ) ); ?></h6>
+						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo esc_html( sprintf( esc_html__( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ) ); ?></h6>
 						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo esc_html( get_post_field( 'post_content', $post->ID ) ); ?></p>
 					</div>
 					<?php
@@ -279,7 +279,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				if ( get_post_meta( get_the_ID(), '_llms_multiple_reviews_disabled', true ) && $posts_array ) {
 					?>
 					<div id="thank_you_box">
-						<h2><?php echo esc_html( apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 					</div>
 					<?php
 				} else {
@@ -298,7 +298,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
-						<h2><?php echo esc_html( apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 					</div>
 					<?php
 				}

@@ -77,7 +77,7 @@ if ( ! function_exists( 'astra_css' ) ) {
 				$css .= '	' . $css_property . ': ' . $value . ';';
 				$css .= '}';
 
-				echo $css; // phpcs:ignore
+				echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
@@ -809,7 +809,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title; // phpcs:ignore
+			echo esc_html( $title );
 		} else {
 			return $title;
 		}
@@ -867,7 +867,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title; // phpcs:ignore
+			echo esc_html( $title );
 		} else {
 			return $title;
 		}
@@ -1156,7 +1156,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 		}
 
 		if ( $echo ) {
-			echo $result; // phpcs:ignore
+			echo $result; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $result;
 		}

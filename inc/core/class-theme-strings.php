@@ -100,7 +100,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 		 * Print or return
 		 */
 		if ( $echo ) {
-			echo $output; // phpcs:ignore
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $output;
 		}

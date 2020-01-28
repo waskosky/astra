@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
-			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) { // phpcs:ignore
+			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
@@ -561,7 +561,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function menu_callback() {
 
-			$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug; // phpcs:ignore
+			$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
@@ -1148,7 +1148,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 												'<a class="%1$s" %2$s %3$s> %4$s </a>',
 												esc_attr( $link['link_class'] ),
 												isset( $link['link_url'] ) ? 'href="' . esc_url( $link['link_url'] ) . '"' : '',
-												( isset( $link['target_blank'] ) && $link['target_blank'] ) ? 'target="_blank" rel="noopener"' : '', // phpcs:ignore
+												( isset( $link['target_blank'] ) && $link['target_blank'] ) ? 'target="_blank" rel="noopener"' : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 												esc_html( $link['link_text'] )
 											);
 										}
@@ -1363,7 +1363,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 														)
 													) . '>';
 
-													echo $plugin['settings-link-text']; // phpcs:ignore
+													echo esc_html( $plugin['settings-link-text'] );
 
 													echo '</a>';
 												}
@@ -1404,7 +1404,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function required_plugin_activate() {
 
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore
+			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 				wp_send_json_error(
 					array(
 						'success' => false,
@@ -1413,7 +1413,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : ''; // phpcs:ignore
+			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
@@ -1442,7 +1442,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function required_plugin_deactivate() {
 
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore
+			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 				wp_send_json_error(
 					array(
 						'success' => false,
@@ -1451,7 +1451,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				);
 			}
 
-			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : ''; // phpcs:ignore
+			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 			$deactivate = deactivate_plugins( $plugin_init, '', false );
 
@@ -1503,7 +1503,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						( ! empty( $update_astra_addon_link ) ) ? '<a href=' . esc_url( $update_astra_addon_link ) . ' target="_blank" rel="noopener">' . $astra_addon_name . '</a>' : $astra_addon_name
 					);
 
-					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message ); // phpcs:ignore
+					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 				}
 			}
 		}
@@ -1534,8 +1534,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							printf(
 								'<li><%1$s %2$s %3$s > %4$s </%1$s>',
 								isset( $info['url'] ) ? 'a' : 'span',
-								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '', // phpcs:ignore
-								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '', // phpcs:ignore
+								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								esc_html( $info['title'] )
 							);
 						}

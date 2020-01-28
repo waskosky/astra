@@ -156,9 +156,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
 		 */
 		private function is_elementor_editor() {
-			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) || // phpcs:ignore
-				isset( $_REQUEST['elementor-preview'] ) // phpcs:ignore
-			) {
+			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) || isset( $_REQUEST['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				return true;
 			}
 

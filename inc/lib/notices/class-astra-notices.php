@@ -347,7 +347,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				return plugin_dir_url( __FILE__ );
 			}
 
-			return; // phpcs:ignore
+			return; // phpcs:ignore Squiz.PHP.NonExecutableCode.ReturnNotRequired
 		}
 
 	}
