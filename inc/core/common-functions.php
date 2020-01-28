@@ -809,7 +809,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo esc_html( $title );
+			echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $title;
 		}
