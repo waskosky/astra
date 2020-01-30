@@ -559,6 +559,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
+				'ast-link',
+				array(
+					'callback'          => 'Astra_Control_Link',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'ast-color',
 				array(
 					'callback'          => 'Astra_Control_Color',

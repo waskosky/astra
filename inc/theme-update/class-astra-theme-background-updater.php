@@ -36,6 +36,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_page_builder_button_color_compatibility',
 				'astra_vertical_horizontal_padding_migration',
 			),
+			'2.2.2' => array(
+				'astra_header_button_new_options',
+			),
 		);
 
 		/**
@@ -212,10 +215,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			error_log( 'Astra: db version updated successfully!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
+			astra_update_option( 'is_theme_queue_running', false );
+
 			// Update variables.
 			Astra_Theme_Options::refresh();
-
-			astra_update_option( 'is_theme_queue_running', false );
 
 			do_action( 'astra_theme_update_after' );
 		}
