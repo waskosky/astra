@@ -100,7 +100,7 @@ function astra_header_button_new_options() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
-	error_log( 'Astra: Migrating button url - ' . $btn_url );
+	error_log( 'Astra: Migrating button url - ' . $btn_url ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 	$theme_options['header-main-rt-section-button-link-option'] = array(
 		'url'      => $btn_url,
 		'new_tab'  => false,
