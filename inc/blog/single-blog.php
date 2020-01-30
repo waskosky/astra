@@ -169,7 +169,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										esc_attr( get_comment_time( 'c' ) ),
 										/* translators: 1: date, 2: time */
-										esc_html( sprintf( esc_html__( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() ) )
+										esc_html( sprintf( __( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() ) )
 									);
 								}
 

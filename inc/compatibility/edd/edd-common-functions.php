@@ -274,7 +274,7 @@ if ( ! function_exists( 'astra_edd_archive_product_add_to_cart' ) ) {
 	 * @return void
 	 */
 	function astra_edd_archive_product_add_to_cart() {
-		echo astra_edd_cart_button_markup(); // // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo astra_edd_cart_button_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	add_action( 'astra_edd_archive_add_to_cart', 'astra_edd_archive_product_add_to_cart' );

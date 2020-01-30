@@ -766,7 +766,7 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
-				echo $before . $title . $after; // phpcs:ignore
+				echo $before . $title . $after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				return $before . $title . $after;
 			}
@@ -867,7 +867,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo esc_html( $title );
+			echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $title;
 		}

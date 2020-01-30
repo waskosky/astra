@@ -242,8 +242,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					<div class="llms_review" style="background-color:<?php echo esc_attr( $styles['background-color'] ); ?>;">
 						<h5 style="color:<?php echo esc_attr( $styles['title-color'] ); ?>;"><strong><?php echo esc_html( get_the_title( $post->ID ) ); ?></strong></h5>
 						<?php /* translators: 1 Author Name. */ ?>
-						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo esc_html( sprintf( esc_html__( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ) ); ?></h6>
-						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo esc_html( get_post_field( 'post_content', $post->ID ) ); ?></p>
+						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo esc_html( sprintf( __( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ) ); ?></h6>
+						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo get_post_field( 'post_content', $post->ID ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?></p>
 					</div>
 					<?php
 				}
@@ -285,12 +285,12 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				} else {
 					?>
 					<div class="review_box" id="review_box">
-					<h3><?php esc_attr_e( 'Write a Review', 'astra' ); ?></h3>
+					<h3><?php esc_html_e( 'Write a Review', 'astra' ); ?></h3>
 					<!--<form method="post" name="review_form" id="review_form">-->
 						<input type="text" name="review_title" placeholder="<?php esc_attr_e( 'Review Title', 'astra' ); ?>" id="review_title">
-						<h5 style="color:red; display:none" id="review_title_error"><?php esc_attr_e( 'Review Title is required.', 'astra' ); ?></h5>
+						<h5 style="color:red; display:none" id="review_title_error"><?php esc_html_e( 'Review Title is required.', 'astra' ); ?></h5>
 						<textarea name="review_text" placeholder="<?php esc_attr_e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
-						<h5 style="color:red; display:none" id="review_text_error"><?php esc_attr_e( 'Review Text is required.', 'astra' ); ?></h5>
+						<h5 style="color:red; display:none" id="review_text_error"><?php esc_html_e( 'Review Text is required.', 'astra' ); ?></h5>
 						<?php wp_nonce_field( 'submit_review', 'submit_review_nonce_code' ); ?>
 						<input name="action" value="submit_review" type="hidden">
 						<input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
