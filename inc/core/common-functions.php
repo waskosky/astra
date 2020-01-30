@@ -944,7 +944,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 						/* translators: 1: search string */
 						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title ast-archive-title"> <?php echo esc_html( $title ); ?> </h1>
+					<h1 class="page-title ast-archive-title"> <?php echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> </h1>
 					<?php do_action( 'astra_after_archive_title' ); ?>
 				</section>
 
