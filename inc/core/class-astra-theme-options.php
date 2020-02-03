@@ -21,7 +21,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 	 * Theme Options
 	 */
 	class Astra_Theme_Options {
-		
+
 		/**
 		 * Class instance.
 		 *
@@ -29,14 +29,14 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 * @var $instance Class instance.
 		 */
 		private static $instance;
-		
+
 		/**
 		 * Post id.
 		 *
 		 * @var $instance Post id.
 		 */
 		public static $post_id = null;
-		
+
 		/**
 		 * A static option variable.
 		 *
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 * @var mixed $db_options
 		 */
 		private static $db_options;
-		
+
 		/**
 		 * A static option variable.
 		 *
