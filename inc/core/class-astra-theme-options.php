@@ -21,6 +21,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 	 * Theme Options
 	 */
 	class Astra_Theme_Options {
+		
 		/**
 		 * Class instance.
 		 *
@@ -28,12 +29,14 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 * @var $instance Class instance.
 		 */
 		private static $instance;
+		
 		/**
 		 * Post id.
 		 *
 		 * @var $instance Post id.
 		 */
 		public static $post_id = null;
+		
 		/**
 		 * A static option variable.
 		 *
@@ -42,6 +45,16 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 * @var mixed $db_options
 		 */
 		private static $db_options;
+		
+		/**
+		 * A static option variable.
+		 *
+		 * @since 1.0.0
+		 * @access private
+		 * @var mixed $db_options
+		 */
+		private static $db_options_no_defaults;
+
 		/**
 		 * Initiator
 		 */
@@ -397,6 +410,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				)
 			);
 		}
+
 		/**
 		 * Get theme options from static array()
 		 *
@@ -405,6 +419,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		public static function get_options() {
 			return self::$db_options;
 		}
+
 		/**
 		 * Update theme static option array.
 		 */
@@ -413,6 +428,16 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				get_option( ASTRA_THEME_SETTINGS ),
 				self::defaults()
 			);
+		}
+
+		/**
+		 * Get theme options from static array() from database
+		 *
+		 * @return array    Return array of theme options from database.
+		 */
+		public static function get_db_options() {
+			self::$db_options_no_defaults = get_option( ASTRA_THEME_SETTINGS );
+			return self::$db_options_no_defaults;
 		}
 	}
 }

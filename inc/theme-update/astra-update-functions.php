@@ -60,32 +60,34 @@ function astra_vertical_horizontal_padding_migration() {
 	error_log( 'Astra: Migrating vertical Padding - ' . $btn_vertical_padding );
 	error_log( 'Astra: Migrating horizontal Padding - ' . $btn_horizontal_padding );
 
-	// Migrate button vertical padding to the new padding param for button.
-	$theme_options['theme-button-padding'] = array(
-		'desktop'      => array(
-			'top'    => $btn_vertical_padding,
-			'right'  => $btn_horizontal_padding,
-			'bottom' => $btn_vertical_padding,
-			'left'   => $btn_horizontal_padding,
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
+	if ( false === astra_get_db_option( 'theme-button-padding', false ) ) {
+		// Migrate button vertical padding to the new padding param for button.
+		$theme_options['theme-button-padding'] = array(
+			'desktop'      => array(
+				'top'    => $btn_vertical_padding,
+				'right'  => $btn_horizontal_padding,
+				'bottom' => $btn_vertical_padding,
+				'left'   => $btn_horizontal_padding,
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
 
-	update_option( 'astra-settings', $theme_options );
+		update_option( 'astra-settings', $theme_options );
+	}
 }
 
 /**
