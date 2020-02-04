@@ -97,7 +97,7 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 			}
 		}
 		if ( $echo ) {
-			echo wp_kses_post( $output );
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $output;
 		}

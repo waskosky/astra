@@ -1141,7 +1141,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 										$title_url     = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? 'href="' . esc_url( $info['title_url'] ) . '"' : '';
 										$anchor_target = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? "target='_blank' rel='noopener'" : '';
 
-										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title"' . esc_url( $title_url ) . esc_attr( $anchor_target ) . ' >' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">';
+										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title"' . $title_url . $anchor_target . ' >' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 										foreach ( $info['links'] as $key => $link ) {
 											printf(
