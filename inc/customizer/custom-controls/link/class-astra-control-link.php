@@ -74,7 +74,7 @@ class Astra_Control_Link extends WP_Customize_Control {
 			<label>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			</label>
-		<# } console.log( data ); #>
+		<# } #>
 			<div class="customize-control-content">
 				<input type="text" class="ast-link-input" value="{{data.value.url}}" >
 			</div>
