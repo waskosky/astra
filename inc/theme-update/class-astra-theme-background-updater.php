@@ -240,8 +240,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
-				astra_update_option( 'is_theme_queue_running', false );
 				do_action( 'astra_theme_update_after' );
+				astra_update_option( 'is_theme_queue_running', false );
 				return;
 			}
 
@@ -264,12 +264,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			astra_update_option( 'theme-auto-version', $theme_version );
 
 			error_log( 'Astra: db version updated successfully!' );
-
+			
+			astra_update_option( 'is_theme_queue_running', false );
+			
 			// Update variables.
 			Astra_Theme_Options::refresh();
-
-			astra_update_option( 'is_theme_queue_running', false );
-
+			
 			do_action( 'astra_theme_update_after' );
 		}
 	}
