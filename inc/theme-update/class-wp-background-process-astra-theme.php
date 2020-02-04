@@ -60,6 +60,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 */
 		protected function complete() {
 			error_log( 'Astra: Batch Process Completed!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+
 			do_action( 'astra_database_migration_complete' );
 			parent::complete();
 		}
