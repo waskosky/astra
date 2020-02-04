@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @since 2.1.3
 		 * @return boolean
 		 */
-		function is_new_install() {
+		public function is_new_install() {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
 			$fallback           = $this->test_cron();
 
-			error_log( 'Astra: Batch Process Started!' );
+			error_log( 'Astra: Batch Process Started!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
@@ -202,14 +202,14 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 							if ( $fallback ) {
 								call_user_func( $update_callback );
 							} else {
-								error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) );
+								error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 								self::$background_updater->push_to_queue( $update_callback );
 							}
 						}
 					}
 				}
 				if ( $fallback ) {
-					error_log( 'Astra: CRON is disabled on this website!' );
+					error_log( 'Astra: CRON is disabled on this website!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 					self::update_db_version();
 				} else {
 					astra_update_option( 'is_theme_queue_running', true );
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			// Update auto saved version number.
 			astra_update_option( 'theme-auto-version', $theme_version );
 
-			error_log( 'Astra: db version updated successfully!' );
+			error_log( 'Astra: db version updated successfully!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 			astra_update_option( 'is_theme_queue_running', false );
 
@@ -282,4 +282,4 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 /**
  * Kicking this off by creating a new instance
  */
-new Astra_Theme_Background_Updater;
+new Astra_Theme_Background_Updater();
