@@ -189,7 +189,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
-			$fallback = $this->test_cron();
+			$fallback           = $this->test_cron();
 
 			error_log( 'Astra: Batch Process Started!' );
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
