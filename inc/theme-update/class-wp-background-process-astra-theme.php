@@ -60,6 +60,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 */
 		protected function complete() {
 			error_log( 'Astra: Batch Process Completed!' );
+
 			do_action( 'astra_database_migration_complete' );
 			parent::complete();
 		}

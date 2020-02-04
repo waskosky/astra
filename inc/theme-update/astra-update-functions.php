@@ -84,7 +84,6 @@ function astra_vertical_horizontal_padding_migration() {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-
 	update_option( 'astra-settings', $theme_options );
 }
 
