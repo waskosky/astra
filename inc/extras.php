@@ -1880,7 +1880,7 @@ function astra_givewp_upgrade_link() {
 	// Add affiliate link to GiveWP.com.
 	global $submenu;
 
-	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.WP.GlobalVariablesOverride.Prohibited
+	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 }
 
 add_action( 'admin_menu', 'astra_givewp_upgrade_link', 9999999 );
