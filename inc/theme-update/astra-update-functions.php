@@ -57,8 +57,8 @@ function astra_vertical_horizontal_padding_migration() {
 	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
 	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
 
-	error_log( 'Astra: Migrating vertical Padding - ' . $btn_vertical_padding );
-	error_log( 'Astra: Migrating horizontal Padding - ' . $btn_horizontal_padding );
+	error_log( 'Astra: Migrating vertical Padding - ' . $btn_vertical_padding ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+	error_log( 'Astra: Migrating horizontal Padding - ' . $btn_horizontal_padding ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 	// Migrate button vertical padding to the new padding param for button.
 	$theme_options['theme-button-padding'] = array(
@@ -84,7 +84,6 @@ function astra_vertical_horizontal_padding_migration() {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-
 	update_option( 'astra-settings', $theme_options );
 }
 
@@ -100,7 +99,7 @@ function astra_header_button_new_options() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
-	error_log( 'Astra: Migrating button url - ' . $btn_url );
+	error_log( 'Astra: Migrating button url - ' . $btn_url ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 	$theme_options['header-main-rt-section-button-link-option'] = array(
 		'url'      => $btn_url,
 		'new_tab'  => false,

@@ -57,7 +57,7 @@ if ( ! function_exists( 'astra_schema_body' ) ) :
 		$result = apply_filters( 'astra_schema_body_itemtype', $itemtype );
 
 		// Return our HTML.
-		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" );
+		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -147,7 +147,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			);
 			echo '</div>';
 			$output = ob_get_clean();
-			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
+			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
@@ -199,7 +199,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo $html;
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $html;
 		}
@@ -385,7 +385,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	function astra_get_search( $option = '' ) {
 		ob_start();
 		?>
-		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); ?>id="ast-search-form" role="search" tabindex="-1">
+		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>id="ast-search-form" role="search" tabindex="-1">
 			<div class="ast-search-icon">
 				<a class="slide-search astra-search-icon" aria-label="Search icon link" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
@@ -492,7 +492,7 @@ if ( ! function_exists( 'astra_get_custom_widget' ) ) {
 			$widget_id = 'footer-widget-2';
 		}
 
-		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area"' . apply_filters( 'astra_sidebar_data_attrs', '', $widget_id ) . '>';
+		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area"' . apply_filters( 'astra_sidebar_data_attrs', '', $widget_id ) . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				astra_get_sidebar( $widget_id );
 		echo '</div>';
 
@@ -764,7 +764,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				 */
 				do_action( 'astra_main_header_custom_menu_item_before' );
 
-				echo astra_masthead_get_menu_items();
+				echo astra_masthead_get_menu_items(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 				/**
 				 * Fires after the Primary Header Menu navigation.
@@ -815,7 +815,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				array(
 					'id'         => 'site-navigation',
 					'class'      => 'ast-flex-grow-1 navigation-accessibility',
-					'aria-label' => esc_attr( 'Site Navigation', 'astra' ),
+					'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 				)
 			);
 			$items_wrap .= '>';
@@ -851,7 +851,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 								'id' => 'site-navigation',
 							)
 						);
-						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
 							wp_page_menu( $fallback_menu_args );
 						echo '</nav>';
 					echo '</div>';
@@ -1537,7 +1537,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$output = apply_filters( 'astra_get_post_thumbnail', $output, $before, $after );
 
 		if ( $echo ) {
-			echo $before . $output . $after; // WPCS: XSS OK.
+			echo $before . $output . $after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $before . $output . $after;
 		}
@@ -1880,7 +1880,7 @@ function astra_givewp_upgrade_link() {
 	// Add affiliate link to GiveWP.com.
 	global $submenu;
 
-	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' );
+	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 }
 
 add_action( 'admin_menu', 'astra_givewp_upgrade_link', 9999999 );
