@@ -74,7 +74,7 @@ class Astra_Control_Link extends WP_Customize_Control {
 			<label>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			</label>
-		<# } console.log( data ); #>
+		<# } #>
 			<div class="customize-control-content">
 				<input type="text" class="ast-link-input" value="{{data.value.url}}" >
 			</div>
@@ -91,4 +91,12 @@ class Astra_Control_Link extends WP_Customize_Control {
 		<input type="hidden" id="_customize-input-{{data.settings.default}}" class="customize-link-control-data" name="{{name}}" data-customize-setting-link="{{data.settings.default}}" data-value="{{ JSON.stringify( data.value ) }}">
 		<?php
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 * @since  2.0.0
+	 */
+	protected function render_content() {}
 }
