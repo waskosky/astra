@@ -1,6 +1,6 @@
 v2.3.0
 - New: New options for Header Button - Open link in New Tab, add rel attribute. ( Doc Link )
-- Improvement: Hardened the security of plugin.
+- Improvement: Hardened the security of theme.
 - Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules.
 - Improvement: Filter to remove featured image link on blog page.
 - Improvement: Fallback for batch process migration.
