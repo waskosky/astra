@@ -1,4 +1,19 @@
-v2.1.1
+v2.3.0
+- New: New options for Header Button - Open link in New Tab, add rel attribute. ( Doc Link )
+- Improvement: Hardened the security of plugin.
+- Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules.
+- Improvement: Filter to remove featured image link on blog page.
+- Improvement: Fallback for batch process migration.
+- Fix: Protect theme button padding to be overridden by default values during update.
+- Fix: Theme minimum version update notice.
+- Fix: Breadcrumb customizer doc link fix. ( Doc Link )
+- Fix: W3C HTML validation header button ( Replaced button tag with div tag ).
+- Fix: Archive Description <p> tag missing - conflict with SEOPress.
+- Fix: Duplicate search with sticky header on mobile devices.
+- Fix: Breadcrumb compatibility with Yoast Seo 12.8.1. ( Doc Link )
+- Fix: Comment and Search Button form compatibility with v2.2.0 button options. ( Doc Link )
+
+v2.2.1
 - Fix: Mobile Menu toggle not working in some cases.
 - Fix: Possible recursion in the update functions.
 
