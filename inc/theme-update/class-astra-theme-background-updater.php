@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_page_builder_button_color_compatibility',
 				'astra_vertical_horizontal_padding_migration',
 			),
-			'2.2.2' => array(
+			'2.3.0' => array(
 				'astra_header_button_new_options',
 			),
 		);
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * Gets the current cron status by performing a test spawn. Cached for one hour when all is well.
 		 *
-		 * @since x.x.x
+		 * @since 2.3.0
 		 *
 		 * @return true if there is a problem spawning a call to Wp-Cron system.
 		 */
