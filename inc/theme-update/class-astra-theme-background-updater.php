@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * Gets the current cron status by performing a test spawn. Cached for one hour when all is well.
 		 *
-		 * @since x.x.x
+		 * @since 2.3.0
 		 *
 		 * @return true if there is a problem spawning a call to Wp-Cron system.
 		 */

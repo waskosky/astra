@@ -3,7 +3,7 @@
  * Index file
  *
  * @package Astra
- * @since Astra x.x.x
+ * @since Astra 2.3.0
  */
 
 /* Silence is golden, and we agree. */
