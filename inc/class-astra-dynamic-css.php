@@ -651,7 +651,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
-					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
+					'body .elementor-button.elementor-size-sm, body .elementor-button.elementor-size-xs, body .elementor-button.elementor-size-md, body .elementor-button.elementor-size-lg, body .elementor-button.elementor-size-xl, body .elementor-button, .wp-block-button .wp-block-button__link' => array(
 						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
