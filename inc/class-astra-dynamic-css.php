@@ -635,6 +635,67 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				$ele_theme_settings = get_post_meta( get_the_ID(), '_elementor_page_settings' );
+				
+				$kit_id = get_option( 'elementor_active_kit' );
+				$button_data = get_post_meta( $kit_id, '_elementor_page_settings' );
+				// var_dump( $button_data );
+				// var_dump( $button_data[0]['button_typography_font_size']['size'] );
+				$ele_button_global_size = isset( $button_data[0]['button_typography_font_size']['size'] ) ? $button_data[0]['button_typography_font_size']['size'] : null;
+				$ele_button_global_radius = isset( $button_data[0]['button_border_radius'] ) ? $button_data[0]['button_border_radius'] : null;
+				$ele_button_global_padding = isset( $button_data[0]['button_padding'] ) ? $button_data[0]['button_padding'] : '' ;
+
+				// var_dump( get_the_ID() );
+				// var_dump( $this->post->ID );
+
+				// var_dump( Controls_Stack::get_settings_for_display( 'button_typography' ) );
+
+				if( isset( $ele_button_global_size ) ) {
+					$button_font_selectors = '.elementor-button-wrapper .elementor-size-sm, .elementor-button-wrapper .elementor-size-xs, .elementor-button-wrapper .elementor-size-md, .elementor-button-wrapper .elementor-size-lg, .elementor-button-wrapper .elementor-size-xl, .elementor-button-wrapper , .wp-block-button .wp-block-button__link';
+				} else {
+					$button_font_selectors = '.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link';
+				}
+
+				if( isset( $ele_button_global_radius ) ) {
+					$button_radius_selectors = '.elementor-button-wrapper .elementor-size-sm, .elementor-button-wrapper .elementor-size-xs, .elementor-button-wrapper .elementor-size-md, .elementor-button-wrapper .elementor-size-lg, .elementor-button-wrapper .elementor-size-xl, .elementor-button-wrapper , .wp-block-button .wp-block-button__link';
+				} else {
+					$button_radius_selectors = '.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link';
+				}
+
+				if( isset( $ele_button_global_padding ) ) {
+					$button_padding_selectors = '.elementor-button-wrapper .elementor-size-sm, .elementor-button-wrapper .elementor-size-xs, .elementor-button-wrapper .elementor-size-md, .elementor-button-wrapper .elementor-size-lg, .elementor-button-wrapper .elementor-size-xl, .elementor-button-wrapper , .wp-block-button .wp-block-button__link';
+				} else {
+					$button_padding_selectors = '.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link';
+				}
+
+				$test1 = array(
+					$button_font_selectors => array(
+						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
+					),
+				);
+				$parse_css .= astra_parse_css( $test1 );
+
+				$test2 = array(
+					$button_radius_selectors => array(
+						'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
+					),
+				);
+				$parse_css .= astra_parse_css( $test2 );
+
+
+				$test3 = array(
+					$button_padding_selectors => array(
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+					),
+				);
+				$parse_css .= astra_parse_css( $test3 );
+
+				// var_dump( $parse_css );
+				// die();
+
 				$global_button_page_builder_desktop = array(
 					'.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited, .wp-block-button .wp-block-button__link' => array(
 						'border-style'        => 'solid',
@@ -650,14 +711,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height'         => esc_attr( $theme_btn_line_height ),
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
-					),
-					'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
-						'font-size'      => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
-						'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
-						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
-						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
-						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
-						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					),
 					'.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
