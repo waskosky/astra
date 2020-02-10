@@ -57,40 +57,43 @@ function astra_vertical_horizontal_padding_migration() {
 	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
 	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
 
-	error_log( 'Astra: Migrating vertical Padding - ' . $btn_vertical_padding ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-	error_log( 'Astra: Migrating horizontal Padding - ' . $btn_horizontal_padding ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+	if ( false === astra_get_db_option( 'theme-button-padding', false ) ) {
 
-	// Migrate button vertical padding to the new padding param for button.
-	$theme_options['theme-button-padding'] = array(
-		'desktop'      => array(
-			'top'    => $btn_vertical_padding,
-			'right'  => $btn_horizontal_padding,
-			'bottom' => $btn_vertical_padding,
-			'left'   => $btn_horizontal_padding,
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
-	update_option( 'astra-settings', $theme_options );
+		error_log( sprintf( 'Astra: Migrating vertical Padding - %s', $btn_vertical_padding ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		error_log( sprintf( 'Astra: Migrating horizontal Padding - %s', $btn_horizontal_padding ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		// Migrate button vertical padding to the new padding param for button.
+		$theme_options['theme-button-padding'] = array(
+			'desktop'      => array(
+				'top'    => $btn_vertical_padding,
+				'right'  => $btn_horizontal_padding,
+				'bottom' => $btn_vertical_padding,
+				'left'   => $btn_horizontal_padding,
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+
+		update_option( 'astra-settings', $theme_options );
+	}
 }
 
 /**
  * Migrate option data from button url to the new link param.
  *
- * @since x.x.x
+ * @since 2.3.0
  *
  * @return void
  */

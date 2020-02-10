@@ -8,7 +8,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       x.x.x
+ * @since       2.3.0
  */
 
 // Exit if accessed directly.
@@ -80,7 +80,7 @@ class Astra_Control_Link extends WP_Customize_Control {
 			</div>
 			<div class="customize-control-content ast-link-open-in-new-tab-wrapper">
 				<input type="checkbox" id="ast-link-open-in-new-tab" class="ast-link-open-in-new-tab" name="ast-link-open-in-new-tab" {{ (data.value.new_tab) ? "checked" : ""}}>
-				<label for="ast-link-open-in-new-tab">Open in a new Tab</label>
+				<label for="ast-link-open-in-new-tab">Open in a New Tab</label>
 			</div>
 			<div class="customize-control-content">
 				<label>

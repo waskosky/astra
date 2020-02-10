@@ -127,7 +127,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  array $val Customizer setting link.
 		 * @return array        Return array.
-		 * @since  x.x.x
+		 * @since  2.3.0
 		 */
 		public static function sanitize_link( $val ) {
 
