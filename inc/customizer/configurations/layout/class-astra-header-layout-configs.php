@@ -169,11 +169,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority'  => 10,
-					'partial'   => array(
-						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-button',
-						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_main_rt_section_button_text' ),
-					),
 					'title'     => __( 'Button Text', 'astra' ),
 				),
 
@@ -203,7 +198,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority' => 10,
 					'partial'  => array(
-						'selector' => '.ast-custom-button-link',
+						'selector' => '.ast-custom-button-link .ast-button',
 					),
 					'choices'  => array(
 						'theme-button'  => __( 'Theme Button', 'astra' ),
