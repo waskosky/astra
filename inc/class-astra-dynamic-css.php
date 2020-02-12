@@ -302,7 +302,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'a:hover, a:focus'                        => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
-				'body, button, input, select, textarea'   => array(
+				'body, button, input, select, textarea, .ast-custom-button'   => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -955,7 +955,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Tablet Typography */
 			$tablet_typography = array(
-				'body, button, input, select, textarea' => array(
+				'body, button, input, select, textarea, .ast-custom-button' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'tablet' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
@@ -1060,7 +1060,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Mobile Typography */
 			$mobile_typography = array(
-				'body, button, input, select, textarea' => array(
+				'body, button, input, select, textarea, .ast-custom-button' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'mobile' ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
