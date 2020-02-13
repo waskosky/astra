@@ -47,7 +47,7 @@ function astra_page_builder_button_color_compatibility() {
 /**
  * Migrate option data from button vertical & horizontal padding to the new responsive padding param.
  *
- * @since x.x.x
+ * @since 2.2.0
  *
  * @return void
  */
@@ -93,7 +93,7 @@ function astra_vertical_horizontal_padding_migration() {
 /**
  * Migrate option data from button url to the new link param.
  *
- * @since x.x.x
+ * @since 2.3.0
  *
  * @return void
  */
