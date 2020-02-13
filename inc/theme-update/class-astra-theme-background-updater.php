@@ -263,7 +263,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 				if ( $fallback ) {
-					error_log( 'Astra: CRON is disabled on this website!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					error_log( 'Astra: Running migration without batch processing.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 					self::update_db_version();
 				} else {
 					astra_update_option( 'is_theme_queue_running', true );
