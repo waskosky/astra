@@ -130,9 +130,15 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				return;
 			}
 
+			$fallback    = $this->test_cron();
+			$db_migrated = $this->check_if_data_migrated();
+
 			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
+
+			$fallback = ( $db_migrated ) ? $db_migrated : $fallback;
+
 			if ( $this->needs_db_update() && ! $is_queue_running ) {
-				$this->update();
+				$this->update( $fallback );
 			} else {
 				if ( ! $is_queue_running ) {
 					self::update_db_version();
@@ -186,13 +192,61 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
+		 * Check if database is migrated
+		 *
+		 * @since 2.3.1
+		 *
+		 * @return true If the database migration should not be run through CRON.
+		 */
+		public function check_if_data_migrated() {
+
+			$fallback = false;
+
+			$is_db_version_updated = $this->is_db_version_updated();
+			if ( ! $is_db_version_updated ) {
+
+				$db_migrated = get_transient( 'astra-theme-db-migrated' );
+
+				if ( ! $db_migrated ) {
+					$db_migrated = array();
+				}
+
+				array_push( $db_migrated, $is_db_version_updated );
+				set_transient( 'astra-theme-db-migrated', $db_migrated, 3600 );
+
+				$db_migrate_count = count( $db_migrated );
+				if ( $db_migrate_count >= 5 ) {
+					astra_delete_option( 'is_theme_queue_running' );
+					$fallback = true;
+				}
+			}
+			return $fallback;
+		}
+
+		/**
+		 * Checks if astra addon version is updated in the database
+		 *
+		 * @since 2.3.1
+		 *
+		 * @return true if astra addon version is updated.
+		 */
+		public function is_db_version_updated() {
+			// Get auto saved version number.
+			$saved_version = astra_get_option( 'theme-auto-version', false );
+
+			return version_compare( $saved_version, ASTRA_THEME_VERSION, '=' );
+		}
+
+
+		/**
 		 * Push all needed DB updates to the queue for processing.
+		 *
+		 * @param bool $fallback Fallback migration.
 		 *
 		 * @return void
 		 */
-		private function update() {
+		private function update( $fallback ) {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
-			$fallback           = $this->test_cron();
 
 			error_log( 'Astra: Batch Process Started!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
@@ -209,7 +263,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 				if ( $fallback ) {
-					error_log( 'Astra: CRON is disabled on this website!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					error_log( 'Astra: Running migration without batch processing.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 					self::update_db_version();
 				} else {
 					astra_update_option( 'is_theme_queue_running', true );
@@ -272,6 +326,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// Update variables.
 			Astra_Theme_Options::refresh();
+
+			delete_transient( 'astra-addon-db-migrated' );
 
 			do_action( 'astra_theme_update_after' );
 		}
