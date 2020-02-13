@@ -1,3 +1,6 @@
+v2.3.1
+- Fix: Theme minimum version notice appearing in some cases even after theme is updated.
+
 v2.3.0
 - New: Options for Header Button - Open link in New Tab, add rel attribute. ( https://wpastra.com/docs/new-button-options-in-astra-theme/ )
 - Improvement: Hardened the security of theme.
