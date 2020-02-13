@@ -241,6 +241,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Push all needed DB updates to the queue for processing.
 		 *
+		 * @param bool $fallback Fallback migration.
+		 *
 		 * @return void
 		 */
 		private function update( $fallback ) {
