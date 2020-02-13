@@ -180,7 +180,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'control'   => 'text',
 					'section'   => 'section-primary-menu',
 					'partial'   => array(
-						'selector'            => '.ast-custom-button-link .ast-button',
+						'selector'            => '.button-custom-menu-item',
 						'container_inclusive' => false,
 						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_main_rt_section_button_text' ),
 					),

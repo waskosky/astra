@@ -3942,8 +3942,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-masthead-custom-menu-items.search-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section .customize-partial-edit-shortcut-button {
-  left: -25px;
-  top: -10px;
+  left: -30px;
+  top: -7px;
   display: none;
 }
 
@@ -3951,17 +3951,18 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: block;
 }
 
-.ast-masthead-custom-menu-items.button-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style .customize-partial-edit-shortcut-button {
-  left: -20px;
+.ast-masthead-custom-menu-items.button-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-text .customize-partial-edit-shortcut-button {
+  top: -14px;
   display: none;
 }
 
-.ast-masthead-custom-menu-items.button-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-style .customize-partial-edit-shortcut-button {
+.ast-masthead-custom-menu-items.button-custom-menu-item:hover .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-text .customize-partial-edit-shortcut-button {
   display: block;
 }
 
 .ast-masthead-custom-menu-items.text-html-custom-menu-item .customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html .customize-partial-edit-shortcut-button {
-  left: -20px;
+  left: -30px;
+  top: 15px;
   display: none;
 }
 
