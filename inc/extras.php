@@ -6,7 +6,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -57,7 +57,7 @@ if ( ! function_exists( 'astra_schema_body' ) ) :
 		$result = apply_filters( 'astra_schema_body_itemtype', $itemtype );
 
 		// Return our HTML.
-		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" );
+		echo apply_filters( 'astra_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -156,7 +156,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			);
 			echo '</div>';
 			$output = ob_get_clean();
-			echo apply_filters( 'astra_pagination_markup', $output ); // WPCS: XSS OK.
+			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
@@ -200,121 +200,138 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			}
 		}
 
-		if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
+		$html .= astra_get_site_title_tagline( $display_site_title, $display_site_tagline );
 
-			// Site Title.
-			$tag = 'span';
-			if ( is_home() || is_front_page() ) {
-				$tag = 'h1';
-			}
-
-			/**
-			 * Filters the site title output.
-			 *
-			 * @since 1.4.9
-			 *
-			 * @param string the HTML output for Site Title.
-			 */
-			// Site Title.
-			$site_title_markup = apply_filters(
-				'astra_site_title_output',
-				sprintf(
-					'<%1$s %4$s>
-					<a href="%2$s" rel="home" %5$s >
-						%3$s
-					</a>
-				</%1$s>',
-					/**
-					* Filters the tags for site title.
-					*
-					* @since 1.3.1
-					*
-					* @param string $tags string containing the HTML tags for Site Title.
-					*/
-					apply_filters( 'astra_site_title_tag', $tag ),
-					/**
-					* Filters the href for the site title.
-					*
-					* @since 1.4.9
-					*
-					* @param string site title home url
-					*/
-					esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ),
-					/**
-					* Filters the site title.
-					*
-					* @since 1.4.9
-					*
-					* @param string site title
-					*/
-					apply_filters( 'astra_site_title', get_bloginfo( 'name' ) ),
-					astra_attr(
-						'site-title',
-						array(
-							'class' => 'site-title',
-						)
-					),
-					astra_attr(
-						'site-title-link',
-						array()
-					)
-				)
-			);
-
-			// Site Description.
-			/**
-			 * Filters the site description markup.
-			 *
-			 * @since 1.4.9
-			 *
-			 * @param string the HTML output for Site Title.
-			 */
-			$site_tagline_markup = apply_filters(
-				'astra_site_description_markup',
-				sprintf(
-					'<%1$s class="site-description" itemprop="description">
-					%2$s
-				</%1$s>',
-					/**
-					* Filters the tags for site tagline.
-					*
-					* @since 1.8.5
-					*/
-					apply_filters( 'astra_site_tagline_tag', 'p' ),
-					/**
-					* Filters the site description.
-					*
-					* @since 1.4.9
-					*
-					* @param string site description
-					*/
-					apply_filters( 'astra_site_description', get_bloginfo( 'description' ) )
-				)
-			);
-
-			if ( $display_site_title || $display_site_tagline ) {
-				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
-				$html .= sprintf(
-					'<div class="ast-site-title-wrap">
-							%1$s
-							%2$s
-						</div>',
-					( $display_site_title ) ? $site_title_markup : '',
-					( $display_site_tagline ) ? $site_tagline_markup : ''
-				);
-			}
-		}
 		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
 
 		/**
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo $html;
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $html;
 		}
 	}
+}
+
+/**
+ * Return or echo site logo markup.
+ *
+ * @since 2.2.0
+ * @param boolean $display_site_title Site title enable or not.
+ * @param boolean $display_site_tagline Site tagline enable or not.
+ *
+ * @return string return markup.
+ */
+function astra_get_site_title_tagline( $display_site_title, $display_site_tagline ) {
+	$html = '';
+
+	if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
+
+		// Site Title.
+		$tag = 'span';
+		if ( is_home() || is_front_page() ) {
+			$tag = 'h1';
+		}
+
+		/**
+		 * Filters the site title output.
+		 *
+		 * @since 1.4.9
+		 *
+		 * @param string the HTML output for Site Title.
+		 */
+		// Site Title.
+		$site_title_markup = apply_filters(
+			'astra_site_title_output',
+			sprintf(
+				'<%1$s %4$s>
+				<a href="%2$s" rel="home" %5$s >
+					%3$s
+				</a>
+			</%1$s>',
+				/**
+				* Filters the tags for site title.
+				*
+				* @since 1.3.1
+				*
+				* @param string $tags string containing the HTML tags for Site Title.
+				*/
+				apply_filters( 'astra_site_title_tag', $tag ),
+				/**
+				* Filters the href for the site title.
+				*
+				* @since 1.4.9
+				*
+				* @param string site title home url
+				*/
+				esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ),
+				/**
+				* Filters the site title.
+				*
+				* @since 1.4.9
+				*
+				* @param string site title
+				*/
+				apply_filters( 'astra_site_title', get_bloginfo( 'name' ) ),
+				astra_attr(
+					'site-title',
+					array(
+						'class' => 'site-title',
+					)
+				),
+				astra_attr(
+					'site-title-link',
+					array()
+				)
+			)
+		);
+
+		// Site Description.
+		/**
+		 * Filters the site description markup.
+		 *
+		 * @since 1.4.9
+		 *
+		 * @param string the HTML output for Site Title.
+		 */
+		$site_tagline_markup = apply_filters(
+			'astra_site_description_markup',
+			sprintf(
+				'<%1$s class="site-description" itemprop="description">
+				%2$s
+			</%1$s>',
+				/**
+				* Filters the tags for site tagline.
+				*
+				* @since 1.8.5
+				*/
+				apply_filters( 'astra_site_tagline_tag', 'p' ),
+				/**
+				* Filters the site description.
+				*
+				* @since 1.4.9
+				*
+				* @param string site description
+				*/
+				apply_filters( 'astra_site_description', get_bloginfo( 'description' ) )
+			)
+		);
+
+		if ( $display_site_title || $display_site_tagline ) {
+			/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
+			$html .= sprintf(
+				'<div class="ast-site-title-wrap">
+						%1$s
+						%2$s
+					</div>',
+				( $display_site_title ) ? $site_title_markup : '',
+				( $display_site_tagline ) ? $site_tagline_markup : ''
+			);
+		}
+	}
+	return $html;
 }
 
 /**
@@ -349,7 +366,7 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 				break;
 
 			case 'button':
-					$output[] = astra_get_custom_button( $option . '-button-text', $option . '-button-link', $option . '-button-style' );
+					$output[] = astra_get_custom_button( $option . '-button-text', $option . '-button-link-option', $option . '-button-style' );
 				break;
 
 			default:
@@ -377,7 +394,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	function astra_get_search( $option = '' ) {
 		ob_start();
 		?>
-		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); ?>id="ast-search-form" role="search" tabindex="-1">
+		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>id="ast-search-form" role="search" tabindex="-1">
 			<div class="ast-search-icon">
 				<a class="slide-search astra-search-icon" aria-label="Search icon link" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
@@ -428,29 +445,31 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 	 * Get custom HTML added by user.
 	 *
 	 * @since 1.0.0
-	 * @param  string $button_text Button Text.
-	 * @param  string $button_link Button Link.
-	 * @param  string $button_style Button Style.
+	 * @param string $button_text Button Text.
+	 * @param string $button_options Button Link.
+	 * @param string $button_style Button Style.
 	 * @return String Button added by user in options panel.
 	 */
-	function astra_get_custom_button( $button_text = '', $button_link = '', $button_style = '' ) {
+	function astra_get_custom_button( $button_text = '', $button_options = '', $button_style = '' ) {
 
 		$custom_html    = '';
 		$button_classes = '';
 		$button_text    = astra_get_option( $button_text );
-		$button_link    = astra_get_option( $button_link );
 		$button_style   = astra_get_option( $button_style );
 		$outside_menu   = astra_get_option( 'header-display-outside-menu' );
 
-		$button_classes = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
+		$header_button = astra_get_option( $button_options );
+		$new_tab       = ( $header_button['new_tab'] ? 'target="_blank"' : 'target="_self"' );
+		$link_rel      = ( ! empty( $header_button['link_rel'] ) ? 'rel="' . esc_attr( $header_button['link_rel'] ) . '"' : '' );
 
+		$button_classes    = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
 		$outside_menu_item = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
 		if ( '1' == $outside_menu_item ) {
-			$custom_html = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $button_link ) ) . '"><button class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</button></a>';
+			$custom_html = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $header_button['url'] ) ) . '" ' . $new_tab . ' ' . $link_rel . '><div class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</div></a>';
 		} else {
-			$custom_html  = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $button_link ) ) . '"><button class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</button></a>';
-			$custom_html .= '<a class="menu-link" href="' . esc_url( do_shortcode( $button_link ) ) . '">' . esc_attr( do_shortcode( $button_text ) ) . '</a>';
+			$custom_html  = '<a class="ast-custom-button-link" href="' . esc_url( do_shortcode( $header_button['url'] ) ) . '" ' . $new_tab . ' ' . $link_rel . '><div class=' . esc_attr( $button_classes ) . '>' . esc_attr( do_shortcode( $button_text ) ) . '</div></a>';
+			$custom_html .= '<a class="menu-link" href="' . esc_url( do_shortcode( $header_button['url'] ) ) . '" ' . $new_tab . ' ' . $link_rel . '>' . esc_attr( do_shortcode( $button_text ) ) . '</a>';
 		}
 
 		return $custom_html;
@@ -482,7 +501,7 @@ if ( ! function_exists( 'astra_get_custom_widget' ) ) {
 			$widget_id = 'footer-widget-2';
 		}
 
-		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area"' . apply_filters( 'astra_sidebar_data_attrs', '', $widget_id ) . '>';
+		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area"' . apply_filters( 'astra_sidebar_data_attrs', '', $widget_id ) . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				astra_get_sidebar( $widget_id );
 		echo '</div>';
 
@@ -754,7 +773,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				 */
 				do_action( 'astra_main_header_custom_menu_item_before' );
 
-				echo astra_masthead_get_menu_items();
+				echo astra_masthead_get_menu_items(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 				/**
 				 * Fires after the Primary Header Menu navigation.
@@ -803,10 +822,12 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$items_wrap .= astra_attr(
 				'site-navigation',
 				array(
-					'id' => 'site-navigation',
+					'id'         => 'site-navigation',
+					'class'      => 'ast-flex-grow-1 navigation-accessibility',
+					'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 				)
 			);
-			$items_wrap .= ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap .= '>';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -839,7 +860,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 								'id' => 'site-navigation',
 							)
 						);
-						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
 							wp_page_menu( $fallback_menu_args );
 						echo '</nav>';
 					echo '</div>';
@@ -1498,11 +1519,20 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 				if ( '' != $post_thumb ) {
 					$output .= '<div class="post-thumb-img-content post-thumb">';
 					if ( ! $check_is_singular ) {
-						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+						$output .= apply_filters(
+							'astra_blog_post_featured_image_link_before',
+							'<a ' . astra_attr(
+								'article-image-url',
+								array(
+									'class' => '',
+									'href'  => esc_url( get_permalink() ),
+								)
+							) . ' >'
+						);
 					}
 					$output .= $post_thumb;
 					if ( ! $check_is_singular ) {
-						$output .= '</a>';
+						$output .= apply_filters( 'astra_blog_post_featured_image_link_after', '</a>' );
 					}
 					$output .= '</div>';
 				}
@@ -1516,7 +1546,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$output = apply_filters( 'astra_get_post_thumbnail', $output, $before, $after );
 
 		if ( $echo ) {
-			echo $before . $output . $after; // WPCS: XSS OK.
+			echo $before . $output . $after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $before . $output . $after;
 		}
@@ -1598,6 +1628,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	 * @return array Image attr.
 	 */
 	function astra_replace_header_attr( $attr, $attachment, $size ) {
+
+		if ( ! isset( $attachment ) ) {
+			return $attr;
+		}
 
 		$custom_logo_id     = get_theme_mod( 'custom_logo' );
 		$is_logo_attachment = ( $custom_logo_id == $attachment->ID ) ? true : false;
@@ -1840,6 +1874,25 @@ function astra_filter_socialsnap_upgrade_link( $link ) {
 }
 
 add_filter( 'socialsnap_upgrade_link', 'astra_filter_socialsnap_upgrade_link' );
+
+/**
+ * Update GiveWP's "Add-ons" link.
+ *
+ * This allows affiliates to change the link according to their needs.
+ */
+function astra_givewp_upgrade_link() {
+	$menu_slug = 'edit.php?post_type=give_forms';
+
+	// Remove existing page.
+	remove_submenu_page( $menu_slug, 'give-addons' );
+
+	// Add affiliate link to GiveWP.com.
+	global $submenu;
+
+	$submenu[ $menu_slug ][] = array( 'Add-ons', 'install_plugins', 'https://givewp.com/ref/412' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+}
+
+add_action( 'admin_menu', 'astra_givewp_upgrade_link', 9999999 );
 
 /**
  * Get instance of WP_Filesystem.

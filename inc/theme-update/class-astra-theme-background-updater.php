@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
+ * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since 2.1.3
  */
@@ -32,6 +32,13 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.1.3' => array(
 				'astra_submenu_below_header',
 			),
+			'2.2.0' => array(
+				'astra_page_builder_button_color_compatibility',
+				'astra_vertical_horizontal_padding_migration',
+			),
+			'2.3.0' => array(
+				'astra_header_button_new_options',
+			),
 		);
 
 		/**
@@ -56,6 +63,60 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		}
 
 		/**
+		 * Check Cron Status
+		 *
+		 * Gets the current cron status by performing a test spawn. Cached for one hour when all is well.
+		 *
+		 * @since 2.3.0
+		 *
+		 * @return true if there is a problem spawning a call to Wp-Cron system.
+		 */
+		public function test_cron() {
+
+			global $wp_version;
+
+			if ( defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON ) {
+				return true;
+			}
+
+			if ( defined( 'ALTERNATE_WP_CRON' ) && ALTERNATE_WP_CRON ) {
+				return true;
+			}
+
+			$cached_status = get_transient( 'astra-theme-cron-test-ok' );
+
+			if ( $cached_status ) {
+				return false;
+			}
+
+			$sslverify     = version_compare( $wp_version, 4.0, '<' );
+			$doing_wp_cron = sprintf( '%.22F', microtime( true ) );
+
+			$cron_request = apply_filters(
+				'cron_request',
+				array(
+					'url'  => site_url( 'wp-cron.php?doing_wp_cron=' . $doing_wp_cron ),
+					'args' => array(
+						'timeout'   => 3,
+						'blocking'  => true,
+						'sslverify' => apply_filters( 'https_local_ssl_verify', $sslverify ),
+					),
+				)
+			);
+
+			$result = wp_remote_post( $cron_request['url'], $cron_request['args'] );
+
+			if ( wp_remote_retrieve_response_code( $result ) >= 300 ) {
+				return true;
+			} else {
+				set_transient( 'astra-theme-cron-test-ok', 1, 3600 );
+				return false;
+			}
+
+			return $migration_fallback;
+		}
+
+		/**
 		 * Install actions when a update button is clicked within the admin area.
 		 *
 		 * This function is hooked into admin_init to affect admin and wp to affect the frontend.
@@ -70,7 +131,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
-
 			if ( $this->needs_db_update() && ! $is_queue_running ) {
 				$this->update();
 			} else {
@@ -86,7 +146,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @since 2.1.3
 		 * @return boolean
 		 */
-		function is_new_install() {
+		public function is_new_install() {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
@@ -127,24 +187,37 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 		/**
 		 * Push all needed DB updates to the queue for processing.
+		 *
+		 * @return void
 		 */
 		private function update() {
 			$current_db_version = astra_get_option( 'theme-auto-version' );
+			$fallback           = $this->test_cron();
 
-			error_log( 'Batch Process Started!' );
-			foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
-				if ( version_compare( $current_db_version, $version, '<' ) ) {
-					foreach ( $update_callbacks as $update_callback ) {
-						error_log( sprintf( 'Queuing %s - %s', $version, $update_callback ) );
-
-						self::$background_updater->push_to_queue( $update_callback );
+			error_log( 'Astra: Batch Process Started!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
+				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
+					if ( version_compare( $current_db_version, $version, '<' ) ) {
+						foreach ( $update_callbacks as $update_callback ) {
+							if ( $fallback ) {
+								call_user_func( $update_callback );
+							} else {
+								error_log( sprintf( 'Astra: Queuing %s - %s', $version, $update_callback ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+								self::$background_updater->push_to_queue( $update_callback );
+							}
+						}
 					}
 				}
+				if ( $fallback ) {
+					error_log( 'Astra: CRON is disabled on this website!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					self::update_db_version();
+				} else {
+					astra_update_option( 'is_theme_queue_running', true );
+					self::$background_updater->push_to_queue( 'update_db_version' );
+				}
+			} else {
+				self::$background_updater->push_to_queue( 'update_db_version' );
 			}
-
-			astra_update_option( 'is_theme_queue_running', true );
-
-			self::$background_updater->push_to_queue( 'update_db_version' );
 			self::$background_updater->save()->dispatch();
 		}
 
@@ -193,10 +266,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			// Update auto saved version number.
 			astra_update_option( 'theme-auto-version', $theme_version );
 
-			// Update variables.
-			Astra_Theme_Options::refresh();
+			error_log( 'Astra: db version updated successfully!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
 			astra_update_option( 'is_theme_queue_running', false );
+
+			// Update variables.
+			Astra_Theme_Options::refresh();
 
 			do_action( 'astra_theme_update_after' );
 		}
@@ -207,4 +282,4 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 /**
  * Kicking this off by creating a new instance
  */
-new Astra_Theme_Background_Updater;
+new Astra_Theme_Background_Updater();
