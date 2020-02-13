@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Check if database is migrated
 		 *
-		 * @since x.x.x
+		 * @since 2.3.1
 		 *
 		 * @return true If the database migration should not be run through CRON.
 		 */
@@ -226,7 +226,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		/**
 		 * Checks if astra addon version is updated in the database
 		 *
-		 * @since x.x.x
+		 * @since 2.3.1
 		 *
 		 * @return true if astra addon version is updated.
 		 */
