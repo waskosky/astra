@@ -995,8 +995,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 				</style>';
 				echo '<style class="astra-theme-custom-shortcut-edit-icons">
-					.customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
-					.customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+					.ast-replace-site-logo-transparent .customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
+					.ast-replace-site-logo-transparent .customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
 					    z-index: 6;
 					}
 				</style>';
