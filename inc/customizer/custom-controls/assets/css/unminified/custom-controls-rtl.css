@@ -622,10 +622,6 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.customize-control.customize-control-ast-settings-group label {
-  cursor: pointer;
-}
-
 .customize-control.customize-control-ast-slider label {
   cursor: pointer;
 }
@@ -1269,11 +1265,6 @@ input[type="text"].select2-search__field {
 
 .ast-group-tabs ul.ast-group-list .ui-corner-top:not(:first-child) {
   border-right-width: 0;
-}
-
-.ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
-  margin-right: 3px;
-  min-height: 30px !important;
 }
 
 /* Buttons */

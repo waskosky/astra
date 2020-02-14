@@ -237,5 +237,5 @@
 .customize-control-ast-color .wp-picker-container .wp-picker-clear,
 .customize-control-ast-responsive-color .wp-picker-container .wp-picker-clear {
  	margin-left: 4px;
-	min-height: 30px !important;
+	min-height: 30px;
  }
