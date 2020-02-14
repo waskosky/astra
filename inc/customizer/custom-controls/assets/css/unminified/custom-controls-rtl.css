@@ -2,11 +2,6 @@
   margin: 0;
 }
 
-.customize-control-ast-background .wp-picker-clear {
-  margin-right: 3px;
-  min-height: 30px !important;
-}
-
 .customize-control-ast-background .screen-reader-text {
   top: initial;
 }
