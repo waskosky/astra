@@ -364,7 +364,7 @@
 
 				// Update width for input
 				if ( self._color._alpha < 1 || self._color.toString().indexOf('rgb') != -1 )
-					el.width( parseInt( self.options.defaultWidth + self.options.customWidth ) );
+					el.width( parseInt( 88 ) );
 
 				// Push new controls
 				$.each( controls, function( k, v ) {
@@ -440,7 +440,7 @@
 					 */
 					if ( self._color._alpha < 1 ) {
 						controls.strip.attr( 'style', controls.strip.attr( 'style' ).replace( /rgba\(([0-9]+,)(\s+)?([0-9]+,)(\s+)?([0-9]+)(,(\s+)?[0-9\.]+)\)/g, 'rgb($1$3$5)' ) );
-						el.width( parseInt( defaultWidth + customWidth ) );
+						el.width( parseInt( 88 ) );
 					} else {
 						el.width( defaultWidth );
 					}
