@@ -1536,7 +1536,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								isset( $info['url'] ) ? 'a' : 'span',
 								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								esc_html( $info['title'] ) 
+								esc_html( $info['title'] )
 							);
 						}
 						?>
