@@ -8,7 +8,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
- * @since       x.x.x
+ * @since       2.3.0
  */
 
 // Exit if accessed directly.
@@ -74,13 +74,13 @@ class Astra_Control_Link extends WP_Customize_Control {
 			<label>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			</label>
-		<# } console.log( data ); #>
+		<# } #>
 			<div class="customize-control-content">
 				<input type="text" class="ast-link-input" value="{{data.value.url}}" >
 			</div>
 			<div class="customize-control-content ast-link-open-in-new-tab-wrapper">
 				<input type="checkbox" id="ast-link-open-in-new-tab" class="ast-link-open-in-new-tab" name="ast-link-open-in-new-tab" {{ (data.value.new_tab) ? "checked" : ""}}>
-				<label for="ast-link-open-in-new-tab">Open in a new Tab</label>
+				<label for="ast-link-open-in-new-tab">Open in a New Tab</label>
 			</div>
 			<div class="customize-control-content">
 				<label>
@@ -91,4 +91,12 @@ class Astra_Control_Link extends WP_Customize_Control {
 		<input type="hidden" id="_customize-input-{{data.settings.default}}" class="customize-link-control-data" name="{{name}}" data-customize-setting-link="{{data.settings.default}}" data-value="{{ JSON.stringify( data.value ) }}">
 		<?php
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 * @since  2.0.0
+	 */
+	protected function render_content() {}
 }
