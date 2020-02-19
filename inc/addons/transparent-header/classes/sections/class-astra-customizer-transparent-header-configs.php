@@ -56,10 +56,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'    => __( 'Enable on Complete Website', 'astra' ),
 					'priority' => 20,
 					'control'  => 'checkbox',
-					'partial'  => array(
-						'selector'            => '.ast-theme-transparent-header .main-header-bar',
-						'container_inclusive' => false,
-					),
 				),
 
 				/**
@@ -200,10 +196,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'priority'       => 30,
 					'title'          => __( 'Logo', 'astra' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-					'partial'        => array(
-						'selector'            => '.ast-theme-transparent-header .main-header-bar .site-branding .site-logo-img .custom-logo-link',
-						'container_inclusive' => false,
-					),
 				),
 
 				/**
