@@ -3859,26 +3859,31 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 /**
  * Customizer Edit pencil - Set Position
  */
-/* Transparent Header CSS */
-.customize-partial-edit-shortcut-astra-settings-transparent-header-enable .customize-partial-edit-shortcut-button {
-  right: 80px;
-  top: 2px;
-}
-
-.ast-full-width-primary-header.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-enable .customize-partial-edit-shortcut-button {
-  right: 5px;
-}
-
-.ast-full-width-primary-header.ast-theme-transparent-header .customize-partial-edit-shortcut-blogname .customize-partial-edit-shortcut-button {
-  top: 10px;
-  right: -30px;
-}
-
-/* Sticky Header CSS */
-.ast-primary-sticky-header-active.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-enable .customize-partial-edit-shortcut-button {
+.customize-partial-edit-shortcut-blogname button.customize-partial-edit-shortcut-button {
   display: none;
 }
 
+.ast-site-title-wrap:hover .customize-partial-edit-shortcut-blogname button.customize-partial-edit-shortcut-button {
+  display: inline-block;
+}
+
+.customize-partial-edit-shortcut-blogdescription button.customize-partial-edit-shortcut-button {
+  display: none;
+}
+
+.ast-site-title-wrap:hover .customize-partial-edit-shortcut-blogdescription button.customize-partial-edit-shortcut-button {
+  display: inline-block;
+}
+
+.customize-partial-edit-shortcut-astra-settings-display-site-title button.customize-partial-edit-shortcut-button {
+  display: none;
+}
+
+.customize-partial-edit-shortcut-astra-settings-display-site-tagline button.customize-partial-edit-shortcut-button {
+  display: none;
+}
+
+/* Sticky Header CSS */
 .ast-primary-sticky-header-active .customize-partial-edit-shortcut-astra-settings-header-main-stick .customize-partial-edit-shortcut-button {
   right: 100px;
 }
@@ -3888,10 +3893,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 /* Primary Header common CSS */
-.customize-partial-edit-shortcut-blogname .customize-partial-edit-shortcut-button {
-  top: 10px;
-}
-
 .ast-full-width-header .customize-partial-edit-shortcut-astra-settings-header-layouts {
   position: absolute;
   right: 2em;
