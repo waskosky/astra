@@ -64,10 +64,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 							'path'  => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" role="img" id="Layer_1" x="0px" y="0px" width="120.5px" height="81px" viewBox="0 0 120.5 81" enable-background="new 0 0 120.5 81" xml:space="preserve"><g><g><path fill="#0085BA" d="M0.25,77.247V3.753c0-1.957,1.592-3.549,3.549-3.549h112.902c1.957,0,3.549,1.592,3.549,3.549v73.494 c0,1.957-1.592,3.55-3.549,3.55H3.799C1.842,80.797,0.25,79.204,0.25,77.247z M3.799,1.979c-0.979,0-1.774,0.795-1.774,1.774 v73.494c0,0.979,0.796,1.774,1.774,1.774h112.902c0.979,0,1.773-0.795,1.773-1.774V3.753c0-0.979-0.795-1.774-1.773-1.774H3.799z"/></g><g><g><path fill="#0085BA" d="M13.225,16.6h58.891c0.979,0,1.774-0.794,1.774-1.774s-0.795-1.774-1.774-1.774H13.225 c-0.979,0-1.773,0.794-1.773,1.774C11.451,15.806,12.246,16.6,13.225,16.6z"/></g><g><path fill="#0085BA" d="M85.988,16.689c0,0.989,0.93,1.789,2.074,1.789h16.321c1.146,0,2.074-0.8,2.074-1.789v-3.727 c0-0.989-0.929-1.79-2.074-1.79H88.063c-1.145,0-2.073,0.801-2.073,1.79L85.988,16.689L85.988,16.689z"/></g></g></g><line fill="none" stroke="#0085BA" stroke-miterlimit="10" x1="120.25" y1="28.342" x2="0.965" y2="28.342"/></svg>',
 						),
 					),
-					'partial'  => array(
-						'selector'            => '.header-main-layout-1 .main-header-bar-wrap .main-header-container, .header-main-layout-2 .main-header-bar-wrap .main-header-container, .header-main-layout-3 .main-header-bar-wrap .ast-container',
-						'container_inclusive' => false,
-					),
 				),
 				/**
 				 * Option: Header Width
