@@ -2058,7 +2058,8 @@ button,
 input[type="button"],
 input[type="submit"],
 textarea,
-.ast-button {
+.ast-button,
+.ast-custom-button {
   line-height: 1.85714285714286;
 }
 
