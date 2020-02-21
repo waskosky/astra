@@ -139,7 +139,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 
-			if ( 'llms_certificate' === get_post_type() ) {
+			if ( 'llms_certificate' === get_post_type() || 'llms_my_certificate' === get_post_type() ) {
 				if ( ! is_admin() ) {
 					add_filter( 'post_class', 'astra_certificate_class' );
 
