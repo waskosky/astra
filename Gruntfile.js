@@ -468,7 +468,6 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/settings-group/settings-group.js',
                             'inc/customizer/custom-controls/slider/slider.js',
                             'inc/customizer/custom-controls/sortable/sortable.js',
-                            'inc/customizer/custom-controls/spacing/spacing.js',
                             'inc/customizer/custom-controls/typography/typography.js'
 
                         ],
