@@ -138,16 +138,17 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( is_singular( 'llms_assignment' ) ) {
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
-
-			if ( 'llms_certificate' === get_post_type() || 'llms_my_certificate' === get_post_type() ) {
+			$lifter_certificate_post_type = get_post_type();
+			if ( 'llms_certificate' === $lifter_certificate_post_type || 'llms_my_certificate' === $lifter_certificate_post_type ) {
 				if ( ! is_admin() ) {
 					add_filter( 'post_class', 'astra_certificate_class' );
 
 					/**
 					 * Remove ast-article-single class in case of content-boxed and boxed layout.
 					 *
-					 * @since 2.2.2
+					 * @since x.x.x
 					 * @param array $array is a array of classes.
+					 * @return array
 					 */
 					function astra_certificate_class( $array ) {
 						$delete_class = array_search( 'ast-article-single', $array );
