@@ -723,12 +723,41 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Extended Customizer Assets - Panel extended.
 			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
 			wp_enqueue_script( 'astra-customizer-dependency', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'astra-customizer-controls-js' ), ASTRA_THEME_VERSION, true );
 
 			// Customizer Controls.
-			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
+			if ( SCRIPT_DEBUG ) {
+				$astra_theme_addons = array(
+					'background',
+					'border',
+					'customizer-link',
+					'description',
+					'divider',
+					'heading',
+					'hidden',
+					'link',
+					'radio-image',
+					'responsive',
+					'responsive-color',
+					'responsive-slider',
+					'responsive-spacing',
+					'select',
+					'settings-group',
+					'slider',
+					'sortable',
+					'spacing',
+					'typography',
+				);
+				foreach ( $astra_theme_addons as $addon ) {
+					wp_enqueue_script( 'astra-customizer-controls-' . $addon . '-js', ASTRA_THEME_URI . 'inc/customizer/custom-controls/' . $addon . '/' . $addon . '.js', array(), ASTRA_THEME_VERSION, true );
+					wp_enqueue_style( 'astra-customizer-controls-' . $addon . '-css', ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/' . $addon . $css_prefix, null, ASTRA_THEME_VERSION );
+				}
+			} else {
+				wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
+				wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
+			}
+
 			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
 
 			$google_fonts = Astra_Font_Families::get_google_fonts();
