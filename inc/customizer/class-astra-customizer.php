@@ -996,6 +996,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					.customize-partial-edit-shortcut button:hover {
 						border-color: #fff;
 					}
+					.ast-main-header-bar-alignment .main-header-bar-navigation .customize-partial-edit-shortcut-button {
+						display: none;
+					}
 				</style>';
 				echo '<style class="astra-theme-custom-shortcut-edit-icons">
 					.ast-replace-site-logo-transparent.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
