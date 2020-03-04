@@ -943,9 +943,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
-		 * Customizer Preview
+		 * Customizer Preview icon CSS
+		 *
+		 * @since 1.0.0
+		 * @return void
 		 */
-		function preview_styles() {
+		public function preview_styles() {
 			if ( is_customize_preview() ) {
 				echo '<style class="astra-custom-shortcut-edit-icons">
 					.customize-partial-edit-shortcut-astra-settings-footer-adv {
