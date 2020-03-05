@@ -599,7 +599,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/**
 			 * Elementor Theme Style - Button Text Color compatibility. This should be looked in the future for proper solution.
-			 * 
+			 *
 			 * Reference: https://github.com/elementor/elementor/issues/10733
 			 * Reference: https://github.com/elementor/elementor/issues/10739
 			 */
