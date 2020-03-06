@@ -235,7 +235,7 @@
 		{
 			event.preventDefault();
 
-			if ( activatedSlug.indexOf( 'astra-sites' ) >= 0 ) {
+			if ( activatedSlug.indexOf( 'astra-sites' ) >= 0 || activatedSlug.indexOf( 'astra-pro-sites' ) >= 0 ) {
 				if ( 'undefined' != typeof AstraNotices ) {
 			    	AstraNotices._ajax( 'astra-sites-on-active', '' );
 				}
