@@ -73,7 +73,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Starter Templates Slug
 		 *
-		 * @since x.x.x
+		 * @since 2.3.2
 		 * @var array $starter_templates_slug
 		 */
 		public static $starter_templates_slug = 'astra-sites';
@@ -358,7 +358,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Check if installed Starter Sites plugin is new.
 		 *
-		 * @since x.x.x
+		 * @since 2.3.2
 		 */
 		public static function get_starter_templates_slug() {
 
