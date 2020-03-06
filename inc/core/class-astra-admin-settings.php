@@ -359,7 +359,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Check if installed Starter Sites plugin is new.
 		 *
 		 * @since x.x.x
-		 * @return boolean
 		 */
 		public static function get_starter_templates_slug() {
 
