@@ -466,10 +466,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
+				$starter_templates_slug = self::get_starter_templates_slug();
+
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-					'astraSitesLink'                     => admin_url( 'themes.php?page=starter-templates' ),
+					'astraSitesLink'                     => admin_url( 'themes.php?page=' . $starter_templates_slug ),
 					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
@@ -498,10 +500,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
+			$starter_templates_slug = self::get_starter_templates_slug();
+
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=starter-templates' ),
+				'astraSitesLink'                     => admin_url( 'themes.php?page=' . $starter_templates_slug ),
 				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
