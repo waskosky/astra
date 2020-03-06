@@ -313,28 +313,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @return array $ast_sites_notice_btn Rendered button
 		 */
 		public static function astra_sites_notice_button() {
-			$ast_sites_notice_btn = array();
+			$ast_sites_notice_btn   = array();
+			$starter_templates_slug = self::get_starter_templates_slug();
 			// Astra Sites - Installed but Inactive.
 			// Astra Premium Sites - Inactive.
 			if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-
 				$ast_sites_notice_btn['class']                   = 'astra-activate-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
-				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=starter-templates' );
+				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . $starter_templates_slug );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['activating_text']         = __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;';
 
 				// Astra Sites - Not Installed.
 				// Astra Premium Sites - Inactive.
 			} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-
 				$ast_sites_notice_btn['class']                   = 'astra-install-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
-				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=starter-templates' );
+				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . $starter_templates_slug );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
 				$ast_sites_notice_btn['detail_link']             = network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
@@ -342,12 +341,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				$ast_sites_notice_btn['class']       = 'active';
 				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
-				$is_starter_templates_v_2_0_0        = self::is_starter_templates_v_2_0_0_installed();
-				if ( $is_starter_templates_v_2_0_0 ) {
-					$ast_sites_notice_btn['link'] = admin_url( 'themes.php?page=starter-templates' );
-				} else {
-					$ast_sites_notice_btn['link'] = admin_url( 'themes.php?page=astra-sites' );
-				}
+				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=' . $starter_templates_slug );
 			}
 			return $ast_sites_notice_btn;
 		}
@@ -358,16 +352,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since x.x.x
 		 * @return boolean
 		 */
-		public static function is_starter_templates_v_2_0_0_installed() {
+		public static function get_starter_templates_slug() {
 
-			if ( defined( 'ASTRA_PRO_SITES_VER' ) ) {
-				return version_compare( ASTRA_PRO_SITES_VER, '2.0.0', '>=' );
-			}
-			if ( defined( 'ASTRA_SITES_VER' ) ) {
-				return version_compare( ASTRA_SITES_VER, '2.0.0', '>=' );
+			$starter_templates_slug = 'astra-sites';
+
+			if ( defined( 'ASTRA_PRO_SITES_VER' ) && version_compare( ASTRA_PRO_SITES_VER, '2.0.0', '>=' ) ) {
+				$starter_templates_slug = 'starter-templates';
 			}
 
-			return false;
+			if ( defined( 'ASTRA_SITES_VER' ) && version_compare( ASTRA_SITES_VER, '2.0.0', '>=' ) ) {
+				$starter_templates_slug = 'starter-templates';
+			}
+
+			return $starter_templates_slug;
 		}
 
 		/**
