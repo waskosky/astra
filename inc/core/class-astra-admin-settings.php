@@ -473,7 +473,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-					'astraSitesLink'                     => admin_url( 'themes.php?page=' . self::$starter_templates_slug ),
+					'astraSitesLink'                     => admin_url( 'themes.php?page=' ),
+					'astraSitesSlug'					 => self::$starter_templates_slug,
 					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
@@ -505,7 +506,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=' . self::$starter_templates_slug ),
+				'astraSitesLink'                     => admin_url( 'themes.php?page=' ),
+				'astraSitesSlug'					 => self::$starter_templates_slug,
 				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
@@ -1435,11 +1437,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
+			self::get_starter_templates_slug();
+
 			if ( is_wp_error( $activate ) ) {
 				wp_send_json_error(
 					array(
 						'success' => false,
 						'message' => $activate->get_error_message(),
+						'starter_template_slug' => self::$starter_templates_slug,
 					)
 				);
 			}
@@ -1448,9 +1453,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				array(
 					'success' => true,
 					'message' => __( 'Plugin Successfully Activated', 'astra' ),
+					'starter_template_slug' => self::$starter_templates_slug,
 				)
 			);
-
 		}
 
 		/**

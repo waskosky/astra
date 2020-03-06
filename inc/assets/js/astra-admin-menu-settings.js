@@ -110,7 +110,7 @@
 					},
 				})
 				.done(function (result) {
-					
+
 					if( result.success ) {
 						var output  = '<a href="#" class="astra-deactivate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ deactivateText +'" aria-label="'+ deactivateText +'">'+ deactivateText +'</a>';
 							output += ( typeof settingsLink === 'string' && settingsLink != 'undefined' ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
@@ -121,12 +121,12 @@
 						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').addClass('active');
 						$message.parents('.ast-addon-link-wrapper').html( output );
 
-						jQuery(document).trigger( 'ast-after-plugin-active', [astraSitesLink, activatedSlug] );
+						var starterSitesRedirectionUrl = astraSitesLink + result.data.starter_template_slug;
+						jQuery(document).trigger( 'ast-after-plugin-active', [starterSitesRedirectionUrl, activatedSlug] );
 
 					} else {
 
 						$message.removeClass( 'updating-message' );
-
 					}
 
 				});
@@ -228,7 +228,6 @@
 			});
 		},
 
-
 		/**
 		 * After plugin active redirect and deactivate activation notice
 		 */
@@ -242,9 +241,7 @@
 				}
 				window.location.href = astraSitesLink + '&ast-disable-activation-notice';
 			}
-
 		},
-
 	};
 
 	/**
