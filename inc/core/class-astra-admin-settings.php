@@ -337,7 +337,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				// Astra Sites - Not Installed.
 				// Astra Premium Sites - Inactive.
-			} elseif ( file_exists( WP_PLUGIN_DIR . '/astra-pro-sites/astra-pro-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+			} elseif ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) ) {
 				$ast_sites_notice_btn['class']                   = 'astra-activate-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
@@ -1448,7 +1448,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
-			if ( '/astra-sites/astra-sites.php' == $plugin_init || '/astra-sites/astra-sites.php' == $plugin_init ) {
+			if ( ( '/astra-pro-sites/astra-pro-sites.php' === $plugin_init ) || ( '/astra-sites/astra-sites.php' === $plugin_init ) ) {
 				self::get_starter_templates_slug();
 			}
 
