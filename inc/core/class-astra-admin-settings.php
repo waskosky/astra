@@ -71,6 +71,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static $current_slug = 'general';
 
 		/**
+		 * Starter Templates Slug
+		 *
+		 * @since x.x.x
+		 * @var array $starter_templates_slug
+		 */
+		public static $starter_templates_slug = 'astra-sites';
+
+		/**
 		 * Constructor
 		 */
 		public function __construct() {
@@ -78,6 +86,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( ! is_admin() ) {
 				return;
 			}
+
+			self::get_starter_templates_slug();
 
 			add_action( 'after_setup_theme', __CLASS__ . '::init_admin_settings', 99 );
 		}
@@ -313,8 +323,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @return array $ast_sites_notice_btn Rendered button
 		 */
 		public static function astra_sites_notice_button() {
-			$ast_sites_notice_btn   = array();
-			$starter_templates_slug = self::get_starter_templates_slug();
+			$ast_sites_notice_btn = array();
 			// Astra Sites - Installed but Inactive.
 			// Astra Premium Sites - Inactive.
 			if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
@@ -322,7 +331,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
-				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . $starter_templates_slug );
+				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . self::$starter_templates_slug );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['activating_text']         = __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;';
 
@@ -333,7 +342,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
-				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . $starter_templates_slug );
+				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . self::$starter_templates_slug );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
 				$ast_sites_notice_btn['detail_link']             = network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
@@ -341,7 +350,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				$ast_sites_notice_btn['class']       = 'active';
 				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
-				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=' . $starter_templates_slug );
+				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=' . self::$starter_templates_slug );
 			}
 			return $ast_sites_notice_btn;
 		}
@@ -354,17 +363,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function get_starter_templates_slug() {
 
-			$starter_templates_slug = 'astra-sites';
-
 			if ( defined( 'ASTRA_PRO_SITES_VER' ) && version_compare( ASTRA_PRO_SITES_VER, '2.0.0', '>=' ) ) {
-				$starter_templates_slug = 'starter-templates';
+				self::$starter_templates_slug = 'starter-templates';
 			}
 
 			if ( defined( 'ASTRA_SITES_VER' ) && version_compare( ASTRA_SITES_VER, '2.0.0', '>=' ) ) {
-				$starter_templates_slug = 'starter-templates';
+				self::$starter_templates_slug = 'starter-templates';
 			}
-
-			return $starter_templates_slug;
 		}
 
 		/**
@@ -466,12 +471,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
-				$starter_templates_slug = self::get_starter_templates_slug();
-
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-					'astraSitesLink'                     => admin_url( 'themes.php?page=' . $starter_templates_slug ),
+					'astraSitesLink'                     => admin_url( 'themes.php?page=' . self::$starter_templates_slug ),
 					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
@@ -500,12 +503,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
-			$starter_templates_slug = self::get_starter_templates_slug();
-
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=' . $starter_templates_slug ),
+				'astraSitesLink'                     => admin_url( 'themes.php?page=' . self::$starter_templates_slug ),
 				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
