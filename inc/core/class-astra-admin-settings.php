@@ -473,7 +473,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-					'astraSitesLink'                     => admin_url( 'themes.php?page=' . self::$starter_templates_slug ),
+					'astraSitesLink'                     => admin_url( 'themes.php?page=' ),
 					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
@@ -505,14 +505,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=' . self::$starter_templates_slug ),
+				'astraSitesLink'                     => admin_url( 'themes.php?page=' ),
 				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
 				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
 				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
-
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 
@@ -1435,22 +1434,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
+			if ( '/astra-sites/astra-sites.php' === $plugin_init ) {
+				self::get_starter_templates_slug();
+			}
+
 			if ( is_wp_error( $activate ) ) {
 				wp_send_json_error(
 					array(
-						'success' => false,
-						'message' => $activate->get_error_message(),
+						'success'               => false,
+						'message'               => $activate->get_error_message(),
+						'starter_template_slug' => self::$starter_templates_slug,
 					)
 				);
 			}
 
 			wp_send_json_success(
 				array(
-					'success' => true,
-					'message' => __( 'Plugin Successfully Activated', 'astra' ),
+					'success'               => true,
+					'message'               => __( 'Plugin Successfully Activated', 'astra' ),
+					'starter_template_slug' => self::$starter_templates_slug,
 				)
 			);
-
 		}
 
 		/**
