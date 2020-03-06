@@ -324,20 +324,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function astra_sites_notice_button() {
 			$ast_sites_notice_btn = array();
-			// Astra Premium Sites - Installed but Inactive.
+			// Astra Sites - Installed but Inactive.
 			// Astra Premium Sites - Inactive.
-			if ( file_exists( WP_PLUGIN_DIR . '/astra-pro-sites/astra-pro-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-				$ast_sites_notice_btn['class']                   = 'astra-activate-recommended-plugin';
-				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
-				$ast_sites_notice_btn['data_slug']               = 'astra-pro-sites';
-				$ast_sites_notice_btn['data_init']               = '/astra-pro-sites/astra-pro-sites.php';
-				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . self::$starter_templates_slug );
-				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
-				$ast_sites_notice_btn['activating_text']         = __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;';
-
-				// Astra Sites - Not Installed.
-				// Astra Premium Sites - Inactive.
-			} elseif ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) ) {
+			if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 				$ast_sites_notice_btn['class']                   = 'astra-activate-recommended-plugin';
 				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
@@ -1448,7 +1437,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
-			if ( ( '/astra-pro-sites/astra-pro-sites.php' === $plugin_init ) || ( '/astra-sites/astra-sites.php' === $plugin_init ) ) {
+			if ( '/astra-sites/astra-sites.php' === $plugin_init ) {
 				self::get_starter_templates_slug();
 			}
 
