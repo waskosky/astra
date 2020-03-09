@@ -1727,7 +1727,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$ele_default_color_setting = get_option( 'elementor_disable_color_schemes' );
 			$ele_default_typo_setting  = get_option( 'elementor_disable_typography_schemes' );
 
-			if ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) {
+			if ( ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) || ( false === is_elementor_default_color_font_comp() ) ) {
 				return 'color-typo';
 			}
 
@@ -1741,6 +1741,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			return false;
 
+		}
+
+		/**
+		 * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if elementor default color and typo setting should work with theme, False if not.
+		 */
+		public static function is_elementor_default_color_font_comp() {
+			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['ele-default-color-typo-setting-comp'] = ( isset( $astra_settings['ele-default-color-typo-setting-comp'] ) && false === $astra_settings['ele-default-color-typo-setting-comp'] ) ? false : true;
+			return apply_filters( 'astra_page_builder_button_style_css', $astra_settings['ele-default-color-typo-setting-comp'] );
 		}
 	}
 }
