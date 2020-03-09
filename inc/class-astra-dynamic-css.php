@@ -729,6 +729,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 						),
+						'.elementor-widget-heading h1.elementor-heading-title' => array(
+							'line-height' => esc_attr( $h1_line_height ),
+						),
+						'.elementor-widget-heading h2.elementor-heading-title' => array(
+							'line-height' => esc_attr( $h2_line_height ),
+						),
+						'.elementor-widget-heading h3.elementor-heading-title' => array(
+							'line-height' => esc_attr( $h3_line_height ),
+						),
+						'.elementor-widget-heading h4.elementor-heading-title' => array(
+							'line-height' => esc_attr( $h4_line_height ),
+						),
+						'.elementor-widget-heading h5.elementor-heading-title' => array(
+							'line-height' => esc_attr( $h5_line_height ),
+						),
+						'.elementor-widget-heading h6.elementor-heading-title' => array(
+							'line-height' => esc_attr( $h6_line_height ),
+						),
 					);
 
 					/* Parse CSS from array() */
