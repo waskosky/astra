@@ -1701,7 +1701,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Reference: https://github.com/elementor/elementor/issues/10733
 		 * Reference: https://github.com/elementor/elementor/issues/10739
 		 *
-		 * @since x.x.x
+		 * @since 2.3.3
 		 *
 		 * @return mixed
 		 */
@@ -1719,15 +1719,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Check if Elementor - Disable Default Colors or Disable Default Fonts checked or unchecked.
 		 *
-		 * @since  x.x.x
+		 * @since  2.3.3
 		 *
 		 * @return mixed String if any of the settings are enabled. False if no settings are enabled.
 		 */
 		public static function elementor_default_color_font_setting() {
 			$ele_default_color_setting = get_option( 'elementor_disable_color_schemes' );
 			$ele_default_typo_setting  = get_option( 'elementor_disable_typography_schemes' );
-
-			if ( ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) || ( false === is_elementor_default_color_font_comp() ) ) {
+			var_dump( self::is_elementor_default_color_font_comp() );
+			if ( ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) || ( false === self::is_elementor_default_color_font_comp() ) ) {
 				return 'color-typo';
 			}
 
@@ -1746,7 +1746,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
 		 *
-		 * @since x.x.x
+		 * @since 2.3.3
 		 * @return boolean true if elementor default color and typo setting should work with theme, False if not.
 		 */
 		public static function is_elementor_default_color_font_comp() {

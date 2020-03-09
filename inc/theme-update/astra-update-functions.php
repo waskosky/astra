@@ -116,7 +116,7 @@ function astra_header_button_new_options() {
 /**
  * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
  *
- * @since x.x.x
+ * @since 2.3.3
  *
  * @return void
  */
