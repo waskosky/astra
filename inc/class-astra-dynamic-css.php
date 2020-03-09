@@ -601,7 +601,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
 			if ( self::page_builder_button_style_css() ) {
-				
+
 				/**
 				 * Global button CSS - Desktop.
 				 */
