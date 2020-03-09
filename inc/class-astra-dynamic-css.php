@@ -659,7 +659,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'color'            => esc_attr( $btn_text_hover_color ),
 							'background-color' => esc_attr( $btn_bg_hover_color ),
 							'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-	
+
 						),
 						'body .elementor-button.elementor-size-sm, body .elementor-button.elementor-size-xs, body .elementor-button.elementor-size-md, body .elementor-button.elementor-size-lg, body .elementor-button.elementor-size-xl, body .elementor-button' => array(
 							'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
@@ -669,7 +669,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 						),
 					);
-	
+
 					/* Parse CSS from array() */
 					$parse_css .= astra_parse_css( $ele_btn_color_builder_desktop );
 
@@ -681,10 +681,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
 						),
 					);
-	
+
 					/* Parse CSS from array() */
 					$parse_css .= astra_parse_css( $ele_btn_builder_tablet, '', '768' );
-	
+
 					$ele_btn_builder_mobile = array(
 						'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button' => array(
 							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
@@ -693,7 +693,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 						),
 					);
-	
+
 					/* Parse CSS from array() */
 					$parse_css .= astra_parse_css( $ele_btn_builder_mobile, '', '544' );
 				}
@@ -730,7 +730,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 						),
 					);
-	
+
 					/* Parse CSS from array() */
 					$parse_css .= astra_parse_css( $ele_btn_typo_builder_desktop );
 
@@ -743,10 +743,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
 						),
 					);
-	
+
 					/* Parse CSS from array() */
 					$parse_css .= astra_parse_css( $ele_btn_typo_builder_tablet, '', '768' );
-	
+
 					$ele_btn_typo_builder_mobile = array(
 						'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button' => array(
 							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
@@ -756,7 +756,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 						),
 					);
-	
+
 					/* Parse CSS from array() */
 					$parse_css .= astra_parse_css( $ele_btn_typo_builder_mobile, '', '544' );
 				}
@@ -1700,12 +1700,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 *
 		 * Reference: https://github.com/elementor/elementor/issues/10733
 		 * Reference: https://github.com/elementor/elementor/issues/10739
-		 * 
+		 *
 		 * @since x.x.x
-		 * 
-		 * @return mixed 
+		 *
+		 * @return mixed
 		 */
-		public static function is_elementor_kit_button_color_set() { 
+		public static function is_elementor_kit_button_color_set() {
 			$ele_btn_global_text_color = false;
 			$ele_kit_id                = get_option( 'elementor_active_kit', false );
 			if ( false !== $ele_kit_id ) {
@@ -1721,7 +1721,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 *
 		 * @since  x.x.x
 		 *
-		 * @return mixed String if any of the settings are enabled. False if no settings are enabled. 
+		 * @return mixed String if any of the settings are enabled. False if no settings are enabled.
 		 */
 		public static function elementor_default_color_font_setting() {
 			$ele_default_color_setting = get_option( 'elementor_disable_color_schemes' );
