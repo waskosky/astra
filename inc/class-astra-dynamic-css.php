@@ -601,7 +601,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
 			if ( self::page_builder_button_style_css() ) {
-
+				
 				/**
 				 * Global button CSS - Desktop.
 				 */
@@ -1726,8 +1726,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function elementor_default_color_font_setting() {
 			$ele_default_color_setting = get_option( 'elementor_disable_color_schemes' );
 			$ele_default_typo_setting  = get_option( 'elementor_disable_typography_schemes' );
-			var_dump( self::is_elementor_default_color_font_comp() );
-			if ( ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) || ( false === self::is_elementor_default_color_font_comp() ) ) {
+
+			if ( ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) ) {
 				return 'color-typo';
 			}
 
@@ -1752,7 +1752,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function is_elementor_default_color_font_comp() {
 			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['ele-default-color-typo-setting-comp'] = ( isset( $astra_settings['ele-default-color-typo-setting-comp'] ) && false === $astra_settings['ele-default-color-typo-setting-comp'] ) ? false : true;
-			return apply_filters( 'astra_page_builder_button_style_css', $astra_settings['ele-default-color-typo-setting-comp'] );
+			return apply_filters( 'astra_elementor_default_color_font_comp', $astra_settings['ele-default-color-typo-setting-comp'] );
 		}
 	}
 }
