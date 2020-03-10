@@ -1745,7 +1745,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$ele_default_color_setting = get_option( 'elementor_disable_color_schemes' );
 			$ele_default_typo_setting  = get_option( 'elementor_disable_typography_schemes' );
 
-			if ( ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) ) {
+			if ( ( 'yes' === $ele_default_color_setting && 'yes' === $ele_default_typo_setting ) || ( false === self::is_elementor_default_color_font_comp() ) ) {
 				return 'color-typo';
 			}
 
