@@ -81,6 +81,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'astra_header_markup_after' => __( 'After Header', 'astra' ),
 						'astra_entry_top'           => __( 'Before Title', 'astra' ),
 					),
+					'partial'  => array(
+						'selector'            => '.ast-breadcrumbs-wrapper .ast-breadcrumbs .trail-items',
+						'container_inclusive' => false,
+					),
 				),
 
 				/**
