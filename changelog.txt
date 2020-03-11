@@ -7,6 +7,7 @@ v2.3.3
 - Fix: Elementor Theme Style button color conflict with customizer global button color.
 - Fix: Theme check warnings and recommendations.
 - Fix: Conflict with Fast Velocity Minify plugin.
+- Fix: Unable to copy paste or type RGBA color code in color picker.
 - Fix: Updated Iris library for Color Picker param.
 - Fix: Google Font not loading when FS_METHOD set to ftpext in some cases.
 - Fix: Lifter LMS certificate CSS issue with Boxed and Content Boxed layout.
