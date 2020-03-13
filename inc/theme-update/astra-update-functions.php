@@ -144,7 +144,7 @@ function astra_breadcrumb_separator_fix() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Check if the saved database value for Breadcrumb Separator is "&#187;", then change it to '\00bb'.
-	if ( isset( $theme_options['breadcrumb-separator'] ) && '"&#187;"' === $theme_options['breadcrumb-separator'] ) {
+	if ( isset( $theme_options['breadcrumb-separator'] ) && '&#187;' === $theme_options['breadcrumb-separator'] ) {
 		$theme_options['breadcrumb-separator'] = '\00bb';
 		update_option( 'astra-settings', $theme_options );
 	}
