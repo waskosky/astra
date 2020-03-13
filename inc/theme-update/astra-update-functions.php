@@ -148,5 +148,4 @@ function astra_breadcrumb_separator_fix() {
 		$theme_options['breadcrumb-separator'] = '\00bb';
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }
