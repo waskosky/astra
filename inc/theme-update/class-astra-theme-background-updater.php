@@ -29,18 +29,21 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.1.3' => array(
+			'2.1.3'   => array(
 				'astra_submenu_below_header',
 			),
-			'2.2.0' => array(
+			'2.2.0'   => array(
 				'astra_page_builder_button_color_compatibility',
 				'astra_vertical_horizontal_padding_migration',
 			),
-			'2.3.0' => array(
+			'2.3.0'   => array(
 				'astra_header_button_new_options',
 			),
-			'2.3.3' => array(
+			'2.3.3'   => array(
 				'astra_elementor_default_color_typo_comp',
+			),
+			'2.3.3.1' => array(
+				'astra_breadcrumb_separator_fix',
 			),
 		);
 
