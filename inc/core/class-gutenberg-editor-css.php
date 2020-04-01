@@ -191,10 +191,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 
 				// Global selection CSS.
-				'.editor-block-list__layout .block-editor-block-list__block ::selection,.editor-block-list__layout .block-editor-block-list__block.is-multi-selected .block-editor-block-list__block-edit:before' => array(
+				'.editor-block-list__layout .block-editor-block-list__block ::selection,.editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit:before' => array(
 					'background-color' => esc_attr( $theme_color ),
 				),
-				'.editor-block-list__layout .block-editor-block-list__block ::selection,.editor-block-list__layout .block-editor-block-list__block.is-multi-selected .block-editor-block-list__block-edit' => array(
+				'.editor-block-list__layout .block-editor-block-list__block ::selection,.editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit' => array(
 					'color' => esc_attr( $highlight_theme_color ),
 				),
 
@@ -474,11 +474,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-left'  => 0,
 						'padding-right' => 0,
 					),
-					'.block-editor-block-list__block-edit'   => array(
+					'.editor-block-list__block-edit'   => array(
 						'padding-left'  => '20px',
 						'padding-right' => '20px',
 					),
-					'.block-editor-block-list__block-edit .block-editor-block-list__block-edit' => array(
+					'.editor-block-list__block-edit .editor-block-list__block-edit' => array(
 						'padding-left'  => '0',
 						'padding-right' => '0',
 					),
@@ -546,7 +546,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'margin-left'  => '-6.67em',
 						'margin-right' => '-6.67em',
 					),
-					'.editor-block-list__layout .block-editor-block-list__block[data-align="full"], .editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
+					'.editor-block-list__layout .block-editor-block-list__block[data-align="full"], .editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
 						'margin-left'  => '0',
 						'margin-right' => '0',
 					),
