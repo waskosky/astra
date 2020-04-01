@@ -191,10 +191,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 
 				// Global selection CSS.
-				'.editor-block-list__layout .block-editor-block-list__block ::selection,.editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit:before' => array(
+				'.block-editor-block-list__layout .block-editor-block-list__block ::selection,.block-editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit:before' => array(
 					'background-color' => esc_attr( $theme_color ),
 				),
-				'.editor-block-list__layout .block-editor-block-list__block ::selection,.editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit' => array(
+				'.block-editor-block-list__layout .block-editor-block-list__block ::selection,.block-editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit' => array(
 					'color' => esc_attr( $highlight_theme_color ),
 				),
 
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6' => array(
 					'line-height' => esc_attr( $headings_line_height ),
 				),
-				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .editor-block-list__layout, .editor-post-title' => array(
+				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .block-editor-block-list__layout, .editor-post-title' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
 				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block' => array(
@@ -489,7 +489,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( 'page-builder' === $container_layout || 'plain-container' === $container_layout ) {
 				$aligned_full_content_css = array(
-					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
+					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
 						'margin-left'  => '0',
 						'margin-right' => '0',
 					),
@@ -523,13 +523,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.gutenberg__editor'              => array(
 						'background-color' => '#f5f5f5',
 					),
-					'.editor-block-list__layout, .editor-post-title' => array(
+					'.block-editor-block-list__layout, .editor-post-title' => array(
 						'padding-top'    => 'calc( 5.34em - 19px)',
 						'padding-bottom' => '5.34em',
 						'padding-left'   => 'calc( 6.67em - 28px )',
 						'padding-right'  => 'calc( 6.67em - 28px )',
 					),
-					'.editor-block-list__layout'      => array(
+					'.block-editor-block-list__layout'      => array(
 						'padding-top' => '0',
 					),
 					'.editor-post-title'              => array(
@@ -546,7 +546,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'margin-left'  => '-6.67em',
 						'margin-right' => '-6.67em',
 					),
-					'.editor-block-list__layout .block-editor-block-list__block[data-align="full"], .editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
+					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"], .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
 						'margin-left'  => '0',
 						'margin-right' => '0',
 					),
