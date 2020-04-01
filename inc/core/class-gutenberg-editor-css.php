@@ -478,7 +478,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-left'  => '0',
 						'padding-right' => '0',
 					),
-					'.edit-post-visual-editor .block-editor-block-list__block'   => array(
+					'.edit-post-visual-editor .block-editor-block-list__block' => array(
 						'padding-left'  => '20px',
 						'padding-right' => '20px',
 					),
@@ -523,12 +523,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
-					'.block-editor-writing-flow'      => array(
+					'.block-editor-writing-flow'       => array(
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
 					),
-					'.gutenberg__editor'              => array(
+					'.gutenberg__editor'               => array(
 						'background-color' => '#f5f5f5',
 					),
 					'.block-editor-block-list__layout, .editor-post-title' => array(
@@ -537,13 +537,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-left'   => 'calc( 6.67em - 28px )',
 						'padding-right'  => 'calc( 6.67em - 28px )',
 					),
-					'.block-editor-block-list__layout'      => array(
+					'.block-editor-block-list__layout' => array(
 						'padding-top' => '0',
 					),
-					'.editor-post-title'              => array(
+					'.editor-post-title'               => array(
 						'padding-bottom' => '0',
 					),
-					'.block-editor-block-list__block' => array(
+					'.block-editor-block-list__block'  => array(
 						'max-width' => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
 					),
 					'.block-editor-block-list__block[data-align=wide]' => array(
