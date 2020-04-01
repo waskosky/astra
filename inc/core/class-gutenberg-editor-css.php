@@ -482,6 +482,14 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-left'  => '0',
 						'padding-right' => '0',
 					),
+					'.edit-post-visual-editor .block-editor-block-list__block'   => array(
+						'padding-left'  => '20px',
+						'padding-right' => '20px',
+					),
+					'.edit-post-visual-editor .wp-block .block-editor-block-list__block' => array(
+						'padding-left'  => '0',
+						'padding-right' => '0',
+					),
 				);
 
 				$css .= astra_parse_css( $page_builder_css );
