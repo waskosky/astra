@@ -497,7 +497,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( 'page-builder' === $container_layout || 'plain-container' === $container_layout ) {
 				$aligned_full_content_css = array(
-					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .editor-block-list__block-edit' => array(
+					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
 						'margin-left'  => '0',
 						'margin-right' => '0',
 					),
