@@ -515,7 +515,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
-					'.editor-writing-flow'       => array(
+					'.editor-writing-flow, .block-editor-writing-flow'       => array(
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
