@@ -474,10 +474,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-left'  => 0,
 						'padding-right' => 0,
 					),
-					'.editor-block-list__block-edit'   => array(
-						'padding-left'  => '20px',
-						'padding-right' => '20px',
-					),
 					'.editor-block-list__block-edit .editor-block-list__block-edit' => array(
 						'padding-left'  => '0',
 						'padding-right' => '0',
