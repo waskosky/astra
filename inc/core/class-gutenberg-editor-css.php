@@ -512,6 +512,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'margin-left'  => '60px',
 						'margin-right' => '60px',
 					),
+					// WordPress 5.4 compatibility.
 					'.wp-block .block-editor-block-list__layout' => array(
 						'margin-left'  => '0px',
 						'margin-right' => '0px',
